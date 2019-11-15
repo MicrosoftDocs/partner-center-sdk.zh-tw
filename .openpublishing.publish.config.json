@@ -4,9 +4,9 @@
       "docset_name": "partner-center-sdk-pr",
       "build_source_folder": "develop",
       "build_output_subfolder": "partner-center-sdk",
-      "locale": "zh-TW",
+      "locale": "zh-tw",
       "monikers": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -19,18 +19,21 @@
   "notification_subscribers": [],
   "sync_notification_subscribers": [],
   "branches_to_filter": [
-    "live-sxs",
-    "master-sxs"
+    "live",
+    "master"
   ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/partner-center-sdk",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/partner-center-sdk.zh-tw",
+  "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
   "need_preview_pull_request": false,
-  "contribution_branch_mappings": {},
+  "contribution_branch_mappings": {
+     "live-sxs": "live"
+  },
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.zh-TW",
+      "url": "https://github.com/Microsoft/templates.docs.msft.zh-tw",
       "branch": "master",
       "branch_mapping": {}
     },
