@@ -1,6 +1,6 @@
 ---
-title: Device deployment resources
-description: Resources related to Partner Center device deployment.
+title: 裝置部署資源
+description: 與合作夥伴中心裝置部署相關的資源。
 ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 06/11/2019
 ms.service: partner-dashboard
@@ -13,103 +13,103 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489948"
 ---
-# <a name="device-deployment-resources"></a>Device deployment resources
+# <a name="device-deployment-resources"></a>裝置部署資源
 
 適用於：
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-The following resources are related to device deployment.
+下列資源與裝置部署相關。
 
 ## <a name="configurationpolicy"></a>ConfigurationPolicy
 
-**ConfigurationPolicy** provides information about a configuration policy.
+**ConfigurationPolicy**提供設定原則的相關資訊。
 
-| 屬性             | 在工作列搜尋方塊中輸入                                                           | 說明                                                        |
+| 屬性             | 類型                                                           | 描述                                                        |
 |----------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| id                   | 字串                                       | A GUID-formatted string that identifies the policy.                                  |
-| name                 | 字串                                       | The friendly name for the policy.                                                    |
-| 類別             | 字串                                       | The category.                                                                        |
-| 描述          | 字串                                       | The policy description.                                                              |
-| devicesAssignedCount | 數目                                       | The number of devices assigned to this policy.                                       |
-| policySettings       | array of strings                             | The policy settings: "none","remove\_oem\_preinstalls","oobe\_user\_not\_local\_admin","skip\_express\_settings","skip\_oem\_registration", "skip\_eula".    |
-| createdDate          | string in UTC date-time format               | The date and time the policy was created.                                            |
-| lastModifiedDate     | string in UTC date-time format               | The date and time the policy was last modified.                                      |
-| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.                                            |
+| id                   | 字串                                       | 可識別原則的 GUID 格式字串。                                  |
+| name                 | 字串                                       | 原則的易記名稱。                                                    |
+| 類別             | 字串                                       | 類別。                                                                        |
+| description          | 字串                                       | 原則描述。                                                              |
+| devicesAssignedCount | 數字                                       | 指派給此原則的裝置數目。                                       |
+| policySettings       | 字串陣列                             | 原則設定： [無]、[移除\_oem\_預先安裝]、[oobe\_使用者\_不\_本機\_系統管理員]、[略過\_express\_設定]、[略過\_oem\_註冊]、[略過\_的授權合約]。    |
+| createdDate          | UTC 日期時間格式的字串               | 建立原則的日期和時間。                                            |
+| lastModifiedDate     | UTC 日期時間格式的字串               | 上次修改原則的日期和時間。                                      |
+| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                            |
 
 ## <a name="device"></a>裝置
 
-**Device** provides information about a device.
+**裝置**提供裝置的相關資訊。
 
-| 屬性            | 在工作列搜尋方塊中輸入                                                           | 說明                                                              |
+| 屬性            | 類型                                                           | 描述                                                              |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| id                  | 字串                                                         | A GUID-formatted string that identifies the device.                      |
-| serialNumber        | 字串                                                         | The serial number uniquely associated with the device.                   |
-| productKey          | 字串                                                         | The product key uniquely associated with the device.                     |
-| hardwareHash        | 字串                                                         | The hardware hash uniquely associated with the device.                   |
-| modelName           | 字串                                                         | The model name associated with the device.                               |
-| oemManufacturerName | 字串                                                         | The name of the OEM manufacturer associated with the device.             |
-| 原則            | array of objects                                               | The list of policies assigned to the device.                             |
-| uploadedDate        | string in UTC date-time format                                 | The date and time the device details were uploaded.                      |
-| allowedOperations   | array of strings                                               | The list of HTTP methods allowed on a device sync as GET, PATCH, DELETE. |
-| 屬性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                                 |
+| id                  | 字串                                                         | GUID 格式的字串，可識別裝置。                      |
+| serialNumber        | 字串                                                         | 與裝置唯一相關聯的序號。                   |
+| productKey          | 字串                                                         | 與裝置唯一相關聯的產品金鑰。                     |
+| hardwareHash        | 字串                                                         | 唯一與裝置相關聯的硬體雜湊。                   |
+| modelName           | 字串                                                         | 與裝置相關聯的模型名稱。                               |
+| oemManufacturerName | 字串                                                         | 與裝置相關聯的 OEM 製造商名稱。             |
+| 原則            | 物件的陣列                                               | 指派給裝置的原則清單。                             |
+| uploadedDate        | UTC 日期時間格式的字串                                 | 裝置詳細資料上傳的日期和時間。                      |
+| allowedOperations   | 字串陣列                                               | 裝置同步處理所允許的 HTTP 方法清單，例如 GET、PATCH、DELETE。 |
+| 屬性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。                                                 |
 
 ## <a name="batchuploaddetails"></a>BatchUploadDetails
 
-**BatchUploadDetails** describes the status of a device batch upload of information about each device in a list of devices.
+**BatchUploadDetails**描述裝置批次上傳裝置清單中每個裝置的相關資訊的狀態。
 
-| 屬性        | 在工作列搜尋方塊中輸入     | 說明                                                                  |
+| 屬性        | 類型     | 描述                                                                  |
 |-----------------|----------|------------------------------------------------------------------------------|
-| batchTrackingId | 字串   | A GUID-formatted string that is associated with the batch of devices uploaded. |
-| 狀態          | 字串   | The status of the batch upload: "unknown","queued","processing","finished","finished\_with\_errors". |
-| startedTime     | string in UTC date-time format | The date and time that the batch upload process started.   |
-| completedTime   | string in UTC date-time format  | The date and time that the batch upload process completed.   |
-| devicesStatus   | array of [DeviceUploadDetails](#deviceuploaddetails) resources | An array of objects that specify the status of each device information upload. |
-| 屬性      | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.  |
+| batchTrackingId | 字串   | GUID 格式的字串，與上傳的裝置批次相關聯。 |
+| status          | 字串   | 批次上傳的狀態：「不明」、「已排入佇列」、「處理中」、「已完成」、「已完成\_，但發生\_錯誤」。 |
+| startedTime     | UTC 日期時間格式的字串 | 批次上傳程式開始的日期和時間。   |
+| completedTime   | UTC 日期時間格式的字串  | 批次上傳程式完成的日期和時間。   |
+| devicesStatus   | [DeviceUploadDetails](#deviceuploaddetails)資源的陣列 | 物件的陣列，指定每個裝置資訊上傳的狀態。 |
+| 屬性      | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。  |
 
 ## <a name="deviceuploaddetails"></a>DeviceUploadDetails
 
-**DeviceUploadDetails** describes the status of an upload of information about a device.
+**DeviceUploadDetails**描述上傳裝置相關資訊的狀態。
 
-| 屬性         | 在工作列搜尋方塊中輸入                    | 說明                                 |
+| 屬性         | 類型                    | 描述                                 |
 |------------------|-------------------------|---------------------------------------------|
-| deviceId         | 字串                  | A GUID-formatted string that is associated with the device. |
-| serialNumber     | 字串                  | The serial number uniquely associated with the device. |
-| productKey       | 字串                  | The product key uniquely associated with the device. |
-| 狀態           | 字串                  | The status of the device information upload: "in-progress", "finished", "finished\_with\_errors". |
-| errorCode        | 字串                  | The HTTP status error code returned if the device upload fails. |
-| errorDescription | 字串                  | The HTTP error description if the device upload fails. |
-| 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.   |
+| deviceId         | 字串                  | 與裝置相關聯的 GUID 格式字串。 |
+| serialNumber     | 字串                  | 與裝置唯一相關聯的序號。 |
+| productKey       | 字串                  | 與裝置唯一相關聯的產品金鑰。 |
+| status           | 字串                  | 裝置資訊上傳的狀態：「進行中」、「已完成」、「已完成\_，但發生\_錯誤」。 |
+| 錯誤碼        | 字串                  | 當裝置上傳失敗時傳回的 HTTP 狀態錯誤碼。 |
+| errorDescription | 字串                  | 如果裝置上傳失敗，則為 HTTP 錯誤描述。 |
+| 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。   |
 
 ## <a name="devicebatch"></a>DeviceBatch
 
-**DeviceBatch** represents a collection of devices.
+**DeviceBatch**代表裝置的集合。
 
-| 屬性     | 在工作列搜尋方塊中輸入                                                           | 說明                                                           |
+| 屬性     | 類型                                                           | 描述                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| id           | 字串                                                         | A GUID-formatted string that is associated with the batch of devices. |
-| createdBy    | 字串                                                         | The name of the tenant that created the collection.                   |
-| creationDate | string in UTC date-time format                                 | The data and time that the collection was created.                    |
-| deviceCount  | 數目                                                         | The number of devices in the collection.                              |
-| devicesLink  | [連結](utility-resources.md#link)                              | A link to the devices contained in this batch.                        |
-| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| id           | 字串                                                         | 與裝置批次相關聯的 GUID 格式字串。 |
+| CreatedBy    | 字串                                                         | 建立集合的租使用者名稱。                   |
+| CreationDate | UTC 日期時間格式的字串                                 | 建立集合的資料和時間。                    |
+| deviceCount  | 數字                                                         | 集合中的裝置數目。                              |
+| devicesLink  | [連結](utility-resources.md#link)                              | 包含在此批次中的裝置連結。                        |
+| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。                                              |
 
 ## <a name="devicebatchcreationrequest"></a>DeviceBatchCreationRequest
 
-**DeviceBatchCreationRequest** provides the information required to create a device batch and populates it with devices.
+**DeviceBatchCreationRequest**提供建立裝置批次並在其中填入裝置所需的資訊。
 
-| 屬性     | 在工作列搜尋方塊中輸入                                                           | 說明                                                           |
+| 屬性     | 類型                                                           | 描述                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| batchId      | 字串                                                         | A GUID-formatted string that is associated with the batch of devices. |
-| 裝置      | array of [Device](#device) objects                             | Each object specifies a device. The following combinations of fields for identifying a device are accepted: hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash only, productKey only, serialNumber + oemManufacturerName + modelName. |
-| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| batchId      | 字串                                                         | 與裝置批次相關聯的 GUID 格式字串。 |
+| 裝置      | [裝置](#device)物件的陣列                             | 每個物件都會指定一個裝置。 已接受下列用於識別裝置的欄位組合： hardwareHash + productKey、hardwareHash + serialNumber、hardwareHash + productKey + serialNumber、hardwareHash only、僅 productKey、serialNumber + oemManufacturerName +modelName. |
+| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。                                              |
 
 ## <a name="devicepolicyupdaterequest"></a>DevicePolicyUpdateRequest
 
-**DevicePolicyUpdateRequest** provides the information required to update a list of devices with a policy.
+**DevicePolicyUpdateRequest**提供使用原則更新裝置清單所需的資訊。
 
-| 屬性     | 在工作列搜尋方塊中輸入                                                           | 說明                                                           |
+| 屬性     | 類型                                                           | 描述                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| 裝置      | array of [Device](#device) objects                             | Each object specifies a device. The following properties are required: Id, Policies. |
-| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| 裝置      | [裝置](#device)物件的陣列                             | 每個物件都會指定一個裝置。 需要下列屬性：識別碼、原則。 |
+| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。                                              |

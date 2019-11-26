@@ -1,6 +1,6 @@
 ---
-title: Auditing resources
-description: Resources used with Partner Center audit operations.
+title: 審核資源
+description: 搭配合作夥伴中心審核作業使用的資源。
 ms.assetid: FEF0BED4-2CEB-46D2-9365-D7D3C50AF0E3
 ms.date: 05/21/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489148"
 ---
-# <a name="auditing-resources"></a>Auditing resources
+# <a name="auditing-resources"></a>審核資源
 
 適用於：
 
 - 合作夥伴中心
 
-You can use the following resources with audit operations.
+您可以搭配使用下列資源與審核作業。
 
 ## <a name="auditrecord"></a>AuditRecord
 
-Represents a record of an operation performed by a partner user or application.
+代表合作夥伴使用者或應用程式所執行之作業的記錄。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | ---|
-| customerId | 字串 | A GUID-formatted string that identifies the customer. |
-| customerName | 字串 | The customer name. |
-| userPrincipalName | 字串 | The user principal name or user identifier. Typically, this is an Internet-style login name for a user in an email address format based on Internet standard RFC 822. |
-| applicationId | 字串 | A string that identifies the application that performed the operation. |
-| resourceType | 字串 | The type of resource acted upon by the operation. Possible values: &quot;customer&quot;, &quot;customer_user&quot;, &quot;order&quot;, &quot;subscription&quot;, &quot;license&quot;, &quot;third_party_add_on&quot;, &quot;mpn_association&quot;, &quot;transfer&quot;, &quot;application&quot;, &quot;application_credential&quot;, &quot;partner_user&quot;, &quot;partner_relationship&quot;. |
-| resourceOldValue | 字串 | The old value of the resource. |
-| resourceNewValue | 字串 | The new value of the resource. |
-| operationType | 字串 | The type of operation performed. Possible values: &quot;update_customer_qualification&quot;, &quot;update_subscription&quot;, &quot;upgrade_subscription&quot;, &quot;convert_trial_subscription&quot;, &quot;add_customer&quot;, &quot;update_customer_billing_profile&quot;, &quot;update_customer_partner_contract_company_name&quot;, &quot;update_customer_spending_budget&quot;, &quot;delete_customer&quot; (sandbox integration accounts only), &quot;remove_partner_customer_relationship&quot;, &quot;create_order&quot;, &quot;update_order&quot;, &quot;create_customer_user&quot;, &quot;delete_customer_user&quot;, &quot;update_customer_user&quot;, &quot;update_customer_user_licenses&quot;, &quot;reset_customer_user_password&quot;, &quot;update_customer_user_principal_name&quot;, &quot;restore_customer_user&quot;, &quot;create_mpn_association&quot;, &quot;update_mpn_association&quot;, &quot;update_sfb_customer_user_licenses&quot;, &quot;update_transfer&quot;, &quot;create_partner_relationship&quot;, &quot;register_application&quot;, &quot;unregister_application&quot;, &quot;add_application_credential&quot;, &quot;remove_application_credential&quot;, &quot;create_partner_user&quot;, &quot;update_partner_user&quot;, &quot;remove_partner_user&quot;. |
-| operationDate | string in UTC date-time format | The date and time when the operation was performed. |
-| operationStatus | 字串 | The status of the operation being audited. Possible values: &quot;succeeded&quot;, &quot;failed&quot;, or &quot;progress&quot;, which means the operation is still in progress. |
-| customizedData  | array of objects | Additional information. Each object contains two JSON key-value pairs: the first is &quot;key&quot; and a string value, the second is &quot;value&quot; and a string value. The number of objects in the array depends on the type of operation that was performed. |
-| 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| Id | 字串 | 識別客戶的 GUID 格式字串。 |
+| customerName | 字串 | 客戶名稱。 |
+| userPrincipalName | 字串 | 使用者主體名稱或使用者識別碼。 一般來說，這是以網際網路標準 RFC 822 為基礎之電子郵件地址格式使用者的網際網路樣式登入名稱。 |
+| applicationId | 字串 | 識別執行作業之應用程式的字串。 |
+| resourceType | 字串 | 作業所採取的資源類型。 可能的值： &quot;客戶&quot;、&quot;customer_user&quot;、&quot;訂單&quot;、&quot;訂閱&quot;、&quot;授權&quot;、&quot;third_party_add_on&quot;、&quot;mpn_association&quot;、&quot;傳輸&quot;、&quot;應用程式&quot;、&quot;application_credential&quot;、&quot;partner_user&quot;、&quot;partner_relationship&quot;。 |
+| resourceOldValue | 字串 | 資源的舊值。 |
+| resourceNewValue | 字串 | 資源的新值。 |
+| operationType | 字串 | 執行的作業類型。 可能的值： &quot;update_customer_qualification&quot;，&quot;update_subscription&quot;，&quot;upgrade_subscription&quot;，&quot;convert_trial_subscription&quot;，&quot;add_customer&quot;，&quot;update_customer_billing_profile&quot;，&quot;update_customer_partner_contract_company_name&quot;，&quot;update_customer_spending_budget&quot;，&quot;delete_customer&quot; （沙箱整合帳戶僅限）、&quot;remove_partner_customer_relationship&quot;、&quot;create_order&quot;、&quot;update_order&quot;、&quot;create_customer_user&quot;、&quot;delete_customer_user&quot;、&quot;update_customer_user&quot;、&quot;update_customer_user_licenses&quot;、&quot;reset_customer_user_password&quot;、&quot;update_customer_user_principal_name&quot;、&quot;restore_customer_user&quot;，&quot;create_mpn_association&quot;，&quot;update_mpn_association&quot;，&quot;update_sfb_customer_user_licenses&quot;，&quot;update_transfer&quot;，&quot;create_partner_relationship&quot;，&quot;register_application&quot;，&quot;unregister_application&quot;，&quot;add_application_credential&quot;，&quot;remove_application_credential&quot;，&quot;create_partner_user&quot;，&quot;update_partner_user&quot;，&quot;remove_partner_user&quot;。 |
+| operationDate | UTC 日期時間格式的字串 | 執行作業的日期和時間。 |
+| operationStatus | 字串 | 正在進行審核之作業的狀態。 可能的值： &quot;成功&quot;、&quot;失敗的&quot;，或 &quot;進度&quot;，這表示作業仍在進行中。 |
+| customizedData  | 物件的陣列 | 其他資訊。 每個物件都包含兩個 JSON 索引鍵/值組：第一個是 &quot;索引鍵&quot; 和字串值，第二個是 &quot;值&quot; 和字串值。 陣列中的物件數目取決於所執行的作業類型。 |
+| 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。 |

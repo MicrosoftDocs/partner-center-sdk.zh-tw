@@ -1,6 +1,6 @@
 ---
-title: Cart resources
-description: A partner places an order when a customer wants to buy a subscription from a list of offers.
+title: 購物車資源
+description: 當客戶想要從供應專案清單購買訂用帳戶時，合作夥伴會進行訂單。
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489078"
 ---
-# <a name="cart-resources"></a>Cart resources
+# <a name="cart-resources"></a>購物車資源
 
 適用於：
 
@@ -21,139 +21,139 @@ ms.locfileid: "74489078"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-A partner places an order when a customer wants to buy a subscription from a list of offers.
+當客戶想要從供應專案清單購買訂用帳戶時，合作夥伴會進行訂單。
 
-## <a name="cart"></a>Cart
+## <a name="cart"></a>放
 
-Describes a cart.
+描述購物車。
 
-| 屬性              | 在工作列搜尋方塊中輸入             | 說明                                                                                            |
+| 屬性              | 類型             | 描述                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| id                    | 字串           | A cart identifier that is supplied upon successful creation of the cart.                               |
-| creationTimeStamp     | DateTime         | The date the cart was created, in date-time format. Applied upon successful creation of the cart.      |
-| lastModifiedTimeStamp | DateTime         | The date the cart was last updated, in date-time format. Applied upon successful creation of the cart. |
-| expirationTimeStamp   | DateTime         | The date the cart will expire, in date-time format. Applied upon successful creation of cart.          |
-| lastModifiedUser      | 字串           | The user who last updated the cart. Applied upon successful creation of cart.                          |
-| lineItems             | Array of objects | An Array of [CartLineItem](#cartlineitem) resources.                                                   |
-| 狀態                | 字串           | The status of the cart. Possible values are "Active" (can be updated/submitted) and "Ordered" (has already been submitted). |
+| id                    | 字串           | 成功建立購物車時所提供的購物車識別碼。                               |
+| creationTimeStamp     | DateTime         | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。      |
+| lastModifiedTimeStamp | DateTime         | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。 |
+| expirationTimeStamp   | DateTime         | 購物車將到期的日期，以日期時間格式為限。 已在成功建立購物車時申請。          |
+| lastModifiedUser      | 字串           | 上次更新購物車的使用者。 已在成功建立購物車時申請。                          |
+| LineItems             | 物件的陣列 | [CartLineItem](#cartlineitem)資源的陣列。                                                   |
+| status                | 字串           | 購物車的狀態。 可能的值為「作用中」（可更新/提交）和「已訂購」（已提交）。 |
 
 ## <a name="cartlineitem"></a>CartLineItem
 
-Represents one item contained in a cart.
+表示購物車中包含的一個專案。
 
-| 屬性             | 在工作列搜尋方塊中輸入                             | 說明                                                                                                                                           |
+| 屬性             | 類型                             | 描述                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | 字串                           | A unique identifier for a cart line item. Applied upon successful creation of cart.                                                                   |
-| catalogItemId        | 字串                           | The catalog item identifier.                                                                                                                          |
-| friendlyName         | 字串                           | 選用。 The friendly name for the item defined by the partner to help disambiguate.                                                                 |
-| quantity             | 整數                              | The number of licenses or instances.                                                                                                                  |
-| currencyCode         | 字串                           | The currency code.                                                                                                                                    |
-| billingCycle         | 物件                           | The type of billing cycle set for the current period.                                                                                                 |
-| termDuration         | 字串                           | An ISO 8601 representation of the term's duration. The current supported values are P1M (1 month), P1Y (1 year) and P3Y (3 years).                                |
-| 參與者         | List of Object String pairs      | A collection of PartnerId on Record (MPNID) on the purchase.                                                                                          |
-| provisioningContext  | Dictionary<string, string>       | Additional context used when provisioning the purchased item. To determine which values are needed for a particular item please refer to the SKU's provisioningVariables property. |
-| orderGroup           | 字串                           | A group to indicate which items can be submitted together in the same order.                                                                          |
-| addonItems           | List of **CartLineItem** objects | A collection of cart line items for addons that will be purchased towards the base subscription that results from the root cart line item's purchase. |
-| 錯誤 (error)                | 物件                           | Applied after cart is created in case of an error.                                                                                                    |
-| renewsTo             | Array of objects                 | An array of [RenewsTo](#renewsto) resources.                                                                            |
+| id                   | 字串                           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                                                                   |
+| catalogItemId        | 字串                           | 目錄專案識別碼。                                                                                                                          |
+| friendlyName         | 字串                           | 選用。 由夥伴定義以協助區分的專案易記名稱。                                                                 |
+| quantity             | 整數                              | 授權或實例的數目。                                                                                                                  |
+| currencyCode         | 字串                           | 貨幣代碼。                                                                                                                                    |
+| billingCycle         | 物件                           | 針對目前期間所設定的計費週期類型。                                                                                                 |
+| termDuration         | 字串                           | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為 P1M （1個月）、P1Y （1年）和 P3Y （3年）。                                |
+| 參與者         | 物件字串配對的清單      | 在購買時，記錄（MPNID）上的 PartnerId 集合。                                                                                          |
+| provisioningCoNtext  | 字典 < 字串，字串 >       | 布建購買的專案時所使用的其他內容。 若要判斷特定專案需要哪些值，請參閱 SKU 的 provisioningVariables 屬性。 |
+| orderGroup           | 字串                           | 一個群組，用來指出可以用相同順序將哪些專案提交在一起。                                                                          |
+| addonItems           | **CartLineItem**物件的清單 | 附加元件的購物車明細專案集合，會向基礎購物車明細專案購買所產生的基本訂用帳戶購買。 |
+| 錯誤 (error)                | 物件                           | 在購物車建立後，發生錯誤時套用。                                                                                                    |
+| RenewsTo             | 物件的陣列                 | [RenewsTo](#renewsto)資源的陣列。                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
 
-Represents one item contained in a cart line item.
+表示購物車明細專案中包含的一個專案。
 
-| 屬性              | 在工作列搜尋方塊中輸入             | 必要        | 說明 |
+| 屬性              | 類型             | 必要        | 描述 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | 字串           | 無              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | 字串           | 否              | 續訂詞彙之持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。 |
 
 ## <a name="carterror"></a>CartError
 
-Represents an error that occurs after a cart is created.
+表示在建立購物車之後發生的錯誤。
 
-| 屬性         | 在工作列搜尋方塊中輸入                                   | 說明                                                                                   |
+| 屬性         | 類型                                   | 描述                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
-| errorCode        | [CartErrorCode](#carterrorcode) | The type of cart error.                                                                       |
-| errorDescription | 字串                                 | The error description, including any notes about supported values, default values, or limits. |
+| 錯誤碼        | [CartErrorCode](#carterrorcode) | 購物車錯誤的類型。                                                                       |
+| errorDescription | 字串                                 | 錯誤描述，包括有關支援的值、預設值或限制的任何附注。 |
 
 ## <a name="carterrorcode"></a>CartErrorCode
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate a type of cart error.
+具有表示購物車錯誤類型之值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)。
 
-| 值                                | 位置 | 說明                                             |
+| 值                                | 位置 | 描述                                             |
 |--------------------------------------|----------|---------------------------------------------------------|
-| Unknown                              | 0        | 預設值。                                          |
-| CurrencyIsNotSupported               | 10000    | The currency is not supported for the specified market. |
-| CatalogItemIdIsNotValid              | 10001    | The catalog item ID is not valid.                       |
-| QuotaNotAvailable                    | 10002    | There is not enough quota available.                    |
-| InventoryNotAvailable                | 10003    | The inventory is not available for the selected offer.  |
-| ParticipantsIsNotSupportedForPartner | 10004    | Setting participants is not supported for this partner. |
-| UnableToProcessCartLineItem          | 10006    | Unable to process the cart line item.                   |
-| SubscriptionIsNotValid               | 10007    | The subscription is not valid.                          |
-| SubscriptionIsNotEnabledForRI        | 10008    | The subscription is not enabled for Azure reservations. |
-| SandboxLimitExceeded                 | 10009    | The sandbox limit has been exceeded.                    |
+| 不明                              | 0        | 預設值。                                          |
+| CurrencyIsNotSupported               | 10000    | 指定的市場不支援貨幣。 |
+| CatalogItemIdIsNotValid              | 10001    | 目錄專案識別碼無效。                       |
+| QuotaNotAvailable                    | 10002    | 可用的配額不足。                    |
+| InventoryNotAvailable                | 10003    | 選取的供應專案無法使用清查。  |
+| ParticipantsIsNotSupportedForPartner | 10004    | 此合作夥伴不支援設定參與者。 |
+| UnableToProcessCartLineItem          | 10006    | 無法處理購物車明細專案。                   |
+| SubscriptionIsNotValid               | 10007    | 訂用帳戶無效。                          |
+| SubscriptionIsNotEnabledForRI        | 10008    | 訂用帳戶未啟用 Azure 保留。 |
+| SandboxLimitExceeded                 | 10009    | 已超過沙箱限制。                    |
 
 ## <a name="cartcheckoutresult"></a>CartCheckoutResult
 
-Represents the result of a cart checkout.
+表示購物車結帳的結果。
 
-| 屬性    | 在工作列搜尋方塊中輸入                                              | 說明                     |
+| 屬性    | 類型                                              | 描述                     |
 |-------------|---------------------------------------------------|---------------------------------|
-| orders      | List of [Order](order-resources.md#order) objects.         | The collection of orders.       |
-| orderErrors | List of [OrderError](#ordererror) objects. | The collection of order errors. |
+| 訂單      | [Order](order-resources.md#order)物件的清單。         | 訂單的集合。       |
+| orderErrors | [OrderError](#ordererror)物件的清單。 | 順序錯誤的集合。 |
 
 ## <a name="ordererror"></a>OrderError
 
-Represents an error that occurs during a cart checkout when an order is created.
+代表當訂單建立時，在購物車簽出期間發生的錯誤。
 
-| 屬性     | 在工作列搜尋方塊中輸入   | 說明                                     |
+| 屬性     | 類型   | 描述                                     |
 |--------------|--------|-------------------------------------------------|
-| orderGroupId | 字串 | The order group ID of the order with the error. |
-| code         | 整數    | The error code.                                 |
-| 描述  | 字串 | The description of the error.                   |
+| orderGroupId | 字串 | 具有錯誤之訂單的順序群組識別碼。 |
+| code         | 整數    | 錯誤碼。                                 |
+| description  | 字串 | 錯誤的描述。                   |
 
 ## <a name="ordererrorcode"></a>OrderErrorCode
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate a type of order error.
+具有值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)，指出順序錯誤的類型。
 
-| 值 | 位置 | 說明 |
+| 值 | 位置 | 描述 |
 | --- | --- | --- |
-| PartnerTokenMissing | 800001 | Partner Token missing in request context. |
-| InvalidInput | 800002 | Invalid request input. |
-| ServiceException | 800003 | Unexpected service error. |
-| InvalidOfferId | 800004 | Invalid offer ID. |
-| CreateOrderError | 800005 | Create order is not successful. |
-| ProvisioningStatusNotFound | 800007 | Unable to retrieve provisioning information. |
-| CartIdNotFound | 800008 | Unable to retrieve cart ID. |
-| CartItemErrorInCreateOrder | 800009 | Error in Cart item(s). |
-| InventoryNotAvailable | 800010 | Inventory is not available for this catalog item. |
-| AzureSubscriptionNotValid | 800011 | This subscription is not a valid Azure subscription. |
-| SubscriptionIsNotActive | 800012 | This subscription is not an active subscription. |
-| SubscriptionIsNotEnabledForRI | 800013 | This subscription is not enabled for RI purchase. |
-| PendingAdjustment | 800014 | There is a pending adjustment requested for this order. |
-| MpnIdNotFound | 800015 | MPN Id is not found. |
-| NotValidIndirectResellerMpnId | 800016 | MPN Id is not a valid Indirect Reseller. |
-| InvalidQuantity | 800017 | The quantity is not available for this catalog item. |
-| SandboxLimitExceeded | 800018 | The sandbox limit has been met. |
-| SandboxTenantOnly | 800019 | This operation is only enabled for sandbox tenants. |
-| CatalogItemNotEligibleForPurchase | 800020 | The catalog item is not eligible for purchase. |
-| SubscriptionIsNotValid | 800021 | This subscription is not a valid subscription. |
-| ManualReviewRequired | 800022 | You may be eligible for this transaction. Please contact Support for help.|
-| InsufficientFunds | 800023 | You are not eligible for this transaction because your Credit Line is not reaching minimum threshold for this purchase.Please update your order(or) contact Support for help. |
-| ReviewCancelled | 800024 | You are not eligible for this transaction. |
-| LineOfCreditNotDefined | 800025 | You are not eligible for this transaction because your Credit Line is not reaching minimum threshold for this purchase. Please update your order (or) contact Support for help. |
-| RiskError | 800026 | You are not eligible for this transaction. |
-| SubscriptionNotRegistered | 800030 | This subscription is not registered. |
-| PurchaseSystemNotSupported | 800031 | Purchase system not supported. |
-| ConditionFailed | 800036 | Pre-condition failed. |
-| AssetIdNotFound | 800037 | Asset ID not found. |
-| AssetFutureBillingInfoNotFound | 800038 | Asset FutureBillingInfo not found. |
-| ResellerProgramStatusNotActive | 800039 | Reseller program status is not active. |
-| AssetStatusChangeNotValid | 800040 | Asset status cannot be changed to **{0}** from **{1}** . |
-| ItemAlreadyActivated | 800041 | This item has already been activated. |
+| PartnerTokenMissing | 800001 | 要求內容中缺少合作夥伴 Token。 |
+| InvalidInput | 800002 | 不正確要求輸入。 |
+| ServiceException | 800003 | 未預期的服務錯誤。 |
+| InvalidOfferId | 800004 | 供應專案識別碼無效。 |
+| CreateOrderError | 800005 | 建立訂單不成功。 |
+| ProvisioningStatusNotFound | 800007 | 無法取出布建資訊。 |
+| CartIdNotFound | 800008 | 無法取出購物車識別碼。 |
+| CartItemErrorInCreateOrder | 800009 | 購物車專案發生錯誤。 |
+| InventoryNotAvailable | 800010 | 此類別目錄專案無法使用清查。 |
+| AzureSubscriptionNotValid | 800011 | 此訂用帳戶不是有效的 Azure 訂用帳戶。 |
+| SubscriptionIsNotActive | 800012 | 此訂用帳戶不是有效的訂用帳戶。 |
+| SubscriptionIsNotEnabledForRI | 800013 | 此訂用帳戶未啟用 RI 購買。 |
+| PendingAdjustment | 800014 | 此訂單需要暫止的調整。 |
+| MpnIdNotFound | 800015 | 找不到 MPN 識別碼。 |
+| NotValidIndirectResellerMpnId | 800016 | MPN 識別碼不是有效的間接轉銷商。 |
+| InvalidQuantity | 800017 | 此類別目錄專案無法使用此數量。 |
+| SandboxLimitExceeded | 800018 | 已符合沙箱限制。 |
+| SandboxTenantOnly | 800019 | 此作業只會針對沙箱租使用者啟用。 |
+| CatalogItemNotEligibleForPurchase | 800020 | 類別目錄專案不符合購買資格。 |
+| SubscriptionIsNotValid | 800021 | 此訂用帳戶不是有效的訂用帳戶。 |
+| ManualReviewRequired | 800022 | 您可能符合此交易的資格。 請洽詢支援人員以取得協助。|
+| InsufficientFunds | 800023 | 您不符合此交易的資格，因為您的點數線路未達到此購買的最低閾值。請更新您的訂單（或）連絡人支援以取得協助。 |
+| ReviewCancelled | 800024 | 您不符合此交易的資格。 |
+| LineOfCreditNotDefined | 800025 | 您不符合此交易的資格，因為您的點數線路未達到此購買的最低閾值。 請更新您的訂單（或）連絡人支援以取得協助。 |
+| RiskError | 800026 | 您不符合此交易的資格。 |
+| SubscriptionNotRegistered | 800030 | 此訂用帳戶未註冊。 |
+| PurchaseSystemNotSupported | 800031 | 不支援購買系統。 |
+| ConditionFailed | 800036 | 前置條件失敗。 |
+| AssetIdNotFound | 800037 | 找不到資產識別碼。 |
+| AssetFutureBillingInfoNotFound | 800038 | 找不到資產 FutureBillingInfo。 |
+| ResellerProgramStatusNotActive | 800039 | 轉售商計畫狀態並非使用中。 |
+| AssetStatusChangeNotValid | 800040 | 資產狀態無法從 **{1}** 變更為 **{0}** 。 |
+| ItemAlreadyActivated | 800041 | 這個專案已經啟用。 |
 | NotSupported | 800042 | 未支援。 |
-| PricingAccessForbidden | 800043 | Access to pricing information is not granted. |
-| OrderInProgress | 800060 | Your order is in progress. Please check your order history for recent orders in few minutes. |
-| OrderCannotBeCancelled | 800061 | Order cannot be cancelled. |
-| ReviewRejected | 800062 | You are not eligible for this transaction. |
-| CancelLegacyOrder | 800063 | This order **{0}** cannot be cancelled. Use `PATCH /customers/{1}/subscriptions/<subscriptionId>` to suspend subscriptions. |
-| CartProcessedByAnotherRequest | 800064 | Cart **{0}** is being processed by another request. |
-| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | Cannot checkout an already submitted cart **{0}** . |
+| PricingAccessForbidden | 800043 | 未授與定價資訊的存取權。 |
+| OrderInProgress | 800060 | 您的訂單正在進行中。 請在幾分鐘內檢查訂單歷程記錄中最近的訂單。 |
+| OrderCannotBeCancelled | 800061 | 無法取消訂單。 |
+| ReviewRejected | 800062 | 您不符合此交易的資格。 |
+| CancelLegacyOrder | 800063 | 無法取消此順序 **{0}** 。 使用 `PATCH /customers/{1}/subscriptions/<subscriptionId>` 來暫止訂閱。 |
+| CartProcessedByAnotherRequest | 800064 | 購物車 **{0}** 正由另一個要求處理。 |
+| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | 無法簽出已提交的購物車 **{0}** 。 |

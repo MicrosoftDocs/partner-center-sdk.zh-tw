@@ -1,6 +1,6 @@
 ---
 title: 案例
-description: This section describes the ways that partners in the Cloud Solution Provider program can use the Partner Center API to programmatically manage customer accounts, partner accounts, orders, subscriptions, support, and billing.
+description: 本節說明雲端解決方案提供者方案中的合作夥伴可以如何使用合作夥伴中心 API，以程式設計方式管理客戶帳戶、合作夥伴帳戶、訂單、訂用帳戶、支援和帳單。
 ms.assetid: D278B9D1-D5B9-4FAD-89D8-44244715D6C9
 ms.date: 09/24/2019
 ms.service: partner-dashboard
@@ -22,17 +22,17 @@ ms.locfileid: "74486538"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-This section describes the ways that partners in the Cloud Solution Provider program can use the Partner Center API to programmatically manage customer accounts, partner accounts, orders, subscriptions, support, and billing.
+本節說明雲端解決方案提供者方案中的合作夥伴可以如何使用合作夥伴中心 API，以程式設計方式管理客戶帳戶、合作夥伴帳戶、訂單、訂用帳戶、支援和帳單。
 
-Note that there are different versions of Partner Center available that include different capabilities. Not all scenarios are supported in all versions of Partner Center. To learn more, see [Developing for Partner Center for Microsoft National Cloud](developing-for-partner-center-for-microsoft-national-cloud.md).
+請注意，有不同的合作夥伴中心版本可供使用，其中包含不同的功能。 並非所有的合作夥伴中心版本都支援所有案例。 若要深入瞭解，請參閱針對[Microsoft 國家雲端開發合作夥伴中心](developing-for-partner-center-for-microsoft-national-cloud.md)。
 
-## <a name="scenarios-supported-by-the-partner-center-sdk"></a>Scenarios supported by the Partner Center SDK
+## <a name="scenarios-supported-by-the-partner-center-sdk"></a>合作夥伴中心 SDK 支援的案例
 
-All of the following scenarios can be completed three different ways:
+所有的下列案例都可以用三種不同的方式完成：
 
-- Manually in the [Partner Center](http://go.microsoft.com/fwlink/p/?LinkId=620294) dashboard.
-- Programmatically using the Partner Center managed API.
-- Programmatically using the Partner Center REST API.
+- 在[合作夥伴中心](http://go.microsoft.com/fwlink/p/?LinkId=620294)儀表板中手動進行。
+- 以程式設計方式使用合作夥伴中心受控 API。
+- 以程式設計方式使用合作夥伴中心 REST API。
 
 <table>
 <colgroup>
@@ -42,133 +42,133 @@ All of the following scenarios can be completed three different ways:
 <tbody>
 <tr>
 <td><p><a href="usage-analytics.md">分析</a></p></td>
-<td><p>Retrieve analytics</p>
+<td><p>取出分析</p>
 <ul>
-<li><p><a href="partner-center-analytics-resources.md">Partner Center Analytics - Resources</a></p></li>
-<li><p><a href="get-all-azure-usage-analytics.md">Get all Azure usage analytics information</a></p></li>
-<li><p><a href="get-all-indirect-resellers-analytics.md">Get all indirect resellers analytics information</a></p></li>
-<li><p><a href="get-all-referrals-analytics.md">Get all referrals analytics information</a></p></li>
-<li><p><a href="get-all-search-analytics.md">Get all search analytics information</a></p></li>
-<li><p><a href="get-all-subscription-analytics.md">Get all subscription analytics information</a></p></li>
-<li><p><a href="get-subscription-analytics-by-search-query.md">Get subscription analytics information filtered by a search query</a></p></li>
-<li><p><a href="get-subscription-analytics-grouped-by-dates-or-terms.md">Get subscription analytics information grouped by dates or terms</a></p></li>
-<li><p><a href="get-licenses-deployment-information.md">Get licenses deployment information</a></p></li>
-<li><p><a href="get-licenses-usage-information.md">Get licenses usage information</a></p></li>
-<li><p><a href="get-customer-licenses-deployment-information.md">Get customer licenses deployment information</a></p></li>
-<li><p><a href="get-customer-licenses-usage-information.md">Get customer licenses usage information</a></p></li>
-<li><p><a href="get-partner-licenses-deployment-information.md">Get partner licenses deployment information</a></p></li>
-<li><p><a href="get-partner-licenses-usage-information.md">Get partner licenses usage information</a></p></li>
+<li><p><a href="partner-center-analytics-resources.md">合作夥伴中心分析-資源</a></p></li>
+<li><p><a href="get-all-azure-usage-analytics.md">取得所有 Azure 使用量分析資訊</a></p></li>
+<li><p><a href="get-all-indirect-resellers-analytics.md">取得所有間接轉售商分析資訊</a></p></li>
+<li><p><a href="get-all-referrals-analytics.md">取得所有推薦的分析資訊</a></p></li>
+<li><p><a href="get-all-search-analytics.md">取得所有搜尋分析資訊</a></p></li>
+<li><p><a href="get-all-subscription-analytics.md">取得所有訂用帳戶分析資訊</a></p></li>
+<li><p><a href="get-subscription-analytics-by-search-query.md">取得搜尋查詢所篩選的訂用帳戶分析資訊</a></p></li>
+<li><p><a href="get-subscription-analytics-grouped-by-dates-or-terms.md">取得依日期或詞彙分組的訂用帳戶分析資訊</a></p></li>
+<li><p><a href="get-licenses-deployment-information.md">取得授權部署資訊</a></p></li>
+<li><p><a href="get-licenses-usage-information.md">取得授權使用量資訊</a></p></li>
+<li><p><a href="get-customer-licenses-deployment-information.md">取得客戶授權部署資訊</a></p></li>
+<li><p><a href="get-customer-licenses-usage-information.md">取得客戶授權使用量資訊</a></p></li>
+<li><p><a href="get-partner-licenses-deployment-information.md">取得合作夥伴授權部署資訊</a></p></li>
+<li><p><a href="get-partner-licenses-usage-information.md">取得合作夥伴授權使用量資訊</a></p></li>
 </ul></td>
 </tr>
 <tr>
-<td><p><a href="device-deployment.md">Device Deployment</a></p></td>
-<td><p>Configuration policies</p>
-<p>Add, delete, update and retrieve device configuration policies.</p>
+<td><p><a href="device-deployment.md">裝置部署</a></p></td>
+<td><p>設定原則</p>
+<p>新增、刪除、更新和取出裝置設定原則。</p>
 <ul>
-<li><p><a href="create-a-new-configuration-policy-for-the-specified-customer.md">Create a new configuration policy for the specified customer</a></p></li>
-<li><p><a href="delete-a-configuration-policy-for-the-specified-customer.md">Delete a configuration policy for the specified customer</a></p></li>
-<li><p><a href="get-a-list-of-a-customer-s-policies.md">Get a list of a customer&#39;s policies</a></p></li>
-<li><p><a href="retrieve-a-customer-s-configuration-policy.md">Retrieve a customer&#39;s configuration policy</a></p></li>
-<li><p><a href="update-a-configuration-policy-for-the-specified-customer.md">Update a configuration policy for the specified customer</a></p></li>
+<li><p><a href="create-a-new-configuration-policy-for-the-specified-customer.md">為指定的客戶建立新的設定原則</a></p></li>
+<li><p><a href="delete-a-configuration-policy-for-the-specified-customer.md">為指定的客戶刪除設定原則</a></p></li>
+<li><p><a href="get-a-list-of-a-customer-s-policies.md">取得客戶&#39;原則的清單</a></p></li>
+<li><p><a href="retrieve-a-customer-s-configuration-policy.md">取出客戶&#39;的設定原則</a></p></li>
+<li><p><a href="update-a-configuration-policy-for-the-specified-customer.md">為指定的客戶更新設定原則</a></p></li>
 </ul>
-<p>[裝置]</p>
-<p>Work with and upload device batches and device metadata.</p>
+<p>裝置</p>
+<p>使用和上傳裝置批次和裝置中繼資料。</p>
 <ul>
-<li><p><a href="get-the-status-of-a-device-batch-upload.md">Get the status of a device batch upload</a></p></li>
-<li><p><a href="get-the-list-of-device-batches-for-the-specified-customer.md">Get a list of device batches for the specified customer</a></p></li>
-<li><p><a href="get-a-list-of-devices-for-the-specified-batch-and-customer.md">Get a list of devices for the specified batch and customer</a></p></li>
-<li><p><a href="upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer.md">Upload a list of devices to create a new batch for the specified customer</a></p></li>
-<li><p><a href="upload-a-list-of-devices-for-the-specified-customer.md">Upload a list of devices to an existing batch for the specified customer</a></p></li>
-<li><p><a href="delete-a-device-for-the-specified-customer.md">Delete a device for the specified customer</a></p></li>
+<li><p><a href="get-the-status-of-a-device-batch-upload.md">取得裝置批次上傳的狀態</a></p></li>
+<li><p><a href="get-the-list-of-device-batches-for-the-specified-customer.md">取得指定客戶的裝置批次清單</a></p></li>
+<li><p><a href="get-a-list-of-devices-for-the-specified-batch-and-customer.md">取得指定之批次和客戶的裝置清單</a></p></li>
+<li><p><a href="upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer.md">上傳裝置清單，為指定的客戶建立新的批次</a></p></li>
+<li><p><a href="upload-a-list-of-devices-for-the-specified-customer.md">將裝置清單上傳至指定客戶的現有批次</a></p></li>
+<li><p><a href="delete-a-device-for-the-specified-customer.md">為指定的客戶刪除裝置</a></p></li>
 </ul></td>
 </tr>
 <tr>
-<td><p><a href="manage-profiles-and-information.md">Manage accounts and profiles</a></p></td>
-<td><p>Work with accounts and profiles</p>
+<td><p><a href="manage-profiles-and-information.md">管理帳戶和設定檔</a></p></td>
+<td><p>使用帳戶和設定檔</p>
 <ul>
-<li><p><a href="get-legal-business-profile.md">Get the partner legal business profile</a></p></li>
-<li><p><a href="get-an-organization-profile.md">Get an organization profile</a></p></li>
-<li><p><a href="get-partner-billing-profile.md">Get partner billing profile</a></p></li>
-<li><p><a href="get-partner-network-profile.md">Get Microsoft Partner Network profile</a></p></li>
-<li><p><a href="get-support-profile.md">Get support profile</a></p></li>
-<li><p><a href="update-legal-business-profile.md">Update the partner legal business profile</a></p></li>
-<li><p><a href="update-partner-billing-profile.md">Update the partner billing profile</a></p></li>
-<li><p><a href="update-support-profile.md">Update support profile</a></p></li>
-<li><p><a href="update-an-organization-profile.md">Update an organization profile</a></p></li>
-<li><p><a href="get-partner-by-mpn-id.md">Verify a partner MPN ID</a></p></li>
-<li><p><a href="get-all-subscriptions-by-partner.md">Get a customer&#39;s subscriptions by partner MPN ID</a></p></li>
-<li><p><a href="get-customers-of-an-indirect-reseller.md">Get customers of an indirect reseller</a></p></li>
-<li><p><a href="get-indirect-resellers-of-a-customer.md">Get indirect resellers of a customer</a></p></li>
-<li><p><a href="retrieve-a-list-of-indirect-resellers.md">Retrieve a list of indirect resellers</a></p></li>
+<li><p><a href="get-legal-business-profile.md">取得合作夥伴的合法商務設定檔</a></p></li>
+<li><p><a href="get-an-organization-profile.md">取得組織設定檔</a></p></li>
+<li><p><a href="get-partner-billing-profile.md">取得合作夥伴帳單設定檔</a></p></li>
+<li><p><a href="get-partner-network-profile.md">取得 Microsoft 合作夥伴網路設定檔</a></p></li>
+<li><p><a href="get-support-profile.md">取得支援設定檔</a></p></li>
+<li><p><a href="update-legal-business-profile.md">更新合作夥伴的合法商務設定檔</a></p></li>
+<li><p><a href="update-partner-billing-profile.md">更新合作夥伴帳單設定檔</a></p></li>
+<li><p><a href="update-support-profile.md">更新支援設定檔</a></p></li>
+<li><p><a href="update-an-organization-profile.md">更新組織設定檔</a></p></li>
+<li><p><a href="get-partner-by-mpn-id.md">驗證合作夥伴 MPN 識別碼</a></p></li>
+<li><p><a href="get-all-subscriptions-by-partner.md">依合作夥伴 MPN&#39;識別碼取得客戶的訂用帳戶</a></p></li>
+<li><p><a href="get-customers-of-an-indirect-reseller.md">取得間接轉銷商的客戶</a></p></li>
+<li><p><a href="get-indirect-resellers-of-a-customer.md">取得客戶的間接轉售商</a></p></li>
+<li><p><a href="retrieve-a-list-of-indirect-resellers.md">取得間接轉銷商清單</a></p></li>
 </ul></td>
 </tr>
 <tr>
 <td>
-<p><a href="manage-billing.md">Manage billing</a></p></td>
-<td><p>Billing cycle</p>
+<p><a href="manage-billing.md">管理帳單</a></p></td>
+<td><p>計費週期</p>
 <ul>
-<li><p><a href="change-the-billing-cycle.md">Change the billing cycle</a></p></li>
+<li><p><a href="change-the-billing-cycle.md">變更計費週期</a></p></li>
 </ul>
-<p>Azure rates and utilization records</p>
+<p>Azure 費率和使用量記錄</p>
 <ul>
-<li><p><a href="get-prices-for-microsoft-azure.md">Get prices for Microsoft Azure</a></p></li>
-<li><p><a href="get-a-customer-s-utilization-record-for-azure.md">Get a customer&#39;s utilization records for Azure</a></p></li>
+<li><p><a href="get-prices-for-microsoft-azure.md">取得 Microsoft Azure 的價格</a></p></li>
+<li><p><a href="get-a-customer-s-utilization-record-for-azure.md">取得 Azure 的&#39;客戶使用量記錄</a></p></li>
 </ul>
 <p>發票</p>
 <ul>
-<li><p><a href="get-a-collection-of-invoices.md">Get a collection of invoices</a></p></li>
-<li><p><a href="get-invoice-estimate-links.md">Get invoice estimate links</a></p></li>
-<li><p><a href="get-invoice-billed-consumption-lineitems.md">Get invoice billed commercial marketplace consumption line items</a></p></li>
-<li><p><a href="get-invoice-by-id.md">Get an invoice by ID</a></p></li>
-<li><p><a href="get-invoiceline-items.md">Get invoice line items</a></p></li>
-<li><p><a href="get-invoice-receipt-statement.md">Get invoice receipt statement</a></p></li>
-<li><p><a href="get-invoice-statement.md">Get invoice statement</a></p></li>
-<li><p><a href="get-invoice-summaries.md">Get invoice summaries</a></p></li>
-<li><p><a href="get-invoice-unbilled-consumption-lineitems.md">Get invoice unbilled commercial marketplace consumption line items</a></p></li>
-<li><p><a href="get-invoice-unbilled-recon-lineitems.md">Get invoice unbilled recon line items</a></p></li>
-<li><p><a href="get-the-reseller-s-current-account-balance.md">Get the partner&#39;s current account balance</a></p></li>
+<li><p><a href="get-a-collection-of-invoices.md">取得發票的集合</a></p></li>
+<li><p><a href="get-invoice-estimate-links.md">取得發票估計連結</a></p></li>
+<li><p><a href="get-invoice-billed-consumption-lineitems.md">取得發票計費的商業 marketplace 耗用量明細專案</a></p></li>
+<li><p><a href="get-invoice-by-id.md">依識別碼取得發票</a></p></li>
+<li><p><a href="get-invoiceline-items.md">取得發票明細專案</a></p></li>
+<li><p><a href="get-invoice-receipt-statement.md">取得發票收據語句</a></p></li>
+<li><p><a href="get-invoice-statement.md">取得發票語句</a></p></li>
+<li><p><a href="get-invoice-summaries.md">取得發票摘要</a></p></li>
+<li><p><a href="get-invoice-unbilled-consumption-lineitems.md">取得發票未開立帳單商用 marketplace 耗用量明細專案</a></p></li>
+<li><p><a href="get-invoice-unbilled-recon-lineitems.md">取得發票未開立帳單偵察明細專案</a></p></li>
+<li><p><a href="get-the-reseller-s-current-account-balance.md">取得合作夥伴&#39;的目前帳戶餘額</a></p></li>
 </ul>
-<p>Azure spending budget</p>
+<p>Azure 費用預算</p>
 <ul>
-<li><p><a href="get-all-monthly-usage-records-for-a-subscription.md">Get usage data for a subscription</a></p></li>
-<li><p><a href="get-a-customer-usage-summary.md">Get a usage summary for all of a customer&#39;s subscriptions</a></p></li>
+<li><p><a href="get-all-monthly-usage-records-for-a-subscription.md">取得訂用帳戶的使用量資料</a></p></li>
+<li><p><a href="get-a-customer-usage-summary.md">取得所有客戶&#39;的訂用帳戶的使用量摘要</a></p></li>
 </ul>
-<p>Service costs</p>
+<p>服務成本</p>
 <ul>
-<li><p><a href="get-a-customer-s-service-costs-summary.md">Get a customer&#39;s service costs summary</a></p></li>
-<li><p><a href="get-a-customer-s-service-costs-line-items.md">Get a customer&#39;s service costs line items</a></p></li>
+<li><p><a href="get-a-customer-s-service-costs-summary.md">取得客戶&#39;的服務成本摘要</a></p></li>
+<li><p><a href="get-a-customer-s-service-costs-line-items.md">取得客戶&#39;的服務成本明細專案</a></p></li>
 </ul></td>
 </tr>
 <tr>
-<td><p><a href="manage-customers.md">Manage customer accounts</a></p></td>
-<td><p>Create a customer</p>
+<td><p><a href="manage-customers.md">管理客戶帳戶</a></p></td>
+<td><p>建立客戶</p>
 <ul>
-<li><p><a href="create-a-customer.md">Create a customer</a></p></li>
-<li><p><a href="create-a-customer-for-an-indirect-reseller.md">Create a customer for an indirect reseller</a></p></li>
-<li><p><a href="request-reseller-relationship.md">Retrieve a relationship request URL</a></p></li>
+<li><p><a href="create-a-customer.md">建立客戶</a></p></li>
+<li><p><a href="create-a-customer-for-an-indirect-reseller.md">為間接轉銷商建立客戶</a></p></li>
+<li><p><a href="request-reseller-relationship.md">取出關聯性要求 URL</a></p></li>
 <li><p><a href="remove-a-reseller-relationship-with-a-customer.md">移除與客戶的經銷商關係</a></p></li> 
 </ul>
-<p>Look up a customer</p>
+<p>查閱客戶</p>
 <ul>
-<li><p><a href="get-a-customer-by-id.md">Get a customer by ID</a></p></li>
-<li><p><a href="get-a-customer-by-name.md">Get a list of customers filtered by a search field</a></p></li>
-<li><p><a href="get-a-list-of-customers.md">Get a list of customers</a></p></li>
+<li><p><a href="get-a-customer-by-id.md">依識別碼取得客戶</a></p></li>
+<li><p><a href="get-a-customer-by-name.md">取得依搜尋欄位篩選的客戶清單</a></p></li>
+<li><p><a href="get-a-list-of-customers.md">取得客戶清單</a></p></li>
 </ul>
-<p>Manage customer orders and subscriptions</p>
+<p>管理客戶訂單和訂用帳戶</p>
 <ul>
-<li><p><a href="get-all-of-a-customer-s-orders.md">Get all of a customer&#39;s orders</a></p></li>
-<li><p><a href="get-a-list-of-orders-by-customer-and-billing-cycle-type.md">Get a list of orders by customer and billing cycle type</a></p></li>
-<li><p><a href="get-a-collection-of-entitlements.md">Get a collection of entitlements</a></p></li> 
-<li><p><a href="get-all-of-a-customer-s-subscriptions.md">Get a customer&#39;s subscriptions</a></p></li>
-<li><p><a href="update-the-nickname-for-a-subscription.md">Update the nickname for a subscription</a></p></li>
+<li><p><a href="get-all-of-a-customer-s-orders.md">取得所有客戶&#39;的訂單</a></p></li>
+<li><p><a href="get-a-list-of-orders-by-customer-and-billing-cycle-type.md">依客戶和計費週期類型取得訂單清單</a></p></li>
+<li><p><a href="get-a-collection-of-entitlements.md">取得權利的集合</a></p></li> 
+<li><p><a href="get-all-of-a-customer-s-subscriptions.md">取得客戶&#39;的訂用帳戶</a></p></li>
+<li><p><a href="update-the-nickname-for-a-subscription.md">更新訂用帳戶的昵稱</a></p></li>
 </ul>
-<p>Manage customer account details</p>
+<p>管理客戶帳戶詳細資料</p>
 <ul>
-<li><p><a href="get-all-of-a-customer-s-billing-profiles.md">Get a customer&#39;s billing profile</a></p></li>
-<li><p><a href="update-a-customer-s-billing-profile.md">Update a customer&#39;s billing profile</a></p></li>
-<li><p><a href="get-a-customer-s-company-profile.md">Get a customer&#39;s company profile</a></p></li>
-<li><p><a href="update-a-customer-s-usage-spending-budget.md">Update a customer&#39;s usage spending budget</a></p></li>
-<li><p><a href="add-a-verified-domain-for-a-customer.md">Add a verified domain for a customer</a></p></li>
+<li><p><a href="get-all-of-a-customer-s-billing-profiles.md">取得客戶&#39;的帳單設定檔</a></p></li>
+<li><p><a href="update-a-customer-s-billing-profile.md">更新客戶&#39;的帳單設定檔</a></p></li>
+<li><p><a href="get-a-customer-s-company-profile.md">取得客戶&#39;的公司設定檔</a></p></li>
+<li><p><a href="update-a-customer-s-usage-spending-budget.md">更新客戶&#39;的使用量支出預算</a></p></li>
+<li><p><a href="add-a-verified-domain-for-a-customer.md">為客戶新增已驗證的網域</a></p></li>
 <li><p><a href="confirm-customer-consent.md">確認客戶接受 Microsoft Cloud 合約</a></p></li>
 <li><p><a href="get-agreement-metadata.md">取得 Microsoft Cloud 合約的合約中繼資料</a></p></li>
 <li><p><a href="get-confirmation-of-customer-consent.md">取得客戶接受 Microsoft Cloud 合約的確認</a></p></li>
@@ -176,19 +176,19 @@ All of the following scenarios can be completed three different ways:
 <li><p><a href="get-a-customer-s-qualification.md">取得客戶資格</a></p></li>
 <li><p><a href="update-a-customer-s-qualification.md">更新客戶的資格</a></p></li>
 </ul>
-<p>Manage user accounts and assign licenses</p>
+<p>管理使用者帳戶和指派授權</p>
 <ul>
-<li><p><a href="get-a-user-account-by-id.md">Get a user account by ID</a></p></li>
-<li><p><a href="create-user-accounts-for-a-customer.md">Create user accounts for a customer</a></p></li>
-<li><p><a href="delete-user-accounts-for-a-customer.md">Delete a user account for a customer</a></p></li>
-<li><p><a href="update-user-accounts-for-a-customer.md">Update user accounts for a customer</a></p></li>
-<li><p><a href="view-a-deleted-user.md">View deleted users for a customer</a></p></li>
-<li><p><a href="restore-a-user-for-a-customer.md">Restore a deleted user for a customer</a></p></li>
-<li><p><a href="get-a-list-of-all-user-accounts-for-a-customer.md">Get a list of all user accounts for a customer</a></p></li>
-<li><p><a href="reset-user-password-for-a-customer.md">Reset user password for a customer</a></p></li>
-<li><p><a href="get-user-roles-for-a-customer.md">Get user roles for a customer</a></p></li>
-<li><p><a href="set-user-roles-for-a-customer.md">Set user roles for a customer</a></p></li>
-<li><p><a href="remove-customer-user-from-a-role.md">Remove a customer user from a role</a></p></li>
+<li><p><a href="get-a-user-account-by-id.md">依識別碼取得使用者帳戶</a></p></li>
+<li><p><a href="create-user-accounts-for-a-customer.md">建立客戶的使用者帳戶</a></p></li>
+<li><p><a href="delete-user-accounts-for-a-customer.md">刪除客戶的使用者帳戶</a></p></li>
+<li><p><a href="update-user-accounts-for-a-customer.md">更新客戶的使用者帳戶</a></p></li>
+<li><p><a href="view-a-deleted-user.md">查看客戶的已刪除使用者</a></p></li>
+<li><p><a href="restore-a-user-for-a-customer.md">為客戶還原已刪除的使用者</a></p></li>
+<li><p><a href="get-a-list-of-all-user-accounts-for-a-customer.md">取得客戶的所有使用者帳戶清單</a></p></li>
+<li><p><a href="reset-user-password-for-a-customer.md">重設客戶的使用者密碼</a></p></li>
+<li><p><a href="get-user-roles-for-a-customer.md">取得客戶的使用者角色</a></p></li>
+<li><p><a href="set-user-roles-for-a-customer.md">設定客戶的使用者角色</a></p></li>
+<li><p><a href="remove-customer-user-from-a-role.md">從角色移除客戶使用者</a></p></li>
 <li><p><a href="get-a-list-of-available-licenses.md">取得可用授權的清單</a></p></li>
 <li><p><a href="assign-licenses-to-a-user.md">指派授權給使用者</a></p></li>
 <li><p><a href="check-which-licenses-are-assigned-to-a-user.md">取得指派給使用者的授權</a></p></li>
@@ -197,108 +197,108 @@ All of the following scenarios can be completed three different ways:
 </ul></td>
 </tr>
 <tr>
-<td><p><a href="manage-orders.md">Manage orders</a></p></td>
-<td><p>Purchase Azure Reserved VM Instances</p>
+<td><p><a href="manage-orders.md">管理訂單</a></p></td>
+<td><p>購買 Azure 保留的 VM 執行個體</p>
 <ul>
-<li><p><a href="purchase-azure-reservations.md">Purchase Azure reservations</a></p></li>
+<li><p><a href="purchase-azure-reservations.md">購買 Azure 保留</a></p></li>
 </ul>
-<p>Make a one-time purchase</p>
+<p>進行一次性購買</p>
 <ul>
-<li><p><a href="make-a-one-time-purchase.md">Make a one-time purchase</a></p></li> 
+<li><p><a href="make-a-one-time-purchase.md">進行一次性購買</a></p></li> 
 </ul>
-<p>Get offers from the catalog</p>
+<p>從目錄取得優惠</p>
 <ul>
-<li><p><a href="get-a-list-of-offer-categories-by-country-and-locale.md">Get a list of offer categories by market</a></p></li>
-<li><p><a href="get-a-list-of-offers-for-a-market.md">Get a list of offers for a market</a></p></li>
-<li><p><a href="get-an-offer-by-id.md">Get an offer by ID</a></p></li>
-<li><p><a href="get-addon-offers-by-offer-id.md">Get add-ons for an offer ID</a></p></li>
-<li><p><a href="get-a-list-of-products.md">Get a list of products</a></p></li>
-<li><p><a href="get-a-product-by-id.md">Get a product by ID</a></p></li>
-<li><p><a href="get-a-list-of-skus-for-a-product.md">Get a list of SKUs for a product</a></p></li>
-<li><p><a href="get-a-sku-by-id.md">Get a list of availabilities for a SKU</a></p></li>
-<li><p><a href="get-an-availability-by-id.md">Get an availability by ID</a></p></li>
-<li><p><a href="check-inventory.md">Check Inventory</a></p></li>
+<li><p><a href="get-a-list-of-offer-categories-by-country-and-locale.md">依市場取得供應專案類別的清單</a></p></li>
+<li><p><a href="get-a-list-of-offers-for-a-market.md">取得市場供應專案清單</a></p></li>
+<li><p><a href="get-an-offer-by-id.md">依識別碼取得供應專案</a></p></li>
+<li><p><a href="get-addon-offers-by-offer-id.md">取得供應專案識別碼的附加元件</a></p></li>
+<li><p><a href="get-a-list-of-products.md">取得產品清單</a></p></li>
+<li><p><a href="get-a-product-by-id.md">依識別碼取得產品</a></p></li>
+<li><p><a href="get-a-list-of-skus-for-a-product.md">取得產品的 Sku 清單</a></p></li>
+<li><p><a href="get-a-sku-by-id.md">取得 SKU 的 hdinsight 清單</a></p></li>
+<li><p><a href="get-an-availability-by-id.md">依識別碼取得可用性</a></p></li>
+<li><p><a href="check-inventory.md">檢查清查</a></p></li>
 </ul>
-<p>Manage an order</p>
+<p>管理訂單</p>
 <ul>
-<li><p><a href="cancel-an-order-from-the-integration-sandbox.md">Cancel an order from the integration sandbox</a></p></li>
-<li><p><a href="checkout-a-cart.md">Checkout a cart</a></p></li>
-<li><p><a href="create-a-cart.md">Create a cart</a></p></li>
+<li><p><a href="cancel-an-order-from-the-integration-sandbox.md">從整合沙箱取消訂單</a></p></li>
+<li><p><a href="checkout-a-cart.md">結帳購物車</a></p></li>
+<li><p><a href="create-a-cart.md">建立購物車</a></p></li>
 <li><p><a href="create-a-cart-with-add-ons.md">使用附加元件建立購物車</a></p></li>
-<li><p><a href="create-an-order.md">Create an order</a></p></li>
-<li><p><a href="create-an-order-for-a-customer-of-an-indirect-reseller.md">Create an order for a customer of an indirect reseller</a></p></li>
-<li><p><a href="get-activation-link-by-order-line-item.md">Get activation link by order line item</a></p></li>
-<li><p><a href="get-an-order-by-id.md">Get an order by ID</a></p></li>
-<li><p><a href="purchase-an-add-on-to-a-subscription.md">Purchase an add-on to a subscription</a></p></li>
-<li><p><a href="purchase-catalog-items.md">Purchase catalog items</a></p></li>
-<li><p><a href="update-a-cart.md">Update a cart</a></p></li>
+<li><p><a href="create-an-order.md">建立訂單</a></p></li>
+<li><p><a href="create-an-order-for-a-customer-of-an-indirect-reseller.md">為間接轉銷商的客戶建立訂單</a></p></li>
+<li><p><a href="get-activation-link-by-order-line-item.md">依訂單明細專案取得啟用連結</a></p></li>
+<li><p><a href="get-an-order-by-id.md">依識別碼取得訂單</a></p></li>
+<li><p><a href="purchase-an-add-on-to-a-subscription.md">購買訂用帳戶的附加元件</a></p></li>
+<li><p><a href="purchase-catalog-items.md">購買類別目錄專案</a></p></li>
+<li><p><a href="update-a-cart.md">更新購物車</a></p></li>
 </ul>
-<p>Enable a subscription for Azure Reserved VM Instance purchases</p>
+<p>啟用 Azure 保留的 VM 實例購買的訂用帳戶</p>
 <ul>
-<li><p><a href="register-a-subscription.md">Register a subscription</a></p></li>
-<li><p><a href="get-subscription-registration-status.md">Get subscription registration status</a></p></li>
+<li><p><a href="register-a-subscription.md">註冊訂用帳戶</a></p></li>
+<li><p><a href="get-subscription-registration-status.md">取得訂用帳戶註冊狀態</a></p></li>
 </ul>
-<p>Trial conversions</p>
+<p>試用版轉換</p>
 <ul>
 <li><p><a href="get-a-list-of-trial-conversion-offers.md">取得試用版轉換方案的清單</a></p></li>
 <li><p><a href="convert-a-trial-subscription-to-paid.md">將試用版訂閱轉換成付費</a></p></li>
 </ul>
-<p>Get subscription details</p>
+<p>取得訂用帳戶詳細資料</p>
 <ul>
-<li><p><a href="get-a-subscription-by-id.md">Get a subscription by ID</a></p></li>
-<li><p><a href="get-a-list-of-subscriptions-by-order.md">Get a list of subscriptions by order</a></p></li>
-<li><p><a href="get-a-list-of-add-ons-for-a-subscription.md">Get a list of add-ons for a subscription</a></p></li>
+<li><p><a href="get-a-subscription-by-id.md">依識別碼取得訂用帳戶</a></p></li>
+<li><p><a href="get-a-list-of-subscriptions-by-order.md">依訂單取得訂用帳戶清單</a></p></li>
+<li><p><a href="get-a-list-of-add-ons-for-a-subscription.md">取得訂用帳戶的附加元件清單</a></p></li>
 <li><p><a href="get-subscription-provisioning-status.md">取得訂閱的佈建狀態</a></p></li>
 </ul>
-<p>Manage a subscription</p>
+<p>管理訂用帳戶</p>
 <ul>
-<li><p><a href="change-the-quantity-of-a-subscription.md">Change the quantity of a subscription</a></p></li>
-<li><p><a href="update-autorenew-for-an-azure-marketplace-subscription.md">Update autorenew for a commercial marketplace subscription</a></p></li>
+<li><p><a href="change-the-quantity-of-a-subscription.md">變更訂用帳戶的數量</a></p></li>
+<li><p><a href="update-autorenew-for-an-azure-marketplace-subscription.md">更新商業 marketplace 訂用帳戶的 autorenew</a></p></li>
 <li><p><a href="suspend-a-subscription.md">暫停訂閱</a></p></li>
-<li><p><a href="reactivate-a-suspended-a-subscription.md">Reactivate a suspended subscription</a></p></li>
-<li><p><a href="transition-a-subscription.md">Transition a subscription</a></p></li>
-<li><p><a href="cancel-an-azure-marketplace-subscription.md">Cancel a commercial marketplace subscription</a></p></li>
+<li><p><a href="reactivate-a-suspended-a-subscription.md">重新啟用已暫停的訂用帳戶</a></p></li>
+<li><p><a href="transition-a-subscription.md">轉換訂用帳戶</a></p></li>
+<li><p><a href="cancel-an-azure-marketplace-subscription.md">取消商用 marketplace 訂用帳戶</a></p></li>
 </ul></td>
 </tr>
 <tr>
-<td><p><a href="provide-support.md">Provide support</a></p></td>
-<td><p>Administer services for a customer</p>
+<td><p><a href="provide-support.md">提供支援</a></p></td>
+<td><p>管理客戶的服務</p>
 <ul>
-<li><p><a href="get-the-managed-services-for-a-customer-by-id.md">Get the managed services for a customer by ID</a></p></li>
+<li><p><a href="get-the-managed-services-for-a-customer-by-id.md">依識別碼取得客戶的受控服務</a></p></li>
 </ul>
-<p>Manage support contacts</p>
+<p>管理支援連絡人</p>
 <ul>
-<li><p><a href="get-a-subscription-s-support-contact.md">Get a subscription&#39;s support contact</a></p></li>
-<li><p><a href="update-a-subscription-s-support-contact.md">Update a subscription&#39;s support contact</a></p></li>
+<li><p><a href="get-a-subscription-s-support-contact.md">取得訂&#39;用帳戶的支援連絡人</a></p></li>
+<li><p><a href="update-a-subscription-s-support-contact.md">更新訂&#39;用帳戶的支援連絡人</a></p></li>
 </ul>
-<p>Manage service requests</p>
+<p>管理服務要求</p>
 <ul>
-<li><p><a href="create-a-service-request-.md">Create a service request</a></p></li>
-<li><p><a href="get-service-request-support-topics--pending-.md">Get service request support topics</a></p></li>
-<li><p><a href="get-all-service-requests-for-a-customer.md">Get all service requests for a customer</a></p></li>
-<li><p><a href="get-service-request-details-by-id.md">Get service request details by ID</a></p></li> 
-<li><p><a href="update-a-service-request.md">Update a service request</a></p></li>
+<li><p><a href="create-a-service-request-.md">建立服務要求</a></p></li>
+<li><p><a href="get-service-request-support-topics--pending-.md">取得服務要求支援主題</a></p></li>
+<li><p><a href="get-all-service-requests-for-a-customer.md">取得客戶的所有服務要求</a></p></li>
+<li><p><a href="get-service-request-details-by-id.md">依識別碼取得服務要求詳細資料</a></p></li> 
+<li><p><a href="update-a-service-request.md">更新服務要求</a></p></li>
 </ul></td>
 </tr>
 <tr>
   <td><p><a href="https://docs.microsoft.com/partner/develop/referrals">推薦</a></p></td>
   <td><p>推薦</p>
     <ul>
-      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">Create a referral</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">Get a list of referrals</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">Get a referral by ID</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">Update a referral</a></p></li> 
+      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">建立參考</a></p></li> 
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">取得參考清單</a></p></li> 
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">依識別碼取得參考</a></p></li> 
+      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">更新參考</a></p></li> 
     </ul>
   </td>
 </tr>
 <tr>
-<td><p><a href="utilities.md">Utilities</a></p></td>
+<td><p><a href="utilities.md">多數</a></p></td>
 <td><p>公用程式</p>
 <ul>
-<li><p><a href="validate-an-address.md">Validate an address</a></p></li>
-<li><p><a href="get-market-specific-validation-data.md">Get address formatting rules by market</a></p></li>
-<li><p><a href="verify-domain-availability.md">Verify domain availability</a></p></li>
-<li><p><a href="delete-a-customer-account-from-the-integration-sandbox.md">Delete a customer account from the integration sandbox</a></p></li>
+<li><p><a href="validate-an-address.md">驗證位址</a></p></li>
+<li><p><a href="get-market-specific-validation-data.md">依市場取得位址格式規則</a></p></li>
+<li><p><a href="verify-domain-availability.md">驗證網域可用性</a></p></li>
+<li><p><a href="delete-a-customer-account-from-the-integration-sandbox.md">從整合沙箱中刪除客戶帳戶</a></p></li>
 <li><p><a href="get-a-record-of-partner-center-activity-by-user.md">取得合作夥伴中心活動的記錄</a></p></li>
 </ul></td>
 </tr>
@@ -307,18 +307,18 @@ All of the following scenarios can be completed three different ways:
 
 ## <a name="background"></a>背景
 
-### <a name="who-is-involved-in-the-order-process"></a>Who is involved in the order process?
+### <a name="who-is-involved-in-the-order-process"></a>訂單套裝程式含誰？
 
-Microsoft, distributors, resellers, and customers. The distributors and resellers are often referred to as **partners**.
+Microsoft、轉銷商、轉銷商和客戶。 散發者和轉銷商通常稱為**合作夥伴**。
 
-Sometimes, Microsoft works directly with resellers who sell to customers. Alternately, Microsoft also works with distributors, and those distributors work with their own set or channel of resellers who sell to customers.
+有時候，Microsoft 會直接與銷售給客戶的轉售商合作。 或者，Microsoft 也會與轉銷商合作，而那些散發者會使用自己的集合或銷售給客戶的轉銷商。
 
-### <a name="whats-getting-sold"></a>What's getting sold?
+### <a name="whats-getting-sold"></a>賣出什麼？
 
-Microsoft provides a list of **offers**. These are specific SKUs of products like Office 365 or Intune. Offers are either **license-based** (the cost depends on the number of machines they get installed on) or **usage-based** (the cost depends on the amount of memory and computation used). For more information, see [Partner offers in the Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-offers).
+Microsoft 提供了**一份供應專案清單。** 這些是 Office 365 或 Intune 等產品的特定 Sku。 供應專案是以**授權為基礎**（成本取決於其所安裝的機器數目）或**使用方式**（成本取決於所使用的記憶體和計算數量）。 如需詳細資訊，請參閱[雲端解決方案提供者方案中的合作夥伴優惠](https://docs.microsoft.com/partner-center/csp-offers)。
 
-CSP partners are resellers who have customers and sell them Microsoft products from the current offer list. After the customers sign their agreement, the reseller places an **order** for one or more offers. Some offers include **add-ons** like more space or extra features, which are tracked together with the parent offer. The orders are processed, and then the customer is able to use their **subscriptions**. Microsoft bills the reseller or distributor each month based on the number of licenses and the usage for each customer.
+CSP 合作夥伴是擁有客戶的轉售商，並從目前的供應專案清單向他們銷售 Microsoft 產品。 在客戶簽署其合約後，轉銷商會為一或多個供應專案提供**訂單**。 某些供應專案包括**附加**元件，例如更多的空間或額外的功能，並與父系供應專案一起追蹤。 系統會處理訂單，然後客戶可以**使用其訂**用帳戶。 Microsoft 會根據授權數目和每個客戶的使用量，每個月向轉銷商或散發者收費。
 
-Subscriptions can be added, and the number of seats or add-ons can be increased or decreased. If a customer fails to pay, misuses the subscription, or engages in fraud, then Microsoft, the distributor, or the reseller are all able to suspend the subscription. It will be permanent if it's not reactivated within the limits of the CSP program.
+可以新增訂閱，以及增加或減少基座數或附加元件數目。 如果客戶無法支付、誤用訂用帳戶或參與詐騙，則 Microsoft、散發者或轉銷商全都能夠暫停訂用帳戶。 如果未在 CSP 計畫的限制內重新開機，它將會是永久的。
 
-You can check which subscriptions a customer is **entitled** to use (ie, which ones are currently paid for, not suspended, and not replaced by a newer order).
+您可以檢查客戶有**權**使用的訂用帳戶（亦即，哪些訂用帳戶目前為付費、未暫停，而不是以較新的訂單取代）。

@@ -1,6 +1,6 @@
 ---
-title: Agreement metadata resources
-description: The AgreementMetadata resource collection describes agreement types that partners can use to provide confirmation of customer acceptance.
+title: 合約中繼資料資源
+description: AgreementMetadata 資源集合會描述合作夥伴可用來提供確認客戶接受的合約類型。
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,26 +12,26 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488708"
 ---
-# <a name="agreement-metadata-resources"></a>Agreement metadata resources
+# <a name="agreement-metadata-resources"></a>合約中繼資料資源
 
 適用於：
 
 - 合作夥伴中心
 
-The **AgreementMetaData** resource is currently supported by Partner Center only in the *Microsoft public cloud*. This resource isn't applicable to:
+合作夥伴中心目前僅支援在*Microsoft 公用雲端*中使用**AgreementMetaData**資源。 此資源不適用於：
 
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-The **AgreementMetaData** collection provides metadata about all the agreement types. Partners can use this collection to provide confirmation of customer acceptance of agreements. Currently, the **AgreementMetaData** collection only returns metadata for one agreement type, which is the **Microsoft Cloud Agreement**.
+**AgreementMetaData**集合會提供有關所有合約類型的中繼資料。 合作夥伴可以使用此集合來確認客戶接受合約。 目前， **AgreementMetaData**集合只會傳回一個合約類型的中繼資料，也就是**Microsoft Cloud 協定**。
 
 ## <a name="agreementmetadata"></a>AgreementMetaData
 
-Agreement metadata returned includes the following:
+傳回的合約中繼資料包括下列各項：
 
-| 屬性      | 在工作列搜尋方塊中輸入               | 說明                                                                       |
+| 屬性      | 類型               | 描述                                                                       |
 |---------------|--------------------|-----------------------------------------------------------------------------------|
-| templateId    | 字串             | Unique identifier of an agreement template.                                       |
-| type          | 字串             | Agreement type. Currently, supported values include **MicrosoftCloudAgreement** and **MicrosoftCustomerAgreement** (preview). |
-| agreementLink | 字串             | URL for the agreement template.                                                    |
+| templateId    | 字串             | 協定範本的唯一識別碼。                                       |
+| type          | 字串             | 合約類型。 目前支援的值包括**MicrosoftCloudAgreement**和**MicrosoftCustomerAgreement** （預覽）。 |
+| agreementLink | 字串             | 合約範本的 URL。                                                    |

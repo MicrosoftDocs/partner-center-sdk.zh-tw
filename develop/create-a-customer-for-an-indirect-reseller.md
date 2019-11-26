@@ -1,6 +1,6 @@
 ---
-title: Create a customer for an indirect reseller
-description: An indirect provider can create a customer for an indirect reseller.
+title: 為間接轉銷商建立客戶
+description: 間接提供者可以建立間接轉銷商的客戶。
 ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488768"
 ---
-# <a name="create-a-customer-for-an-indirect-reseller"></a>Create a customer for an indirect reseller
+# <a name="create-a-customer-for-an-indirect-reseller"></a>為間接轉銷商建立客戶
 
 適用於：
 
 - 合作夥伴中心
 
-An indirect provider can create a customer for an indirect reseller.
+間接提供者可以建立間接轉銷商的客戶。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The tenant identifier of the indirect reseller.
-- The indirect reseller must have a partnership with the indirect provider.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 間接轉銷商的租使用者識別碼。
+- 間接轉銷商必須與間接提供者合作。
 
 ## <a name="c"></a>C\#
 
-To add a new customer for an indirect reseller:
+為間接轉銷商新增客戶：
 
-1. Instantiate a new [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object and then instantiate and populate the [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) and [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile). Be sure to assign the indirect reseller ID to the [**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) property.
-2. Use the [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) property to get an interface to customer collection operations. 
-3. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) method to create the customer.
+1. 具現化新的[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)物件，然後具現化並填入[**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)和[**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)。 請務必將間接轉銷商識別碼指派給[**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid)屬性。
+2. 使用 [ [**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) ] 屬性可取得客戶集合作業的介面。 
+3. 呼叫[**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)方法以建立客戶。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# 範例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -73,51 +73,51 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateCustomerforIndirectReseller.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CreateCustomerforIndirectReseller.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-This table describes the required properties in the request body.
+下表描述要求主體中的必要屬性。
 
-| 名稱                                          | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                                                                                                                                                                                                                                                                                           |
+| 名稱                                          | 類型   | 必要 | 描述                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | 物件 | [是]      | The customer's billing profile information.                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | 物件 | [是]      | The customer's company profile information.                                                                                                                                                                                                                                                                                                           |
-| [AssociatedPartnerId](customer-resources.md#customer) | 字串 | [是]      | The indirect reseller ID. Note that the indirect reseller as indicated by the ID supplied here must have a partnership with the indirect provider or the request will fail. Also note that if the AssociatedPartnerId value is not supplied, the customer is created as a direct customer of the indirect provider rather than the indirect reseller. |
+| [BillingProfile](#billing-profile)             | 物件 | 是      | 客戶的帳單設定檔資訊。                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | 物件 | 是      | 客戶的公司設定檔資訊。                                                                                                                                                                                                                                                                                                           |
+| [AssociatedPartnerId](customer-resources.md#customer) | 字串 | 是      | 間接轉銷商識別碼。 請注意，此處提供的識別碼所指出的間接轉銷商必須與間接提供者合作，否則要求將會失敗。 另請注意，如果未提供 AssociatedPartnerId 值，則會將客戶建立為間接提供者的直接客戶，而不是間接轉銷商。 |
 
-#### <a name="billing-profile"></a>Billing profile
+#### <a name="billing-profile"></a>帳單設定檔
 
-This table describes the minimum required fields from the [CustomerBillingProfile](customer-resources.md#customerbillingprofile) resource needed to create a new customer.
+下表描述建立新客戶所需的[CustomerBillingProfile](customer-resources.md#customerbillingprofile)資源所需的最低欄位。
 
-| 名稱             | 在工作列搜尋方塊中輸入                                     | 必要 | 說明                                                                                                                                                                                                     |
+| 名稱             | 類型                                     | 必要 | 描述                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 電子郵件            | 字串                                   | [是]      | The customer's email address.                                                                                                                                                                                   |
-| culture          | 字串                                   | [是]      | Their preferred culture for communication and currency, such as "en-US". See [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md) for the supported cultures. |
-| language         | 字串                                   | [是]      | The default language. Two character language codes (e.g., en, fr) are supported.                                                                                                                                |
-| company\_name    | 字串                                   | [是]      | The registered company/organization name.                                                                                                                                                                       |
-| default\_address | [Address](utility-resources.md#address) | [是]      | The registered address of the customer's company/organization. See the [Address](utility-resources.md#address) resource for information on any length limitations.                                             |
+| 電子郵件            | 字串                                   | 是      | 客戶的電子郵件地址。                                                                                                                                                                                   |
+| 區域          | 字串                                   | 是      | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
+| language         | 字串                                   | 是      | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
+| 公司\_名稱    | 字串                                   | 是      | 已註冊的公司/組織名稱。                                                                                                                                                                       |
+| 預設\_位址 | [應對](utility-resources.md#address) | 是      | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
 
-#### <a name="company-profile"></a>Company profile
+#### <a name="company-profile"></a>公司設定檔
 
-This table describes the minimum required fields from the [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) resource needed to create a new customer.
+下表描述建立新客戶所需的[CustomerCompanyProfile](customer-resources.md#customercompanyprofile)資源所需的最低欄位。
 
-| 名稱   | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                  |
+| 名稱   | 類型   | 必要 | 描述                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domain | 字串 | .Yes     | The customer's domain name, such as contoso.onmicrosoft.com. |
+| domain | 字串 | .是的     | 客戶的功能變數名稱，例如 contoso.onmicrosoft.com。 |
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers HTTP/1.1
@@ -178,13 +178,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, the response contains a [Customer](customer-resources.md#customer) resource for the new customer.
+如果成功，回應會包含新客戶的[客戶](customer-resources.md#customer)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

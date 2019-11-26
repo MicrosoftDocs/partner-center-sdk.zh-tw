@@ -1,6 +1,6 @@
 ---
-title: Get a collection of entitlements
-description: How to get a collection of entitlements.
+title: 取得權利的集合
+description: 如何取得權利的集合。
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/28/2019
 ms.service: partner-dashboard
@@ -13,25 +13,25 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490108"
 ---
-# <a name="get-a-collection-of-entitlements"></a>Get a collection of entitlements
+# <a name="get-a-collection-of-entitlements"></a>取得權利的集合
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-How to get a collection of entitlements.
+如何取得權利的集合。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials.
-- A customer identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get an entitlements collection for a customer, obtain an interface to [**Entitlement**](entitlement-resources.md#entitlement) operations by calling the  [**IAggregatePartner.Customers.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then, retrieve the interface from the **Entitlements** property and call the **Get()** or **GetAsync()** method to retrieve the collection of entitlements.
+若要取得客戶的權利集合，請呼叫[**iaggregatepartner.customers.byid. ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法和客戶識別碼來取得[**權利**](entitlement-resources.md#entitlement)作業的介面，以識別客戶。 然後，從**權利**屬性抓取介面，並呼叫**Get （）** 或**GetAsync （）** 方法來取得權利的集合。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -40,43 +40,43 @@ string customerId;
 // Get the collection of entitlements.
 var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get();
 ```
-To populate expiry dates for the entitlements to be retrieved, call the same methods above and set the optional boolean parameter **showExpiry** to true **Get(true)** or **GetAsync(true)** . This indicates that entitlement expiry dates are required (when applicable).
+若要填入要取得之權利的到期日，請呼叫上述相同的方法，並將選擇性的布林值參數**showExpiry**設定為 true **Get （True）** 或**GetAsync （true）** 。 這表示需要權利到期日（如果適用）。
 
 > [!IMPORTANT]
-> On-premise entitlement types do not have expiry dates.
+> 內部部署權利類型沒有到期日。
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1.1                            |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1。1                            |
 
  
 
-**URI parameters**
+**URI 參數**
 
-Use the following path and query parameters when creating the request.
+建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名稱 | 類型 | 必要 | 描述 |
 |------|------|----------|-------------|
-| customerId | 字串 | [是] | A GUID formatted customerId that identifies the customer. |
-| entitlementType | 字串 | 無 | Can be used to specify the type of entitlements to be retrieved (**software** or **reservedInstance** ). If not set, all types will be retrieved |
-| showExpiry | boolean | 無 | Optional flag which indicates if entitlements exipry dates are required. |
+| Id | 字串 | 是 | 識別客戶的 GUID 格式的 customerId。 |
+| entitlementType | 字串 | 否 | 可以用來指定要抓取的權利類型（**軟體**或**reservedInstance** ）。 如果未設定，則會抓取所有類型 |
+| showExpiry | 布林值 | 否 | 選擇性旗標，指出是否需要權利 exipry 日期。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/entitlements HTTP/1.1
@@ -88,16 +88,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 回應
 
 
-If successful, the response body contains a collection of [Entitlement](entitlement-resources.md#entitlement) resources.
+如果成功，回應主體會包含[權利](entitlement-resources.md#entitlement)資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -183,19 +183,19 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 ```
 
 
-## <a name="span-idadditionalexamplesspan-idadditionalexamplesadditional-examples"></a><span id="AdditionalExamples"/><span id="additionalexamples"/>Additional Examples   
+## <a name="span-idadditionalexamplesspan-idadditionalexamplesadditional-examples"></a><span id="AdditionalExamples"/><span id="additionalexamples"/>其他範例   
 
-The following example shows you how to retrieve a specific type of entitlements along with expiry dates (when applicable)
+下列範例示範如何抓取特定類型的權利以及到期日（如果適用）
 
-**C# example**   
+**C#實例**   
 
-To retrieve a specific type of entitlements, obtain the **ByEntitlementType** interface from the **Entitlements** interface and use the **Get()** or **GetAsync()** methods.
+若要取得特定類型的權利，請從**權利**介面取得**ByEntitlementType**介面，並使用**Get （）** 或**GetAsync （）** 方法。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("software").Get(true);
 ```
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/de3dcef9-9991-459c-ac71-2903d1127414/entitlements?entitlementtype=software&showExpiry=true
@@ -207,7 +207,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com 
 ```
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -312,13 +312,13 @@ Date: Mon, 28 Jan 2019 18:31:43 GMT
 ```
 
 
-The following examples show you how to retrieve information about products and reservations from an entitlement.
+下列範例示範如何從權利取得產品和保留的相關資訊。
 
-### <a name="span-idvirtualmachinereservationexample_sdk_18span-idvirtualmachinereservationexample_sdk_18span-idvirtualmachinereservationexample_sdk_18retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a><span id="VirtualMachineReservationExample_SDK_1.8"/><span id="virtualmachinereservationexample_sdk_1.8"/><span id="VIRTUALMACHINERESERVATIONEXAMPLE_SDK_1.8"/>Retrieve virtual machine reservation details from an entitlement by using SDK V1.8
+### <a name="span-idvirtualmachinereservationexample_sdk_18span-idvirtualmachinereservationexample_sdk_18span-idvirtualmachinereservationexample_sdk_18retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a><span id="VirtualMachineReservationExample_SDK_1.8"/><span id="virtualmachinereservationexample_sdk_1.8"/><span id="VIRTUALMACHINERESERVATIONEXAMPLE_SDK_1.8"/>使用 SDK 1.8 取得權利中的虛擬機器保留詳細資料
 
-**C# example**   
+**C#實例**   
 
-To retrieve more details related to the virtual machine reservations from an entitlement, invoke the URI exposed under entitledArtifacts.link with artifactType = virtual_machine_reserved_instance .
+若要從權利中抓取虛擬機器保留專案的詳細資料，請叫用 entitledArtifacts 底下公開的 URI，artifactType = virtual_machine_reserved_instance。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("VirtualMachineReservedInstance").Get();
@@ -327,7 +327,7 @@ ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(
 ((VirtualMachineReservedInstanceArtifact)entitlements.First().EntitledArtifacts.First(x => x.Type == ArtifactType.VirtualMachineReservedInstance)).Link.InvokeAsync<VirtualMachineReservedInstanceArtifactDetails>(partnerOperations)
 ```
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/artifacts/virtualmachinereservedinstance/groups/2caf524395724e638ef64e109f1f79ca/lineitems/03500b1b-f2d6-4e23-ab4b-9fd67b917012/resource/ebf2e74b-630e-4a09-857d-a1f6c6351336 HTTP/1.1
@@ -339,7 +339,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com 
 ```
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -367,11 +367,11 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="span-idreservationexample_sdk_19span-idreservationexample_sdk_19span-idreservationexample_sdk_19retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a><span id="ReservationExample_SDK_1.9"/><span id="reservationexample_sdk_1.9"/><span id="RESERVATIONEXAMPLE_SDK_1.9"/>Retrieve reservation details from an entitlement by using SDK V1.9  
+### <a name="span-idreservationexample_sdk_19span-idreservationexample_sdk_19span-idreservationexample_sdk_19retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a><span id="ReservationExample_SDK_1.9"/><span id="reservationexample_sdk_1.9"/><span id="RESERVATIONEXAMPLE_SDK_1.9"/>使用 SDK-1.9 從權利中取出保留詳細資料  
 
-**C# example**  
+**C#實例**  
 
-To retrieve more details related to the reservations from a reserved instance entitlement, invoke the URI exposed under ```entitledArtifacts.link``` with ```artifactType = reservedinstance```.
+若要從保留實例權利中取得保留的詳細資料，請使用 ```artifactType = reservedinstance```，叫用 ```entitledArtifacts.link``` 下公開的 URI。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();  
@@ -379,7 +379,7 @@ ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(
 ((ReservedInstanceArtifact)entitlements.First().EntitledArtifacts.First(x => x.Type == ArtifactType.ReservedInstance)).Link.InvokeAsync<ReservedInstanceArtifactDetails>(partnerOperations);
 ```
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/artifacts/reservedinstance/groups/2caf524395724e638ef64e109f1f79ca/lineitems/03500b1b-f2d6-4e23-ab4b-9fd67b917012/resource/ebf2e74b-630e-4a09-857d-a1f6c6351336 HTTP/1.1
@@ -391,7 +391,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com 
 ```
 
-**Response example**  
+**回應範例**  
 
 ```http
 HTTP/1.1 200 OK
@@ -419,7 +419,7 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="api-consumers"></a>API Consumers  
-Partners who are using the API to query virtual machine reserved instance entitlements - Update the request URI from **/customers/{customerId}/entitlements to /customers/{customerId}/entitlements?entitlementType=virtualmachinereservedinstance** to maintain backward compatibility. In order to consume virtual machine or Azure SQL with enhanced contract, update the request URI to **/customers/{customerId}/entitlements?entitlementType=reservedinstance**.
+### <a name="api-consumers"></a>API 取用者  
+使用 API 來查詢虛擬機器保留實例權利的合作夥伴-將要求 URI 從 **/Customers/{customerId}/entitlements 更新為/customers/{customerId}/entitlements？ entitlementType = virtualmachinereservedinstance** ，以維持回溯相容性。 若要使用具有增強合約的虛擬機器或 Azure SQL，請將要求 URI 更新為 **/customers/{customerId}/entitlements？ entitlementType = reservedinstance**。
 
 

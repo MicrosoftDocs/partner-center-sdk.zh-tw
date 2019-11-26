@@ -1,6 +1,6 @@
 ---
-title: Partner Center Analytics
-description: Partner Center Analytics public API documentation.
+title: 合作夥伴中心分析
+description: 合作夥伴中心分析公用 API 檔。
 ms.assetid: B605C1CD-FC40-4393-8588-55C8F0CAA51A
 ms.date: 06/11/2018
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486878"
 ---
-# <a name="partner-center-analytics---resources"></a>Partner Center Analytics - Resources
+# <a name="partner-center-analytics---resources"></a>合作夥伴中心分析-資源
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -23,187 +23,187 @@ ms.locfileid: "74486878"
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 
-The Analytics API allows you to programmatically access data that is being presented in the User Experience. 
+分析 API 可讓您以程式設計方式存取在使用者體驗中呈現的資料。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). These scenarios support authentication with User credentials only.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-## <a name="span-idazure_usage_analyticsspan-idazure_usage_analyticsspan-idazure_usage_analyticscsp-program-azure-usage-analytics"></a><span id="Azure_Usage_Analytics"/><span id="azure_usage_analytics"/><span id="AZURE_USAGE_ANALYTICS"/>CSP program: Azure usage analytics
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 這些案例僅支援使用使用者認證進行驗證。
 
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center Azure usage analytics information.  
 
-- [Get all Azure usage analytics information](get-all-azure-usage-analytics.md)  
+## <a name="span-idazure_usage_analyticsspan-idazure_usage_analyticsspan-idazure_usage_analyticscsp-program-azure-usage-analytics"></a><span id="Azure_Usage_Analytics"/><span id="azure_usage_analytics"/><span id="AZURE_USAGE_ANALYTICS"/>CSP 方案： Azure 使用量分析
 
-This scenario returns your analytics information in a collection of [Azure usage](#azure_usage) resources. 
+下列案例示範如何流量分析 API 來抓取所有合作夥伴中心的 Azure 使用量分析資訊。  
 
-## <a name="span-idazure_usagespan-idazure_usagespan-idazure_usageazure-usage-resource"></a><span id="Azure_Usage"/><span id="azure_usage"/><span id="AZURE_USAGE"/>Azure usage resource
+- [取得所有 Azure 使用量分析資訊](get-all-azure-usage-analytics.md)  
 
-Represents all of the analytical data for Azure usage.
+此案例會在[Azure 使用量](#azure_usage)資源的集合中傳回您的分析資訊。 
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+## <a name="span-idazure_usagespan-idazure_usagespan-idazure_usageazure-usage-resource"></a><span id="Azure_Usage"/><span id="azure_usage"/><span id="AZURE_USAGE"/>Azure 使用量資源
+
+代表 Azure 使用量的所有分析資料。
+
+| 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| CustomerTenantId | 字串 | The customer tenant identifier. |
-| customerName | 字串 | The customer name. |
-| subscriptionId | 字串 | The subscription identifier. |
-| subscriptionName | 字串 | The subscription name. |
-| usageDate | 字串 | The usage date. |
-| resourceLocation | 字串 | The location of the data center, Western Europe, for example. |
-| meterCategory | 字串 | The meter category, data management, for example. |
-| meterSubcategory | 字串 | The meter subcategory, for example, geo redundant. |
-| meterUnit | 字串 | The meter unit, such as gigabytes or hours. | 
-| reservationOrderId | 字串 | The reservation order for an Azure VM Reserved Instance. |
-| reservationId | 字串 | Reserved instances under a specific RI order. |
-| serviceType | 字串 | Indicates the virtual machine type. For example, Standard_E4s_v3. |
-| quantity | 長整數 | Indicates the numbers used in the meter unit. |
+| customerTenantId | 字串 | 客戶租使用者識別碼。 |
+| customerName | 字串 | 客戶名稱。 |
+| 訂閱 | 字串 | 訂用帳戶識別碼。 |
+| subscriptionName | 字串 | 訂用帳戶名稱。 |
+| usageDate | 字串 | 使用日期。 |
+| resourceLocation | 字串 | 資料中心的位置，例如西歐。 |
+| MeterCategory | 字串 | 計量分類，例如 [資料管理]。 |
+| meterSubcategory | 字串 | 「計量子類別」，例如「異地多餘」。 |
+| meterUnit | 字串 | 計量單位，例如 gb 或小時。 | 
+| reservationOrderId | 字串 | Azure VM 保留實例的保留順序。 |
+| reservationId | 字串 | 在特定 RI 訂單下的保留實例。 |
+| serviceType | 字串 | 表示虛擬機器類型。 例如，Standard_E4s_v3。 |
+| quantity | 長整數 | 指出計量單位中使用的數位。 |
 
 
-## <a name="span-idindirect_resellers_analyticsspan-idindirect_resellers_analyticsspan-idindirect_resellers_analyticscsp-program-indirect-resellers-analytics"></a><span id="Indirect_Resellers_Analytics"/><span id="indirect_resellers_analytics"/><span id="INDIRECT_RESELLERS_ANALYTICS"/>CSP program: indirect resellers analytics
+## <a name="span-idindirect_resellers_analyticsspan-idindirect_resellers_analyticsspan-idindirect_resellers_analyticscsp-program-indirect-resellers-analytics"></a><span id="Indirect_Resellers_Analytics"/><span id="indirect_resellers_analytics"/><span id="INDIRECT_RESELLERS_ANALYTICS"/>CSP 方案：間接轉銷商分析
 
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center indirect resellers analytics information.  
+下列案例示範如何流量分析 API 來抓取所有合作夥伴中心的間接轉售商分析資訊。  
 
-- [Get all indirect resellers analytics information](get-all-indirect-resellers-analytics.md)  
+- [取得所有間接轉售商分析資訊](get-all-indirect-resellers-analytics.md)  
 
-This scenario returns your analytics information in a collection of [indirect resellers](#indirect_resellers) resources. 
+此案例會在[間接轉售商](#indirect_resellers)資源的集合中傳回您的分析資訊。 
 
 
-## <a name="span-idindirect_resellersspan-idindirect_resellersspan-ididirect_resellersindirect-resellers-resource"></a><span id="Indirect_Resellers"/><span id="indirect_resellers"/><span id="IDIRECT_RESELLERS"/>Indirect resellers resource
+## <a name="span-idindirect_resellersspan-idindirect_resellersspan-ididirect_resellersindirect-resellers-resource"></a><span id="Indirect_Resellers"/><span id="indirect_resellers"/><span id="IDIRECT_RESELLERS"/>間接轉售商資源
 
-Represents all of the analytical data for indirect resellers.
+代表間接轉銷商的所有分析資料。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| partnerTenantId | 字串 | The Tenant ID of the partner for which you want to retrieve indirect resellers data. |
-| id | 字串 | Indirect reseller ID. |
-| name | 字串 | The Name of the partner for which you want to retrieve indirect resellers data. |
-| market | 字串 | The Market of the partner for which you want to retrieve indirect resellers data. |
-| firstSubscriptionCreationDate | string in UTC date time format | The creation date of the first subscription based on which you want to retrieve indirect resellers data. |
-| latestSubscriptionCreationDate | string in UTC date time format | The creation date of the latest subscription. |
-| firstSubscriptionEndDate | string in UTC date time format | First time any subscription was ended. |
-| latestSubscriptionEndDate | string in UTC date time format | Latest date when any subscription was ended. |
-| firstSubscriptionSuspendedDate | string in UTC date time format | First time any subscription was suspended. |
-| latestSubscriptionSuspendedDate | string in UTC date time format | Latest date when any subscription was suspended. |
-| firstSubscriptionDeprovisionedDate | string in UTC date time format | First time any subscription was deprovisioned. |
-| latestSubscriptionDeprovisionedDate | string in UTC date time format | Latest date when any subscription was deprovisioned. |
-| subscriptionCount | double | Subscription count for all value added resellers |
-| licenseCount | double | License count for all value added resellers |
-| indirectResellerCount | double | Indirect resellers count |
+| partnerTenantId | 字串 | 您要為其取得間接轉銷商資料之夥伴的租使用者識別碼。 |
+| id | 字串 | 間接轉銷商識別碼。 |
+| name | 字串 | 您要為其取得間接轉銷商資料的夥伴名稱。 |
+| market | 字串 | 您想要為其取得間接轉銷商資料的合作夥伴市場。 |
+| firstSubscriptionCreationDate | UTC 日期時間格式的字串 | 您要用來抓取間接轉銷商資料的第一個訂用帳戶建立日期。 |
+| latestSubscriptionCreationDate | UTC 日期時間格式的字串 | 最新訂用帳戶的建立日期。 |
+| firstSubscriptionEndDate | UTC 日期時間格式的字串 | 第一次結束任何訂用帳戶。 |
+| latestSubscriptionEndDate | UTC 日期時間格式的字串 | 任何訂閱結束時的最新日期。 |
+| firstSubscriptionSuspendedDate | UTC 日期時間格式的字串 | 第一次暫停任何訂用帳戶。 |
+| latestSubscriptionSuspendedDate | UTC 日期時間格式的字串 | 任何訂用帳戶暫止的最新日期。 |
+| firstSubscriptionDeprovisionedDate | UTC 日期時間格式的字串 | 第一次取消布建任何訂用帳戶。 |
+| latestSubscriptionDeprovisionedDate | UTC 日期時間格式的字串 | 取消布建任何訂用帳戶的最新日期。 |
+| subscriptionCount | double | 所有增值轉銷商的訂用帳戶計數 |
+| licenseCount | double | 所有增值轉銷商的授權計數 |
+| indirectResellerCount | double | 間接轉銷商計數 |
 
 
-## <a name="span-idsubscription_analyticsspan-idsubscription_analyticsspan-idsubscription_analyticscsp-program-subscription-analytics"></a><span id="Subscription_Analytics"/><span id="subscription_analytics"/><span id="SUBSCRIPTION_ANALYTICS"/>CSP program: subscription analytics
+## <a name="span-idsubscription_analyticsspan-idsubscription_analyticsspan-idsubscription_analyticscsp-program-subscription-analytics"></a><span id="Subscription_Analytics"/><span id="subscription_analytics"/><span id="SUBSCRIPTION_ANALYTICS"/>CSP 方案：訂閱分析
 
-The following scenarios show you how to use the Analytics API to retrieve all your Partner Center subscription analytics information, filter it with a search query, or group it by dates or terms.  
+下列案例示範如何流量分析 API 來抓取您所有的合作夥伴中心訂用帳戶分析資訊、使用搜尋查詢進行篩選，或依日期或詞彙將它分組。  
 
-- [Get all subscription analytics information](get-all-subscription-analytics.md)  
-- [Get subscription analytics information filtered by a search query](get-subscription-analytics-by-search-query.md)  
-- [Get subscription analytics information grouped by dates or terms](get-subscription-analytics-grouped-by-dates-or-terms.md)  
+- [取得所有訂用帳戶分析資訊](get-all-subscription-analytics.md)  
+- [取得搜尋查詢所篩選的訂用帳戶分析資訊](get-subscription-analytics-by-search-query.md)  
+- [取得依日期或詞彙分組的訂用帳戶分析資訊](get-subscription-analytics-grouped-by-dates-or-terms.md)  
 
-All of these scenarios return your analytics information in a collection of [Subscription](#subscription) resources. 
-
-
-## <a name="span-idsubscriptionspan-idsubscriptionspan-idsubscriptionsubscription-resource"></a><span id="Subscription"/><span id="subscription"/><span id="SUBSCRIPTION"/>Subscription resource
+所有這些案例都會在[訂](#subscription)用帳戶資源的集合中傳回您的分析資訊。 
 
 
-Represents all of the analytical data for a subscription.
+## <a name="span-idsubscriptionspan-idsubscriptionspan-idsubscriptionsubscription-resource"></a><span id="Subscription"/><span id="subscription"/><span id="SUBSCRIPTION"/>訂用帳戶資源
 
 
-|         屬性          |              在工作列搜尋方塊中輸入              |                                                                      說明                                                                       |
+表示訂用帳戶的所有分析資料。
+
+
+|         屬性          |              類型              |                                                                      描述                                                                       |
 |---------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     customerTenantId      |             字串             |                                              A GUID-formatted string that identifies the customer tenant.                                              |
-|       customerName        |             字串             |                                                               The name of the customer.                                                                |
-|      customerMarket       |             字串             |                                                 The country/region that the customer does business in.                                                 |
-|            id             |             字串             |                                                              The subscription identifier.                                                              |
-|          狀態           |             字串             |                                          The subscription status: "ACTIVE", "SUSPENDED", or "DEPROVISIONED".                                           |
+|     customerTenantId      |             字串             |                                              GUID 格式的字串，可識別客戶租使用者。                                              |
+|       customerName        |             字串             |                                                               客戶的名稱。                                                                |
+|      customerMarket       |             字串             |                                                 客戶執行業務的國家/地區。                                                 |
+|            id             |             字串             |                                                              訂用帳戶識別碼。                                                              |
+|          status           |             字串             |                                          訂用帳戶狀態：「作用中」、「已暫停」或「取消布建」。                                           |
 |        productName        |             字串             |                                                                產品的名稱。                                                                |
-|     subscriptionType      |             字串             |       The subscription type. **Note**: This field is case sensitive. Supported values are: "Office", "Azure", "Microsoft365", "Dynamics", "EMS".       |
-|     autoRenewEnabled      |            boolean             |                                         A value indicating whether the subscription is renewed automatically.                                          |
-|         partnerId         |             字串             | The MPN ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |
-|       friendlyName        |             字串             |                                                             The name of the subscription.                                                              |
-|        partnerName        |             字串             |                                              Name of the partner for whom the subscription was purchased                                               |
-|       providerName        |             字串             |            When subscription transaction is for the indirect reseller, provider name is the indirect provider who bought the subscription.             |
-|    effectiveStartDate     | string in UTC date time format |                                                           The date the subscription starts.                                                            |
-|     commitmentEndDate     | string in UTC date time format |                                                            The date the subscription ends.                                                             |
-|    currentStateEndDate    | string in UTC date time format |                                           The date that the current status of the subscription will change.                                            |
-| trialToPaidConversionDate | string in UTC date time format |                                 The date that the subscription converts from trial to paid. The default value is null.                                 |
-|      trialStartDate       | string in UTC date time format |                                The date that the trial period for the subscription started. The default value is null.                                 |
-|       trialEndDate        | string in UTC date time format |                                  The date that the trial period for the subscription ends. The default value is null.                                  |
-|       lastUsageDate       | string in UTC date time format |                                        The date that the subscription was last used. The default value is null.                                        |
-|     deprovisionedDate     | string in UTC date time format |                                      The date that the subscription was deprovisioned. The default value is null.                                      |
-|      lastRenewalDate      | string in UTC date time format |                                       The date that the subscription was last renewed The default value is null.                                       |
-|       licenseCount        |             數目             |                                                             The total number of licenses.                                                              |
-|     subscriptionCount     |             數目             |                        The number of subscriptions. Note: This value will only appear in the response of an aggregation query.                         |
+|     subscriptionType      |             字串             |       訂用帳戶類型。 **注意**：此欄位會區分大小寫。 支援的值為： "Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS"。       |
+|     autoRenewEnabled      |            布林值             |                                         值，指出是否自動更新訂用帳戶。                                          |
+|         partnerId         |             字串             | MPN 識別碼。 若為直接轉銷商，這會是合作夥伴的 MPN 識別碼。 若為間接轉銷商，這將是間接轉銷商的 MPN 識別碼。 |
+|       friendlyName        |             字串             |                                                             訂用帳戶的名稱。                                                              |
+|        partnerName        |             字串             |                                              購買訂閱之夥伴的名稱                                               |
+|       providerName        |             字串             |            若為間接轉銷商的訂閱交易，提供者名稱就是購買訂閱的間接提供者。             |
+|    RateplaNcharge.effectivestartdate     | UTC 日期時間格式的字串 |                                                           訂用帳戶開始的日期。                                                            |
+|     commitmentEndDate     | UTC 日期時間格式的字串 |                                                            訂閱結束的日期。                                                             |
+|    currentStateEndDate    | UTC 日期時間格式的字串 |                                           訂用帳戶的目前狀態將會變更的日期。                                            |
+| trialToPaidConversionDate | UTC 日期時間格式的字串 |                                 訂用帳戶從試用版轉換成付費的日期。 預設值為 null。                                 |
+|      trialStartDate       | UTC 日期時間格式的字串 |                                訂用帳戶的試用期開始日期。 預設值為 null。                                 |
+|       trialEndDate        | UTC 日期時間格式的字串 |                                  訂用帳戶試用期結束的日期。 預設值為 null。                                  |
+|       lastUsageDate       | UTC 日期時間格式的字串 |                                        上次使用訂用帳戶的日期。 預設值為 null。                                        |
+|     deprovisionedDate     | UTC 日期時間格式的字串 |                                      取消布建訂用帳戶的日期。 預設值為 null。                                      |
+|      lastRenewalDate      | UTC 日期時間格式的字串 |                                       上次更新訂用帳戶的日期，預設值為 null。                                       |
+|       licenseCount        |             數字             |                                                             授權總數。                                                              |
+|     subscriptionCount     |             數字             |                        訂閱數目。 注意：此值只會出現在匯總查詢的回應中。                         |
 
-## <a name="span-idsearch_analyticsspan-idsearch_analyticsspan-idsearch_analyticssearch-analytics"></a><span id="Search_Analytics"/><span id="search_analytics"/><span id="SEARCH_ANALYTICS"/>Search analytics
+## <a name="span-idsearch_analyticsspan-idsearch_analyticsspan-idsearch_analyticssearch-analytics"></a><span id="Search_Analytics"/><span id="search_analytics"/><span id="SEARCH_ANALYTICS"/>搜尋分析
 
 > [!NOTE]  
-> CSP program membership is not required to get search analytics.
+> 不需要 CSP 方案成員資格就能取得搜尋分析。
 
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center search analytics information.  
+下列案例示範如何流量分析 API 來取得您所有的合作夥伴中心搜尋分析資訊。  
 
-- [Get all search analytics information](get-all-search-analytics.md)  
+- [取得所有搜尋分析資訊](get-all-search-analytics.md)  
 
-This scenario returns your analytics information in a collection of [Search](#search_resource) resources. 
+此案例會在[搜尋](#search_resource)資源的集合中傳回您的分析資訊。 
 
 
-## <a name="span-idsearch_resourcespan-idsearch_resourcespan-idsearch_resourcesearch-resource"></a><span id="Search_Resource"/><span id="search_resource"/><span id="SEARCH_RESOURCE"/>Search resource
+## <a name="span-idsearch_resourcespan-idsearch_resourcespan-idsearch_resourcesearch-resource"></a><span id="Search_Resource"/><span id="search_resource"/><span id="SEARCH_RESOURCE"/>搜尋資源
 
-Represents all of the analytical data for a search.
+表示搜尋的所有分析資料。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |  
+| 屬性 | 類型 | 描述 |  
 |----------|------|-------------|  
-| companyName | 字串 | The billing company name. |
-| contactButtonClicked | 布林值 | Indicates if the contact button was clicked. |
-| keywordCountry | 字串 | The country specified in the search. |
-| detailsViewed | 布林值 | Indicates if search details were viewed. |
-| keywordIndustryFocus | 字串 | The industry to search within, for example, healthcare. |
-| mpnId | 字串 | The Microsoft Partner Network (MPN) ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |
-| partnerMarket | 字串 | Locale where the partner conducts business. |
-| keywordProduct | 字串 | The product specified in the search. |
-| referralSubmitted | 布林值 | Indicates if a referral was submitted. |
-| searchDate | string in UTC date time format | Date when the search query occurred. |
-| keywordSearchText | 字串 | The text specified in the search. |
-| searchResultPageViews | 長整數 | Number of times the partner came up in the search result. Part of a response only on aggregation.
-| contactClicks | 長整數 | Number of times the contact button was clicked. Part of a response only on aggregation.
-| referralCount | 長整數 | Number of referrals generated from the search. Part of a response only on aggregation.
-| profileViews | 長整數 | Number of times the partner profile was viewed. Part of a response only on aggregation.
+| 公司 | 字串 | 帳單公司名稱。 |
+| contactButtonClicked | 布林值 | 指出是否已按下 [連絡人] 按鈕。 |
+| keywordCountry | 字串 | 搜尋中指定的國家/地區。 |
+| detailsViewed | 布林值 | 指出是否已查看搜尋詳細資料。 |
+| keywordIndustryFocus | 字串 | 要在其中進行搜尋的產業，例如醫療保健。 |
+| mpnId | 字串 | Microsoft 合作夥伴網路（MPN）識別碼。 若為直接轉銷商，這會是合作夥伴的 MPN 識別碼。 若為間接轉銷商，這將是間接轉銷商的 MPN 識別碼。 |
+| partnerMarket | 字串 | 合作夥伴開展業務的地區設定。 |
+| keywordProduct | 字串 | 搜尋中指定的產品。 |
+| referralSubmitted | 布林值 | 指出是否已提交參照。 |
+| searchDate | UTC 日期時間格式的字串 | 搜尋查詢的發生日期。 |
+| keywordSearchText | 字串 | 搜尋中指定的文字。 |
+| searchResultPageViews | 長整數 | 合作夥伴在搜尋結果中的次數。 只有在匯總時才會包含回應的一部分。
+| contactClicks | 長整數 | 按一下 [連絡人] 按鈕的次數。 只有在匯總時才會包含回應的一部分。
+| referralCount | 長整數 | 從搜尋產生的參考數目。 只有在匯總時才會包含回應的一部分。
+| profileViews | 長整數 | 夥伴設定檔的查看次數。 只有在匯總時才會包含回應的一部分。
 
 
-## <a name="span-idreferral_analyticsspan-idreferral_analyticsspan-idreferral_analyticsreferrals-analytics"></a><span id="Referral_Analytics"/><span id="referral_analytics"/><span id="REFERRAL_ANALYTICS"/>Referrals analytics
-
-> [!NOTE]  
-> CSP program membership is not required to get referrals analytics.
-
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center referrals analytics information.  
-
-- [Get all referrals analytics information](get-all-referrals-analytics.md)  
-
-This scenario returns your analytics information in a collection of [Referrals](#referrals) resources. 
+## <a name="span-idreferral_analyticsspan-idreferral_analyticsspan-idreferral_analyticsreferrals-analytics"></a><span id="Referral_Analytics"/><span id="referral_analytics"/><span id="REFERRAL_ANALYTICS"/>的參考分析
 
 > [!NOTE]  
-> Referrals analytics are not available to the Partner Center operated by 21Vianet. 
+> 不需要 CSP 方案成員資格即可取得參考分析。
+
+下列案例示範如何流量分析 API 來抓取所有合作夥伴中心的參考分析資訊。  
+
+- [取得所有推薦的分析資訊](get-all-referrals-analytics.md)  
+
+此案例會在[參考](#referrals)資源的集合中傳回您的分析資訊。 
+
+> [!NOTE]  
+> 由世紀營運的合作夥伴中心無法使用 [參考分析]。 
 
 
-## <a name="span-idreferralsspan-idreferralsspan-idreferralsreferrals-resource"></a><span id="Referrals"/><span id="referrals"/><span id="REFERRALS"/>Referrals resource
+## <a name="span-idreferralsspan-idreferralsspan-idreferralsreferrals-resource"></a><span id="Referrals"/><span id="referrals"/><span id="REFERRALS"/>參考資源
 
-Represents all of the analytical data for a referral.
+代表參考的所有分析資料。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| id | 字串 | The customer tenant identifier.  |
-| 狀態 | 字串 | Indicates if the referral led to a customer.  |
-| customerMarket | 字串 | The country/region that the customer does business in. |
-| customerName | 字串 | The name of the customer. |
-| customerOrgSize | 字串 | A range indicating the number of employees in the customer's organization. For example, "10to50employees". |
-| acceptedDate | string in UTC date time format | The date that the referral was accepted. |
-| acknowledgedDate | string in UTC date time format | The date that the referral was acknowledged. |
-| archivedDate | string in UTC date time format | The date that the referral was archived. |
-| declinedDate | string in UTC date time format | The date that the referral was declined. |
-| expiredDate | string in UTC date time format | The date that the referral expired. |
-| lostDate | string in UTC date time format | The date that the referral was lost. |
-| missedDate | string in UTC date time format | The date that the referral was missed. |
-| createdDate | string in UTC date time format | The date that the referral was created. |
-| skippedDate | string in UTC date time format | The date that the referral was skipped. |
-| wonDate | string in UTC date time format | The date that the referral was won. |
-| partnerMarket | 字串 |  The country/region that the partner does business in. |  
+| id | 字串 | 客戶租使用者識別碼。  |
+| status | 字串 | 指出參考是否導致客戶。  |
+| customerMarket | 字串 | 客戶執行業務的國家/地區。 |
+| customerName | 字串 | 客戶的名稱。 |
+| customerOrgSize | 字串 | 範圍，指出客戶組織中的員工數目。 例如，"10to50employees"。 |
+| acceptedDate | UTC 日期時間格式的字串 | 接受參考的日期。 |
+| acknowledgedDate | UTC 日期時間格式的字串 | 認可參考的日期。 |
+| archivedDate | UTC 日期時間格式的字串 | 封存參考的日期。 |
+| declinedDate | UTC 日期時間格式的字串 | 拒絕參考的日期。 |
+| expiredDate | UTC 日期時間格式的字串 | 參考到期的日期。 |
+| lostDate | UTC 日期時間格式的字串 | 遺漏參考的日期。 |
+| missedDate | UTC 日期時間格式的字串 | 遺漏參考的日期。 |
+| createdDate | UTC 日期時間格式的字串 | 建立參考的日期。 |
+| skippedDate | UTC 日期時間格式的字串 | 略過參考的日期。 |
+| wonDate | UTC 日期時間格式的字串 | 進行參照的日期。 |
+| partnerMarket | 字串 |  合作夥伴經營業務的國家/地區。 |  

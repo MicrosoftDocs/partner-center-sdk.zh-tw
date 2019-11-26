@@ -1,6 +1,6 @@
 ---
-title: Verify an indirect reseller's Microsoft Partner Agreement signing status
-description: You can use the AgreementStatus API to verify whether an indirect reseller has signed the Microsoft Partner Agreement.
+title: 確認間接轉銷商的 Microsoft 合作夥伴合約簽署狀態
+description: 您可以使用 AgreementStatus API 來驗證間接轉銷商是否已簽署 Microsoft 合作夥伴合約。
 ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,48 +12,48 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487708"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Verify an indirect reseller's Microsoft Partner Agreement signing status
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>確認間接轉銷商的 Microsoft 合作夥伴合約簽署狀態
 
 適用於：
 
 * 合作夥伴中心
 * Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You can verify whether an indirect reseller has signed the Microsoft Partner Agreement using their Microsoft Partner Network (MPN) ID or Cloud Solution Provider (CSP) tenant ID (Microsoft ID). You can use one of these identifiers to check the Microsoft Partner Agreement signing status using the **AgreementStatus** API.
+您可以使用其 Microsoft 合作夥伴網路（MPN）識別碼或雲端解決方案提供者（CSP）租使用者識別碼（Microsoft ID），確認間接轉銷商是否已簽署 Microsoft 合作夥伴合約。 您可以使用其中一個識別碼，以使用**AgreementStatus** API 來檢查 Microsoft 合作夥伴合約簽署狀態。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-* The MPN ID or the CSP tenant ID (Microsoft ID) of the indirect reseller. *You must use one of these two identifiers.*
+* 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+* 間接轉銷商的 MPN 識別碼或 CSP 租使用者識別碼（Microsoft ID）。 *您必須使用這兩個識別碼的其中一個。*
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI |
 | ------ | ----------- |
-| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId} |
+| **獲取** | *[{baseURL}](partner-center-rest-urls.md)* /V1/compliance/{ProgramName}/agreementstatus？ mpnId = {mpnId} & tenantId = {tenantId} |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
-You must provide one of the following two query parameters to identify the partner. If you don't provide one of these two query parameters, you will receive a **400 (Bad request)** error.
+您必須提供下列兩個查詢參數的其中一個，以識別合作夥伴。 如果您未提供這兩個查詢參數的其中一個，則會收到**400 （不正確的要求）** 錯誤。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名稱 | 類型 | 必要 | 描述 |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | 整數 | 無 | A Microsoft Partner Network ID that identifies the indirect reseller. |
-| **TenantId** | GUID | 無 | A Microsoft ID that identifies the CSP account of the indirect reseller. |
+| **MpnId** | 整數 | 否 | 識別間接轉銷商的 Microsoft 合作夥伴網路識別碼。 |
+| **TenantId** | GUID | 否 | 識別間接轉銷商 CSP 帳戶的 Microsoft 識別碼。 |
 
 #### <a name="request-headers"></a>要求標頭
 
-For more information, see [Partner Center REST headers](https://docs.microsoft.com/en-us/partner-center/develop/headers).
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](https://docs.microsoft.com/en-us/partner-center/develop/headers)。
 
 #### <a name="request-examples"></a>要求範例
 
-##### <a name="request-using-mpn-id"></a>Request using MPN ID
+##### <a name="request-using-mpn-id"></a>使用 MPN 識別碼的要求
 
-The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's Microsoft Partner Network ID.
+下列範例要求會使用間接轉銷商的 Microsoft 合作夥伴網路識別碼，取得間接轉銷商的 Microsoft 合作夥伴合約簽署狀態。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -65,9 +65,9 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="request-using-csp-tenant-id"></a>Request using CSP tenant ID
+##### <a name="request-using-csp-tenant-id"></a>使用 CSP 租使用者識別碼的要求
 
-The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's CSP tenant ID (Microsoft ID).
+下列範例要求會使用間接轉銷商的 CSP 租使用者識別碼（Microsoft ID），來取得間接轉銷商的 Microsoft 合作夥伴合約簽署狀態。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -79,15 +79,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](https://docs.microsoft.com/en-us/partner-center/develop/error-codes).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](https://docs.microsoft.com/en-us/partner-center/develop/error-codes)。
 
-#### <a name="response-example-success"></a>Response example (success)
+#### <a name="response-example-success"></a>回應範例（成功）
 
-The following example response successfully returns whether the indirect reseller has signed the Microsoft Partner Agreement.
+下列範例回應會成功傳回間接轉銷商是否已簽署 Microsoft 合作夥伴合約。
 
 ```http
 HTTP/1.1 200 OK
@@ -104,13 +104,13 @@ Connection: close
 }
 ```
 
-#### <a name="response-examples-failure"></a>Response examples (failure)
+#### <a name="response-examples-failure"></a>回應範例（失敗）
 
-You may receive responses similar to the following examples when the signing status of the indirect reseller's Microsoft Partner Agreement can't be returned.
+當間接轉銷商的 Microsoft 合作夥伴合約的簽署狀態無法傳回時，您可能會收到與下列範例類似的回應。
 
-##### <a name="non-guid-formatted-csp-tenant-id"></a>Non-GUID formatted CSP tenant ID
+##### <a name="non-guid-formatted-csp-tenant-id"></a>非 GUID 格式的 CSP 租使用者識別碼
 
-The following example response is returned when the CSP tenant ID that you passed to the API is not a GUID.
+當您傳遞至 API 的 CSP 租使用者識別碼不是 GUID 時，會傳回下列範例回應。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -130,9 +130,9 @@ Connection: close
 }
 ```
 
-##### <a name="non-numeric-mpn-id"></a>Non-numeric MPN ID
+##### <a name="non-numeric-mpn-id"></a>非數值 MPN 識別碼
 
-The following example response is returned when the MPN ID that you passed to the API is non-numeric.
+當您傳遞至 API 的 MPN 識別碼不是數位時，會傳回下列範例回應。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -152,9 +152,9 @@ Connection: close
 }
 ```
 
-##### <a name="no-mpn-id-or-csp-tenant-id"></a>No MPN ID or CSP tenant ID
+##### <a name="no-mpn-id-or-csp-tenant-id"></a>沒有 MPN 識別碼或 CSP 租使用者識別碼
 
-The following example response is returned when you haven't passed an MPN ID or CSP tenant ID to the API. You must pass one of the two ID types to the API.
+當您未將 MPN ID 或 CSP 租使用者識別碼傳遞給 API 時，會傳回下列範例回應。 您必須將這兩個識別碼類型的其中一個傳遞給 API。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -174,9 +174,9 @@ Connection: close
 }
 ```
 
-##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>Both MPN ID and CSP tenant ID passed
+##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>已傳遞 MPN 識別碼和 CSP 租使用者識別碼
 
-The following example response is returned when you pass both the MPN ID and CSP tenant ID to the API. You must pass *only one* of the two identifier types to the API.
+當您將 MPN ID 和 CSP 租使用者識別碼同時傳遞給 API 時，會傳回下列範例回應。 您必須只將這兩個識別碼類型*之一*傳遞給 API。
 
 ```http
 HTTP/1.1 400 Bad Request

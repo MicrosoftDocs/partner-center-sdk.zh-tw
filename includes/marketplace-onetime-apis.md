@@ -1,3 +1,3 @@
-*Except for bug fixes, this API is no longer being updated.* You should update your applications to call the **onetime** API instead of **marketplace**. The **onetime** API provides additional functionality, and will continue to be updated.
+*除了錯誤修正之外，此 API 也不會再更新。* 您應該更新應用程式來呼叫**onetime** API，而不是**marketplace**。 **Onetime** API 提供額外的功能，並會繼續更新。
 
-You should use **onetime** to query all commercial consumption line items instead of **marketplace**. Or, you can follow the links in the estimate links call.
+您應該使用**onetime**來查詢所有的商業耗用量明細專案，而不是**marketplace**。 或者，您可以遵循評估連結呼叫中的連結。

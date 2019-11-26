@@ -1,6 +1,6 @@
 ---
 title: 指派授權給使用者
-description: How to assign licenses to a customer user.
+description: 如何將授權指派給客戶使用者。
 ms.assetid: 872C7444-DF89-4EB5-8C1E-1D8E2934A40E
 ms.date: 10/11/2019
 ms.service: partner-dashboard
@@ -19,37 +19,37 @@ ms.locfileid: "74489188"
 
 - 合作夥伴中心
 
-How to assign licenses to a customer user.
+如何將授權指派給客戶使用者。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier. The customer should have a subscription with an available license to assign.
-- A customer user identifier. This identifies the user to whom to assign the license.
-- A product SKU identifier that identifies the product for the license.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼。 客戶應具有可指派授權的訂用帳戶。
+- 客戶的使用者識別碼。 這會識別要指派授權的使用者。
+- 識別授權產品的產品 SKU 識別碼。
 
-## <a name="assigning-licenses-through-code"></a>Assigning licenses through code
+## <a name="assigning-licenses-through-code"></a>透過程式碼指派授權
 
-When you assign licenses to a user you must choose from the customer's collection of subscribed SKUs. Then, having identified the products that you want to assign, you must obtain the product SKU ID for each product in order to make the assignments. Each [**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) instance contains a [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) property from which you can reference the [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) object and get the [**ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id).
+當您將授權指派給使用者時，您必須從客戶的已訂閱 Sku 集合中進行選擇。 然後，在識別出您要指派的產品之後，您必須取得每個產品的產品 SKU 識別碼，才能進行指派。 每個[**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku)實例都包含[**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku)屬性，您可以從中參考[**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku)物件並取得[**識別碼**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)。
 
-A license assignment request must contain licenses from a single license group. For example, you cannot assign licenses from [**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) and **Group2** in the same request. An attempt to assign licenses from more than one group in a single request will fail with an appropriate error. To find out what licenses are available by license group, see [Get a list of available licenses by license group](get-a-list-of-available-licenses-by-license-group.md).
+授權指派要求必須包含來自單一授權群組的授權。 例如，您無法在相同的要求中，從[**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)和**Group2**指派授權。 在單一要求中，嘗試從一個以上的群組指派授權將會失敗，並產生適當的錯誤。 若要瞭解授權群組可用的授權，請參閱[依授權群組取得可用的授權清單](get-a-list-of-available-licenses-by-license-group.md)。
 
-Here are the steps to assign licenses through code:
+以下是透過程式碼指派授權的步驟：
 
-1. Instantiate a [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) object. You use this object to specify the product SKU and service plans to assign.
+1. 具現化[**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)物件。 您可以使用此物件來指定要指派的產品 SKU 和服務方案。
 
     ``` csharp
     LicenseAssignment license = new LicenseAssignment();
     ```
 
-2. Populate the object properties as shown below. This code assumes that you already have the product SKU ID, and that all of the available service plans will be assigned (i.e. none will be excluded).
+2. 填入物件屬性，如下所示。 此程式碼假設您已經有產品 SKU 識別碼，而且將會指派所有可用的服務方案（亦即不會排除任何）。
   
     ```csharp
     license.SkuId = selectedProductSkuId;
     license.ExcludedPlans = null;
     ```
 
-3. If you don't have the product SKU ID, you need to retrieve the collection of subscribed SKUs and get the product SKU ID from one of them. Here is an example if you know the product SKU name.
+3. 如果您沒有產品 SKU 識別碼，則必須取出已訂閱的 Sku 集合，並從其中一個取得產品 SKU 識別碼。 如果您知道產品 SKU 名稱，以下是範例。
 
     ```csharp
     var customerSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
@@ -58,21 +58,21 @@ Here are the steps to assign licenses through code:
     license.ExcludedPlans = null;
     ```
 
-4. Next, instantiate a new list of type [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment), and add the license object. You can assign more than one license by adding each individually to the list. The licenses included in this list must be from the same license group.
+4. 接下來，將[**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)類型的新清單具現化，並新增授權物件。 您可以將每個授權分別新增至清單，以指派多個授權。 此清單中包含的授權必須來自相同的授權群組。
 
     ```csharp
     List<LicenseAssignment> licenseList = new List<LicenseAssignment>();
     licenseList.Add(license);
     ```
 
-5. Create a [**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) instance and assign the list of license assignments to the [**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) property.
+5. 建立[**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate)實例，並將授權指派清單指派給[**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)屬性。
 
     ```csharp
     LicenseUpdate updateLicense = new LicenseUpdate();
     updateLicense.LicensesToAssign = licenseList;
     ```
 
-6. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) method and pass the license update object as shown below to assign the licenses.
+6. 呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync)方法，並傳遞如下所示的授權更新物件來指派授權。
 
     ```csharp
     var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
@@ -80,11 +80,11 @@ Here are the steps to assign licenses through code:
 
 ## <a name="c"></a>C\#
 
-To assign a license to a customer user, first instantiate a [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) object, and populate the [**Skuid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) and [**ExcludedPlans**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) properties. You use this object to specify the product SKU to assign and service plans to exclude. Next, instantiate a new list of type **LicenseAssignment**, and add the license object to the list. Then create a [**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) instance and assign the list of license assignments to the [**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) property.
+若要將授權指派給客戶使用者，請先將[**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)物件具現化，並填入[**Skuid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid)和[**ExcludedPlans**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans)屬性。 您可以使用此物件來指定要指派的產品 SKU，以及要排除的服務方案。 接下來，將**LicenseAssignment**類型的新清單具現化，並將授權物件新增至清單。 然後建立[**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate)實例，並將授權指派清單指派給[**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)屬性。
 
-Next, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the user ID to identify the user. Then get an interface to customer user license update operations from the [**LicenseUpdates**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates) property.
+接下來，使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶，並搭配使用[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法和使用者識別碼來識別使用者。 然後從[**LicenseUpdates**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates)屬性取得客戶使用授權更新作業的介面。
 
-Finally, call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) method and pass the license update object to assign the license.
+最後，呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync)方法，並傳遞授權更新物件來指派授權。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -109,7 +109,7 @@ updateLicense.LicensesToAssign = licenseList;
 var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CustomerUserAssignLicenses.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CustomerUserAssignLicenses.cs
 
 ## <a name="request"></a>要求
 
@@ -117,26 +117,26 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 | 方法   | 要求 URI                                                                                                    |
 |----------|----------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-Use the following path parameters to identify the customer and user.
+使用下列 path 參數來識別客戶和使用者。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                       |
+| 名稱        | 類型   | 必要 | 描述                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| customer-id | 字串 | [是]      | A GUID formatted ID that identifies the customer. |
-| user-id     | 字串 | [是]      | A GUID formatted ID that identifies the user.     |
+| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式識別碼。 |
+| user-id     | 字串 | 是      | 識別使用者的 GUID 格式化識別碼。     |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-You must include a [LicenseUpdate](license-resources.md#licenseupdate) resource in the request body that specifies the licenses to assign.
+您必須在要求主體中包含[LicenseUpdate](license-resources.md#licenseupdate)資源，以指定要指派的授權。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/users/554526aa-cf5e-46fa-95df-98dbc55d8a1e/licenseupdates HTTP/1.1
@@ -165,15 +165,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST Response
+## <a name="rest-response"></a>REST 回應
 
-If successful, an HTTP response status code 201 is returned and the response body contains a [LicenseUpdate](license-resources.md#licenseupdate) resource with the license information.
+如果成功，則會傳回 HTTP 回應狀態碼201，且回應主體會包含具有授權資訊的[LicenseUpdate](license-resources.md#licenseupdate)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-### <a name="response-example-success"></a>Response example (success)
+### <a name="response-example-success"></a>回應範例（成功）
 
 ```http
 HTTP/1.1 201 Created
@@ -197,7 +197,7 @@ Date: Thu, 20 Apr 2017 21:50:39 GMT
 }
 ```
 
-### <a name="response-example-license-is-not-available"></a>Response example (license is not available)
+### <a name="response-example-license-is-not-available"></a>回應範例（授權無法使用）
 
 ```http
 HTTP/1.1 400 Bad Request

@@ -1,6 +1,6 @@
 ---
-title: Order resources
-description: A partner places an order when a customer wants to buy a subscription from a list of offers.
+title: 訂單資源
+description: 當客戶想要從供應專案清單購買訂用帳戶時，合作夥伴會進行訂單。
 ms.assetid: 5CFA35FF-1C0D-461D-A942-309AFCD98395
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488268"
 ---
-# <a name="order-resources"></a>Order resources
+# <a name="order-resources"></a>訂單資源
 
 適用於：
 
@@ -22,103 +22,103 @@ ms.locfileid: "74488268"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-A partner places an order when a customer wants to buy a subscription from a list of offers.
+當客戶想要從供應專案清單購買訂用帳戶時，合作夥伴會進行訂單。
 
 >[!NOTE]
->The Order resource has a rate limit of 500 requests per minute per tenant identifier.
+>訂單資源的速率限制為每個租使用者識別碼每分鐘500個要求。
 
 ## <a name="order"></a>順序
 
-Describes a partner's order.
+描述合作夥伴的訂單。
 
-| 屬性           | 在工作列搜尋方塊中輸入                                               | 說明                                                 |
+| 屬性           | 類型                                               | 描述                                                 |
 |--------------------|----------------------------------------------------|-------------------------------------------------------------|
-| id                 | 字串                                             | An order identifier that is supplied upon successful creation of the order.                                   |
-| alternateId        | 字串                                             | A friendly identifier for the order.                                                                          |
-|referenceCustomerId | 字串                                             | The customer identifier. |
-| billingCycle       | 字串                                             | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype). The default is "Monthly" or "OneTime" at order creation. This field is applied upon successful creation of the order. |
-| transactionType    | 字串                                             | Read-only. The transaction type of the order. Supported values are 'UserPurchase', 'SystemPurchase', or 'SystemBilling' |
-| lineItems          | array of [OrderLineItem](#orderlineitem) resources | An itemized list of the offers the customer is purchasing including the quantity.        |
-| currencyCode       | 字串                                             | Read-only. The currency used when placing the order. Applied upon successful creation of the order.           |
-| currencySymbol     | 字串                                             | Read-only. The currency symbol assciated with the currency code. |
-| creationDate       | datetime                                           | Read-only. The date the order was created, in date-time format. Applied upon successful creation of the order.                                   |
-| 狀態             | 字串                                             | Read-only. The status of the order.  Supported values are the member names found in [**OrderStatus**](#orderstatus).        |
-| links              | [OrderLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the Order.            |
-| 屬性         | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the Order.       |
+| id                 | 字串                                             | 成功建立訂單時所提供的訂單識別碼。                                   |
+| 替代識別碼        | 字串                                             | 訂單的易記識別碼。                                                                          |
+|ReferenceCustomerId | 字串                                             | 客戶識別碼。 |
+| billingCycle       | 字串                                             | 指出此訂單的夥伴計費頻率。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱。 預設值為「每月」或「OneTime」建立順序。 此欄位會在成功建立訂單時套用。 |
+| transactionType    | 字串                                             | 唯讀。 訂單的交易類型。 支援的值為 ' UserPurchase '、' SystemPurchase ' 或 ' SystemBilling ' |
+| LineItems          | [OrderLineItem](#orderlineitem)資源的陣列 | 客戶所購買供應專案的詳細清單，包括數量。        |
+| currencyCode       | 字串                                             | 唯讀。 放置訂單時使用的貨幣。 已在成功建立訂單時套用。           |
+| currencySymbol     | 字串                                             | 唯讀。 貨幣符號 assciated 與貨幣代碼。 |
+| CreationDate       | datetime                                           | 唯讀。 訂單的建立日期（採用日期時間格式）。 已在成功建立訂單時套用。                                   |
+| status             | 字串                                             | 唯讀。 訂單的狀態。  支援的值為在[**OrderStatus**](#orderstatus)中找到的成員名稱。        |
+| 相關              | [OrderLinks](utility-resources.md#resourcelinks)           | 對應至訂單的資源連結。            |
+| 屬性         | [ResourceAttributes](utility-resources.md#resourceattributes) | 對應至順序的中繼資料屬性。       |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
-An order contains an itemized list of offers, and each item is represented as an OrderLineItem.
+訂單包含供應專案的詳細清單，每個專案會以 OrderLineItem 表示。
 
-| 屬性             | 在工作列搜尋方塊中輸入                                      | 說明                                                                                                                                                                                                                                |
+| 屬性             | 類型                                      | 描述                                                                                                                                                                                                                                |
 |----------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | 整數                                       | Each line item in the collection gets a unique line number, counting up from 0 to count-1.                                                                                                                                                 |
-| offerId              | 字串                                    | The ID of the offer.                                                                                                                                                                                                                       |
-| subscriptionId       | 字串                                    | 訂閱的識別碼。                                                                                                                                                                                                                |
-| parentSubscriptionId | 字串                                    | 選用。 The ID of the parent subscription in an add-on offer. Applies to PATCH only.                                                                                                                                                     |
-| friendlyName         | 字串                                    | 選用。 The friendly name for the subscription defined by the partner to help disambiguate.                                                                                                                                              |
-| quantity             | 整數                                       | The number of licenses or instances.                                                                                                                                                                                |
-| termDuration         | 字串                                    | An ISO 8601 representation of the term's duration. The current supported values are **P1M** (1 month), **P1Y** (1 year) and **P3Y** (3 years).                               |
-| transactionType      | 字串                                    | Read-only. The transaction type of the line item. Supported Values are 'new', 'renew', 'addQuantity', 'removeQuantity', 'cancel', 'convert', or 'customerCredit'. |
-| partnerIdOnRecord    | 字串                                    | When an indirect provider places an order on behalf of an indirect reseller, populate this field with the MPN ID of the **indirect reseller only** (never the ID of the indirect provider). This ensures proper accounting for incentives. |
-| provisioningContext  | Dictionary<string, string>            | Information required for provisioning for some items in the catalog. The provisioningVariables property in a SKU indicates which properties are required for specific items in the catalog.                                                                                                                                               |
-| links                | [OrderLineItemLinks](#orderlineitemlinks) | Read-only. The resource links corresponding to the order line item.                                                                                                                                                                                |
-| renewsTo             | Array of objects                          | An array of [RenewsTo](#renewsto) resources.                                                                            |
+| LineItemNumber       | 整數                                       | 集合中的每個明細專案都會取得唯一的行號，從0計算到計數1。                                                                                                                                                 |
+| offerId              | 字串                                    | 供應專案的識別碼。                                                                                                                                                                                                                       |
+| 訂閱       | 字串                                    | 訂閱的識別碼。                                                                                                                                                                                                                |
+| ParentSubscriptionId | 字串                                    | 選用。 附加元件供應專案中父訂用帳戶的識別碼。 僅適用于 PATCH。                                                                                                                                                     |
+| friendlyName         | 字串                                    | 選用。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。                                                                                                                                              |
+| quantity             | 整數                                       | 授權或實例的數目。                                                                                                                                                                                |
+| termDuration         | 字串                                    | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）、 **P1Y** （1年）和**P3Y** （3年）。                               |
+| transactionType      | 字串                                    | 唯讀。 明細專案的交易類型。 支援的值為 [新增]、[更新]、[addQuantity]、[removeQuantity]、[取消]、[轉換] 或 [customerCredit]。 |
+| partnerIdOnRecord    | 字串                                    | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適當的獎勵會計。 |
+| provisioningCoNtext  | 字典 < 字串，字串 >            | 針對目錄中的某些專案布建所需的資訊。 SKU 中的 provisioningVariables 屬性會指出目錄中特定專案所需的屬性。                                                                                                                                               |
+| 相關                | [OrderLineItemLinks](#orderlineitemlinks) | 唯讀。 對應至訂單明細專案的資源連結。                                                                                                                                                                                |
+| RenewsTo             | 物件的陣列                          | [RenewsTo](#renewsto)資源的陣列。                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
 
-Represents one item contained in a order line item.
+表示訂單明細專案中包含的一個專案。
 
-| 屬性              | 在工作列搜尋方塊中輸入             | 必要        | 說明 |
+| 屬性              | 類型             | 必要        | 描述 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | 字串           | 無              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | 字串           | 否              | 續訂詞彙之持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。 |
 
 ## <a name="orderlinks"></a>OrderLinks
 
-Represents the resource links corresponding to the order.
+表示對應至訂單的資源連結。
 
-| 屬性           | 在工作列搜尋方塊中輸入                                         | 說明                                                                   |
+| 屬性           | 類型                                         | 描述                                                                   |
 |--------------------|----------------------------------------------|-------------------------------------------------------------------------------|
-| provisioningStatus | [連結](utility-resources.md#Link)            | When populated, the link to retrieve provisioning status for the order.       |
-| self               | [連結](utility-resources.md#Link)            | The link to retrieve the order resource.                                      |
+| provisioningStatus | [連結](utility-resources.md#Link)            | 填入時，用來抓取訂單布建狀態的連結。       |
+| 供電               | [連結](utility-resources.md#Link)            | 用來抓取訂單資源的連結。                                      |
 
 ## <a name="orderlineitemlinks"></a>OrderLineItemLinks
 
-Represents the full subscription associated with the order.
+表示與訂單相關聯的完整訂閱。
 
-| 屬性           | 在工作列搜尋方塊中輸入                                         | 說明                                                                          |
+| 屬性           | 類型                                         | 描述                                                                          |
 |--------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| provisioningStatus | [連結](utility-resources.md#Link)            | When populated, the link to retrieve the [provisioning status](#orderlineitemprovisioningstatus) of the line item.       |
-| sku                | [連結](utility-resources.md#Link)            | The link to retrieve SKU information for the catalog item bought.                    |
-| WIN ENT LTSB 2016 Korean 64 Bits       | [連結](utility-resources.md#Link)            | When populated, the link to the full subscription information.                       |
-| activationLinks    | [連結](utility-resources.md#Link)            | When populated, the GET resource for links to activate the subscription.             |
+| provisioningStatus | [連結](utility-resources.md#Link)            | 填入時，用來抓取行專案布建[狀態](#orderlineitemprovisioningstatus)的連結。       |
+| 限量                | [連結](utility-resources.md#Link)            | 用來取得已購買之類別目錄專案之 SKU 資訊的連結。                    |
+| 訂閱中       | [連結](utility-resources.md#Link)            | 填入完整訂閱資訊的連結。                       |
+| activationLinks    | [連結](utility-resources.md#Link)            | 填入時，為啟動訂閱的連結取得資源。             |
 
 ## <a name="orderstatus"></a>OrderStatus
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate the state of the order.
+具有值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)，指出訂單的狀態。
 
-| 值              | 位置     | 說明                                     |
+| 值              | 位置     | 描述                                     |
 |--------------------|--------------|-------------------------------------------------|
-| unknown            | 0            | Enum initializer.                               |
-| completed          | 1            | Indicates that the order is completed.          |
-| pending            | 2            | Indicates that the order is still pending.      |
-| cancelled          | 3            | Indicates that the order has been cancelled.    |
+| unknown            | 0            | 列舉初始化運算式。                               |
+| 好          | 1            | 表示訂單已完成。          |
+| 正在            | 2            | 表示訂單仍待決。      |
+| 取消          | 3            | 表示已取消訂單。    |
 
 ## <a name="orderlineitemprovisioningstatus"></a>OrderLineItemProvisioningStatus
 
-Represents the provisioning status of an [OrderLineItem](#orderlineitem).
+表示[OrderLineItem](#orderlineitem)的布建狀態。
 
-| 屬性                        | 在工作列搜尋方塊中輸入                                | 說明                                                                                |
+| 屬性                        | 類型                                | 描述                                                                                |
 |------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------|
-| lineItemNumber                  | 整數                                 | The unique line number of the order line item. Values range from 0 to count-1.             |
-| 狀態                          | 字串                              | The provisioning status of the order line item. Values include:</br>"Fulfilled": Fulfillment of the order is successfully completed and the user will be able to use the reservations</br>"Unfulfilled": Not fulfilled due to cancellation</br>"PrefulfillmentPending": Your request is still processing, fulfillment is not yet complete |
-| quantityProvisioningInformation | List<[QuantityProvisioningStatus](#quantityprovisioningstatus)> | A list of quantity provisioning status information for the order line item. |
+| LineItemNumber                  | 整數                                 | 訂單明細專案的唯一行號。 值的範圍從0到計數-1。             |
+| status                          | 字串                              | 訂單明細專案的布建狀態。 值包括：</br>「已滿足」：訂單的履行成功完成，使用者將能夠使用保留專案</br>「未執行」：因取消而未完成</br>"PrefulfillmentPending"：您的要求仍在處理中，履行尚未完成 |
+| quantityProvisioningInformation | 列出 <[QuantityProvisioningStatus](#quantityprovisioningstatus)> | 訂單明細專案的數量布建狀態資訊清單。 |
 
 ## <a name="quantityprovisioningstatus"></a>QuantityProvisioningStatus
 
-Represents the provisioning status by quantity.
+代表依數量的布建狀態。
 
-| 屬性                           | 在工作列搜尋方塊中輸入                                         | 說明                                          |
+| 屬性                           | 類型                                         | 描述                                          |
 |------------------------------------|----------------------------------------------|------------------------------------------------------|
-| quantity                           | 整數                                          | The number of items.                                 |
-| 狀態                             | 字串                                       | The status of the number of items.                   |
+| quantity                           | 整數                                          | 專案的數目。                                 |
+| status                             | 字串                                       | 專案數的狀態。                   |
