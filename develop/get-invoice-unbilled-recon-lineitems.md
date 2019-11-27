@@ -1,6 +1,6 @@
 ---
-title: Get invoice's unbilled reconciliation line items
-description: You can get a collection of unbilled reconciliation line item details for specified period using the Partner Center APIs.
+title: 取得發票的未開立帳單對帳明細專案
+description: 您可以使用合作夥伴中心 Api，取得指定期間的未開立帳單對帳明細專案詳細資料集合。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489338"
 ---
-# <a name="get-invoices-unbilled-reconciliation-line-items"></a>Get invoice's unbilled reconciliation line items
+# <a name="get-invoices-unbilled-reconciliation-line-items"></a>取得發票的未開立帳單對帳明細專案
 
 適用於：
 
@@ -21,34 +21,34 @@ ms.locfileid: "74489338"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You can use the following methods get a collection of details for unbilled invoice line items (also known as open billing line items).
+您可以使用下列方法取得未開立帳單發票明細專案（也稱為 open 帳務明細專案）的詳細資料集合。
 
 [!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An invoice identifier. This identifies the invoice for which to retrieve the line items.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 發票識別碼。 這會識別要取得其行專案的發票。
 
 ## <a name="c"></a>C\#
 
-To get the line items for the specified invoice, retrieve the invoice object:
+若要取得指定發票的明細專案，請取出 invoice 物件：
 
-1. Call the [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) method to get an interface to invoice operations for the specified invoice.
-2. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the invoice object.
+1. 呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)方法，取得指定發票的發票作業介面。
+2. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)方法，以取出發票物件。
 
-The invoice object contains all of the information for the specified invoice:
+Invoice 物件包含指定發票的所有資訊：
 
-- **Provider** identifies the source of the unbilled detail information (for example, **OneTime**).
-- **InvoiceLineItemType** specifies the type (for example, **BillingLineItem**).
+- **提供者**會識別未開立帳單詳細資訊的來源（例如**OneTime**）。
+- **InvoiceLineItemType**指定類型（例如**BillingLineItem**）。
 
-To get a collection of line items that correspond to an **InvoiceDetail** instance:
+若要取得對應至**InvoiceDetail**實例的明細專案集合：
 
-1. Pass the instance's BillingProvider and InvoiceLineItemType to the [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) method.
-2. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the associated line items.
-3. Create an enumerator to traverse the collection. For an example, see the following sample code.
+1. 將實例的 BillingProvider 和 InvoiceLineItemType 傳遞至[**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)方法。
+2. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)方法，以取出相關聯的明細專案。
+3. 建立列舉值以遍歷集合。 如需範例，請參閱下列範例程式碼。
 
-The following sample code uses a **foreach** loop to process the **InvoiceLineItems** collection. A separate collection of line items is retrieved for each **InvoiceLineItemType**.
+下列範例程式碼會使用**foreach**迴圈來處理**InvoiceLineItems**集合。 會針對每個**InvoiceLineItemType**抓取個別的明細專案集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -106,70 +106,70 @@ while (fetchNext)
 }
 ```
 
-For a similar example, see:
+如需類似的範例，請參閱：
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetUnBilledReconLineItemsPaging.cs**
+- 範例：[主控台測試應用程式](console-test-app.md)
+- 專案：**合作夥伴中心 SDK 範例**
+- 類別： **GetUnBilledReconLineItemsPaging.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
-You can use the following syntaxes for your REST request, depending on your use case. For more information, see the descriptions for each syntax.
+根據您的使用案例，您可以將下列語法用於 REST 要求。 如需詳細資訊，請參閱每個語法的說明。
 
- | 方法  | 要求 URI            | Description of syntax use case                                                                                |
+ | 方法  | 要求 URI            | 語法使用案例的描述                                                                                |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period} HTTP/1.1                              | Use this syntax to return a full list of every line item for the given invoice. |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1  | For large invoices, use this syntax with a specified size and 0-based offset to return a paged list of line items. |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next                               | Use this syntax to get the next page of reconciliation line items using `seekOperation = "Next"`. |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {PERIOD} HTTP/1。1                              | 使用此語法來傳回給定發票之每個明細專案的完整清單。 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {period} & size = {SIZE} HTTP/1。1  | 若為大型發票，請使用此語法搭配指定的大小和以0為基礎的位移，以傳回已分頁的明細專案清單。 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {period} & size = {size} & SeekOperation = Next                               | 使用此語法，以使用 `seekOperation = "Next"`取得下一頁的對帳明細專案。 |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
-Use the following URI and query parameters when creating the request.
+建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                     |
+| 名字                   | 類型   | 必要 | 說明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| invoice-id             | 字串 | [是]      | A string that identifies the invoice. Use 'unbilled' to get unbilled estimates. |
-| provider               | 字串 | [是]      | The provider: "OneTime".                                                |
-| invoice-line-item-type | 字串 | [是]      | The type of invoice detail: "BillingLineItems".               |
-| hasPartnerEarnedCredit | bool   | 無       | The value indicating if to return the line items with partner earned credit applied. Note: this parameter will be only applied when provider type is OneTime and InvoiceLineItemType is UsageLineItems.
-| currencyCode           | 字串 | [是]      | The currency code for the unbilled line items.                                  |
-| period                 | 字串 | [是]      | The period for unbilled recon. example: current, previous.                      |
-| size                   | 數目 | 無       | The maximum number of items to return. Default size is 2000                     |
-| seekOperation          | 字串 | 無       | Set seekOperation=Next to get the next page of recon line items.                |
+| 發票識別碼             | string | 是      | 識別發票的字串。 使用 ' 未開立帳單 ' 取得未開立帳單估計值。 |
+| 那裡               | string | 是      | 提供者： "OneTime"。                                                |
+| 發票-明細專案-類型 | string | 是      | 發票詳細資料的類型： "BillingLineItems"。               |
+| hasPartnerEarnedCredit | bool   | 否       | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。
+| currencyCode           | string | 是      | 未開立帳單明細專案的貨幣代碼。                                  |
+| 長                 | string | 是      | 未開立帳單偵察的期間。 範例：目前的、先前的。                      |
+| size                   | number | 否       | 要傳回的專案數目上限。 預設大小為2000                     |
+| seekOperation          | string | 否       | 設定 seekOperation = Next 以取得偵察明細專案的下一頁。                |
 
 #### <a name="request-headers"></a>要求標頭
 
-For more information, see [Partner Center REST headers](headers.md).
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
 無。
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, the response contains the collection of line item details.
+如果成功，回應會包含明細專案詳細資料的集合。
 
-*For the line item **ChargeType**, the value **Purchase** is mapped to **New** and the value **Refund** is mapped to **Cancel**.*
+*對於明細專案**ChargeType**，[**購買**] 值會對應至 [**新增**]，而 [**退款**] 則會對應至 [**取消**]。*
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-### <a name="request-response-examples"></a>Request-response examples
+### <a name="request-response-examples"></a>要求-回應範例
 
-#### <a name="request-response-example-1"></a>Request-response example 1
+#### <a name="request-response-example-1"></a>要求-回應範例1
 
-The following details apply to this example:
+下列詳細資料適用于此範例：
 
-- Provider: **OneTime**
-- InvoiceLineItemType: **BillingLineItems**
-- Period: **Previous**
+- 提供者： **OneTime**
+- InvoiceLineItemType： **BillingLineItems**
+- 期間：**上一個**
 
-#### <a name="request-example-1"></a>Request example 1
+#### <a name="request-example-1"></a>要求範例1
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1//invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -182,7 +182,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-1"></a>Response example 1
+#### <a name="response-example-1"></a>回應範例1
 
 ```http
 HTTP/1.1 200 OK
@@ -309,16 +309,16 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a>Request-response example 2
+### <a name="request-response-example-2"></a>要求-回應範例2
 
-The following details apply to this example:
+下列詳細資料適用于此範例：
 
-- Provider: **OneTime**
-- InvoiceLineItemType: **BillingLineItems**
-- Period: **Previous**
-- SeekOperation: **Next**
+- 提供者： **OneTime**
+- InvoiceLineItemType： **BillingLineItems**
+- 期間：**上一個**
+- SeekOperation：**下一步**
 
-#### <a name="request-example-2"></a>Request example 2
+#### <a name="request-example-2"></a>要求範例2
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/unbilled/lineitems?provider=onetime&invoiceLineItemType=billinglineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -332,7 +332,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-2"></a>Response example 2
+#### <a name="response-example-2"></a>回應範例2
 
 ```http
 HTTP/1.1 200 OK
@@ -412,7 +412,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-3"></a>Response example 3
+#### <a name="response-example-3"></a>回應範例3
 
 ```http
 HTTP/1.1 200 OK

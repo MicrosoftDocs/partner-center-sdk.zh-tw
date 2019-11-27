@@ -1,6 +1,6 @@
 ---
-title: Get a list of add-ons for a subscription
-description: How to get a collection of add-ons that a customer has chosen to add to their subscription.
+title: 取得訂用帳戶的附加元件清單
+description: 如何取得客戶已選擇要新增至其訂用帳戶的附加元件集合。
 ms.assetid: F10823A2-CA77-4F80-9ED4-CFB4E4343049
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487548"
 ---
-# <a name="get-a-list-of-add-ons-for-a-subscription"></a>Get a list of add-ons for a subscription
+# <a name="get-a-list-of-add-ons-for-a-subscription"></a>取得訂用帳戶的附加元件清單
 
 適用於：
 
@@ -22,21 +22,21 @@ ms.locfileid: "74487548"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-This topic describes how to get a collection of add-ons that a customer has chosen to add to their **[Subscription](subscription-resources.md)** resource.
+本主題描述如何取得客戶已選擇要新增至其 **[訂](subscription-resources.md)** 用帳戶資源的附加元件集合。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（**客戶租使用者識別碼**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 訂用帳戶識別碼。
 
 ## <a name="c"></a>C\#
 
-To get the list of add-ons for a customer's subscription:
+若要取得客戶訂用帳戶的附加元件清單：
 
-1. Use your **IAggregatePartner.Customers** collection to call the **ById()** method.
-2. Call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method.
-3. Call the [**Addons**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.addons) property, followed by [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.getasync).
+1. 使用您的**iaggregatepartner.customers.byid. Customers**集合來呼叫**ById （）** 方法。
+2. 呼叫[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性，後面接著[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)方法。
+3. 呼叫[**附加元件**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.addons)屬性，後面接著[**Get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.getasync)。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -48,38 +48,38 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ```
 
-For an example, see the following:
+如需範例，請參閱下列各項：
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSample**
-- Class: **SubscriptionAddons.cs**
+- 範例：[主控台測試應用程式](console-test-app.md)
+- 專案： **PartnerSDK. FeatureSample**
+- 類別： **SubscriptionAddons.cs**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                                       |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/addons HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/addons HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-This table lists the required query parameters to get the list of add-ons for the subscription.
+下表列出必要的查詢參數，以取得訂用帳戶的附加元件清單。
 
-| 名稱                    | 在工作列搜尋方塊中輸入     | 必要 | 說明                               |
+| 名稱                    | 類型     | 必要 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **客戶-租使用者識別碼**  | **guid** | Y        | 對應至客戶的 GUID。     |
+| **訂用帳戶的識別碼** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Headers](headers.md) for more information.
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription>/addons HTTP/1.1
@@ -89,13 +89,13 @@ MS-RequestId: 429902e2-ea2f-4704-b8a0-27fc53c539ba
 MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of resources in the response body.
+如果成功，這個方法會傳迴響應主體中的資源集合。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

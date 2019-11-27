@@ -1,6 +1,6 @@
 ---
-title: Get all Azure usage analytics information
-description: How to get all the Azure usage analytics information.
+title: 取得所有 Azure 使用量分析資訊
+description: 如何取得所有 Azure 使用量分析資訊。
 ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485998"
 ---
-# <a name="get-all-azure-usage-analytics-information"></a>Get all Azure usage analytics information
+# <a name="get-all-azure-usage-analytics-information"></a>取得所有 Azure 使用量分析資訊
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -23,25 +23,25 @@ ms.locfileid: "74485998"
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 
-How to get all the Azure usage analytics information for your customers. 
+如何取得客戶的所有 Azure 使用量分析資訊。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only. 
-
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-**Request syntax**
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。 
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求語法**
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
+| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1。1 |
 
  
 
-**URI parameters**
+**URI 參數**
 
 <table>
   <thead>
@@ -49,10 +49,10 @@ How to get all the Azure usage analytics information for your customers.
         <p>參數</p>
       </th>
       <th>
-        <p>在工作列搜尋方塊中輸入</p>
+        <p>類型</p>
       </th>
       <th>
-        <p>說明</p>
+        <p>描述</p>
       </th>
   </thead>
   <tbody>
@@ -64,7 +64,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>字串</p>
       </td>
       <td>
-        <p>在要求中傳回的資料列數目。 如果未指定，最大值和預設值為 10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。</p>
+        <p>要在要求中傳回的資料列數目。 最大值及未指定的預設值為 10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。</p>
       </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>整數</p>
       </td>
       <td>
-        <p>在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 For example, <code>top=10000 and skip=0</code> retrieves the first 10000 rows of data, <code>top=10000 and skip=10000</code> retrieves the next 10000 rows of data, and so on.</p>
+        <p>在查詢中要略過的資料列數目。 使用此參數來循頁瀏覽大型資料集。 例如，<code>top=10000 and skip=0</code> 會抓取前10000個數據列，<code>top=10000 and skip=10000</code> 抓取後續10000個數據列，依此類推。</p>
       </td>
     </tr>
     <tr>
@@ -90,7 +90,7 @@ How to get all the Azure usage analytics information for your customers.
         <ul>
           <li><em>customerTenantId</em></li>
           <li><em>customerName</em></li>
-          <li><em>subscriptionId</em></li>
+          <li><em>訂閱</em></li>
           <li><em>subscriptionName</em></li>
           <li><em>usageDate</em></li>
           <li><em>resourceLocation</em></li>
@@ -118,8 +118,8 @@ How to get all the Azure usage analytics information for your customers.
         <p>字串</p>
       </td>
       <td>
-        <p>指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：&quot;day&quot;、&quot;week&quot; 或 &quot;month&quot;。 如果沒有指定，則預設為 &quot;天&quot;。</p>
-      <p>The <em>aggregationLevel</em> parameter is not supported without a <em>groupby</em>. The <em>aggregationLevel</em> parameter applies to all date fields present in the <em>groupby</em>.</p>
+        <p>指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：&quot;day&quot;、&quot;week&quot; 或 &quot;month&quot;。 如果沒有指定，則預設為 &quot;day&quot;。</p>
+      <p>如果沒有<em>groupby</em>，就不支援<em>aggregationLevel</em>參數。 <em>AggregationLevel</em>參數會套用到出現在<em>groupby</em>中的所有日期欄位。</p>
       </td>
     </tr>
     <tr>
@@ -130,7 +130,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>字串</p>
       </td>
       <td>
-        <p>對每個安裝的結果資料值做出排序的陳述式。 The syntax is <code>...&orderby=field [order],field [order],...</code> The <em>field</em> parameter can be one of the following strings:</p>
+        <p>對每個安裝的結果資料值做出排序的陳述式。 語法是 <code>...&orderby=field [order],field [order],...</code><em>欄位</em>參數可以是下列其中一個字串：</p>
         <ul>
           <li>&quot;customerTenantId&quot;</li>
           <li>&quot;customerName&quot;</li>
@@ -146,7 +146,7 @@ How to get all the Azure usage analytics information for your customers.
           <li>&quot;consumptionMeterId&quot;</li>
           <li>&quot;serviceType&quot;</li>
         </ul>
-        <p>The <em>order</em> parameter is optional and can be &quot;asc&quot; or &quot;desc&quot; to specify ascending or descending order for each field, respectively. 預設為 &quot;asc&quot;。</p>
+        <p><em>Order</em>參數是選擇性的，可以 &quot;asc&quot; 或 &quot;desc&quot; 分別指定每個欄位的遞增或遞減順序。 預設為 &quot;asc&quot;。</p>
         <p><strong>範例：</strong><br/> 
           <code>...&orderby=meterCategory,meterUnit</code>
         </p>
@@ -164,7 +164,7 @@ How to get all the Azure usage analytics information for your customers.
         <ul>
           <li><em>customerTenantId</em></li>
           <li><em>customerName</em></li>
-          <li><em>subscriptionId</em></li>
+          <li><em>訂閱</em></li>
           <li><em>subscriptionName</em></li>
           <li><em>usageDate</em></li>
           <li><em>resourceLocation</em></li>
@@ -176,7 +176,7 @@ How to get all the Azure usage analytics information for your customers.
           <li><em>consumptionMeterId</em></li>
           <li><em>serviceType</em></li>
         </ul>
-        <p>The returned data rows will contain the fields specified in the <em>groupby</em> parameter as well as the <em>Quantity</em>.</p>
+        <p>傳回的資料列將包含<em>groupby</em>參數中指定的欄位，以及<em>數量</em>。</p>
         <p><em>groupby</em> 參數可以搭配 <em>aggregationLevel</em> 參數使用。</p>
         <p><strong>範例：</strong></br>
           <code>...&groupby=meterCategory,meterUnit</code>
@@ -187,15 +187,15 @@ How to get all the Azure usage analytics information for your customers.
 </table>
 
 
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/usage/azure HTTP/1.1
@@ -205,16 +205,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, the response body contains a collection of [Azure usage](partner-center-analytics-resources.md#azure_usage) resources.
+如果成功，回應主體會包含[Azure 使用量](partner-center-analytics-resources.md#azure_usage)資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 {
@@ -236,6 +236,6 @@ Each response comes with an HTTP status code that indicates success or failure a
 ```
 
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
-  - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
+  - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)
 

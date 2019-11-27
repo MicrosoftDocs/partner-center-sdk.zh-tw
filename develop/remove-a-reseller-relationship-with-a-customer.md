@@ -1,6 +1,6 @@
 ---
 title: 移除與客戶的經銷商關係
-description: How to remove a reseller relationship with a customer that you no longer have transactions with.
+description: 如何移除與您不再具有交易之客戶的轉銷商關係。
 ms.date: 01/12/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -15,32 +15,32 @@ ms.locfileid: "74486708"
 # <a name="remove-a-reseller-relationship-with-a-customer"></a>移除與客戶的經銷商關係
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心  
 
 
-Remove a reseller relationship with a customer that you no longer have transactions with. 
+移除與您不再具有交易之客戶的轉銷商關係。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- All Azure Reserved VM Instance orders must be cancelled before a reseller relationship is removed. Call Azure support for cancelling any open Azure Reserved VM Instance orders.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 在移除轉銷商關聯性之前，必須先取消所有 Azure 保留的 VM 實例訂單。 呼叫 Azure 支援以取消任何已開啟的 Azure 保留的 VM 實例訂單。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To remove the reseller relationship for a customer, you must first ensure that any active Azure Reserved VM Instances for that customer are cancelled and that all active subscriptions for that customer are suspended. To do this, determine the ID of the customer for whom you want to delete the reseller relationship (in the following code example, the user is prompted to provide the customer identifier). 
+若要移除客戶的轉銷商關聯性，您必須先確定該客戶的任何使用中 Azure 保留的 VM 執行個體已取消，且該客戶的所有使用中訂用帳戶都已暫停。 若要這麼做，請判斷您想要刪除轉銷商關係之客戶的識別碼（在下列程式碼範例中，系統會提示使用者提供客戶識別碼）。 
 
-To determine if any Azure Reserved VM Instances for the customer must be cancelled, retrieve the collection of entitlements by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method using the customer identifier to specify the customer, and the [**Entitlements**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property to retrieve an interface to entitlement collection operations. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) method to retrieve the entitlement collection. Filter the collection for any entitlements with an [**EntitlementType**](entitlement-resources.md#entitlementtype) value of [**EntitlementType.VirtualMachineReservedInstance**](entitlement-resources.md#entitlementtype) and if there are any, cancel them by calling support before proceeding. 
+若要判斷是否必須取消客戶的任何 Azure 保留的 VM 執行個體，請使用客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法來指定客戶，以及取得權利集合作業介面的[**權利**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性，以取得權利的集合。 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)方法，以取出權利集合。 針對[**EntitlementType**](entitlement-resources.md#entitlementtype)值為[**EntitlementType. VirtualMachineReservedInstance**](entitlement-resources.md#entitlementtype)的任何權利篩選集合，如果有的話，請先呼叫支援以取消其，再繼續進行。 
 
-Then, retrieve a collection of the customer's subscriptions by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method using the customer identifier to specify the customer, and the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property to retrieve an interface to subscription collection operations. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) method to retrieve the customer's subscriptions collection. Traverse the subscription collection and ensure that none of the subscriptions have a [**Subscriptions.Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) property value of [**SubscriptionStatus.Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus). If a subscription is still active, see [Suspend a subscription](https://review.docs.microsoft.com/partner-center/develop/suspend-a-subscription) for information on how to suspend it. 
+然後，藉由呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法來指定客戶，並使用 [[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] 屬性來取得訂用帳戶集合作業的介面，藉此抓取客戶的訂閱集合。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)方法，以取出客戶的訂用帳戶集合。 流覽訂用帳戶集合，並確定沒有訂閱[ **。 Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)屬性值為[**SubscriptionStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)。 如果訂用帳戶仍在使用中，請參閱暫止訂閱以取得如何暫停[訂用](https://review.docs.microsoft.com/partner-center/develop/suspend-a-subscription)帳戶的相關資訊。 
 
-After confirming that all active Azure Reserved VM Instances for that customer are cancelled and all active subscriptions are suspended, you can remove the reseller relationship for the customer. First, create a new [Customer](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object with the [Customer.RelationshipToPartner](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.relationshiptopartner) property set to [**CustomerPartnerRelationship.None**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerpartnerrelationship). Then call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method using the customer identifier to specify the customer, and call the **Patch** method, passing in the new customer object.
+確認該客戶的所有作用中 Azure 保留的 VM 執行個體都已取消，且所有作用中的訂用帳戶都已暫停之後，您就可以移除該客戶的轉銷商關係。 首先，建立新的[customer](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)物件，並將[RelationshipToPartner](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.relationshiptopartner)屬性設定為[**CustomerPartnerRelationship。 None**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerpartnerrelationship)。 然後使用客戶識別碼來呼叫[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以指定客戶，並呼叫**Patch**方法，傳入新的 customer 物件。
 
-To re-establish the relationship, repeat the process of [requesting a reseller relationship](https://docs.microsoft.com/partner-center/develop/request-reseller-relationship). 
+若要重新建立關聯性，請重複[要求轉銷商關聯](https://docs.microsoft.com/partner-center/develop/request-reseller-relationship)性的程式。 
 
 
 ``` csharp
@@ -83,39 +83,39 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 }
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: DeletePartnerCustomerRelationship.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： DeletePartnerCustomerRelationship.cs
 
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request   
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求   
 
 
-**Request syntax**
+**要求語法**
 
 | 方法     | 要求 URI                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **PATCH**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/ HTTP/1.1 |
+| **跳**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-This table lists the required query parameters to remove a reseller relationship.
+下表列出移除轉銷商關聯性所需的查詢參數。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                        |
+| 名稱                   | 類型     | 必要 | 描述                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that identifies the customer. |
+| **客戶-租使用者識別碼** | **guid** | Y        | 此值是可識別客戶的 GUID 格式**客戶租使用者識別碼**。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-A **Customer** resource is required in the request body. Ensure the **RelationshipToPartner** property has been set to none.
+要求主體中需要**客戶**資源。 確定 [ **RelationshipToPartner** ] 屬性已設定為 [無]。
 
-**Request example**
+**要求範例**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id> HTTP/1.1
@@ -134,16 +134,16 @@ Date: Fri, 12 Jan 2018 00:31:55 GMT
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 回應
 
 
-If successful, this method removes a reseller relationship for the specified customer.
+如果成功，這個方法會移除指定之客戶的轉銷商關係。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

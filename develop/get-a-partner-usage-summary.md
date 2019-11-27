@@ -1,6 +1,6 @@
 ---
-title: Get a usage summary for a partner
-description: You can use the PartnerUsageSummary resource to get a partner usage summary of all customers that purchased a specific Azure service or resource during the current billing period.
+title: 取得合作夥伴的使用量摘要
+description: 您可以使用 PartnerUsageSummary 資源，取得在目前計費期間購買特定 Azure 服務或資源之所有客戶的合作夥伴使用量摘要。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488418"
 ---
-# <a name="get-a-usage-summary-for-a-partner"></a>Get a usage summary for a partner
+# <a name="get-a-usage-summary-for-a-partner"></a>取得合作夥伴的使用量摘要
 
 適用於：
 
@@ -21,20 +21,20 @@ ms.locfileid: "74488418"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You can use the **PartnerUsageSummary** resource to get a partner usage summary of all customers that purchased a specific Azure service or resource during the current billing period.
+您可以使用**PartnerUsageSummary**資源，取得在目前計費期間購買特定 Azure 服務或資源之所有客戶的合作夥伴使用量摘要。
 
-*The total returned by this API will not return consumption for customers that have an Azure plan.* Planned for deprecation in the future.
+*此 API 傳回的總計不會針對具有 Azure 方案的客戶傳回耗用量。* 計畫在未來淘汰。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
 ## <a name="c"></a>C\#
 
-To get a usage summary for all customers that purchased a specific Azure service or resource during the current billing period:
+若要取得在目前計費期間購買特定 Azure 服務或資源之所有客戶的使用量摘要：
 
-1. Use your **IAggregatePartner**.
-2. Call the **UsageSummary** property, followed by the **Get()** or **GetAsync()** methods:
+1. 使用您的**iaggregatepartner.customers.byid**。
+2. 呼叫**UsageSummary**屬性，後面接著**Get （）** 或**GetAsync （）** 方法：
 
     ``` csharp
     // IAggregatePartner partnerOperations;
@@ -42,31 +42,31 @@ To get a usage summary for all customers that purchased a specific Azure service
     var usageSummary = partnerOperations.UsageSummary.Get();
     ```
 
-For an example, see the following:
+如需範例，請參閱下列各項：
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSamples**
-- Class: **GetPartnerUsageSummary.cs**
+- 範例：[主控台測試應用程式](console-test-app.md)
+- 專案： **PartnerSDK. FeatureSamples**
+- 類別： **GetPartnerUsageSummary.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                         |
 |---------|---------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/usagesummary HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/usagesummary HTTP/1。1 |
 
 #### <a name="request-headers"></a>要求標頭
 
-For more information, see [Headers](headers.md).
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
 無。
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/usagesummary HTTP/1.1
@@ -76,13 +76,13 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a **PartnerUsageSummary** resource in the response body.
+如果成功，此方法會在回應主體中傳回**PartnerUsageSummary**資源。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, the error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

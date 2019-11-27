@@ -1,6 +1,6 @@
 ---
-title: Make a one-time purchase
-description: How to make a one-time purchase of software and reservation products such as software subscriptions, perpetual software, and Azure Reserved Virtual Machine (VM) Instances, using the Partner Center API.
+title: 進行一次性購買
+description: 如何使用合作夥伴中心 API，一次性購買軟體和保留產品，例如軟體訂用帳戶、永久軟體和 Azure 保留的虛擬機器（VM）實例。
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,52 +12,52 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488368"
 ---
-# <a name="make-a-one-time-purchase"></a>Make a one-time purchase
+# <a name="make-a-one-time-purchase"></a>進行一次性購買
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to make a one-time purchase of software and reservation products such as software subscriptions, perpetual software, and Azure Reserved Virtual Machine (VM) Instances, using the Partner Center API.
+如何使用合作夥伴中心 API，一次性購買軟體和保留產品，例如軟體訂用帳戶、永久軟體和 Azure 保留的虛擬機器（VM）實例。
 
 > [!NOTE]  
-> Software subscriptions are not available in the following markets:  
+> 下列市場不提供軟體訂閱：  
 >  
-> | Unavailable Markets            | &nbsp;                            | &nbsp;                                   |
+> | 無法使用的市場            | &nbsp;                            | &nbsp;                                   |
 > |--------------------------------|-----------------------------------|------------------------------------------|
-> | 奧蘭島                  | 格陵蘭 (丹麥)                         | 巴布亞紐幾內亞                         |
+> | 奧蘭島                  | 格陵蘭                         | 巴布亞紐幾內亞                         |
 > | 美屬薩摩亞                 | 格瑞那達                           | 皮特康群島                         |
-> | 安道爾                        | 瓜地洛普                        | 留尼旺                                  |
-> | 安圭拉                       | 關島                              | Russian Federation                       |
-> | 南極大陸                     | 根息                          | Saba                                     |
+> | 安道爾                        | 哥德普洛                        | 留尼旺                                  |
+> | 安圭拉                       | 關島                              | 俄文同盟                       |
+> | 南極大陸                     | 根息                          | 沙巴                                     |
 > | 安地卡及巴布達            | 幾內亞                            | 聖巴瑟米                         |
 > | 阿路巴                          | 幾內亞比索                     | 聖露西亞                              |
 > | 貝南                          | 蓋亞納                            | 聖馬丁                             |
 > | 不丹                         | 海地                             | 聖匹島                |
 > | 波奈                        | 赫德島及麥當勞群島 | 聖文森及格瑞那丁         |
 > | 布威島                  | 曼城島                       | 薩摩亞獨立國                                    |
-> | 巴西                         | Jan Mayen                         | 聖馬利諾                               |
+> | 巴西                         | Jan 馬延                         | 聖馬利諾                               |
 > | 英屬印度洋領土 | 澤西島                            | 聖多美普林西比                    |
 > | 英屬維爾京群島         | 吉里巴斯                          | 塞席爾                               |
-> | 布吉納法索                   | Kosovo                            | 獅子山                             |
-> | 蒲隆地                        | 寮國                              | Sint Eustatius                           |
+> | 布吉納法索                   | 科索沃                            | 獅子山                             |
+> | 蒲隆地                        | 寮國                              | 聖尤斯特斯                           |
 > | 柬埔寨                       | 賴索托                           | 荷屬聖馬丁                             |
 > | 中非共和國       | 賴比瑞亞                           | 索羅門群島                          |
 > | 查德                           | 馬達加斯加                        | 索馬利亞                                  |
-> | 中國                          | 馬拉威                            | South Georgia and South Sandwich Islands |
+> | 中國                          | 馬拉威                            | 南喬治亞與南三明治群島 |
 > | 聖誕島               | 馬爾地夫                          | 南蘇丹                              |
-> | 可可斯群島        | 馬利                              | St Helena, Ascension, Tristan da Cunha   |
+> | 可可斯群島        | 馬利                              | 聖赫勒拿、阿森松、特裡斯坦達庫尼亞群島   |
 > | 葛摩                        | 馬紹爾群島                  | 蘇利南                                 |
-> | 剛果共和國                          | 馬丁尼克島                        | Svalbard                                 |
+> | 剛果共和國                          | 馬丁尼克                        | 冷岸                                 |
 > | 剛果民主共和國 (DRC)                    | 茅利塔尼亞                        | 史瓦濟蘭                                |
 > | 柯克群島                   | 馬約特島                           | 東帝汶                              |
 > | 吉布地                       | 密克羅尼西亞                        | 多哥                                     |
 > | 多米尼克                       | 蒙特色拉特島                        | 托克勞群島                                  |
 > | 赤道幾內亞              | 莫三比克                        | 東加                                    |
-> | 厄利垂亞                        | 緬甸文                           | 土克斯及開科斯群島                 |
+> | 厄利垂亞                        | 緬甸                           | 土克斯及開科斯群島                 |
 > | 福克蘭群島               | 諾魯                             | 吐瓦魯                                   |
-> | 法屬圭亞那                  | 新喀里多尼亞群島領土                     | 美國外島                    |
+> | 法屬圭亞那                  | 新喀里多尼亞群島                     | 美國外島                    |
 > | 法屬玻里尼西亞               | 尼日                             | 萬那杜                                  |
 > | 法屬南半球領土    | 紐威島                              | 梵蒂岡                             |
 > | 加彭                          | 諾福克島                    | 瓦利斯及福杜納                        |
@@ -66,98 +66,98 @@ How to make a one-time purchase of software and reservation products such as sof
 >  
 &nbsp;
 > [!NOTE]
-> To purchase perpetual software, you must have been previously qualified. Contact support for more information.
+> 若要購買永久軟體，您必須先經過限定。 如需詳細資訊，請聯絡支援人員。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
-## <a name="making-a-one-time-purchase"></a>Making a one-time purchase
+## <a name="making-a-one-time-purchase"></a>進行一次性購買
 
-To make a one-time purchase, use the following steps:
+若要進行一次性購買，請使用下列步驟：
 
-1. [Enablement](#enablement) - (Azure Reserved VM Instance only) Register an active CSP Azure subscription to enable it for purchasing any reservation product.
-2. [Discovery](#discovery) - Find and select the products and SKUs you want to purchase and check their availability.
-3. [Order submission](#order-submission) - Create a shopping cart with the items in your order and submit it.
-4. [Get order details](#get-order-details) - Review the details of an order, all the orders for a customer, or view orders by billing cycle type.
+1. [啟用-（](#enablement)僅限 Azure 保留的 VM 實例）註冊作用中的 CSP Azure 訂用帳戶，以讓它能夠購買任何保留產品。
+2. [探索](#discovery)-尋找並選取您想要購買的產品和 sku，並檢查其可用性。
+3. [訂單提交](#order-submission)-使用訂單中的專案建立購物車，並提交。
+4. [取得訂單詳細資料](#get-order-details)-檢查訂單的詳細資料、客戶的所有訂單，或依計費週期類型來查看訂單。
 
-After you have made your one-time purchase, the following scenarios show you how to manage the lifecycle of your products by getting information about your entitlements, and how to retrieve balance statements, invoices, and invoice summaries.
+在您進行一次性購買之後，下列案例會示範如何藉由取得權利的相關資訊來管理產品的生命週期，以及如何抓取餘額聲明、發票和發票摘要。
 
-- [Lifecycle management](#lifecycle-management)
-- [Invoice and reconciliation](#invoice-and-reconciliation)
+- [生命週期管理](#lifecycle-management)
+- [發票和對帳](#invoice-and-reconciliation)
 
 ## <a name="enablement"></a>啟用
 
-Once you have identified the active subscription that you want to add the Azure Reserved VM Instance to, you must register the subscription so that it is enabled. To register an existing [Subscription](subscription-resources.md) resource so that it is enabled, see [Register a subscription](register-a-subscription.md).
+一旦識別出您想要新增 Azure 保留 VM 實例的作用中訂用帳戶之後，您必須註冊訂用帳戶，才能啟用它。 若要註冊現有的[訂](subscription-resources.md)用帳戶資源，使其啟用，請參閱[註冊訂用](register-a-subscription.md)帳戶。
 
-After registering your subscription, you should confirm that the registration process is completed by checking the registration status. To do this, see [Get subscription registration status](get-subscription-registration-status.md).
+註冊訂用帳戶之後，您應該藉由檢查註冊狀態來確認註冊程式已完成。 若要這麼做，請參閱[取得訂用帳戶註冊狀態](get-subscription-registration-status.md)。
 
 ## <a name="discovery"></a>探索
 
-Once the subscription is enabled, you're ready to select products and SKUs and check their availability using the following Partner Center API models:
+啟用訂用帳戶之後，您就可以選取產品和 Sku，並使用下列合作夥伴中心 API 模型來檢查其可用性：
 
-- [Product](product-resources.md#product) - A grouping construct for purchasable goods or services. A product by itself is not a purchasable item.
-- [SKU](product-resources.md#sku) - A purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product.
-- [Availability](product-resources.md#availability) - A configuration in which a SKU is available for purchase (such as country, currency and industry segment).
+- [產品](product-resources.md#product)-可購買商品或服務的群組結構。 產品本身並不是可購買專案。
+- [SKU](product-resources.md#sku) -產品下的可購買庫存單位（SKU）。 這些代表產品的不同形狀。
+- [可用性](product-resources.md#availability)-SKU 可供購買的設定（例如國家/地區、貨幣和產業區段）。
 
-Before making a one-time purchase, complete the following steps:
+進行一次性購買之前，請先完成下列步驟：
 
-1. Identify and retrieve the Product and SKU that you want to purchase. You can do this by listing the products and SKUs first, or If you already know the IDs of the product and SKU, selecting them.
+1. 識別並取得您想要購買的產品和 SKU。 若要這麼做，您可以先列出產品和 Sku，或如果您已經知道產品和 SKU 的識別碼，請選取它們。
 
-    - [Get a list of products](get-a-list-of-products.md)
-    - [Get a product using the product ID](get-a-product-by-id.md)
-    - [Get a list of SKUs for a product](get-a-list-of-skus-for-a-product.md)
-    - [Get a SKU using the SKU ID](get-a-sku-by-id.md)
+    - [取得產品清單](get-a-list-of-products.md)
+    - [使用產品識別碼取得產品](get-a-product-by-id.md)
+    - [取得產品的 Sku 清單](get-a-list-of-skus-for-a-product.md)
+    - [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
-2. Check the inventory for a SKU. This step is only needed for SKUs that are tagged with an **InventoryCheck** prerequisite.
+2. 檢查 SKU 的清查。 只有以**InventoryCheck**必要條件標記的 sku 才需要此步驟。
 
-    - [Check Inventory](check-inventory.md)
+    - [檢查清查](check-inventory.md)
 
-3. Retrieve the [availability](product-resources.md#availability) for the [SKU](product-resources.md#sku). You will need the **CatalogItemId** of the availability when placing the order. To get this value, use one of the following APIs:
+3. 取得[SKU](product-resources.md#sku)的[可用性](product-resources.md#availability)。 您將需要在放置訂單時的可用性**CatalogItemId** 。 若要取得此值，請使用下列其中一個 Api：
 
-    - [Get a list of availabilities for a SKU](get-a-list-of-availabilities-for-a-sku.md)
-    - [Get an availability using the availability ID](get-an-availability-by-id.md)  
+    - [取得 SKU 的 hdinsight 清單](get-a-list-of-availabilities-for-a-sku.md)
+    - [使用可用性識別碼取得可用性](get-an-availability-by-id.md)  
 
-## <a name="order-submission"></a>Order submission
+## <a name="order-submission"></a>訂單提交
 
-To submit your order, do the following:
+若要提交您的訂單，請執行下列動作：
 
-1. Create a cart to hold the collection of catalog items that you intend to buy. When you create a [Cart](cart-resources.md), the [cart line items](cart-resources.md#cartlineitem) are automatically grouped based on what can be purchased together in the same [Order](order-resources.md).
+1. 建立購物車，以保存您想要購買的類別目錄專案集合。 當您建立[購物車](cart-resources.md)時，[購物車明細專案](cart-resources.md#cartlineitem)會自動根據可依相同[順序](order-resources.md)購買的內容進行分組。
 
-    - [Create a shopping cart](create-a-cart.md)
-    - [Update a shopping cart](update-a-cart.md)
+    - [建立購物車](create-a-cart.md)
+    - [更新購物車](update-a-cart.md)
 
-2. Check out the cart. Checking out a cart results in the creation of an [Order](order-resources.md).
+2. 查看購物車。 簽出購物車會導致[訂單](order-resources.md)的建立。
 
-    - [Checkout the cart](checkout-a-cart.md)
+    - [結帳購物車](checkout-a-cart.md)
 
-## <a name="get-order-details"></a>Get order details
+## <a name="get-order-details"></a>取得訂單詳細資料
 
-Once you have created your order, you can retrieve the details of an individual order using the order ID, or get a list of orders for a customer. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a list of a customer's orders.
+建立訂單之後，您可以使用訂單識別碼來抓取個別訂單的詳細資料，或取得客戶的訂單清單。 請注意，提交訂單的時間和出現在客戶訂單清單中的時間，最多會有15分鐘的延遲。
 
-- To get the details of an individual order using the order ID. See, [Get an order by ID](get-an-order-by-id.md).
+- 使用訂單識別碼取得個別訂單的詳細資料。 請參閱[依識別碼取得訂單](get-an-order-by-id.md)。
 
-- To get a list of orders for a customer using the customer ID. See, [Get all of a customer's orders](get-all-of-a-customer-s-orders.md).
+- 使用客戶識別碼取得客戶的訂單清單。 請參閱[取得客戶的所有訂單](get-all-of-a-customer-s-orders.md)。
 
-- To get a list of orders for a customer by [billing cycle type](product-resources.md#billingcycletype) allowing you to list orders (one-time charges) and annual or monthly billed orders separately. See, [Get a list of orders by customer and billing cycle type](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
+- 若要依[計費週期類型](product-resources.md#billingcycletype)取得客戶的訂單清單，可讓您分別列出訂單（一次性費用）和年度或每月計費訂單。 請參閱[依客戶和計費週期類型取得訂單清單](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)。
 
 ## <a name="lifecycle-management"></a>生命週期管理
 
-As part of managing the lifecycle of your one-time purchases in Partner Center, you can retrieve information about your [Entitlements](entitlement-resources.md), and get reservation details using the reservation order ID. For examples of how to do this, see [Get entitlements](get-a-collection-of-entitlements.md).
+在合作夥伴中心內管理一次性購買的生命週期時，您可以抓取[權利](entitlement-resources.md)的相關資訊，並使用保留訂單識別碼取得保留詳細資料。 如需如何執行這項操作的範例，請參閱[取得權利](get-a-collection-of-entitlements.md)。
 
-## <a name="invoice-and-reconciliation"></a>Invoice and reconciliation
+## <a name="invoice-and-reconciliation"></a>發票和對帳
 
-The following scenarios show you how to programmatically view your customer's [invoices](invoice-resources.md), and get your account balances and summaries that include one-time charges.  
+下列案例示範如何以程式設計方式來查看客戶的[發票](invoice-resources.md)，並取得包含一次性費用的帳戶餘額和摘要。  
 
-**Balance and payment** To get current account balance in your default currency type that is a balance of both recurring and one-time charges, see [Get your current account balance](get-the-reseller-s-current-account-balance.md)
+**餘額與付款**若要取得預設貨幣類型的目前帳戶餘額，這是週期性和一次性費用的餘額，請參閱[取得您目前的帳戶餘額](get-the-reseller-s-current-account-balance.md)
 
-**Multi-currency balance and payment** To get your current account balance and a collection of invoice summaries containing an invoice summary with both recurring and one-time charges for each of your customer's currency types, see [Get invoice summaries](get-invoice-summaries.md).
+**多貨幣餘額和付款**若要取得目前的帳戶餘額和發票摘要的集合，其中包含具有每個客戶貨幣類型的週期性和一次性費用，請參閱[取得發票](get-invoice-summaries.md)摘要。
 
-**Invoices** To get a collection of invoices that show both recurring and one time charges, see [Get a collection of invoices](get-a-collection-of-invoices.md).
+**發票**若要取得同時顯示週期性和一次性費用的發票集合，請參閱[取得發票集合](get-a-collection-of-invoices.md)。
 
-**Single Invoice** To retrieve a specific invoice using the invoice ID, see [Get an invoice by ID](get-invoice-by-id.md).  
+**單一發票**若要使用發票識別碼來抓取特定發票，請參閱[依識別碼取得發票](get-invoice-by-id.md)。  
 
-**Reconciliation** To get a collection of invoice line item details (Reconciliation line items) for a specific invoice ID, see [Get invoice line items](get-invoiceline-items.md).  
+**對帳**若要取得特定發票識別碼的發票明細專案詳細資料（對帳明細專案）集合，請參閱[取得發票明細專案](get-invoiceline-items.md)。  
 
-**Download an invoice as a PDF** To retrieve an invoice statement in PDF form using an invoice ID, see [Get an invoice statement](get-invoice-statement.md).
+**以 PDF 格式下載發票**若要使用發票識別碼來抓取 PDF 格式的發票語句，請參閱[取得發票聲明](get-invoice-statement.md)。

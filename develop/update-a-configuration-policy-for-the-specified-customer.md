@@ -1,6 +1,6 @@
 ---
-title: Update a configuration policy for the specified customer
-description: How to update the specified configuration policy for the specified customer.
+title: 為指定的客戶更新設定原則
+description: 如何為指定的客戶更新指定的設定原則。
 ms.assetid: E2B91AC4-B8E8-4A77-AFB7-0CCEF5136621
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486448"
 ---
-# <a name="update-a-configuration-policy-for-the-specified-customer"></a>Update a configuration policy for the specified customer
+# <a name="update-a-configuration-policy-for-the-specified-customer"></a>為指定的客戶更新設定原則
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-How to update the specified configuration policy for the specified customer.
+如何為指定的客戶更新指定的設定原則。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
-- The policy identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。
+- 原則識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update an existing configuration policy for the specified customer, instantiate a new [**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) object as shown in the following code snippet. The values in this new object replace the corresponding values in the existing object. Then, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer. Next, call the [**ConfigurationPolicies.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) method with the policy ID to retrieve an interface to configuration policy operations for the specified policy. Finally, call the [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) or [**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) method to update the configuration policy.
+若要更新指定之客戶的現有設定原則，請將新的[**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy)物件具現化，如下列程式碼片段所示。 這個新物件中的值會取代現有物件中的對應值。 然後，使用客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以在指定的客戶上取得作業的介面。 接下來，使用原則識別碼呼叫[**ConfigurationPolicies. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)方法，以取得指定原則之設定原則作業的介面。 最後，呼叫[**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch)或[**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync)方法來更新設定原則。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -53,50 +53,50 @@ ConfigurationPolicy updatedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Patch(configPolicyToBeUpdated);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: UpdateConfigurationPolicy.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： UpdateConfigurationPolicy.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
+| **提出** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following path parameters when creating the request.
+建立要求時，請使用下列路徑參數。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                   |
+| 名稱        | 類型   | 必要 | 描述                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| customer-id | 字串 | [是]      | A GUID-formatted string that identifies the customer.         |
-| policy-id   | 字串 | [是]      | A GUID-formatted string that identifies the policy to update. |
+| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。         |
+| 原則-識別碼   | 字串 | 是      | GUID 格式的字串，用來識別要更新的原則。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-The request body must contain an object that provides the policy information.
+要求主體必須包含提供原則資訊的物件。
 
-| 名稱            | 在工作列搜尋方塊中輸入             | 必要 | Updatable | 說明                                                                                                                                              |
+| 名稱            | 類型             | 必要 | 可 | 描述                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id              | 字串           | [是]      | 無        | The GUID-formatted string that identifies the policy.                                                                                                    |
-| name            | 字串           | [是]      | [是]       | The friendly name of the policy.                                                                                                                         |
-| 類別        | 字串           | [是]      | 無        | The policy category.                                                                                                                                     |
-| 描述     | 字串           | 無       | [是]       | The policy description.                                                                                                                                  |
-| devicesAssigned | 數目           | 無       | 無        | The number of devices.                                                                                                                                   |
-| policySettings  | array of strings | [是]      | [是]       | The policy settings: "none","remove\_oem\_preinstalls","oobe\_user\_not\_local\_admin","skip\_express\_settings","skip \_oem\_registration,"skip\_eula". |
+| id              | 字串           | 是      | 否        | 可識別原則的 GUID 格式字串。                                                                                                    |
+| name            | 字串           | 是      | 是       | 原則的易記名稱。                                                                                                                         |
+| 類別        | 字串           | 是      | 否        | 原則類別目錄。                                                                                                                                     |
+| description     | 字串           | 否       | 是       | 原則描述。                                                                                                                                  |
+| devicesAssigned | 數字           | 否       | 否        | 裝置數目。                                                                                                                                   |
+| policySettings  | 字串陣列 | 是      | 是       | 原則設定： 無、移除\_oem\_預先安裝、oobe\_使用者\_不\_本機\_系統管理員、略過\_express\_設定、略過 \_\_的註冊、「略過\_的授權合約」。 |
 
  
 
-**Request example**
+**要求範例**
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/customers/47021739-3426-40bf-9601-61b4b6d7c793/policies/56edf752-ee77-4fd8-b7f5-df1f74a3a9ac HTTP/1.1
@@ -119,16 +119,16 @@ Host: api.partnercenter.microsoft.com
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, the response body contains the [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resource for the new policy.
+如果成功，回應主體會包含新原則的[ConfigurationPolicy](device-deployment-resources.md#configurationpolicy)資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

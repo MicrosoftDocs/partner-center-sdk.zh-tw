@@ -1,6 +1,6 @@
 ---
 title: 取得可用授權的清單
-description: How to get a list of licenses available to users of the specified customer.
+description: 如何取得指定客戶的使用者可用的授權清單。
 ms.assetid: E0915C58-92D1-4BFA-88F2-0710C6B0AB0D
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -19,22 +19,22 @@ ms.locfileid: "74487508"
 
 - 合作夥伴中心
 
-This topic describes how to get a list of licenses available to users of the specified customer.
+本主題描述如何取得所指定客戶的使用者可用的授權清單。
 
-The following examples return licenses available from **group1**, the default license group that represents licenses managed by Azure Active Directory (Azure AD). To get available licenses for a specified license group, see [Get a list of available licenses by license group](get-a-list-of-available-licenses-by-license-group.md).
+下列範例會傳回可從**group1**取得的授權，這是代表受 Azure Active Directory （Azure AD）管理之授權的預設授權群組。 若要取得指定授權群組的可用授權，請參閱[依授權群組取得可用的授權清單](get-a-list-of-available-licenses-by-license-group.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼。
 
 ## <a name="c"></a>C\#
 
-To retrieve the list of licenses available from the default license group to users of a customer:
+若要從預設授權群組取得客戶的使用者可用的授權清單：
 
-1. Use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Get the value of the [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) property to retrieve an interface to customer subscribed SKU collection operations.
-3. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) method to retrieve the list of licenses.
+1. 使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。
+2. 取得[**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)屬性的值，以對客戶已訂閱的 SKU 集合作業取得介面。
+3. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)方法，以取出授權清單。
 
 ``` csharp
 // string selectedCustomerId;
@@ -43,33 +43,33 @@ To retrieve the list of licenses available from the default license group to use
 var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
 ```
 
-For an example, see the following:
+如需範例，請參閱下列各項：
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetCustomerSubscribedSkus.cs**
+- 範例：[主控台測試應用程式](console-test-app.md)
+- 專案：**合作夥伴中心 SDK 範例**
+- 類別： **GetCustomerSubscribedSkus.cs**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-Use the following path parameter to identify the customer.
+使用下列 path 參數來識別客戶。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                           |
+| 名字        | 類型   | 必要 | 說明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | 字串 | [是]      | A GUID formatted string that identifies the customer. |
+| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
@@ -85,13 +85,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, the response body contains a collection of [SubscribedSku](license-resources.md#subscribedsku) resources.
+如果成功，回應主體會包含[SubscribedSku](license-resources.md#subscribedsku)資源的集合。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

@@ -1,6 +1,6 @@
 ---
-title: Get licenses assigned to a user by license group
-description: How to get a list of user assigned licenses for the specified license groups.
+title: 取得依授權群組指派給使用者的授權
+description: 如何取得指定授權群組的使用者指派授權清單。
 ms.assetid: 8BC0B0BA-894D-42F8-8186-6963AA02E9F6
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488608"
 ---
-# <a name="get-licenses-assigned-to-a-user-by-license-group"></a>Get licenses assigned to a user by license group
+# <a name="get-licenses-assigned-to-a-user-by-license-group"></a>取得依授權群組指派給使用者的授權
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-How to get a list of user assigned licenses for the specified license groups.
+如何取得指定授權群組的使用者指派授權清單。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A user identifier.
-- A list of one or more license group identifiers.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼。
+- 使用者識別碼。
+- 一或多個授權群組識別碼的清單。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To check which licenses are assigned to a user from specified license groups, start by instantiating a [List](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) of type [**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid), and then add the license groups to the list. Then, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Next, call the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the user ID to identify the user. Then, get an interface to customer user license operations from the [**Licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) property. Finally, pass the list of license groups to the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) method to retrieve the collection of licenses assigned to the user.
+若要從指定的授權群組中檢查指派給使用者的授權，請從具現化[**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)類型的[清單](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)開始，然後將授權群組新增至清單。 然後，使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 接下來，使用使用者識別碼呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法，以識別使用者。 然後，從 [[**授權**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses)] 屬性取得客戶使用者授權作業的介面。 最後，將授權群組清單傳遞給[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync)方法，以取得指派給使用者的授權集合。
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -52,38 +52,38 @@ List<LicenseGroupId> licenseGroupIds = new List<LicenseGroupId>(){ LicenseGroupI
 var customerUserBothAadAndSfbAssignedLicenses = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Licenses.Get(licenseGroupIds);
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group1 HTTP/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group2 HTTP/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group1 HTTP/1。1                        |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group2 HTTP/1。1                        |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group1 & LicenseGroupIds = Group2 HTTP/1。1 |
 
 
-**URI parameter**
+**URI 參數**
 
-Use the following path and query parameters to identify the customer, user and license groups.
+使用下列路徑和查詢參數來識別客戶、使用者和授權群組。
 
-| 名稱            | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                                                                                                                                                                                                           |
+| 名稱            | 類型   | 必要 | 描述                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id     | 字串 | [是]      | A GUID formatted string that identifies the customer.                                                                                                                                                                                                                 |
-| user-id         | 字串 | [是]      | A GUID formatted string that identifies the user.                                                                                                                                                                                                                     |
-| licenseGroupIds | 字串 | 無       | An enum value that indicates the license group of the assigned licenses. Valid values: Group1, Group2 Group1 - This group has all products whose license can be managed in the Azure Active Directory (AAD). Group2 - This group has only Minecraft product licenses. |
+| 客戶識別碼     | 字串 | 是      | 識別客戶的 GUID 格式字串。                                                                                                                                                                                                                 |
+| user-id         | 字串 | 是      | 識別使用者的 GUID 格式字串。                                                                                                                                                                                                                     |
+| licenseGroupIds | 字串 | 否       | 列舉值，表示所指派授權的授權群組。 有效值： Group1、Group2 Group1-此群組具有可在 Azure Active Directory （AAD）中管理其授權的所有產品。 Group2-此群組只有 Minecraft 產品授權。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/users/482e2152-4b49-48ec-b715-823365ce3d4c/licenses?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1
@@ -95,15 +95,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 回應
 
-If successful, the response body contains the collection of [License](license-resources.md#license) resources.
+如果成功，回應主體會包含[授權](license-resources.md#license)資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -159,9 +159,9 @@ Date: June 24 2016 22:00:25 PST
 }
 ```
 
-**Response example (no matching licenses found)**
+**回應範例（找不到相符的授權）**
 
-If no matching licenses can be found for the specified license groups, the response contains an empty collection with a totalCount element whose value is 0.
+如果找不到指定之授權群組的相符授權，回應會包含空集合，其值為0的 totalCount 元素。
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Enable secure application model
-description: Secure your Partner Center and control panel apps.
+title: 啟用安全應用程式模型
+description: 保護您的合作夥伴中心與控制台應用程式。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,91 +12,91 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490098"
 ---
-# <a name="enabling-the-secure-application-model-framework"></a>Enabling the Secure Application Model framework
+# <a name="enabling-the-secure-application-model-framework"></a>啟用安全應用程式模型架構
 
 適用於：
 
 - 合作夥伴中心
 
-Microsoft is introducing a secure, scalable framework for authenticating cloud solution provider (CSP) partners and control panel vendors (CPV) through the Microsoft Azure multi-factor authentication (MFA) architecture.
+Microsoft 引進了一個安全、可擴充的架構，可透過 Microsoft Azure 多重要素驗證（MFA）架構來驗證雲端解決方案提供者（CSP）合作夥伴和控制台廠商（CPV）。
 
-You can use the new model to elevate security for Partner Center API integration calls. This will help all parties (including Microsoft, CSP partners, and CPVs) to protect their infrastructure and customer data from security risks.
+您可以使用新的模型來提升合作夥伴中心 API 整合呼叫的安全性。 這會協助所有的合作物件（包括 Microsoft、CSP 合作夥伴和 CPVs）保護其基礎結構和客戶資料免于安全性風險。
 
 ## <a name="scope"></a>領域
 
-This topic concerns the following actors:
+本主題涉及下列動作專案：
 
 - CPVs
-  - A CPV is an independent software vendor that develops apps for use by CSP partners to integrate with Partner Center APIs.
-  - A CPV is not a CSP partner with direct access to the Partner Center dashboard or APIs.
-- CSP indirect providers and CSP direct partners who are using app ID + user authentication and directly integrate with Partner Center APIs.
+  - CPV 是獨立軟體廠商，其會開發應用程式，供 CSP 合作夥伴用來與合作夥伴中心 Api 整合。
+  - CPV 不是可直接存取合作夥伴中心儀表板或 Api 的 CSP 合作夥伴。
+- CSP 間接提供者和 CSP 直接合作夥伴，他們使用應用程式識別碼 + 使用者驗證，並直接與合作夥伴中心 Api 整合。
 
 ## <a name="security-requirements"></a>安全性需求
 
-For details on security requirements, see [Partner Security Requirements](https://docs.microsoft.com/partner-center/partner-security-requirements).
+如需安全性需求的詳細資訊，請參閱[合作夥伴安全性需求](https://docs.microsoft.com/partner-center/partner-security-requirements)。
 
 ## <a name="secure-application-model"></a>安全應用程式模型
 
-Marketplace applications need to impersonate CSP partner privileges to call Microsoft APIs. Security attacks on these sensitive applications can lead to the compromise of customer data.
+Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Microsoft Api。 這些機密應用程式的安全性攻擊可能會導致客戶資料洩漏。
 
-For an overview and details of the new authentication framework, download the [Secure Application Model framework](http://assetsprod.microsoft.com/secure-application-model-guide.pdf) document. This document covers principles and best practices to make marketplace applications sustainable and robust from security compromises.
+如需新驗證架構的總覽和詳細資訊，請下載[安全的應用程式模型架構](http://assetsprod.microsoft.com/secure-application-model-guide.pdf)檔。 本檔涵蓋的原則和最佳作法，是為了讓 marketplace 應用程式可持續且穩定于安全性危害。
 
 ## <a name="samples"></a>範例
 
-The following overview documents and sample code describe how partners can implement the Secure Application Model framework:
+下列總覽檔和範例程式碼會說明合作夥伴如何執行安全的應用程式模型架構：
 
-- [CPV overview document](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
-- [CSP overview document](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
-- [.NET Samples](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
-- [Java Samples](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
+- [CPV 總覽檔](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
+- [CSP 總覽檔](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
+- [.NET 範例](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
+- [JAVA 範例](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
     [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-- [REST instructions and samples](#rest)
-- [PowerShell instructions and samples](#powershell)
+- [REST 指示和範例](#rest)
+- [PowerShell 指示和範例](#powershell)
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-To to make REST calls with the Secure Application Model framework with sample code, you must do the following:
+若要使用安全的應用程式模型架構進行 REST 呼叫，並搭配範例程式碼，您必須執行下列動作：
 
-1. [Create a web app](#create-a-web-app)
-2. [Get an authorization code](#get-authorization-code)
-3. [Get a refresh token](#get-refresh-token)
-4. [Get an access token](#get-access-token)
-5. [Make a Partner Center API call](#make-partner-center-api-calls)
+1. [建立 web 應用程式](#create-a-web-app)
+2. [取得授權碼](#get-authorization-code)
+3. [取得重新整理權杖](#get-refresh-token)
+4. [取得存取權杖](#get-access-token)
+5. [建立合作夥伴中心 API 呼叫](#make-partner-center-api-calls)
 
 > [!TIP]
-> You can use the Partner Center PowerShell module to get an authorization code and a refresh token. You can choose this option in place of steps 2 and 3. For more information, see the [PowerShell section and examples](#powershell).
+> 您可以使用合作夥伴中心 PowerShell 模組來取得授權碼和重新整理權杖。 您可以選擇此選項來取代步驟2和3。 如需詳細資訊，請參閱[PowerShell 一節和範例](#powershell)。
 
-### <a name="create-a-web-app"></a>Create a web app
+### <a name="create-a-web-app"></a>建立 web 應用程式
 
-You must create and register a web app in Partner Center before making REST calls.
+您必須先在合作夥伴中心建立並註冊 web 應用程式，才能進行 REST 呼叫。
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Create an Azure Active Directory (Azure AD) app.
-3. Give delegated application permissions to the following resources, *depending on your application's requirements*. If necessary, you can add more delegated permissions for application resources.
-    1. **Microsoft Partner Center** (some tenants show this as **SampleBECApp**)
-    2. **Azure Management APIs** (if you are planning to call Azure APIs)
+1. 登入[Azure 入口網站](https://portal.azure.com)。
+2. 建立 Azure Active Directory （Azure AD）應用程式。
+3. *根據您應用程式的需求*，授與委派的應用程式許可權給下列資源。 如有需要，您可以為應用程式資源新增更多委派的許可權。
+    1. **Microsoft 合作夥伴中心**（某些租使用者顯示為**SampleBECApp**）
+    2. **Azure 管理 api** （如果您打算呼叫 azure api）
     3. **Windows Azure Active Directory**
-4. Make sure that the home URL of your app is set to an endpoint where a live web app is running. This app will need to accept the [authorization code](#get-authorization-code) from the Azure AD login call. For example, in the example code in [the following section](#get-authorization-code), the web app is running at `https://localhost:44395/`.
-5. Note the following information from your web app's settings in Azure AD:
+4. 請確定您應用程式的 [主 URL] 已設定為執行即時 web 應用程式的端點。 此應用程式將需要接受來自 Azure AD 登入呼叫的[授權碼](#get-authorization-code)。 例如，在[下一節](#get-authorization-code)的範例程式碼中，web 應用程式是在 `https://localhost:44395/`執行。
+5. 請注意 Azure AD 中 web 應用程式設定的下列資訊：
     - 應用程式識別碼
-    - Application secret
+    - 應用程式密碼
 
 > [!NOTE]
-> It is recommended to [use a certificate as your application secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials). However, you can also create an application key in the Azure portal. The sample code in [the following section](#get-authorization-code) uses an application key.
+> 建議[使用憑證做為您的應用程式密碼](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials)。 不過，您也可以在 Azure 入口網站中建立應用程式金鑰。 [下一節](#get-authorization-code)中的範例程式碼會使用應用程式金鑰。
 
-### <a name="get-authorization-code"></a>Get authorization code
+### <a name="get-authorization-code"></a>取得授權碼
 
-You must get an authorization code for your web app to accept from the Azure AD login call:
+您必須取得 web 應用程式的授權碼，才能從 Azure AD 登入呼叫中接受：
 
-1. Log in to Azure AD at the following URL: <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>. Be sure to log in with the user account from which you will make Partner Center API calls (such as an admin agent or sales agent account).
-2. Replace **Application-Id** with your Azure AD app ID (GUID).
-3. When prompted, log in with your user account with MFA configured.
-4. When prompted, enter additional MFA information (phone number or email address) to verify your login.
-5. After you are logged in, the browser will redirect the call to your web app endpoint with your authorization code. For example, the following sample code redirects to `https://localhost:44395/`.
+1. 以下列 URL 登入 Azure AD： <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>。 請務必以您要用來進行合作夥伴中心 API 呼叫的使用者帳戶登入（例如，系統管理員代理程式或銷售代理程式帳戶）。
+2. 將**應用程式識別碼**取代為您的 Azure AD 應用程式識別碼（GUID）。
+3. 出現提示時，使用已設定 MFA 的使用者帳戶登入。
+4. 出現提示時，請輸入其他 MFA 資訊（電話號碼或電子郵件地址）來驗證您的登入。
+5. 登入之後，瀏覽器會使用您的授權碼將呼叫重新導向至您的 web 應用程式端點。 例如，下列範例程式碼會重新導向至 `https://localhost:44395/`。
 
-#### <a name="authorization-code-call-trace"></a>Authorization code call trace
+#### <a name="authorization-code-call-trace"></a>授權碼呼叫追蹤
 
 ```http
 POST https://localhost:44395/ HTTP/1.1
@@ -112,20 +112,20 @@ Cookie: OpenIdConnect.nonce.hOMjjrivcxzuI4YqAw4uYC%2F%2BILFk4%2FCx3kHTHP3lBvA%3D
 code=AuthorizationCodeValue&id_token=IdTokenValue&<rest of properties for state>
 ```
 
-### <a name="get-refresh-token"></a>Get refresh token
+### <a name="get-refresh-token"></a>取得重新整理權杖
 
-You must then use your authorization code to get a refresh token:
+接著，您必須使用您的授權碼來取得重新整理權杖：
 
-1. Make a POST call to the Azure AD login endpoint `https://login.microsoftonline.com/CSPTenantID/oauth2/token` with the authorization code. For an example, see the following [sample call](#sample-refresh-call).
-2. Note the refresh token that is returned.
-3. Store the refresh token in Azure Key Vault. For more information, see the [Key Vault API documentation](https://docs.microsoft.com/en-us/rest/api/keyvault/).
+1. 使用授權碼對 Azure AD 登入端點進行 POST 呼叫 `https://login.microsoftonline.com/CSPTenantID/oauth2/token`。 如需範例，請參閱下列[範例呼叫](#sample-refresh-call)。
+2. 請注意傳回的重新整理權杖。
+3. 在 Azure Key Vault 中儲存重新整理權杖。 如需詳細資訊，請參閱[KEY VAULT API 檔](https://docs.microsoft.com/en-us/rest/api/keyvault/)。
 
 > [!IMPORTANT]
-> The refresh token must be [stored as a secret](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret) in Key Vault.
+> 重新整理權杖必須以[秘密的形式儲存](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret)在 Key Vault 中。
 
-#### <a name="sample-refresh-call"></a>Sample refresh call
+#### <a name="sample-refresh-call"></a>範例重新整理呼叫
 
-Placeholder request:
+預留位置要求：
 
 ```http
 POST https://login.microsoftonline.com/CSPTenantID/oauth2/token HTTP/1.1
@@ -135,13 +135,13 @@ Content-Length: 966
 Expect: 100-continue
 ```
 
-Request body:
+要求本文：
 
 ```http
 resource=https%3a%2f%2fapi.partnercenter.microsoft.com&client_id=Application-Id&client_secret=Application-Secret&grant_type=authorization_code&code=AuthorizationCodeValue
 ```
 
-Placeholder response:
+預留位置回應：
 
 ```http
 HTTP/1.1 200 OK
@@ -149,7 +149,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Response body:
+回應主體：
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","ext_expires_in":"3599","expires_on":"1547579127","not_before":"1547575227","resource":"https://api.partnercenter.microsoft.com","access_token":"Access
@@ -157,9 +157,9 @@ Response body:
 
 ### <a name="get-access-token"></a>取得存取權杖
 
-You must obtain an access token before you can make calls to the Partner Center APIs. You must use a refresh token to obtain an access token because access token generally have a very limited lifetime (for example, less than an hour).
+您必須先取得存取權杖，才能對合作夥伴中心 Api 進行呼叫。 您必須使用重新整理權杖來取得存取權杖，因為存取權杖通常會有非常有限的存留期（例如，不到一小時）。
 
-Placeholder request:
+預留位置要求：
 
 ```http
 POST https://login.microsoftonline.com/CSPTenantID/oauth2/token HTTP/1.1
@@ -169,13 +169,13 @@ Content-Length: 1212
 Expect: 100-continue
 ```
 
-Request body:
+要求本文：
 
 ```http
 resource=https%3a%2f%2fapi.partnercenter.microsoft.com&client_id=Application-Id &client_secret= Application-Secret&grant_type=refresh_token&refresh_token=RefreshTokenVlaue&scope=openid
 ```
 
-Placeholder response:
+預留位置回應：
 
 ```http
 HTTP/1.1 200 OK
@@ -183,17 +183,17 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Response body:
+回應主體：
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
 ```
 
-### <a name="make-partner-center-api-calls"></a>Make Partner Center API calls
+### <a name="make-partner-center-api-calls"></a>進行合作夥伴中心 API 呼叫
 
-You must use your access token to call the Partner Center APIs. See the following example call.
+您必須使用存取權杖來呼叫合作夥伴中心 Api。 請參閱下列範例呼叫。
 
-#### <a name="example-partner-center-api-call"></a>Example Partner Center API call
+#### <a name="example-partner-center-api-call"></a>合作夥伴中心 API 呼叫範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/CustomerTenantId/users HTTP/1.1
@@ -207,11 +207,11 @@ Host: api.partnercenter.microsoft.com
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-You can use the [Partner Center PowerShell module](https://www.powershellgallery.com/packages/PartnerCenter) to reduce the required infrastructure to exchange an authorization code for an access token. This method is optional for making [Partner Center REST calls](#rest).
+您可以使用[合作夥伴中心 PowerShell 模組](https://www.powershellgallery.com/packages/PartnerCenter)來減少所需的基礎結構，以交換存取權杖的授權碼。 這個方法是讓[合作夥伴中心 REST 呼叫](#rest)的選擇性方式。
 
-For more information on this process, see [Secure App Model](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model) PowerShell documentation.
+如需此流程的詳細資訊，請參閱[保護應用程式模型](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model)PowerShell 檔。
 
-1. Install the Azure AD and Partner Center PowerShell modules.
+1. 安裝 Azure AD 和合作夥伴中心的 PowerShell 模組。
 
     ```powershell
     Install-Module AzureAD
@@ -221,7 +221,7 @@ For more information on this process, see [Secure App Model](https://docs.micros
     Install-Module PartnerCenter
     ```
 
-2. Use PowerShell to add `urn:ietf:wg:oauth:2.0:oob` as a reply URL for your Azure AD application. Be sure to replace the value for the object identifier parameter with the object identifier for you Azure AD application. You can find this value in the Azure management portal.
+2. 使用 PowerShell 將 `urn:ietf:wg:oauth:2.0:oob` 新增為 Azure AD 應用程式的回復 URL。 請務必將物件識別碼參數的值取代為您 Azure AD 應用程式的物件識別碼。 您可以在 Azure 管理入口網站中找到此值。
 
     ```powershell
     Connect-AzureAD
@@ -231,7 +231,7 @@ For more information on this process, see [Secure App Model](https://docs.micros
     Set-AzureADApplication -ObjectId 659dd68d-3414-4254-a48b-c081b5631b86 -ReplyUrls @("urn:ietf:wg:oauth:2.0:oob")
     ```
 
-3. Use the **[New-PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** command to perform the consent process and capture the required refresh token.
+3. 使用 **[PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** 命令來執行同意程式，並捕捉所需的重新整理權杖。
 
     ```powershell
     $credential = Get-Credential
@@ -242,16 +242,16 @@ For more information on this process, see [Secure App Model](https://docs.micros
     ```
 
     > [!NOTE]
-    > The **ServicePrincipal** parameter is used with the **New-PartnerAccessToken** command because an Azure AD app with a type of **web/API** is being used. This type of app require that a client identifier and secret be included in the access token request.
+    > **ServicePrincipal**參數會與**PartnerAccessToken**命令搭配使用，因為正在使用具有**web/API**類型的 Azure AD 應用程式。 這種類型的應用程式要求用戶端識別碼和密碼必須包含在存取權杖要求中。
 
-4. Copy the refresh token value.
+4. 複製 [重新整理權杖] 值。
 
     ```powershell
     $token.RefreshToken | clip
     ```
 
-5. When the **Get-Credential** command is invoked, you will be prompted to enter a username and password. Enter the application identifier as teh username. Enter the application secret as the password.
+5. 叫用**Get-Credential**命令時，系統會提示您輸入使用者名稱和密碼。 輸入應用程式識別碼做為使用者名稱。 輸入 [應用程式秘密] 做為密碼。
 
-6. When the **New-PartnerAccessToken** command is invoked, you will be prompted to enter credentials again. Enter the credentials for the service account that you are using. This service account should be a partner account with apppropriate permissions.
+6. 叫用**PartnerAccessToken**命令時，系統會提示您再次輸入認證。 輸入您所使用之服務帳戶的認證。 此服務帳戶應該是具有 apppropriate 許可權的夥伴帳戶。
 
-7. After the **New-PartnerAccessToken** is successfully executed, the **$token** variable now contains the response from Azure AD. Be sure to note and store the refresh token value in a secure repository, such as Azure Key Vault.
+7. 成功執行**PartnerAccessToken**之後， **$token**變數現在會包含來自 Azure AD 的回應。 請務必記下重新整理權杖值，並將其儲存在安全的儲存機制中，例如 Azure Key Vault。

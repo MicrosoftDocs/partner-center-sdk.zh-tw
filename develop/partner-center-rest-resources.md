@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST resources
-description: This section provides definitions for the JSON elements needed to create requests and parse responses using the Partner Center REST API.
+title: 合作夥伴中心 REST 資源
+description: 本節提供使用合作夥伴中心 REST API 建立要求和剖析回應所需之 JSON 元素的定義。
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
@@ -13,19 +13,19 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486818"
 ---
-# <a name="partner-center-rest-resources"></a>Partner Center REST resources
+# <a name="partner-center-rest-resources"></a>合作夥伴中心 REST 資源
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-This section provides definitions for the JSON elements needed to create requests and parse responses using the Partner Center REST API. For more information about how to use these elements, including sample code, see the [Scenarios](scenarios.md) section and the [Partner Center samples](partner-center-samples.md) section.
+本節提供使用合作夥伴中心 REST API 建立要求和剖析回應所需之 JSON 元素的定義。 如需如何使用這些元素的詳細資訊，包括範例程式碼，請參閱[案例](scenarios.md)一節和[合作夥伴中心範例](partner-center-samples.md)一節。
 
-## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a><span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>In this section
+## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a>本節中的 <span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>
 
 
 <table>
@@ -44,13 +44,13 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="auditing-resources.md">Auditing</a></td>
+<td><a href="auditing-resources.md">統計</a></td>
 <td><ul>
 <li>AuditRecord</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="azure-rate-card-resources.md">Azure Rate Card</a></td>
+<td><a href="azure-rate-card-resources.md">Azure 費率卡片</a></td>
 <td><ul>
 <li>AzureRateCard</li>
 <li>AzureMeter</li>
@@ -58,17 +58,17 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="azure-utilization-record-resources.md">Azure Utilization Record</a></td>
+<td><a href="azure-utilization-record-resources.md">Azure 使用率記錄</a></td>
 <td><ul>
 <li>AzureUtilizationRecord</li>
-<li>AzureResource</li>
+<li>Remove-azureresource</li>
 <li>AzureInstanceData</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="cart-resources.md">Cart</a></td>
+<td><a href="cart-resources.md">放</a></td>
 <td><ul>
-<li>Cart</li>
+<li>放</li>
 <li>CartLineItem</li>
 <li>CartError</li>
 </ul></td>
@@ -89,7 +89,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">Customer</a></td>
+<td><a href="customer-resources.md">顧客</a></td>
 <td><ul>
 <li>客戶</li>
 <li>CustomerCompanyProfile</li>
@@ -98,31 +98,31 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="customer-usage-resources.md">Customer Usage Budgeting</a></td>
+<td><a href="customer-usage-resources.md">客戶使用量預算</a></td>
 <td><ul>
 <li>CustomerMonthlyUsageRecord</li>
-<li>CustomerUsageSummary</li>
+<li>Customerrelationshiprequest</li>
 <li>PartnerUsageSummary</li>
 <li>SpendingBudget</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="entitlement-resources.md">Entitlement</a></td>
+<td><a href="entitlement-resources.md">變化</a></td>
 <td><ul>
-<li>Entitlement</li>
+<li>變化</li>
 <li>ReferenceOrder</li>
-<li>EntitlementType</li>
+<li>entitlementType</li>
 <li>構件</li>
-<li>ArtifactType</li>
+<li>artifactType</li>
 <li>VirtualMachineReservedInstanceArtifact</li>
 <li>VirtualMachineReservedInstanceArtifactDetails</li>
 <li>VirtualMachineReservation</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="invoice-resources.md">Invoice</a></td>
+<td><a href="invoice-resources.md">票</a></td>
 <td><ul>
-<li>Invoice</li>
+<li>票</li>
 <li>InvoiceDetail</li>
 <li>InvoiceLineItem</li>
 <li>InvoiceSummary</li>
@@ -134,7 +134,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="license-resources.md">License</a></td>
+<td><a href="license-resources.md">執照</a></td>
 <td><ul>
 <li>授權</li>
 <li>LicenseUpdate</li>
@@ -155,7 +155,7 @@ This section provides definitions for the JSON elements needed to create request
 <tr class="even">
 <td><a href="offer-resources.md">供應項目</a></td>
 <td><ul>
-<li>優惠供應</li>
+<li>產品</li>
 <li>OfferCategory</li>
 <li>OfferLinks</li>
 <li>OfferProduct</li>
@@ -187,7 +187,7 @@ This section provides definitions for the JSON elements needed to create request
 <li>產品</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
-<li>Sku</li>
+<li>限量</li>
 <li>可用性</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
@@ -196,7 +196,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="relationships-resources.md">Relationships</a></td>
+<td><a href="relationships-resources.md">關係</a></td>
 <td><ul>
 <li>PartnerRelationship</li>
 <li>RelationshipRequest</li>
@@ -221,7 +221,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="subscription-resources.md">Subscription</a></td>
+<td><a href="subscription-resources.md">預定</a></td>
 <td><ul>
 <li>訂閱</li>
 <li>SubscriptionLinks</li>
@@ -232,9 +232,9 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="subscription-usage-resources.md">Subscription Usage</a></td>
+<td><a href="subscription-usage-resources.md">訂用帳戶使用方式</a></td>
 <td><ul>
-<li>SubscriptionDailyUsageRecord <em>(Obsolete)</em></li>
+<li>SubscriptionDailyUsageRecord <em>（已過時）</em></li>
 <li>SubscriptionMonthlyUsageRecord</li>
 <li>SubscriptionUsageSummary</li>
 </ul></td>
@@ -249,7 +249,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="user-resources.md">User</a></td>
+<td><a href="user-resources.md">使用者</a></td>
 <td><ul>
 <li>使用者</li>
 <li>CustomerUser</li>
@@ -258,9 +258,9 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="utility-resources.md">Utility Resources</a></td>
+<td><a href="utility-resources.md">公用程式資源</a></td>
 <td><ul>
-<li>Address</li>
+<li>地址</li>
 <li>Contact</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>

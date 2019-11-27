@@ -1,6 +1,6 @@
 ---
-title: Get a customer's subscriptions
-description: How to get a collection of a customer's subscriptions.
+title: 取得客戶的訂用帳戶
+description: 如何取得客戶訂用帳戶的集合。
 ms.assetid: 1C9E986B-2887-460B-9D71-4520BB18C32A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485908"
 ---
-# <a name="get-a-customers-subscriptions"></a>Get a customer's subscriptions
+# <a name="get-a-customers-subscriptions"></a>取得客戶的訂用帳戶
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to get a collection of a customer's subscriptions.
+如何取得客戶訂用帳戶的集合。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a list of all of a customer's subscriptions, first use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to identify the customer. Then use the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property to retrieve an interface to subscription collection operations. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) methods to retrieve the customer's subscriptions collection.
+若要取得客戶的所有訂用帳戶清單，請先使用[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 然後使用 [[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] 屬性來抓取訂用帳戶集合作業的介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)方法，以取出客戶的訂用帳戶集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,38 +43,38 @@ To get a list of all of a customer's subscriptions, first use the [**IAggregateP
 var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscriptions.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetSubscriptions.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetSubscriptions.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-This table lists the required query parameter to get all the subscriptions.
+下表列出取得所有訂閱所需的查詢參數。
 
-| 名稱               | 在工作列搜尋方塊中輸入   | 必要 | 說明                                           |
+| 名稱               | 類型   | 必要 | 描述                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | 字串 | [是]      | A GUID-formatted string that identifies the customer. |
+| 客戶-租使用者識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions HTTP/1.1
@@ -85,16 +85,16 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, this method returns a collection of [Subscription](subscription-resources.md) resources in the response body.
+如果成功，這個方法會傳迴響應主體中的[訂](subscription-resources.md)用帳戶資源集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

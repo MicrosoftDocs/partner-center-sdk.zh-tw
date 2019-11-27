@@ -1,6 +1,6 @@
 ---
-title: Partner Center samples
-description: To help you get up and running quickly with the Partner Center APIs, we provide a sample program, C\ managed code snippets, and REST sample requests and responses.
+title: 合作夥伴中心範例
+description: 為了協助您快速啟動並執行合作夥伴中心 Api，我們提供了範例程式、C 管理的程式碼片段，以及 REST 範例要求和回應。
 ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,16 +13,16 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486788"
 ---
-# <a name="partner-center-samples"></a>Partner Center samples
+# <a name="partner-center-samples"></a>合作夥伴中心範例
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-To help you get up and running quickly with the Partner Center APIs, we provide a sample program, C# managed code snippets, and REST sample requests and responses.
+為了協助您快速啟動並執行合作夥伴中心 Api，我們提供了範例程式、 C#受控碼程式碼片段和 REST 範例要求和回應。
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -35,34 +35,34 @@ To help you get up and running quickly with the Partner Center APIs, we provide 
   </thead>
   <tbody>
     <tr>
-      <td>Code snippets</td>
-      <td>For pointers and .NET, Java, and PowerShell code snippets that show how to use the Partner Center managed API to manage customer accounts, get analytics, place orders, manage billing and subscriptions, provide support, and manage accounts and profiles, see <a href="scenarios.md">Scenarios</a>.</td>
+      <td>程式碼片段</td>
+      <td>如需說明如何使用合作夥伴中心受控 API 來管理客戶帳戶、取得分析、下訂單、管理帳單和訂用帳戶、提供支援，以及管理帳戶和設定檔的指標和 .NET、JAVA 和 PowerShell 程式碼片段，請參閱<a href="scenarios.md">案例</a>。</td>
     </tr>
     <tr>
-      <td>REST samples</td>
-      <td>For sample requests and responses that show how to use the Partner Center REST API to manage customer accounts, get analytics, place orders, manage billing and subscriptions, provide support, and manage accounts and profiles, see <a href="scenarios.md">Scenarios</a>.</td>
+      <td>REST 範例</td>
+      <td>如需示範如何使用合作夥伴中心 REST API 來管理客戶帳戶、取得分析、下訂單、管理帳單和訂用帳戶、提供支援，以及管理帳戶和設定檔的範例要求和回應，請參閱<a href="scenarios.md">案例</a>。</td>
     </tr>
     <tr>
-      <td><a href="console-test-app.md">Console test app</a></td>
-      <td>This app is available in C# and Java, it provides code and some error handling for all of the scenarios listed in the scenarios section.</td>
+      <td><a href="console-test-app.md">主控台測試應用程式</a></td>
+      <td>此應用程式可在C#和 JAVA 中使用，它會針對案例一節中列出的所有案例提供程式碼和一些錯誤處理。</td>
     </tr>
     <tr>
-      <td><a href="csp-customer-web-storefront.md">CSP customer web storefront</a></td>
-      <td>This site shows a working online store that your customers could use to buy subscriptions to Microsoft products. You can easily create a website for your company with the <a href="csp-customer-storefront-builder-quick-start-guide-.md">CSP Customer Storefront Builder Quickstart Guide</a>.</td>
+      <td><a href="csp-customer-web-storefront.md">CSP 客戶網路店面</a></td>
+      <td>此網站會顯示您的客戶可用來購買 Microsoft 產品訂用帳戶的工作線上商店。 您可以使用<a href="csp-customer-storefront-builder-quick-start-guide-.md">CSP 客戶店面產生器快速入門手冊</a>，輕鬆建立公司的網站。</td>
     </tr>
     <tr>
-      <td>Store web site</td>
+      <td>儲存網站</td>
       <td><p><strong>描述:</strong></p>
-          <p>This application shows how to build a web store based on the catalog of offers available to Cloud Solution Provider partners. Customers can create a store account and order software subscriptions through your site.</p>
-        <p><strong>Get the code:</strong></p>
-        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">Download the sample code</a></p>
-        <p><strong>What to configure before release:</strong></p>
+          <p>此應用程式示範如何根據雲端解決方案提供者合作夥伴提供的供應專案目錄，建立 web 存放區。 客戶可以建立商店帳戶，並透過您的網站訂購軟體訂閱。</p>
+        <p><strong>取得程式碼：</strong></p>
+        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">下載範例程式碼</a></p>
+        <p><strong>發行前的設定事項：</strong></p>
         <ul>
-          <li><p>Authentication: App ID & secret.</p></li>
-          <li><p>Branding: logo and company name.</p></li>
-          <li><p>Welcome message.</p></li>
-          <li><p>Offers, including descriptions and prices. The app assumes that the list prices include any applicable taxes. Alternatively, you can add additional logic to calculate tax during checkout.</p></li>
-          <li><p>Payment information: provide your own credit card options, PayPal, or other payment types. Before you configure this part, please read the guide <a href="https://docs.microsoft.com/partner-center/non-payment--fraud--or-misuse">Non-payment, fraud, or misuse</a>.</p></li>
+          <li><p>驗證：應用程式識別碼 & 密碼。</p></li>
+          <li><p>商標：標誌和公司名稱。</p></li>
+          <li><p>歡迎使用訊息。</p></li>
+          <li><p>優惠，包括描述和價格。 應用程式會假設清單價格包含任何適用的稅金。 或者，您也可以新增額外的邏輯來計算結帳期間的稅金。</p></li>
+          <li><p>付款資訊：提供您自己的信用卡選項、PayPal 或其他付款類型。 設定此元件之前，請先閱讀本指南：<a href="https://docs.microsoft.com/partner-center/non-payment--fraud--or-misuse">未付款、詐騙或誤用</a>。</p></li>
         </ul>
       </td>
     </tr>

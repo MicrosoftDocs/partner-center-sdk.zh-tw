@@ -1,6 +1,6 @@
 ---
-title: Set up API access in Partner Center
-description: Set up accounts for developing against the Partner Center SDK and test in the integration sandbox.
+title: 在合作夥伴中心設定 API 存取
+description: 設定帳戶以針對合作夥伴中心 SDK 進行開發，並在整合沙箱中進行測試。
 ms.assetid: 182A6831-6F00-4762-9A86-327BF87EA6AC
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488058"
 ---
-# <a name="set-up-api-access-in-partner-center"></a>Set up API access in Partner Center
+# <a name="set-up-api-access-in-partner-center"></a>在合作夥伴中心設定 API 存取
 
 適用於：
 
@@ -22,73 +22,73 @@ ms.locfileid: "74488058"
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-This topic describes the accounts you need to develop against the Partner Center SDK. This topic also explains how to create an [integration sandbox account](#integration-sandbox-account) and test in the integration sandbox.
+本主題說明針對合作夥伴中心 SDK 進行開發所需的帳戶。 本主題也會說明如何建立[整合沙箱帳戶](#integration-sandbox-account)，並在整合沙箱中進行測試。
 
-## <a name="account-definitions"></a>Account definitions
+## <a name="account-definitions"></a>帳戶定義
 
-To help you integrate and test your API integration, Partner Center supports two kinds of accounts:
+為了協助您整合和測試您的 API 整合，合作夥伴中心支援兩種帳戶：
 
-### <a name="primary-partner-account"></a>Primary Partner account
+### <a name="primary-partner-account"></a>主要合作夥伴帳戶
 
-This account is where you create real orders for real customers. If you make any changes or transactions when you are signed in to the primary account, by using either the Partner Center SDK or the Partner Dashboard UI, they will be treated as official orders for real customers. They will be reflected in your invoice, and your company is responsible for paying for them.
+此帳戶可讓您建立真實客戶的實際訂單。 如果您在登入主要帳戶時進行任何變更或交易，使用合作夥伴中心 SDK 或夥伴儀表板 UI 時，系統會將他們視為真實客戶的官方訂單。 這些專案會反映在您的發票中，而您的公司會負責支付費用。
 
-### <a name="integration-sandbox-account"></a>Integration sandbox account
+### <a name="integration-sandbox-account"></a>整合沙箱帳戶
 
-This account is for testing your code and its integration with the Partner Center APIs before you deploy it broadly. Changes and transactions you make when you are signed into the integration sandbox account will not appear in your invoice.
+此帳戶是用來測試您的程式碼及其與合作夥伴中心 Api 的整合，然後再廣泛部署。 當您登入整合沙箱帳戶時所進行的變更和交易，將不會出現在您的發票中。
 
-The integration sandbox account and the primary account act independently, and do not share admin accounts, user accounts, customers, orders, subscriptions, or other data.
+整合沙箱帳戶和主要帳戶會獨立運作，而且不會共用系統管理員帳戶、使用者帳戶、客戶、訂單、訂閱或其他資料。
 
-The integration sandbox supports transactions with a limited number of customers, orders, subscriptions, seats, etc.
+整合沙箱支援數量有限的客戶、訂單、訂閱、基座等等的交易。
 
-By policy, integration sandbox accounts are for integration testing purposes only.
+根據原則，整合沙箱帳戶僅供整合測試之用。
 
-By default, there is no integration sandbox account. You must create one yourself if you plan to use the Partner Center SDK.
+根據預設，沒有整合沙箱帳戶。 如果您打算使用合作夥伴中心 SDK，您必須自行建立一個。
 
-## <a name="set-up-your-accounts"></a>Set up your accounts
+## <a name="set-up-your-accounts"></a>設定您的帳戶
 
-This section describes how to set up a primary Partner account and an integration sandbox account for the Partner Center SDK.
+本節說明如何設定主要合作夥伴帳戶，以及合作夥伴中心 SDK 的整合沙箱帳戶。
 
-### <a name="create-an-integration-sandbox"></a>Create an integration sandbox
+### <a name="create-an-integration-sandbox"></a>建立整合沙箱
 
-1. Sign in to Partner Dashboard with a global admin account (your primary Partner account.)
-2. From the **Settings** menu (gear icon), choose **Partner settings**.
-3. On the **Account settings** page, choose **Integration sandbox**.
+1. 使用全域系統管理員帳戶（您的主要夥伴帳戶）登入夥伴儀表板。）
+2. 從 [**設定**] 功能表（齒輪圖示）選擇 [**合作夥伴設定**]。
+3. 在 [**帳戶設定**] 頁面上，選擇 [**整合沙箱**]。
 
     >[!NOTE]
-    >If you don't see an Integration sandbox option, you might not have a global admin account. You also might be using an integration sandbox account and an integration sandbox has already been set up.
+    >如果您沒有看到 [整合沙箱] 選項，可能是您沒有全域管理員帳戶。 您也可能會使用整合沙箱帳戶，而且已設定整合沙箱。
 
-4. Enter the contact information for the integration sandbox admin account. Then, choose **Create account**. Wait a few minutes for a confirmation message that the account has been created.
-5. After you see the confirmation message, sign out of Partner Dashboard.
-6. Sign back in with your new integration sandbox admin account. Be sure to use the format **username@domain** for your credentials along with the password that you just specified.
-7. Choose **Set Up Account** above **Current Tasks** to complete the sandbox account setup.
+4. 輸入整合沙箱管理帳戶的連絡人資訊。 然後，選擇 [**建立帳戶**]。 等候幾分鐘的時間，確認已建立帳戶的確認訊息。
+5. 查看確認訊息之後，請登出夥伴儀表板。
+6. 使用新的整合沙箱管理帳戶重新登入。 請務必針對您的認證使用格式 **username@domain** ，以及您剛才指定的密碼。
+7. 選擇 [在**目前**工作上方**設定帳戶**] 以完成沙箱帳戶設定。
 
-### <a name="enable-api-access"></a>Enable API access
+### <a name="enable-api-access"></a>啟用 API 存取
 
-After your account is set up, you must enable API access before you can use the Partner Center SDK with the integration sandbox. You need to enable access to the API separately for both your primary Partner account and your integration sandbox account.
+設定帳戶之後，您必須先啟用 API 存取，才能搭配使用合作夥伴中心 SDK 與整合沙箱。 您必須針對主要夥伴帳戶和整合沙箱帳戶，分別啟用 API 的存取權。
 
-1. Sign into Partner Dashboard using a global admin account.
-2. From the **Settings** menu (gear icon), select **Partner settings**.
-3. On the **Account settings** page, choose **App management**.
-4. If you do not already have an existing app, add a new web app. If you have an existing web app, choose the **Add key** button.
-5. Copy the app registration information, especially the **Key** if you're creating a web app, and store it in a safe place.
-6. Sign out of Partner Dashboard.
-7. Sign back in with your integration sandbox account. Repeat steps 2-5 to enable API access in the integration sandbox.
+1. 使用全域系統管理員帳戶登入夥伴儀表板。
+2. 從 [**設定**] 功能表（齒輪圖示）選取 [**合作夥伴設定**]。
+3. 在 [**帳戶設定**] 頁面上，選擇 [**應用程式管理**]。
+4. 如果您還沒有現有的應用程式，請新增新的 web 應用程式。 如果您有現有的 web 應用程式，請選擇 [**新增金鑰**] 按鈕。
+5. 複製應用程式註冊資訊，特別是當您要建立 web 應用程式時的**金鑰**，並將其儲存在安全的地方。
+6. 登出夥伴儀表板。
+7. 使用您的整合沙箱帳戶重新登入。 重複步驟2-5，以在整合沙箱中啟用 API 存取。
 
-## <a name="write-and-test-code"></a>Write and test code
+## <a name="write-and-test-code"></a>撰寫和測試程式碼
 
-You can write code and test code in the integration sandbox. You'll need the following information to [set up Partner Center authentication](partner-center-authentication.md) with Azure AD.
+您可以在整合沙箱中撰寫程式碼和測試程式碼。 您將需要下列資訊，才能使用 Azure AD[設定合作夥伴中心驗證](partner-center-authentication.md)。
 
-| Item name | Item location |
+| 專案名稱 | 專案位置 |
 | --------- | ------------- |
-| App ID / Client ID | From the **Settings** menu (gear icon), select **Partner settings**. On the **Account settings** page, select **App Management**. The App ID/Client ID is listed as the **Registered application App ID**. |
-| 機碼 | If you created a web app in the section [Enable API access](#enable-api-access), this is the key that you saved in step 5. |
-| 網域 | The domain for the integration sandbox. |
+| 應用程式識別碼/用戶端識別碼 | 從 [**設定**] 功能表（齒輪圖示）選取 [**合作夥伴設定**]。 在 [**帳戶設定**] 頁面上，選取 [**應用程式管理**]。 應用程式識別碼/用戶端識別碼會列示為**已註冊的應用程式識別碼**。 |
+| 索引鍵 | 如果您已在[啟用 API 存取](#enable-api-access)一節中建立 web 應用程式，這就是您在步驟5中儲存的金鑰。 |
+| 網域 | 整合沙箱的網域。 |
 
-## <a name="run-tested-code"></a>Run tested code
+## <a name="run-tested-code"></a>執行測試過的程式碼
 
-To use your solution with real customer data, you must change from your integration sandbox credentials to your primary Partner account credentials.
+若要將您的解決方案與實際的客戶資料搭配使用，您必須從整合沙箱認證變更為主要夥伴帳號憑證。
 
-When you're ready to use your tested code in your primary Partner account, you must get an Azure AD security token. This security token is based on your Partner Center app, key and domain (instead of your integration sandbox app, key and domain).
+當您準備好在主要夥伴帳戶中使用已測試的程式碼時，您必須取得 Azure AD 的安全性權杖。 此安全性權杖是以您的合作夥伴中心應用程式、金鑰和網域（而不是您的整合沙箱應用程式、金鑰和網域）為基礎。
 
-1. Follow the steps in [Partner Center authentication](partner-center-authentication.md) to get an Azure AD security token using your primary Partner Center credentials. (You previously followed these steps to get an Azure AD security token for your integration sandbox.)
-2. Replace the integration security token in your code with the new security token for your primary Partner account.
+1. 遵循[合作夥伴中心驗證](partner-center-authentication.md)中的步驟，使用您的主要合作夥伴中心認證取得 Azure AD 的安全性權杖。 （您先前已遵循這些步驟來取得整合沙箱的 Azure AD 安全性權杖）。
+2. 將程式碼中的整合安全性權杖取代為主要夥伴帳戶的新安全性權杖。

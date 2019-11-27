@@ -1,6 +1,6 @@
 ---
-title: Get a collection of invoices
-description: How to retrieve a collection of the partner's invoices.
+title: 取得發票的集合
+description: 如何取出合作夥伴發票的集合。
 ms.assetid: B5392987-3D2E-493B-9F97-A20055D5D46A
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489888"
 ---
-# <a name="get-a-collection-of-invoices"></a>Get a collection of invoices
+# <a name="get-a-collection-of-invoices"></a>取得發票的集合
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to retrieve a collection of the partner's invoices.
+如何取出合作夥伴發票的集合。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a collection of all available invoices, use the [**Invoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) property to get an interface to invoice operations, and then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) method to retrieve the collection.
+若要取得所有可用發票的集合，請使用[**invoice 屬性來取得發票作業**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)的介面，然後呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync)方法來取出集合。
 
-To get a paged collection of invoices, first call the [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) method and pass it the page size to create an [**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) object. Next, use the [**Invoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) property to get an interface to invoice operations, and then pass the IQuery object to the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) or [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) method to send the request and get the first page.
+若要取得已分頁的發票集合，請先呼叫[**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)方法，並將頁面大小傳遞給它，以建立[**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)物件。 接下來，使用[**invoice 屬性來取得發票作業**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)的介面，然後將 IQuery 物件傳遞給[**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query)或[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync)方法，以傳送要求並取得第一頁。
 
-Next, use the [**Enumerators**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) property to get an interface to the collection of supported resource collection enumerators, and then call [**Invoices.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) to create an enumerator for traversing the collection of invoices. Finally, use the enumerator to retrieve and work with each page of invoices as shown in the following code example. Each call to the [**Next**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) method sends a request for the next page of invoices based on the page size.
+接下來，使用[ **[列舉**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators)值] 屬性來取得支援的資源集合列舉值集合的介面，然後呼叫 [[**發票]。建立**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)以建立用於遍歷發票集合的列舉值。 最後，使用列舉值來抓取和使用發票的每一頁，如下列程式碼範例所示。 [**下**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next)一個方法的每個呼叫都會根據頁面大小，傳送下一頁發票的要求。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -78,39 +78,39 @@ while (invoicesEnumerator.HasValue)
 }
 ```
 
-For a slightly different example, see **Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetPagedInvoices.cs
+如需稍微不同的範例，請參閱**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetPagedInvoices.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices?size={size}&offset={offset} HTTP/1.1  |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices？ size = {size} & offset = {OFFSET} HTTP/1。1  |
 
  
 
-**URI parameters**
+**URI 參數**
 
-Use the following query parameters when creating the request.
+建立要求時，請使用下列查詢參數。
 
-| 名稱   | 在工作列搜尋方塊中輸入 | 必要 | 說明                                                                            |
+| 名稱   | 類型 | 必要 | 描述                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| size   | 整數  | 無       | The number of invoice resources to return in the response. 此為選擇性參數。 |
-| offset | 整數  | 無       | The zero-based index of the first invoice to return.                                   |
+| size   | 整數  | 否       | 要在回應中傳回的發票資源數目。 此為選擇性參數。 |
+| offset | 整數  | 否       | 要傳回的第一個發票之以零為基底的索引。                                   |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices?size=200&offset=0 HTTP/1.1
@@ -123,16 +123,16 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 回應
 
 
-If successful, the response body contains the collection of [Invoice](invoice-resources.md#invoice) resources.
+如果成功，回應主體會包含[發票](invoice-resources.md#invoice)資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

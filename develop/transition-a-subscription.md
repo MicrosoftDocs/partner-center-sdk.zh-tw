@@ -1,6 +1,6 @@
 ---
-title: Transition a subscription
-description: Upgrades a customer's subscription to a specified target subscription.
+title: 轉換訂用帳戶
+description: 將客戶的訂用帳戶升級為指定的目標訂用帳戶。
 ms.assetid: 54618BC1-6AF7-4518-925B-8A6A4C926CE7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486498"
 ---
-# <a name="transition-a-subscription"></a>Transition a subscription
+# <a name="transition-a-subscription"></a>轉換訂用帳戶
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Upgrades a customer's subscription to a specified target subscription.
+將客戶的訂用帳戶升級為指定的目標訂用帳戶。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- Two subscription IDs, one for the initial subscription and one for the target subscription.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 兩個訂用帳戶識別碼，一個用於初始訂用帳戶，另一個用於目標訂用帳戶。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To upgrade a customer's subscription, first [get that's customer's subscription](get-a-subscription-by-id.md). Then, obtain a list of upgrades for that subscription by calling the **Upgrades** property followed by the **Get()** or **GetAsync()** methods. Choose a target upgrade from that list of upgrades, and then call the **Upgrades** property of the initial subscription, followed by the **Create()** method.
+若要升級客戶的訂用帳戶，請先[取得 customer's 訂](get-a-subscription-by-id.md)用帳戶。 然後，藉由呼叫**升級**屬性，後面接著**Get （）** 或**GetAsync （）** 方法，取得該訂用帳戶的升級清單。 從該升級清單中選擇目標升級，然後呼叫初始訂用帳戶的**升級**屬性，後面接著**Create （）** 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,41 +46,41 @@ To upgrade a customer's subscription, first [get that's customer's subscription]
 UpgradeResult upgradeResult = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionIdForUpgrade).Upgrades.Create(targetOffer);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: UpgradeSubscription.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSamples**類別**： UpgradeSubscription.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法   | 要求 URI                                                                                                                         |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1 |
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1.1       |
+| **獲取**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1。1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1。1       |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following query parameter to transition the subscription.
+使用下列查詢參數來轉換訂用帳戶。
 
-| 名稱                    | 在工作列搜尋方塊中輸入     | 必要 | 說明                                       |
+| 名稱                    | 類型     | 必要 | 描述                                       |
 |-------------------------|----------|----------|---------------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.             |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the initial subscription. |
-| **id-for-target**       | **guid** | Y        | A GUID corresponding to the target subscription.  |
+| **客戶-租使用者識別碼**  | **guid** | Y        | 對應至客戶的 GUID。             |
+| **訂用帳戶的識別碼** | **guid** | Y        | 對應至初始訂用帳戶的 GUID。 |
+| **識別碼-目標**       | **guid** | Y        | 對應到目標訂用帳戶的 GUID。  |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1
@@ -153,16 +153,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, this method returns an **Upgrade** result resource in the response body.
+如果成功，此方法會在回應主體中傳回**升級**結果資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

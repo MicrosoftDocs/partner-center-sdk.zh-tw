@@ -1,6 +1,6 @@
 ---
-title: Get the managed services for a customer by ID
-description: Gets the managed services for a customer. In other words, get links to all of the customer's subscriptions for which you have delegated admin privileges. You can use these links to provide support and file service requests with Microsoft.
+title: 依識別碼取得客戶的受控服務
+description: 取得客戶的受控服務。 換句話說，您可以取得所有已委派系統管理員許可權之客戶訂用帳戶的連結。 您可以使用這些連結來提供 Microsoft 的支援和檔案服務要求。
 ms.assetid: 32554787-4232-4574-9FC9-5E9F26411233
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487128"
 ---
-# <a name="get-the-managed-services-for-a-customer-by-id"></a>Get the managed services for a customer by ID
+# <a name="get-the-managed-services-for-a-customer-by-id"></a>依識別碼取得客戶的受控服務
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Gets the managed services for a customer. In other words, get links to all of the customer's subscriptions for which you have delegated admin privileges. You can use these links to provide support and file service requests with Microsoft.
+取得客戶的受控服務。 換句話說，您可以取得所有已委派系統管理員許可權之客戶訂用帳戶的連結。 您可以使用這些連結來提供 Microsoft 的支援和檔案服務要求。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To display a list of all the managed services for a customer, use your **IAggregatePartner.Customers** collection and call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method. Then call the [**ManagedServices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) property, followed by the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) methods.
+若要顯示客戶的所有受控服務清單，請使用您的**iaggregatepartner.customers.byid**集合並呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。 然後呼叫[**ManagedServices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices)屬性，後面接著[**Get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync)方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,38 +42,38 @@ To display a list of all the managed services for a customer, use your **IAggreg
 ResourceCollection<ManagedService> managedServices = partnerOperations.Customers.ById(selectedCustomerId).ManagedServices.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerCenterSDK.FeaturesSamples **Class**: CustomerManagedServices.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples**類別**： CustomerManagedServices.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/managedservices HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/managedservices HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following query parameter to get the customer's managed services.
+使用下列查詢參數來取得客戶的受控服務。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                           |
+| 名稱                   | 類型     | 必要 | 描述                           |
 |------------------------|----------|----------|---------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | A GUID corresponding to the customer. |
+| **客戶-租使用者識別碼** | **guid** | Y        | 對應至客戶的 GUID。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/managedservices HTTP/1.1
@@ -83,15 +83,15 @@ MS-RequestId: 4ff57220-f17b-4d8f-8e09-78334c57ba00
 MS-CorrelationId: 03d6064a-f048-4aee-8892-ed46dc5c8bee
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 回應
 
-If successful, this method returns a collection of **Managed Service** objects in the response body.
+如果成功，此方法會在回應主體中傳回**受控服務**物件的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

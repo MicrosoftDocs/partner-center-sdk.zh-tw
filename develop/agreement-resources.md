@@ -1,6 +1,6 @@
 ---
-title: Agreement resources
-description: The Agreement resource represents a Microsoft cloud customer agreement.
+title: 合約資源
+description: 合約資源代表 Microsoft 雲端客戶合約。
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,29 +12,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489258"
 ---
-# <a name="agreement-resources"></a>Agreement resources
+# <a name="agreement-resources"></a>合約資源
 
 適用於：
 
 - 合作夥伴中心
 
-The **Agreement** resource is currently supported by Partner Center in the Microsoft public cloud only. It is not applicable to:
+**合約**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
 
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-The **Agreement** resource represents a Microsoft cloud customer agreement.
+**合約**資源代表 Microsoft 雲端客戶合約。
 
 ## <a name="agreement"></a>合約
 
-The **Agreement** resource represents the details of certification provided by the partner.
+**協定**資源代表合作夥伴提供之認證的詳細資料。
 
-| 屬性       | 在工作列搜尋方塊中輸入   | 說明                                                                                               |
+| 屬性       | 類型   | 描述                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| userId         | 字串                         | Object identifier of the logged-in user in the partner tenant who is providing confirmation on behalf of the partner organization. When using App+User authentication to create an Agreement resource, Partner Center automatically derives the **userId** attribute value from the App+User token.                                                                             |
-| primaryContact | [Contact](./utility-resources.md#contact) | Information about the user from the customer organization that accepted the Microsoft Cloud Agreement, including:  **firstName**, **lastName**, **email**, and **phoneNumber** (optional). |
-| dateAgreed     | string in UTC date time format | The date when the customer accepted the agreement.                                 |
-| templateId     |字串                          | Unique identifier of the agreement that the customer accepted. |
-| type           |字串                          | Agreement type. Currently, supported values include **MicrosoftCloudAgreement** and **MicrosoftCustomerAgreement**.|
-| agreementLink  | 字串                         | URL for the agreement template.                                                    |
+| userId         | 字串                         | 合作夥伴租使用者中已登入使用者的物件識別碼，代表夥伴組織提供確認。 使用 [應用程式 + 使用者驗證] 建立合約資源時，合作夥伴中心會自動從應用程式 + 使用者權杖衍生**userId**屬性值。                                                                             |
+| primaryContact | [連絡人](./utility-resources.md#contact) | 客戶組織中接受 Microsoft Cloud 合約之使用者的相關資訊，包括： **firstName**、 **lastName**、 **email**和**phoneNumber** （選擇性）。 |
+| dateAgreed     | UTC 日期時間格式的字串 | 客戶接受合約的日期。                                 |
+| templateId     |字串                          | 客戶接受之合約的唯一識別碼。 |
+| type           |字串                          | 合約類型。 目前支援的值包括**MicrosoftCloudAgreement**和**MicrosoftCustomerAgreement**。|
+| agreementLink  | 字串                         | 合約範本的 URL。                                                    |

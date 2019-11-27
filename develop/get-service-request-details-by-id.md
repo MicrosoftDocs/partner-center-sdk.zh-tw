@@ -1,6 +1,6 @@
 ---
-title: Get service request details by ID.
-description: How to retrieve the details of an existing customer service request by ID.
+title: 依識別碼取得服務要求詳細資料。
+description: 如何依識別碼取得現有客戶服務要求的詳細資料。
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487298"
 ---
-# <a name="get-service-request-details-by-id"></a>Get service request details by ID
+# <a name="get-service-request-details-by-id"></a>依識別碼取得服務要求詳細資料
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to retrieve the details of an existing customer service request using the service request identifier. 
+如何使用服務要求識別碼來取得現有客戶服務要求的詳細資料。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A service request ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 服務要求識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve the details of an existing customer service request, call the [**IServiceRequestCollection.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) method, and pass in a [**ServiceRequest.Id**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) to identify and return an interface to the specific [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) object. 
+若要取得現有客戶服務要求的詳細資料，請呼叫[**IServiceRequestCollection. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)方法，並傳入[**ServiceRequest.Id**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id)來識別並將介面傳回給特定的[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)物件。 
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,36 +47,36 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 )); 
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法    | 要求 URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1  |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1。1  |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following URI parameter to get the specified service request. 
+使用下列 URI 參數來取得指定的服務要求。 
 
-| 名稱                  | 在工作列搜尋方塊中輸入     | 必要 | 說明                                 |
+| 名字                  | 類型     | 必要 | 說明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
-| **servicerequest-id** | **guid** | Y        | A GUID that identifies the service request. |
+| **servicerequest-id** | **guid** | Y        | 識別服務要求的 GUID。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/servicerequests/616122292874576 HTTP/1.1
@@ -90,16 +90,16 @@ Host: api.partnercenter.microsoft.com
 Content-Length: 0 
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 回應
 
 
-If successful, this method returns a **Service Request** resource in the response body. 
+如果成功，此方法會在回應主體中傳回**服務要求**資源。 
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Customer usage resources
-description: Resources for customers with usage-based subscriptions and monthly use budgets (including CustomerMonthlyUsageRecord, CustomerUsageSummary, PartnerUsageSummary, and SpendingBudget).
+title: 客戶使用資源
+description: 以使用量為基礎的訂用帳戶和每月使用預算（包括 CustomerMonthlyUsageRecord、Customerrelationshiprequest、PartnerUsageSummary 和 SpendingBudget）的客戶所適用的資源。
 ms.assetid: 268C7AF5-3A95-451F-8092-033A3E8126F2
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489818"
 ---
-# <a name="customer-usage-resources"></a>Customer usage resources
+# <a name="customer-usage-resources"></a>客戶使用資源
 
 適用於：
 
@@ -21,73 +21,73 @@ ms.locfileid: "74489818"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Customers with usage-based subscriptions may have a monthly use budget. This budget sets a limit on the customer's maximum usage and allows the partner to track their usage over time.
+具有以使用量為基礎之訂用帳戶的客戶可能會有每月的使用預算。 此預算會針對客戶的最大使用量設定限制，並允許合作夥伴追蹤其使用時間。
 
 > [!NOTE]
-> Customer usage numbers are estimates (not final values), which should not be used for billing purposes.
+> 客戶使用量數位是估計值（不是最終的值），不應用於計費用途。
 
 ## <a name="customermonthlyusagerecord"></a>CustomerMonthlyUsageRecord
 
-**CustomerMonthlyUsageRecord** represents the estimated monetary cost of a customer's usage in the current month.
+**CustomerMonthlyUsageRecord**代表客戶在當月使用的預估貨幣成本。
 
-| 屬性         | 在工作列搜尋方塊中輸入               | 說明                                                              |
+| 屬性         | 類型               | 描述                                                              |
 |------------------|--------------------|--------------------------------------------------------------------------|
-| Budget           | SpendingBudget     | The spending budget allocated for the customer.                          |
-| PercentUsed      | 十進位             | The percentage used out of the allocated budget.                        |
-| ResourceId       | 字串             | The unique identifier of the resource.                                   |
-| ResourceName     | 字串             | The name of the resource.                                                |
-| TotalCost        | 十進位             | The estimated total cost of usage for the resources in the subscription.|
-| CurrencyLocale   | 字串             | The customer's currency locale. Available for Microsoft Azure (MS-AZR-0145P) subscriptions.            |
-| CurrencyCode     | 字串             | Gets or sets the currency code. Available for Azure plans.           |
-| USDTotalCost     | 十進位             | Gets or sets the estimated total cost in USD. Available for Azure plans.                                         |
-| IsUpgraded       | bool             | Gets or sets a value indicating whether the customer's Azure subscription is upgraded. The value **true** represents customers who have an Azure plan.                         |
-| LastModifiedDate | date               | The date the usage data was last modified.                               |
-| 屬性       | ResourceAttributes | The metadata attributes corresponding to the usage record.               |
+| 預算           | SpendingBudget     | 為客戶配置的消費預算。                          |
+| PercentUsed      | 十進位             | 已配置的預算所用的百分比。                        |
+| ResourceId       | 字串             | 資源的唯一識別碼。                                   |
+| ResourceName     | 字串             | 資源的名稱。                                                |
+| TotalCost        | 十進位             | 訂用帳戶中資源使用量的預估總成本。|
+| CurrencyLocale   | 字串             | 客戶的貨幣地區設定。 適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂閱。            |
+| CurrencyCode     | 字串             | 取得或設定貨幣代碼。 適用于 Azure 方案。           |
+| USDTotalCost     | 十進位             | 取得或設定估計的總成本（美元）。 適用于 Azure 方案。                                         |
+| IsUpgraded       | bool             | 取得或設定值，指出是否升級客戶的 Azure 訂用帳戶。 **True**值代表具有 Azure 方案的客戶。                         |
+| lastModifiedDate | date               | 上次修改使用量資料的日期。                               |
+| 屬性       | ResourceAttributes | 對應至使用記錄的中繼資料屬性。               |
 
-## <a name="customerusagesummary"></a>CustomerUsageSummary
+## <a name="customerusagesummary"></a>Customerrelationshiprequest
 
-**CustomerUsageSummary** represents a summary of the customer's usage for an entire billing period.
+**Customerrelationshiprequest**代表客戶在整個計費週期中的使用量摘要。
 
-| 屬性         | 在工作列搜尋方塊中輸入               | 說明                                                                                                      |
+| 屬性         | 類型               | 描述                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| Budget           | SpendingBudget     | The spending budget allocated for the customer.                                                                  |
-| ResourceId       | 字串             | The unique identifier of the resource. In the context of CustomerMonthlyUsageRecord, this id is the customer id. |
-| ResourceName     | 字串             | The name of the resource. In the context of CustomerMonthlyUsageRecord, this is the customer name.               |
-| BillingStartDate | date               | The start date of the current billing period.                                                                    |
-| BillingEndDate   | date               | The end date of the current billing period.                                                                      |
-| TotalCost        | 十進位             | The estimated total cost of usage for the resources in the subscription.                                         |
-| CurrencyLocale   | 字串             | The customer's currency locale. Available for Microsoft Azure (MS-AZR-0145P) subscriptions.                                         |
-| CurrencyCode     | 字串             | Gets or sets the currency code. Available for Azure plans.                                         |
-| USDTotalCost     | 十進位             | Gets or sets the estimated total cost in USD. Available for Azure plan subscription resources.                                         |
-| LastModifiedDate | date               | The date the usage data was last modified.                                                                       |
-| 連結            | ResourceLinks      | The resource links corresponding to the usage summary.                                                           |
-| 屬性       | ResourceAttributes | The metadata attributes corresponding to the usage summary.                                                      |
+| 預算           | SpendingBudget     | 為客戶配置的消費預算。                                                                  |
+| ResourceId       | 字串             | 資源的唯一識別碼。 在 CustomerMonthlyUsageRecord 的內容中，此識別碼是客戶識別碼。 |
+| ResourceName     | 字串             | 資源的名稱。 在 CustomerMonthlyUsageRecord 的內容中，這是客戶名稱。               |
+| BillingStartDate | date               | 目前計費週期的開始日期。                                                                    |
+| BillingEndDate   | date               | 目前計費週期的結束日期。                                                                      |
+| TotalCost        | 十進位             | 訂用帳戶中資源使用量的預估總成本。                                         |
+| CurrencyLocale   | 字串             | 客戶的貨幣地區設定。 適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂閱。                                         |
+| CurrencyCode     | 字串             | 取得或設定貨幣代碼。 適用于 Azure 方案。                                         |
+| USDTotalCost     | 十進位             | 取得或設定估計的總成本（美元）。 適用于 Azure 方案訂用帳戶資源。                                         |
+| lastModifiedDate | date               | 上次修改使用量資料的日期。                                                                       |
+| 連結            | ResourceLinks      | 對應至使用量摘要的資源連結。                                                           |
+| 屬性       | ResourceAttributes | 對應至使用摘要的中繼資料屬性。                                                      |
 
 ## <a name="partnerusagesummary"></a>PartnerUsageSummary
 
-**PartnerUsageSummary** represents a partner-level summary of usage budgeting for all customers.
+**PartnerUsageSummary**代表所有客戶的使用量預算的夥伴層級摘要。
 
-| 屬性         | 在工作列搜尋方塊中輸入               | 說明                                                                                                      |
+| 屬性         | 類型               | 描述                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| EmailsToNotify   | array of strings   | The list of email addresses for notifications.                                                                   |
-| CustomerOverBudget | 整數          | The number of customers that are over budget.                                                                    |
-| CustomersTrendingOver | 整數       | The number of customers that are close to going over budget.                                                     |
-| CustomersWithUsageBasedSubscriptions  | 整數 | The number of customers with a usage-based subscription.                                               |
-| ResourceId       | 字串             | The unique identifier of the resource. In the context of CustomerMonthlyUsageRecord, this id is the customer id. |
-| ResourceName     | 字串             | The name of the resource. In the context of CustomerMonthlyUsageRecord, this is the customer name.               |
-| BillingStartDate | date               | The start date of the current billing period.                                                                    |
-| BillingEndDate   | date               | The end date of the current billing period.                                                                      |
-| TotalCost        | 十進位             | The estimated total cost of all customer usage based on current usage from the start of the billing period.      |
-| CurrencyLocale   | 字串             | The currency locale.                                                                                             |
-| LastModifiedDate | date               | The date the usage data was last modified.                                                                       |
-| 連結            | ResourceLinks      | The resource links corresponding to the usage summary.                                                           |
-| 屬性       | ResourceAttributes | The metadata attributes corresponding to the usage summary.                                                      |
+| EmailsToNotify   | 字串陣列   | 通知的電子郵件地址清單。                                                                   |
+| CustomerOverBudget | 整數          | 超過預算的客戶數目。                                                                    |
+| CustomersTrendingOver | 整數       | 接近預算的客戶數目。                                                     |
+| CustomersWithUsageBasedSubscriptions  | 整數 | 具有以使用量為基礎之訂用帳戶的客戶數目。                                               |
+| ResourceId       | 字串             | 資源的唯一識別碼。 在 CustomerMonthlyUsageRecord 的內容中，此識別碼是客戶識別碼。 |
+| ResourceName     | 字串             | 資源的名稱。 在 CustomerMonthlyUsageRecord 的內容中，這是客戶名稱。               |
+| BillingStartDate | date               | 目前計費週期的開始日期。                                                                    |
+| BillingEndDate   | date               | 目前計費週期的結束日期。                                                                      |
+| TotalCost        | 十進位             | 根據計費週期開始時的目前使用量，計算所有客戶使用量的預估總成本。      |
+| CurrencyLocale   | 字串             | 貨幣地區設定。                                                                                             |
+| lastModifiedDate | date               | 上次修改使用量資料的日期。                                                                       |
+| 連結            | ResourceLinks      | 對應至使用量摘要的資源連結。                                                           |
+| 屬性       | ResourceAttributes | 對應至使用摘要的中繼資料屬性。                                                      |
 
 ## <a name="spendingbudget"></a>SpendingBudget
 
-**SpendingBudget** represents the budget allocated to this customer for usage-based subscriptions.
+**SpendingBudget**代表針對以使用量為基礎的訂用帳戶，配置給此客戶的預算。
 
-| 屬性   | 在工作列搜尋方塊中輸入               | 說明                                                                                         |
+| 屬性   | 類型               | 描述                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
-| 金額     | 十進位             | The allocated budget. If the value is null, there is no spending budget allocated to this customer. |
-| 屬性 | ResourceAttributes | The metadata attributes corresponding to the budget.                                                |
+| 數量     | 十進位             | 已配置的預算。 如果值為 null，則不會配置給此客戶的消費預算。 |
+| 屬性 | ResourceAttributes | 對應至預算的中繼資料屬性。                                                |

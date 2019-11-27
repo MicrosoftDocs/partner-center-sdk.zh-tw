@@ -1,6 +1,6 @@
 ---
-title: Get prices for Microsoft Azure Partner Shared Services
-description: How to get an Azure Rate Card with prices for Microsoft Azure Partner Shared Services.
+title: 取得 Microsoft Azure 合作夥伴共用服務的價格
+description: 如何取得具有 Microsoft Azure 合作夥伴共用服務價格的 Azure 費率卡片。
 ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,23 +13,23 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489998"
 ---
-# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Get prices for Microsoft Azure Partner Shared Services
+# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>取得 Microsoft Azure 合作夥伴共用服務的價格
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to get an [Azure Rate Card](azure-rate-card-resources.md) with prices for Microsoft Azure Partner Shared Services.
+如何取得具有 Microsoft Azure 合作夥伴共用服務價格的[Azure 費率卡片](azure-rate-card-resources.md)。
 
-Prices differ by market and currency, and this API takes location into consideration. By default, it uses your partner profile settings in Partner Center and your browser language, but those are customizable. This is especially relevant if you manage sales in multiple markets from a single, centralized office.
+價格會依市場和貨幣而有所不同，而此 API 會將位置納入考慮。 根據預設，它會在合作夥伴中心和您的瀏覽器語言中使用您的夥伴設定檔設定，但可自訂。 如果您從單一的集中式辦公室管理多個市場的銷售，這就特別相關。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
 
 ### <a name="c"></a>C# 
 
-To obtain the Azure Rate Card, call the [**IAzureRateCard.GetShared**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) method to return an [**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) resource that contains the Azure prices.
+若要取得 Azure 費率卡，請呼叫[**IAzureRateCard. GetShared**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared)方法，以傳回包含 azure 價格的[**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard)資源。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -41,7 +41,7 @@ var azureRateCard = partner.RateCards.Azure.GetShared();
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To obtain the Azure Rate Card, call the **IAzureRateCard.getShared** function to return rate card details that contains the Azure prices.
+若要取得 Azure 費率卡，請呼叫**IAzureRateCard. getShared**函數，以傳回包含 Azure 價格的費率卡片詳細資料。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -53,38 +53,38 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To obtain the Azure Card, execute the [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) command and specify the **SharedServices** parameter to retrun rate card details that contains the Azure prices.
+若要取得 Azure 卡，請執行[**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md)命令，並將**SharedServices**參數指定為包含 Azure 價格的 retrun 費率卡片詳細資料。
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                               |
 |---------|---------------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/ratecards/azure-shared?currency={currency}&region={region} |
+| **獲取** | *{baseURL}* /v1/ratecards/azure-shared？貨幣 = {currency} & 地區 = {region} |
 
-**URI parameters**
+**URI 參數**
 
-| 名稱     | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                                                                                                                               |
+| 名稱     | 類型   | 必要 | 描述                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | 字串 | 無       | Optional three letter ISO code for the currency in which the resource rates will be provided (e.g. "EUR"). The default is the currency associated with the market in the partner profile. |
-| region   | 字串 | 無       | Optional two-letter ISO country/region code that indicates the market where the offer is purchased (e.g. "FR"). The default is the country/region code set in the partner profile.        |
+| 符號 | 字串 | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如「EUR」）。 預設值是與夥伴設定檔中的市場相關聯的貨幣。 |
+| 區內   | 字串 | 否       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 "FR"）。 預設值為夥伴設定檔中設定的國家/地區代碼。        |
 
-If the optional X-Locale header is included in the request, its value determines the language used for the details in the response.
+如果要求中包含選擇性的 X 地區設定標頭，則其值會決定回應中的詳細資料所使用的語言。
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/ratecards/azure-shared HTTP/1.1
@@ -97,15 +97,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
-If this is successful, it returns an [Azure Rate Card](azure-rate-card-resources.md) resource.
+如果成功，則會傳回[Azure 費率卡片](azure-rate-card-resources.md)資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

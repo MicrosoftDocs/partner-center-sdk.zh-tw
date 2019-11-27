@@ -1,6 +1,6 @@
 ---
-title: Azure utilization record resources
-description: The Azure utilization record contains details about the utilization of an Azure subscription resource.
+title: Azure 使用率記錄資源
+description: Azure 使用率記錄包含 Azure 訂用帳戶資源使用量的詳細資料。
 ms.assetid: 4C1EEEB3-DB25-4D61-BFED-C4AB5D3BB5CF
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489128"
 ---
-# <a name="azure-utilization-record-resources"></a>Azure utilization record resources
+# <a name="azure-utilization-record-resources"></a>Azure 使用率記錄資源
 
 適用於：
 
@@ -21,52 +21,52 @@ ms.locfileid: "74489128"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-The Azure utilization record contains details about the utilization of an Azure subscription resource. If you are a cloud service provider partner who owns the billing relationship for your customers' Azure subscriptions, you can use this REST API to provide a scalable way to track usage incurred on the subscriptions in order to send an invoice to your customers at the end of every billing cycle.
+Azure 使用率記錄包含 Azure 訂用帳戶資源使用量的詳細資料。 如果您是雲端服務提供者合作夥伴，且擁有客戶 Azure 訂用帳戶的計費關係，您可以使用此 REST API 提供可擴充的方式來追蹤訂用帳戶所產生的使用量，以便在結尾傳送發票給您的客戶每個計費週期的。
 
-To track usage and help predict your monthly bill and the bills for individual customers, you can combine a Rate Card query to [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md) with a request to [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md).
+若要追蹤使用方式並協助預測個別客戶的每月帳單和帳單，您可以結合費率卡片查詢以[取得 Microsoft Azure 的價格](get-prices-for-microsoft-azure.md)，取得[客戶的 Azure 使用量記錄](get-a-customer-s-utilization-record-for-azure.md)要求。
 
-Prices differ by market and currency, and this API takes location into consideration. By default, it uses your partner profile settings in Partner Center and your browser language, but those are customizable. This is especially relevant if you manage sales in multiple markets from a single, centralized office.
+價格會依市場和貨幣而有所不同，而此 API 會將位置納入考慮。 根據預設，它會在合作夥伴中心和您的瀏覽器語言中使用您的夥伴設定檔設定，但可自訂。 如果您從單一的集中式辦公室管理多個市場的銷售，這就特別相關。
 
 ## <a name="azureutilizationrecord"></a>AzureUtilizationRecord
 
-Describes the properties of an Azure utilization record resource.
+說明 Azure 使用率記錄資源的屬性。
 
-| 屬性       | 在工作列搜尋方塊中輸入                                      | 必要 | 說明                                                                                                                                                                             |
+| 屬性       | 類型                                      | 必要 | 描述                                                                                                                                                                             |
 |----------------|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| usageStartTime | 字串                                    | [是]      | The start of the usage aggregation time range. The response is grouped by the time of consumption (when the resource was actually used vs. when was it reported to the billing system). |
-| usageEndTime   | 字串                                    | [是]      | The end of the usage aggregation time range. The response is grouped by the time of consumption (when the resource was actually used vs. when was it reported to the billing system).   |
-| resource       | 物件                                    | [是]      | Contains an [AzureResource](#azureresource) object.                                                                                                                                     |
-| quantity       | 數目                                    | [是]      | The quantity consumed of the [AzureResource.](#azureresource)                                                                                                                           |
-| 單位           | 字串                                    | 無       | The type of quantity (hours, bytes, etc.) This property is optional                                                                                                                     |
-| infoFields     | 物件                                    | [是]      | Key-value pairs of instance level details. This object may be empty.                                                                                                                    |
-| instanceData   | 物件                                    | 無       | Contains an [AzureInstanceData](#azureinstancedata) object that contains key-value pairs of instance level details. This property is optional and may not be included.                  |
-| 屬性     | [ResourceAttributes](utility-resources.md#resourceattributes) | [是]      | The metadata attributes. Contains "objectType": "AzureUtilizationRecord"                                                                                                                |
+| usageStartTime | 字串                                    | 是      | 使用量匯總時間範圍的開頭。 回應會依據耗用量時間分組（當實際使用資源時，其會回報給計費系統）。 |
+| usageEndTime   | 字串                                    | 是      | 使用量匯總時間範圍的結尾。 回應會依據耗用量時間分組（當實際使用資源時，其會回報給計費系統）。   |
+| resource       | 物件                                    | 是      | 包含[remove-azureresource](#azureresource)物件。                                                                                                                                     |
+| quantity       | 數字                                    | 是      | Remove-azureresource 使用的數量[。](#azureresource)                                                                                                                           |
+| 單位           | 字串                                    | 否       | 數量的類型（小時、位元組等）這個屬性是選擇性的                                                                                                                     |
+| infoFields     | 物件                                    | 是      | 實例層級詳細資料的索引鍵/值組。 這個物件可能是空的。                                                                                                                    |
+| instanceData   | 物件                                    | 否       | 包含[AzureInstanceData](#azureinstancedata)物件，其中包含實例層級詳細資料的索引鍵/值組。 這個屬性是選擇性的，而且可能不會包含在內。                  |
+| 屬性     | [ResourceAttributes](utility-resources.md#resourceattributes) | 是      | 中繼資料屬性。 包含 "objectType"： "AzureUtilizationRecord"                                                                                                                |
 
-### <a name="operations-on-the-azureutilizationrecord-resource"></a>Operations on the AzureUtilizationRecord resource
+### <a name="operations-on-the-azureutilizationrecord-resource"></a>AzureUtilizationRecord 資源上的作業
 
-- [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md)
+- [取得客戶的 Azure 使用量記錄](get-a-customer-s-utilization-record-for-azure.md)
 
-## <a name="azureresource"></a>AzureResource
+## <a name="azureresource"></a>Remove-azureresource
 
-Describes the properties of an Azure Resource.
+說明 Azure 資源的屬性。
 
-| 屬性    | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                         |
+| 屬性    | 類型   | 必要 | 描述                                                                         |
 |-------------|--------|----------|-------------------------------------------------------------------------------------|
-| id          | 字串 | [是]      | Unique identifier of the Azure resource. Also known as resourceID or resource GUID. |
-| name        | 字串 | 無       | Friendly name of the resource being consumed. 這個屬性為選擇性。            |
-| 類別    | 字串 | 無       | The category of the consumed resource. 這個屬性為選擇性。                   |
-| subcategory | 字串 | 無       | The sub-category of the consumed resource. 這個屬性為選擇性。               |
-| region      | 字串 | 無       | The region of the consumed resource. 這個屬性為選擇性。                     |
+| id          | 字串 | 是      | Azure 資源的唯一識別碼。 也稱為 resourceID 或資源 GUID。 |
+| name        | 字串 | 否       | 所耗用資源的易記名稱。 這個屬性為選擇性。            |
+| 類別    | 字串 | 否       | 已使用資源的類別。 這個屬性為選擇性。                   |
+| 分類 | 字串 | 否       | 已使用資源的子類別。 這個屬性為選擇性。               |
+| 區內      | 字串 | 否       | 已使用資源的區域。 這個屬性為選擇性。                     |
 
 ## <a name="azureinstancedata"></a>AzureInstanceData
 
-Describes the properties of an Azure Instance Data resource.
+說明 Azure 實例資料資源的屬性。
 
-| 屬性       | 在工作列搜尋方塊中輸入             | 必要 | 說明                                                                                                        |
+| 屬性       | 類型             | 必要 | 描述                                                                                                        |
 |----------------|------------------|----------|--------------------------------------------------------------------------------------------------------------------|
-| resourceUri    | 字串           | [是]      | The fully qualified Azure resource ID, which includes the resource groups and the instance name.                   |
-| location       | 字串           | [是]      | Region in which the service was run.                                                                               |
-| partNumber     | 物件           | [是]      | Unique namespace used to identify the resource for commercial marketplace 3rd party usage. This may be an empty string. |
-| orderNumber    | 數目           | [是]      | Unique namespace used to identify the 3rd party order for commercial marketplace. This may be an empty string.          |
-| tags           | array of strings | 無       | Resource tags specified by the user. This property is optional and may not be included.                            |
-| additionalInfo | array of strings | 無       | Additional data for an Azure resource. This property is optional and may not be included.                          |
+| resourceUri    | 字串           | 是      | 完整的 Azure 資源識別碼，包含資源群組和實例名稱。                   |
+| location       | 字串           | 是      | 執行服務的區域。                                                                               |
+| partNumber     | 物件           | 是      | 唯一命名空間，用來識別商用 marketplace 協力廠商使用的資源。 這可能是空字串。 |
+| orderNumber    | 數字           | 是      | 唯一命名空間，用來識別商用 marketplace 的協力廠商訂單。 這可能是空字串。          |
+| tags           | 字串陣列 | 否       | 使用者所指定的資源標記。 這個屬性是選擇性的，而且可能不會包含在內。                            |
+| additionalInfo | 字串陣列 | 否       | Azure 資源的其他資料。 這個屬性是選擇性的，而且可能不會包含在內。                          |

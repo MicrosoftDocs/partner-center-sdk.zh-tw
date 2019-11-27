@@ -1,6 +1,6 @@
 ---
-title: Activate a sandbox subscription for commercial marketplace products
-description: Activate a sandbox subscription for commercial marketplace products.
+title: 啟用商業 marketplace 產品的沙箱訂閱
+description: 啟用商業 marketplace 產品的沙箱訂閱。
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,28 +12,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488748"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>Activate a sandbox subscription for commercial marketplace products
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>啟用商業 marketplace 產品的沙箱訂閱
 
 適用於：
 
 - 合作夥伴中心
 
-How to activate subscription for commercial marketplace Software as a Service (SaaS) products from integration sandbox accounts to enable billing.
+如何從整合沙箱帳戶啟用商業 marketplace 軟體即服務（SaaS）產品的訂閱以進行計費。
 
 >[!NOTE]
->It's only possible to activate a subscription for commercial marketplace SaaS products from integration sandbox accounts. If you have a production subscription, you must visit the publisher's site to complete the setup process. Subscription billing will begin only after setup is complete.
+>您只可以從整合沙箱帳戶啟用商業 marketplace SaaS 產品的訂閱。 如果您有生產訂用帳戶，則必須造訪發行者的網站，才能完成安裝程式。 只有在安裝完成後，訂用帳戶才會開始計費。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An integration sandbox partner account with a customer having an active subscription for commercial marketplace SaaS products.
-- For partners using Partner Center .NET SDK, you must use SDK version 1.14.0 or higher to access this capability.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 整合沙箱合作夥伴帳戶，其客戶具有商業 marketplace SaaS 產品的有效訂閱。
+- 針對使用合作夥伴中心 .NET SDK 的合作夥伴，您必須使用 SDK version 1.14.0 或更高版本來存取這項功能。
 
 ## <a name="c"></a>C#
 
-Use the following steps to activate a subscription for commercial marketplace SaaS products:
+使用下列步驟來啟用商業 marketplace SaaS 產品的訂用帳戶：
 
-1. Make an interface to the subscription operations available. You must identify the customer and specify the subscription identifier of the trial subscription.
+1. 對可用的訂用帳戶作業提供介面。 您必須識別客戶，並指定試用訂用帳戶的訂用帳戶識別碼。
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
@@ -76,13 +76,13 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-This method returns the **subscription-id** and **status** properties.
+這個方法會傳回**訂**用帳戶識別碼和**狀態**屬性。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

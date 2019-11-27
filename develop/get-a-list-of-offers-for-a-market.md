@@ -1,6 +1,6 @@
 ---
-title: Get a list of offers for a market
-description: Gets a collection that contains all the offers for a specific market.
+title: 取得市場供應專案清單
+description: 取得集合，其中包含特定市場的所有供應專案。
 ms.assetid: 9251B841-498D-4B20-A90B-EB493A8FF212
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487348"
 ---
-# <a name="get-a-list-of-offers-for-a-market"></a>Get a list of offers for a market
+# <a name="get-a-list-of-offers-for-a-market"></a>取得市場供應專案清單
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Gets a collection that contains all the offers for a specific market.
+取得集合，其中包含特定市場的所有供應專案。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a list of offers in a given market, use your **IAggregatePartner.Offers** collection, select the market by country, and call the **Get()** or **Get Async()** method.
+若要取得給定市場中的供應專案清單，請使用您的**iaggregatepartner.customers.byid。** 供應專案集合，依國家/地區選取市場，然後呼叫**get （）** 或**get Async （）** 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,39 +41,39 @@ To get a list of offers in a given market, use your **IAggregatePartner.Offers**
 ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: Offers.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： Offers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                          |
 |---------|--------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers?country={country-id} HTTP/1.1   |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers 嗎？國家/地區 = {country-ID} HTTP/1。1   |
 
  
 
-**URI parameter**
+**URI 參數**
 
-This table lists the required query parameters to get the offers.
+下表列出取得供應專案所需的查詢參數。
 
-| 名稱           | 在工作列搜尋方塊中輸入       | 必要 | 說明            |
+| 名字           | 類型       | 必要 | 說明            |
 |----------------|------------|----------|------------------------|
-| **country-id** | **string** | Y        | The country/region ID. |
+| **國家/地區識別碼** | **字串** | Y        | 國家/地區識別碼。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- A **locale-id** formatted as a string is required.
-- See [Headers](headers.md) for more information.
+- 需要格式化為字串的**地區設定識別碼**。
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers?country=<country-id> HTTP/1.1
@@ -84,16 +84,16 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 X-Locale: <locale-id>
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, this method returns a collection of **Offer** resources in the response body.
+如果成功，此方法會在回應主體中傳回**供應**專案資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

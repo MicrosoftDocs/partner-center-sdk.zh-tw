@@ -1,6 +1,6 @@
 ---
-title: Get add-ons for an offer ID
-description: How to get the add-ons for an offer ID.
+title: 取得供應專案識別碼的附加元件
+description: 如何取得供應專案識別碼的附加元件。
 ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486038"
 ---
-# <a name="get-add-ons-for-an-offer-id"></a>Get add-ons for an offer ID
+# <a name="get-add-ons-for-an-offer-id"></a>取得供應專案識別碼的附加元件
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to get the add-ons for an offer ID.
+如何取得供應專案識別碼的附加元件。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An offer ID. If you don't have the offer ID, see [Get a list of offers for a market](get-a-list-of-offers-for-a-market.md).
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 供應專案識別碼。 如果您沒有供應專案識別碼，請參閱[取得市場優惠清單](get-a-list-of-offers-for-a-market.md)。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the add-ons for an offer by ID, first call the [**IAggregatePartner.Offers.ByCountry**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) method with the country code to get an interface to offer operations based on the given country. Then call the [**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) method with the offer ID to identify the offer whose add-ons you want to retrieve. Next, use the [**AddOns**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) property to get an interface to add-on operations for the current offer. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) method to get a collection of all the add-ons for the specified offer.
+若要依識別碼取得供應專案的附加元件，請先使用 country 代碼呼叫[**iaggregatepartner.customers.byid. ByCountry**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry)方法，以取得介面來根據指定的國家/地區來提供作業。 然後使用供應專案識別碼來呼叫[**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)方法，以識別您想要取得其附加元件的供應專案。 接下來，使用[**附加元件**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons)屬性來取得目前供應專案的附加元件作業介面。 最後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync)方法，以取得指定供應專案的所有附加元件集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,39 +44,39 @@ To get the add-ons for an offer by ID, first call the [**IAggregatePartner.Offer
 var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).AddOns.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetOffer.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetOffer.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons?country={country-code} HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons？ country = {國家/地區-代碼} HTTP/1。1 |
 
  
 
-**URI parameters**
+**URI 參數**
 
-Use the following parameters to provide the offer ID and country code.
+使用下列參數來提供供應專案識別碼和國家/地區代碼。
 
-| 名稱         | 在工作列搜尋方塊中輸入       | 必要 | 說明                       |
+| 名稱         | 類型       | 必要 | 描述                       |
 |--------------|------------|----------|-----------------------------------|
-| **offer-id** | **guid**   | Y        | A GUID that identifies the offer. |
-| **country**  | **string** | Y        | The country code (e.g. US).       |
+| **供應專案識別碼** | **guid**   | Y        | 識別供應專案的 GUID。 |
+| **全國**  | **字串** | Y        | 國家（地區）代碼（例如 US）。       |
 
  
 
-**Request headers**
+**要求標頭**
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/195416C1-3447-423A-B37B-EE59A99A19C4/addons?country=us HTTP/1.1
@@ -88,16 +88,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, this method returns a collection of [Offer](offer-resources.md) objects in the response body.
+如果成功，此方法會在回應主體中傳回[供應](offer-resources.md)專案物件的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Get usage summary for customer's subscription
-description: You can use the SubscriptionUsageSummary resource to get a subscription usage summary of a specific Azure service or resource during the current billing period.
+title: 取得客戶訂用帳戶的使用量摘要
+description: 您可以使用 SubscriptionUsageSummary 資源，在目前的計費期間取得特定 Azure 服務或資源的訂用帳戶使用量摘要。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487668"
 ---
-# <a name="get-usage-summary-for-customers-subscription"></a>Get usage summary for customer's subscription
+# <a name="get-usage-summary-for-customers-subscription"></a>取得客戶訂用帳戶的使用量摘要
 
 適用於：
 
@@ -21,20 +21,20 @@ ms.locfileid: "74487668"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You can use the **SubscriptionUsageSummary** resource to get a subscription usage summary for a customer. This resource represents the subscription usage summary of a specific Azure service or resource during the current billing period.
+您可以使用**SubscriptionUsageSummary**資源來取得客戶的訂用帳戶使用量摘要。 此資源代表在目前計費期間內特定 Azure 服務或資源的訂用帳戶使用方式摘要。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier (**customer-tenant-id**). If you do not have a customer's identifier, you can look up the identifier in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their **Microsoft ID**.
-- A subscription identifier
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼（**客戶租使用者 id**）。 如果您沒有客戶的識別碼，您可以從 [customers] 清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft ID**，以在合作夥伴中心查詢識別碼。
+- 訂用帳戶識別碼
 
 ## <a name="c"></a>C\#
 
-To get a subscription usage summary for a customer's subscription:
+若要取得客戶訂用帳戶的訂用帳戶使用摘要：
 
-1. Use your **IAggregatePartner.Customers** collection to call the **ById()** method.
-2. Then call the Subscriptions property, as well as **UsageSummary** property. Finish by calling the Get() or GetAsync() methods.
+1. 使用您的**iaggregatepartner.customers.byid. Customers**集合來呼叫**ById （）** 方法。
+2. 然後呼叫 [訂用帳戶] 屬性，以及 [ **UsageSummary** ] 屬性。 藉由呼叫 Get （）或 GetAsync （）方法來完成。
 
     ``` csharp
     // IAggregatePartner partnerOperations;
@@ -44,40 +44,40 @@ To get a subscription usage summary for a customer's subscription:
     var subscriptionUsageSummary = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).UsageSummary.Get();
     ```
 
-For an example, see the following:
+如需範例，請參閱下列各項：
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSamples**
-- Class: **GetSubscriptionUsageSummary.cs**
+- 範例：[主控台測試應用程式](console-test-app.md)
+- 專案： **PartnerSDK. FeatureSamples**
+- 類別： **GetSubscriptionUsageSummary.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                                        |
 |---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/usagesummary HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/usagesummary HTTP/1。1 |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
-This table lists the required query parameters to get the customer's rated usage information.
+下表列出所需的查詢參數，以取得客戶的評等使用量資訊。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                               |
+| 名稱                   | 類型     | 必要 | 描述                               |
 |------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | A GUID corresponding to the customer.     |
-| **subscription-id**    | **guid** | Y        | A GUID corresponding to the identifier of a subscription. For an Azure plan, this is the identifier of the corresponding Partner Center [subscription resource](subscription-resources.md#subscription), which represents the Azure plan. *For Azure plan subscription resources, provide the **plan-id** as the **subscription-id** in this route.* |
+| **客戶-租使用者識別碼** | **guid** | Y        | 對應至客戶的 GUID。     |
+| **訂用帳戶識別碼**    | **guid** | Y        | 對應至訂用帳戶識別碼的 GUID。 若為 Azure 方案，這是對應合作夥伴中心訂用帳戶[資源](subscription-resources.md#subscription)的識別碼，代表 Azure 方案。 *針對 Azure 方案訂用帳戶資源，請提供**方案識別碼**作為此路由中的訂用帳戶**識別碼**。* |
 
 #### <a name="request-headers"></a>要求標頭
 
-For more information, see [Headers](headers.md).
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
 無。
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/usagesummary HTTP/1.1
@@ -87,19 +87,19 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a **SubscriptionUsageSummary** resource in the response body.
+如果成功，此方法會在回應主體中傳回**SubscriptionUsageSummary**資源。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, the error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-#### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Response example for Microsoft Azure (MS-AZR-0145P) subscriptions
+#### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂閱的回應範例
 
-In this example, the customer purchased a **145P Azure PayG** offer.
+在此範例中，客戶購買了**145P Azure PayG**供應專案。
 
-*For customers with Microsoft Azure (MS-AZR-0145P) subscriptions, there will be no change to the API response.*
+*對於具有 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的客戶，API 回應不會有任何變更。*
 
 ```http
 HTTP/1.1 200 OK
@@ -132,14 +132,14 @@ Date: Tue, 17 Sep 2019 20:31:45 GMT
 }
 ```
 
-### <a name="response-example-for-azure-plan"></a>Response example for Azure plan
+### <a name="response-example-for-azure-plan"></a>Azure 方案的回應範例
 
-In this example, the customer purchased an Azure plan.
+在此範例中，客戶購買了 Azure 方案。
 
-*For customers with Azure plans, there are the following API response changes:*
+*針對具有 Azure 方案的客戶，會有下列 API 回應變更：*
 
-- **currencyLocale** is replaced with **currencyCode**
-- **usdTotalCost** is a new field
+- **currencyLocale**已取代為**currencyCode**
+- **usdTotalCost**是新的欄位
 
 ```http
 HTTP/1.1 200 OK

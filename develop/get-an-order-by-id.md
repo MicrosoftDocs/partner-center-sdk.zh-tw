@@ -1,6 +1,6 @@
 ---
-title: Get an order by ID
-description: Gets a Order resource that matches the customer and order ID.
+title: 依識別碼取得訂單
+description: 取得符合客戶和訂單識別碼的訂單資源。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485718"
 ---
-# <a name="get-an-order-by-id"></a>Get an order by ID
+# <a name="get-an-order-by-id"></a>依識別碼取得訂單
 
 適用於：
 
@@ -22,21 +22,21 @@ ms.locfileid: "74485718"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Gets an [Order](order-resources.md) resource that matches the customer and order ID.
+取得符合客戶和訂單識別碼的[訂單](order-resources.md)資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- An order ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 訂單識別碼。
 
 ## <a name="c"></a>C\#
 
-To get a customer's order by ID:
+若要取得客戶的訂單（依識別碼）：
 
-1. Use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-2. Call the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property, followed by the [**ByID()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) method once more.
-3. Call [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync).
+1. 使用您的**iaggregatepartner.customers.byid**集合，並呼叫**ById （）** 方法。
+2. 呼叫[**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)屬性，後面接著[**ByID （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)方法。
+3. 呼叫[**Get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -46,17 +46,17 @@ To get a customer's order by ID:
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetOrder.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： GetOrder.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a customer's order by ID:
+若要取得客戶的訂單（依識別碼）：
 
-1. Use your **IAggregatePartner.getCustomers** function and call the **byId()** function.
-2. Call the **getOrders** function, followed by the **byID()** function once more.
-3. Call the **get()** function.
+1. 使用您的**iaggregatepartner.customers.byid. getCustomers**函式並呼叫**byId （）** 函數。
+2. 呼叫**getOrders**函式，後面接著**byID （）** 函數。
+3. 呼叫**get （）** 函數。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -70,7 +70,7 @@ Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrder
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) command, and specify the **CustomerId** and **OrderId** paramaeters.
+若要依識別碼取得客戶的訂單，請執行[**PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md)命令，並指定**CustomerId**和「**訂單**」 paramaeters。
 
 ```powershell
 # $selectedCustomerId
@@ -79,32 +79,32 @@ To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](http
 Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrderId
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                  |
 |---------|--------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1  |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1。1  |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-This table lists the required query parameters to get an order by ID.
+下表列出必要的查詢參數，以取得依識別碼排序的訂單。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                            |
+| 名稱                   | 類型     | 必要 | 描述                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
-| customer-tenant-id     | 字串   | [是]      | A GUID formatted string corresponding to the customer. |
-| id-for-order           | 字串   | [是]      | A string corresponding to the order ID.                |
+| 客戶-租使用者識別碼     | 字串   | 是      | 對應至客戶的 GUID 格式字串。 |
+| 識別碼-依序           | 字串   | 是      | 對應至訂單識別碼的字串。                |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Headers](headers.md) for more information.
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/orders/<id-for-order> HTTP/1.1
@@ -115,13 +115,13 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns an [Order](order-resources.md) resource in the response body.
+如果成功，此方法會在回應主體中傳回[訂單](order-resources.md)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

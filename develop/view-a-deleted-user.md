@@ -1,6 +1,6 @@
 ---
 title: 為客戶檢視已刪除的使用者
-description: Gets a list of deleted CustomerUser resources for a customer by customer ID. You can optionally set a page size. You must supply a filter.
+description: 取得客戶的已刪除 CustomerUser 資源清單（依客戶識別碼）。 您可以選擇性地設定頁面大小。 您必須提供篩選準則。
 ms.assetid: B2248C7D-0F68-4F52-9249-D3168C2F6E83
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -16,27 +16,27 @@ ms.locfileid: "74486228"
 # <a name="view-deleted-users-for-a-customer"></a>為客戶檢視已刪除的使用者
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-Gets a list of deleted CustomerUser resources for a customer by customer ID. You can optionally set a page size. You must supply a filter.
+取得客戶的已刪除 CustomerUser 資源清單（依客戶識別碼）。 您可以選擇性地設定頁面大小。 您必須提供篩選準則。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-
-## <a name="span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_what-happens-when-you-delete-a-user-account"></a><span id="What_happens_when_you_delete_a_user_account_"/><span id="what_happens_when_you_delete_a_user_account_"/><span id="WHAT_HAPPENS_WHEN_YOU_DELETE_A_USER_ACCOUNT_"/>What happens when you delete a user account?
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-The user state is set to "inactive" when you delete a user account. It remains that way for thirty days, after which the user account and its associated data are purged and made unrecoverable. If you want to restore a deleted user account within the thirty day window, see [Restore a deleted user for a customer](restore-a-user-for-a-customer.md). Note that once deleted and marked "inactive" the user account is no longer returned as a member of the user collection (for example, using [Get a list of all user accounts for a customer](get-a-list-of-all-user-accounts-for-a-customer.md)). To get a list of deleted users that have not yet been purged, you must query for user accounts that have been set to inactive.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼。
+
+## <a name="span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_what-happens-when-you-delete-a-user-account"></a><span id="What_happens_when_you_delete_a_user_account_"/><span id="what_happens_when_you_delete_a_user_account_"/><span id="WHAT_HAPPENS_WHEN_YOU_DELETE_A_USER_ACCOUNT_"/>當您刪除使用者帳戶時，會發生什麼事？
+
+
+當您刪除使用者帳戶時，使用者狀態會設定為「非作用中」。 在30天內，它會維持這種方式，在此之後，使用者帳戶及其相關聯的資料會被清除並使其無法復原。 如果您想要在三十天的時間範圍內還原已刪除的使用者帳戶，請參閱[為客戶還原已刪除的使用者](restore-a-user-for-a-customer.md)。 請注意，一旦刪除並標示為「非作用中」，使用者帳戶就不會再以使用者集合的成員身分傳回（例如，使用[取得客戶的所有使用者帳戶清單](get-a-list-of-all-user-accounts-for-a-customer.md)）。 若要取得尚未清除的已刪除使用者清單，您必須查詢已設定為非使用中的使用者帳戶。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve a list of deleted users, construct a query that filters for customer users whose status is set to inactive. First, create the filter by instantiating a [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) object with the parameters as shown in the following code snippet. Then create the query using the [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) method. Note that if you do not want paged results, you can use the [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) method instead. Next, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Finally, call the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) method to send the request.
+若要抓取已刪除的使用者清單，請建立查詢，以篩選其狀態設定為非作用中的客戶使用者。 首先，使用參數具現化[**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)物件來建立篩選，如下列程式碼片段所示。 然後使用[**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)方法來建立查詢。 請注意，如果您不想要分頁結果，可以改用[**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)方法。 接下來，使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 最後，呼叫[**查詢**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query)方法來傳送要求。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -52,40 +52,40 @@ var simpleQueryWithFilter = QueryFactory.Instance.BuildIndexedQuery(customerUser
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Query(simpleQueryWithFilter);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetCustomerInactiveUsers.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetCustomerInactiveUsers.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users?size={size}&filter={filter} HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users？ size = {size} & 篩選準則 = {FILTER} HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following path and query parameters when creating the request.
+建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                                                                                                                        |
+| 名稱        | 類型   | 必要 | 描述                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id | guid   | [是]      | The value is a GUID formatted customer-id that identifies the customer.                                                                                                            |
-| size        | 整數    | 無       | The number of results to be displayed at one time. 此為選擇性參數。                                                                                                     |
-| filter      | filter | [是]      | The query that filters the user search. To retrieve deleted users, you must include and encode the following string: {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
+| 客戶識別碼 | guid   | 是      | 此值是可識別客戶的 GUID 格式客戶識別碼。                                                                                                            |
+| size        | 整數    | 否       | 要一次顯示的結果數目。 此為選擇性參數。                                                                                                     |
+| filter      | filter | 是      | 篩選使用者搜尋的查詢。 若要取出已刪除的使用者，您必須包含下列字串並為其編碼： {"Field"： "UserState"，"Value"： "非使用中"，"Operator"： "equals"}。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/users?size=500&filter=%7B%22Field%22%3A%22UserState%22%2C%22Value%22%3A%22Inactive%22%2C%22Operator%22%3A%22equals%22%7D HTTP/1.1
@@ -97,16 +97,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 回應
 
 
-If successful, this method returns a collection of [CustomerUser](user-resources.md#customeruser) resources in the response body.
+如果成功，此方法會在回應主體中傳回[CustomerUser](user-resources.md#customeruser)資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

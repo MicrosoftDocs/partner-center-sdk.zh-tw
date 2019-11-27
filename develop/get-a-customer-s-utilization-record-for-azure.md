@@ -1,6 +1,6 @@
 ---
-title: Get a customer's utilization records for Azure
-description: You can use the Azure utilization API to get the utilization records of a customer's Azure subscription for a specified time period.
+title: 取得客戶的 Azure 使用量記錄
+description: 您可以使用 Azure 使用量 API 來取得客戶的 Azure 訂用帳戶在指定期間內的使用率記錄。
 ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489588"
 ---
-# <a name="get-a-customers-utilization-records-for-azure"></a>Get a customer's utilization records for Azure
+# <a name="get-a-customers-utilization-records-for-azure"></a>取得客戶的 Azure 使用量記錄
 
 適用於：
 
@@ -21,35 +21,35 @@ ms.locfileid: "74489588"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You can get the utilization records of a customer's Azure subscription for a specified time period using the Azure utilization API.
+您可以使用 Azure 使用量 API，在一段指定的時間內取得客戶 Azure 訂用帳戶的使用量記錄。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone app and App+User credentials.
-- A customer identifier.
-- A subscription identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。
+- 訂用帳戶識別碼。
 
-This API returns daily and hourly unrated consumption for an arbitrary time span. However, *this API is not supported for Azure plans*. If you have an Azure plan, see the articles [Get invoice unbilled consumption line items](get-invoice-unbilled-consumption-lineitems.md) and [Get invoice billed consumption line items](get-invoice-billed-consumption-lineitems.md) instead. These articles describe how to get rated consumption at daily level per meter per resource. This is equivalent to the daily grain data provided by the Azure utilization API. You will need to use the invoice identifier to retrieve billed usage data. Or, you can use current and previous periods to get unbilled usage estimates. *Hourly grain data and arbitrary date range filters aren't currently supported for Azure plan subscription resources*.
+此 API 會傳回任意時間範圍的每日和每小時未分級耗用量。 不過， *Azure 方案不支援此 API*。 如果您有 Azure 方案，請參閱文章[取得發票未開立帳單耗用量明細專案](get-invoice-unbilled-consumption-lineitems.md)，並改為[取得發票計費的耗用量明細專案](get-invoice-billed-consumption-lineitems.md)。 這些文章說明如何依每個資源的每個計量，取得每日層級的評分耗用量。 這相當於 Azure 使用量 API 所提供的每日資料細微性。 您將需要使用發票識別碼來取出計費的使用量資料。 或者，您可以使用目前和前一個週期來取得未開立帳單使用量預估。 *Azure 方案訂用帳戶資源目前不支援每小時的資料細微性和任意日期範圍篩選*。
 
 ## <a name="azure-utilization-api"></a>Azure 使用量 API
 
-This Azure utilization API provides access to utilization records for a time period that represents when the utilization was reported in the billing system. It provides access to the same utilization data that is used to create and calculate the reconciliation file. However, it does not have knowledge of billing system reconciliation file logic. You should not expect reconciliation file summary results to match the result retrieved from this API exactly for the same time period.
+此 Azure 使用量 API 可讓您存取在計費系統中回報使用量的時間週期內的使用量記錄。 它可讓您存取用來建立和計算對帳檔案的相同使用方式資料。 不過，它並不知道計費系統對帳檔案邏輯。 您不應該預期對帳檔案摘要結果，使其完全符合相同時間週期內從這個 API 取得的結果。
 
-For example, the billing system takes the same utilization data and applies lateness rules to determine what is accounted for in a reconciliation file. When a billing period closes, all usage until the end of the day that the billing period ends is included in the reconciliation file. Any late usage within the billing period that is reported within 24 hours after the billing period ends is accounted for in the next reconciliation file. For the lateness rules of how the partner is billed, see [Get consumption data for an Azure subscription](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100)).
+例如，計費系統會採用相同的使用量資料，並套用延遲規則來決定要在對帳檔案中納入的事項。 當計費期間結束時，所有使用量直到計費週期結束當天結束時，才會包含在對帳檔案中。 在計費週期結束後24小時內回報的任何延遲使用量，都會在下一個對帳檔案中納入。 如需合作夥伴計費方式的延遲規則，請參閱[取得 Azure 訂用帳戶的耗用量資料](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100))。
 
-This REST API is paged. If the response payload is larger than a single page, you must follow the next link to get the next page of utilization records.
+此 REST API 已分頁。 如果回應承載大於單一頁面，您必須遵循下一個連結以取得下一頁的使用率記錄。
 
 ## <a name="c"></a>C\#
 
-To obtain the Azure Utilization Records:
+若要取得 Azure 使用量記錄：
 
-1. Get the customer ID and subscription ID. 
-2. Call the [**IAzureUtilizationCollection.Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) method to return a [**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) that contains the utilization records. 
-3. Obtain an Azure utilization record enumerator to traverse the utilization pages. You must do this because the resource collection is paged.
+1. 取得客戶識別碼和訂用帳戶識別碼。 
+2. 呼叫[**IAzureUtilizationCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query)方法，以傳回包含使用率記錄的[**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) 。 
+3. 取得 Azure 使用率記錄列舉值，以流覽使用率頁面。 您必須執行此動作，因為已將資源集合分頁。
 
-- **Sample**: [Console test app](console-test-app.md)
-- **Project**: Partner Center SDK Samples
-- **Class**: GetAzureSubscriptionUtilization.cs
+- **範例**：[主控台測試應用程式](console-test-app.md)
+- **專案**：合作夥伴中心 SDK 範例
+- **類別**： GetAzureSubscriptionUtilization.cs
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -82,7 +82,7 @@ while (utilizationRecordEnumerator.HasValue)
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To obtain the Azure Utilization Records, you first need a customer identifier and a subscription identifier. You then call the **IAzureUtilizationCollection.query** function to return a **ResourceCollection** that contains the utilization records. Because the resource collection is paged, you must then obtain an Azure utilization record enumerator to traverse the utilization pages.
+若要取得 Azure 使用量記錄，您首先需要客戶識別碼和訂用帳戶識別碼。 接著，您可以呼叫**IAzureUtilizationCollection**函式，以傳回包含使用率記錄的**ResourceCollection** 。 由於資源集合已分頁，因此您必須取得 Azure 使用率記錄列舉值，以流覽使用率頁面。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -117,7 +117,7 @@ while (utilizationRecordEnumerator.hasValue())
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To obtain the Azure Utilization Records, you first need a customer identifier and a subscription identifier. You then call the [**Get-PartnerCustomerSubscriptionUtilization**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md). This command will return all records available for the specified period of time.
+若要取得 Azure 使用量記錄，您首先需要客戶識別碼和訂用帳戶識別碼。 然後呼叫[**PartnerCustomerSubscriptionUtilization**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md)。 此命令會傳回指定時間內所有可用的記錄。
 
 ```powershell
 # $customerId
@@ -126,43 +126,43 @@ To obtain the Azure Utilization Records, you first need a customer identifier an
 Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -SubscriptionId $subscriptionId -StartDate (Get-Date).AddDays(-2).ToUniversalTime() -Granularity Hourly -ShowDetails
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI |
 |------- | ----------- |
-| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure?start\_time={start-time}&end\_time={end-time}&granularity={granularity}&show\_details={True} |
+| **獲取** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure？開始\_時間 = {開始時間} & 結束\_時間 = {結束時間} & 資料細微性 = {資料細微性} & 顯示\_details = {True} |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
-Use the following path and query parameters to get the utilization records.
+使用下列路徑和查詢參數來取得使用率記錄。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名稱 | 類型 | 必要 | 描述 |
 | ---- | ---- | -------- | ----------- |
-| customer-tenant-id | 字串 | [是] | A GUID-formatted string that identifies the customer. |
-| subscription-id | 字串 | [是] | A GUID-formatted string that identifies the subscription. |
-| start_time | string in UTC date-time offset format | [是] | The start of the time range that represents when the utilization was reported in the billing system. |
-| end_time | string in UTC date-time offset format | [是] | The end of the time range that represents when the utilization was reported in the billing system. |
-| granularity | 字串 | 無 | Defines the granularity of usage aggregations. Available options are: `daily` (default) and `hourly`.
-| show_details | boolean | 無 | Specifies whether to get the instance-level usage details. 預設值為 `true`。 |
-| size | 數目 | 無 | Specifies the number of aggregations returned by a single API call. The default is 1000. The max is 1000. |
+| 客戶-租使用者識別碼 | 字串 | 是 | 識別客戶的 GUID 格式字串。 |
+| 訂用帳戶識別碼 | 字串 | 是 | 識別訂用帳戶的 GUID 格式字串。 |
+| start_time | UTC 日期時間位移格式的字串 | 是 | 時間範圍的開頭，表示在計費系統中回報使用率的時機。 |
+| end_time | UTC 日期時間位移格式的字串 | 是 | 時間範圍的結尾，表示在計費系統中回報使用率的時機。 |
+| 劃分 | 字串 | 否 | 定義使用量匯總的資料細微性。 可用的選項為： `daily` （預設值）和 `hourly`。
+| show_details | 布林值 | 否 | 指定是否要取得實例層級的使用方式詳細資料。 預設值為 `true`。 |
+| size | 數字 | 否 | 指定單一 API 呼叫所傳回的匯總數目。 預設值為1000。 最大值為1000。 |
 
 #### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
 無
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
-The following example request produces results similar to what the reconciliation file will show for the period 7/2 - 8/1. These results may not match exactly (see the section [Azure utilization API](#azure-utilization-api) for details).
+下列範例要求會產生類似于 7/2-8/1 期間所顯示之對帳檔案的結果。 這些結果可能不完全相符（如需詳細資訊，請參閱[Azure 使用量 API](#azure-utilization-api)一節）。
 
-This example request returns utilization data reported in the billing system between 7/2 at 12 AM (UTC) and 8/2 at 12 AM (UTC).
+此範例要求會傳回在計費系統中回報的使用量資料，介於7/2 上午12點（UTC）和8/2 （UTC）。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/E499C962-9218-4DBA-8B83-8ADC94F47B9F/subscriptions/FC8F8908-F918-4406-AF13-D5BC0FE41865/utilizations/azure?start_time=2017-07-02T00:00:00-08:00&end_time=2017-08-02T00:00:00-08:00 HTTP/1.1
@@ -174,13 +174,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of [Azure Utilization Record](azure-utilization-record-resources.md) resources in the response body. If the Azure utilization data is not yet ready in a dependent system, this method returns an HTTP Status Code 204 with a Retry-After header.
+如果成功，此方法會在回應主體中傳回[Azure 使用率記錄](azure-utilization-record-resources.md)資源的集合。 如果 Azure 使用量資料尚未在相依系統中就緒，這個方法會傳回 HTTP 狀態碼204並加上重試標頭。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read the HTTP status code, [error code type](error-codes.md), and additional parameters.
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取 HTTP 狀態碼、[錯誤碼類型](error-codes.md)和其他參數。
 
 #### <a name="response-example"></a>回應範例
 

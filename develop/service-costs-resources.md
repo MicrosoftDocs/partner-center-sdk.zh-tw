@@ -1,6 +1,6 @@
 ---
-title: Service costs resources
-description: Describes resources related to services purchased by a customer.
+title: 服務成本資源
+description: 描述與客戶購買之服務相關的資源。
 ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,88 +13,88 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488078"
 ---
-# <a name="service-costs-resources"></a>Service costs resources
+# <a name="service-costs-resources"></a>服務成本資源
 
 適用於：
 
 - 合作夥伴中心
 
-Describes resources related to services purchased by a customer.
+描述與客戶購買之服務相關的資源。
 
 ## <a name="servicecostssummary"></a>ServiceCostsSummary
 
-**ServiceCostsSummary** contains a summary that aggregates all services purchased by the specified customer during the billing period.
+**ServiceCostsSummary**包含摘要，可匯總指定客戶在計費期間所購買的所有服務。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| details | array of [ServiceCostsSummaryDetail](#servicecostssummarydetail) objects | The service cost summary detail list, distinguished by invoice type.|
-| links | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links. |
-| 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| details | [ServiceCostsSummaryDetail](#servicecostssummarydetail)物件的陣列 | 服務成本摘要詳細資料清單，以發票類型區分。|
+| 相關 | [ResourceLinks](utility-resources.md#resourcelinks) | 資源連結。 |
+| 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。 |
 
 > [!IMPORTANT]
-> **The fields in the following table are being deprecated.** To retrieve recurring and one-time service cost summaries, use the **details** field instead. The **details** field is described in the previous table. Refer to the **details** field's corresponding data values but not the root-level fields.
+> **下表中的欄位已被取代。** 若要取出週期性和一次性服務成本摘要，請改用 [**詳細資料**] 欄位。 [**詳細資料**] 欄位會在上表中說明。 請參閱**details**欄位對應的資料值，但不參考根層級的欄位。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| billingStartDate | date | The start of the billing period. |
-| billingEndDate | date | The end of the billing period. |
-| pretaxTotal | double | The pre-tax total of all costs for the customer. |
-| tax  | double | The total tax incurred over all items purchased by the customer. |
-| afterTaxTotal | double | The net total cost for all items purchased by the customer. |
-| currencyCode | 字串 | Represents the currency used for the costs. |
-| currencySymbol | 字串 | The currency symbol used for the costs. |
-| customerId | 字串 | The ID of the customer making the purchase. |
+| BillingStartDate | date | 計費週期的開始。 |
+| billingEndDate | date | 計費週期結束。 |
+| pretaxTotal | double | 客戶所有成本的預先稅總計。 |
+| 銷  | double | 客戶購買的所有專案所產生的總稅額。 |
+| afterTaxTotal | double | 客戶購買之所有專案的淨總成本。 |
+| currencyCode | 字串 | 代表成本所使用的貨幣。 |
+| currencySymbol | 字串 | 成本所使用的貨幣符號。 |
+| Id | 字串 | 進行購買之客戶的識別碼。 |
 
 ## <a name="servicecostssummarydetail"></a>ServiceCostsSummaryDetail
 
-**ServiceCostsSummaryDetail** describes a service cost summary that aggregates all services purchased by the specified customer during the billing period (from either recurring or one-time invoices).
+**ServiceCostsSummaryDetail**描述的服務成本摘要會匯總指定客戶在計費期間（從週期性或一次性發票）購買的所有服務。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| invoiceType | 字串 | The invoiceType that service cost summary has been generated. |
-| summary | [ServiceCostsSummary](#servicecostssummary) | The service cost summary aggregated by a customer under one invoice type. |
+| invoiceType | 字串 | 已產生「服務成本摘要」的 invoiceType。 |
+| 總計 | [ServiceCostsSummary](#servicecostssummary) | 客戶在一個發票類型下匯總的服務成本摘要。 |
 
 ## <a name="servicecostlineitem"></a>ServiceCostLineItem
 
-**ServiceCostLineItem** describes a single item purchased by the customer.
+**ServiceCostLineItem**描述客戶所購買的單一專案。
 
 > [!IMPORTANT]
-> The following properties *only apply to* service cost line items where the product is a *one-time purchase*: **productId**, **productName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **publisherName**, **termAndBillingCycle**, **discountDetails**. These properties *don't apply to* service line items where the product is a *recurring purchase*. For example, these properties *don't apply* to subscription-based Office 365 and Azure.
+> 下列屬性*僅適用于*產品為*一次性購買*的服務成本明細專案： **productId**、 **productName**、 **skuId**、 **skuName**、 **availabilityId**、 **publisherId**、 **publisherName**、 **termAndBillingCycle**、 **discountDetails**。 這些屬性不適*用於*產品為*週期性購買*的服務明細專案。 例如，這些屬性*不適*用於以訂用帳戶為基礎的 Office 365 和 Azure。
 
-| 屬性                 | 在工作列搜尋方塊中輸入                           | 說明                                                          |
+| 屬性                 | 類型                           | 描述                                                          |
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
-| startDate                | string in UTC date-time format | The start date for the charge.                                       |
-| endDate                  | string in UTC date-time format | The end date for the charge.                                         |
-| subscriptionFriendlyName | 字串                         | The friendly name for the subscription.                              |
-| subscriptionId           | 字串                         | The subscription identifier.                                         |
-| orderId                  | 字串                         | The order identifier.                                                |
-| offerId                  | 字串                         | The offer identifier.                                                |
-| offerName                | 字串                         | The offer name.                                                      |
-| resellerMPNId            | 字串                         | Only used in 2-tier partner scenarios. Refers to the MPN identifier. |
-| chargeType               | 字串                         | The associated charge type.                                          |
-| quantity                 | 數目                         | The quantity of units used or purchased.                             |
-| unitPrice                | 數目                         | The price per unit.                                                  |
-| pretaxTotal              | 數目                         | The total charge for this item before taxes.                         |
-| tax                      | 數目                         | The total tax charge incurred for this item.                         |
-| afterTaxTotal            | 數目                         | The net total cost for this item.                                    |
-| currencyCode             | 字串                         | Represents the currency used for the costs.                          |
-| currencySymbol           | 字串                         | The currency symbol used for the costs.                              |
-| customerId               | 字串                         | The ID of the customer making the purchase.                          |
-| customerName             | 字串                         | The name of the customer making the purchase.                        |
-| invoiceNumber            | 字串                         | The invoice number that this line item belongs to.                   |
-| productId                | 字串                         | The product identifier.                                              |
-| skuId                    | 字串                         | The Sku identifier.                                                  |
-| availabilityId           | 字串                         | The availability identifier.                                         |
-| productName              | 字串                         | The product name.                                                    |
-| skuName                  | 字串                         | The sku name.                                                        |
-| publisherName            | 字串                         | The publisher name.                                                  |
-| publisherId              | 字串                         | The publisher identifier.                                            |
-| termAndBillingCycle      | 字串                         | The term and billing cycle.                                          |
-| discountDetails          | 字串                         | The discount details.                                                |
+| startDate                | UTC 日期時間格式的字串 | 費用的開始日期。                                       |
+| endDate                  | UTC 日期時間格式的字串 | 費用的結束日期。                                         |
+| subscriptionFriendlyName | 字串                         | 訂用帳戶的易記名稱。                              |
+| 訂閱           | 字串                         | 訂用帳戶識別碼。                                         |
+| orderId                  | 字串                         | 訂單識別碼。                                                |
+| offerId                  | 字串                         | 供應專案識別碼。                                                |
+| offerName                | 字串                         | 供應專案名稱。                                                      |
+| resellerMPNId            | 字串                         | 僅用於2層合作夥伴案例。 參考 MPN 識別碼。 |
+| chargeType               | 字串                         | 相關聯的收費類型。                                          |
+| quantity                 | 數字                         | 使用或購買的單位數量。                             |
+| unitPrice                | 數字                         | 每個單位的價格。                                                  |
+| pretaxTotal              | 數字                         | 此專案在稅金之前的總費用。                         |
+| 銷                      | 數字                         | 此專案產生的總稅金費用。                         |
+| afterTaxTotal            | 數字                         | 此專案的淨總成本。                                    |
+| currencyCode             | 字串                         | 代表成本所使用的貨幣。                          |
+| currencySymbol           | 字串                         | 成本所使用的貨幣符號。                              |
+| Id               | 字串                         | 進行購買之客戶的識別碼。                          |
+| customerName             | 字串                         | 進行購買的客戶名稱。                        |
+| invoiceNumber            | 字串                         | 這個明細專案所屬的發票號碼。                   |
+| productId                | 字串                         | 產品識別碼。                                              |
+| skuId                    | 字串                         | Sku 識別碼。                                                  |
+| availabilityId           | 字串                         | 可用性識別碼。                                         |
+| productName              | 字串                         | 產品名稱。                                                    |
+| skuName                  | 字串                         | Sku 名稱。                                                        |
+| publisherName            | 字串                         | 發行者名稱。                                                  |
+| PublisherId              | 字串                         | 發行者識別碼。                                            |
+| termAndBillingCycle      | 字串                         | 詞彙和計費週期。                                          |
+| discountDetails          | 字串                         | 折扣詳細資料。                                                |
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 
-| 屬性             | 在工作列搜尋方塊中輸入                               | 說明                         |
+| 屬性             | 類型                               | 描述                         |
 |----------------------|------------------------------------|-------------------------------------|
-| serviceCostLineItems | [連結](utility-resources.md#link) | The URI to retrieve the line items. |
-| self                 | [連結](utility-resources.md#link) | The self URI.                       |
+| serviceCostLineItems | [連結](utility-resources.md#link) | 要取出明細專案的 URI。 |
+| 供電                 | [連結](utility-resources.md#link) | 自我 URI。                       |

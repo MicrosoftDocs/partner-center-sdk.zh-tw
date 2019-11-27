@@ -1,6 +1,6 @@
 ---
-title: Get a record of Partner Center activity
-description: How to get a record of operations performed by a partner user or application over a period of time.
+title: 取得合作夥伴中心活動的記錄
+description: 如何取得合作夥伴使用者或應用程式在一段時間內所執行作業的記錄。
 ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,34 +13,34 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490248"
 ---
-# <a name="get-a-record-of-partner-center-activity"></a>Get a record of Partner Center activity
+# <a name="get-a-record-of-partner-center-activity"></a>取得合作夥伴中心活動的記錄
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to get a record of operations performed by a partner user or application over a period of time.
+如何取得合作夥伴使用者或應用程式在一段時間內所執行作業的記錄。
 
-Use this API to retrieve audit records for the previous 30 days from the current date, or for a date range specified by including the start date and/or the end date. Note, however, that for performance reasons activity log data availability is limited to the previous 90 days. Requests with a start date greater than 90 days prior to the current date will receive a bad request exception (error code: 400) and an appropriate message.
+使用此 API，從目前的日期，或在包含開始日期和/或結束日期的指定日期範圍內，抓取過去30天的審核記錄。 不過，請注意，基於效能的考慮，活動記錄資料可用性受限於前90天。 開始日期超過目前日期之前90天的要求將會收到不正確的要求例外狀況（錯誤碼：400）和適當的訊息。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve a record of Partner Center operations, first establish the date range for the records you want to retrieve. The code example that follows employs only a start date, but you can also include an end date. See the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) method for more information. Next, create the variables you need for the type of filter you want to apply, and assign the appropriate values. For example, to filter by company name substring, create a variable to hold the substring. To filter by customer ID, create a variable to hold the ID.
+若要取得合作夥伴中心作業的記錄，請先建立您要取得之記錄的日期範圍。 接下來的程式碼範例只會採用開始日期，但您也可以包含結束日期。 如需詳細資訊，請參閱[**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query)方法。 接下來，針對您想要套用的篩選器類型建立所需的變數，並指派適當的值。 例如，若要依公司名稱 substring 進行篩選，請建立一個變數來保存子字串。 若要依客戶識別碼進行篩選，請建立一個變數來保存識別碼。
 
-In the following example, sample code is provided to filter by a company name substring, customer ID, or resource type. Choose one and comment out the others. In each case you first instantiate a [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) object using its default [**constructor**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) to create the filter. You'll need to pass a string that contains the field to search, and the appropriate operator to apply, as shown. You also must provide the string to filter by.
+在下列範例中，會提供範例程式碼，依據公司名稱 substring、客戶識別碼或資源類型進行篩選。 選擇其中一個，並將其他專案批註。 在每個案例中，您會先使用[**其預設的**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor)函式來建立篩選器，以具現化[**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)物件。 您必須傳遞包含要搜尋之欄位的字串，以及要套用的適當運算子，如下所示。 您也必須提供要用來篩選的字串。
 
-Next, use the [**AuditRecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords) property to get an interface to audit record operations, and call the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) or [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) method to execute the filter and get the collection of [**AuditRecord's**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) that represent the first page of the result. You must pass the method the start date, an optional end date not used in the example here, and an [**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) object that represents a query on an entity. The IQuery object is created by passing the filter created above to the [**QueryFactory's**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) method.
+接下來，使用[**AuditRecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords)屬性來取得用來審核記錄作業的介面，並呼叫[**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query)或[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync)方法來執行篩選，並取得代表結果第一頁的[**AuditRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord)集合。 您必須將開始日期、此處範例中未使用的選擇性結束日期，以及代表實體查詢的[**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)物件傳遞給方法。 IQuery 物件的建立方式是將上方建立的篩選準則傳遞至[**QueryFactory 的**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)方法。
 
-Once you have the initial page of items, use the [**Enumerators.AuditRecords.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) method to create an enumerator that you can use to iterate through the remaining pages.
+一旦有了專案的初始頁面，請使用[**AuditRecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)方法來建立可用於逐一查看其餘頁面的列舉值。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -82,44 +82,44 @@ while (auditRecordEnumerator.HasValue)
 }
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Folder**: Auditing
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**資料夾**：審核
 
-## <a name="span-idrequestspan-idrequestspan-idrequest-rest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/> REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequest-rest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate} HTTP/1.1                                                                                                     |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate} HTTP/1.1                                                                                   |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CompanyName","Value":"{searchSubstring}","Operator":"substring"} HTTP/1.1 |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CustomerId","Value":"{customerId}","Operator":"equals"} HTTP/1.1          |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"ResourceType","Value":"{resourceType}","Operator":"equals"} HTTP/1.1      |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords？開始日期 = {起始時間} HTTP/1。1                                                                                                     |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords？開始時間 = {開始時間} & 結束日期 = {結束時間} HTTP/1。1                                                                                   |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： ""，"Value"： "{searchSubstring}"，"Operator"： "substring"} HTTP/1。1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： "CustomerId"，"Value"： "{CustomerId}"，"Operator"： "equals"} HTTP/1。1          |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： "ResourceType"，"Value"： "{ResourceType}"，"Operator"： "equals"} HTTP/1。1      |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following query parameters when creating the request.
+建立要求時，請使用下列查詢參數。
 
-| 名稱      | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                                                                                                                                                                |
+| 名稱      | 類型   | 必要 | 描述                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | date   | 無       | The start date in yyyy-mm-dd format. If none is provided, the result set will default to 30 days prior to the request date. This parameter is optional when a filter is supplied.                                          |
-| endDate   | date   | 無       | The end date in yyyy-mm-dd format. This parameter is optional when a filter is supplied. When the end date is omitted or set to null, the request returns the max window or uses today as the end date, whichever is less. |
-| filter    | 字串 | 無       | The filter to apply. This must be an encoded string. This parameter is optional when the start date or end date are supplied.                                                                                              |
+| startDate | date   | 否       | 以 yyyy-mm-dd 格式的開始日期。 如果未提供任何值，結果集會預設為要求日期前的30天。 當提供篩選準則時，這個參數是選擇性的。                                          |
+| endDate   | date   | 否       | 以 yyyy-mm-dd 格式的結束日期。 當提供篩選準則時，這個參數是選擇性的。 當結束日期省略或設為 null 時，要求會傳回最大的視窗，或使用今天做為結束日期，以較少者為准。 |
+| filter    | 字串 | 否       | 要套用的篩選準則。 這必須是已編碼的字串。 當提供開始日期或結束日期時，這個參數是選擇性的。                                                                                              |
 
  
 
-**Filter Syntax** You must compose the filter parameter as a series of comma separated, key-value pairs. Each key and value must be individually quoted and separated by a colon. The entire filter must be encoded.
+**篩選語法**您必須以一系列以逗號分隔的索引鍵/值組來撰寫篩選參數。 每個索引鍵和值都必須個別加上引號，並以冒號分隔。 整個篩選準則必須經過編碼。
 
-An unencoded example looks like this:
+未編碼的範例看起來像這樣：
 
 ```
 ?filter{"Field":"CompanyName","Value":"bri","Operator":"substring"}
 ```
 
-The following table describes the required key-value pairs:
+下表描述必要的機碼值組：
 
 <table>
 <colgroup>
@@ -128,45 +128,45 @@ The following table describes the required key-value pairs:
 </colgroup>
 <thead>
 <tr class="header">
-<th>機碼</th>
+<th>索引鍵</th>
 <th>值</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>欄位</td>
-<td>The field to filter. The supported values can be found in <a href="#request">Request syntax</a>.</td>
+<td>要篩選的欄位。 支援的值可在<a href="#request">要求語法</a>中找到。</td>
 </tr>
 <tr class="even">
 <td>值</td>
-<td>The value to filter by. The case of the value is ignored. The following value parameters are supported as shown in <a href="#request">Request syntax</a>:
+<td>要做為篩選依據的值。 會忽略值的大小寫。 以下是支援的值參數，如<a href="#request">要求語法</a>所示：
 <ul>
-<li><p>searchSubstring - Replace with the name of the company. You can enter a substring to match part of the company name (e.g. &quot;bri&quot; will match &quot;Fabrikam, Inc.&quot;).</p>
-<p>Example: &quot;Value&quot;:&quot;bri&quot;</p></li>
-<li><p>customerId - Replace with a GUID formatted string that represents the customer identifier.</p>
-<p>Example: &quot;Value&quot;:&quot;0c39d6d5-c70d-4c55-bc02-f620844f3fd1&quot;</p></li>
-<li><p>resourceType - Replace with the type of resource for which to retrieve audit records (e.g. Subscription). The available resource types are defined in <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>.</p>
-<p>Example: &quot;Value&quot;:&quot;Subscription&quot;</p></li>
+<li><p>searchSubstring-以公司名稱取代。 您可以輸入子字串來符合公司名稱的一部分（例如，&quot;bri&quot; 會符合 &quot;Fabrikam，Inc.&quot;）。</p>
+<p>範例： &quot;值&quot;：&quot;bri&quot;</p></li>
+<li><p>customerId-取代為代表客戶識別碼的 GUID 格式字串。</p>
+<p>範例： &quot;值&quot;：&quot;0c39d6d5-c70d-4c55-bc02-f620844f3fd1&quot;</p></li>
+<li><p>resourceType-取代為要取得其審核記錄的資源類型（例如訂用帳戶）。 可用的資源類型定義于<a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>中。</p>
+<p>範例： &quot;值&quot;：&quot;訂用帳戶&quot;</p></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>運算子</td>
-<td>The operator to apply. The supported operators can be found in <a href="#request">Request syntax</a>.</td>
+<td>要套用的運算子。 您可以在<a href="#request">要求語法</a>中找到支援的運算子。</td>
 </tr>
 </tbody>
 </table>
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Parter Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴 CENTER REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=6/1/2017%2012:00:00%20AM&filter=%7B%22Field%22:%22CustomerId%22,%22Value%22:%220c39d6d5-c70d-4c55-bc02-f620844f3fd1%22,%22Operator%22:%22equals%22%7D HTTP/1.1
@@ -179,16 +179,16 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 回應
 
 
-If successful, this method returns a set of activities that meet the filters.
+如果成功，這個方法會傳回符合篩選準則的一組活動。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

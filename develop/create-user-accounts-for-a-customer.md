@@ -1,6 +1,6 @@
 ---
 title: 為客戶建立使用者帳戶
-description: Create a new user account for your customer.
+description: 為您的客戶建立新的使用者帳戶。
 ms.assetid: E46AB186-F4E1-4A00-AE62-28A843F9C288
 ms.date: 05/28/2019
 ms.service: partner-dashboard
@@ -19,20 +19,20 @@ ms.locfileid: "74489708"
 
 - 合作夥伴中心
 
-Create a new user account for your customer.
+為您的客戶建立新的使用者帳戶。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼（**客戶租使用者識別碼**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
 ## <a name="c"></a>C\#
 
-To obtain a new user account for a customer:
+若要為客戶取得新的使用者帳戶：
 
-1. Create a new **CustomerUser** object with the relevant user information.
-2. Use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-3. Call the **Users** property, followed by the **Create** method.
+1. 建立具有相關使用者資訊的新**CustomerUser**物件。
+2. 使用您的**iaggregatepartner.customers.byid**集合，並呼叫**ById （）** 方法。
+3. 呼叫**Users**屬性，後面接著**Create**方法。
 
 ``` csharp
 // string selectedCustomerId;
@@ -52,34 +52,34 @@ var userToCreate = new CustomerUser()
 User createdUser = partnerOperations.Customers.ById(selectedCustomerId).Users.Create(userToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: CustomerUserCreate.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSamples**類別**： CustomerUserCreate.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                                  |
 |----------|----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-Use the following query parameters to identify the correct customer.
+使用下列查詢參數來識別正確的客戶。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名稱 | 類型 | 必要 | 描述 |
 |----- |----- | -------- |------------ |
-| **customer-tenant-id** | **guid** | Y | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **user-id** | **guid** | N | The value is a GUID formatted **user-id** that belongs to a single user account. |
+| **客戶-租使用者識別碼** | **guid** | Y | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **使用者識別碼** | **guid** | N | 值是屬於單一使用者帳戶的 GUID 格式**使用者識別碼**。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Headers](headers.md) for more information.
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/users HTTP/1.1
@@ -104,13 +104,13 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a user account, including the GUID.
+如果成功，這個方法會傳回使用者帳戶，包括 GUID。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

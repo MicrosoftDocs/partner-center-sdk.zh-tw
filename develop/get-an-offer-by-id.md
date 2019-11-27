@@ -1,6 +1,6 @@
 ---
-title: Get an offer by ID
-description: Gets a Offer resource that matches the offer ID.
+title: 依識別碼取得供應專案
+description: 取得符合供應專案識別碼的供應專案資源。
 ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485738"
 ---
-# <a name="get-an-offer-by-id"></a>Get an offer by ID
+# <a name="get-an-offer-by-id"></a>依識別碼取得供應專案
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Gets an **Offer** resource that matches the offer ID.
+取得符合供應專案識別碼的**供應**專案資源。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An offer ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 供應專案識別碼。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
 
 ### <a name="c"></a>C#
 
-To find a specific offer by ID, use your **IAggregatePartner.Offers** collection, establish the country with a call to **ByCountry()** , and then call the [**ByID()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) method. Then, call the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) or [**Get Async()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) method.
+若要依識別碼尋找特定的供應專案，請使用您的**iaggregatepartner.customers.byid**集合、透過呼叫**ByCountry （）** 建立國家/地區，然後呼叫[**ByID （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)方法。 然後，呼叫[**get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get)或[**get Async （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync)方法。
 
 ```csharp
 // IAggretagePartner partnerOperations;
@@ -44,13 +44,13 @@ To find a specific offer by ID, use your **IAggregatePartner.Offers** collection
 var offer = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetOffer.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： GetOffer.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To find a specific offer by ID, use your **IAggregatePartner.getOffers** function, establish the country with a call to the **byCountry()** function, and then call the **byID()** function. Then call the **get()** function.
+若要依識別碼尋找特定供應專案，請使用**iaggregatepartner.customers.byid. getOffers**函式，並呼叫**byCountry （）** 函數來建立國家/地區，然後呼叫**byID （）** 函式。 然後呼叫**get （）** 函數。
 
 ```java
 // IAggretagePartner partnerOperations;
@@ -65,7 +65,7 @@ Offer offer = partnerOperations.getOffers().byCountry(countryCode).byId(offerId)
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To find a specific offer by ID, execute the [**Get-PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md) command, and specify the **CountryCode** and **OfferId** parameters.
+若要依識別碼尋找特定的供應專案，請執行[**PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md)命令，並指定**CountryCode**和**OfferId**參數。
 
 ```powershell
 # $countryCode
@@ -74,31 +74,31 @@ To find a specific offer by ID, execute the [**Get-PartnerOffer**](https://githu
 Get-PartnerOffer -Country $countryCode -OfferId $offerId
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}?country={country-id} HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id} 嗎？國家/地區 = {country-ID} HTTP/1。1 |
 
-**URI parameter**
+**URI 參數**
 
-| 名稱           | 在工作列搜尋方塊中輸入       | 必要 | 說明                           |
+| 名稱           | 類型       | 必要 | 描述                           |
 |----------------|------------|----------|---------------------------------------|
-| **offer-id**   | **guid**   | Y        | A GUID that corresponds to the offer. |
-| **country-id** | **string** | Y        | The country/region ID.                |
+| **供應專案識別碼**   | **guid**   | Y        | 對應至供應專案的 GUID。 |
+| **國家/地區識別碼** | **字串** | Y        | 國家/地區識別碼。                |
 
-**Request headers**
+**要求標頭**
 
-- A **locale-id** formatted as a string is required.
-- See [Headers](headers.md) for more information.
+- 需要格式化為字串的**地區設定識別碼**。
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/<offer-id>?country=<country-id> HTTP/1.1
@@ -110,15 +110,15 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
-If successful, this method returns an **Offer** resource in the response body.
+如果成功，此方法會在回應主體中傳回**供應**專案資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Change the billing cycle
-description: Update a subscription to monthly or annual billing.
+title: 變更計費週期
+description: 將訂用帳戶更新為每月或年度計費。
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489018"
 ---
-# <a name="change-the-billing-cycle"></a>Change the billing cycle
+# <a name="change-the-billing-cycle"></a>變更計費週期
 
 適用於：
 
@@ -21,26 +21,26 @@ ms.locfileid: "74489018"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Updates an [Order](order-resources.md) from monthly to annual billing or from annual to monthly billing.
+將[訂單](order-resources.md)從每月更新為年度計費，或從年度到每月計費。
 
-In the Partner Center dashboard, this operation can be performed by navigating to a customer's subscription details page. Once there, you will see an option defining the current billing cycle for the subscription with the ability to change and submit it.  
+在合作夥伴中心儀表板中，您可以藉由流覽至客戶的訂用帳戶詳細資料頁面來執行此作業。 在該處，您會看到一個選項，可定義訂用帳戶目前的計費週期，並能夠變更和提交。  
 
-**Out of scope** for this topic:  
+本主題**的範圍外**：  
 
-- Changing the billing cycle for trials
-- Changing the billing cycles for any non-annual term offers (monthly, 6-year) & Azure subscriptions
-- Changing the billing cycles for inactive subscriptions
-- Changing billing cycles for Microsoft online services license-based subscriptions
+- 變更試用版的計費週期
+- 變更任何非年度詞彙供應專案的計費週期（每月、6年） & Azure 訂用帳戶
+- 變更非使用中訂閱的計費週期
+- 變更 Microsoft 線上服務授權型訂閱的計費週期
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- An order ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 訂單識別碼。
 
 ## <a name="c"></a>C#
 
-To change the frequency of the billing cycle, update the [**Order.BillingCycle**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle?view=partnercenter-dotnet-latest#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) property.
+若要變更計費週期的頻率，請更新[**BillingCycle**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle?view=partnercenter-dotnet-latest#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle)屬性。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -67,57 +67,57 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orderId).Patch(order);
 ```
 
-## <a name="rest-request"></a>REST Request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法    | 要求 URI                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-This table lists the required query parameter to change the quantity of the subscription.
+下表列出必要的查詢參數，以變更訂用帳戶的數量。
 
-| 名稱                   | 在工作列搜尋方塊中輸入 | 必要 | 說明                                                          |  
+| 名稱                   | 類型 | 必要 | 描述                                                          |  
 |------------------------|------|----------|----------------------------------------------------------------------|  
-| **customer-tenant-id** | GUID |    Y     | A GUID formatted **customer-tenant-id** that identifies the customer |  
-| **order-id**           | GUID |    Y     | The order identifier                                                 |  
+| **客戶-租使用者識別碼** | GUID |    Y     | 識別客戶的 GUID 格式**客戶租使用者識別碼** |  
+| **訂單識別碼**           | GUID |    Y     | 訂單識別碼                                                 |  
 
 ### <a name="request-headers"></a>要求標頭
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-The following tables describe the properties in the request body.
+下表描述要求主體中的屬性。
 
 ## <a name="order"></a>順序
 
-| 屬性           | 在工作列搜尋方塊中輸入             | 必要 | 說明                                                                |
+| 屬性           | 類型             | 必要 | 描述                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| Id                 | 字串           |    N     | An order identifier that is supplied upon successful creation of the order |
-|ReferenceCustomerId | 字串           |    Y     | The customer identifier                                                    |
-| BillingCycle       | 字串           |    Y     | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype). |
-| LineItems          | array of objects |    Y     | An array of [OrderLineItem](#orderlineitem) resources                      |
-| CreationDate       | datetime         |    N     | The date the order was created, in date-time format                        |
-| 屬性         | 物件           |    N     | Contains "ObjectType": "OrderLineItem"                                     |
+| Id                 | 字串           |    N     | 成功建立訂單時所提供的訂單識別碼 |
+|ReferenceCustomerId | 字串           |    Y     | 客戶識別碼                                                    |
+| billingCycle       | 字串           |    Y     | 指出此訂單的夥伴計費頻率。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱。 |
+| LineItems          | 物件的陣列 |    Y     | [OrderLineItem](#orderlineitem)資源的陣列                      |
+| CreationDate       | datetime         |    N     | 訂單的建立日期（以日期時間格式）                        |
+| 屬性         | 物件           |    N     | 包含 "ObjectType"： "OrderLineItem"                                     |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
-| 屬性             | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                        |
+| 屬性             | 類型   | 必要 | 描述                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| LineItemNumber       | 數目 |    Y     | The line item number, starting with 0                                              |
-| OfferId              | 字串 |    Y     | The ID of the offer                                                                |
-| SubscriptionId       | 字串 |    Y     | The ID of the subscription                                                         |
-| FriendlyName         | 字串 |    N     | The friendly name for the subscription defined by the partner to help disambiguate |
-| 數量             | 數目 |    Y     | The number of licenses or instances                                                |
-| PartnerIdOnRecord    | 字串 |    N     | The MPN ID of the partner of record                                                |
-| 屬性           | 物件 |    N     | Contains "ObjectType": "OrderLineItem"                                             |
+| LineItemNumber       | 數字 |    Y     | 行專案編號，從0開始                                              |
+| OfferId              | 字串 |    Y     | 供應專案的識別碼                                                                |
+| SubscriptionId       | 字串 |    Y     | 訂用帳戶的識別碼                                                         |
+| FriendlyName         | 字串 |    N     | 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分 |
+| 數量             | 數字 |    Y     | 授權或實例的數目                                                |
+| PartnerIdOnRecord    | 字串 |    N     | 記錄夥伴的 MPN 識別碼                                                |
+| 屬性           | 物件 |    N     | 包含 "ObjectType"： "OrderLineItem"                                             |
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
-Update to annual billing
+更新為年度計費
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/orders/CF3B0E37-BE0B-4CDD-B584-D1A97D98A922 HTTP/1.1
@@ -154,13 +154,13 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns the updated subscription order in the response body.
+如果成功，此方法會在回應主體中傳回更新的訂閱順序。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

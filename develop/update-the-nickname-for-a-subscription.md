@@ -1,6 +1,6 @@
 ---
-title: Update the nickname for a subscription
-description: Updates the friendly name or nickname for a customer's Subscription.
+title: 更新訂用帳戶的昵稱
+description: 更新客戶訂用帳戶的易記名稱或昵稱。
 ms.assetid: 9A4431CB-1EB5-4C1C-B4D1-18B017ADD2F4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486298"
 ---
-# <a name="update-the-nickname-for-a-subscription"></a>Update the nickname for a subscription
+# <a name="update-the-nickname-for-a-subscription"></a>更新訂用帳戶的昵稱
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Updates the friendly name or nickname for a customer's [Subscription](subscription-resources.md). This name appears in Partner Center to help differentiate the subscriptions in the customer's account.
+更新客戶[訂](subscription-resources.md)用帳戶的易記名稱或昵稱。 此名稱會顯示在 [合作夥伴中心]，協助區分客戶帳戶中的訂用帳戶。
 
-In the Partner Center dashboard, this operation can be performed by first [selecting a customer](get-a-customer-by-name.md). Then, select the subscription in question that you wish to rename. To finish, change the name in the **Subscription nickname** field, then select **Submit.**
+在合作夥伴中心儀表板中，您可以先[選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取您想要重新命名的訂用帳戶。 若要完成，請變更 [訂用帳戶**昵稱**] 欄位中的名稱，然後選取 [**提交]。**
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 訂用帳戶識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update the nickname of a customer's subscription, first [Get the subscription](get-a-subscription-by-id.md), then change the subscription's [**FriendlyName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname) property. Once the change is made, use your [**IPartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection and call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method. Then call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method. Then, finish by calling the [**Patch()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) method.
+若要更新客戶訂用帳戶的昵稱，請先[取得訂](get-a-subscription-by-id.md)用帳戶，然後變更訂用帳戶的[**FriendlyName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname)屬性。 進行變更之後，請使用[**ipartner.getinvoices. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合，並呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。 然後呼叫[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性，後面接著[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)方法。 然後，藉由呼叫[**Patch （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch)方法來完成。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,39 +51,39 @@ Subscription selectedSubscription = customerSubscriptions.Items.FirstOrDefault(s
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: UpdateSubscription.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSamples**類別**： UpdateSubscription.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-This table lists the required query parameter to update the subscription nickname.
+下表列出更新訂用帳戶昵稱所需的查詢參數。
 
-| 名稱                    | 在工作列搜尋方塊中輸入     | 必要 | 說明                          |
+| 名稱                    | 類型     | 必要 | 描述                          |
 |-------------------------|----------|----------|--------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | The **customer-tenant-id** (a GUID). |
-| **id-for-subscription** | **guid** | Y        | The subscription ID (a GUID).        |
+| **客戶-租使用者識別碼**  | **guid** | Y        | **客戶租使用者識別碼**（GUID）。 |
+| **訂用帳戶的識別碼** | **guid** | Y        | 訂用帳戶識別碼（GUID）。        |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-A full **Subscription** resource is required in the request body. Ensure the **FriendlyName** property has been updated.
+要求主體中需要完整的**訂**用帳戶資源。 請確定已更新 [ **FriendlyName** ] 屬性。
 
-**Request example**
+**要求範例**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
@@ -118,16 +118,16 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 回應
 
 
-If successful, this method returns updated [Subscription](subscription-resources.md) resource properties in the response body.
+如果成功，此方法會在回應本文中傳回已更新的[訂](subscription-resources.md)用帳戶資源屬性。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 PATCH http://partnerapi.store.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1

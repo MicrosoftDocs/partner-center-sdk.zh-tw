@@ -1,6 +1,6 @@
 ---
-title: Get subscription registration status
-description: Get the status of a subscription that has been registered for use with Azure Reserved VM Instances.
+title: 取得訂用帳戶註冊狀態
+description: 取得已註冊使用 Azure 保留的 VM 執行個體之訂用帳戶的狀態。
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487118"
 ---
-# <a name="get-subscription-registration-status"></a>Get subscription registration status 
+# <a name="get-subscription-registration-status"></a>取得訂用帳戶註冊狀態 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-How to get the subscription registration status for a customer subscription that has been enabled for purchasing Azure Reserved VM Instances.  
+如何取得已啟用購買 Azure 保留的 VM 執行個體之客戶訂用帳戶的訂用帳戶註冊狀態。  
 
-To purchase an Azure Reserved VM Instance using the Partner Center API, you must have at least one existing CSP Azure subscription. The [Register a subscription](register-a-subscription.md) method allows you to register your existing CSP Azure subscription, enabling it for purchasing Azure Reserved VM Instances. This method allows you to retrieve the status of that registration. 
+若要使用合作夥伴中心 API 購買 Azure 保留的 VM 實例，您必須至少有一個現有的 CSP Azure 訂用帳戶。 [註冊訂用](register-a-subscription.md)帳戶方法可讓您註冊現有的 CSP Azure 訂用帳戶，讓它能夠 Azure 保留的 VM 執行個體購買。 這個方法可讓您取得該註冊的狀態。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 訂用帳戶識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the registration status of a subscription, begin by using the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then, get an interface to subscription operations by calling the [**Subscription.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method with the subscription ID to identify the subscription. Next, use the RegistrationStatus property to obtain an interface to the current subscription's registration status operations, and call the **Get** or **GetAsync** method to retrieve the **SubscriptionRegistrationStatus** object.
+若要取得訂用帳戶的註冊狀態，請先使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來識別客戶。 然後，藉由呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)方法與訂用帳戶識別碼來取得訂用帳戶作業的介面，以識別訂用帳戶。 接下來，使用 RegistrationStatus 屬性來取得目前訂用帳戶註冊狀態作業的介面，並呼叫**Get**或**GetAsync**方法來取出**SubscriptionRegistrationStatus**物件。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,33 +43,33 @@ To get the registration status of a subscription, begin by using the [**IAggrega
 var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).RegistrationStatus.Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
-**Request syntax**
+**要求語法**
 
 | 方法    | 要求 URI                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1.1 |
+| **獲取**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1。1 |
 
-**URI parameters**
+**URI 參數**
 
-Use the following path parameters to identify the customer and subscription. 
+使用下列路徑參數來識別客戶和訂用帳戶。 
 
-| 名稱                    | 在工作列搜尋方塊中輸入       | 必要 | 說明                                                   |
+| 名稱                    | 類型       | 必要 | 描述                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| customer-id             | 字串     | [是]      | A GUID formatted string that identifies the customer.         |
-| subscription-id         | 字串     | [是]      | A GUID formatted string that identifies the subscription.     |
+| 客戶識別碼             | 字串     | 是      | 識別客戶的 GUID 格式字串。         |
+| 訂用帳戶識別碼         | 字串     | 是      | 識別訂用帳戶的 GUID 格式字串。     |
 
  
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-id>/subscriptions/<subscription-id>/registrationstatus HTTP/1.1
@@ -83,15 +83,15 @@ Expect: 100-continue
 Connection: Keep-Alive
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 回應
 
-If successful, the response body contains a [SubscriptionRegistrationStatus](subscription-resources.md#subscriptionregistrationstatus) resource.  
+如果成功，回應主體會包含[SubscriptionRegistrationStatus](subscription-resources.md#subscriptionregistrationstatus)資源。  
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

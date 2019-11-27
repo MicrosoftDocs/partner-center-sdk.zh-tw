@@ -1,6 +1,6 @@
 ---
 title: 分析
-description: You can use the Partner Center SDK and APIs to programmatically retrieve analytic information. For more information, see the topics listed here.
+description: 您可以使用合作夥伴中心 SDK 和 Api，以程式設計方式取得分析資訊。 如需詳細資訊，請參閱這裡所列的主題。
 ms.assetid: 22C1320C-5EDF-443C-B545-88641FBA2358
 ms.date: 07/27/2018
 ms.service: partner-dashboard
@@ -16,25 +16,25 @@ ms.locfileid: "74487738"
 # <a name="analytics"></a>分析
 
 
-**Applies To**
+**適用于**
 
  - 合作夥伴中心
  - 由 21Vianet 營運的合作夥伴中心
  - Microsoft Cloud 德國合作夥伴中心
  - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You can use the Partner Center SDK and APIs to programmatically retrieve analytic information. For more information, see the topics listed here.
+您可以使用合作夥伴中心 SDK 和 Api，以程式設計方式取得分析資訊。 如需詳細資訊，請參閱這裡所列的主題。
 
-- [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
-- [Get all Azure usage analytics information](get-all-azure-usage-analytics.md)
-- [Get all indirect resellers analytics information](get-all-indirect-resellers-analytics.md)
-- [Get all referrals analytics information](get-all-referrals-analytics.md)
-- [Get all search analytics information](get-all-search-analytics.md)
-- [Get all subscription analytics information](get-all-subscription-analytics.md)  
-- [Get subscription analytics information filtered by a search query](get-subscription-analytics-by-search-query.md)  
-- [Get subscription analytics information grouped by dates or terms](get-subscription-analytics-grouped-by-dates-or-terms.md)  
-- [Get customer licenses deployment information](get-customer-licenses-deployment-information.md)
-- [Get customer licenses usage information](get-customer-licenses-usage-information.md)
-- [Get partner licenses deployment information](get-partner-licenses-deployment-information.md)
-- [Get partner licenses usage information](get-partner-licenses-usage-information.md)
+- [合作夥伴中心分析-資源](partner-center-analytics-resources.md)
+- [取得所有 Azure 使用量分析資訊](get-all-azure-usage-analytics.md)
+- [取得所有間接轉售商分析資訊](get-all-indirect-resellers-analytics.md)
+- [取得所有推薦的分析資訊](get-all-referrals-analytics.md)
+- [取得所有搜尋分析資訊](get-all-search-analytics.md)
+- [取得所有訂用帳戶分析資訊](get-all-subscription-analytics.md)  
+- [取得搜尋查詢所篩選的訂用帳戶分析資訊](get-subscription-analytics-by-search-query.md)  
+- [取得依日期或詞彙分組的訂用帳戶分析資訊](get-subscription-analytics-grouped-by-dates-or-terms.md)  
+- [取得客戶授權部署資訊](get-customer-licenses-deployment-information.md)
+- [取得客戶授權使用量資訊](get-customer-licenses-usage-information.md)
+- [取得合作夥伴授權部署資訊](get-partner-licenses-deployment-information.md)
+- [取得合作夥伴授權使用量資訊](get-partner-licenses-usage-information.md)
 

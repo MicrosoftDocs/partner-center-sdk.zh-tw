@@ -1,6 +1,6 @@
 ---
-title: Delete a configuration policy for the specified customer
-description: How to delete a configuration policy for a specified customer and policy identifier.
+title: 為指定的客戶刪除設定原則
+description: 如何刪除指定的客戶和原則識別碼的設定原則。
 ms.assetid: DEFEC12E-3EA0-401B-B612-ACD1D71DB415
 ms.date: 06/11/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489848"
 ---
-# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>Delete a configuration policy for the specified customer
+# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>為指定的客戶刪除設定原則
 
 適用於：
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-How to delete a configuration policy for a specified customer and policy identifier.
+如何刪除指定的客戶和原則識別碼的設定原則。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
-- The policy identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。
+- 原則識別碼。
 
 ## <a name="c"></a>C\#
 
-To delete a configuration policy for a specified customer:
+若要刪除指定客戶的設定原則：
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Call the [**ConfigurationPolicies.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) method with the policy ID to retrieve an interface to configuration policy operations for the specified policy.
-3. Call the [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete) or [**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync) method to delete the configuration policy.
+1. 使用客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以在指定的客戶上取得作業的介面。
+2. 使用原則識別碼呼叫[**ConfigurationPolicies. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)方法，以取得指定原則之設定原則作業的介面。
+3. 呼叫[**delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete)或[**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync)方法以刪除設定原則。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -44,34 +44,34 @@ string selectedPolicyId;
 partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedPolicyId).Delete();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: DeleteConfigurationPolicy.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： DeleteConfigurationPolicy.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法     | 要求 URI                                                                                          |
 |------------|------------------------------------------------------------------------------------------------------|
-| **DELETE** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
+| **DELETE** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-Use the following path parameters when creating the request.
+建立要求時，請使用下列路徑參數。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                   |
+| 名稱        | 類型   | 必要 | 描述                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| customer-id | 字串 | [是]      | A GUID-formatted string that identifies the customer.         |
-| policy-id   | 字串 | [是]      | A GUID-formatted string that identifies the policy to delete. |
+| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。         |
+| 原則-識別碼   | 字串 | 是      | GUID 格式的字串，用來識別要刪除的原則。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 DELETE https://api.partnercenter.microsoft.com/v1/customers/47021739-3426-40bf-9601-61b4b6d7c793/policies/56edf752-ee77-4fd8-b7f5-df1f74a3a9ac HTTP/1.1
@@ -84,13 +84,13 @@ Content-Type: application/json
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, the response returns a 204 No Content status code.
+如果成功，回應會傳回204沒有內容狀態碼。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

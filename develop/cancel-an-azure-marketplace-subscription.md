@@ -1,6 +1,6 @@
 ---
-title: Cancel a commercial marketplace subscription
-description: Cancel a commercial marketplace Subscription resource that matches a customer and subscription ID.
+title: 取消商用 marketplace 訂用帳戶
+description: 取消符合客戶和訂用帳戶識別碼的商業 marketplace 訂用帳戶資源。
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,37 +13,37 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489308"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription"></a>Cancel a commercial marketplace subscription
+# <a name="cancel-a-commercial-marketplace-subscription"></a>取消商用 marketplace 訂用帳戶
 
 適用於：
 
 - 合作夥伴中心
 
-You can cancel a commercial marketplace [subscription](subscription-resources.md) resource that matches the customer and subscription ID.
+您可以取消符合客戶和訂用帳戶識別碼的商業 marketplace[訂](subscription-resources.md)用帳戶資源。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（**客戶租使用者識別碼**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 訂用帳戶識別碼。
 
-## <a name="partner-center-dashboard-method"></a>Partner Center dashboard method
+## <a name="partner-center-dashboard-method"></a>合作夥伴中心儀表板方法
 
-To cancel a commercial marketplace subscription in the Partner Center dashboard:
+若要取消合作夥伴中心儀表板中的商業 marketplace 訂用帳戶：
 
-1. [Select a customer](get-a-customer-by-name.md).
-2. Select the subscription that you wish to cancel.
-3. Choose the **Cancel subscription** option, then select **Submit**.
+1. [選取客戶](get-a-customer-by-name.md)。
+2. 選取您想要取消的訂用帳戶。
+3. 選擇 [**取消訂**用帳戶] 選項，然後選取 [**提交**]。
 
 ## <a name="c"></a>C#
 
-To cancel a customer's subscription:
+若要取消客戶的訂用帳戶：
 
-1. [Get the subscription by ID](get-a-subscription-by-id.md).
-2. Change the subscription's [**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) property. For information on **Status** codes, see [SubscriptionStatus enumeration](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).
-3. After the change is made, use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-4. Call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method.
-5. Call the **Patch()** method.
+1. [依識別碼取得訂用](get-a-subscription-by-id.md)帳戶。
+2. 變更訂用帳戶的 [[**狀態**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)] 屬性。 如需**狀態**代碼的詳細資訊，請參閱[SubscriptionStatus 列舉](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)。
+3. 進行變更之後，請使用**iaggregatepartner.customers.byid. Customers**集合並呼叫**ById （）** 方法。
+4. 呼叫[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性，後面接著[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)方法。
+5. 呼叫**Patch （）** 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,34 +54,34 @@ selectedSubscription.Status = SubscriptionStatus.Deleted;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-### <a name="sample-console-test-app"></a>Sample console test app
+### <a name="sample-console-test-app"></a>範例主控台測試應用程式
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： UpdateSubscription.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-This table lists the required query parameter to suspend the subscription.
+下表列出暫止訂閱所需的查詢參數。
 
-| 名稱                    | 在工作列搜尋方塊中輸入     | 必要 | 說明                               |
+| 名字                    | 類型     | 必要 | 說明                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **客戶-租使用者識別碼**  | **guid** | Y        | 對應至客戶的 GUID。     |
+| **訂用帳戶的識別碼** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-A full **Subscription** resource is required in the request body. Ensure that the **Status** property has been updated.
+要求主體中需要完整的**訂**用帳戶資源。 請確定 [**狀態**] 屬性已更新。
 
 ### <a name="request-example"></a>要求的範例
 
@@ -127,13 +127,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST Response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns deleted [Subscription](subscription-resources.md) resource properties in the response body.
+如果成功，此方法會在回應主體中傳回已刪除的[訂](subscription-resources.md)用帳戶資源屬性。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

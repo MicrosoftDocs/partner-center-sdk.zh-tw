@@ -1,6 +1,6 @@
 ---
-title: Create an order for a customer of an indirect reseller
-description: How to create an order for a customer of an indirect reseller.
+title: 為間接轉銷商的客戶建立訂單
+description: 如何為間接轉銷商的客戶建立訂單。
 ms.assetid: 3B89F8CE-96A8-443F-927E-6351E24FDBFF
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,33 +13,33 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489538"
 ---
-# <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Create an order for a customer of an indirect reseller
+# <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>為間接轉銷商的客戶建立訂單
 
 適用於：
 
 - 合作夥伴中心
 
-How to create an order for a customer of an indirect reseller.
+如何為間接轉銷商的客戶建立訂單。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The customer identifier.
-- The offer identifier of the item to purchase.
-- The tenant identifier of the indirect reseller.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 客戶識別碼。
+- 要購買之專案的供應專案識別碼。
+- 間接轉銷商的租使用者識別碼。
 
 ## <a name="c"></a>C\#
 
-To create an order for a customer of an indirect reseller:
+若要為間接轉銷商的客戶建立訂單：
 
-1. Get a collection of the indirect resellers that have a relationship with the signed-in partner.
-2. Get a local variable to the item in the collection that matches the indirect reseller ID. This step helps you access the reseller's [**MpnId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) property when you create the order.
-3. Instantiate an [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) object and set the [**ReferenceCustomerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) property to the customer identifier in order to record the customer.
-4. Create a list of [**OrderLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) objects, and assign the list to the order's [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) property. Each order line item contains the purchase information for one offer. Be sure to populate the [**PartnerIdOnRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) property in each line item with the MPN ID of the indirect reseller. You must have at least one order line item.
-5. Obtain an interface to order operations by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and then retrieve the interface from the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property.
-6. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) method to create the order.
+1. 取得與已登入夥伴有關聯性的間接轉銷商集合。
+2. 取得集合中符合間接轉銷商識別碼之專案的本機變數。 當您建立訂單時，此步驟可協助您存取轉銷商的[**MpnId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid)屬性。
+3. 將[**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order)物件具現化，並將[**ReferenceCustomerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid)屬性設定為客戶識別碼，以便記錄客戶。
+4. 建立[**OrderLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem)物件的清單，並將清單指派給訂單的[**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems)屬性。 每個訂單明細專案都包含一個供應專案的購買資訊。 請務必以間接轉銷商的 MPN 識別碼，在每個明細專案中填入[**PartnerIdOnRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord)屬性。 您必須至少有一個訂單明細專案。
+5. 藉由呼叫[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來識別客戶，然後從[**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)屬性取得介面，藉以取得排序作業的介面。
+6. 呼叫[**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync)方法來建立訂單。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# 範例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -75,57 +75,57 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Sample**: [Console test app](console-test-app.md)**Project**: Partner Center SDK Samples **Class**: PlaceOrderForCustomer.cs
+**範例**：[主控台測試應用程式](console-test-app.md)**專案**：合作夥伴中心 SDK 範例**類別**： PlaceOrderForCustomer.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-Use the following path parameter to identify the customer.
+使用下列 path 參數來識別客戶。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                           |
+| 名字        | 類型   | 必要 | 說明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | 字串 | [是]      | A GUID formatted string that identifies the customer. |
+| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 #### <a name="order"></a>順序
 
-This table describes the **Order** properties in the request body.
+下表描述要求主體中的**Order**屬性。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名字 | 類型 | 必要 | 說明 |
 | ---- | ---- | -------- | ----------- |
-| id | 字串 | 無 | An order identifier that is supplied upon successful creation of the order. |
-| referenceCustomerId | 字串 | [是] | The customer identifier. |
-| billingCycle | 字串 | 無 | The frequency with which the partner is billed for this order. The default is &quot;Monthly&quot; and is applied upon successful creation of the order. Supported values are the member names found in [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Note: the annual billing feature is not yet generally available. 年度計費的支援即將推出。 |
-| lineItems | array of objects | [是] | An array of [**OrderLineItem**](#orderlineitem) resources. |
-| creationDate | 字串 | 無 | The date the order was created, in date-time format. Applied upon successful creation of the order. |
-| 屬性 | 物件 | 無 | Contains "ObjectType": "Order". |
+| id | string | 否 | 成功建立訂單時所提供的訂單識別碼。 |
+| ReferenceCustomerId | string | 是 | 客戶識別碼。 |
+| billingCycle | string | 否 | 以此訂單為夥伴計費的頻率。 預設值為 &quot;每月&quot;，並會在成功建立訂單時套用。 支援的值為在[**為 billingcycletype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)中找到的成員名稱。 注意：年度帳單功能尚未正式推出。 年度計費的支援即將推出。 |
+| LineItems | 物件的陣列 | 是 | [**OrderLineItem**](#orderlineitem)資源的陣列。 |
+| CreationDate | string | 否 | 訂單的建立日期（採用日期時間格式）。 已在成功建立訂單時套用。 |
+| 屬性 | 物件 | 否 | 包含 "ObjectType"： "Order"。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
-This table describes the **OrderLineItem** properties in the request body.
+下表描述要求主體中的**OrderLineItem**屬性。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名字 | 類型 | 必要 | 說明 |
 | ---- | ---- | -------- | ----------- |
-| lineItemNumber | 整數 | [是] | Each line item in the collection gets a unique line number, counting up from 0 to count-1. |
-| offerId | 字串 | [是] | The offer identifier. |
-| subscriptionId | 字串 | 無 | The subscription identifier. |
-| parentSubscriptionId | 字串 | 無 | 選用。 The ID of the parent subscription in an add-on offer. Applies to PATCH only. |
-| friendlyName | 字串 | 無 | 選用。 The friendly name for the subscription defined by the partner to help disambiguate. |
-| quantity | 整數 | [是] | The number of licenses for a license-based subscription. |
-| partnerIdOnRecord | 字串 | 無 | When an indirect provider places an order on behalf of an indirect reseller, populate this field with the MPN ID of the **indirect reseller only** (never the ID of the indirect provider). This ensures proper accounting for incentives. **Failure to provide the reseller MPN ID does not cause the order to fail. However, the reseller is not recorded and as a consequence incentive calculations may not include the sale.** |
-| 屬性 | 物件 | 無 | Contains "ObjectType":"OrderLineItem". |
+| LineItemNumber | int | 是 | 集合中的每個明細專案都會取得唯一的行號，從0計算到計數1。 |
+| offerId | string | 是 | 供應專案識別碼。 |
+| 訂閱 | string | 否 | 訂用帳戶識別碼。 |
+| ParentSubscriptionId | string | 否 | 選擇性。 附加元件供應專案中父訂用帳戶的識別碼。 僅適用于 PATCH。 |
+| friendlyName | string | 否 | 選擇性。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。 |
+| quantity | int | 是 | 以授權為基礎之訂用帳戶的授權數目。 |
+| partnerIdOnRecord | string | 否 | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適當的獎勵會計。 **無法提供轉售商 MPN 識別碼，並不會造成訂單失敗。不過，轉銷商不會記錄下來，因此獎勵計算可能不會包含銷售。** |
+| 屬性 | 物件 | 否 | 包含 "ObjectType"： "OrderLineItem"。 |
 
 ### <a name="request-example"></a>要求的範例
 
@@ -165,13 +165,13 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, the response body contains the populated [Order](order-resources.md) resource.
+如果成功，回應主體會包含已填入的[訂單](order-resources.md)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

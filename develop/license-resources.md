@@ -1,6 +1,6 @@
 ---
-title: License resources
-description: Describes resources related to licenses.
+title: 授權資源
+description: 描述與授權相關的資源。
 ms.assetid: 20592E06-8A87-41F4-B8B0-6F9200556FDA
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,78 +13,78 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486928"
 ---
-# <a name="license-resources"></a>License resources
+# <a name="license-resources"></a>授權資源
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Describes resources related to licenses.
+描述與授權相關的資源。
 
-## <a name="span-idlicensespan-idlicensespan-idlicenselicense"></a><span id="License"/><span id="license"/><span id="LICENSE"/>License
+## <a name="span-idlicensespan-idlicensespan-idlicenselicense"></a><span id="License"/><span id="license"/><span id="LICENSE"/>授權
 
 
-Describes a user license.
+描述使用者授權。
 
 >[!NOTE]
->Unsupported on Partner Center operated by 21Vianet.
+>由世紀營運的合作夥伴中心不支援。
 
  
 
-| 屬性     | 在工作列搜尋方塊中輸入                                                           | 說明                                                    |
+| 屬性     | 類型                                                           | 描述                                                    |
 |--------------|----------------------------------------------------------------|----------------------------------------------------------------|
-| servicePlans | array of ServicePlan resources                                 | The collection of service plans that correspond to the license |
-| productSKU   | ProductSku                                                     | The sku of the product that corresponds to the license.        |
-| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the license.          |
+| servicePlans | ServicePlan 資源的陣列                                 | 對應至授權的服務方案集合 |
+| productSKU   | ProductSku                                                     | 對應至授權之產品的 sku。        |
+| 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes) | 對應至授權的中繼資料屬性。          |
 
  
 
 ## <a name="span-idlicenseupdatespan-idlicenseupdatespan-idlicenseupdatelicenseupdate"></a><span id="LicenseUpdate"/><span id="licenseupdate"/><span id="LICENSEUPDATE"/>LicenseUpdate
 
 
-Provides information used to assign or remove licenses from a user.
+提供用來指派或移除使用者授權的資訊。
 
-| 屬性         | 在工作列搜尋方塊中輸入                                                           | 說明                                               |
+| 屬性         | 類型                                                           | 描述                                               |
 |------------------|----------------------------------------------------------------|-----------------------------------------------------------|
-| licensestoAssign | array of objects                                               | Array of [LicenseAssignment](#licenseassignment) objects. |
-| licensesToRemove | array of strings                                               | The product SKU identifiers of the licenses to remove.    |
-| licenseWarnings  | array of objects                                               | Array of [LicenseWarning](#licensewarning) objects.       |
-| 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.                                  |
+| licensestoAssign | 物件的陣列                                               | [LicenseAssignment](#licenseassignment)物件的陣列。 |
+| licensesToRemove | 字串陣列                                               | 要移除之授權的產品 SKU 識別碼。    |
+| licenseWarnings  | 物件的陣列                                               | [LicenseWarning](#licensewarning)物件的陣列。       |
+| 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                  |
 
  
 
 ## <a name="span-idlicenseassignmentspan-idlicenseassignmentspan-idlicenseassignmentlicenseassignment"></a><span id="LicenseAssignment"/><span id="licenseassignment"/><span id="LICENSEASSIGNMENT"/>LicenseAssignment
 
 
-Provides information needed for a license update operation.
+提供授權更新作業所需的資訊。
 
-| 屬性      | 在工作列搜尋方塊中輸入             | 說明                                                                |
+| 屬性      | 類型             | 描述                                                                |
 |---------------|------------------|----------------------------------------------------------------------------|
-| excludedPlans | array of strings | The service plan identifiers to be excluded from availability to the user. |
-| skuId         | 字串           | The product SKU identifier for the license.                                |
+| excludedPlans | 字串陣列 | 要從可用性中排除給使用者的服務方案識別碼。 |
+| skuId         | 字串           | 授權的產品 SKU 識別碼。                                |
 
  
 
 ## <a name="span-idlicensewarningspan-idlicensewarningspan-idlicensewarninglicensewarning"></a><span id="LicenseWarning"/><span id="licensewarning"/><span id="LICENSEWARNING"/>LicenseWarning
 
 
-Contains warning information that occurred during a license update operation.
+包含在授權更新作業期間發生的警告資訊。
 
-| 屬性     | 在工作列搜尋方塊中輸入             | 說明                                         |
+| 屬性     | 類型             | 描述                                         |
 |--------------|------------------|-----------------------------------------------------|
-| code         | 字串           | The warning code.                                   |
-| 訊息      | 字串           | The warning message.                                |
-| servicePlans | array of strings | The service plan names associated with the warning. |
+| code         | 字串           | 警告碼。                                   |
+| 訊息      | 字串           | 警告訊息。                                |
+| servicePlans | 字串陣列 | 與警告相關聯的服務方案名稱。 |
 
  
 
 ## <a name="span-idproductskuspan-idproductskuspan-idproductskuproductsku"></a><span id="ProductSku"/><span id="productsku"/><span id="PRODUCTSKU"/>ProductSku
 
 
-Describes product details.
+描述產品詳細資料。
 
 <table>
 <colgroup>
@@ -95,37 +95,37 @@ Describes product details.
 <thead>
 <tr class="header">
 <th>屬性</th>
-<th>在工作列搜尋方塊中輸入</th>
-<th>說明</th>
+<th>類型</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>id</td>
 <td>字串</td>
-<td>The product identifier.</td>
+<td>產品識別碼。</td>
 </tr>
 <tr class="even">
 <td>name</td>
 <td>字串</td>
-<td>The user principal identifier.</td>
+<td>使用者主體識別碼。</td>
 </tr>
 <tr class="odd">
 <td>skuPartNumber</td>
 <td>字串</td>
-<td>The SKU part number name for the product. For example, for Office 365 Plan E3 , this value is &quot;EnterprisePack&quot;. This can be used in place of id if the id is not available.</td>
+<td>產品的 SKU 元件編號名稱。 例如，針對 Office 365 方案 E3，此值為 &quot;EnterprisePack&quot;。 如果識別碼無法使用，這可以用來取代識別碼。</td>
 </tr>
 <tr class="even">
-<td>targetType</td>
+<td>目標</td>
 <td>字串</td>
-<td>The target type of the product. This identifies whether the product is applicable to a &quot;User&quot; or a &quot;Tenant&quot;.</td>
+<td>產品的目標型別。 這會識別產品是否適用于 &quot;的使用者&quot; 或 &quot;的租使用者&quot;。</td>
 </tr>
 <tr class="odd">
 <td>licenseGroupId</td>
 <td>字串</td>
-<td>Identifies via a group identifier the authority or service that manages the productSku license. Products are segregated under license groups for better manageability.
-<p>&quot;group1&quot; - All products whose licenses can be managed by Azure Active Directory (AAD).</p>
-<p>&quot;group2&quot; - Minecraft product licenses.</p></td>
+<td>透過群組識別碼識別管理 productSku 授權的授權或服務。 產品會在授權群組底下隔離，以提供更好的管理能力。
+<p>&quot;group1&quot;-其授權可由 Azure Active Directory （AAD）管理的所有產品。</p>
+<p>&quot;group2&quot;-Minecraft 產品授權。</p></td>
 </tr>
 </tbody>
 </table>
@@ -135,35 +135,35 @@ Describes product details.
 ## <a name="span-idserviceplanspan-idserviceplanspan-idserviceplanserviceplan"></a><span id="ServicePlan"/><span id="serviceplan"/><span id="SERVICEPLAN"/>ServicePlan
 
 
-Identifies a deployable service within a product SKU. A product can have many service plans.
+識別產品 SKU 內可部署的服務。 產品可以有許多服務方案。
 
-| 屬性         | 在工作列搜尋方塊中輸入   | 說明                                                                                                       |
+| 屬性         | 類型   | 描述                                                                                                       |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------|
-| id               | 字串 | The service plan identifier.                                                                                      |
-| displayName      | 字串 | The localized display name for the service plan.                                                                  |
-| serviceName      | 字串 | The service name.                                                                                                 |
-| capabilityStatus | 字串 | The service plan status of the service plan.                                                                      |
-| targetType       | 字串 | The target type of the service plan. This identifies whether the product is applicable to a "User" or a "Tenant". |
+| id               | 字串 | 服務方案識別碼。                                                                                      |
+| displayName      | 字串 | 服務方案的當地語系化顯示名稱。                                                                  |
+| serviceName      | 字串 | 服務名稱。                                                                                                 |
+| capabilityStatus | 字串 | 服務方案的服務方案狀態。                                                                      |
+| 目標       | 字串 | 服務方案的目標型別。 這會識別產品是否適用于「使用者」或「租使用者」。 |
 
  
 
 ## <a name="span-idsubscribedskuspan-idsubscribedskuspan-idsubscribedskusubscribedsku"></a><span id="SubscribedSku"/><span id="subscribedsku"/><span id="SUBSCRIBEDSKU"/>SubscribedSku
 
 
-Describes a subscribed product owned by a tenant.
+描述租使用者所擁有的訂閱產品。
 
-| 屬性         | 在工作列搜尋方塊中輸入                                                           | 說明                                                                                       |
+| 屬性         | 類型                                                           | 描述                                                                                       |
 |------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| availableUnits   | 整數                                                        | The number of units available for assignment. This is calculated as total units - consumed units. |
-| activeUnits      | 整數                                                        | The number of units active for assignment.                                                        |
-| consumedUnits    | 整數                                                        | The number of units consumed.                                                                     |
-| suspendedUnits   | 整數                                                        | The number of units suspended.                                                                    |
-| totalUnits       | 整數                                                        | The total number of units. This is calculated as the sum of the active and warning units.         |
-| warningUnits     | 整數                                                        | The number of warning units.                                                                      |
-| productSku       | ProductSku                                                     | The product sku.                                                                                  |
-| servicePlans     | array of ServicePlan resources                                 | The collection of service plans of a product.                                                     |
-| capabilityStatus | 字串                                                         | The sku status of a product.                                                                      |
-| 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the resource.                                            |
+| availableUnits   | 整數                                                        | 可供指派的單位數。 這會計算為總單位-耗用單位。 |
+| activeUnits      | 整數                                                        | 要指派的作用中單位數。                                                        |
+| consumedUnits    | 整數                                                        | 耗用的單位數。                                                                     |
+| suspendedUnits   | 整數                                                        | 已暫停的單位數。                                                                    |
+| totalUnits       | 整數                                                        | 總單位數。 這是以作用中和警告單位的總和來計算。         |
+| warningUnits     | 整數                                                        | 警告單位的數目。                                                                      |
+| productSku       | ProductSku                                                     | 產品 sku。                                                                                  |
+| servicePlans     | ServicePlan 資源的陣列                                 | 產品的服務方案集合。                                                     |
+| capabilityStatus | 字串                                                         | 產品的 sku 狀態。                                                                      |
+| 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | 對應至資源的中繼資料屬性。                                            |
 
  
 

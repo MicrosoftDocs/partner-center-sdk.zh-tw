@@ -1,6 +1,6 @@
 ---
-title: Subscription resources
-description: Subscription resources can provide further information about subscriptions throughout the life cycle, such as support, refunds, Azure entitlements.
+title: 訂用帳戶資源
+description: 訂用帳戶資源可以在整個生命週期中提供有關訂閱的進一步資訊，例如支援、退款、Azure 權利。
 ms.assetid: E99B5EC3-2247-4CAD-B651-3000E36AF6B6
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486698"
 ---
-# <a name="subscription-resources"></a>Subscription resources
+# <a name="subscription-resources"></a>訂用帳戶資源
 
 適用於：
 
@@ -22,120 +22,120 @@ ms.locfileid: "74486698"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-A subscription lets a customer use a service for a certain period of time. Not all fields will apply to all subscriptions. Many fields only apply at certain points in the life cycle, such as if a subscription is suspended or cancelled.
+「訂用帳戶」可讓客戶在一段特定時間內使用服務。 並非所有的欄位都適用于所有訂閱。 許多欄位僅適用于生命週期中的特定點，例如，如果訂閱已暫停或取消。
 
 ## <a name="subscription"></a>訂閱
 
 >[!NOTE]
->The **Subscription** resource has a rate limit of 500 requests per minute per tenant identifier.
+>**訂**用帳戶資源的速率限制為每個租使用者識別碼每分鐘500個要求。
 
-The **Subscription** resource represents the life cycle of a subscription and includes properties that define the states throughout the subscription life cycle.
+**訂**用帳戶資源代表訂用帳戶的生命週期，並包含定義整個訂用帳戶生命週期中狀態的屬性。
 
-| 屬性             | 在工作列搜尋方塊中輸入                                                          | 說明                                                                                                                                                                   |
+| 屬性             | 類型                                                          | 描述                                                                                                                                                                   |
 |----------------------|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | 字串                                                        | The subscription identifier.                                                                                                                                                  |
-| offerId              | 字串                                                        | The offer identifier.                                                                                                                                                         |
-| entitlementId        | 字串                                                        | The entitlement identifier (an Azure subscription ID).                                                                                                                        |
-| offerName            | 字串                                                        | The offer name.                                                                                                                                                               |
-| friendlyName         | 字串                                                        | The friendly name for the subscription defined by the partner to help disambiguate.                                                                                           |
-| quantity             | 數目                                                        | The quantity. For example, in case of license-based billing, this property is set to the license count.                                                            |
-| unitType             | 字串                                                        | The units defining quantity for the subscription.                                                                                                                             |
-| parentSubscriptionId | 字串                                                        | Gets or sets the parent subscription identifier.                                                                                                                              |
-| creationDate         | 字串                                                        | Gets or sets the creation date, in date-time format.                                                                                                                          |
-| effectiveStartDate   | string in UTC date time format                                | Gets or sets the effective start date for this subscription, in date-time format. It is used to back date a migrated subscription or to align it with another.                |
-| commitmentEndDate    | string in UTC date time format                                | The commitment end date for this subscription, in date-time format. For subscriptions which are not auto-renewable, this represents a date far, far away in the future.       |
-| 狀態               | 字串                                                        | The subscription status: "none", "active", "pending", "suspended", or "deleted".                                                                                                         |
-| autoRenewEnabled     | boolean                                                       | Gets a value indicating whether the subscription is renewed automatically.                                                                                                    |
-| billingType          | 字串                                                        | Specifies how the subscription is billed: "none", "usage", or "license".                                                                                                      |
-| billingCycle         | 字串                                                        | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [**BillingCycleType**](product-resources.md#billingcycletype). |
-| hasPurchasableAddons | boolean                                                       | Gets or sets a value indicating whether the subscription has purchasable add-ons.                                                                                             |
-| isTrial              | boolean                                                       | A value indicating whether this is a trial subscription.                                                                                                                      |
-| isMicrosoftProduct   | boolean                                                       | A value indicating whether this is a Microsoft product.                                                                                                                       |
-| publisherName        | 字串                                                        | The publisher name.                                                                                                                                                           |
-| actions              | array of strings                                              | Gets or sets the actions that are allowed. Possible values: "edit", "cancel"                                                                                                  |
-| partnerId            | 字串                                                        | The MPN ID of the reseller of record, used in the indirect partner model.                                                                                                     |
-| suspensionReasons    | array of strings                                              | Read-only. If the subscription was suspended, indicates why.                                                                                                                  |
-| contractType         | 字串                                                        | Read-only. The type of contract: "subscription", "productKey", or "redemptionCode".                                                                                           |
-| refundOptions        | array of [RefundOption](#refundoption) resources   | Read-Only. The set of refund options available for this subscription.                                                                                              |
-| links                | [SubscriptionLinks](#subscriptionlinks)                       | Gets or sets the subscription links.                                                                                                                                          |
-| orderId              | 字串                                                        | The ID of the order that was placed to begin the subscription.                                                                                                                |
-| termDuration         | 字串                                                        | An ISO 8601 representation of the term's duration. The current supported values are **P1M** (1 month), **P1Y** (1 year) and **P3Y** (3 years).                                                        |
-| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the subscription.                                                                                                                    |
-| renewalTermDuration  | 字串                                                        | An ISO 8601 representation of the term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year).                                                        |
+| id                   | 字串                                                        | 訂用帳戶識別碼。                                                                                                                                                  |
+| offerId              | 字串                                                        | 供應專案識別碼。                                                                                                                                                         |
+| entitlementId        | 字串                                                        | 權利識別碼（Azure 訂用帳戶 ID）。                                                                                                                        |
+| offerName            | 字串                                                        | 供應專案名稱。                                                                                                                                                               |
+| friendlyName         | 字串                                                        | 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。                                                                                           |
+| quantity             | 數字                                                        | 數量。 例如，如果是以授權為基礎的計費，此屬性會設定為授權計數。                                                            |
+| Unittype.pixel 表示             | 字串                                                        | 為訂用帳戶定義數量的單位。                                                                                                                             |
+| ParentSubscriptionId | 字串                                                        | 取得或設定父訂用帳戶識別碼。                                                                                                                              |
+| CreationDate         | 字串                                                        | 取得或設定日期時間格式的建立日期。                                                                                                                          |
+| RateplaNcharge.effectivestartdate   | UTC 日期時間格式的字串                                | 取得或設定此訂用帳戶的有效開始日期（以日期時間格式表示）。 它可用來備份已遷移的訂閱，或將它與另一個訂用帳戶對齊。                |
+| commitmentEndDate    | UTC 日期時間格式的字串                                | 此訂用帳戶的承諾結束日期（以日期時間格式表示）。 對於不是自動可續訂的訂用帳戶，這代表未來最遠的日期。       |
+| status               | 字串                                                        | 訂用帳戶狀態： [無]、[作用中]、[擱置中]、[已暫停] 或 [已刪除]。                                                                                                         |
+| autoRenewEnabled     | 布林值                                                       | 取得值，指出是否自動更新訂閱。                                                                                                    |
+| billingType          | 字串                                                        | 指定訂用帳戶的計費方式： [無]、[使用量] 或 [授權]。                                                                                                      |
+| billingCycle         | 字串                                                        | 指出此訂單的夥伴計費頻率。 支援的值為在[**為 billingcycletype**](product-resources.md#billingcycletype)中找到的成員名稱。 |
+| hasPurchasableAddons | 布林值                                                       | 取得或設定值，指出訂閱是否有可購買附加元件。                                                                                             |
+| isTrial              | 布林值                                                       | 值，指出這是否為試用訂閱。                                                                                                                      |
+| isMicrosoftProduct   | 布林值                                                       | 值，指出這是否為 Microsoft 產品。                                                                                                                       |
+| publisherName        | 字串                                                        | 發行者名稱。                                                                                                                                                           |
+| 活動              | 字串陣列                                              | 取得或設定允許的動作。 可能的值： [編輯]、[取消]                                                                                                  |
+| partnerId            | 字串                                                        | 記錄轉銷商的 MPN 識別碼，用於間接夥伴模型。                                                                                                     |
+| suspensionReasons    | 字串陣列                                              | 唯讀。 如果訂用帳戶已暫止，則會指出原因。                                                                                                                  |
+| contractType         | 字串                                                        | 唯讀。 合約的類型： "訂用帳戶"、"productKey" 或 "redemptionCode"。                                                                                           |
+| refundOptions        | [RefundOption](#refundoption)資源的陣列   | 唯讀。 適用于此訂用帳戶的退款選項組。                                                                                              |
+| 相關                | [SubscriptionLinks](#subscriptionlinks)                       | 取得或設定訂用帳戶連結。                                                                                                                                          |
+| orderId              | 字串                                                        | 已放置以開始訂閱的訂單識別碼。                                                                                                                |
+| termDuration         | 字串                                                        | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）、 **P1Y** （1年）和**P3Y** （3年）。                                                        |
+| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 對應至訂閱的中繼資料屬性。                                                                                                                    |
+| renewalTermDuration  | 字串                                                        | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。                                                        |
 
 ## <a name="subscriptionlinks"></a>SubscriptionLinks
 
-The **SubscriptionLinks** resource describes the collection of links attached to a subscription resource.
+**SubscriptionLinks**資源描述附加到訂用帳戶資源的連結集合。
 
-| 屬性           | 在工作列搜尋方塊中輸入                               | 說明                           |
+| 屬性           | 類型                               | 描述                           |
 |--------------------|------------------------------------|---------------------------------------|
-| offer              | [連結](utility-resources.md#link) | Gets or sets the offer.               |
-| parentSubscription | [連結](utility-resources.md#link) | Gets or sets the parent subscription. |
-| product            | [連結](utility-resources.md#link) | Gets the product associated with the subscription. |
-| sku                | [連結](utility-resources.md#link) | Gets the product sku associated with the subscription. |
-| 可用性       | [連結](utility-resources.md#link) | Gets the product sku availability associated with the subscription. |
-| activationLinks    | [連結](utility-resources.md#link) | Gets the list of activation links associated with the subscription. |
-| self               | [連結](utility-resources.md#link) | The self URI.                         |
-| 下一步               | [連結](utility-resources.md#link) | The next page of items.               |
-| previous           | [連結](utility-resources.md#link) | The previous page of items.           |
+| 產品              | [連結](utility-resources.md#link) | 取得或設定供應專案。               |
+| parentSubscription | [連結](utility-resources.md#link) | 取得或設定父訂用帳戶。 |
+| 基礎            | [連結](utility-resources.md#link) | 取得與訂用帳戶相關聯的產品。 |
+| 限量                | [連結](utility-resources.md#link) | 取得與訂用帳戶相關聯的產品 sku。 |
+| 可用性       | [連結](utility-resources.md#link) | 取得與訂用帳戶相關聯的產品 sku 可用性。 |
+| activationLinks    | [連結](utility-resources.md#link) | 取得與訂用帳戶相關聯的啟用連結清單。 |
+| 供電               | [連結](utility-resources.md#link) | 自我 URI。                         |
+| 下一步               | [連結](utility-resources.md#link) | 下一個頁面的專案。               |
+| 處           | [連結](utility-resources.md#link) | 前一頁的專案。           |
 
 ## <a name="subscriptionprovisioningstatus"></a>SubscriptionProvisioningStatus
 
-The **SubscriptionProvisioningStatus** resource provides information about the provisioning status of a subscription.
+**SubscriptionProvisioningStatus**資源會提供訂用帳戶布建狀態的相關資訊。
 
-| 屬性   | 在工作列搜尋方塊中輸入                                                           | 說明                                                          |
+| 屬性   | 類型                                                           | 描述                                                          |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------|
-| skuId      | 字串                                                         | A GUID formatted string that identifies the product SKU.             |
-| 狀態     | 字串                                                         | Indicates the provisioning status: "success", "pending" or "failed". |
-| quantity   | 數目                                                         | Provides the subscription quantity after provisioning.               |
-| endDate    | string in UTC date time format                                 | The end date of the subscription.                                    |
-| 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                             |
+| skuId      | 字串                                                         | 識別產品 SKU 的 GUID 格式字串。             |
+| status     | 字串                                                         | 指出布建狀態：「成功」、「擱置」或「失敗」。 |
+| quantity   | 數字                                                         | 提供布建後的訂用帳戶數量。               |
+| endDate    | UTC 日期時間格式的字串                                 | 訂用帳戶的結束日期。                                    |
+| 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。                                             |
 
 ## <a name="subscriptionregistrationstatus"></a>SubscriptionRegistrationStatus
 
-The **SubscriptionRegistrationStatus** resource describes the collection of links attached to a subscription resource.
+**SubscriptionRegistrationStatus**資源描述附加到訂用帳戶資源的連結集合。
 
-| 屬性           | 在工作列搜尋方塊中輸入                               | 說明                                                                           |
+| 屬性           | 類型                               | 描述                                                                           |
 |--------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| subscriptionId     | 字串                             | The subscription identifier.                                                          |
-| 狀態             | 字串                             | Indicates the registration status: "registered", "registering" or "notregistered".    |
+| 訂閱     | 字串                             | 訂用帳戶識別碼。                                                          |
+| status             | 字串                             | 指出註冊狀態：「已註冊」、「正在註冊」或「notregistered」。    |
 
 ## <a name="supportcontact"></a>SupportContact
 
-The **SupportContact** resource represents a support contact for a customer's subscription.
+**SupportContact**資源代表客戶訂用帳戶的支援連絡人。
 
-| 屬性        | 在工作列搜尋方塊中輸入                                                           | 說明                                                                     |
+| 屬性        | 類型                                                           | 描述                                                                     |
 |-----------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
-| supportTenantId | 字串                                                         | A GUID formatted string that indicates the support contact's tenant identifier. |
-| supportMpnId    | 字串                                                         | The contact's Microsoft Partner Network (MPN) identifier.                       |
-| name            | 字串                                                         | The name of the support contact.                                                |
-| links           | [ResourceLinks](utility-resources.md#resourcelinks)            | The support contact related links.                                              |
-| 屬性      | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes. Contains "objectType": " SupportContact".              |
+| supportTenantId | 字串                                                         | GUID 格式的字串，表示支援連絡人的租使用者識別碼。 |
+| supportMpnId    | 字串                                                         | 連絡人的 Microsoft 合作夥伴網路（MPN）識別碼。                       |
+| name            | 字串                                                         | 支援連絡人的名稱。                                                |
+| 相關           | [ResourceLinks](utility-resources.md#resourcelinks)            | 支援連絡人的相關連結。                                              |
+| 屬性      | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。 包含 "objectType"： "SupportContact"。              |
 
 ## <a name="registersubscription"></a>RegisterSubscription
 
-The **RegisterSubscription** resource returns a link that can be used to query the registration status of a subscription. The registration status is returned in the response body of a successfully accepted request to register an Azure subscription.
+**RegisterSubscription**資源會傳回可用來查詢訂用帳戶註冊狀態的連結。 註冊狀態會在成功接受要求的回應本文中傳回，以註冊 Azure 訂用帳戶。
 
-| 屬性                | 在工作列搜尋方塊中輸入                               | 說明                                                                           |
+| 屬性                | 類型                               | 描述                                                                           |
 |-------------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| httpResponseMessage     | 物件                             | Returns HTTP Status Code 202 "Accepted", with a Location header containing a link to query the registration status. 例如，`"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
+| HttpResponseMessage     | 物件                             | 傳回 HTTP 狀態碼202「已接受」，其位置標頭包含查詢註冊狀態的連結。 例如，`"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
 
 ## <a name="refundoption"></a>RefundOption
 
-The **RefundOption** resource represents a possible refund option for the subscription.
+**RefundOption**資源代表訂用帳戶的可能退款選項。
 
-| 屬性          | 在工作列搜尋方塊中輸入 | 說明                                                                         |
+| 屬性          | 類型 | 描述                                                                         |
 |-------------------|--------|-------------------------------------------------------------------------------------|
-| type | 字串 | The type of refund. The supported values are "Partial" and "Full" |
-| expiresAfter      | string in UTC date time format | The timestamp when this option expires. If null, this means it has no expiration. |
+| type | 字串 | 退款的類型。 支援的值為「部分」和「完整」 |
+| expiresAfter      | UTC 日期時間格式的字串 | 此選項到期時的時間戳記。 如果是 null，這表示它沒有到期日。 |
 
 ## <a name="azureentitlement"></a>AzureEntitlement
 
-The **AzureEntitlement** resource represents the Azure entitlements for the subscription.
+**AzureEntitlement**資源代表訂用帳戶的 Azure 權利。
 
-| 屬性          | 在工作列搜尋方塊中輸入 | 說明                                                                         |
+| 屬性          | 類型 | 描述                                                                         |
 |-------------------|--------|-------------------------------------------------------------------------------------|
-| id | 字串 | The entitlement identifier |
-| friendlyName      | 字串 | The friendly name of the entitlement. |
-| 狀態 | 字串 | The status of entitlement. |
-| subscriptionId | 字串 | The subscription identifier the entitlement belongs to. |
+| id | 字串 | 權利識別碼 |
+| friendlyName      | 字串 | 權利的易記名稱。 |
+| status | 字串 | 權利的狀態。 |
+| 訂閱 | 字串 | 權利所屬的訂用帳戶識別碼。 |

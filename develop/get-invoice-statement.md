@@ -1,6 +1,6 @@
 ---
-title: Get invoice statement
-description: Retrieves an invoice statement using the invoice ID.
+title: 取得發票語句
+description: 使用發票識別碼抓取發票語句。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489368"
 ---
-# <a name="get-invoice-statement"></a>Get invoice statement
+# <a name="get-invoice-statement"></a>取得發票語句
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Retrieves an invoice statement using the invoice ID.
+使用發票識別碼抓取發票語句。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid Invoice ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 有效的發票識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get an invoice statement by ID, use your **IPartner.Invoices** collection and call the **ById()** method using the invoice ID, then call the **Documents()** and **Statement()** methods to access the invoice statement. Finally, call the **Get()** or **GetAsync()** methods.
+若要依識別碼取得發票語句，請使用您的**ipartner.getinvoices**集合，並使用發票識別碼呼叫**ById （）** 方法，然後呼叫**Documents （）** 和**語句（）** 方法來存取 invoice 語句。 最後，呼叫**Get （）** 或**GetAsync （）** 方法。
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -42,37 +42,37 @@ To get an invoice statement by ID, use your **IPartner.Invoices** collection and
 var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Documents.Statement.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetInvoiceStatement.cs 
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： GetInvoiceStatement.cs 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/documents/statement HTTP/1.1  |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/documents/statement HTTP/1。1  |
 
 
-**URI parameter**
+**URI 參數**
 
-Use the following query parameter to get the invoice statement.
+使用下列查詢參數來取得 invoice 語句。
 
-| 名稱       | 在工作列搜尋方塊中輸入       | 必要 | 說明                                                                                        |
+| 名字       | 類型       | 必要 | 說明                                                                                        |
 |------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| invoice-id | 字串     | [是]      | The value is an invoice-id that allows the reseller to filter the results for a given invoice. |
+| 發票識別碼 | string     | 是      | 值是發票識別碼，可讓轉銷商篩選特定發票的結果。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-無
+None
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/<invoice-id>/documents/statement HTTP/1.1
@@ -82,16 +82,16 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 回應
 
 
-If successful, this method returns an [InvoiceStatement](invoice-resources.md#invoicestatement) resource in the response body.
+如果成功，此方法會在回應主體中傳回[InvoiceStatement](invoice-resources.md#invoicestatement)資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Get subscription analytics grouped by dates or terms
-description: How to get subscription analytics information grouped by dates or terms.
+title: 取得依日期或詞彙分組的訂用帳戶分析
+description: 如何取得依日期或詞彙分組的訂用帳戶分析資訊。
 ms.assetid: 5D0C0649-F64D-40A9-ACCC-2077E2D2BA4E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487158"
 ---
-# <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Get subscription analytics grouped by dates or terms
+# <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>取得依日期或詞彙分組的訂用帳戶分析
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -23,92 +23,92 @@ ms.locfileid: "74487158"
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 
-How to get subscription analytics information for your customers grouped by dates or terms.
+如何取得客戶的訂用帳戶分析資訊，並依日期或詞彙分組。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。
 
 
-**Request syntax**
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求語法**
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions?groupby={groupby_queries} |
+| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions？ groupby = {groupby_queries} |
 
  
-**URI parameters**
+**URI 參數**
 
-Use the following required path parameters to identify your organization and to group the results.
+使用下列必要的 path 參數來識別您的組織，並將結果分組。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名稱 | 類型 | 必要 | 描述 |
 |------|------|----------|-------------|
-| groupby_queries | pairs of strings and dateTime | [是] | The terms and dates to filter the result. |
+| groupby_queries | 字串與日期時間的配對 | 是 | 用來篩選結果的詞彙和日期。 |
 
  
 
-**GroupBy syntax**
+**GroupBy 語法**
 
-The group by parameter must be composed as a series of comma separated, field values.
+Group by 參數必須以一系列以逗號分隔的域值來組成。
 
-An unencoded example looks like this:  
+未編碼的範例看起來像這樣：  
 
 ```http
 ?groupby=termField1,dateField1,termField2
 ```
 
-The following table shows a list of the supported fields for group by.
+下表顯示 [群組依據] 支援的欄位清單。
 
-| 欄位 | 在工作列搜尋方塊中輸入 | 說明 |
+| 欄位 | 類型 | 描述 |
 |-------|------|-------------|
-| customerTenantId | 字串 | A GUID-formatted string that identifies the customer tenant. |  
-| customerName | 字串 | The name of the customer. |  
-| customerMarket | 字串 | The country/region that the customer does business in. |  
-| id | 字串 | A GUID-formatted string that identifies the subscription. |  
-| 狀態 | 字串 | The subscription status. Supported values are: "ACTIVE", "SUSPENDED", or "DEPROVISIONED". |  
+| customerTenantId | 字串 | GUID 格式的字串，可識別客戶租使用者。 |  
+| customerName | 字串 | 客戶的名稱。 |  
+| customerMarket | 字串 | 客戶執行業務的國家/地區。 |  
+| id | 字串 | 識別訂用帳戶的 GUID 格式字串。 |  
+| status | 字串 | 訂用帳戶狀態。 支援的值為： "ACTIVE"、"暫止" 或 "取消布建"。 |  
 | productName | 字串 | 產品的名稱。 |  
-| subscriptionType | 字串 | The subscription type. Note: This field is case sensitive. Supported values are: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |  
-| autoRenewEnabled | 布林值 | A value indicating whether the subscription is renewed automatically. |  
-| partnerId  | 字串 | The MPN ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |  
-| friendlyName | 字串 | The name of the subscription. |  
-| partnerName | 字串 | Name of the partner for whom the subscription was purchased |  
-| providerName | 字串 | When subscription transaction is for the indirect reseller, provider name is the indirect provider who bought the subscription.
-| creationDate | string in UTC date time format | The date the subscription was created. |  
-| effectiveStartDate | string in UTC date time format | The date the subscription starts. |  
-| commitmentEndDate | string in UTC date time format | The date the subscription ends. |  
-| currentStateEndDate | string in UTC date time format | The date that the current status of the subscription will change. |  
-| trialToPaidConversionDate | string in UTC date time format | The date that the subscription converts from trial to paid. The default value is null. |  
-| trialStartDate | string in UTC date time format | The date that the trial period for the subscription started. The default value is null. |  
-| lastUsageDate | string in UTC date time format | The date that the subscription was last used. The default value is null. |  
-| deprovisionedDate | string in UTC date time format | The date that the subscription was deprovisioned. The default value is null. |  
-| lastRenewalDate | string in UTC date time format | The date that the subscription was last renewed. The default value is null. |  
+| subscriptionType | 字串 | 訂用帳戶類型。 注意：此欄位會區分大小寫。 支援的值為： "Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS"。 |  
+| autoRenewEnabled | 布林值 | 值，指出是否自動更新訂用帳戶。 |  
+| partnerId  | 字串 | MPN 識別碼。 若為直接轉銷商，這會是合作夥伴的 MPN 識別碼。 若為間接轉銷商，這將是間接轉銷商的 MPN 識別碼。 |  
+| friendlyName | 字串 | 訂用帳戶的名稱。 |  
+| partnerName | 字串 | 購買訂閱之夥伴的名稱 |  
+| providerName | 字串 | 若為間接轉銷商的訂閱交易，提供者名稱就是購買訂閱的間接提供者。
+| CreationDate | UTC 日期時間格式的字串 | 建立訂用帳戶的日期。 |  
+| RateplaNcharge.effectivestartdate | UTC 日期時間格式的字串 | 訂用帳戶開始的日期。 |  
+| commitmentEndDate | UTC 日期時間格式的字串 | 訂閱結束的日期。 |  
+| currentStateEndDate | UTC 日期時間格式的字串 | 訂用帳戶的目前狀態將會變更的日期。 |  
+| trialToPaidConversionDate | UTC 日期時間格式的字串 | 訂用帳戶從試用版轉換成付費的日期。 預設值為 null。 |  
+| trialStartDate | UTC 日期時間格式的字串 | 訂用帳戶的試用期開始日期。 預設值為 null。 |  
+| lastUsageDate | UTC 日期時間格式的字串 | 上次使用訂用帳戶的日期。 預設值為 null。 |  
+| deprovisionedDate | UTC 日期時間格式的字串 | 取消布建訂用帳戶的日期。 預設值為 null。 |  
+| lastRenewalDate | UTC 日期時間格式的字串 | 上次更新訂用帳戶的日期。 預設值為 null。 |  
 
-**Filter fields**
+**篩選欄位**
 
-The following table lists optional filter fields and their descriptions:
+下表列出選擇性的篩選欄位和其描述：
 
-| 欄位 | 在工作列搜尋方塊中輸入 |  說明 |
+| 欄位 | 類型 |  描述 |
 |-------|------|--------------|
-| top | 整數 | 在要求中傳回的資料列數目。 If the value is not specified, the maximum value and the default value are 10000. 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
-| skip | 整數 | 在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 For example, top=10000 and skip=0 retrieves the first 10000 rows of data, top=10000 and skip=10000 retrieves the next 10000 rows of data. |
-| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 Each filter statement contains a field name from the response body and a value that are associated with the **eq**, **ne**, or for certain fields, the **contains** operator. 陳述式可以使用 **and** 或 **or** 來結合。 String values must be surrounded by single quotes in the filter parameter. See the following section for a list of fields that can be filtered and the operators that are supported with those fields. |
-| aggregationLevel | 字串 | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 If the value is not specified, the default is **dateRange**. **Note**: This parameter applies only when a date field is passed as part of the groupBy parameter. |
+| top | 整數 | 要在要求中傳回的資料列數目。 如果未指定此值，則最大值和預設值為10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
+| skip | 整數 | 在查詢中要略過的資料列數目。 使用此參數來循頁瀏覽大型資料集。 例如，top = 10000 和 skip = 0 會抓取前10000個數據列，top = 10000，skip = 10000 會抓取下一個10000個數據列。 |
+| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與**eq**、 **ne**或特定欄位（ **contains**運算子）相關聯的值。 陳述式可以使用 **and** 或 **or** 來結合。 在篩選參數中，字串值必須以單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
+| aggregationLevel | 字串 | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 如果未指定此值，則預設為**dateRange**。 **注意**：只有在將日期欄位當做 groupBy 參數的一部分傳遞時，此參數才適用。 |
 | groupBy | 字串 | 將資料彙總僅套用至指定欄位的陳述式。 |
 
 
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/subscriptions?groupBy=subscriptionType  
@@ -120,15 +120,15 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 回應
 
-If successful, the response body contains a collection of [Subscription](partner-center-analytics-resources.md#subscription) resources grouped by the specified terms and dates.
+如果成功，回應主體會包含依指定的詞彙和日期分組的[訂](partner-center-analytics-resources.md#subscription)用帳戶資源集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -179,6 +179,6 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
 
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+ - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)

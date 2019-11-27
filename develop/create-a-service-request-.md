@@ -1,6 +1,6 @@
 ---
-title: Create a service request
-description: How to create a partner center service request.
+title: 建立服務要求
+description: 如何建立合作夥伴中心服務要求。
 ms.assetid: 16DA9836-7052-4103-82D4-933E5EEB7E71
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489318"
 ---
-# <a name="create-a-service-request"></a>Create a service request
+# <a name="create-a-service-request"></a>建立服務要求
 
 適用於：
 
@@ -21,21 +21,21 @@ ms.locfileid: "74489318"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to create a partner center service request.
+如何建立合作夥伴中心服務要求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A support topic ID. If you do not have a support topic ID, see [Get service request support topics](get-service-request-support-topics--pending-.md).
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 支援主題識別碼。 如果您沒有支援主題識別碼，請參閱[取得服務要求支援主題](get-service-request-support-topics--pending-.md)。
 
 ## <a name="c"></a>C\#
 
-To create a service request:
+若要建立服務要求：
 
-1. Create and populate a [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) object with the title, description, severity, and support topic id. To add additional information, the [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) object supports an optional collection of [**Notes**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.notes), but does not support links to files for uploading.
-2. Once the object is created, call the [**IAggregatePartner.ServiceRequests.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.ipartnerservicerequestcollection.create) method, passing it the newly created ServiceRequest object and a string containing the locale of the organization creating the service request (the agent locale).
+1. 建立並填入具有標題、描述、嚴重性和支援主題識別碼的[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)物件。為了新增其他資訊， [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)物件支援選擇性的[**附注**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.notes)集合，但不支援檔案的連結以進行上傳。
+2. 建立物件之後，請呼叫[**iaggregatepartner.customers.byid. ServiceRequests. Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.ipartnerservicerequestcollection.create)方法，將新建立的 ServiceRequest 物件和包含建立服務要求之組織地區設定的字串（代理程式地區設定）傳遞給它。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# 範例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -52,56 +52,56 @@ ServiceRequest serviceRequestToCreate = new ServiceRequest()
 ServiceRequest serviceRequest = partnerOperations.ServiceRequests.Create(serviceRequestToCreate, "en-US");
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreatePartnerServiceRequest.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CreatePartnerServiceRequest.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-Use the following URI parameter to identify the agent locale.
+使用下列 URI 參數來識別代理程式的地區設定。
 
-| 名稱             | 在工作列搜尋方塊中輸入       | 必要 | 說明                                                  |
+| 名字             | 類型       | 必要 | 說明                                                  |
 |------------------|------------|----------|--------------------------------------------------------------|
-| **agent-locale** | **string** | Y        | The locale of the organization creating the service request. |
+| **代理程式-地區設定** | **字串** | Y        | 建立服務要求的組織地區設定。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-This table describes the required and optional properties in the request body.
+下表描述要求主體中的必要和選擇性屬性。
 
-| 名稱             | 在工作列搜尋方塊中輸入                                                                        | 必要 | 說明                                                                          |
+| 名字             | 類型                                                                        | 必要 | 說明                                                                          |
 |------------------|-----------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
-| 標題            | 字串                                                                      | Y        | The service request title.                                                           |
-| 說明      | 字串                                                                      | Y        | The description.                                                                     |
-| 嚴重性         | 字串                                                                      | Y        | The severity: "unknown", "critical", "moderate", or "minimal".                       |
-| SupportTopicId   | 字串                                                                      | Y        | The id of the support topic.                                                         |
-| SupportTopicName | 字串                                                                      | N        | The name of the support topic.                                                       |
-| Id               | 字串                                                                      | N        | The id of the service request.                                                       |
-| 狀態           | 字串                                                                      | N        | The status of the service request: "none", "open", "closed", or "attention\_needed". |
-| 組織     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | Organization for which the service request is created.                               |
-| PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | Primary Contact on the service request.                                              |
-| LastUpdatedBy    | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | "Last Updated By" contact for changes to the service request.                        |
-| ProductName      | 字串                                                                      | N        | The name of the product that corresponds to the service request.                     |
-| ProductId        | 字串                                                                      | N        | The id of the product.                                                               |
-| CreatedDate      | date                                                                        | N        | The date of the service request's creation.                                          |
-| LastModifiedDate | date                                                                        | N        | The date that the service request was last modified.                                 |
-| LastClosedDate   | date                                                                        | N        | The date that the service request was last closed.                                   |
-| FileLinks        | array of [FileInfo](utility-resources.md#fileinfo) resources               | N        | The collection of File Links that pertain to the service request.                    |
-| NewNote          | [ServiceRequestNote](service-request-resources.md#servicerequestnote)                 | N        | A note can be added to an existing service request.                                  |
-| 備註            | array of [ServiceRequestNotes](service-request-resources.md#servicerequestnote)       | N        | A collection of notes added to the service request.                                  |
-| CountryCode      | 字串                                                                      | N        | The country corresponding to the service request.                                    |
-| 屬性       | 物件                                                                      | N        | Contains "ObjectType": "ServiceRequest".                                             |
+| 標題            | string                                                                      | Y        | 服務要求標題。                                                           |
+| 說明      | string                                                                      | Y        | 描述。                                                                     |
+| Severity         | string                                                                      | Y        | 嚴重性：「不明」、「重大」、「適中」或「最小」。                       |
+| SupportTopicId   | string                                                                      | Y        | 支援主題的識別碼。                                                         |
+| SupportTopicName | string                                                                      | N        | 支援主題的名稱。                                                       |
+| Id               | string                                                                      | N        | 服務要求的識別碼。                                                       |
+| 狀態           | string                                                                      | N        | 服務要求的狀態： [無]、[開啟]、[已關閉] 或 [\_需要注意]。 |
+| 組織     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | 建立服務要求的組織。                               |
+| PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | 服務要求的主要連絡人。                                              |
+| LastUpdatedBy    | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | 「上次更新者」連絡人，以瞭解服務要求的變更。                        |
+| ProductName      | string                                                                      | N        | 對應至服務要求的產品名稱。                     |
+| ProductId        | string                                                                      | N        | 產品的識別碼。                                                               |
+| CreatedDate      | date                                                                        | N        | 服務要求建立的日期。                                          |
+| lastModifiedDate | date                                                                        | N        | 上次修改服務要求的日期。                                 |
+| LastClosedDate   | date                                                                        | N        | 上次關閉服務要求的日期。                                   |
+| FileLinks        | [FileInfo](utility-resources.md#fileinfo)資源的陣列               | N        | 與服務要求相關之檔案連結的集合。                    |
+| NewNote          | [ServiceRequestNote](service-request-resources.md#servicerequestnote)                 | N        | 附注可以加入至現有的服務要求。                                  |
+| 注意            | [ServiceRequestNotes](service-request-resources.md#servicerequestnote)的陣列       | N        | 加入至服務要求的附注集合。                                  |
+| CountryCode      | string                                                                      | N        | 對應至服務要求的國家/地區。                                    |
+| 屬性       | 物件                                                                      | N        | 包含 "ObjectType"： "ServiceRequest"。                                             |
 
-This table describes the required properties in the request body.
+下表描述要求主體中的必要屬性。
 
 ### <a name="request-example"></a>要求的範例
 
@@ -143,13 +143,13 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns the **Service Request** resource properties in the response body.
+如果成功，此方法會在回應主體中傳回**服務要求**資源屬性。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

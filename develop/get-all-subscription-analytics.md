@@ -1,6 +1,6 @@
 ---
-title: Get all subscription analytics information
-description: How to get all the subscription analytics information.
+title: 取得所有訂用帳戶分析資訊
+description: 如何取得所有訂用帳戶分析資訊。
 ms.assetid: 243E54BD-EA34-400E-B9AB-D735EB46B9F6
 ms.date: 08/02/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485848"
 ---
-# <a name="get-all-subscription-analytics-information"></a>Get all subscription analytics information
+# <a name="get-all-subscription-analytics-information"></a>取得所有訂用帳戶分析資訊
 
 適用於：
 
@@ -22,41 +22,41 @@ ms.locfileid: "74485848"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-This topic describes how to get all the subscription analytics information for your customers.
+本主題說明如何取得客戶的所有訂用帳戶分析資訊。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1.1 |
+| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-The following table lists optional parameters and their descriptions:
+下表列出選擇性參數和其描述：
 
-| 參數 | 在工作列搜尋方塊中輸入 |  說明 |
+| 參數 | 類型 |  描述 |
 |-----------|------|--------------|
-| top | 整數 | 在要求中傳回的資料列數目。 If the value is not specified, the maximum value and the default value are `10000`. 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
-| skip | 整數 | 在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 For example, `top=10000` and `skip=0` retrieves the first 10000 rows of data, `top=10000` and `skip=10000` retrieves the next 10000 rows of data. |
-| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 Each filter statement contains a field name from the response body and a value that are associated with the **eq**, **ne**, or for certain fields, the **contains** operator. 陳述式可以使用 **and** 或 **or** 來結合。 **篩選** 參數中的字串值必須由單引號括住。 See the following section for a list of fields that can be filtered and the operators that are supported with those fields. |
-| aggregationLevel | 字串 | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 If the value is not specified, the default is **dateRange**. This parameter applies only when a date field is passed as part of the **groupBy** parameter. |
+| top | 整數 | 要在要求中傳回的資料列數目。 如果未指定此值，則會 `10000`最大值和預設值。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
+| skip | 整數 | 在查詢中要略過的資料列數目。 使用此參數來循頁瀏覽大型資料集。 例如，`top=10000` 和 `skip=0` 會抓取前10000個數據列，`top=10000` 和 `skip=10000` 會抓取接下來的10000個數據列。 |
+| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與**eq**、 **ne**或特定欄位（ **contains**運算子）相關聯的值。 陳述式可以使用 **and** 或 **or** 來結合。 **filter** 參數中的字串值必須由單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
+| aggregationLevel | 字串 | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 如果未指定此值，則預設為**dateRange**。 只有在將日期欄位當做**groupBy**參數的一部分傳遞時，此參數才適用。 |
 | groupBy | 字串 | 將資料彙總僅套用至指定欄位的陳述式。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Headers](headers.md) for more information.
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/subscriptions
@@ -66,13 +66,13 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, the response body contains a collection of [**Subscription**](partner-center-analytics-resources.md#subscription) resources.
+如果成功，回應主體會包含[**訂**](partner-center-analytics-resources.md#subscription)用帳戶資源的集合。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 
@@ -109,4 +109,4 @@ Each response comes with an HTTP status code that indicates success or failure a
 
 ## <a name="see-also"></a>請參閱
 
-- [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+- [合作夥伴中心分析-資源](partner-center-analytics-resources.md)

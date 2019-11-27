@@ -1,6 +1,6 @@
 ---
 title: 取得 Microsoft Cloud 合約的合約中繼資料
-description: This topic explains how to get agreement metadata for Microsoft Cloud Agreement.
+description: 本主題說明如何取得 Microsoft Cloud 合約的合約中繼資料。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -14,31 +14,31 @@ ms.locfileid: "74486098"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>取得 Microsoft Cloud 合約的合約中繼資料
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
 > [!NOTE]  
-> The **AgreementMetaData** resource is currently supported by Partner Center in the Microsoft public cloud only. It is not applicable to:
+> **AgreementMetaData**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
 > - 由 21Vianet 營運的合作夥伴中心
 > - Microsoft Cloud 德國合作夥伴中心
 > - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 ## <a name="prerequisites"></a>必要條件
 
-- If you are using the Partner Center .NET SDK, version 1.9 or newer is required.
-- If you are using the Partner Center Java SDK, version 1.8 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario supports app + user authentication..
+- 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
+- 如果您使用合作夥伴中心 JAVA SDK，則需要1.8 或更新版本。
+- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 此案例支援應用程式 + 使用者驗證。
 
-## <a name="net-version-114-or-newer"></a>.NET (version 1.14 or newer)
+## <a name="net-version-114-or-newer"></a>.NET （1.14 版或更新版本）
 
-To retrieve the agreement metadata for Microsoft Cloud Agreement:
+若要取得 Microsoft Cloud 合約的合約中繼資料：
 
-1. First, retrieve the **IAggregatePartner.AgreementDetails** collection.
+1. 首先，取出**iaggregatepartner.customers.byid. AgreementDetails**集合。
 
-2. Call **ByAgreementType** method to filter the collection to Microsoft Cloud Agreement.
+2. 呼叫**ByAgreementType**方法，以 Microsoft Cloud 協定來篩選集合。
 
-3. Finally, call **Get** or **GetAsync** method.
+3. 最後，呼叫**Get**或**GetAsync**方法。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -48,13 +48,13 @@ string agreementType = "MicrosoftCloudAgreement";
 var microsoftCloudAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-A complete sample can be found in the [GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)類別中找到完整的範例。
 
-## <a name="net-version-19---113"></a>.NET (version 1.9 - 1.13)
+## <a name="net-version-19---113"></a>.NET （版本 1.9-1.13）
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+若要取得 Microsoft Cloud 合約的合約中繼資料：
 
-First retrieve the **IAggregatePartner.AgreementDetails** collection and then call the **Get** or **GetAsync** methods. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+先取出**iaggregatepartner.customers.byid. AgreementDetails**集合，然後呼叫**Get**或**GetAsync**方法。 然後在集合內搜尋與 Microsoft Cloud 合約對應的專案：
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -68,9 +68,9 @@ AgreementMetaData microsoftCloudAgreement = agreements.Items.FirstOrDefault (agr
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+若要取得 Microsoft Cloud 合約的合約中繼資料：
 
-First call the **IAggregatePartner.getAgreementDetails** function and then call the **get** function. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+先呼叫**iaggregatepartner.customers.byid. getAgreementDetails**函式，然後呼叫**get**函式。 然後在集合內搜尋與 Microsoft Cloud 合約對應的專案：
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -88,41 +88,41 @@ for (AgreementMetaData metadata : agreements)
 }
 ```
 
-A complete sample can be found in the [GetAgreementDetails](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java) class from the [console test app](https://github.com/Microsoft/Partner-Center-Java-Samples) project.
+您可以從[主控台測試應用程式](https://github.com/Microsoft/Partner-Center-Java-Samples)專案的[GetAgreementDetails](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java)類別中找到完整的範例。
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+若要取得 Microsoft Cloud 合約的合約中繼資料：
 
-Use the [**Get-PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partneragreementdetail) command. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+使用[**PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partneragreementdetail)命令。 然後在集合內搜尋與 Microsoft Cloud 合約對應的專案：
 
 ```powershell
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
-To retrieve agreement metadata for Microsoft Cloud Agreement, first create a REST Request to retrieve the **AgreementMetaData** collection. Then search for the item in the collection which corresponds to the Microsoft Cloud Agreement.
+若要取得 Microsoft Cloud 合約的合約中繼資料，請先建立 REST 要求來取得**AgreementMetaData**集合。 然後在集合中搜尋對應至 Microsoft Cloud 協定的專案。
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreements HTTP/1.1 |
+| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreements HTTP/1。1 |
 
 #### <a name="request-headers"></a>要求標頭
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
 無。
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/agreements HTTP/1.1
@@ -132,13 +132,13 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of **AgreementMetaData** resources in the response body.
+如果成功，此方法會在回應主體中傳回**AgreementMetaData**資源的集合。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 
@@ -171,6 +171,6 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-To identify the resource in the response which corresponds to the Microsoft Cloud Agreement, look for the resource whose **agreementType** property has value "MicrosoftCloudAgreement".
+若要識別回應中對應至 Microsoft Cloud 合約的資源，請尋找**agreementType**屬性值為 "MicrosoftCloudAgreement" 的資源。
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: Get a customer's subscriptions by partner MPN ID
-description: How to get a list of subscriptions provided by a given partner to a specified customer.
+title: 依合作夥伴 MPN 識別碼取得客戶的訂用帳戶
+description: 如何取得給定合作夥伴提供給指定客戶的訂閱清單。
 ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485828"
 ---
-# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>Get a customer's subscriptions by partner MPN ID
+# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>依合作夥伴 MPN 識別碼取得客戶的訂用帳戶
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to get a list of subscriptions provided by a given partner to a specified customer.
+如何取得給定合作夥伴提供給指定客戶的訂閱清單。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- A partner Microsoft Partner Network (MPN) identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。
+- 合作夥伴 Microsoft 合作夥伴網路（MPN）識別碼。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
 
 ### <a name="c"></a>C#
 
-To get a list of subscriptions provided by a given partner to a specified customer, first use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then get an interface to customer subscription collection operations from the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, and call the [**ByPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) method with the MPN ID to identify the partner and retrieve an interface to partner subscription operations. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) method to get the collection.
+若要取得給定合作夥伴提供給指定客戶的訂用帳戶清單，請先使用[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 然後從[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性取得客戶訂用帳戶集合作業的介面，並使用 MPN 識別碼呼叫[**ByPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner)方法，以識別夥伴並抓取夥伴訂用帳戶作業的介面。 最後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)方法以取得集合。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -45,13 +45,13 @@ To get a list of subscriptions provided by a given partner to a specified custom
 var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).Subscriptions.ByPartner(partnerMpnId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetSubscriptionsByMpnid.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetSubscriptionsByMpnid.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of subscriptions provided by a given partner to a specified customer, first use the **IAggregatePartner.getCustomers.byId** function with the customer ID to identify the customer. Then get an interface to customer subscription collection operations from the **getSubscriptions** function, and call the **byPartner** function with the MPN ID to identify the partner and retrieve an interface to partner subscription operations. Finally, call the **get** function to get the collection.
+若要取得給定合作夥伴提供給指定客戶的訂用帳戶清單，請先使用**iaggregatepartner.customers.byid. getCustomers. byId**函數搭配客戶識別碼來識別客戶。 然後從**getSubscriptions**函式取得客戶訂用帳戶集合作業的介面，並使用 MPN ID 呼叫**byPartner**函式，以識別合作夥伴並取得合作夥伴訂用帳戶作業的介面。 最後，呼叫**get**函式以取得集合。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -65,7 +65,7 @@ ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperation
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a list of subscriptions provided by a given partner to a specified customer, execute the [**Get-PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) command. Specify the customer ID to identify the customer using the **CustomerId** parameter, and populate the **MpnId** parameter with the MPN ID to identify the partner.
+若要取得給定合作夥伴提供給指定客戶的訂用帳戶清單，請執行[**PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md)命令。 使用**CustomerId**參數指定客戶識別碼來識別客戶，並在**MpnId**參數中填入 MPN 識別碼，以識別合作夥伴。
 
 ```powershell
 # $customerId
@@ -74,33 +74,33 @@ To get a list of subscriptions provided by a given partner to a specified custom
 Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions?mpn\_id={mpn-id} HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions？ mpn\_id = {mpn-ID} HTTP/1。1 |
 
-**URI parameters**
+**URI 參數**
 
-Use the following path and query parameters to identify the customer and partner.
+使用下列路徑和查詢參數來識別客戶和合作夥伴。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                 |
+| 名稱        | 類型   | 必要 | 描述                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | 字串 | [是]      | A GUID formatted string that identifies the customer.       |
-| mpn-id      | 整數    | [是]      | A Microsoft Partner Network ID that identifies the partner. |
+| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。       |
+| mpn-id      | 整數    | 是      | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
 
  
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/c501c3c4-d776-40ef-9ecf-9cefb59442c1/subscriptions?mpn_id=4847383 HTTP/1.1
@@ -113,15 +113,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
-If successful, the response body contains the collection of [Subscription](subscription-resources.md) resources.
+如果成功，回應主體會包含[訂](subscription-resources.md)用帳戶資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -177,5 +177,5 @@ Date: Thu, 13 Apr 2017 20:58:08 GMT
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
+ - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)

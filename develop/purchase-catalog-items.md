@@ -1,6 +1,6 @@
 ---
-title: Purchase catalog items
-description: How to purchase catalog items using the Partner Center API.
+title: 購買類別目錄專案
+description: 如何使用合作夥伴中心 API 購買類別目錄專案。
 ms.assetid: B9B1B66A-D1AD-44E8-85AA-49D9C2A94BE5
 ms.date: 07/12/2018
 ms.service: partner-dashboard
@@ -13,96 +13,96 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486738"
 ---
-# <a name="purchase-catalog-items"></a>Purchase catalog items
+# <a name="purchase-catalog-items"></a>購買類別目錄專案
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
 
-The following scenario demonstrates the generic process for purchasing items from the catalog by using the Partner Center API.
+下列案例示範使用合作夥伴中心 API 從目錄購買專案的一般程式。
 
 
-## <a name="span-iddiscoveryspan-iddiscoveryspan-iddiscoverydiscovery"></a><span id="Discovery"/><span id="discovery"/><span id="DISCOVERY"/>Discovery
+## <a name="span-iddiscoveryspan-iddiscoveryspan-iddiscoverydiscovery"></a><span id="Discovery"/><span id="discovery"/><span id="DISCOVERY"/>探索
 
-Select products and SKUs and check their availability using the following Partner Center API models: 
+選取 [產品和 Sku]，然後使用下列合作夥伴中心 API 模型來檢查其可用性： 
 
-- [Product](product-resources.md#product) - A grouping construct for purchasable goods or services. A product by itself is not a purchasable item.
-- [SKU](product-resources.md#sku) - A purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product.
-- [Availability](product-resources.md#availability) - A configuration in which a SKU is available for purchase (such as country, currency and industry segment).
+- [產品](product-resources.md#product)-可購買商品或服務的群組結構。 產品本身並不是可購買專案。
+- [SKU](product-resources.md#sku) -產品下的可購買庫存單位（SKU）。 這些代表產品的不同形狀。
+- [可用性](product-resources.md#availability)-SKU 可供購買的設定（例如國家/地區、貨幣和產業區段）。
 
-To purchase an item from the catalog, complete the following steps:
+若要從目錄購買專案，請完成下列步驟：
 
-1.  Identify and retrieve the Product and SKU that you want to purchase.
+1.  識別並取得您想要購買的產品和 SKU。
 
-    - [Get a list of products](get-a-list-of-products.md)
-    - [Get a product using the product ID](get-a-product-by-id.md)
-    - [Get a list of SKUs for a product](get-a-list-of-skus-for-a-product.md)
-    - [Get a SKU using the SKU ID](get-a-sku-by-id.md)
+    - [取得產品清單](get-a-list-of-products.md)
+    - [使用產品識別碼取得產品](get-a-product-by-id.md)
+    - [取得產品的 Sku 清單](get-a-list-of-skus-for-a-product.md)
+    - [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
-2.  Check the inventory for a SKU. This step is only needed for SKUs that are tagged with an **InventoryCheck** value in the [purchasePrerequisites](product-resources.md#sku) property.
+2.  檢查 SKU 的清查。 只有在[purchasePrerequisites](product-resources.md#sku)屬性中以**InventoryCheck**值標記的 sku 才需要此步驟。
 
-    - [Check Inventory](check-inventory.md) 
+    - [檢查清查](check-inventory.md) 
 
-3.  Retrieve the [availability](product-resources.md#availability) for the [SKU](product-resources.md#sku). You will need the **CatalogItemId** of the availability when placing the order. To get this value, use one of the following APIs: 
+3.  取得[SKU](product-resources.md#sku)的[可用性](product-resources.md#availability)。 您將需要在放置訂單時的可用性**CatalogItemId** 。 若要取得此值，請使用下列其中一個 Api： 
 
-    - [Get a list of availabilities for a SKU](get-a-list-of-availabilities-for-a-sku.md)
-    - [Get an availability using the availability ID](get-an-availability-by-id.md)
-
-
-## <a name="span-idorder_submissionspan-idorder_submissionspan-idorder_submissionorder-submission"></a><span id="Order_submission"/><span id="order_submission"/><span id="ORDER_SUBMISSION"/>Order submission
-
-To submit your catalog item order, do the following:
-
-1.  Create a [Cart](cart-resources.md) to hold the collection of catalog items that you intend to buy. When you create a cart, the [cart line items](cart-resources.md#cartlineitem) are automatically grouped based on what can be purchased together in the same [Order](order-resources.md).
-
-    - [Create a shopping cart](create-a-cart.md)
-    - [Update a shopping cart](update-a-cart.md)
-
-2.  Check out the cart. Checking out a cart results in the creation of an [Order](order-resources.md). 
-
-    - [Checkout the cart](checkout-a-cart.md)
-
-## <a name="span-idget_order_detailsspan-idget_order_detailsspan-idget_order_detailsget-order-details"></a><span id="Get_order_details"/><span id="get_order_details"/><span id="GET_ORDER_DETAILS"/>Get order details
+    - [取得 SKU 的 hdinsight 清單](get-a-list-of-availabilities-for-a-sku.md)
+    - [使用可用性識別碼取得可用性](get-an-availability-by-id.md)
 
 
+## <a name="span-idorder_submissionspan-idorder_submissionspan-idorder_submissionorder-submission"></a><span id="Order_submission"/><span id="order_submission"/><span id="ORDER_SUBMISSION"/>訂單提交
 
-You can retrieve the details of an individual order using the order ID, or get a list of orders for a customer. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a list of a customer's orders. 
+若要提交您的類別目錄專案順序，請執行下列動作：
 
-- See [Get an order by ID](get-an-order-by-id.md) to get the details of an individual order using the order IDs.
+1.  建立[購物車](cart-resources.md)，以保存您想要購買的類別目錄專案集合。 當您建立購物車時，[購物車明細專案](cart-resources.md#cartlineitem)會自動根據可依相同[順序](order-resources.md)購買的內容進行分組。
 
-- See [Get all of a customer's orders](get-all-of-a-customer-s-orders.md) to get a list of orders for a customer using the customer ID.      
+    - [建立購物車](create-a-cart.md)
+    - [更新購物車](update-a-cart.md)
 
--  See [Get a list of orders by customer and billing cycle type](get-a-list-of-orders-by-customer-and-billing-cycle-type.md) to get a list of orders for a customer by [billing cycle type](product-resources.md#billingcycletype) allowing you to list catalog item orders (one-time charges) and annual or monthly billed orders separately. 
+2.  查看購物車。 簽出購物車會導致[訂單](order-resources.md)的建立。 
 
-## <a name="span-idlifecycle_managementspan-idlifecycle_managementspan-idlifecycle_managementlifecycle-management"></a><span id="Lifecycle_management"/><span id="lifecycle_management"/><span id="LIFECYCLE_MANAGEMENT"/>Lifecycle management
+    - [結帳購物車](checkout-a-cart.md)
+
+## <a name="span-idget_order_detailsspan-idget_order_detailsspan-idget_order_detailsget-order-details"></a><span id="Get_order_details"/><span id="get_order_details"/><span id="GET_ORDER_DETAILS"/>取得訂單詳細資料
 
 
 
-As part of managing the lifecycle of your catalog items in Partner Center, you can retrieve information about your catalog item [Entitlements](entitlement-resources.md), and get reservation details using the reservation order ID. For examples of how to do this, see [Get entitlements](get-a-collection-of-entitlements.md).   
+您可以使用訂單識別碼來抓取個別訂單的詳細資料，或取得客戶的訂單清單。 請注意，提交訂單的時間和出現在客戶訂單清單中的時間，最多會有15分鐘的延遲。 
 
-## <a name="span-idinvoice_and_reconciliationspan-idinvoice_and_reconciliationspan-idinvoice_and_reconciliationinvoice-and-reconciliation"></a><span id="Invoice_and_reconciliation"/><span id="invoice_and_reconciliation"/><span id="INVOICE_AND_RECONCILIATION"/>Invoice and reconciliation
+- 如需使用訂單識別碼取得個別訂單的詳細資料，請參閱[依識別碼取得訂單](get-an-order-by-id.md)。
+
+- 請參閱[取得客戶的所有訂單](get-all-of-a-customer-s-orders.md)，以取得使用客戶識別碼之客戶的訂單清單。      
+
+-  請參閱[依客戶和計費週期類型取得訂單清單](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)，以依據[計費週期類型](product-resources.md#billingcycletype)來取得客戶的訂單清單，讓您分別列出目錄專案訂單（一次性費用）和年度或每月計費訂單。 
+
+## <a name="span-idlifecycle_managementspan-idlifecycle_managementspan-idlifecycle_managementlifecycle-management"></a><span id="Lifecycle_management"/><span id="lifecycle_management"/><span id="LIFECYCLE_MANAGEMENT"/>生命週期管理
 
 
 
-The following scenarios show you how to programmatically view your customer's [invoices](invoice-resources.md), and get your account balances and summaries that include one-time charges for catalog items.  
+在合作夥伴中心管理目錄專案的生命週期時，您可以取得有關目錄專案[權利](entitlement-resources.md)的資訊，並使用保留訂單識別碼取得保留詳細資料。 如需如何執行這項操作的範例，請參閱[取得權利](get-a-collection-of-entitlements.md)。   
 
-**Balance and payment**    
-To get current account balance in your default currency type that is a balance of both recurring and one-time (catalog item) charges, see [Get your current account balance](get-the-reseller-s-current-account-balance.md)
+## <a name="span-idinvoice_and_reconciliationspan-idinvoice_and_reconciliationspan-idinvoice_and_reconciliationinvoice-and-reconciliation"></a><span id="Invoice_and_reconciliation"/><span id="invoice_and_reconciliation"/><span id="INVOICE_AND_RECONCILIATION"/>發票和對帳
 
-**Multi-currency balance and payment**    
-To get your current account balance and a collection of invoice summaries containing an invoice summary with both recurring and one-time charges for each of your customer's currency types, see [Get invoice summaries](get-invoice-summaries.md).
 
-**Invoices**    
-To get a collection of invoices that show both recurring and one-time charges, see [Get a collection of invoices](get-a-collection-of-invoices.md). 
 
-**Single Invoice**    
-To retrieve a specific invoice using the invoice ID, see [Get an invoice by ID](get-invoice-by-id.md).  
+下列案例示範如何以程式設計方式來查看您的客戶[發票](invoice-resources.md)，並取得您的帳戶餘額和摘要，其中包含類別目錄專案的一次性費用。  
 
-**Reconciliation**    
-To get a collection of invoice line item details (Reconciliation line items) for a specific invoice ID, see [Get invoice line items](get-invoiceline-items.md).  
+**餘額和付款**    
+若要取得預設貨幣類型的目前帳戶餘額，這是週期性和一次性（類別目錄專案）費用的餘額，請參閱[取得您目前的帳戶餘額](get-the-reseller-s-current-account-balance.md)
 
-**Download an invoice as a PDF**    
-To retrieve an invoice statement in PDF form using an invoice ID, see [Get an invoice statement](get-invoice-statement.md).
+**多貨幣餘額和付款**    
+若要取得目前的帳戶餘額和發票摘要的集合，其中包含具有每個客戶貨幣類型的週期性和一次性費用，請參閱[取得發票](get-invoice-summaries.md)摘要。
+
+**發票**    
+若要取得同時顯示週期性和一次性費用的發票集合，請參閱[取得發票集合](get-a-collection-of-invoices.md)。 
+
+**單一發票**    
+若要使用發票識別碼來抓取特定發票，請參閱[依識別碼取得發票](get-invoice-by-id.md)。  
+
+**對帳**    
+若要取得特定發票識別碼的發票明細專案詳細資料（對帳明細專案）集合，請參閱[取得發票明細專案](get-invoiceline-items.md)。  
+
+**下載發票做為 PDF**    
+若要使用發票識別碼來抓取 PDF 格式的發票語句，請參閱[取得發票聲明](get-invoice-statement.md)。
 

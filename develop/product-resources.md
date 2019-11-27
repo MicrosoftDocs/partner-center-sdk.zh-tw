@@ -1,6 +1,6 @@
 ---
-title: Products resources
-description: Resources that represent purchasable goods or services. Includes resources for describing the product type and shape (SKU), and for checking the availability of the product in an inventory.
+title: 產品資源
+description: 代表可購買商品或服務的資源。 包含用來描述產品類型和圖形（SKU）的資源，以及用於檢查清查產品的可用性。
 ms.assetid: 80C1F9B5-35FB-4DD8-B501-03467E1D75AD
 ms.date: 04/01/2019
 ms.service: partner-dashboard
@@ -13,157 +13,157 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488248"
 ---
-# <a name="products-resources"></a>Products resources
+# <a name="products-resources"></a>產品資源
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-Resources that represent purchasable goods or services. Includes resources for describing the product type and shape (SKU), and for checking the availability of the product in an inventory.   
+代表可購買商品或服務的資源。 包含用來描述產品類型和圖形（SKU）的資源，以及用於檢查清查產品的可用性。   
 
 
 ## <a name="product"></a>產品
 
 
-Represents a purchasable good or service. A product by itself is not a purchasable item.
+代表可購買良好或服務。 產品本身並不是可購買專案。
 
-| 屬性           | 在工作列搜尋方塊中輸入                          | 說明                                                              |
+| 屬性           | 類型                          | 描述                                                              |
 |--------------------|-------------------------------|--------------------------------------------------------------------------|
-| id                 | 字串                        | The ID for this product.                                                 |
-| title              | 字串                        | The product title.                                                       |
-| 描述        | 字串                        | The product description.                                                 |
-| productType        | [ItemType](#itemtype)         | An object that describes the type categorization(s) of this product.     |
-| isMicrosoftProduct | bool                          | Indicates whether this is a Microswoft product.                          |
-| publisherName      | 字串                        | The name of the product's publisher if available.                          |
-| links              | [ProductLinks](#productlinks) | The resource links contained within the product.                         |
+| id                 | 字串                        | 此產品的識別碼。                                                 |
+| title              | 字串                        | 產品標題。                                                       |
+| description        | 字串                        | 產品描述。                                                 |
+| productType        | [ItemType](#itemtype)         | 物件，描述此產品的類型分類。     |
+| isMicrosoftProduct | bool                          | 指出這是否為 Microswoft 產品。                          |
+| publisherName      | 字串                        | 產品的發行者名稱（如果有的話）。                          |
+| 相關              | [ProductLinks](#productlinks) | 包含在產品內的資源連結。                         |
 
 
 
 ## <a name="itemtype"></a>ItemType
 
 
-Represents the type of a product.
+表示產品的類型。
 
-| 屬性        | 在工作列搜尋方塊中輸入                          | 說明                                                                          |
+| 屬性        | 類型                          | 描述                                                                          |
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
-| id              | 字串                        | The type identifier.                                                                 |
-| displayName     | 字串                        | The display name for this type.                                                      |
-| subType         | [ItemType](#itemtype)         | 選用。 An object that describes a sub-type categorization for this item type.     |
+| id              | 字串                        | 類型識別碼。                                                                 |
+| displayName     | 字串                        | 此類型的顯示名稱。                                                      |
+| 類型         | [ItemType](#itemtype)         | 選用。 物件，描述這個專案類型的子類型分類。     |
 
  
 
 ## <a name="productlinks"></a>ProductLinks
 
 
-Contains a list of links for a [Product](#product).
+包含[產品](#product)的連結清單。
 
-| 屬性        | 在工作列搜尋方塊中輸入                                                          | 說明                                          |
+| 屬性        | 類型                                                          | 描述                                          |
 |-----------------|---------------------------------------------------------------|------------------------------------------------------|
-| skus            | [連結](utility-resources.md#link)                             | The link for accessing the underlying SKUs.          |
-| links           | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links contained within this resource.   |
+| sku            | [連結](utility-resources.md#link)                             | 用來存取基礎 Sku 的連結。          |
+| 相關           | [ResourceLinks](utility-resources.md#resourcelinks)           | 包含在此資源內的資源連結。   |
 
 
 
-## <a name="sku"></a>Sku
+## <a name="sku"></a>限量
 
 
-Represents a purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product. 
+代表產品下的可購買庫存單位（SKU）。 這些代表產品的不同形狀。 
 
-| 屬性               | 在工作列搜尋方塊中輸入             | 說明                                                                           |
+| 屬性               | 類型             | 描述                                                                           |
 |------------------------|------------------|---------------------------------------------------------------------------------------|
-| id                     | 字串           | The ID for this SKU. This ID is unique only within the context of its parent product. |
-| title                  | 字串           | The title of the SKU.                                                                 |
-| 描述            | 字串           | The description of the SKU.                                                           |
-| productId              | 字串           | The ID of the parent [Product](#product) that contains this SKU.                      |
-| minimumQuantity        | 整數              | The minimum quantity allowed for purchase.                                            |
-| maximumQuantity        | 整數              | The maximum quantity allowed for purchase.                                            |
-| isTrial                | bool             | Indicates whether this SKU is a trial item.                                           |
-| supportedBillingCycles | array of strings | The list of supported billing cycles for this SKU. Supported values are the member names found in [BillingCycleType](#billingcycletype). |
-| purchasePrerequisites  | array of strings | The list of prerequisite steps or actions that are needed prior to purchasing this item. The supported values are:<br/>  "InventoryCheck" - Indicates that the item's inventory should be evaluated before attempting to purchase this item.<br/> "AzureSubscriptionRegistration" - Indicates that an Azure subscription is needed and must be registered before attempting to purchase this item.  |
-| inventoryVariables     | array of strings | The list of variables needed to execute an inventory check on this item. The supported values are:<br/> "CustomerId" - The ID of the customer that the purchase would be for.<br/> "AzureSubscriptionId" - The ID of the Azure subscription that would be used for an Azure reservation purchase.</br> "ArmRegionName" - The region for which to verify inventory. This value must match the "ArmRegionName" from the SKU's DynamicAttributes. |
-| provisioningVariables  | array of strings | The list of variables that must be provided into the provisioning context of a [cart line item](cart-resources.md#cartlineitem) when purchasing this item. The supported values are:<br/> Scope - The scope for an Azure reservation purchase: "Single", "Shared".<br/> "SubscriptionId" - The ID of the Azure subscription that would be used for an Azure reservation purchase.<br/> "Duration" - The duration of the Azure reservation: "1Year", "3Year".  |
-| dynamicAttributes      | key/value pairs  | The dictionary of dynamic properties that apply to this item. Please note that the properties in this dictionary are dynamic and can change without notice. You should not create strong dependencies on particular keys existing in the value of this property.    |
-| links                  | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the SKU.                   |
+| id                     | 字串           | 此 SKU 的識別碼。 此識別碼只在其父產品的內容中是唯一的。 |
+| title                  | 字串           | SKU 的標題。                                                                 |
+| description            | 字串           | SKU 的描述。                                                           |
+| productId              | 字串           | 包含此 SKU 之父[產品](#product)的識別碼。                      |
+| minimumQuantity        | 整數              | 允許購買的最小數量。                                            |
+| maximumQuantity        | 整數              | 允許購買的最大數量。                                            |
+| isTrial                | bool             | 指出此 SKU 是否為試用專案。                                           |
+| supportedBillingCycles | 字串陣列 | 此 SKU 支援的計費週期清單。 支援的值為在[為 billingcycletype](#billingcycletype)中找到的成員名稱。 |
+| purchasePrerequisites  | 字串陣列 | 購買此專案之前所需的先決條件步驟或動作清單。 支援的值為：<br/>  "InventoryCheck"-表示在嘗試購買此專案之前，應該先評估該專案的清查。<br/> "AzureSubscriptionRegistration"-表示需要 Azure 訂用帳戶，且必須先註冊，才能嘗試購買此專案。  |
+| inventoryVariables     | 字串陣列 | 在此專案上執行清查檢查所需的變數清單。 支援的值為：<br/> "CustomerId"-購買的客戶識別碼。<br/> "AzureSubscriptionId"-azure 訂用帳戶的識別碼，可用於購買 Azure 保留。</br> "ArmRegionName"-要驗證清查的區域。 此值必須符合 SKU DynamicAttributes 中的 "ArmRegionName"。 |
+| provisioningVariables  | 字串陣列 | 購買此專案時，必須提供給[購物車明細專案](cart-resources.md#cartlineitem)之布建內容的變數清單。 支援的值為：<br/> 範圍-Azure 保留購買的範圍：「單一」、「共用」。<br/> 「SubscriptionId」-azure 訂用帳戶的識別碼，可用於購買 Azure 保留。<br/> 「持續時間」-Azure 保留的持續時間：「1Year」、「3Year」。  |
+| dynamicAttributes      | 索引鍵/值組  | 套用至此專案之動態屬性的字典。 請注意，此字典中的屬性是動態的，而且可以變更，恕不另行通知。 您不應該針對此屬性值中的特定索引鍵建立強式相依性。    |
+| 相關                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU 中包含的資源連結。                   |
 
 
 
 ## <a name="availability"></a>可用性
 
-Represents a configuration in which a SKU is available for purchase (such as country, currency, and industry segment). 
+代表可以購買 SKU 的設定（例如國家/地區、貨幣和產業區段）。 
 
-| 屬性        | 在工作列搜尋方塊中輸入                                                | 說明                                                                         |
+| 屬性        | 類型                                                | 描述                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------------------------------|
-| id              | 字串                                              | The ID for this availability. This ID is unique only within the context of its parent [product](#product) and [SKU](#sku). **Note** This ID can change over time. You should only rely on this value within a short time span after retrieving it.  |
-| productId       | 字串                                              | The ID of the [product](#product) that contains this availability.           |
-| skuId           | 字串                                              | The ID of the [SKU](#sku) that contains this availability.                   |
-| catalogItemId   | 字串                                              | The unique identifier for this item in the catalog. This is the ID that must be populated into the [OrderLineItem.OfferId](order-resources.md#orderlineitem) or [CartLineItem.CatalogItemId](cart-resources.md#cartlineitem) properties when purchasing the parent [SKU](#sku). **Note** This ID can change over time. You should only rely on this value within a short time after retrieving it. It should only be accessed and used at the time of purchase.  |
-| defaultCurrency | 字串                                              | The default currency supported for this availability.                               |
-| segment         | 字串                                              | The industry segment for this availability. Supported values are: Commercial, Education, Government, NonProfit. |
-| 國家/地區         | 字串                                              | The country or region (in ISO country code format) where this availability applies. |
-| isPurchasable   | bool                                                | Indicates whether this availability is purchasable. |
-| isRenewable     | bool                                                | Indicates whether this availability is renewable. |
-| product         | [產品](#product)               | The product this availability corresponds to. |
-| sku             | [Sku](#sku)                     | The SKU this availability corresponds to. |
-| terms           | array of [Term](#term) resources  | The collection of terms that are applicable to this availability. |
-| links           | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the availability. |
+| id              | 字串                                              | 此可用性的識別碼。 此識別碼只在其父[產品](#product)和[SKU](#sku)的內容中是唯一的。 **注意**此識別碼會隨著時間而變更。 在抓取此值之後，您應該只在短時間範圍內依賴此值。  |
+| productId       | 字串                                              | 包含此可用性的[產品](#product)識別碼。           |
+| skuId           | 字串                                              | 包含此可用性之[SKU](#sku)的識別碼。                   |
+| catalogItemId   | 字串                                              | 目錄中這個專案的唯一識別碼。 這是購買父系[SKU](#sku)時，必須填入[OrderLineItem. OfferId](order-resources.md#orderlineitem)或[CartLineItem](cart-resources.md#cartlineitem)的識別碼。 **注意**此識別碼會隨著時間而變更。 在抓取此值之後，您應該只在短時間內依賴此值。 它應該只在購買時存取和使用。  |
+| defaultCurrency | 字串                                              | 此可用性支援的預設貨幣。                               |
+| 片斷         | 字串                                              | 此可用性的產業區段。 支援的值為：商業、教育、政府、非贏利。 |
+| 國家/地區         | 字串                                              | 套用此可用性的國家或地區（ISO 國家/地區代碼格式）。 |
+| isPurchasable   | bool                                                | 指出此可用性是否為可購買。 |
+| isRenewable     | bool                                                | 指出此可用性是否為可續訂。 |
+| 基礎         | [產品](#product)               | 此可用性對應的產品。 |
+| 限量             | [限量](#sku)                     | 此可用性對應的 SKU。 |
+| 條款           | [詞彙](#term)資源陣列  | 適用于此可用性的詞彙集合。 |
+| 相關           | [ResourceLinks](utility-resources.md#resourcelinks) | 可用性中包含的資源連結。 |
 
 
 ## <a name="term"></a>詞彙
 
-Represents a term for which the availability can be purchased. 
+表示可購買可用性的詞彙。 
 
-| 屬性              | 在工作列搜尋方塊中輸入                                                                              | 說明                                                                         |
+| 屬性              | 類型                                                                              | 描述                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| duration              | 字串                                                                            | An ISO 8601 representation of the term's duration. The current supported values are P1M (1 month), P1Y (1 year) and P3Y (3 years). |
-| 描述           | 字串                                                                            | The description of the term.           |
+| 期限              | 字串                                                                            | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為 P1M （1個月）、P1Y （1年）和 P3Y （3年）。 |
+| description           | 字串                                                                            | 詞彙的描述。           |
 
 ## <a name="inventorycheckrequest"></a>InventoryCheckRequest
 
-Represents a request to check inventory against certain catalog items. 
+表示針對特定目錄專案檢查清查的要求。 
 
-| 屬性         | 在工作列搜尋方塊中輸入                                                | 說明                                                                                 |
+| 屬性         | 類型                                                | 描述                                                                                 |
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
-| targetItems      | array of [InventoryItem](#inventoryitem)            | The list of catalog items that the inventory check will evaluate.                           |
-| inventoryContext | key/value pairs                                     | The dictionary of context values that are needed to carry out the inventory check(s). Each [SKU](#sku) of the products will define which values (if any) are needed to carry out this operation.  |
-| links            | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the inventory check request.                            |
+| targetItems      | [InventoryItem](#inventoryitem)的陣列            | 清查檢查將評估的目錄專案清單。                           |
+| inventoryCoNtext | 索引鍵/值組                                     | 執行清查檢查所需的內容值字典。 產品的每個[SKU](#sku)都會定義執行此作業所需的值（如果有的話）。  |
+| 相關            | [ResourceLinks](utility-resources.md#resourcelinks) | 清查檢查要求中包含的資源連結。                            |
 
 
 
 ## <a name="inventoryitem"></a>InventoryItem
 
-Represents a single item in an inventory check operation. This resource is used for specifying the target items in an input request and is also used to represent the output results of the inventory check operation.  
+代表清查檢查作業中的單一專案。 此資源用於指定輸入要求中的目標專案，也用來表示清查檢查作業的輸出結果。  
 
-| 屬性         | 在工作列搜尋方塊中輸入                                                              | 說明                                                                      |
+| 屬性         | 類型                                                              | 描述                                                                      |
 |------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| productId        | 字串                                                            | (Required) The ID of the [product](#product).                            |
-| skuId            | 字串                                                            | The ID of the [SKU](#sku). When using this resource as input to an inventory request, this value is optional. If this value is not provided, then all SKUs under the product will be considered as target items of the inventory check operation.      |
-| isRestricted     | bool                                                              | Indicates whether this item was found to have a restricted inventory.            |
-| restrictions     | array of [InventoryRestriction](#inventoryrestriction)            | The details of any restrictions that are found for this item. This property will only be populated if **isRestricted** = "true". |
+| productId        | 字串                                                            | 具備[產品](#product)的識別碼。                            |
+| skuId            | 字串                                                            | [SKU](#sku)的識別碼。 使用此資源做為清查要求的輸入時，這個值是選擇性的。 如果未提供此值，則會將產品下的所有 Sku 視為清查檢查操作的目標專案。      |
+| isRestricted     | bool                                                              | 指出此專案是否有受限制的清查。            |
+| 限制     | [InventoryRestriction](#inventoryrestriction)的陣列            | 針對此專案找到之任何限制的詳細資料。 只有在**isRestricted** = "true" 時，才會填入這個屬性。 |
 
 
 
 ## <a name="inventoryrestriction"></a>InventoryRestriction
 
-Represents the details of an inventory restriction. This is only applicable for inventory check output results, not for input requests.
+表示清查限制的詳細資料。 這僅適用于清查檢查輸出結果，不適用於輸入要求。
 
-| 屬性         | 在工作列搜尋方塊中輸入                  | 說明                                                                                 |
+| 屬性         | 類型                  | 描述                                                                                 |
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
-| reasonCode       | 字串                | The code that identifies the reason for the restriction.                                    |
-| 描述      | 字串                | The description of the inventory restriction.                                               |
-| 內容       | key/value pairs       | The dictionary of properties that may provide further details on the restriction.           |
+| reasonCode       | 字串                | 識別限制原因的程式碼。                                    |
+| description      | 字串                | 清查限制的描述。                                               |
+| 內容       | 索引鍵/值組       | 屬性的字典，可提供有關限制的進一步詳細資料。           |
 
 
 
 ## <a name="billingcycletype"></a>BillingCycleType
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate a type of billing cycle.
+[列舉](https://docs.microsoft.com/dotnet/api/system.enum)值，表示計費週期的類型。
 
-| 值              | 位置     | 說明                                                                                |
+| 值              | 位置     | 描述                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
-| Unknown            | 0            | Enum initializer.                                                                          |
-| 每月            | 1            | Indicates that the partner will be charged monthly.                                        |
-| Annual             | 2            | Indicates that the partner will be charged annually.                                       |
-| 無               | 3            | Indicates that the partner will not be charged. This value may be used for trial items.    |
-| OneTime            | 4            | Indicates that the partner will be charged one time.                                       |
+| 不明            | 0            | 列舉初始化運算式。                                                                          |
+| 每月            | 1            | 表示合作夥伴將按月計費。                                        |
+| 年利率             | 2            | 表示合作夥伴將以每年收費。                                       |
+| 無               | 3            | 表示不會向合作夥伴收取費用。 此值可用於試用專案。    |
+| OneTime            | 4            | 表示合作夥伴將會收取一次的費用。                                       |
 

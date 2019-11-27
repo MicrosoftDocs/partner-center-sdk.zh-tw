@@ -1,6 +1,6 @@
 ---
-title: Get a list of Azure entitlements for a subscription
-description: You can use the AzureEntitlement resource to  get a collection of Azure entitlement resources that belong to a subscription.
+title: 取得訂用帳戶的 Azure 權利清單
+description: 您可以使用 AzureEntitlement 資源來取得屬於訂用帳戶的 Azure 權利資源集合。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,42 +12,42 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487498"
 ---
-# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Get a list of Azure entitlements for a subscription
+# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>取得訂用帳戶的 Azure 權利清單
 
 適用於：
 
 - 合作夥伴中心
 
-You can use the [Azure entitlement resource](subscription-resources.md#azureentitlement) (**AzureEntitlement**) to get a collection of resources that belong to a subscription.
+您可以使用[Azure 權利資源](subscription-resources.md#azureentitlement)（**AzureEntitlement**）來取得屬於訂用帳戶的資源集合。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**). If you don't have a customer's identifier, you can look it up in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their **Microsoft ID**.
-- A subscription identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（**客戶租使用者 id**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft ID**，以在合作夥伴中心查詢。
+- 訂用帳戶識別碼。
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                                   |
 |---------|---------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-The following table lists the required query parameters to get all the Azure entitlements for a subscription.
+下表列出取得訂用帳戶的所有 Azure 權利所需的查詢參數。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                           |
+| 名字                   | 類型     | 必要 | 說明                           |
 |------------------------|----------|----------|---------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | A GUID corresponding to the customer. |
-| **subscription-id**       | **guid** | Y        | A GUID corresponding to the subscription.    |
+| **客戶-租使用者識別碼** | **guid** | Y        | 對應至客戶的 GUID。 |
+| **訂用帳戶識別碼**       | **guid** | Y        | 對應至訂用帳戶的 GUID。    |
 
 ### <a name="request-headers"></a>要求標頭
 
-For more information, see [Headers](headers.md).
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
@@ -62,13 +62,13 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of [**AzureEntitlement**](subscription-resources.md#azureentitlement) resources in the response body.
+如果成功，此方法會在回應主體中傳回[**AzureEntitlement**](subscription-resources.md#azureentitlement)資源的集合。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

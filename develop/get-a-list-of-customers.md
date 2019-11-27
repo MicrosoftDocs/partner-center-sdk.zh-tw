@@ -1,6 +1,6 @@
 ---
-title: Get a list of customers
-description: How to get a collection of resources representing all of a partner's customers.
+title: 取得客戶清單
+description: 如何取得代表合作夥伴所有客戶的資源集合。
 ms.assetid: 6D636257-7C23-4DDF-9895-96F208B66232
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487468"
 ---
-# <a name="get-a-list-of-customers"></a>Get a list of customers
+# <a name="get-a-list-of-customers"></a>取得客戶清單
 
 適用於：
 
@@ -22,21 +22,21 @@ ms.locfileid: "74487468"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-This topic describes how to get a collection of resources that represents all of a partner's customers.
+本主題描述如何取得代表合作夥伴所有客戶的資源集合。
 
 > [!TIP]
-> You can also perform this operation in the Partner Center dashboard. On the main page, under **Customer management**, select **View Customers**. Or, on the sidebar, select **Customers**.
+> 您也可以在合作夥伴中心儀表板中執行此操作。 在主頁面的 [**客戶管理**] 底下，選取 [ **View Customers**]。 或者，在提要欄位上選取 [**客戶**]。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="c"></a>C\#
 
-To get a list of all customers:
+若要取得所有客戶的清單：
 
-1. Use the [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection to create an **IPartner** object.
-2. Retrieve the customer list using the [**Query()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) or [**QueryAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) methods. (For instructions on creating a query, see the [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) class.)
+1. 使用[**iaggregatepartner.customers.byid. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合來建立**ipartner.getinvoices**物件。
+2. 使用[**Query （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)或[**QueryAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)方法來取出客戶清單。 （如需有關建立查詢的指示，請參閱[**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)類別）。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,20 +49,20 @@ var customersBatch = scopedPartnerOperations.Customers.Query(QueryFactory.Instan
 var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(customersBatch);
 ```
 
-For an example, see the following:
+如需範例，請參閱下列各項：
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSamples**
-- Class: **CustomerPaging.cs**
+- 範例：[主控台測試應用程式](console-test-app.md)
+- 專案： **PartnerSDK. FeatureSamples**
+- 類別： **CustomerPaging.cs**
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of all customers:
+若要取得所有客戶的清單：
 
-1. Use the [**IAggregatePartner.getCustomers**] function to get a reference to the customer operations.
-2. Retrieve the customer list using the **query()** function.
+1. 使用 [**Iaggregatepartner.customers.byid getCustomers**] 函數來取得客戶作業的參考。
+2. 使用**query （）** 函數來抓取客戶清單。
 
 ```java
 // Query the customers, get the first page if a page size was set, otherwise get all customers
@@ -90,33 +90,33 @@ while (customersEnumerator.hasValue())
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-Execute the [**Get-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) command with no parameters to get a complete list of customers.
+執行不含參數的[**PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md)命令，以取得完整的客戶清單。
 
 ```powershell
 Get-PartnerCustomer
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers?size={size} HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers？ size = {SIZE} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-Use the following query parameter to get a list of customers.
+使用下列查詢參數來取得客戶的清單。
 
-| 名稱     | 在工作列搜尋方塊中輸入    | 必要 | 說明                                        |
+| 名字     | 類型    | 必要 | 說明                                        |
 |----------|---------|----------|----------------------------------------------------|
-| **size** | **int** | Y        | The number of results to be displayed at one time. |
+| **size** | **int** | Y        | 要一次顯示的結果數目。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Headers](headers.md) for more information.
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
@@ -130,13 +130,13 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of [Customer](customer-resources.md#customer) resources in the response body.
+如果成功，此方法會在回應主體中傳回[客戶](customer-resources.md#customer)資源的集合。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

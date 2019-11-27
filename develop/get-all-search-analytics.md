@@ -1,6 +1,6 @@
 ---
-title: Get all search analytics information
-description: How to get all the search analytics information.
+title: 取得所有搜尋分析資訊
+description: 如何取得所有搜尋分析資訊。
 ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 06/27/2018
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485868"
 ---
-# <a name="get-all-search-analytics-information"></a>Get all search analytics information
+# <a name="get-all-search-analytics-information"></a>取得所有搜尋分析資訊
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -23,44 +23,44 @@ ms.locfileid: "74485868"
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 
-How to get all the search analytics information for your customers. 
+如何取得客戶的所有搜尋分析資訊。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only. 
-
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-**Request syntax**
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。 
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求語法**
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/search HTTP/1.1 |
+| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/search HTTP/1。1 |
 
  
 
-**URI parameters**
+**URI 參數**
 
 
-|    參數     |  在工作列搜尋方塊中輸入  |                                                                                                                   說明                                                                                                                    |
+|    參數     |  類型  |                                                                                                                   描述                                                                                                                    |
 |------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      filter      | 字串 |                                                                     Returns data matching the filter condition. </br> **範例：**</br> `.../search?filter=field eq 'value'`                                                                     |
-|     groupby      | 字串 |                                         Supports both terms and dates. Short circuit logic to limit the number of buckets. </br> **範例：**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
-| aggregationLevel | 字串 | The *aggregationLevel* parameter requires a *groupby*. The *aggregationLevel* parameter applies to all date fields present in the *groupby*. </br> **範例：**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
-|       top        | 字串 |                                                                     The page limit is 10000. Takes any value less than 10000.  </br> **範例：**</br>  `.../search?top=100`                                                                     |
-|       skip       | 字串 |                                                                                  Number of rows to skip. </br> **範例：**</br> `.../search?top=100&skip=100`                                                                                   |
+|      filter      | 字串 |                                                                     傳回符合篩選準則的資料。 </br> **範例：**</br> `.../search?filter=field eq 'value'`                                                                     |
+|     groupby      | 字串 |                                         支援條款和日期。 用來限制值區數目的短路邏輯。 </br> **範例：**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
+| aggregationLevel | 字串 | *AggregationLevel*參數需要*groupby*。 *AggregationLevel*參數會套用到出現在*groupby*中的所有日期欄位。 </br> **範例：**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
+|       top        | 字串 |                                                                     頁面限制為10000。 採用小於10000的任何值。  </br> **範例：**</br>  `.../search?top=100`                                                                     |
+|       skip       | 字串 |                                                                                  要略過的資料列數目。 </br> **範例：**</br> `.../search?top=100&skip=100`                                                                                   |
   
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/search HTTP/1.1
@@ -70,16 +70,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, the response body contains a collection of [Search](partner-center-analytics-resources.md#search_resource) resources.
+如果成功，回應主體會包含[搜尋](partner-center-analytics-resources.md#search_resource)資源的集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 {
@@ -98,5 +98,5 @@ Each response comes with an HTTP status code that indicates success or failure a
 ```
 
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
+ - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)

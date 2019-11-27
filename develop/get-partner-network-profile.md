@@ -1,6 +1,6 @@
 ---
-title: Get Microsoft Partner Network profile
-description: Gets an object representing the partner's MPN profile.
+title: 取得 Microsoft 合作夥伴網路設定檔
+description: 取得物件，代表合作夥伴的 MPN 設定檔。
 ms.assetid: 6DC85E2F-0AC8-4166-883B-CCFD19044FC1
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490308"
 ---
-# <a name="get-microsoft-partner-network-profile"></a>Get Microsoft Partner Network profile
+# <a name="get-microsoft-partner-network-profile"></a>取得 Microsoft 合作夥伴網路設定檔
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Gets an object representing the partner's MPN profile.
+取得物件，代表合作夥伴的 MPN 設定檔。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
 
 ### <a name="c"></a>C#
 
-To get a partner network profile, use your **IAggregatePartner.Profiles** collection and call the **MpnProfile** property. Finally, call the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) methods.
+若要取得合作夥伴網路設定檔，請使用**iaggregatepartner.customers.byid 的配置**檔集合，並呼叫**MpnProfile**屬性。 最後，呼叫[**Get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync)方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,13 +40,13 @@ To get a partner network profile, use your **IAggregatePartner.Profiles** collec
 var mpnProfile = partnerOperations.Profiles.MpnProfile.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**:PartnerCenterSDK.FeaturesSamples **Class**: GetMPNProfile.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**:P Artnercentersdk. FeaturesSamples**類別**： GetMPNProfile.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a partner network profile, use your **IAggregatePartner.getProfiles** function and call the **getMpnProfile** function. Finally, call the **get()** function.
+若要取得合作夥伴網路設定檔，請使用您的**iaggregatepartner.customers.byid. ipartner.getprofiles**函數，並呼叫**getMpnProfile**函式。 最後，呼叫**get （）** 函數。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -58,30 +58,30 @@ MpnProfile mpnProfile = partnerOperations.getProfiles().getMpnProfile().get();
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a partner network profile, execute the [**Get-PartnerMpnProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md) command.
+若要取得合作夥伴網路設定檔，請執行[**PartnerMpnProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md)命令。
 
 ```powershell
 Get-PartnerMpnProfile
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                          |
 |---------|----------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/mpn HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/mpn HTTP/1。1 |
 
  
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/profiles/mpn HTTP/1.1
@@ -92,15 +92,15 @@ MS-CorrelationId: cb9f3209-d020-4bf9-871c-e1f1c75348f8
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
-If successful, this method returns a **MPNProfile** object in the response body.
+如果成功，此方法會在回應主體中傳回**MPNProfile**物件。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

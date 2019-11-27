@@ -1,6 +1,6 @@
 ---
-title: Create an order
-description: How to create an order for a customer.
+title: 建立訂單
+description: 如何建立客戶的訂單。
 ms.assetid: FE4949FA-7C4D-462D-8F32-FAADCF166875
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489658"
 ---
-# <a name="create-an-order"></a>Create an order
+# <a name="create-an-order"></a>建立訂單
 
 適用於：
 
@@ -21,26 +21,26 @@ ms.locfileid: "74489658"
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Creating an **order for Azure reserved VM instance products** applies *only* to:
+建立**Azure 保留的 VM 實例產品的訂單***僅*適用于：
 
 - 合作夥伴中心
 
-For information about what is currently available to sell, see [Partner offers in the Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-offers).
+如需目前可用來銷售之專案的相關資訊，請參閱[雲端解決方案提供者方案中的合作夥伴優惠](https://docs.microsoft.com/partner-center/csp-offers)。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- An offer identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。
+- 供應專案識別碼。
 
 ## <a name="c"></a>C\#
 
-To create an order for a customer:
+若要建立客戶的訂單：
 
-1. Instantiate an [**Order**](order-resources.md) object and set the **ReferenceCustomerID** property to the customer ID to record the customer.
-2. Create a list of [**OrderLineItem**](order-resources.md#orderlineitem) objects, and assign the list to the order's **LineItems** property. Each order line item contains the purchase information for one offer. You must have at least one order line item.
-3. Obtain an interface to order operations. First, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Next, retrieve the interface from the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property.
-4. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) method and pass in the [**Order**](order-resources.md) object.
+1. 將[**Order**](order-resources.md)物件具現化，並將**ReferenceCustomerID**屬性設定為客戶識別碼以記錄客戶。
+2. 建立[**OrderLineItem**](order-resources.md#orderlineitem)物件的清單，並將清單指派給訂單的**LineItems**屬性。 每個訂單明細專案都包含一個供應專案的購買資訊。 您必須至少有一個訂單明細專案。
+3. 取得排序作業的介面。 首先，呼叫[**iaggregatepartner.customers.byid 的 ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，並提供客戶識別碼來識別客戶。 接下來，從[**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)屬性取得介面。
+4. 呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync)方法，並傳入[**Order**](order-resources.md)物件。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -70,76 +70,76 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateOrder.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CreateOrder.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-Use the following path parameter to identify the customer.
+使用下列 path 參數來識別客戶。
 
-| 名稱        | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                |
+| 名稱        | 類型   | 必要 | 描述                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| customer-id | 字串 | [是]      | A GUID formatted customer-id that identifies the customer. |
+| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式客戶識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 #### <a name="order"></a>順序
 
-This table describes the [Order](order-resources.md) properties in the request body.
+下表描述要求主體中的[Order](order-resources.md)屬性。
 
-| 屬性             | 在工作列搜尋方塊中輸入                        | 必要                        | 說明                                                                   |
+| 屬性             | 類型                        | 必要                        | 描述                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| id                   | 字串                      | 無                              | An order identifier that is supplied upon successful creation of the order.   |
-| referenceCustomerId  | 字串                      | 無                              | The customer identifier. |
-| billingCycle         | 字串                      | 無                              | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype). The default is "Monthly" or "OneTime" at order creation. This field is applied upon successful creation of the order. |
-| lineItems            | array of [OrderLineItem](order-resources.md#orderlineitem) resources | [是]      | An itemized list of the offers the customer is purchasing including the quantity.        |
-| currencyCode         | 字串                      | 無                              | Read-only. The currency used when placing the order. Applied upon successful creation of the order.           |
-| creationDate         | datetime                    | 無                              | Read-only. The date the order was created, in date-time format. Applied upon successful creation of the order.                                   |
-| 狀態               | 字串                      | 無                              | Read-only. The status of the order.  Supported values are the member names found in [OrderStatus](order-resources.md#orderstatus).        |
-| links                | [OrderLinks](utility-resources.md#resourcelinks)              | 無                              | The resource links corresponding to the Order. |
-| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 無                              | The metadata attributes corresponding to the Order. |
+| id                   | 字串                      | 否                              | 成功建立訂單時所提供的訂單識別碼。   |
+| ReferenceCustomerId  | 字串                      | 否                              | 客戶識別碼。 |
+| billingCycle         | 字串                      | 否                              | 指出此訂單的夥伴計費頻率。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱。 預設值為「每月」或「OneTime」建立順序。 此欄位會在成功建立訂單時套用。 |
+| LineItems            | [OrderLineItem](order-resources.md#orderlineitem)資源的陣列 | 是      | 客戶所購買供應專案的詳細清單，包括數量。        |
+| currencyCode         | 字串                      | 否                              | 唯讀。 放置訂單時使用的貨幣。 已在成功建立訂單時套用。           |
+| CreationDate         | datetime                    | 否                              | 唯讀。 訂單的建立日期（採用日期時間格式）。 已在成功建立訂單時套用。                                   |
+| status               | 字串                      | 否                              | 唯讀。 訂單的狀態。  支援的值為在[OrderStatus](order-resources.md#orderstatus)中找到的成員名稱。        |
+| 相關                | [OrderLinks](utility-resources.md#resourcelinks)              | 否                              | 對應至訂單的資源連結。 |
+| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 否                              | 對應至順序的中繼資料屬性。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
-This table describes the [OrderLineItem](order-resources.md#orderlineitem) properties in the request body.
+下表描述要求主體中的[OrderLineItem](order-resources.md#orderlineitem)屬性。
 
 >[!NOTE]
->The partnerIdOnRecord should only be provided when an indirect provider places an order on behalf of an indirect reseller. It's used to store the Microsoft Partner Network ID of the indirect reseller only (never the ID of the indirect provider).
+>只有當間接提供者代表間接轉銷商下單時，才應該提供 partnerIdOnRecord。 它是用來儲存僅限間接轉銷商的 Microsoft 合作夥伴網路識別碼（永遠不是間接提供者的識別碼）。
 
-| 名稱                 | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                                                                                                                                                                                |
+| 名稱                 | 類型   | 必要 | 描述                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | 整數    | [是]      | Each line item in the collection gets a unique line number, counting up from 0 to count-1.                                                                                                                                                 |
-| offerId              | 字串 | [是]      | The offer identifier.                                                                                                                                                                                                                      |
-| subscriptionId       | 字串 | 無       | The subscription identifier.                                                                                                                                                                                                               |
-| parentSubscriptionId | 字串 | 無       | 選用。 The ID of the parent subscription in an add-on offer. Applies to PATCH only.                                                                                                                                                     |
-| friendlyName         | 字串 | 無       | 選用。 The friendly name for the subscription defined by the partner to help disambiguate.                                                                                                                                              |
-| quantity             | 整數    | [是]      | The number of licenses for a license-based subscription.                                                                                                                                                                                   |
-| partnerIdOnRecord    | 字串 | 無       | When an indirect provider places an order on behalf of an indirect reseller, populate this field with the MPN ID of the **indirect reseller only** (never the ID of the indirect provider). This ensures proper accounting for incentives. |
-| provisioningContext  | Dictionary<string, string>                | 無       |  Information required for provisioning for some items in the catalog. The provisioningVariables property in a SKU indicates which properties are required for specific items in the catalog.                  |
-| links                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | 無       |  Read-only. The resource links corresponding to the Order line item.  |
-| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 無       | The metadata attributes corresponding to the OrderLineItem. |
-| renewsTo             | Array of objects                          | 無    |An array of [RenewsTo](order-resources.md#renewsto) resources.                                                                            |
+| LineItemNumber       | 整數    | 是      | 集合中的每個明細專案都會取得唯一的行號，從0計算到計數1。                                                                                                                                                 |
+| offerId              | 字串 | 是      | 供應專案識別碼。                                                                                                                                                                                                                      |
+| 訂閱       | 字串 | 否       | 訂用帳戶識別碼。                                                                                                                                                                                                               |
+| ParentSubscriptionId | 字串 | 否       | 選用。 附加元件供應專案中父訂用帳戶的識別碼。 僅適用于 PATCH。                                                                                                                                                     |
+| friendlyName         | 字串 | 否       | 選用。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。                                                                                                                                              |
+| quantity             | 整數    | 是      | 以授權為基礎之訂用帳戶的授權數目。                                                                                                                                                                                   |
+| partnerIdOnRecord    | 字串 | 否       | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適當的獎勵會計。 |
+| provisioningCoNtext  | 字典 < 字串，字串 >                | 否       |  針對目錄中的某些專案布建所需的資訊。 SKU 中的 provisioningVariables 屬性會指出目錄中特定專案所需的屬性。                  |
+| 相關                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | 否       |  唯讀。 對應至訂單明細專案的資源連結。  |
+| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 否       | 對應至 OrderLineItem 的中繼資料屬性。 |
+| RenewsTo             | 物件的陣列                          | 否    |[RenewsTo](order-resources.md#renewsto)資源的陣列。                                                                            |
 
 ##### <a name="renewsto"></a>RenewsTo
 
-This table describes the [RenewsTo](order-resources.md#renewsto) properties in the request body.
+下表描述要求主體中的[RenewsTo](order-resources.md#renewsto)屬性。
 
-| 屬性              | 在工作列搜尋方塊中輸入             | 必要        | 說明 |
+| 屬性              | 類型             | 必要        | 描述 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | 字串           | 無              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | 字串           | 否              | 續訂詞彙之持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。 |
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/b0d70a69-4c42-4b27-b17b-91a835d8686a/orders HTTP/1.1
@@ -167,21 +167,21 @@ Content-Type: application/json
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, the method returns an [Order](order-resources.md) resource in the response body.
+如果成功，此方法會在回應主體中傳回[訂單](order-resources.md)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-This method returns the following error codes:
+這個方法會傳回下列錯誤碼：
 
-| HTTP 狀態碼     | 錯誤碼   | 說明                                                                                               |
+| HTTP 狀態碼     | 錯誤碼   | 描述                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2093         | Inventory is not available for the catalog item selected.                                                 |
-| 400                  | 2094         | Subscription is not a valid Azure subscription. Only applicable for Azure Reserved VM Instance purchase.     |
-| 400                  | 2095         | Subscription is not enabled for an Azure Reserved VM Instance purchase. |
+| 400                  | 2093         | 選取的類別目錄專案無法使用清查。                                                 |
+| 400                  | 2094         | 訂用帳戶不是有效的 Azure 訂用帳戶。 僅適用于 Azure 保留的 VM 實例購買。     |
+| 400                  | 2095         | 訂用帳戶未啟用 Azure 保留的 VM 實例購買。 |
 
 ### <a name="response-example"></a>回應範例
 

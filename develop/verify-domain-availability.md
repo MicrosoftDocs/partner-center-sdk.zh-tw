@@ -1,6 +1,6 @@
 ---
-title: Verify domain availability
-description: How to determine if a domain is available for use.
+title: 驗證網域可用性
+description: 如何判斷網域是否可供使用。
 ms.assetid: 9ECF8241-3672-441D-B34D-83F7C23138B3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486238"
 ---
-# <a name="verify-domain-availability"></a>Verify domain availability
+# <a name="verify-domain-availability"></a>驗證網域可用性
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to determine if a domain is available for use.
+如何判斷網域是否可供使用。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A domain (e.g. "contoso.onmicrosoft.com").
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 網域（例如 "contoso.onmicrosoft.com"）。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To verify if a domain is available, first call [**IAggregatePartner.Domains**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains) to obtain an interface to domain operations. Then call the [**ByDomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) method with the domain to check. This retrieves an interface to the operations available for a specific domain. Finally, call the [**Exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) method to see if the domain already exists.
+若要確認是否有可用的網域，請先呼叫[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains)來取得網域作業的介面。 然後使用要檢查的網域來呼叫[**ByDomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain)方法。 這會針對特定網域的可用作業取得介面。 最後，呼叫[**Exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists)方法以查看網域是否已經存在。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,38 +43,38 @@ To verify if a domain is available, first call [**IAggregatePartner.Domains**](h
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CheckDomainAvailability.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CheckDomainAvailability.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法   | 要求 URI                                                              |
 |----------|--------------------------------------------------------------------------|
-| **HEAD** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1.1 |
+| **前端** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following query parameter to verify domain availability.
+使用下列查詢參數來驗證網域可用性。
 
-| 名稱       | 在工作列搜尋方塊中輸入       | 必要 | 說明                                   |
+| 名稱       | 類型       | 必要 | 描述                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **domain** | **string** | Y        | A string that identifies the domain to check. |
+| **domain** | **字串** | Y        | 識別要檢查之網域的字串。 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無
 
-**Request example**
+**要求範例**
 
 ```http
 HEAD https://api.partnercenter.microsoft.com/v1/domains/contoso.onmicrosoft.com HTTP/1.1
@@ -87,16 +87,16 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If the domain exists it is not available for use and a response status code 200 OK is returned. If the domain is not found it is available for use and a response status code 404 Not Found is returned.
+如果網域存在，則無法使用，而且會傳迴響應狀態碼 200 [確定]。 如果找不到網域，則可供使用，而且會傳迴響應狀態碼 404 [找不到]。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example for when the domain is already in use**
+**當網域已在使用中時的回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -108,7 +108,7 @@ MS-ServerId: 201022015
 Date: Tue, 31 Jan 2017 22:22:35 GMT
 ```
 
-**Response example for when the domain is available**
+**可用網域的回應範例**
 
 ```http
 HTTP/1.1 404 Not Found

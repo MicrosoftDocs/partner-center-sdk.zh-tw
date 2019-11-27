@@ -1,6 +1,6 @@
 ---
-title: Retrieve a list of indirect resellers
-description: How to retrieve a list of the signed-in partner's indirect resellers.
+title: 取得間接轉銷商清單
+description: 如何抓取已登入之合作夥伴的間接轉銷商清單。
 ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,24 +13,24 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486528"
 ---
-# <a name="retrieve-a-list-of-indirect-resellers"></a>Retrieve a list of indirect resellers
+# <a name="retrieve-a-list-of-indirect-resellers"></a>取得間接轉銷商清單
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-How to retrieve a list of the signed-in partner's indirect resellers.
+如何抓取已登入之合作夥伴的間接轉銷商清單。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve a list of indirect resellers with whom the signed-in partner has a relationship, first get an interface to relationship collection operations from the [**partnerOperations.Relationships**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) property. Then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) or [**Get\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) method, passing a member of the [**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) enumeration to identify the relationship type. To retrieve indirect resellers, you must use IsIndirectCloudSolutionProviderOf.
+若要取出已登入夥伴具有關聯性的間接轉銷商清單，請先從[**partnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships)屬性取得關聯性集合作業的介面。 然後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)或[**get\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)方法，傳遞[**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列舉的成員來識別關聯性類型。 若要取出間接轉銷商，您必須使用 IsIndirectCloudSolutionProviderOf。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,22 +38,22 @@ To retrieve a list of indirect resellers with whom the signed-in partner has a r
 var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipType.IsIndirectCloudSolutionProviderOf);
 ```
 
-**Sample**: [Console test app](console-test-app.md)**Project**: Partner Center SDK Samples **Class**: GetIndirectResellers.cs
+**範例**：[主控台測試應用程式](console-test-app.md)**專案**：合作夥伴中心 SDK 範例**類別**： GetIndirectResellers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships?relationship\_type=IsIndirectCloudSolutionProviderOf HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships？關聯性\_類型 = IsIndirectCloudSolutionProviderOf HTTP/1。1 |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following query parameter to identify the relationship type.
+使用下列查詢參數來識別關聯性類型。
 
 <table>
 <colgroup>
@@ -65,34 +65,34 @@ Use the following query parameter to identify the relationship type.
 <thead>
 <tr class="header">
 <th>名稱</th>
-<th>在工作列搜尋方塊中輸入</th>
+<th>類型</th>
 <th>必要</th>
-<th>說明</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>relationship_type</td>
 <td>字串</td>
-<td>[是]</td>
-<td>The value is the string representation of one of the member names found in <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>.
-<p>If the partner is signed in as a provider and you want to get a list of the indirect resellers with whom they have established a relationship, use IsIndirectCloudSolutionProviderOf.</p>
-<p>If the partner is signed in as a reseller and you want to get a list of the indirect providers with whom they have established a relationship, use IsIndirectResellerOf.</p></td>
+<td>是</td>
+<td>值是在<a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>中找到的其中一個成員名稱的字串表示。
+<p>如果合作夥伴以提供者身分登入，而您想要取得他們已建立關聯性的間接轉銷商清單，請使用 IsIndirectCloudSolutionProviderOf。</p>
+<p>如果合作夥伴以轉銷商的身分登入，而您想要取得他們已建立關聯性的間接提供者清單，請使用 IsIndirectResellerOf。</p></td>
 </tr>
 </tbody>
 </table>
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/relationships?relationship_type=IsIndirectCloudSolutionProviderOf HTTP/1.1
@@ -104,16 +104,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, the response body contains a collection of [PartnerRelationship](relationships-resources.md) resources to identify the resellers.
+如果成功，回應主體會包含[PartnerRelationship](relationships-resources.md)資源的集合，以識別轉售商。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

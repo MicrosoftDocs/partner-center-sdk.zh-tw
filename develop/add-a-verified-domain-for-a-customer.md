@@ -1,6 +1,6 @@
 ---
-title: Add a verified domain for a customer
-description: Add a verified domain to the list of approved domains for a customer in Partner Center.
+title: 為客戶新增已驗證的網域
+description: 將已驗證的網域新增至合作夥伴中心內的客戶已核准的網域清單。
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486218"
 ---
-# <a name="add-a-verified-domain-for-a-customer"></a>Add a verified domain for a customer
+# <a name="add-a-verified-domain-for-a-customer"></a>為客戶新增已驗證的網域
 
 適用於：
 
@@ -21,89 +21,89 @@ ms.locfileid: "74486218"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to add a verified domain to the list of approved domains for an existing customer.
+如何將已驗證的網域新增至現有客戶的核准網域清單。
 
 ## <a name="prerequisites"></a>必要條件
 
-- You must be a Partner who is a domain registrar.
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**CustomerTenantId**). If you don't have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their Microsoft ID.
+- 您必須是網域註冊機構的夥伴。
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（**CustomerTenantId**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [**帳戶**]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
-## <a name="adding-a-verified-domain"></a>Adding a verified domain
+## <a name="adding-a-verified-domain"></a>新增已驗證的網域
 
-If you are a Partner who is a domain registrar, you can use the verifieddomain API to POST a new [Domain](#domain) resource to the list of domains for an existing customer. To do this, identify the customer using their CustomerTenantId, specify a value for the VerifiedDomainName property, and pass a [Domain](#domain) resource in the Request with the required Name, Capability, AuthenticationType, Status, and VerificationMethod properties included. To specify that the new [Domain](#domain) is a federated domain, set the AuthenticationType property in the [Domain](#domain) resource to "Federated", and include a [DomainFederationSettings](#domain-federation-settings) resource in the Request. If the method is successful, the Response will include a [Domain](#domain) resource for the new verified domain.
+如果您是身為網域註冊機構的合作夥伴，您可以使用 verifieddomain API 將新的[網域](#domain)資源張貼到現有客戶的網域清單。 若要這麼做，請使用使用者的 CustomerTenantId 來識別客戶、指定 VerifiedDomainName 屬性的值，然後在要求中傳遞包含必要名稱、功能、AuthenticationType、狀態和 VerificationMethod 屬性的[網域](#domain)資源。 若要指定新的[網域](#domain)是同盟網域，請將[網域](#domain)資源中的 AuthenticationType 屬性設定為「同盟」，並在要求中包含[DomainFederationSettings](#domain-federation-settings)資源。 如果方法成功，回應將會包含新的已驗證網域的[網域](#domain)資源。
 
-### <a name="custom-verified-domains"></a>Custom verified domains
+### <a name="custom-verified-domains"></a>自訂驗證的網域
 
-When adding a custom verified domain, a domain that is not registered on **onmicrosoft.com**, you must set the [CustomerUser.immutableId](user-resources.md#customeruser) property to a unique ID value for the customer you are adding the domain for. This unique identifier is required during the validation process when the domain is being verified. For more information about customer user accounts, see [create user accounts for a customer](create-user-accounts-for-a-customer.md).
+新增自訂的已驗證網域時，未在**onmicrosoft.com**上註冊的網域，您必須將[CustomerUser. immutableId](user-resources.md#customeruser)屬性設定為您要為其新增網域之客戶的唯一識別碼值。 在驗證過程中，當網域正在進行驗證時，就需要這個唯一的識別碼。 如需客戶使用者帳戶的詳細資訊，請參閱為[客戶建立使用者帳戶](create-user-accounts-for-a-customer.md)。
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{CustomerTenantId}/verifieddomain HTTP/1.1 |
+| POST   | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{CustomerTenantId}/verifieddomain HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-Use the following query parameter to specify the customer you are adding a verified domain for.
+使用下列查詢參數來指定您要為其新增已驗證網域的客戶。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CustomerTenantId | guid | Y        | The value is a GUID formatted **CustomerTenantId** that allows you to specify a customer. |
+| customerTenantId | guid | Y        | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-For more information, see [Partner Center REST headers](headers.md).
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-This table describes the required properties in the request body.
+下表描述要求主體中的必要屬性。
 
-| 名稱                                                  | 在工作列搜尋方塊中輸入   | 必要                                      | 說明                                                |
+| 名稱                                                  | 類型   | 必要                                      | 描述                                                |
 |-------------------------------------------------------|--------|-----------------------------------------------|--------------------------------------------------------|
-| VerifiedDomainName                                    | 字串 | [是]                                           | The verified domain name. |
-| [網域](#domain)                                     | 物件 | [是]                                           | Contains the domain information. |
-| [DomainFederationSettings](#domain-federation-settings) | 物件 | Yes (If AuthenticationType = "Federated")     | The domain federation settings to be used if the domain is a "Federated" domain and not a "Managed" domain. |
+| VerifiedDomainName                                    | 字串 | 是                                           | 已驗證的功能變數名稱。 |
+| [網域](#domain)                                     | 物件 | 是                                           | 包含網域資訊。 |
+| [DomainFederationSettings](#domain-federation-settings) | 物件 | 是（如果 AuthenticationType = "同盟"）     | 網域同盟設定，以在網域是「同盟」網域而非「受控」網域時使用。 |
 
 #### <a name="domain"></a>網域
 
-This table describes the required and optional **Domain** properties in the request body.
+下表描述要求主體中的必要和選擇性**網域**屬性。
 
-| 名稱               | 在工作列搜尋方塊中輸入                                     | 必要 | 說明                                                                                                                                                                                                     |
+| 名稱               | 類型                                     | 必要 | 描述                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AuthenticationType                                    | 字串           | [是]      | Defines whether the domain is a "Managed" domain or a "Federated" domain. Supported values: Managed, Federated.|
-| 功能                                            | 字串           | [是]      | Specifies the domain capability. For example, "Email".                  |
-| IsDefault                                             | nullable boolean | 無       | Indicates whether the domain is the default domain for the tenant. Supported values: True, False, Null.        |
-| IsInitial                                             | nullable boolean | 無       | Indicates whether the domain is an initial domain. Supported values: True, False, Null.                       |
-| 名稱                                                  | 字串           | [是]      | The domain name.                                                          |
-| RootDomain                                            | 字串           | 無       | The name of the root domain.                                              |
-| 狀態                                                | 字串           | [是]      | The domain status. For example, "Verified". Supported values:  Unverified, Verified, PendingDeletion.                               |
-| VerificationMethod                                    | 字串           | [是]      | The domain verification method type. Supported values: None, DnsRecord, Email.                                    |
+| AuthenticationType                                    | 字串           | 是      | 定義網域是否為「受控」網域或「同盟」網域。 支援的值： Managed、同盟。|
+| 功能                                            | 字串           | 是      | 指定網域功能。 例如，"Email"。                  |
+| IsDefault                                             | 可為 null 的布林值 | 否       | 指出網域是否為租使用者的預設網域。 支援的值： True、False、Null。        |
+| IsInitial                                             | 可為 null 的布林值 | 否       | 指出網域是否為初始網域。 支援的值： True、False、Null。                       |
+| 名稱                                                  | 字串           | 是      | 功能變數名稱。                                                          |
+| RootDomain                                            | 字串           | 否       | 根域的名稱。                                              |
+| 狀態                                                | 字串           | 是      | 網域狀態。 例如，「已驗證」。 支援的值：未驗證、已驗證、PendingDeletion。                               |
+| VerificationMethod                                    | 字串           | 是      | 網域驗證方法類型。 支援的值： None、DnsRecord、Email。                                    |
 
-##### <a name="domain-federation-settings"></a>Domain federation settings
+##### <a name="domain-federation-settings"></a>網域同盟設定
 
-This table describes the required and optional **DomainFederationSettings** properties in the request body.
+下表描述要求主體中的必要和選擇性**DomainFederationSettings**屬性。
 
-| 名稱   | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                  |
+| 名稱   | 類型   | 必要 | 描述                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | 字串           | 無      | The logon URI used by rich clients. This is the partner's STS Auth URL. |
-| DefaultInteractiveAuthenticationMethod | 字串           | 無      | Indicates the default authentication method that should be used when an application requires the user to have interactive login. |
-| FederationBrandName                    | 字串           | 無      | The federation brand name.        |
-| IssuerUri                              | 字串           | [是]     | The name of the issuer of the certificates.                        |
-| LogOffUri                              | 字串           | [是]     | The logoff URI. This describes the federated domain sign-out URI.        |
-| MetadataExchangeUri                    | 字串           | 無      | The URL that specifies the metadata exchange endpoint used for authentication from rich client applications. |
-| NextSigningCertificate                 | 字串           | 無      | The certificate used for the coming future by the ADFS V2 STS to sign claims. This is a base64 encoded representation of the certificate. |
-| OpenIdConnectDiscoveryEndpoint         | 字串           | 無      | The OpenID Connect Discovery Endpoint of the federated IDP STS. |
-| PassiveLogOnUri                        | 字串           | [是]     | The logon URI used by older passive Clients. This is the address to send federated sign-in requests. |
-| PreferredAuthenticationProtocol        | 字串           | [是]     | The format for the authentication token. For example, "WsFed". Supported values: WsFed, Samlp |
-| PromptLoginBehavior                    | 字串           | [是]     | The prompt login behavior type.  For example, "TranslateToFreshPasswordAuth". Supported values: TranslateToFreshPasswordAuth, NativeSupport, Disabled |
-| SigningCertificate                     | 字串           | [是]     | The certificate currently used by the ADFS V2 STS to sign claims. This is a base64 encoded representation of the certificate. |
-| SigningCertificateUpdateStatus         | 字串           | 無      | Indicates the update status of the Signing certificate. |
-| SigningCertificateUpdateStatus         | nullable boolean | 無      | Indicates whether the IDP STS supports MFA. Supported values: True, False, Null.|
+| ActiveLogOnUri                         | 字串           | 否      | 豐富型用戶端所使用的登入 URI。 這是合作夥伴的 STS 驗證 URL。 |
+| DefaultInteractiveAuthenticationMethod | 字串           | 否      | 指出當應用程式需要使用者進行互動式登入時，應使用的預設驗證方法。 |
+| FederationBrandName                    | 字串           | 否      | 同盟品牌名稱。        |
+| IssuerUri                              | 字串           | 是     | 憑證的簽發者名稱。                        |
+| LogOffUri                              | 字串           | 是     | 登出 URI。 這會描述同盟網域登出 URI。        |
+| MetadataExchangeUri                    | 字串           | 否      | URL，指定用於從豐富型用戶端應用程式進行驗證的中繼資料交換端點。 |
+| NextSigningCertificate                 | 字串           | 否      | ADFS V2 STS 用來簽署宣告的未來所用的憑證。 這是憑證的 base64 編碼標記法。 |
+| OpenIdConnectDiscoveryEndpoint         | 字串           | 否      | 同盟 IDP STS 的 OpenID Connect 探索端點。 |
+| PassiveLogOnUri                        | 字串           | 是     | 較舊的被動用戶端所使用的登入 URI。 這是傳送同盟登入要求的位址。 |
+| PreferredAuthenticationProtocol        | 字串           | 是     | 驗證 token 的格式。 例如，"WsFed"。 支援的值： WsFed、Samlp |
+| PromptLoginBehavior                    | 字串           | 是     | 提示登入行為類型。  例如，"TranslateToFreshPasswordAuth"。 支援的值： TranslateToFreshPasswordAuth、NativeSupport、Disabled |
+| SigningCertificate                     | 字串           | 是     | ADFS V2 STS 目前用來簽署宣告的憑證。 這是憑證的 base64 編碼標記法。 |
+| SigningCertificateUpdateStatus         | 字串           | 否      | 表示簽署憑證的更新狀態。 |
+| SigningCertificateUpdateStatus         | 可為 null 的布林值 | 否      | 指出 IDP STS 是否支援 MFA。 支援的值： True、False、Null。|
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/{CustomerTenantId}/verifieddomain HTTP/1.1
@@ -145,13 +145,13 @@ X-Locale: "en-US"
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this API returns a [Domain](#domain) resource for the new verified domain.
+如果成功，此 API 會傳回新的已驗證網域的[網域](#domain)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

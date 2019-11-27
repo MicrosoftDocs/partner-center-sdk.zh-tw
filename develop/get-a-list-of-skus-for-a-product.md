@@ -1,6 +1,6 @@
 ---
-title: Get a list of SKUs for a product (by country)
-description: You can get and filter a collection of SKUs by country for a product using the Partner Center APIs.
+title: 取得產品的 Sku 清單（依國家/地區）
+description: 您可以使用合作夥伴中心 Api，依國家/地區針對產品取得及篩選 Sku 集合。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489758"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-country"></a>Get a list of SKUs for a product (by country)
+# <a name="get-a-list-of-skus-for-a-product-by-country"></a>取得產品的 Sku 清單（依國家/地區）
 
 適用於：
 
 - 合作夥伴中心
 
-You can get a collection of SKUs available in a country for a specific product using Partner Center APIs.
+您可以使用合作夥伴中心 Api，取得特定產品的國家/地區所提供的 Sku 集合。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 產品識別碼。
 
 ## <a name="c"></a>C\#
 
-To get the list of SKUs for a product:
+若要取得產品的 Sku 清單：
 
-1. Get an interface for a specific product's operations by following the steps in [Get a product by ID](get-a-product-by-id.md).
-2. From the interface, select the **Skus** property to obtain an interface with the available operations for SKUs.
-3. Call the **Get()** or **GetAsync()** method to retrieve a collection of the available SKUs for the product.
-4. (Optional) Select the reservation scope using the **ByReservationScope()** method.
-5. (Optional) Use the **ByTargetSegment()** method to filter the SKUs by target segment before calling **Get()** or **GetAsync()** .
+1. 遵循依[識別碼取得產品](get-a-product-by-id.md)中的步驟，取得特定產品作業的介面。
+2. 從介面中選取 [ **sku** ] 屬性，以取得具有適用于 sku 之可用作業的介面。
+3. 呼叫**Get （）** 或**GetAsync （）** 方法，以取得產品的可用 sku 集合。
+4. 選擇性使用**ByReservationScope （）** 方法選取保留範圍。
+5. 選擇性在呼叫**Get （）** 或**GetAsync （）** 之前，請使用**ByTargetSegment （）** 方法依目標區段篩選 sku。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -62,12 +62,12 @@ var skus = partnerOperations.Products.ByCountry(countryCode).ById(productIdForAz
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get the list of SKUs for a product:
+若要取得產品的 Sku 清單：
 
-1. Get an interface for a specific product's operations by following the steps in [Get a product by ID](get-a-product-by-id.md).
-2. From the interface, select the **getSkus** function to obtain an interface with the available operations for SKUs.
-3. Call the **get()** function to retrieve a collection of the available SKUs for the product.
-4. (Optional) Use the **byTargetSegment()** function to filter the SKUs by target segment before calling the **get()** function.
+1. 遵循依[識別碼取得產品](get-a-product-by-id.md)中的步驟，取得特定產品作業的介面。
+2. 從介面中選取**getSkus**函式，以取得具有適用于 sku 之可用作業的介面。
+3. 呼叫**get （）** 函式，以取得產品的可用 sku 集合。
+4. 選擇性在呼叫**get （）** 函式之前，請使用**byTargetSegment （）** 函數依目標區段篩選 sku。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -87,10 +87,10 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get the list of SKUs for a product:
+若要取得產品的 Sku 清單：
 
-1. Execute the [**Get-PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md) command.
-2. (Optional) Specify the **Segment** parameter to filter the SKUs by target segment.
+1. 執行[**PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md)命令。
+2. 選擇性指定**區段**參數，依目標區段篩選 sku。
 
 ```powershell
 # $productId
@@ -103,38 +103,38 @@ Get-PartnerProductSku -ProudctId $productId
 Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus?country={country-code}&targetSegment={target-segment} HTTP/1.1  |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus？ country = {國家/地區-代碼} & targetSegment = {目標-區段} HTTP/1。1  |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
-Use the following path and query parameters to get a list of SKUs for a product.
+使用下列路徑和查詢參數來取得產品的 Sku 清單。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | 字串   | [是]      | A string that identifies the product.                           |
-| country-code           | 字串   | [是]      | A country/region ID.                                            |
-| target-segment         | 字串   | 無       | A string that identifies the target segment used for filtering. |
-| reservationScope | 字串   | 無 | When querying for a list of SKUs for an Azure Reservation product, specify `reservationScope=AzurePlan` to get a list of SKUs which are applicable to AzurePlan. Exclude this parameter to get a list of SKUs for an Azure Reservation products which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.  |
+| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
+| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
+| 目標-區段         | 字串   | 否       | 識別用於篩選之目標區段的字串。 |
+| reservationScope | 字串   | 否 | 查詢 Azure 保留產品的 Sku 清單時，請指定 `reservationScope=AzurePlan` 來取得適用于 AzurePlan 的 Sku 清單。 排除此參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Azure 保留產品的 Sku 清單。  |
 
 #### <a name="request-headers"></a>要求標頭
 
-For more information, see [Headers](headers.md).
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
 無。
 
 #### <a name="request-examples"></a>要求範例
 
-Get a list of SKUs for a given product:
+取得給定產品的 Sku 清單：
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BPS6/skus?country=US HTTP/1.1
@@ -144,7 +144,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Get a list of SKUs for an Azure Reservation product. Only include the SKUs which are applicable to Azure plans and not Microsoft Azure (MS-AZR-0145P) subscriptions:
+取得 Azure 保留產品的 Sku 清單。 只包含適用于 Azure 方案，而不是 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Sku：
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US&reservationScope=AzurePlan HTTP/1.1
@@ -154,7 +154,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Get a list of SKUs for an Azure Reservation product. Only include the SKUs which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions and not Azure plans:
+取得 Azure 保留產品的 Sku 清單。 只包含適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶而非 Azure 方案的 Sku：
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US HTTP/1.1
@@ -164,20 +164,20 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, the response body contains a collection of [SKU](product-resources.md#sku) resources.
+如果成功，回應主體會包含[SKU](product-resources.md#sku)資源的集合。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-This method returns the following error codes:
+這個方法會傳回下列錯誤碼：
 
-| HTTP 狀態碼     | 錯誤碼   | 說明                                                                                               |
+| HTTP 狀態碼     | 錯誤碼   | 描述                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Access to the requested targetSegment is not allowed.                                                     |
-| 404                  | 400013       | The parent product was not found.                                                                         |
+| 403                  | 400030       | 不允許存取要求的 targetSegment。                                                     |
+| 404                  | 400013       | 找不到父產品。                                                                         |
 
 #### <a name="response-example"></a>回應範例
 

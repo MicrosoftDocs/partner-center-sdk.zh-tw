@@ -1,6 +1,6 @@
 ---
-title: Get the product upgrade status for a customer
-description: You can use the ProductUpgradeRequest resource to determine the status of a product upgrade for a customer to a new product family, such as from a Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan.
+title: 取得客戶的產品升級狀態
+description: 您可以使用 ProductUpgradeRequest 資源，將客戶的產品升級狀態判斷為新的產品系列，例如從 Microsoft Azure （MS-MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶到 Azure 方案。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,29 +12,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487288"
 ---
-# <a name="get-the-product-upgrade-status-for-a-customer"></a>Get the product upgrade status for a customer
+# <a name="get-the-product-upgrade-status-for-a-customer"></a>取得客戶的產品升級狀態
 
 適用於：
 
 - 合作夥伴中心
 
-You can use the [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) resource to get the status of an upgrade to a new product family. This resource applies when you're upgrading a customer from an Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan. A successful request returns the [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) resource.
+您可以使用[**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest)資源來取得升級到新產品系列的狀態。 當您將客戶從 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶升級為 Azure 方案時，就會套用此資源。 成功的要求會傳回[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)資源。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials. Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.
-- The customer identifier.
-- The product family.
-- The upgrade-id of an upgrade request.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
+- 客戶識別碼。
+- 產品系列。
+- 升級要求的升級識別碼。
 
 ## <a name="c"></a>C\#
 
-To check if a customer is eligible to upgrade to Azure plan:
+若要檢查客戶是否有資格升級至 Azure 方案：
 
-1. Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.
-2. Use the **IAggregatePartner.ProductUpgrades** collection.
-2. Call the **ById** method and pass in the **upgrade-id**.
-3. Call the **CheckStatus** method and pass in the **ProductUpgradesRequest** object, which will return a **ProductUpgradeStatus** object.
+1. 建立**ProductUpgradesRequest**物件，並指定客戶識別碼和 "Azure" 做為產品系列。
+2. 使用**iaggregatepartner.customers.byid. ProductUpgrades**集合。
+2. 呼叫**ById**方法，並傳入**升級識別碼**。
+3. 呼叫**CheckStatus**方法，並傳入**ProductUpgradesRequest**物件，這會傳回**ProductUpgradeStatus**物件。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -111,13 +111,13 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) resource in the body.
+如果成功，這個方法會傳回主體中的[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)資源。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

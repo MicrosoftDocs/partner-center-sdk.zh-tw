@@ -1,6 +1,6 @@
 ---
-title: Get a list of orders by customer and billing cycle type
-description: Gets a collection of order resources for the specified customer and biling cycle type.
+title: 依客戶和計費週期類型取得訂單清單
+description: 取得指定 customer 和 biling 週期類型的訂單資源集合。
 ms.assetid: DF1E52F6-1A3D-4B26-8BCC-6E429410C662
 ms.date: 06/19/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487338"
 ---
-# <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>Get a list of orders by customer and billing cycle type
+# <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>依客戶和計費週期類型取得訂單清單
 
 適用於：
 
@@ -22,20 +22,20 @@ ms.locfileid: "74487338"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Gets a collection of Order resources that correspond to a given customer and billing cycle type. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a collection of a customer's orders.
+取得對應至指定的客戶和計費週期類型之訂單資源的集合。 請注意，提交訂單的時間和在客戶訂單的集合中會出現最多15分鐘的延遲。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
 ## <a name="c"></a>C\#
 
-To get a collection of a customer's orders:
+若要取得客戶訂單的集合：
 
-1. Use your [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection and call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the selected customer ID.
-2. Call the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property and the **ByBillingCycleType()** method with your specified  [**BillingCycleType**](product-resources.md#billingcycletype).
-3. Call the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) method.
+1. 使用您的[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合，並以選取的客戶識別碼呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。
+2. 使用您指定的[**為 billingcycletype**](product-resources.md#billingcycletype)呼叫[**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)屬性和**ByBillingCycleType （）** 方法。
+3. 呼叫[**Get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,28 +45,28 @@ To get a collection of a customer's orders:
 var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBillingCycleType(selectedBillingCycleType).Get();
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders?billingType={billing-cycle-type} HTTP/1.1  |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-tenant-id}/orders？ billingType = {計費-迴圈類型} HTTP/1。1  |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-This table lists the required query parameters to get a collection of orders by customer ID and billing cycle type.
+下表列出必要的查詢參數，以依據客戶識別碼和計費週期類型來取得訂單集合。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                               |
+| 名字                   | 類型     | 必要 | 說明                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| customer-tenant-id     | 字串   | [是]      | A GUID formatted string corresponding to the customer.    |
-| billing-cycle-type     | 字串   | 無       | A string corresponding to the billing cycle type.         |
+| 客戶-租使用者識別碼     | string   | 是      | 對應至客戶的 GUID 格式字串。    |
+| 計費-週期類型     | string   | 否       | 對應至計費週期類型的字串。         |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Headers](headers.md) for more information.
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
@@ -81,13 +81,13 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of [Order](order-resources.md) resources in the response body.
+如果成功，此方法會在回應主體中傳回[訂單](order-resources.md)資源的集合。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

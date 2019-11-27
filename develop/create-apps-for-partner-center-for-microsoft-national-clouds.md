@@ -1,6 +1,6 @@
 ---
-title: Register app details for Partner Center for Microsoft National Cloud
-description: Developers must register details about their app with Azure AD through the Azure portal. This helps ensure that only specified apps are able to connect to partner and customer data.
+title: 為 Microsoft 國家雲端的合作夥伴中心註冊應用程式詳細資料
+description: 開發人員必須透過 Azure 入口網站向 Azure AD 註冊其應用程式的詳細資料。 這有助於確保只有指定的應用程式能夠連接到合作夥伴和客戶資料。
 MS-HAID:
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_cloud\_germany
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_national\_clouds
@@ -16,93 +16,93 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489548"
 ---
-# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Register app details for Partner Center for Microsoft National Cloud
+# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>為 Microsoft 國家雲端的合作夥伴中心註冊應用程式詳細資料
 
 適用於：
 
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Developers must register details about their app with Azure AD through the Azure portal. This helps ensure that only specified apps are able to connect to partner and customer data.
+開發人員必須透過 Azure 入口網站向 Azure AD 註冊其應用程式的詳細資料。 這有助於確保只有指定的應用程式能夠連接到合作夥伴和客戶資料。
 
-For Partner Center for Microsoft Cloud for US Government, you currently must manage apps through PowerShell. For more information, see the [Azure PowerShell reference documentation](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0#applications).
+針對適用于美國政府的 Microsoft Cloud 合作夥伴中心，您目前必須透過 PowerShell 管理應用程式。 如需詳細資訊，請參閱[Azure PowerShell 參考檔](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0#applications)。
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-Be aware of the following additional requirements when you create an app for Partner Center for Microsoft Cloud Germany or Partner Center for Microsoft Cloud for US Government.
+當您為美國政府的 Microsoft Cloud Microsoft Cloud 德國或合作夥伴中心建立適用于合作夥伴中心的應用程式時，請注意下列其他需求。
 
 ## <a name="web-apps"></a>Web 應用程式
 
-For web apps, use the following procedures to register your application ID.
+針對 web 應用程式，請使用下列程式來註冊您的應用程式識別碼。
 
-### <a name="create-or-update-web-app"></a>Create or update web app
+### <a name="create-or-update-web-app"></a>建立或更新 web 應用程式
 
-1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app. Sign in to the Azure portal using either a work or school account or a personal Microsoft account.
+1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. Select **New registration**. For more information, see [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+2. 選取 [**新增註冊**]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)。
 
-### <a name="configure-api-access-permissions-for-web-app"></a>Configure API access permissions for web app
+### <a name="configure-api-access-permissions-for-web-app"></a>設定 web 應用程式的 API 存取權限
 
-1. Choose your app. Go to **Settings** of the Web app.
-2. In **API Access** section, choose **Required permissions**
-3. For Windows Azure Active directory permissions:
-    1. Choose **Windows Azure Active Directory permissions**.
-    2. In **Applications permissions**, select Read directory data.
-    3. Save the permissions.
-4. Note the application ID in the **Properties** section of your web app.
+1. 選擇您的應用程式。 移至 Web 應用程式的 [**設定**]。
+2. 在 [ **API 存取**] 區段中，選擇 [**必要許可權**]
+3. 針對 Windows Azure Active directory 許可權：
+    1. 選擇 [ **Windows Azure Active Directory 許可權**]。
+    2. 在 [**應用程式許可權**] 中，選取 [讀取目錄資料]。
+    3. 儲存許可權。
+4. 請注意 web 應用程式的 [**屬性**] 區段中的 [應用程式識別碼]。
 
 ### <a name="add-a-secret-key-to-your-app"></a>將秘密金鑰新增到您的應用程式。
 
-1. Go to the **Keys** section of your web app.
-2. Enter key description and select duration as 1 or 2 years, as you need.
-3. Save and copy the secret key value. **This value will not be shown again once you leave this page.**
+1. 移至 web 應用程式的 [**金鑰**] 區段。
+2. 輸入 [金鑰描述]，並視需要選取 [持續時間] （1或2年）。
+3. 儲存並複製 [秘密金鑰] 值。 **一旦您離開此頁面，就不會再顯示此值。**
 
-You should have the following details from the web app configuration:
+您應該會有來自 web 應用程式設定的下列詳細資料：
 
 - 應用程式識別碼
-- Application secret
+- 應用程式密碼
 
-### <a name="register-the-web-app-in-partner-center"></a>Register the Web app in Partner Center
+### <a name="register-the-web-app-in-partner-center"></a>在合作夥伴中心註冊 Web 應用程式
 
-1. Log in to <https://partnercenter.microsoft.com>.
-2. Choose **Dashboard**, then choose **Account Settings**, then choose **App Management**.
-3. In the **Web App** section, choose **Register existing app**.
-4. Select the web app you created in Azure management portal.
-5. Choose **register your app**.
+1. 登入 <https://partnercenter.microsoft.com>。
+2. 選擇 [**儀表板**]，然後依序選擇 [**帳戶設定**] 和 [**應用程式管理**]。
+3. 在 [ **Web 應用程式**] 區段中，選擇 [**註冊現有的應用程式**]。
+4. 選取您在 Azure 管理入口網站中建立的 web 應用程式。
+5. 選擇 [**註冊您的應用程式**]。
 
-## <a name="native-apps"></a>Native apps
+## <a name="native-apps"></a>原生應用程式
 
-Native apps do not need to be registered to Partner Center. But these apps need to be configured to provide access to Partner Center APIs.
+原生應用程式不需要註冊至合作夥伴中心。 但這些應用程式必須設定為提供合作夥伴中心 Api 的存取權。
 
 >[!NOTE]
->Before creating a native app in the Azure management portal, log in into Partner Center using the admin user credentials from the partner tenant. This creates the settings on the tenant to enable app permissions.
+>在 Azure 管理入口網站中建立原生應用程式之前，請使用合作夥伴租使用者的系統管理員使用者認證登入合作夥伴中心。 這會在租使用者上建立設定以啟用應用程式許可權。
 
-### <a name="create-native-app"></a>Create native app
+### <a name="create-native-app"></a>建立原生應用程式
 
-1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app. Sign in to the Azure portal using either a work or school account or a personal Microsoft account.
+1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. Select **New registration**. For more information, see [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+2. 選取 [**新增註冊**]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)。
 
-### <a name="configure-api-access-permissions-for-native-app"></a>Configure API access permissions for native app
+### <a name="configure-api-access-permissions-for-native-app"></a>設定原生應用程式的 API 存取權限
 
-1. Choose your app. Go to **Settings**.
-2. In API Access, choose **Required permissions**.
-3. Choose **Windows Azure Active Directory permissions**. In **Delegated permissions**, select these permissions:
-    - **Sign in and read user profile**
-    - **Read directory data**
-    - **Access the directory as the signed-in user**
-    - **Read all groups**
-4. Save the permissions.
-5. Choose **Add** in **Required permissions**.
-6. Choose **Select an API**.
-    1. In the search box, enter **Microsoft Partner Center** and select it from the results list.
-    2. Choose **Select**.
-7. Choose **Select permissions**.
-    1. Select **Access Partner Center PPE**.
-    2. Choose **Select**.
-8. Choose **Done**.
+1. 選擇您的應用程式。 移至 [**設定**]。
+2. 在 [API 存取] 中，選擇 [**必要許可權**]。
+3. 選擇 [ **Windows Azure Active Directory 許可權**]。 在 [**委派的許可權**] 中，選取下列許可權：
+    - **登入和讀取使用者設定檔**
+    - **讀取目錄資料**
+    - **以登入的使用者身分存取目錄**
+    - **讀取所有群組**
+4. 儲存許可權。
+5. 選擇 [**新增**] [**必要許可權**]。
+6. 選擇 [**選取 API**]。
+    1. 在搜尋方塊中，輸入**Microsoft 合作夥伴中心**，然後從結果清單中選取它。
+    2. 選擇 [**選取**]。
+7. 選擇 [**選取許可權**]。
+    1. 選取 [**存取合作夥伴中心 PPE**]。
+    2. 選擇 [**選取**]。
+8. 選擇 [**完成**]。
 
 >[!IMPORTANT]
-> Note the application ID in the Properties of your app.
+> 請注意您應用程式屬性中的應用程式識別碼。
 
-You do not need to register native apps in Partner Center, however the native app must be admin consented . Note the application ID of your native app.
+您不需要在合作夥伴中心註冊原生應用程式，但原生應用程式必須是系統管理員同意。 請記下原生應用程式的應用程式識別碼。

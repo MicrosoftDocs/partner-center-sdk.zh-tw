@@ -1,6 +1,6 @@
 ---
 title: Azure 費用
-description: CSP partners can use Partner Center APIs to view and manage their Azure spending. They can also programmatically view their customers' Azure spending against their budget.
+description: CSP 合作夥伴可以使用合作夥伴中心 Api 來查看和管理其 Azure 費用。 他們也可以透過程式設計方式，針對其預算來查看其客戶的 Azure 費用。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -22,28 +22,28 @@ ms.locfileid: "74489118"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Cloud Solution Provider (CSP) partners can view and manage their Azure spending through Partner Center APIs. They can also programmatically view their customers' spending against an Azure spending budget.
+雲端解決方案提供者（CSP）合作夥伴可以透過合作夥伴中心 Api 來查看和管理其 Azure 費用。 他們也可以透過程式設計方式，針對 Azure 費用預算來查看其客戶的支出。
 
-For more information, see [scenarios in which CSP partners can use the Partner Center APIs to manage customer and partner accounts and orders](scenarios.md), specifically the [background section](scenarios.md#background).
+如需詳細資訊，請參閱[CSP 合作夥伴可以使用合作夥伴中心 api 來管理客戶和合作夥伴帳戶和訂單的案例](scenarios.md)，特別是[背景區段](scenarios.md#background)。
 
-## <a name="partner-usage-management"></a>Partner usage management
+## <a name="partner-usage-management"></a>合作夥伴使用管理
 
-- [Get a partner usage summary](get-a-partner-usage-summary.md) using the **PartnerUsageSummary** resource
-- [Get usage records for all customers](get-a-customer-s-usage-records.md) using the **CustomerMonthlyUsageRecord** resource
+- 使用**PartnerUsageSummary**資源[取得合作夥伴使用量摘要](get-a-partner-usage-summary.md)
+- 使用**CustomerMonthlyUsageRecord**資源[取得所有客戶的使用量記錄](get-a-customer-s-usage-records.md)
 
-## <a name="customer-usage-management"></a>Customer usage management
+## <a name="customer-usage-management"></a>客戶使用方式管理
 
-- [Get a customer's usage summary](get-a-customer-usage-summary.md) using the **CustomerUsageSummary** resource
-- [Get all subscription usage records for a customer](get-a-customer-subscription-s-usage-records.md) using the **SubscriptionMonthlyUsageRecord** resource
+- 使用**customerrelationshiprequest**資源[取得客戶的使用量摘要](get-a-customer-usage-summary.md)
+- 使用**SubscriptionMonthlyUsageRecord**資源[取得客戶的所有訂用帳戶使用方式記錄](get-a-customer-subscription-s-usage-records.md)
 
-## <a name="subscription-usage-management"></a>Subscription usage management
+## <a name="subscription-usage-management"></a>訂用帳戶使用方式管理
 
-- [Get a subscription usage summary](get-a-customer-subscription-usage-summary.md) using the **SubscriptionUsageSummary** resource
-- [Get all monthly usage records for a subscription](get-all-monthly-usage-records-for-a-subscription.md) using the **AzureResourceMonthlyUsageRecord** resource
-- [Get usage data for a subscription by resource](get-a-customer-subscription-resource-usage-records.md) using the **ResourceUsageRecord** resource
-- [Get usage data for a subscription by meter](get-a-customer-subscription-meter-usage-records.md) using the **MeterUsageRecord** resource
+- 使用**SubscriptionUsageSummary**資源[取得訂用帳戶使用量摘要](get-a-customer-subscription-usage-summary.md)
+- 使用**AzureResourceMonthlyUsageRecord**資源取得訂用帳戶的[所有每月使用量記錄](get-all-monthly-usage-records-for-a-subscription.md)
+- 使用**ResourceUsageRecord**資源以[資源取得訂](get-a-customer-subscription-resource-usage-records.md)用帳戶的使用量資料
+- 使用**MeterUsageRecord**資源[依計量取得訂](get-a-customer-subscription-meter-usage-records.md)用帳戶的使用量資料
 
-## <a name="azure-spending-budget-management"></a>Azure spending budget management
+## <a name="azure-spending-budget-management"></a>Azure 支出預算管理
 
-- [Get a customer's usage budget](get-a-customer-s-usage-spending-budget.md) using the **CustomerUsageSummary** resource
-- [Update a customer's usage budget](update-a-customer-s-usage-spending-budget.md) using the **CustomerUsageSummary** resource
+- 使用**customerrelationshiprequest**資源[取得客戶的使用量預算](get-a-customer-s-usage-spending-budget.md)
+- 使用**customerrelationshiprequest**資源[更新客戶的使用量預算](update-a-customer-s-usage-spending-budget.md)

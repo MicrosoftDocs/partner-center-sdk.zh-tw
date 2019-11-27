@@ -1,6 +1,6 @@
 ---
-title: Create a customer
-description: How to create a new customer.
+title: 建立客戶
+description: 如何建立新的客戶。
 ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489328"
 ---
-# <a name="create-a-customer"></a>Create a customer
+# <a name="create-a-customer"></a>建立客戶
 
 適用於：
 
@@ -21,34 +21,34 @@ ms.locfileid: "74489328"
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-This topic explains how to create a new customer.
+本主題說明如何建立新的客戶。
 
 > [!IMPORTANT]
-> If you are an indirect provider and you want to create a customer for an indirect reseller, please see [Create a customer for an indirect reseller](create-a-customer-for-an-indirect-reseller.md).
+> 如果您是間接提供者，而且想要建立間接轉銷商的客戶，請參閱[建立間接轉銷](create-a-customer-for-an-indirect-reseller.md)商的客戶。
 
-As a cloud solution provider (CSP) partner, when you create a customer you can place orders on behalf of the customer. When you create a customer, you also create:
+身為雲端解決方案提供者（CSP）合作夥伴，當您建立客戶時，您可以代表客戶來放置訂單。 當您建立客戶時，您也會建立：
 
-- An Azure Active Directory (AD) tenant object for the customer.
-- A relationship between the reseller and customer, used for delegated admin privileges.
-- A user name and password to sign in as an admin for the customer.
+- 客戶的 Azure Active Directory （AD）租使用者物件。
+- 轉銷商與客戶之間的關聯性，用於委派的系統管理員許可權。
+- 用來以系統管理員身分登入客戶的使用者名稱和密碼。
 
-Once the customer is created, be sure to save the customer ID and Azure AD details for future use with the Partner Center SDK (for example, account management).
+建立客戶之後，請務必儲存客戶識別碼，並 Azure AD 詳細資料，以供日後用於合作夥伴中心 SDK （例如，帳戶管理）。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 > [!IMPORTANT]
-> To create a customer tenant you must provide a valid physical address during the creation process. An address can be validated by following the steps outlined in the [Validate an address](validate-an-address.md) scenario. If you create a customer using an invalid address in the sandbox environment, you will not be able to delete that customer tenant.
+> 若要建立客戶租使用者，您必須在建立程式期間提供有效的實體位址。 您可以遵循[驗證位址](validate-an-address.md)案例中所述的步驟來驗證位址。 如果您在沙箱環境中使用不正確位址建立客戶，就無法刪除該客戶租使用者。
 
 ## <a name="c"></a>C\#
 
-To add a customer:
+若要新增客戶：
 
-1. Instantiate a new [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object. Be sure to fill in the [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) and [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile).
-2. Add the new customer to your [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection by calling [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync).
+1. 具現化新的[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)物件。 請務必填寫[**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)和[**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)。
+2. 藉由呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)，將新客戶新增至您的[**iaggregatepartner.customers.byid 客戶**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# 範例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -87,18 +87,18 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateCustomer.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CreateCustomer.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To create a new customer:
+若要建立新的客戶：
 
-1. Create a new instance of the **CustomerBillingProfile** and the **CustomerCompanyProfile** objects. Be sure to populate the required fields.
-2. Create the customer by calling the **IAggregatePartner.getCustomers().create** function.
+1. 建立**CustomerBillingProfile**的新實例和**CustomerCompanyProfile**物件。 請務必填入必要欄位。
+2. 呼叫**iaggregatepartner.customers.byid. getCustomers （）. create** function 來建立客戶。
 
-### <a name="java-example"></a>Java example
+### <a name="java-example"></a>JAVA 範例
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -138,56 +138,56 @@ Customer newCustomer = partnerOperations.getCustomers().create( customerToCreate
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To create a customer execute the [**New-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) command.
+若要建立客戶，請執行[**PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md)命令。
 
-### <a name="powershell-example"></a>Powershell example
+### <a name="powershell-example"></a>Powershell 範例
 
 ```powershell
 New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity 'Redmond' -BillingAddressCountry 'US' -BillingAddressPostalCode '98052' -BillingAddressState 'WA' -ContactEmail 'jdoe@customer.com' -ContactFirstName 'Jane' -ContactLastName 'Doe' -Culture 'en-US' -Domain 'newcustomer.onmicrosoft.com' -Language 'en' -Name 'New Customer'
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
-- This API is idempotent (it will not yield a different result if you call it multiple times).
-- A request ID and correlation ID are required.
-- See [Partner Center REST headers](headers.md) for more information.
+- 此 API 具有等冪性（如果您多次呼叫，則不會產生不同的結果）。
+- 需要要求識別碼和相互關聯識別碼。
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-This table describes the required properties in the request body.
+下表描述要求主體中的必要屬性。
 
-| 名稱                              | 在工作列搜尋方塊中輸入   | 說明                                 |
+| 名字                              | 類型   | 說明                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | 物件 | The customer's billing profile information. |
-| [CompanyProfile](#company-profile) | 物件 | The customer's company profile information. |
+| [BillingProfile](#billing-profile) | 物件 | 客戶的帳單設定檔資訊。 |
+| [CompanyProfile](#company-profile) | 物件 | 客戶的公司設定檔資訊。 |
 
-#### <a name="billing-profile"></a>Billing profile
+#### <a name="billing-profile"></a>帳單設定檔
 
-This table describes the minimum required fields from the [CustomerBillingProfile](customer-resources.md#customerbillingprofile) resource needed to create a new customer.
+下表描述建立新客戶所需的[CustomerBillingProfile](customer-resources.md#customerbillingprofile)資源所需的最低欄位。
 
-| 名稱             | 在工作列搜尋方塊中輸入                                     | 說明                                                                                                                                                                                                     |
+| 名字             | 類型                                     | 說明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 電子郵件            | 字串                                   | The customer's email address.                                                                                                                                                                                   |
-| culture          | 字串                                   | Their preferred culture for communication and currency, such as "en-US". See [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md) for the supported cultures. |
-| language         | 字串                                   | The default language. Two character language codes (e.g., en, fr) are supported.                                                                                                                                |
-| company\_name    | 字串                                   | The registered company/organization name.                                                                                                                                                                       |
-| default\_address | [Address](utility-resources.md#address) | The registered address of the customer's company/organization. See the [Address](utility-resources.md#address) resource for information on any length limitations.                                             |
+| 電子郵件            | string                                   | 客戶的電子郵件地址。                                                                                                                                                                                   |
+| 區域          | string                                   | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
+| language         | string                                   | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
+| 公司\_名稱    | string                                   | 已註冊的公司/組織名稱。                                                                                                                                                                       |
+| 預設\_位址 | [應對](utility-resources.md#address) | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
 
-#### <a name="company-profile"></a>Company profile
+#### <a name="company-profile"></a>公司設定檔
 
-This table describes the minimum required fields from the [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) resource needed to create a new customer.
+下表描述建立新客戶所需的[CustomerCompanyProfile](customer-resources.md#customercompanyprofile)資源所需的最低欄位。
 
-| 名稱   | 在工作列搜尋方塊中輸入   | 說明                                                  |
+| 名字   | 類型   | 說明                                                  |
 |--------|--------|--------------------------------------------------------------|
-| domain | 字串 | The customer's domain name, such as contoso.onmicrosoft.com. |
+| domain | string | 客戶的功能變數名稱，例如 contoso.onmicrosoft.com。 |
 
 ### <a name="request-example"></a>要求的範例
 
@@ -226,13 +226,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this API returns a [Customer](customer-resources.md#customer) resource for the new customer. Save the customer ID and Azure AD details for future use with the Partner Center SDK. You will need them for use with account management, for example.
+如果成功，此 API 會傳回新客戶的[客戶](customer-resources.md#customer)資源。 儲存客戶識別碼並 Azure AD 詳細資料，以供未來與合作夥伴中心 SDK 搭配使用。 例如，您將需要這些專案才能與帳戶管理搭配使用。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

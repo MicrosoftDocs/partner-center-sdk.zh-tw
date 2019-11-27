@@ -1,6 +1,6 @@
 ---
-title: Get a SKU by ID
-description: Gets a SKU for the specified product using the specified SKU ID.
+title: 依識別碼取得 SKU
+description: 使用指定的 SKU 識別碼，為指定的產品取得 SKU。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486128"
 ---
-# <a name="get-a-sku-by-id"></a>Get a SKU by ID
+# <a name="get-a-sku-by-id"></a>依識別碼取得 SKU
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-Gets a SKU for the specified product using the specified SKU ID.
+使用指定的 SKU 識別碼，為指定的產品取得 SKU。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product ID. 
-- A SKU ID. 
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 產品識別碼。 
+- SKU 識別碼。 
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the details of a specific SKU, start by following the steps in [Get a product by ID](get-a-product-by-id.md) to get the interface for a specific product's operations. From the resulting interface, select the **Skus** property to obtain an interface with the available operations for SKUs. Pass the SKU ID to the **ById()** method, and call **Get()** or **GetAsync()** to retrieve the SKU details.
+若要取得特定 SKU 的詳細資料，請先遵循[依識別碼取得產品](get-a-product-by-id.md)中的步驟來取得特定產品作業的介面。 從產生的介面中選取 [ **sku** ] 屬性，以取得具有適用于 sku 之可用作業的介面。 將 SKU 識別碼傳遞給**ById （）** 方法，並呼叫**Get （）** 或**GETASYNC （）** 以取得 SKU 詳細資料。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -45,38 +45,38 @@ string skuId;
 var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}?country={country-code} HTTP/1.1   |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}？ country = {國家/地區-代碼} HTTP/1。1   |
 
  
 
-**URI parameter**
+**URI 參數**
 
-Use the following path and query parameters to get a SKU for the specified product using the specified SKU ID.
+使用下列路徑和查詢參數，以使用指定的 SKU 識別碼來取得指定產品的 SKU。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | 字串   | [是]      | A string that identifies the product.                           |
-| sku-id                 | 字串   | [是]      | A string that identifies the SKU.                               |
-| country-code           | 字串   | [是]      | A country/region ID.                                            |
+| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
+| sku-識別碼                 | 字串   | 是      | 識別 SKU 的字串。                               |
+| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3V/skus/00G1?country=US HTTP/1.1
@@ -90,24 +90,24 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, the response body contains a [SKU](product-resources.md#sku) resource.
+如果成功，回應主體會包含[SKU](product-resources.md#sku)資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-This method returns the following error codes:
+這個方法會傳回下列錯誤碼：
 
-| HTTP 狀態碼     | 錯誤碼   | 說明                                                                                               |
+| HTTP 狀態碼     | 錯誤碼   | 描述                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 404                  | 400013       | Product was not found.                                                                                    |
-| 404                  | 400018       | Sku was not found.                                                                                        |
+| 404                  | 400013       | 找不到產品。                                                                                    |
+| 404                  | 400018       | 找不到 Sku。                                                                                        |
 
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

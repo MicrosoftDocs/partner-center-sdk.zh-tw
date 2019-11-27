@@ -1,6 +1,6 @@
 ---
-title: Get prices for Microsoft Azure
-description: How to get an Azure Rate Card with real-time prices for an Azure offer. Azure pricing is quite dynamic and changes frequently.
+title: 取得 Microsoft Azure 的價格
+description: 如何使用 Azure 供應專案的即時價格取得 Azure 費率卡片。 Azure 定價非常動態，而且經常變動。
 ms.assetid: 65262585-0F3B-4BD0-83BE-B2695C33CDB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,25 +13,25 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487308"
 ---
-# <a name="get-prices-for-microsoft-azure"></a>Get prices for Microsoft Azure
+# <a name="get-prices-for-microsoft-azure"></a>取得 Microsoft Azure 的價格
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to get an [Azure Rate Card](azure-rate-card-resources.md) with real-time prices for an Azure offer. Azure pricing is quite dynamic and changes frequently.
+如何使用 Azure 供應專案的即時價格取得[Azure 費率卡片](azure-rate-card-resources.md)。 Azure 定價非常動態，而且經常變動。
 
-To track usage and help predict your monthly bill and the bills for individual customers, you can combine this Azure Rate Card query to get prices for Microsoft Azure with a request to [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md).
+若要追蹤使用量並協助預測個別客戶的每月帳單和帳單，您可以結合此 Azure 費率卡片查詢來取得 Microsoft Azure 的價格，取得[客戶的 azure 使用量記錄](get-a-customer-s-utilization-record-for-azure.md)要求。
 
-Prices differ by market and currency, and this API takes location into consideration. You can customize the currency, region and language returned in the response. This is especially relevant if you manage sales in multiple markets from a single, centralized office. See [URI parameters](#uri-parameters) for more information. 
+價格會依市場和貨幣而有所不同，而此 API 會將位置納入考慮。 您可以自訂在回應中傳回的貨幣、地區和語言。 如果您從單一的集中式辦公室管理多個市場的銷售，這就特別相關。 如需詳細資訊，請參閱[URI 參數](#uri-parameters)。 
 
 ## <a name="examples"></a>範例
 
 ### <a name="c"></a>C#
 
-To obtain the Azure Rate Card, call the [**IAzureRateCard.Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.get) method to return an [**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) resource that contains the Azure prices.
+若要取得 Azure 費率卡，請呼叫[**IAzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.get)方法，以傳回包含 azure 價格的[**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard)資源。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -39,13 +39,13 @@ To obtain the Azure Rate Card, call the [**IAzureRateCard.Get**](https://docs.mi
 var azureRateCard = partner.RateCards.Azure.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetAzureRateCard.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetAzureRateCard.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To obtain the Azure Rate Card, call the **IAzureRateCard.get** function to return rate card details that contains the Azure prices.
+若要取得 Azure 費率卡，請呼叫**IAzureRateCard**函式，以傳回包含 Azure 價格的費率卡片詳細資料。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -57,7 +57,7 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().get();
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To obtain the Azure Card, execute the [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) command to return rate card details that contains the Azure prices.
+若要取得 Azure 卡，請執行[**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md)命令，以傳回包含 Azure 價格的費率卡片詳細資料。
 
 ```powershell
 Get-PartnerAzureRateCard
@@ -69,25 +69,25 @@ Get-PartnerAzureRateCard
 
 | 方法  | 要求 URI                                                        |
 |---------|--------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/ratecards/azure?currency={currency}&region={region} |
+| **獲取** | *{baseURL}* /v1/ratecards/azure？貨幣 = {currency} & 地區 = {region} |
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名稱     | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                                                                                                                               |
+| 名字     | 類型   | 必要 | 說明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | 字串 | 無       | Optional three letter ISO code for the currency in which the resource rates will be provided (e.g. "EUR"). The default is "USD". |
-| region   | 字串 | 無       | Optional two-letter ISO country/region code that indicates the market where the offer is purchased (e.g. "FR"). The default is "US".        |
+| 符號 | string | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如「EUR」）。 預設值為「美元」。 |
+| 區內   | string | 否       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 "FR"）。 預設值為 "US"。        |
 
-You can include the optional X-Locale [header](headers.md#request-headers) in your request. If you don't include the X-Locale header, the default value ("en-US") is used.
-* If you provide currency and region parameters in your request, the value of X-Locale is used to determine the response's language.
-* If you don't provide region and currency parameters in your request, the value of X-Locale is used to determine the response's region, currency and language.
+您可以在要求中包含選擇性的 X 地區設定[標頭](headers.md#request-headers)。 如果您未包含 X 地區設定標頭，則會使用預設值（"en-us"）。
+* 如果您在要求中提供貨幣和區域參數，則會使用 X 地區設定的值來決定回應的語言。
+* 如果您未在要求中提供區域和貨幣參數，則會使用 X 地區設定的值來決定回應的地區、貨幣和語言。
 
 
-### <a name="request-header"></a>要求的標頭
+### <a name="request-header"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
@@ -107,11 +107,11 @@ Connection: Keep-Alive
 ## <a name="response"></a>回應
 
 
-If this is successful, it returns an [Azure Rate Card](azure-rate-card-resources.md) resource.
+如果成功，則會傳回[Azure 費率卡片](azure-rate-card-resources.md)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

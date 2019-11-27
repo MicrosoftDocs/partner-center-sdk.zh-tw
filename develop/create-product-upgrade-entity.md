@@ -1,6 +1,6 @@
 ---
-title: Create a product upgrade entity for a customer
-description: You can use the ProductUpgradeRequest resource to create a product upgrade entity to upgrade a customer to a given product family.
+title: 為客戶建立產品升級實體
+description: 您可以使用 ProductUpgradeRequest 資源來建立產品升級實體，以將客戶升級至指定的產品系列。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,28 +12,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489578"
 ---
-# <a name="create-a-product-upgrade-entity-for-a-customer"></a>Create a product upgrade entity for a customer
+# <a name="create-a-product-upgrade-entity-for-a-customer"></a>為客戶建立產品升級實體
 
 適用於：
 
 - 合作夥伴中心
 
-You can create a product upgrade entity to upgrade a customer to a given product family (for example, Azure plan) using the **ProductUpgradeRequest** resource.
+您可以使用**ProductUpgradeRequest**資源，建立產品升級實體，將客戶升級至指定的產品系列（例如 Azure 方案）。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials. Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.
-- The customer identifier.
-- The product family to which you want to upgrade the customer.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
+- 客戶識別碼。
+- 您要升級客戶的產品系列。
 
 ## <a name="c"></a>C\#
 
-To upgrade a customer to Azure plan:
+若要將客戶升級為 Azure 方案：
 
-1. Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.
-2. Use the **IAggregatePartner.ProductUpgrades** collection.
-3. Call the **Create** method and pass in the **ProductUpgradesRequest** object, which will return a **location header** string.
-4. Extract the **upgrade-id** from the location header string which can be used to [query the upgrade status](get-product-upgrade-status.md).
+1. 建立**ProductUpgradesRequest**物件，並指定客戶識別碼和 "Azure" 做為產品系列。
+2. 使用**iaggregatepartner.customers.byid. ProductUpgrades**集合。
+3. 呼叫**Create**方法並傳入**ProductUpgradesRequest**物件，它會傳回**位置標頭**字串。
+4. 從位置標頭字串（可用來[查詢升級狀態](get-product-upgrade-status.md) **）解壓縮升級識別碼**。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -54,23 +54,23 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1。1 |
 
 #### <a name="request-headers"></a>要求標頭
 
-For more information, see [Partner Center REST headers](headers.md).
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
-The request body must contain a [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) resource.
+要求主體必須包含[ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest)資源。
 
 #### <a name="request-example"></a>要求的範例
 
@@ -93,13 +93,13 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, the response contains a **Location** header that has a URI that can be used to retrieve product upgrade status. Save this URI for use with other related REST APIs.
+如果成功，回應會包含一個**位置**標頭，其具有可用於抓取產品升級狀態的 URI。 儲存此 URI 以與其他相關的 REST Api 搭配使用。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

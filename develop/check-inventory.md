@@ -1,6 +1,6 @@
 ---
-title: Check inventory
-description: Check the inventory for a specific set of catalog items.
+title: 檢查清查
+description: 檢查一組特定目錄專案的清查。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
@@ -13,24 +13,24 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488968"
 ---
-# <a name="check-inventory"></a>Check inventory
+# <a name="check-inventory"></a>檢查清查
 
 適用於：
 
 - 合作夥伴中心
 
-How to check the inventory for a specific set of catalog items.
+如何檢查一組特定目錄專案的清查。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- One or more product IDs. Optionally, SKU IDs can also be specified.
-- Any additional context needed for verifying the inventory of the SKU(s) referenced by the provided product/SKU ID(s). These requirements may vary by type of product/SKU and can be determined from the [SKU's](product-resources.md#sku) **InventoryVariables** property. 
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 一或多個產品識別碼。 或者，也可以指定 SKU 識別碼。
+- 驗證所提供的產品/SKU 識別碼所參考的 SKU 清查所需的任何其他內容。 這些需求可能因產品/SKU 類型而異，而且可以從[SKU 的](product-resources.md#sku) **InventoryVariables**屬性來判斷。 
 
 ## <a name="c"></a>C#
 
 
-To check the inventory, build an [InventoryCheckRequest](product-resources.md#inventorycheckrequest) object using an [InventoryItem](product-resources.md#inventoryitem) object for each item to be checked. Then, use an **IAggregatePartner.Extensions** accessor, scope it down to **Product** and then select the country using the **ByCountry()** method. Finally, call the **CheckInventory()** method with your **InventoryCheckRequest** object.
+若要檢查清查，請針對每個要檢查的專案，使用[InventoryItem](product-resources.md#inventoryitem)物件來建立[InventoryCheckRequest](product-resources.md#inventorycheckrequest)物件。 然後，使用**Iaggregatepartner.customers.byid 擴充**功能存取子，將其範圍細分為**產品**，然後使用**ByCountry （）** 方法選取國家/地區。 最後，使用您的**InventoryCheckRequest**物件來呼叫**CheckInventory （）** 方法。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -55,31 +55,31 @@ var inventoryCheckRequest = new InventoryCheckRequest()
 var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCode).CheckInventory(inventoryCheckRequest);
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory?country={country-code} HTTP/1.1                        |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory？ country = {國家/地區-代碼} HTTP/1。1                        |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-Use the following query parameter to check the inventory.
+使用下列查詢參數來檢查清查。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| country-code           | 字串   | [是]      | A country/region ID.                                            |
+| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
 
 ### <a name="request-headers"></a>要求標頭
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-The inventory request details, consisting of an [InventoryCheckRequest](product-resources.md#inventorycheckrequest) resource containing one or more [InventoryItem](product-resources.md#inventoryitem) resources. 
+清查要求詳細資料，由包含一或多個[InventoryItem](product-resources.md#inventoryitem)資源的[InventoryCheckRequest](product-resources.md#inventorycheckrequest)資源所組成。 
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/extensions/product/checkinventory?country=US HTTP/1.1
@@ -96,21 +96,21 @@ Content-Type: application/json
 
 ## <a name="response"></a>回應
 
-If successful, the response body contains a collection of [InventoryItem](product-resources.md#inventoryitem) objects populated with the restriction details, if any apply.
+如果成功，回應主體會包含已填入限制詳細資料的[InventoryItem](product-resources.md#inventoryitem)物件集合（如果有的話）。
 
 >[!NOTE]
->If an input InventoryItem represents an item that could not be found in the catalog, it will not be included in the output collection.
+>如果輸入 InventoryItem 代表在目錄中找不到的專案，它就不會包含在輸出集合中。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-This method returns the following error codes:
+這個方法會傳回下列錯誤碼：
 
-| HTTP 狀態碼     | 錯誤碼   | 說明                                                                                               |
+| HTTP 狀態碼     | 錯誤碼   | 描述                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2001         | The request body is missing.                                                                              |
-| 400                  | 400026       | A required inventory context item is missing.                                                             |
+| 400                  | 2001         | 遺漏要求主體。                                                                              |
+| 400                  | 400026       | 缺少必要的清查內容專案。                                                             |
 
 ### <a name="response-example"></a>回應範例
 

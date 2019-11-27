@@ -1,6 +1,6 @@
 ---
-title: Get all monthly usage records for a subscription.
-description: You can use the AzureResourceMonthlyUsageRecord resource collection to get a list of services within a customer's subscription and their associated rated usage information.
+title: 取得訂用帳戶的所有每月使用量記錄。
+description: 您可以使用 AzureResourceMonthlyUsageRecord 資源集合來取得客戶訂用帳戶內的服務清單，以及其相關聯的分級使用量資訊。
 ms.assetid: 037D71B9-8E8B-4BC0-8388-9CBC97218CED
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485968"
 ---
-# <a name="get-all-monthly-usage-records-for-a-subscription"></a>Get all monthly usage records for a subscription.
+# <a name="get-all-monthly-usage-records-for-a-subscription"></a>取得訂用帳戶的所有每月使用量記錄。
 
 適用於：
 
@@ -21,23 +21,23 @@ ms.locfileid: "74485968"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You can use the [**AzureResourceMonthlyUsageRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) resource collection to get a list of services within a customer's subscription and their associated rated usage information.
+您可以使用[**AzureResourceMonthlyUsageRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord)資源集合來取得客戶訂用帳戶內的服務清單，以及其相關聯的分級使用量資訊。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**). If you do not have a customer's identifier, you can look up the identifier in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their **Microsoft ID**.
-- A subscription identifier.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（**客戶租使用者 id**）。 如果您沒有客戶的識別碼，您可以從 [customers] 清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft ID**，以在合作夥伴中心查詢識別碼。
+- 訂用帳戶識別碼。
 
-*This API only supports Microsoft Azure (MS-AZR-0145P) subscriptions. If you are using an Azure plan, see [Get usage data for subscription by meter](get-a-customer-subscription-meter-usage-records.md) instead.*
+*此 API 僅支援 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶。如果您使用 Azure 方案，請改[為參閱依計量取得訂用帳戶的使用量資料](get-a-customer-subscription-meter-usage-records.md)。*
 
 ## <a name="c"></a>C\#
 
-To get a subscription's resource usage information:
+若要取得訂用帳戶的資源使用量資訊：
 
-1. Use your **IAggregatePartner.Customers** collection to call the **ById()** method. 
-2. Call the **Subscriptions** property, as well as **UsageRecords**, then the **Resources** property. 
-3. Call the **Get()** or **GetAsync()** methods.
+1. 使用您的**iaggregatepartner.customers.byid. Customers**集合來呼叫**ById （）** 方法。 
+2. 呼叫 [訂用帳戶 **] 屬性，以及 [** **usagerecords 和 resources**] 和 [ **Resources** ] 屬性。 
+3. 呼叫**Get （）** 或**GetAsync （）** 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,40 +47,40 @@ To get a subscription's resource usage information:
 var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).UsageRecords.Resources.Get();
 ```
 
-For an example, see the following:
+如需範例，請參閱下列各項：
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSample**
-- Class: **SubscriptionResourceUsageRecords.cs**
+- 範例：[主控台測試應用程式](console-test-app.md)
+- 專案： **PartnerSDK. FeatureSample**
+- 類別： **SubscriptionResourceUsageRecords.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/usagerecords/resources HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/usagerecords/resources HTTP/1。1 |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
-This table lists the required query parameters to get the rated usage information.
+下表列出所需的查詢參數，以取得評等的使用方式資訊。
 
-| 名稱                    | 在工作列搜尋方塊中輸入     | 必要 | 說明                               |
+| 名稱                    | 類型     | 必要 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **subscription-id** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **客戶-租使用者識別碼**  | **guid** | Y        | 對應至客戶的 GUID。     |
+| **訂用帳戶識別碼** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |
 
 #### <a name="request-headers"></a>要求標頭
 
-For more information, see [Headers](headers.md).
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
 無。
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/usagerecords/resources HTTP/1.1
@@ -90,13 +90,13 @@ MS-RequestId: 65b26053-37d0-4303-9fd1-46ad8012bcb6
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of **AzureResourceMonthlyUsageRecord** resources in the response body.
+如果成功，此方法會在回應主體中傳回**AzureResourceMonthlyUsageRecord**資源的集合。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

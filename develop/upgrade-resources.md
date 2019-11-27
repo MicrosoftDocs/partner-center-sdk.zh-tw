@@ -1,6 +1,6 @@
 ---
-title: Upgrade resources
-description: Describes the resources used to upgrade a user from a source subscription to a target subscription.
+title: 升級資源
+description: 說明用來將使用者從來源訂用帳戶升級至目標訂用帳戶的資源。
 ms.assetid: 869007B3-D6D4-4E79-B4F0-445CA5D88D2C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,76 +13,76 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486278"
 ---
-# <a name="upgrade-resources"></a>Upgrade resources
+# <a name="upgrade-resources"></a>升級資源
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Describes the resources used to upgrade a user from a source subscription to a target subscription.
+說明用來將使用者從來源訂用帳戶升級至目標訂用帳戶的資源。
 
-## <a name="span-idupgradespan-idupgradespan-idupgradeupgrade"></a><span id="Upgrade"/><span id="upgrade"/><span id="UPGRADE"/>Upgrade
+## <a name="span-idupgradespan-idupgradespan-idupgradeupgrade"></a><span id="Upgrade"/><span id="upgrade"/><span id="UPGRADE"/>升級
 
 
-Describes the behavior of an individual upgrade resource.
+描述個別升級資源的行為。
 
-| 屬性      | 在工作列搜尋方塊中輸入                   | 說明                                                                                  |
+| 屬性      | 類型                   | 描述                                                                                  |
 |---------------|------------------------|----------------------------------------------------------------------------------------------|
-| TargetOffer   | 優惠供應                  | The offer of the target subscription.                                                        |
-| UpgradeType   | 字串                 | The type of upgrade: "none", "upgrade\_only", or "upgrade\_with\_license\_transfer".         |
-| IsEligible    | boolean                | Identifies if the upgrade can be performed.                                                  |
-| 數量      | 整數                | The quantify of the new offer to be purchased. Defaults to the source subscription quantity. |
-| UpgradeErrors | array of UpgradeErrors | Reasons the upgrade cannot be performed, if applicable.                                      |
-| 屬性    | ResourceAttributes     | The metadata attributes corresponding to the upgrade.                                        |
+| TargetOffer   | 產品                  | 目標訂用帳戶的供應專案。                                                        |
+| UpgradeType   | 字串                 | 升級的類型： [無]、[僅限升級\_] 或 [使用\_授權\_傳輸的升級\_]。         |
+| isEligible    | 布林值                | 識別是否可以執行升級。                                                  |
+| 數量      | 整數                | 要購買的新供應專案量化。 預設為來源訂用帳戶數量。 |
+| UpgradeErrors | UpgradeErrors 的陣列 | 無法執行升級的原因（如果適用）。                                      |
+| 屬性    | ResourceAttributes     | 對應至升級的中繼資料屬性。                                        |
 
  
 
 ## <a name="span-idupgradeerrorspan-idupgradeerrorspan-idupgradeerrorupgradeerror"></a><span id="UpgradeError"/><span id="upgradeerror"/><span id="UPGRADEERROR"/>UpgradeError
 
 
-Describes a reason why an upgrade cannot be performed.
+描述無法執行升級的原因。
 
-| 屬性          | 在工作列搜尋方塊中輸入               | 說明                                                                                                                                                                                                                                                                                                                                                                                     |
+| 屬性          | 類型               | 描述                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 程式碼              | 字串             | The error code associated with the issue: "other", "delegated\_admin\_permissions\_disabled", "subscription\_status\_not\_active", "conflicting\_service\_types", "concurrency\_conflicts", "user\_context\_required", "subscription\_add\_ons\_present", "subscription\_does\_not\_have\_any\_upgrade\_paths", "subscription\_target\_offer\_not\_found", or "subscription\_not\_provisioned". |
-| 說明       | 字串             | Friendly text describing the error.                                                                                                                                                                                                                                                                                                                                                             |
-| AdditionalDetails | 字串             | Additional details regarding the error.                                                                                                                                                                                                                                                                                                                                                         |
-| 屬性        | ResourceAttributes | The metadata attributes corresponding to the error.                                                                                                                                                                                                                                                                                                                                             |
+| 程式碼              | 字串             | 與問題相關聯的錯誤碼：「其他「，」委派的\_admin\_許可權\_停用」、「訂用帳戶\_狀態\_不\_作用中」、「衝突的\_服務\_類型」、「並行\_的衝突」、「使用者\_內容\_必要」、「訂閱\_新增\_元件\_」、「訂閱\_\_\_\_\_的升級」、「訂用帳戶\_目標\_供應專案\_不\_找到」，或「訂用帳戶\_不\_布建」。\_ |
+| 描述       | 字串             | 描述錯誤的易記文字。                                                                                                                                                                                                                                                                                                                                                             |
+| AdditionalDetails | 字串             | 關於錯誤的其他詳細資料。                                                                                                                                                                                                                                                                                                                                                         |
+| 屬性        | ResourceAttributes | 對應至錯誤的中繼資料屬性。                                                                                                                                                                                                                                                                                                                                             |
 
  
 
 ## <a name="span-idupgraderesultspan-idupgraderesultspan-idupgraderesultupgraderesult"></a><span id="UpgradeResult"/><span id="upgraderesult"/><span id="UPGRADERESULT"/>UpgradeResult
 
 
-Describes a the result of the subscription upgrade process.
+描述訂閱升級程式的結果。
 
-| 屬性             | 在工作列搜尋方塊中輸入                        | 說明                                                                          |
+| 屬性             | 類型                        | 描述                                                                          |
 |----------------------|-----------------------------|--------------------------------------------------------------------------------------|
-| SourceSubscriptionId | 字串                      | The identifier of the source subscription.                                           |
-| TargetSubscriptionID | 字串                      | The identifier of the target subscription.                                           |
-| UpgradeType          | 字串                      | The type of upgrade: "none", "upgrade\_only", or "upgrade\_with\_license\_transfer". |
-| UpgradeErrors        | array of UpgradeErrors      | Errors encountered while attemption to perform the upgrade, if applicable.           |
-| LicenseErrors        | array of UserLicenseErrrors | Errors encountered while attempted to migrate user licenses, if applicable.          |
-| 屬性           | ResourceAttributes          | The metadata attributes corresponding to the license.                                |
+| SourceSubscriptionId | 字串                      | 來源訂用帳戶的識別碼。                                           |
+| TargetSubscriptionID | 字串                      | 目標訂用帳戶的識別碼。                                           |
+| UpgradeType          | 字串                      | 升級的類型： [無]、[僅限升級\_] 或 [使用\_授權\_傳輸的升級\_]。 |
+| UpgradeErrors        | UpgradeErrors 的陣列      | Attemption 執行升級時遇到的錯誤（如果適用）。           |
+| LicenseErrors        | UserLicenseErrrors 的陣列 | 嘗試遷移使用者授權時所發生的錯誤（如果適用）。          |
+| 屬性           | ResourceAttributes          | 對應至授權的中繼資料屬性。                                |
 
  
 
 ## <a name="span-iduserlicenseerrorspan-iduserlicenseerrorspan-iduserlicenseerroruserlicenseerror"></a><span id="UserLicenseError"/><span id="userlicenseerror"/><span id="USERLICENSEERROR"/>UserLicenseError
 
 
-Describes errors arising from failed user license transfer.
+描述因使用者授權傳輸失敗而引發的錯誤。
 
-| 屬性     | 在工作列搜尋方塊中輸入                   | 說明                                                               |
+| 屬性     | 類型                   | 描述                                                               |
 |--------------|------------------------|---------------------------------------------------------------------------|
-| UserObjectId | 字串                 | The unique identified of the user object.                                 |
+| Userobjectid 為 | 字串                 | 使用者物件的唯一識別。                                 |
 | 名稱         | 字串                 | 使用者的名稱。                                                     |
-| 電子郵件        | 字串                 | The email of the user.                                                    |
-| 錯誤       | array of ServiceFaults | A list of exceptions thrown when trying to perform user license transfer. |
-| 屬性   | ResourceAttributes     | The metadata attributes corresponding to the license.                     |
+| 電子郵件        | 字串                 | 使用者的電子郵件。                                                    |
+| 錯誤       | ServiceFaults 的陣列 | 嘗試執行使用者授權傳輸時所擲回的例外狀況清單。 |
+| 屬性   | ResourceAttributes     | 對應至授權的中繼資料屬性。                     |
 
  
 

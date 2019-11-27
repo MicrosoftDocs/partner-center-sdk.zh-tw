@@ -1,6 +1,6 @@
 ---
-title: Update a cart
-description: How to update an order for a customer in a cart.
+title: 更新購物車
+description: 如何更新購物車中的客戶訂單。
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,30 +12,30 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487948"
 ---
-# <a name="update-a-cart"></a>Update a cart
+# <a name="update-a-cart"></a>更新購物車
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
 
-How to update an order for a customer in a cart. 
+如何更新購物車中的客戶訂單。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A Cart ID for an existing cart.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 現有購物車的購物車識別碼。
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update an order for a customer, get the cart using the **Get()** method by passing the customer and cart ID's using the **ById()** function. Make the necessary changes to the cart. Now call the **Put** method by using customer and cart ID's using the **ById()** method.
+若要更新客戶的訂單，請使用**get （）** 方法來取得購物車，其方式是使用**ById （）** 函數傳遞客戶和購物車識別碼。 對購物車進行必要的變更。 現在使用客戶和購物車識別碼，透過**ById （）** 方法來呼叫**Put**方法。
 
-Finally, call the **Put()** or **PutAsync()** method to create the order.
+最後，呼叫**Put （）** 或**PutAsync （）** 方法來建立訂單。
 
 
 
@@ -51,63 +51,63 @@ cart.LineItems.ToArray()[0].Quantity++;
 var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Put(cart);
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
+| **提出** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1。1              |
 
  
 
-**URI parameters**
+**URI 參數**
 
-Use the following path parameters to identify the customer, and specify the cart to be updated.
+使用下列 path 參數來識別客戶，並指定要更新的購物車。
 
-| 名稱            | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                            |
+| 名稱            | 類型     | 必要 | 描述                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | 字串   | [是]      | A GUID formatted customer-id that identifies the customer.             |
-| **cart-id**     | 字串   | [是]      | A GUID formatted cart-id that identifies the cart.                     |
+| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **購物車-識別碼**     | 字串   | 是      | 可識別購物車的 GUID 格式的購物車識別碼。                     |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-This table describes the [Cart](cart-resources.md) properties in the request body.
+下表描述要求主體中的[購物車](cart-resources.md)屬性。
 
-| 屬性              | 在工作列搜尋方塊中輸入             | 必要        | 說明                                                                                               |
+| 屬性              | 類型             | 必要        | 描述                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | 字串           | 無              | A cart identifier that is supplied upon successful creation of the cart.                                  |
-| creationTimeStamp     | DateTime         | 無              | The date the cart was created, in date-time format. Applied upon successful creation of the cart.        |
-| lastModifiedTimeStamp | DateTime         | 無              | The date the cart was last updated, in date-time format. Applied upon successful creation of the cart.    |
-| expirationTimeStamp   | DateTime         | 無              | The date the cart will expire, in date-time format.  Applied upon successful creation of cart.            |
-| lastModifiedUser      | 字串           | 無              | The user who last updated the cart. Applied upon successful creation of cart.                             |
-| lineItems             | Array of objects | [是]             | An Array of [CartLineItem](cart-resources.md#cartlineitem) resources.                                               |
+| id                    | 字串           | 否              | 成功建立購物車時所提供的購物車識別碼。                                  |
+| creationTimeStamp     | DateTime         | 否              | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。        |
+| lastModifiedTimeStamp | DateTime         | 否              | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。    |
+| expirationTimeStamp   | DateTime         | 否              | 購物車將到期的日期，以日期時間格式為限。  已在成功建立購物車時申請。            |
+| lastModifiedUser      | 字串           | 否              | 上次更新購物車的使用者。 已在成功建立購物車時申請。                             |
+| LineItems             | 物件的陣列 | 是             | [CartLineItem](cart-resources.md#cartlineitem)資源的陣列。                                               |
 
 
-This table describes the [CartLineItem](cart-resources.md#cartlineitem) properties in the request body.
+下表描述要求主體中的[CartLineItem](cart-resources.md#cartlineitem)屬性。
 
-| 屬性             | 在工作列搜尋方塊中輸入                        | 必要     | 說明                                                                                        |
+| 屬性             | 類型                        | 必要     | 描述                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| id                   | 字串                      | 無           | A Unique identifier for a cart line item. Applied upon successful creation of cart.                |
-| catalogId            | 字串                      | [是]          | The catalog item identifier.                                                                       |
-| friendlyName         | 字串                      | 無           | 選用。 The friendly name for the item defined by the partner to help disambiguate.              |
-| quantity             | 整數                         | [是]          | The number of licenses or instances.     |
-| currencyCode         | 字串                      | 無           | The currency code.                                                                                 |
-| billingCycle         | 物件                      | [是]          | The type of billing cycle set for the current period.                                              |
-| 參與者         | List of Object String pairs | 無           | A collection of participants on the purchase.                                                      |
-| provisioningContext  | Dictionary<string, string>  | 無           | A context used for provisioning of offer.                                                          |
-| orderGroup           | 字串                      | 無           | A group to indicate which items can be placed together.                                            |
-| 錯誤 (error)                | 物件                      | 無           | Applied after cart is created in case of an error.                                                 |
+| id                   | 字串                      | 否           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                |
+| catalogId            | 字串                      | 是          | 目錄專案識別碼。                                                                       |
+| friendlyName         | 字串                      | 否           | 選用。 由夥伴定義以協助區分的專案易記名稱。              |
+| quantity             | 整數                         | 是          | 授權或實例的數目。     |
+| currencyCode         | 字串                      | 否           | 貨幣代碼。                                                                                 |
+| billingCycle         | 物件                      | 是          | 針對目前期間所設定的計費週期類型。                                              |
+| 參與者         | 物件字串配對的清單 | 否           | 購買的參與者集合。                                                      |
+| provisioningCoNtext  | 字典 < 字串，字串 >  | 否           | 用於布建供應專案的內容。                                                          |
+| orderGroup           | 字串                      | 否           | 用來指出哪些專案可以放在一起的群組。                                            |
+| 錯誤 (error)                | 物件                      | 否           | 在購物車建立後，發生錯誤時套用。                                                 |
 
 
-**Request example**
+**要求範例**
 
 ```http
 PUT /v1/customers/d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d/carts/65faf57b-0205-47ee-92b3-08dcf233ea73/ HTTP/1.1
@@ -147,16 +147,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 回應
 
 
-If successful, this method returns the populated [Cart](cart-resources.md) resource in the response body.
+如果成功，此方法會在回應本文中傳回已填入的[購物車](cart-resources.md)資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 201 Created

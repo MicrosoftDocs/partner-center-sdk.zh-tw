@@ -1,6 +1,6 @@
 ---
-title: CSP Customer Storefront Builder Quick Start Guide
-description: Create an online marketplace to sell cloud solution provider (CSP) offers using the CSP Customer Storefront Builder.
+title: CSP 客戶店面 Builder 快速入門手冊
+description: 建立線上 marketplace，使用 CSP 客戶店面 Builder 來銷售雲端解決方案提供者（CSP）供應專案。
 ms.assetid: 333EE80D-E49E-4E89-87FB-3F02AC48C236
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,80 +13,80 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489728"
 ---
-# <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP Customer Storefront Builder Quick Start Guide
+# <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP 客戶店面 Builder 快速入門手冊
 
 適用於：
 
 - 合作夥伴中心
 
-Create an online marketplace to sell cloud solution provider (CSP) offers by using the CSP Customer Storefront Builder.
+建立線上 marketplace，使用 CSP 客戶店面 Builder 來銷售雲端解決方案提供者（CSP）供應專案。
 
-## <a name="introduction-to-the-csp-customer-storefront-builder"></a>Introduction to the CSP Customer Storefront Builder
+## <a name="introduction-to-the-csp-customer-storefront-builder"></a>CSP 客戶店面 Builder 簡介
 
-The CSP Customer Storefront Builder helps partners easily create an online marketplace to sell CSP offers to their customers. Most partners and small sales organizations want to focus on selling rather than developing an online marketplace. The Partner Center SDK sample app requires software development skills to create and deploy a website. With the CSP Customer Storefront Builder, you can quickly and easily create your own website. You can also download the website as sample code or deploy directly to your Azure subscription with a Ready to Transact website.
+CSP 客戶店面產生器可協助合作夥伴輕鬆地建立線上 marketplace，將 CSP 供應專案銷售給客戶。 大部分的合作夥伴和小型銷售組織都想要專注于銷售，而不是開發線上 marketplace。 合作夥伴中心 SDK 範例應用程式需要軟體發展技能，才能建立及部署網站。 有了 CSP 客戶店面 Builder，您就可以快速且輕鬆地建立自己的網站。 您也可以將網站下載為範例程式碼，或使用準備好交易的網站直接部署到 Azure 訂用帳戶。
 
-This website is fully owned, supported, and maintained by partners, and Microsoft does not collect any data or telemetry from the website. The CSP Customer Storefront Builder creates a website for the partner that is fully compliant with the [Payment Card Industry Data Security Standard](https://www.pcisecuritystandards.org/) (PCI DSS).
+此網站是由合作夥伴完整擁有、支援及維護，而且 Microsoft 不會從網站收集任何資料或遙測。 CSP 客戶店面 Builder 會為合作夥伴建立一個與[支付卡產業資料安全標準](https://www.pcisecuritystandards.org/)（PCI DSS）完全相容的網站。
 
-The CSP Customer Storefront Builder code is subject to the license available in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+CSP 客戶店面產生器程式碼受限於[合作夥伴中心 SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)中提供的授權。
 
 >[!NOTE]
->You are responsible for the storefront website management, maintenance, and any issues that might result from website creation. Read and understand the terms in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+>您必須負責店面網站管理、維護，以及任何可能因網站建立而產生的問題。 閱讀並瞭解[合作夥伴中心 SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)中的條款。
 
-For additional information, also see the following topics: [CSP customer web storefront](csp-customer-web-storefront.md) and [console test app](console-test-app.md).
+如需其他資訊，另請參閱下列主題： [CSP 客戶 web 店面](csp-customer-web-storefront.md)和[主控台測試應用程式](console-test-app.md)。
 
 ## <a name="considerations"></a>考量
 
-The CSP Customer Storefront Builder is intended as a quick way to create a website. Be aware of the following considerations during your planning:
+CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間，請注意下列考慮：
 
-- Once deployed, Microsoft and Partner Center does not maintain a copy of the partner website or any information added into the CSP Customer Storefront Builder.
-- Partner Center can only deploy a CSP Customer Storefront website to a partner's Azure subscriptions.
-- This website, once deployed, is fully owned and managed by the partner. Microsoft does not have access to this website, or any data related to the website. Partners are responsible for maintenance and management of the website. Microsoft will not provide any live website or other support related to the CSP Customer Storefront Builder or any website created by using the CSP Customer Storefront Builder.
-- Partner Center cannot directly access or upgrade this website with new or changed SDK or API features. Any new features or enhancements must be owned, developed, and managed by partners, including adding new Partner Center SDK or API features.
-- This CSP Customer Storefront Builder currently provides the ability to configure payment to a PayPal Pro/PayU Money (for India) account. If partners need to change the payment processor, they will need to change the code to support their preferred payment method.
-- Any payment related information added in the CSP Customer Storefront Builder is not stored or maintained in Partner Center.
-- PayPal payment configuration will work in any geographies where PayPal is available. PayPal availability and support is solely controlled by PayPal, and may be discontinued at any time by PayPal.
-- PayU payment configuration will work only in India currently. PayU availability and support is solely controlled by PayU and may be discontinued at any time by PayU.
-- Read and understand the terms in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+- 一旦部署後，Microsoft 和合作夥伴中心不會維護合作夥伴網站的複本，或任何新增至 CSP 客戶店面建立器的資訊。
+- 合作夥伴中心只能將 CSP 客戶店面網站部署至合作夥伴的 Azure 訂用帳戶。
+- 此網站一經部署，就完全由合作夥伴所擁有及管理。 Microsoft 無法存取此網站或任何與網站相關的資料。 合作夥伴負責維護及管理網站。 Microsoft 不會提供任何即時網站或其他與 CSP 客戶店面建立者相關的支援，或使用 CSP 客戶店面產生器所建立的任何網站。
+- 合作夥伴中心無法使用新的或已變更的 SDK 或 API 功能，直接存取或升級此網站。 所有新功能或增強功能都必須由合作夥伴所擁有、開發及管理，包括新增合作夥伴中心 SDK 或 API 功能。
+- 此 CSP 客戶店面產生器目前提供設定 PayPal Pro/PayU Money （印度）帳戶付款的功能。 如果合作夥伴需要變更付款處理器，他們將需要變更程式碼，以支援其慣用的付款方法。
+- CSP 客戶店面產生器中新增的任何付款相關資訊，都不會儲存或保留在合作夥伴中心。
+- PayPal 付款設定適用于任何可使用 PayPal 的地理位置。 PayPal 可用性和支援僅由 PayPal 控制，並可隨時因 PayPal 而中止。
+- PayU 付款設定目前僅適用于印度。 PayU 可用性和支援僅由 PayU 控制，並可在 PayU 時隨時停止。
+- 閱讀並瞭解[合作夥伴中心 SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)中的條款。
 
-## <a name="using-the-csp-customer-storefront-builder"></a>Using the CSP Customer Storefront Builder
+## <a name="using-the-csp-customer-storefront-builder"></a>使用 CSP 客戶店面 Builder
 
-CSP partner admins on Partner Center can deploy a CSP Customer Storefront directly from Partner Center. With minimal effort, a new website can be deployed on the partner's tenant. Once deployed, partners can use the website to configure branding, offers, and payment-related information, and then share the website URL address with customers.
+合作夥伴中心的 CSP 合作夥伴管理員可以直接從合作夥伴中心部署 CSP 客戶店面。 有了最少的工作，就可以在合作夥伴的租使用者上部署新的網站。 一旦部署後，合作夥伴可以使用網站來設定商標、供應專案和付款相關資訊，然後與客戶共用網站 URL 位址。
 
-The process for creating a storefront website is to:
+建立店面網站的流程是：
 
-1. [Deploy the website](#deploy)
-2. [Configure the storefront](#configure)
-3. [Transact on the storefront](#transact)
+1. [部署網站](#deploy)
+2. [設定店面](#configure)
+3. [店面上的交易](#transact)
 
 ### <a name="deploy"></a>部署
 
 部署選項：
 
-- Deploy your website from Partner Center
-- Integrate with Azure to deploy the configured website
-- Deploy on an existing subscription or bring your own subscription
+- 從合作夥伴中心部署您的網站
+- 與 Azure 整合以部署已設定的網站
+- 在現有的訂用帳戶上部署或攜帶您自己的訂用帳戶
 
 ### <a name="configure"></a>設定
 
-No development skills are required to customize a storefront.
+自訂店面不需要任何開發技能。
 
-Log in with your Partner Center admin credentials to configure:
+使用您的合作夥伴中心系統管理員認證登入，以設定：
 
-- **Branding**: company name, logo, contacts, and more.
-- **Offers**: view all CSP offers. You can select which offers your customers can view and purchase. You can also personalize offer information and add your price.
-- **PayPal payment configuration**: add your PayPal payment account information. If you don't have a PayPal account, you can visit <https://www.paypal.com> and create a new account. This account will be used for PayPal to credit the payments made by customers. *Microsoft is not responsible for the relationship between partners and PayPal. Use of PayPal may require the partner or partner's customers to agree to additional terms.*
-- (*For India*) **PayU Payment configuration**: add your PayU Money payment account information. If you don't have a PayU Money account, you can visit <https://www.payumoney.com/> and create a new account. This account will be used for PayU to credit the payments made by customers. *Microsoft is not responsible for the relationship between partners and PayU. Use of PayU may require the partner or partner's customers to agree to additional terms.*
+- **商標**：公司名稱、標誌、連絡人等等。
+- 供應**專案：查看**所有 CSP 供應專案。 您可以選取您的客戶可以查看和購買的供應專案。 您也可以將供應專案資訊個人化，並增加您的價格。
+- **Paypal 付款**設定：新增您的 PayPal 付款帳戶資訊。 如果您沒有 PayPal 帳戶，可以造訪 <https://www.paypal.com> 並建立新的帳戶。 此帳戶將用於 PayPal，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayPal 之間的關係概不負責。使用 PayPal 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
+- （*印度*）**PayU 付款**設定：新增您的 PayU Money 付款帳戶資訊。 如果您沒有 PayU Money 帳戶，可以造訪 <https://www.payumoney.com/> 並建立新的帳戶。 此帳戶將用於 PayU，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayU 之間的關係概不負責。使用 PayU 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
 
-### <a name="transact"></a>Transact
+### <a name="transact"></a>辦理
 
-- After deployment, customers can immediately purchase and transact.
-- Customers can buy directly from the partner portal integrated with the Partner Center SDK.
+- 部署之後，客戶可以立即購買和交易。
+- 客戶可以直接從與合作夥伴中心 SDK 整合的合作夥伴入口網站購買。
 
-#### <a name="customer-countries"></a>Customer countries
+#### <a name="customer-countries"></a>客戶國家/地區
 
-Customers can belong to these countries:
+客戶可以隸屬于這些國家/地區：
 
-| 國碼 (地區碼) | Country Name   |
+| 國碼 (地區碼) | 國家/地區名稱   |
 |--------------|----------------|
 | AU           | 澳大利亞      |
 | AT           | 奧地利        |
@@ -109,7 +109,7 @@ Customers can belong to these countries:
 | IT           | 義大利          |
 | JP           | 日本          |
 | LV           | 拉脫維亞         |
-| LI           | 列支敦斯登  |
+| L           | 列支敦斯登  |
 | LT           | 立陶宛      |
 | LU           | 盧森堡     |
 | MT           | 馬爾他          |
@@ -117,7 +117,7 @@ Customers can belong to these countries:
 | NL           | 荷蘭    |
 | NZ           | 紐西蘭    |
 | 否           | 挪威         |
-| PO           | 波蘭         |
+| 郵政           | 波蘭         |
 | PT           | 葡萄牙       |
 | RO           | 羅馬尼亞        |
 | SK           | 斯洛伐克       |
@@ -130,98 +130,98 @@ Customers can belong to these countries:
 
 ### <a name="additional-resources"></a>其他資源
 
-To enhance or customize your CSP Customer Storefront:
+若要增強或自訂您的 CSP 客戶店面：
 
-- Download the [Partner Center storefront sample code](https://github.com/Microsoft/Partner-Center-Storefront) make additional customizations.
-- Use Microsoft Visual Studio 2015 (or later) to develop.
-- Build for additional changes and enhancements (including authorizations, certifications, manifest changes, and other items).
+- 下載[合作夥伴中心店面範例程式碼](https://github.com/Microsoft/Partner-Center-Storefront)以進行其他自訂。
+- 使用 Microsoft Visual Studio 2015 （或更新版本）進行開發。
+- 建立額外的變更和增強功能（包括授權、認證、資訊清單變更和其他專案）。
 
-## <a name="partner-experience-scenarios"></a>Partner experience scenarios
+## <a name="partner-experience-scenarios"></a>合作夥伴體驗案例
 
 ### <a name="deployment-scenario"></a>部署案例
 
-- A partner admin can use Partner Center to deploy the website. In Account settings, choose **Web storefront** to deploy a new website.
-- On this page, partners can see the availability of a new site name and change it (if available).
-- This page shows all active Azure subscriptions associated to this partner tenant and that a partner can choose to use to deploy the website.
-- If a partner does not have an active subscription associated to this Partner Center account, they can add this account as an admin to an existing Azure subscription, and refresh to see that subscription in this list.
-- Partners choose the data center location where this website will be deployed.
-- The **Deploy your store** link will deploy this new website based on the information provided and show the URL.
-- Be sure to copy this URL as Partner Center does not maintain the state or history of these websites. If you close the browser page, you will lose the website name.
-- During deployment, the website will be deployed with the web app credentials created in Partner Center. If you did not register a web app, this will be registered during deployment.
+- 合作夥伴系統管理員可以使用合作夥伴中心來部署網站。 在 [帳戶設定] 中，選擇 [ **Web 店面**] 部署新的網站。
+- 在此頁面上，合作夥伴可以查看新網站名稱的可用性，並加以變更（如果有的話）。
+- 此頁面會顯示與此合作夥伴租使用者相關聯的所有作用中 Azure 訂用帳戶，以及合作夥伴可以選擇用來部署網站的訂用帳戶。
+- 如果合作夥伴沒有與此合作夥伴中心帳戶相關聯的作用中訂用帳戶，他們可以將此帳戶新增為現有 Azure 訂用帳戶的系統管理員，然後重新整理以在此清單中看到該訂用帳戶。
+- 合作夥伴會選擇要部署此網站的資料中心位置。
+- [**部署您的存放區**] 連結會根據所提供的資訊來部署這個新網站，並顯示 URL。
+- 請務必複製此 URL，因為合作夥伴中心不會維護這些網站的狀態或歷程記錄。 如果您關閉瀏覽器頁面，將會遺失網站名稱。
+- 在部署期間，將會使用在合作夥伴中心建立的 web 應用程式認證來部署網站。 如果您沒有註冊 web 應用程式，這會在部署期間註冊。
 
-### <a name="configuration-scenario"></a>Configuration scenario
+### <a name="configuration-scenario"></a>設定案例
 
-- The newly created website is linked to a partner tenant and has access to all admin accounts of this partner tenant.
-  -Partners can log in to this new website using their Partner Center admin credentials.
-- The storefront application currently supports French, Spanish, Dutch, German, Japanese and English. (English serves as the fallback language.)
-  - The storefront configures the locale by using the partner's default locale from the partner's profile in the Partner Center. This locale is used to configure currencies, date formats, and localized offers in the repository.
-- Partners can configure branding, offers and PayPal or PayU (for India) payment information.
-- Partners can update the company name, company logo, header image, sales and support contacts and more.
-- Partners can see all CSP offers available based on their territory.
-  - Partners can choose which offers they want to show to all of their customers.
-  - A CSP partner can select one or more offers and update the name, quantity, feature description, and price.
-  - The price is the annual price. Customers subscribe annually.
-- Partners can at any time configure pre-approved transactions for (a) all current and future customers OR (b) specific customers.
-  - Pre-approved customers are not required to pay on the portal when they add new subscriptions, purchase additional seats to existing subscriptions, or renew a subscription.
-  - Pre-approved customers will not be redirected to PayPal or PayU (for India) for payment during these transactions.
-  - Pre-approved customer transactions allow a partner to perform offline billing and invoicing to their pre-approved customers.
-- A CSP partner can input their PayPal account information such as PayPal Client ID and secret. A CSP partner can also select whether they want to test using a sandbox or a live account.
-  - Partners can find this information on <https://developer.paypal.com/> in **my apps & credentials**. You can also get this information from a current app or by creating a new app in PayPal.
-  - Create a new PayPal account if you don't already have one. This account will be used for PayPal to credit the payments made by customers.
-    - To open a PayPal business account, see <https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register>.
-    - To create a PayPal sandbox account see <https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/>.
-- (For India) a CSP partner can input their PayU Money account information such as PayU Client ID and password. Partners can find more information on <https://developer.payumoney.com/>.
-  - Create a new PayU Money account if you don't already have one. To open a PayU Money account, visit <https://www.payumoney.com/merchant-account/#/>. This account will be used for PayU to credit the payments made by customers.
+- 新建立的網站會連結至合作夥伴租使用者，並可存取此合作夥伴租使用者的所有系統管理員帳戶。
+  -合作夥伴可以使用合作夥伴中心的系統管理員認證來登入這個新網站。
+- 店面應用程式目前支援法文、西班牙文、荷蘭文、德文、日文和英文。 （英文作為備用語言）。
+  - 店面會使用合作夥伴在合作夥伴中心的設定檔中的預設地區設定，來設定地區設定。 此地區設定是用來在存放庫中設定貨幣、日期格式和當地語系化的供應專案。
+- 合作夥伴可以設定商標、供應專案和 PayPal 或 PayU （印度）付款資訊。
+- 合作夥伴可以更新 [公司名稱]、[公司標誌]、[標頭影像]、[銷售] 和 [支援連絡人] 等等。
+- 合作夥伴可以根據其領域查看所有可用的 CSP 供應專案。
+  - 合作夥伴可以選擇他們想要對所有客戶顯示的供應專案。
+  - CSP 合作夥伴可以選取一或多個供應專案，並更新名稱、數量、功能描述和價格。
+  - 價格為年度費用。 客戶每年訂閱。
+- 合作夥伴隨時都可以為（a）所有目前和未來的客戶或（b）特定客戶設定預先核准的交易。
+  - 預先核准的客戶在新增訂閱、向現有訂用帳戶購買額外的基座或續訂訂閱時，不需要在入口網站上付費。
+  - 預先核准的客戶將不會被重新導向至 PayPal 或 PayU （印度），以便在這些交易期間進行付款。
+  - 預先核准的客戶交易可讓合作夥伴對預先核准的客戶執行離線計費和發票處理。
+- CSP 合作夥伴可以輸入其 PayPal 帳戶資訊，例如 PayPal 用戶端識別碼和密碼。 CSP 合作夥伴也可以選取要使用沙箱或 live 帳戶進行測試。
+  - 合作夥伴可以在 **& 認證的應用程式**<https://developer.paypal.com/> 中找到這項資訊。 您也可以從目前的應用程式取得這項資訊，或在 PayPal 中建立新的應用程式。
+  - 建立新的 PayPal 帳戶（如果您還沒有的話）。 此帳戶將用於 PayPal，以取得客戶的付款。
+    - 若要開啟 PayPal 企業帳戶，請參閱 <https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register>。
+    - 若要建立 PayPal 沙箱帳戶，請參閱 <https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/>。
+- （印度） CSP 合作夥伴可以輸入其 PayU Money 帳戶資訊，例如 PayU 用戶端識別碼和密碼。 合作夥伴可以在 <https://developer.payumoney.com/>中找到詳細資訊。
+  - 建立新的 PayU Money 帳戶（如果您還沒有的話）。 若要開啟 PayU Money 帳戶，請造訪 <https://www.payumoney.com/merchant-account/#/>。 此帳戶將用於 PayU，以取得客戶的付款。
 
-## <a name="customer-experience-scenarios"></a>Customer experience scenarios
+## <a name="customer-experience-scenarios"></a>客戶體驗案例
 
-### <a name="new-customer-signup-scenario"></a>New customer signup scenario
+### <a name="new-customer-signup-scenario"></a>新客戶註冊案例
 
-- By default, the website is publicly available and shows the partner's catalog on the homepage.
-- Customers can now belong to a large number of [customer countries](#customer-countries).
-- The focus has been on the European Free Trade Association (EFTA) countries, North America, Japan, India, Australia, and New Zealand regions.
-  - This feature uses the regional authorization support in the Partner Center SDK.
-- Customers can select an offer from the catalog to purchase.
-  - They can add their customer name, address, and domain related information.
-- Customers will be directed to the PayPal or PayU (for India) checkout experience. Customers can provide payment using either:
-  - Their existing PayPal or PayU (for India) account
-  - Funding instruments supported in their country by PayPal or PayU (for India). These may include credit cards, debit cards and bank accounts as applicable.
-- A customer tenant is created for this customer. After successful creation of the tenant order, customers are provided the account username, password and subscription details.
-  - Customers can save the username and password to stay logged in for further purchases.
-  - Each subscription is purchased for a year and customers can renew in the 30 days prior to the subscription end date.
+- 根據預設，網站可公開使用，並在首頁上顯示合作夥伴的目錄。
+- 客戶現在可以屬於大量的[客戶國家/地區](#customer-countries)。
+- 重點在於歐洲自由貿易聯盟（EFTA）國家/地區、北美洲、日本、印度、澳大利亞和紐西蘭地區。
+  - 這項功能會使用合作夥伴中心 SDK 中的區域授權支援。
+- 客戶可以從要購買的類別目錄中選取供應專案。
+  - 他們可以新增其客戶名稱、位址和網域相關資訊。
+- 客戶將會被導向至 PayPal 或 PayU （印度）結帳的經驗。 客戶可以使用下列其中一種方式來提供付款：
+  - 其現有的 PayPal 或 PayU （適用于印度）帳戶
+  - 由 PayPal 或 PayU （印度）在其國家/地區支援的資金補助。 這些可能包括信用卡、金融卡和銀行帳戶（適用的話）。
+- 會為此客戶建立客戶租使用者。 成功建立租使用者訂單之後，系統會提供客戶使用者名稱、密碼和訂用帳戶詳細資料。
+  - 客戶可以儲存使用者名稱和密碼以保持登入，以供進一步購買。
+  - 每個訂用帳戶會購買一年，而客戶可以在訂用帳戶結束日期之前的30天內更新。
 
-### <a name="view-prior-purchases-scenario"></a>View prior purchases scenario
+### <a name="view-prior-purchases-scenario"></a>查看先前購買案例
 
-- Customer signs in with Customer tenant username and password and goes to the **My Orders** section.
-- Customers can navigate to the **My Orders** page where they can view purchased subscriptions and make updates if required.
-- Customers can navigate to the **My Subscriptions** page where they can view all subscriptions (license-based as well as usage-based), including those maintained in Partner Center.
+- 客戶可以使用客戶租使用者使用者名稱和密碼登入，並移至 [**我的訂單**] 區段。
+- 客戶可以流覽至 [**我的訂單**] 頁面，他們可以在其中查看已購買的訂閱，並在必要時進行更新。
+- 客戶可以流覽至 [**我的訂閱**] 頁面，他們可以在其中查看所有訂用帳戶（授權型和以使用量為基礎），包括在合作夥伴中心維護的訂閱。
 
-### <a name="add-seats-to-existing-subscriptions-scenario"></a>Add seats to existing subscriptions scenario
+### <a name="add-seats-to-existing-subscriptions-scenario"></a>將基座新增至現有的訂用帳戶案例
 
-- From the **My Orders** section, customers can add more seats to existing subscriptions. Customers can add more seats anytime during a subscription year.
-- Each added seat does not change the end date of the subscription. However, the price of the subscription changes based on the date on which you add the seat, and where that date is in the year. Pricing is prorated on a daily basis to only charge for the remaining days of the year.
+- 從 [**我的訂單**] 區段中，客戶可以將更多基座新增至現有的訂用帳戶。 客戶可以在訂閱年度期間隨時新增更多基座。
+- 每個新增的基座都不會變更訂用帳戶的結束日期。 不過，訂用帳戶的價格會根據您新增基座的日期，以及該日期在年份中的位置而變更。 定價會按日按比例計費，只收取一年的剩餘天數。
 
-### <a name="add-more-subscriptions-scenario"></a>Add more subscriptions scenario
+### <a name="add-more-subscriptions-scenario"></a>新增更多訂閱案例
 
-- Customers can buy any number of subscriptions at any time from the **Add subscriptions** section under **My Orders**.
-- A customer can select a subscription, add a quantity, and pay to complete the transaction and start using the subscription immediately. If a customer is a pre-approved customer, the subscription is available for use immediately and an invoice will be sent to the customer for payment.
+- 客戶可以隨時從 [**我的訂單**] 底下的 [**新增**訂用帳戶] 區段購買任意數目的訂閱。
+- 客戶可以選取訂用帳戶、新增數量，並支付完成交易的費用，並立即開始使用訂用帳戶。 如果客戶是預先核准的客戶，訂用帳戶就可以立即使用，而發票會傳送給客戶進行付款。
 
-### <a name="renew-subscription-scenario"></a>Renew subscription scenario
+### <a name="renew-subscription-scenario"></a>續訂訂閱案例
 
-- A customer can renew a subscription during the last 30 days prior to the subscription end date.
-- This is available only in the last 30 days.
-- If not renewed in last 30 days, the subscription will be removed from the list of subscriptions for this Customer tenant.
-- You cannot update the quantity during renewal.
+- 客戶可以在訂用帳戶結束日期之前的30天內更新訂用帳戶。
+- 這僅適用于過去30天。
+- 如果未在過去30天內更新，則會從這個客戶租使用者的訂用帳戶清單中移除訂用帳戶。
+- 您無法在續約期間更新數量。
 
-### <a name="payments-scenario"></a>Payments scenario
+### <a name="payments-scenario"></a>付款案例
 
-- If the customer is pre-approved for transactions by the admin, the payment experience is not presented for the above scenarios. Instead, the partner can send the invoice for payment to the pre-approved customer.
-- For all new purchases, you can add more seats, add subscriptions and renew. A customer can pay a partner using this website through PayPal or PayU (for India).
-- This website is integrated with PayPal or PayU (for India) and allows partners to accept payments from their customers. PayPal or PayU (for India) credits this amount in a partner's account. PayPal or PayU (for India) Bank account management is outside of this website and is managed on PayPal.com or PayUmoney.com respectively.
-- This is dependent on partners configuring their PayPal orPayU (for India) payment configuration at PayPal.com or PayUmoney.com. Microsoft does not save this information or actual payment transactions resulting from the use of this option.
+- 如果客戶已預先核准系統管理員的交易，則不會針對上述案例顯示付款體驗。 相反地，合作夥伴可以將付款的發票傳送給預先核准的客戶。
+- 針對所有新購買專案，您可以新增更多基座、新增訂閱和續訂。 客戶可以透過 PayPal 或 PayU （印度）使用此網站來支付合作夥伴。
+- 此網站已與 PayPal 或 PayU （印度）整合，並可讓合作夥伴接受其客戶的付款。 PayPal 或 PayU （印度）會在合作夥伴的帳戶中取得此金額的信用額度。 PayPal 或 PayU （適用于印度）銀行帳戶管理不在此網站的範圍內，而且會分別在 PayPal.com 或 PayUmoney.com 上管理。
+- 這取決於在 PayPal.com 或 PayUmoney.com 設定其 PayPal orPayU （印度）付款設定的夥伴。 Microsoft 不會儲存此資訊，或使用此選項所產生的實際付款交易。
 
-### <a name="prorated-pricing-scenario"></a>Prorated pricing scenario
+### <a name="prorated-pricing-scenario"></a>按比例計算的定價案例
 
-- This website supports prorated pricing in cases when customers add more seats to an existing subscription.
-- Each subscription expires after one year and cannot be changed after the subscription is purchased.
-- The end date of the subscription will not change by adding additional seats. Customers will be charged for the remaining number of days until the end date. For example, if on day one the subscription cost is $365, and you add one more seat on day two, the price for new seat will be $364. If you add one more 10 days later, the price will be $354.
+- 當客戶在現有的訂用帳戶中新增更多基座時，此網站支援按比例計算的價格。
+- 每個訂用帳戶會在一年後到期，且在購買訂閱之後就無法變更。
+- 新增額外基座不會變更訂用帳戶的結束日期。 客戶會在結束日期之前的剩餘天數向您收費。 例如，如果第一天的訂用帳戶成本為 $365，而您在第二天增加了一個基座，新基座的價格將會是 $364。 如果您稍後再新增一個10天，價格將會是 $354。

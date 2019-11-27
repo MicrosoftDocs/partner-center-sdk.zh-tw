@@ -1,6 +1,6 @@
 ---
-title: Conversions resources
-description: Conversion resources support the conversion of a trial subscription to a paid subscription.
+title: 轉換資源
+description: 轉換資源支援將試用訂閱轉換成付費訂用帳戶。
 ms.assetid: 4AE796E3-47D9-428B-8267-A5247B573E0C
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488898"
 ---
-# <a name="conversions-resources"></a>Conversions resources
+# <a name="conversions-resources"></a>轉換資源
 
 適用於：
 
@@ -22,36 +22,36 @@ ms.locfileid: "74488898"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Conversion resources support the conversion of a trial subscription to a paid subscription.
+轉換資源支援將試用訂閱轉換成付費訂用帳戶。
 
 ## <a name="conversion"></a>轉換
 
-Contains information used to convert a trial subscription to a paid subscription.
+包含用來將試用訂閱轉換成付費訂用帳戶的資訊。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| offerId | 字串 | The offer identifier of the original, trial offer. |
-| targetOfferId | 字串 | The offer identifier for the target offer. |
-| orderId | 字串 | The order identifier. |
-| quantity | 整數 | The number of licenses. The default is the number of licenses in the trial subscription. |
-| billingCycle | 字串 | Indicates how often the partner is charged for the subscription. Possible values: **Monthly** (partner is billed monthly), **Annual** (partner is billed annually), or **None** (Partner isn't billed. Used for trial subscriptions). |
+| offerId | 字串 | 原始試用版供應專案的供應專案識別碼。 |
+| targetOfferId | 字串 | 目標供應專案的供應專案識別碼。 |
+| orderId | 字串 | 訂單識別碼。 |
+| quantity | 整數 | 授權的數目。 預設值為試用訂用帳戶中的授權數目。 |
+| billingCycle | 字串 | 表示訂用帳戶的交易夥伴收費頻率。 可能的值： [**每月**] （夥伴依月計費）、[**年度**] （合作夥伴會以每年計費）或 [**無**] （不計費合作夥伴）。 用於試用訂閱）。 |
 
 ## <a name="conversionerror"></a>ConversionError
 
-Represents an error that occurred during conversion.
+表示在轉換期間發生的錯誤。
 
-| 屬性 | 在工作列搜尋方塊中輸入 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| code | 字串 | The error code associated with the issue. Possible values: **Other** (general error), **ConversionsNotFound** (can't find any conversions for the trial subscription to convert to).
-| 描述 | 字串 | The friendly text describing the issue. |
+| code | 字串 | 與問題相關聯的錯誤碼。 可能的值： [**其他**（一般錯誤）]、[ **ConversionsNotFound** ] （若要轉換為試用訂用帳戶，則找不到任何轉換）。
+| description | 字串 | 描述問題的易記文字。 |
 
 ## <a name="conversionresult"></a>ConversionResult
 
-Represents the result of performing a subscription conversion.
+表示執行訂閱轉換的結果。
 
-| 屬性       | 在工作列搜尋方塊中輸入                                | 說明                                                            |
+| 屬性       | 類型                                | 描述                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
-| subscriptionId | 字串                              | The subscription identifier.                                           |
-| offerId        | 字串                              | The original offer identifier.                                         |
-| targetOfferId  | 字串                              | The offer identifier for the target offer.                             |
-| 錯誤 (error)          | [ConversionError](#conversionerror) | The error encountered while attempting the conversion, if applicable.. |
+| 訂閱 | 字串                              | 訂用帳戶識別碼。                                           |
+| offerId        | 字串                              | 原始供應專案識別碼。                                         |
+| targetOfferId  | 字串                              | 目標供應專案的供應專案識別碼。                             |
+| 錯誤 (error)          | [ConversionError](#conversionerror) | 嘗試轉換時所發生的錯誤（如果適用的話）。 |

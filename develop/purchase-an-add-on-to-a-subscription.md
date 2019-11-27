@@ -1,6 +1,6 @@
 ---
-title: Purchase an add-on to a subscription
-description: How to purchase an add-on to an existing subscription.
+title: 購買訂用帳戶的附加元件
+description: 如何購買現有訂用帳戶的附加元件。
 ms.assetid: 743520E5-0501-4403-B977-5E6D3E32DEC3
 ms.date: 11/29/2018
 ms.service: partner-dashboard
@@ -13,43 +13,43 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486748"
 ---
-# <a name="span-idpc_apiv2purchase_an_add-on_to_a_subscriptionpurchase-an-add-on-to-a-subscription"></a><span id="pc_apiv2.purchase_an_add-on_to_a_subscription"/>Purchase an add-on to a subscription
+# <a name="span-idpc_apiv2purchase_an_add-on_to_a_subscriptionpurchase-an-add-on-to-a-subscription"></a><span id="pc_apiv2.purchase_an_add-on_to_a_subscription"/>購買訂用帳戶的附加元件
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to purchase an add-on to an existing subscription.
+如何購買現有訂用帳戶的附加元件。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID. This is the existing subscription for which to purchase an add-on offer.
-- An offer ID that identifies the add-on offer to purchase.
-
-## <a name="span-idpurchasing_an_add-on_through_codespan-idpurchasing_an_add-on_through_codespan-idpurchasing_an_add-on_through_codepurchasing-an-add-on-through-code"></a><span id="Purchasing_an_add-on_through_code"/><span id="purchasing_an_add-on_through_code"/><span id="PURCHASING_AN_ADD-ON_THROUGH_CODE"/>Purchasing an add-on through code
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-When you purchase an add-on to a subscription you are updating the original subscription order with the order for the add-on. In the following, customerId is the customer ID, subscriptionId is the subscription ID, and addOnOfferId is the offer ID for the add-on.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 訂用帳戶識別碼。 這是要購買附加元件供應專案的現有訂用帳戶。
+- 識別要購買之附加元件的供應專案識別碼。
 
-Here are the steps:
+## <a name="span-idpurchasing_an_add-on_through_codespan-idpurchasing_an_add-on_through_codespan-idpurchasing_an_add-on_through_codepurchasing-an-add-on-through-code"></a><span id="Purchasing_an_add-on_through_code"/><span id="purchasing_an_add-on_through_code"/><span id="PURCHASING_AN_ADD-ON_THROUGH_CODE"/>透過程式碼購買附加元件
 
-1.  Get an interface to the operations for the subscription.
+
+當您購買訂用帳戶的附加元件時，您會以附加元件的順序來更新原始訂閱順序。 在下列中，customerId 是客戶識別碼，subscriptionId 是訂用帳戶識別碼，而 addOnOfferId 是附加元件的供應專案識別碼。
+
+步驟如下：
+
+1.  取得訂用帳戶作業的介面。
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2.  Use that interface to instantiate a subscription object. This gets you the parent subscription details, including the order id.
+2.  使用該介面來具現化訂用帳戶物件。 這會取得父訂用帳戶的詳細資料，包括訂單識別碼。
     ``` csharp
     var parentSubscription = subscriptionOperations.Get();
     ```
 
-3.  Instantiate a new [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) object. This order instance is used to update the original order used to purchase the subscription. Add a single line item to the order that represents the add-on.
+3.  具現化新的[**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order)物件。 此訂單實例用來更新用來購買訂用帳戶的原始訂單。 將單行專案新增至代表附加元件的順序。
     ``` csharp
     var orderToUpdate = new Order()
     {
@@ -68,7 +68,7 @@ Here are the steps:
     };
     ```
 
-4.  Update the original order for the subscription with the new order for the add-on.
+4.  以附加元件的新訂單，更新訂用帳戶的原始訂單。
     ``` csharp
     Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(parentSubscription.OrderId).Patch(orderToUpdate);
     ```
@@ -76,9 +76,9 @@ Here are the steps:
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To purchase an add-on, begin by obtaining an interface to the subscription operations by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and the [**Subscriptions.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method to identify the subscription that has the add-on offer. Use that [**interface**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) to retrieve the subscription details by calling [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get). Why do you need the subscription details? Because you need the order id of the subscription order. That's the order to be updated with the add-on.
+若要購買附加元件，請先呼叫[**iaggregatepartner.customers.byid 的 ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來識別客戶，然後使用[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法來識別具有附加元件供應專案的訂用帳戶，以取得訂用帳戶作業的介面。 使用該[**介面**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription)，藉由呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get)來抓取訂用帳戶詳細資料。 為什麼需要訂用帳戶的詳細資料？ 因為您需要訂用帳戶訂單的訂單識別碼。 這就是使用附加元件更新的順序。
 
-Next, instantiate a new [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) object and populate it with a single [**LineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) instance that contains the information to identify the add-on, as shown in the following code snippet. You'll use this new object to update the subscription order with the add-on. Finally, call the [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch) method to update the subscription order, after first identifying the customer with [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) and the order with [**Orders.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid).
+接下來，將新的[**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order)物件具現化，並以包含用來識別附加元件資訊的單一[**LineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem)實例填入它，如下列程式碼片段所示。 您將使用這個新物件，以附加元件來更新訂閱順序。 最後，在第一次使用[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)客戶和訂單[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)之後，呼叫[**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch)方法來更新訂用帳戶訂單。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -114,68 +114,68 @@ var orderToUpdate = new Order()
 Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(parentSubscription.OrderId).Patch(orderToUpdate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: AddSubscriptionAddOn.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： AddSubscriptionAddOn.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法    | 要求 URI                                                                                              |
 |-----------|----------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
  
 
-**URI parameters**
+**URI 參數**
 
-Use the following parameters to identify the customer and order.
+使用下列參數來識別客戶和訂單。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                        |
+| 名稱                   | 類型     | 必要 | 描述                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that identifies the customer. |
-| **order-id**           | **guid** | Y        | The order identifier.                                                              |
+| **客戶-租使用者識別碼** | **guid** | Y        | 此值是可識別客戶的 GUID 格式**客戶租使用者識別碼**。 |
+| **訂單識別碼**           | **guid** | Y        | 訂單識別碼。                                                              |
 
  
 
-**Request headers**
+**要求標頭**
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-The following tables describe the properties in the request body.
+下表描述要求主體中的屬性。
 
-## <a name="span-idorderspan-idorderspan-idorderorder"></a><span id="Order"/><span id="order"/><span id="ORDER"/>Order
+## <a name="span-idorderspan-idorderspan-idorderorder"></a><span id="Order"/><span id="order"/><span id="ORDER"/>順序
 
 
-| 名稱                | 在工作列搜尋方塊中輸入             | 必要 | 說明                                          |
+| 名稱                | 類型             | 必要 | 描述                                          |
 |---------------------|------------------|----------|------------------------------------------------------|
-| Id                  | 字串           | N        | The order ID.                                        |
-| ReferenceCustomerId | 字串           | Y        | The customer ID.                                     |
-| LineItems           | array of objects | Y        | An array of [OrderLineItem](#orderlineitem) objects. |
-| CreationDate        | 字串           | N        | The date the order was created, in date-time format. |
-| 屬性          | 物件           | N        | Contains "ObjectType": "Order".                      |
+| Id                  | 字串           | N        | 訂單識別碼。                                        |
+| ReferenceCustomerId | 字串           | Y        | 客戶識別碼。                                     |
+| LineItems           | 物件的陣列 | Y        | [OrderLineItem](#orderlineitem)物件的陣列。 |
+| CreationDate        | 字串           | N        | 訂單的建立日期（採用日期時間格式）。 |
+| 屬性          | 物件           | N        | 包含 "ObjectType"： "Order"。                      |
 
  
 
 ## <a name="span-idorderlineitemspan-idorderlineitemspan-idorderlineitemorderlineitem"></a><span id="orderLineItem"/><span id="orderlineitem"/><span id="ORDERLINEITEM"/>OrderLineItem
 
 
-| 名稱                 | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                  |
+| 名稱                 | 類型   | 必要 | 描述                                                  |
 |----------------------|--------|----------|--------------------------------------------------------------|
-| LineItemNumber       | 數目 | Y        | The line item number, starting with 0.                       |
-| OfferId              | 字串 | Y        | The offer ID of the add-on.                                  |
-| SubscriptionId       | 字串 | N        | The ID of the add-on subscription purchased.                 |
-| ParentSubscriptionId | 字串 | Y        | The ID of the parent subscription that has the add-on offer. |
-| FriendlyName         | 字串 | N        | The friendly name for this line item.                        |
-| 數量             | 數目 | Y        | The number of licenses.                                      |
-| PartnerIdOnRecord    | 字串 | N        | The MPN ID of the partner of record.                         |
-| 屬性           | 物件 | N        | Contains "ObjectType": "OrderLineItem".                      |
+| LineItemNumber       | 數字 | Y        | 行專案編號，從0開始。                       |
+| OfferId              | 字串 | Y        | 附加元件的供應專案識別碼。                                  |
+| SubscriptionId       | 字串 | N        | 購買的附加元件訂用帳戶的識別碼。                 |
+| ParentSubscriptionId | 字串 | Y        | 具有附加元件供應專案之父訂用帳戶的識別碼。 |
+| FriendlyName         | 字串 | N        | 此行專案的易記名稱。                        |
+| 數量             | 數字 | Y        | 授權的數目。                                      |
+| PartnerIdOnRecord    | 字串 | N        | 記錄夥伴的 MPN 識別碼。                         |
+| 屬性           | 物件 | N        | 包含 "ObjectType"： "OrderLineItem"。                      |
 
  
 
-**Request example**
+**要求範例**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/orders/CF3B0E37-BE0B-4CDD-B584-D1A97D98A922 HTTP/1.1
@@ -212,16 +212,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, this method returns the updated subscription order in the response body.
+如果成功，此方法會在回應主體中傳回更新的訂閱順序。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Cancel an order from the integration sandbox
-description: Cancel orders from integration sandbox accounts.
+title: 從整合沙箱取消訂單
+description: 從整合沙箱帳戶取消訂單。
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489088"
 ---
-# <a name="cancel-an-order-from-the-integration-sandbox"></a>Cancel an order from the integration sandbox
+# <a name="cancel-an-order-from-the-integration-sandbox"></a>從整合沙箱取消訂單
 
 適用於：
 
@@ -21,23 +21,23 @@ ms.locfileid: "74489088"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to cancel reserved instance, software, and commercial marketplace Software as a Service (SaaS) subscription orders from integration sandbox accounts.
+如何從整合沙箱帳戶取消保留實例、軟體和商業 marketplace 軟體即服務（SaaS）訂閱訂單。
 
 >[!NOTE]
->Please be aware that cancelling of reserved instance, software, or commercial marketplace SaaS subscription orders are only possible from integration sandbox accounts. To cancel production orders please contact Partner Center support.
+>請注意，只有整合沙箱帳戶才能取消保留實例、軟體或商用 marketplace SaaS 訂閱訂單。 若要取消生產訂單，請洽詢合作夥伴中心支援。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An integration sandbox partner account with a customer having active reserved instance / software / 3rd party SaaS subscription orders.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 整合沙箱合作夥伴帳戶，具有具有使用中保留實例/軟體/協力廠商 SaaS 訂閱訂單的客戶。
 
 ## <a name="c"></a>C#
 
-To cancel an order from the integration sandbox, pass your account credentials to the [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) method to get an [**IPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) interface to get partner operations.
+若要取消整合沙箱中的訂單，請將您的帳號憑證傳遞至[**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)方法，以取得[**ipartner.getinvoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)介面來取得夥伴作業。
 
-To select a particular [Order](order-resources.md#order) use the partner operations and call [**Customers.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to specify the customer, followed by **Orders.ById()** with order identifier to specify the order and finally **Get** or **GetAsync** method to retrieve it.
+若要選取特定[訂單](order-resources.md#order)，請使用交易夥伴作業並呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，並使用客戶識別碼來指定客戶，後面接著**ById （）** 與訂單識別碼，以指定訂單，最後**取得**或**GetAsync**方法來取得該順序。
 
-Set the [**Order.Status**](order-resources.md#order) property to "cancelled" and use the **Patch()** method to update the order.
+將 [[**順序**](order-resources.md#order)] 屬性設定為 [已取消]，並使用**Patch （）** 方法來更新順序。
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -53,32 +53,32 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-Use the following query parameter to delete a customer.
+使用下列查詢參數來刪除客戶。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **order-id** | **string** | Y        | The value is a string denoting the order id which need to be cancelled. |
+| **客戶-租使用者識別碼** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **訂單識別碼** | **字串** | Y        | 值為字串，表示需要取消的訂單識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/orders/<order-id> HTTP/1.1
@@ -92,13 +92,13 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns the cancelled order.
+如果成功，這個方法會傳回已取消的順序。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

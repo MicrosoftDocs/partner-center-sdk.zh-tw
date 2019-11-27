@@ -1,6 +1,6 @@
 ---
-title: Get invoice by ID
-description: Retrieves a given invoice using the invoice ID.
+title: 依識別碼取得發票
+description: 使用發票識別碼抓取指定的發票。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489388"
 ---
-# <a name="get-invoice-by-id"></a>Get invoice by ID
+# <a name="get-invoice-by-id"></a>依識別碼取得發票
 
 適用於：
 
@@ -22,19 +22,19 @@ ms.locfileid: "74489388"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-Retrieves a given invoice using the invoice ID.
+使用發票識別碼抓取指定的發票。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid Invoice ID.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 有效的發票識別碼。
 
 ## <a name="c"></a>C\#
 
-To get an invoice by ID:
+若要依識別碼取得發票：
 
-1. Use your **IPartner.Invoices** collection and call the **ById()** method.
-2. Call the **Get()** or **GetAsync()** methods.
+1. 使用您的**ipartner.getinvoices**集合，並呼叫**ById （）** 方法。
+2. 呼叫**Get （）** 或**GetAsync （）** 方法。
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -43,31 +43,31 @@ To get an invoice by ID:
 var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetInvoice.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： GetInvoice.cs
 
-## <a name="rest-request"></a>REST Request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-Use the following query parameter to get the invoice.
+使用下列查詢參數來取得發票。
 
-| 名稱           | 在工作列搜尋方塊中輸入       | 必要 | 說明                                                                                        |
+| 名字           | 類型       | 必要 | 說明                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **invoice-id** | **string** | [是]      | The value is an **invoice-id** that allows the reseller to filter the results for a given invoice. |
+| **發票識別碼** | **字串** | 是      | 值是**發票識別碼**，可讓轉銷商篩選特定發票的結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Headers](headers.md) for more information.
+如需詳細資訊，請參閱[標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
-無
+None
 
 ### <a name="request-example"></a>要求的範例
 
@@ -79,13 +79,13 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="rest-response"></a>REST Response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns an [Invoice](invoice-resources.md#invoice) resource in the response body.
+如果成功，此方法會在回應主體中傳回[發票](invoice-resources.md#invoice)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

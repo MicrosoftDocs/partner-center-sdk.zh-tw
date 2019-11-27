@@ -1,6 +1,6 @@
 ---
-title: Validate an address
-description: How to validate an address using the address validation API.
+title: 驗證位址
+description: 如何使用位址驗證 API 驗證位址。
 ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487748"
 ---
-# <a name="validate-an-address"></a>Validate an address
+# <a name="validate-an-address"></a>驗證位址
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to validate an address using the address validation API.
+如何使用位址驗證 API 驗證位址。
 
-The address validation API should only be used for pre-validation of customer profile updates. Use it with the understanding that if the country is the United States, Canada, China, or Mexico, the state field is validated against a list of valid states for the respective country. In all other countries, this test does not occur, and the API only checks that the state is a valid string.
+位址驗證 API 只應用於客戶設定檔更新的預先驗證。 請使用它來瞭解，如果國家/地區為美國、加拿大、中國或墨西哥，則 [狀態] 欄位會針對個別國家/地區的有效狀態清單進行驗證。 在所有其他國家/地區，則不會進行這項測試，而且 API 只會檢查狀態是否為有效的字串。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
 
 ### <a name="c"></a>C#
 
-To validate an address, first instantiate a new **Address** object and populate it with the address to validate. Then, retrieve an interface to **Validations** operations from the **IAggregatePartner.Validations** property, and call the **IsAddressValid** method with the address object.
+若要驗證位址，請先具現化新的**位址**物件，並在其中填入要驗證的位址。 然後，抓取介面來**驗證** **iaggregatepartner.customers.byid**屬性的作業，並使用 address 物件呼叫**IsAddressValid**方法。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -83,7 +83,7 @@ catch (PartnerException exception)
 
 ### <a name="java"></a>Java
 
-To validate an address, first instantiate a new **Address** object and populate it with the address to validate. Then, retrieve an interface to **Validations** operations from the **IAggregatePartner.getValidations** function, and call the **isAddressValid** method with the address object.
+若要驗證位址，請先具現化新的**位址**物件，並在其中填入要驗證的位址。 然後，抓取介面以**驗證**來自**iaggregatepartner.customers.byid. getValidations**函式的作業，並使用 address 物件呼叫**isAddressValid**方法。
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -121,38 +121,38 @@ catch (Exception exception)
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To validate an address, execute the [**Test-PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) with the address parameters populated.
+若要驗證位址，請使用已填入的位址參數執行[**測試 PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) 。
 
 ```powershell
 Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Country 'US' -PostalCode '98004' -State 'WA'
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**Request syntax**
+**要求語法**
 
 | 方法   | 要求 URI                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1。1 |
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-This table describes the required properties in the request body.
+下表描述要求主體中的必要屬性。
 
-| 名稱         | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                |
+| 名稱         | 類型   | 必要 | 描述                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| addressline1 | 字串 | Y        | The first line of the address.                             |
-| addressline2 | 字串 | N        | The second line of the address. 這個屬性為選擇性。 |
-| city         | 字串 | Y        | The city.                                                  |
-| state        | 字串 | Y        | The state.                                                 |
-| postalcode   | 字串 | Y        | The postal code.                                           |
-| 國家/地區      | 字串 | Y        | The two-character ISO alpha-2 country code.                |
+| addressline1 | 字串 | Y        | 位址的第一行。                             |
+| addressline2 | 字串 | N        | 位址的第二行。 這個屬性為選擇性。 |
+| 鹽湖城         | 字串 | Y        | 城市。                                                  |
+| state        | 字串 | Y        | 狀態。                                                 |
+| postalcode   | 字串 | Y        | 郵遞區號。                                           |
+| 國家/地區      | 字串 | Y        | 兩個字元的 ISO Alpha 2 國家/地區代碼。                |
 
-**Request example**
+**要求範例**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/validations/address HTTP/1.1
@@ -174,17 +174,17 @@ Content-Length: 129
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
-If successful, the method returns a status code 200 as demonstrated in the Response - validation succeeded example shown below.
+如果成功，方法會傳回狀態碼200，如下列回應驗證成功範例所示。
 
-If the request fails, the method returns a status code 400 as demonstrated in the Response - validation failed example shown below. The response body contains a JSON payload with additional information about the error.
+如果要求失敗，此方法會傳回狀態碼400，如以下顯示的回應驗證失敗範例所示。 回應主體包含 JSON 承載，以及有關錯誤的其他資訊。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response - validation succeeded example**
+**回應驗證成功範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -196,7 +196,7 @@ MS-ServerId: 030011719
 Date: Mon, 13 Mar 2017 23:56:12 GMT
 ```
 
-**Response - validation failed example**
+**回應-驗證失敗範例**
 
 ```http
 HTTP/1.1 400 Bad Request

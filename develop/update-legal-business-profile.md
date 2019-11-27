@@ -1,6 +1,6 @@
 ---
-title: Update the partner legal business profile
-description: How to update the partner legal business profile.
+title: 更新合作夥伴的合法商務設定檔
+description: 如何更新合作夥伴的合法商務設定檔。
 ms.assetid: DEB60680-145D-47C5-BB19-374752D45236
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487838"
 ---
-# <a name="update-the-partner-legal-business-profile"></a>Update the partner legal business profile
+# <a name="update-the-partner-legal-business-profile"></a>更新合作夥伴的合法商務設定檔
 
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to update the partner legal business profile.
+如何更新合作夥伴的合法商務設定檔。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update the partner legal business profile, first instantiate a **LegalBusinessProfile** object and populate it with the existing profile. For more information, see [Get the partner legal business profile](get-legal-business-profile.md). Then, update the properties that you need to change. The following code example illustrates changing the address and primary contact phone numbers.
+若要更新合作夥伴的合法商務設定檔，請先將**LegalBusinessProfile**物件具現化，並在其中填入現有的設定檔。 如需詳細資訊，請參閱[取得合作夥伴合法商務設定檔](get-legal-business-profile.md)。 然後，更新您需要變更的屬性。 下列程式碼範例說明如何變更位址和主要連絡人電話號碼。
 
-Next, get an interface to the partner profile operations collection from the **IAggregatePartner.Profiles** property. Then, retrieve the value of the **LegalBusinessProfile** property to get an interface to legal business profile operations. Finally, call the [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) or [**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) method with the changed object to update the profile.
+接下來，從 Iaggregatepartner.customers.byid 的 [**配置**檔] 屬性取得夥伴設定檔作業集合的介面。 然後，取出**LegalBusinessProfile**屬性的值，以取得合法商務設定檔作業的介面。 最後，使用已變更的物件呼叫[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update)或[**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync)方法，以更新設定檔。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,26 +50,26 @@ legalBusinessProfile.PrimaryContact.PhoneNumber = "4255550110";
 var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfile.Update(legalBusinessProfile);
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1 |
+| **提出** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1。1 |
 
  
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
-The legal business profile resource.
+合法的商務設定檔資源。
 
-**Request example**
+**要求範例**
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/profiles/legalbusiness HTTP/1.1
@@ -131,16 +131,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
 
-If successful, the response body contains the updated **LegalBusinessProfile**
+如果成功，回應主體會包含更新的**LegalBusinessProfile**
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

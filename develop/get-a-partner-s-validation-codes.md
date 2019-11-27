@@ -1,6 +1,6 @@
 ---
-title: Get a partner's Government Community Cloud validation codes
-description: How to get a partner's Government Community Cloud validation codes.
+title: 取得合作夥伴的政府群雲端驗證碼
+description: 如何取得合作夥伴的政府群雲端驗證碼。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489528"
 ---
-# <a name="get-a-partners-validation-codes"></a>Get a partner's validation codes
+# <a name="get-a-partners-validation-codes"></a>取得合作夥伴的驗證碼
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 
-How to get a collection of a partner's Government Community Cloud validation codes. A validation code is required to create a customer in the government community cloud.
+如何取得合作夥伴的政府社區雲端驗證代碼的集合。 必須有驗證碼，才能在政府機關雲端中建立客戶。
 
-If you are interested in having your organization or your customers organization approved for Office 365 Government GCC for CSP, please see [Office 365 Government GCC for CSP Partner and Customer Eligibility Criteria](https://docs.microsoft.com/partner-center/csp-gcc-validate).  
+如果您想要讓組織或客戶組織核准適用于 CSP 的 Office 365 政府 GCC，請參閱[適用于 csp 的 office 365 政府 Gcc 合作夥伴和客戶資格準則](https://docs.microsoft.com/partner-center/csp-gcc-validate)。  
 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- Confirmed validation after filling out form [here](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).
-- A customer without a qualification.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 在[此](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)填寫表單之後確認驗證。
+- 沒有資格的客戶。
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
-To get a list of all of a partner's validation codes, call **GetValidationCodes**.
+若要取得合作夥伴的所有驗證碼清單，請呼叫**GetValidationCodes**。
 
 ``` csharp
 // create the partner operations
@@ -42,24 +42,24 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 ```
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1。1 |
 
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/all/validations HTTP/1.1
@@ -70,15 +70,15 @@ MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 ```
 
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
 
-If successful, this method returns a list of [**ValidationCode**](utility-resources.md#validationcode) resources in the response body.
+如果成功，這個方法會傳迴響應主體中的[**ValidationCode**](utility-resources.md#validationcode)資源清單。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK

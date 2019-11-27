@@ -1,6 +1,6 @@
 ---
-title: Get agreement metadata for the Microsoft Customer Agreement
-description: This topic explains how to get agreement metadata for Microsoft Customer Agreement.
+title: 取得 Microsoft 客戶合約的合約中繼資料
+description: 本主題說明如何取得 Microsoft 客戶合約的合約中繼資料。
 ms.date: 8/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,38 +12,38 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485668"
 ---
-# <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>Get agreement metadata for the Microsoft Customer Agreement
+# <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>取得 Microsoft 客戶合約的合約中繼資料
 
 適用於：
 
 - 合作夥伴中心
 
-Agreement metadata for Microsoft Customer Agreement is currently supported by Partner Center only in the *Microsoft public cloud*. It doesn't apply to:
+Microsoft 客戶合約的合約中繼資料目前僅由合作夥伴中心在*microsoft 公用雲端*中提供支援。 其不適用於：
 
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-You must retrieve the agreement metadata for the Microsoft Customer Agreement before you can:
+您必須先取得 Microsoft 客戶合約的合約中繼資料，才能：
 
-- [Confirm a customer's acceptance of the Microsoft Customer Agreement](./confirm-customer-consent-customer-agreement.md)
-- [Retrieve a download link for the Microsoft Customer Agreement template](./download-customer-agreement-template.md)
+- [確認客戶接受 Microsoft 客戶合約](./confirm-customer-consent-customer-agreement.md)
+- [取得 Microsoft 客戶合約範本的下載連結](./download-customer-agreement-template.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- If you are using the Partner Center .NET SDK, version 1.14 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario supports App+User authentication only.
+- 如果您使用合作夥伴中心 .NET SDK，則需要1.14 或更新版本。
+- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 此案例僅支援應用程式 + 使用者驗證。
 
 
-## <a name="net-version-114-or-newer"></a>.NET (version 1.14 or newer)
+## <a name="net-version-114-or-newer"></a>.NET （1.14 版或更新版本）
 
-To retrieve the agreement metadata for Microsoft Customer Agreement:
+若要取得 Microsoft 客戶合約的合約中繼資料：
 
-1. First, retrieve the **IAggregatePartner.AgreementDetails** collection.
+1. 首先，取出**iaggregatepartner.customers.byid. AgreementDetails**集合。
 
-2. Call **ByAgreementType** method to filter the collection to Microsoft Customer Agreement.
+2. 呼叫**ByAgreementType**方法，以將集合篩選為 Microsoft 客戶合約。
 
-3. Finally, call **Get** or **GetAsync** method.
+3. 最後，呼叫**Get**或**GetAsync**方法。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -53,33 +53,33 @@ string agreementType = "MicrosoftCustomerAgreement";
 var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-A complete sample can be found in the [GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)類別中找到完整的範例。
 
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
-To retrieve the agreement metadata for Microsoft Customer Agreement:
+若要取得 Microsoft 客戶合約的合約中繼資料：
 
-1. Create a REST request to retrieve the [AgreementMetaData](./agreement-metadata-resources.md) collection.
-2. Use the **agreementType** query parameter to scope the result to only the Microsoft Customer Agreement.
+1. 建立 REST 要求以取得[AgreementMetaData](./agreement-metadata-resources.md)集合。
+2. 使用**agreementType**查詢參數，將結果的範圍限定為 Microsoft 客戶合約。
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreements?agreementType={agreement-type} HTTP/1.1 |
+| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/V1/agreements？ agreementType = {合約類型} HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                             |
+| 名字                   | 類型     | 必要 | 說明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| agreement-type | 字串 | 無 | Use this parameter to scope the query response to specific agreement type. The supported values are: <ul><li>**MicrosoftCloudAgreement** that includes agreement metadata only of the type *MicrosoftCloudAgreement*</li><li>**MicrosoftCustomerAgreement** that includes agreement metadata only of the type *MicrosoftCustomerAgreement*.</li><li>**\*** that returns all agreement metadata. (Don't use **\*** unless your code has the necessary runtime logic to handle unfamiliar agreement types because Microsoft may introduce agreement metadat with new agreement types at any time.)</li></ul> If the URI parameter isn't specified, the query defaults to **MicrosoftCloudAgreement** for backward compatibility.  |
+| 合約類型 | string | 否 | 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>**MicrosoftCloudAgreement** ，其中只包含*MicrosoftCloudAgreement*類型的合約中繼資料</li><li>**MicrosoftCustomerAgreement** ，其中只包含*MicrosoftCustomerAgreement*類型的合約中繼資料。</li><li>傳回所有合約中繼資料的 **\*** 。 （請勿使用 **\*** ，除非您的程式碼具有必要的執行時間邏輯來處理不熟悉的合約類型，因為 Microsoft 可能會隨時使用新的合約類型來引進合約 metadat）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。  |
 
 ### <a name="request-headers"></a>要求標頭
 
-For more information, see [Partner Center REST headers](headers.md).
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
@@ -93,15 +93,15 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, this method returns a collection of [**AgreementMetaData** resources](./agreement-metadata-resources.md) in the response body.
+如果成功，此方法會在回應主體中傳回[ **AgreementMetaData**資源](./agreement-metadata-resources.md)的集合。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information.
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。
 
-Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

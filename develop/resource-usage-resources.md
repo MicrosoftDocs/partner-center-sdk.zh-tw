@@ -1,6 +1,6 @@
 ---
-title: Resource usage record resources
-description: You can use the ResourceUsageRecord resource to describe the estimated monetary cost of a subscription's resource level usage in the current billing cycle.
+title: 資源使用量記錄資源
+description: 您可以使用 ResourceUsageRecord 資源來描述目前計費週期中訂用帳戶資源層級使用量的預估貨幣成本。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488088"
 ---
-# <a name="resource-usage-record-resources"></a>Resource usage record resources
+# <a name="resource-usage-record-resources"></a>資源使用量記錄資源
 
 適用於：
 
 - 合作夥伴中心
 
-You can use the **ResourceUsageRecord** resource to describe the estimated monetary cost of a subscription's resource level usage in the current billing cycle.
+您可以使用**ResourceUsageRecord**資源來描述目前計費週期中訂用帳戶資源層級使用量的預估貨幣成本。
 
 ## <a name="resourceusagerecord"></a>ResourceUsageRecord
 
-| 屬性         | 在工作列搜尋方塊中輸入               | 說明                                                                                   |
+| 屬性         | 類型               | 描述                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| SubscriptionId           | 字串             | Gets or sets the subscription identifier. For Microsoft Azure (MS-AZR-0145P) subscriptions, this value is the commerce subscription identifier. For Azure plans, this value is the Azure plan identifier).                  |
-| ResourceUri  | 字串             | Gets or sets the resource URI."                                                        |
-| ResourceType          | 字串             | Gets or sets the resource type.                                       |
-| EntitlementId               | 字串             | Gets or sets the entitlement identifier (the Azure subscription identifier).                                                 |
-| EntitlementName             | 字串             | Gets or sets the entitlement name.                                                     |
-| ResourceGroupName        | double             | Gets or sets the resource group name.   |
-| 名稱   | 字串             | The name of the resource. |
-| ResourceName   | 字串             | Gets or sets the name of the resource. |
-| TotalCost   | 十進位             | Gets or sets the estimated total cost usage. |
-| CurrencyCode   | 字串             | Gets or sets the currency code.                                          |
-| USDTotalCost   | 十進位             | Gets or sets the estimated total cost in USD.                                         |
-| LastModifiedDate | 字串             | The day (in date-time format) that this record was last modified.                             |
-| 屬性       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |                                           |
+| SubscriptionId           | 字串             | 取得或設定訂用帳戶識別碼。 若為 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶，此值為 commerce 訂閱識別碼。 若為 Azure 方案，此值為 Azure 方案識別碼）。                  |
+| resourceUri  | 字串             | 取得或設定資源 URI。」                                                        |
+| ResourceType          | 字串             | 取得或設定資源類型。                                       |
+| entitlementId               | 字串             | 取得或設定權利識別碼（Azure 訂用帳戶識別碼）。                                                 |
+| EntitlementName             | 字串             | 取得或設定權利名稱。                                                     |
+| ResourceGroupName        | double             | 取得或設定資源組名。   |
+| 名稱   | 字串             | 資源的名稱。 |
+| ResourceName   | 字串             | 取得或設定資源的名稱。 |
+| TotalCost   | 十進位             | 取得或設定估計的總成本使用量。 |
+| CurrencyCode   | 字串             | 取得或設定貨幣代碼。                                          |
+| USDTotalCost   | 十進位             | 取得或設定估計的總成本（美元）。                                         |
+| lastModifiedDate | 字串             | 此記錄上次修改的日期（日期時間格式）。                             |
+| 屬性       | ResourceAttributes | 對應至資源的中繼資料屬性。                                        |                                           |

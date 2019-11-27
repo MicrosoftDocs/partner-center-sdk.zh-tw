@@ -1,6 +1,6 @@
 ---
-title: Verify a partner MPN ID
-description: How to verify a partner's Microsoft Partner Network identifier (MPN ID).The technique shown here verifies the partner's Microsoft Partner Network identifier by requesting the partner's MPN profile from partner center.
+title: 驗證合作夥伴 MPN 識別碼
+description: 如何驗證合作夥伴的 Microsoft 合作夥伴網路識別碼（MPN ID）。此處顯示的技術會向合作夥伴中心要求合作夥伴的 MPN 設定檔，以驗證合作夥伴的 Microsoft 合作夥伴網路識別碼。
 ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490048"
 ---
-# <a name="verify-a-partner-mpn-id"></a>Verify a partner MPN ID
+# <a name="verify-a-partner-mpn-id"></a>驗證合作夥伴 MPN 識別碼
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to verify a partner's Microsoft Partner Network identifier (MPN ID).
+如何驗證合作夥伴的 Microsoft 合作夥伴網路識別碼（MPN ID）。
 
-The technique shown here verifies the partner's Microsoft Partner Network identifier by requesting the partner's MPN profile from partner center. The identifier is considered valid if the request succeeds.
+此處顯示的技術會向合作夥伴中心要求合作夥伴的 MPN 設定檔，以驗證合作夥伴的 Microsoft 合作夥伴網路識別碼。 如果要求成功，則識別碼會視為有效。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The partner MPN ID to verify. If you omit this value, the request retrieves the MPN profile of the signed-in partner.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 要驗證的合作夥伴 MPN 識別碼。 如果您省略此值，要求會抓取已登入夥伴的 MPN 設定檔。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
-To verify a partner's MPN ID, first retrieve an interface to partner profile collection operations from the [**IAggregatePartner.Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) property. Then get an interface to MPN profile operations from the [**MpnProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) property. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) methods with the MPN ID to retrieve the MPN profile. If you omit the MPN ID from the Get or GetAsync call, the request attempts to retrieve the MPN profile of the signed-in partner.
+若要驗證合作夥伴的 MPN 識別碼，請先從[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles)屬性取得夥伴設定檔集合作業的介面。 然後取得介面，以從[**MpnProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile)屬性 MPN 設定檔作業。 最後，使用 MPN 識別碼呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync)方法，以取出 MPN 設定檔。 如果您省略 Get 或 GetAsync 呼叫中的 MPN 識別碼，要求會嘗試取出已登入夥伴的 MPN 設定檔。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,34 +42,34 @@ To verify a partner's MPN ID, first retrieve an interface to partner profile col
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: VerifyPartnerMpnId.cs
+**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： VerifyPartnerMpnId.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求語法**
 
 | 方法  | 要求 URI                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/mpn?mpnId={mpn-id} HTTP/1.1 |
+| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/profiles/mpn？ mpnId = {mpn-ID} HTTP/1。1 |
 
-**URI parameter**
+**URI 參數**
 
-Provide the following query parameter to identify the partner. If you omit this query parameter, the request returns the MPN profile of the signed-in partner.
+提供下列查詢參數來識別合作夥伴。 如果您省略此查詢參數，要求會傳回已登入夥伴的 MPN 設定檔。
 
-| 名稱   | 在工作列搜尋方塊中輸入 | 必要 | 說明                                                 |
+| 名稱   | 類型 | 必要 | 描述                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| mpn-id | 整數  | 無       | A Microsoft Partner Network ID that identifies the partner. |
+| mpn-id | 整數  | 否       | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
 
-**Request headers**
+**要求標頭**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/profiles/mpn?mpnId=9999999 HTTP/1.1
@@ -83,15 +83,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 回應
 
-If successful, the response body contains the [MpnProfile](profile-resources.md#mpnprofile) resource for the partner.
+如果成功，回應主體會包含合作夥伴的[MpnProfile](profile-resources.md#mpnprofile)資源。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**Response example (success)**
+**回應範例（成功）**
 
 ```http
 HTTP/1.1 200 OK
@@ -119,7 +119,7 @@ Date: Thu, 13 Apr 2017 18:13:40 GMT
 }
 ```
 
-**Response example (failure)**
+**回應範例（失敗）**
 
 ```http
 HTTP/1.1 404 Not Found

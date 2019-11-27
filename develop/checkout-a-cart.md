@@ -1,6 +1,6 @@
 ---
-title: Checkout a cart
-description: How to checkout an order for a customer in a cart.
+title: 結帳購物車
+description: 如何結帳購物車中的客戶訂單。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489408"
 ---
-# <a name="checkout-a-cart"></a>Checkout a cart
+# <a name="checkout-a-cart"></a>結帳購物車
 
 適用於：
 
@@ -21,19 +21,19 @@ ms.locfileid: "74489408"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-How to checkout an order for a customer in a cart.
+如何結帳購物車中的客戶訂單。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A Cart ID for an existing cart.
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 現有購物車的購物車識別碼。
 
 ## <a name="examples"></a>範例
 
 ### <a name="c"></a>C#
 
-To checkout an order for a customer, get a reference to the cart using the cart and customer identifier. Finally, call the **Create** or **CreateAsync** functions to complete the order.
+若要簽出客戶的訂單，請使用購物車和客戶識別碼取得購物車的參考。 最後，呼叫**Create**或**CreateAsync**函數來完成訂單。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To checkout an order for a customer, get a reference to the cart using the cart and customer identifier. Finally, call the **create** function to complete the order.
+若要簽出客戶的訂單，請使用購物車和客戶識別碼取得購物車的參考。 最後，呼叫**create**函數來完成訂單。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -61,7 +61,7 @@ Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(car
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) to complete the order.
+若要結帳客戶的訂單，請執行[**提交-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md)以完成訂單。
 
 ```powershell
 # $customerId
@@ -70,28 +70,28 @@ To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**
 Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
+| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1。1     |
 
 ### <a name="uri-parameters"></a>URI 參數
 
-Use the following path parameters to identify the customer and specify the cart to be checked out.
+使用下列 path 參數來識別客戶，並指定要簽出的購物車。
 
-| 名稱            | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                            |
+| 名字            | 類型     | 必要 | 說明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | 字串   | [是]      | A GUID formatted customer-id that identifies the customer.             |
-| **cart-id**     | 字串   | [是]      | A GUID formatted cart-id that identifies the cart.                     |
+| **客戶識別碼** | string   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **購物車-識別碼**     | string   | 是      | 可識別購物車的 GUID 格式的購物車識別碼。                     |
 
 ### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求主體
+### <a name="request-body"></a>要求本文
 
 無。
 
@@ -113,13 +113,13 @@ Expect: 100-continue
 No-Content-Body
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 回應
 
-If successful, the response body contains the populated [CartCheckoutResult](cart-resources.md#cartcheckoutresult) resource.
+如果成功，回應主體會包含已填入的[CartCheckoutResult](cart-resources.md#cartcheckoutresult)資源。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

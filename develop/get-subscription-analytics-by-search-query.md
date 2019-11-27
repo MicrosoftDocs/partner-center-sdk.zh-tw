@@ -1,6 +1,6 @@
 ---
-title: Get subscription analytics by search query
-description: How to get subscription analytics information filtered by a search query.
+title: 透過搜尋查詢取得訂用帳戶分析
+description: 如何取得搜尋查詢所篩選的訂用帳戶分析資訊。
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,9 +12,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487258"
 ---
-# <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Get subscription analytics information filtered by a search query
+# <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>取得搜尋查詢所篩選的訂用帳戶分析資訊
 
-**Applies To**
+**適用于**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -22,49 +22,49 @@ ms.locfileid: "74487258"
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 
-How to get subscription analytics information for your customers filtered by a search query.
+如何為您的客戶取得搜尋查詢所篩選的訂用帳戶分析資訊。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。
 
 
-**Request syntax**
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求語法**
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions?filter={filter_string} |
+| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions？ filter = {filter_string} |
 
  
 
-**URI parameters**
+**URI 參數**
 
-Use the following required path parameter to identify your organization and filter the search.
+使用下列必要的 path 參數來識別您的組織並篩選搜尋。
 
-| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
+| 名稱 | 類型 | 必要 | 描述 |
 |------|------|----------|-------------|
-| filter_string | 字串 | [是] | The filter to apply to the subscription analytics. See the Filter syntax and Filter fields sections for the syntax, fields, and operators to use in this parameter. |
+| filter_string | 字串 | 是 | 要套用至訂用帳戶分析的篩選準則。 請參閱篩選語法和篩選欄位章節，以瞭解要在此參數中使用的語法、欄位和運算子。 |
  
 
-**Filter syntax**
+**篩選語法**
 
-The filter parameter must be composed as a series of field, value and operator combinations. Multiple combinations can be combined using **and** or **or** operators.  
+篩選參數必須以一系列的欄位、值和運算子組合來組成。 您可以使用**and**或**or**運算子來結合多個組合。  
 
-An unencoded example looks like this:
-- String: ?filter=Field operator 'Value'
-- Boolean: ?filter=Field operator Value
-- Contains ?filter=contains(field,'value')
+未編碼的範例看起來像這樣：
+- 字串：？ filter = Field 運算子 ' Value '
+- Boolean：？ filter = Field 運算子值
+- Contains？ filter = contains （field，' value '）
 
 
-**Filter fields**
+**篩選欄位**
 
-The filter parameter of the request contains one or more statements that filter the rows in the response. 每個陳述式包含一個與 **eq** 或 **ne** 運算子關聯的欄位和值，而某些欄位同時也支援 **contains**、**gt**、**lt**、**ge** 及 **le** 運算子。 Statements can be combined using **and** or **or** operators.
+要求的 filter 參數包含一個或多個語句，可篩選回應中的資料列。 每個陳述式包含一個與 **eq** 或 **ne** 運算子關聯的欄位和值，而某些欄位同時也支援 **contains**、**gt**、**lt**、**ge** 及 **le** 運算子。 語句可以使用**and**或**or**運算子結合。
 
-The following are examples of filter strings:  
+以下是篩選字串的範例：  
  
 ```http
 autoRenewEnabled eq true
@@ -72,42 +72,42 @@ autoRenewEnabled eq true
 autoRenewEnabled eq true and customerMarket eq 'US'
 ```  
 
-The following table shows a list of the supported fields and support operators for the filter parameter. String values must be surrounded by single quotes.
+下表顯示篩選參數支援的欄位和支援運算子清單。 字串值必須以單引號括住。
 
-| 參數 | 支援的運算子 | 說明 |
+| 參數 | 支援的運算子 | 描述 |
 |-----------|---------------------|-------------|
-| customerTenantId | eq,ne | A GUID-formatted string that identifies the customer tenant. |
-| customerName | contains | The name of the customer. |
-| customerMarket | eq,ne | The country/region that the customer does business in. |
-| id | eq,ne | A GUID-formatted string that identifies the subscription. |
-| 狀態 | eq,ne | The subscription status. Supported values are: "ACTIVE", "SUSPENDED", or "DEPROVISIONED". |
-| productName | contains, eq,ne | 產品的名稱。 |
-| subscriptionType | eq,ne | The subscription type. **Note**: This field is case sensitive. Supported values are: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |
-| autoRenewEnabled | eq,ne | A value indicating whether the subscription is renewed automatically. |
-| partnerId | eq,ne | The MPN ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |
-| friendlyName | contains | The name of the subscription. |
-| partnerName | 字串 | Name of the partner for whom the subscription was purchased |  
-| providerName | 字串 | When subscription transaction is for the indirect reseller, provider name is the indirect provider who bought the subscription.
-| creationDate | eq、ne、gt、lt、ge、le  | The date the subscription was created. |
-| effectiveStartDate | eq、ne、gt、lt、ge、le | The date the subscription starts. |
-| commitmentEndDate | eq、ne、gt、lt、ge、le  | The date the subscription ends. |
-| currentStateEndDate | eq、ne、gt、lt、ge、le | The date that the current status of the subscription will change. |
-| trialToPaidConversionDate | eq、ne、gt、lt、ge、le  | The date that the subscription converts from trial to paid. The default value is null. |
-| trialStartDate | eq、ne、gt、lt、ge、le | The date that the trial period for the subscription started. The default value is null. |
-| lastUsageDate | eq、ne、gt、lt、ge、le | The date that the subscription was last used. The default value is null. |
-| deprovisionedDate | eq、ne、gt、lt、ge、le | The date that the subscription was deprovisioned. The default value is null. |
-| lastRenewalDate | eq、ne、gt、lt、ge、le | The date that the subscription was last renewed. The default value is null. |
+| customerTenantId | eq、ne | GUID 格式的字串，可識別客戶租使用者。 |
+| customerName | 包含 | 客戶的名稱。 |
+| customerMarket | eq、ne | 客戶執行業務的國家/地區。 |
+| id | eq、ne | 識別訂用帳戶的 GUID 格式字串。 |
+| status | eq、ne | 訂用帳戶狀態。 支援的值為： "ACTIVE"、"暫止" 或 "取消布建"。 |
+| productName | contains、eq、ne | 產品的名稱。 |
+| subscriptionType | eq、ne | 訂用帳戶類型。 **注意**：此欄位會區分大小寫。 支援的值為： "Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS"。 |
+| autoRenewEnabled | eq、ne | 值，指出是否自動更新訂用帳戶。 |
+| partnerId | eq、ne | MPN 識別碼。 若為直接轉銷商，這會是合作夥伴的 MPN 識別碼。 若為間接轉銷商，這將是間接轉銷商的 MPN 識別碼。 |
+| friendlyName | 包含 | 訂用帳戶的名稱。 |
+| partnerName | 字串 | 購買訂閱之夥伴的名稱 |  
+| providerName | 字串 | 若為間接轉銷商的訂閱交易，提供者名稱就是購買訂閱的間接提供者。
+| CreationDate | eq、ne、gt、lt、ge、le  | 建立訂用帳戶的日期。 |
+| RateplaNcharge.effectivestartdate | eq、ne、gt、lt、ge、le | 訂用帳戶開始的日期。 |
+| commitmentEndDate | eq、ne、gt、lt、ge、le  | 訂閱結束的日期。 |
+| currentStateEndDate | eq、ne、gt、lt、ge、le | 訂用帳戶的目前狀態將會變更的日期。 |
+| trialToPaidConversionDate | eq、ne、gt、lt、ge、le  | 訂用帳戶從試用版轉換成付費的日期。 預設值為 null。 |
+| trialStartDate | eq、ne、gt、lt、ge、le | 訂用帳戶的試用期開始日期。 預設值為 null。 |
+| lastUsageDate | eq、ne、gt、lt、ge、le | 上次使用訂用帳戶的日期。 預設值為 null。 |
+| deprovisionedDate | eq、ne、gt、lt、ge、le | 取消布建訂用帳戶的日期。 預設值為 null。 |
+| lastRenewalDate | eq、ne、gt、lt、ge、le | 上次更新訂用帳戶的日期。 預設值為 null。 |
 
 
-**Request headers** 
+**要求標頭** 
 
-- See [Headers](headers.md) for more information.
+- 如需詳細資訊，請參閱[標頭](headers.md)。
 
-**Request body**
+**要求本文**
 
 無。
 
-**Request example**
+**要求範例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/subscriptions?filter=autoRenewEnabled eq true
@@ -119,16 +119,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 回應
 
 
-If successful, the response body contains a collection of [Subscription](partner-center-analytics-resources.md#subscription) resources that meet the fileter criteria.
+如果成功，回應主體會包含符合 fileter 準則的[訂](partner-center-analytics-resources.md#subscription)用帳戶資源集合。
 
-**Response success and error codes**
+**回應成功和錯誤碼**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**Response example**
+**回應範例**
 
 ```http
 HTTP/1.1 200 OK
@@ -162,6 +162,6 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
 
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+ - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)

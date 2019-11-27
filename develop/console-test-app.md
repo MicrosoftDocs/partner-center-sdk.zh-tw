@@ -1,6 +1,6 @@
 ---
-title: Console test app
-description: This console test app provides sample code for all scenarios supported by the Partner Center APIs. You can also use it for testing.
+title: 主控台測試應用程式
+description: 此主控台測試應用程式會針對合作夥伴中心 Api 支援的所有案例提供範例程式碼。 您也可以使用它來進行測試。
 ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488918"
 ---
-# <a name="console-test-app"></a>Console test app
+# <a name="console-test-app"></a>主控台測試應用程式
 
 適用於：
 
@@ -22,91 +22,91 @@ ms.locfileid: "74488918"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-The console test app is provided in C# and Java, it provides sample codes for all of the scenarios supported by the Partner Center APIs. You can also use it for testing.
+主控台測試應用程式是在和C# JAVA 中提供，它會針對合作夥伴中心 api 支援的所有案例提供範例程式碼。 您也可以使用它來進行測試。
 
 ## <a name="get-the-code"></a>取得程式碼
 
-Download the sample code for the console test app.
+下載主控台測試應用程式的範例程式碼。
 
 ## <a name="net"></a>.NET
 
-[Download the sample code](http://go.microsoft.com/fwlink/p/?LinkId=746682) and modify it as necessary.
+[下載範例程式碼](http://go.microsoft.com/fwlink/p/?LinkId=746682)，並視需要加以修改。
 
 > [!IMPORTANT]
-> Before you build the application, update the values in the *App.config* file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). Specifically, you should use your integration sandbox account settings during early development or for testing in production.
+> 建立應用程式之前，請更新*app.config*檔案中的值，以反映您在[合作夥伴中心驗證](partner-center-authentication.md)中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。
 
-Under **ScenarioSettings** in the *App.config* file, you can set parameters that will be automatically passed into the scenarios that you run.
+在*app.config*檔案的**ScenarioSettings**下，您可以設定將自動傳遞至您執行之案例的參數。
 
-To modify the list of scenarios that are run, comment out lines in **IPartnerScenario\[\] mainScenarios** or in an individual **Get Scenarios** method found in the *Program.cs* file.
+若要修改執行的案例清單，請將 IPartnerScenario\[中的程式程式碼批註 **\] mainScenarios** ，或在*Program.cs*檔案中找到的個別**Get 情節**方法中。
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-[Download the sample code](http://go.microsoft.com/fwlink/p/?LinkId=2026887) and modify it as necessary.
+[下載範例程式碼](http://go.microsoft.com/fwlink/p/?LinkId=2026887)，並視需要加以修改。
 
 > [!IMPORTANT]
-> Before you build the application, update the values in the *SamplesConfigurations.json* file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). Specifically, you should use your integration sandbox account settings during early development or for testing in production.
+> 在您建立應用程式之前，請先更新*SamplesConfigurations*中的值，以反映您在[合作夥伴中心驗證](partner-center-authentication.md)中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。
 
-Under **ScenarioSettings** in the *SamplesConfiguration.json* file, you can set parameters that will be automatically passed into the scenarios that you run.
+在*SamplesConfiguration*檔案的**ScenarioSettings**下，您可以設定將自動傳遞至您執行之案例的參數。
 
-To modify the list of scenarios that are run, comment out lines in **IPartnerScenario\[\] mainScenarios** or in an individual **Get Scenarios** method found in the *Program.java* file.
+若要修改執行的案例清單，請將 IPartnerScenario\[中的程式程式碼批註 **\] mainScenarios** ，或在*Program. java*檔案中找到的個別**Get 案例**方法中。
 
-## <a name="what-to-change"></a>What to change
+## <a name="what-to-change"></a>要變更的內容
 
-Use the following lists to determine what to change or not change in the sample code.
+使用下列清單來決定要在範例程式碼中變更或不變更的內容。
 
 ### <a name="partnerservicesettings"></a>PartnerServiceSettings
 
-For **PartnerServiceSettings**, don't change:
+針對**PartnerServiceSettings**，請勿變更：
 
 - **PartnerServiceApiEndpoint**
 - **AuthenticationAuthorityEndpoint**
 - **GraphEndpoint**
 - **CommonDomain**
 
-All of these settings are necessary for the sample API calls to properly function.
+所有這些設定都是範例 API 呼叫正常運作所需的一切。
 
 ### <a name="userauthentication"></a>UserAuthentication
 
-For **UserAuthentication**, you're required to change:
+針對**UserAuthentication**，您必須變更：
 
-- **ApplicationId** (your Azure Active Directory application ID used for login)
-- **UserName** (your active directory username)
-- **Password** (your active directory password).
+- **ApplicationId** （您用來登入的 Azure Active Directory 應用程式識別碼）
+- **Username** （您的 active directory 使用者名稱）
+- **密碼**（您的 active directory 密碼）。
 
-Don't change:
+不要變更：
 
 - **ResourceUrl**
 - **RedirectUrl**
 
 ### <a name="appauthentication"></a>AppAuthentication
 
-For **AppAuthentication**, you're required to change:
+針對**AppAuthentication**，您必須變更：
 
-- **ApplicationId** (your active directory application ID used for application login)
-- **ApplicationSecret** (your active directory application secret used for application login)
-- **Domain** (your active directory domain on which the application is hosted)
+- **ApplicationId** （您用於應用程式登入的 active directory 應用程式識別碼）
+- **ApplicationSecret** （您用於應用程式登入的 active directory 應用程式秘密）
+- **網域**（主控應用程式的 active directory 網域）
 
 ### <a name="scenariosettings"></a>ScenarioSettings
 
-For **ScenarioSettings**, don't change:
+針對**ScenarioSettings**，請勿變更：
 
-- **CustomerDomainSuffix** (the domain suffix used when creating a new customer)
+- **CustomerDomainSuffix** （建立新客戶時使用的網域尾碼）
 
-Optional settings. If left blank, this information will need to be inputted when running a scenario where necessary):
+選擇性設定。 如果保留空白，當您在必要時執行案例時，就必須輸入此資訊：
 
-- **CustomerIdToDelete** (the ID of the customer used for deletion)
-- **DefaultCustomerId** (the customer ID to use in customer-related scenarios)
-- **DefaultInvoiceID** (the invoice ID to use in invoice scenarios)
-- **PartnerMpnId** (the partner MPN ID to use in indirect partner scenarios)
-- **DefaultServiceRequestId** (the service request ID to use in service request scenarios)
-- **DefaultSupportTopicID** (the support topic ID to use in service request scenarios)
-- **DefaultOfferID** (the offer ID to use in offer scenarios)
-- **DefaultOrderID** (the order ID to use in order scenarios)
-- **DefaultSubscriptionID** (the subscription ID to use in subscription scenarios)
+- **CustomerIdToDelete** （用來刪除的客戶識別碼）
+- **DefaultCustomerId** （要在客戶相關案例中使用的客戶識別碼）
+- **DefaultInvoiceID** （要在發票案例中使用的發票識別碼）
+- **PartnerMpnId** （要在間接合作夥伴案例中使用的合作夥伴 MPN 識別碼）
+- **DefaultServiceRequestId** （要在服務要求案例中使用的服務要求識別碼）
+- **DefaultSupportTopicID** （要在服務要求案例中使用的支援主題識別碼）
+- **DefaultOfferID** （供應專案案例中要使用的供應專案識別碼）
+- **DefaultOrderID** （訂單識別碼，用於訂單案例）
+- **DefaultSubscriptionID** （要在訂用帳戶案例中使用的訂用帳戶識別碼）
 
-Optional to change. All of these settings specify the amount of entries per page when retrieving paged content:
+選擇性變更。 所有這些設定都會在抓取分頁內容時，指定每頁的專案數量：
 
 - **CustomerPageSize**
 - **InvoicePageSize**
