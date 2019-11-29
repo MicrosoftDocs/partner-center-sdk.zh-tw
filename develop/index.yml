@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: 合作夥伴中心開發人員文件
+summary: 與 Microsoft 攜手合作，共同開發各項合作夥伴功能。
+metadata:
+  title: 合作夥伴中心開發人員文件
+  description: 與 Microsoft 攜手合作，共同開發各項合作夥伴功能。
+  ms.service: partner-dashboard
+  ms.topic: landing-page
+  ms.collection: collection
+  author: lauradolan
+  ms.author: ladolan
+  ms.date: 11/05/2019
+  ms.openlocfilehash: df534dc5951ac155bde06044a55465d00df18ebe
+  ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 11/26/2019
+  ms.locfileid: "74485598"
+landingContent:
+- title: 使用合作夥伴中心進行開發
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 設定您的開發人員帳戶及驗證
+      url: partner-center-authentication.md
+    - text: 設定環境
+      url: get-started.md
+  - linkListType: whats-new
+    links:
+    - text: 使用 API 建立 Azure 方案
+      url: create-azure-plan.md
+  - linkListType: concept
+    links:
+    - text: 程式碼範例
+      url: partner-center-samples.md
+    - text: 範例案例
+      url: scenarios.md
+- title: 使用 .NET SDK (v1.15.1)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: 合作夥伴中心 .NET SDK
+      url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
+    - text: 合作夥伴中心 .NET 範例
+      url: https://github.com/Microsoft/Partner-Center-DotNet-Samples
+  - linkListType: reference
+    links:
+    - text: 受控的 .NET API 參照
+      url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+- title: 使用 REST API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 合作夥伴中心 REST API 參照
+      url: https://docs.microsoft.com/en-us/partner-center/develop/partner-center-rest-api-reference
+- title: 使用 Java SDK (開放原始碼)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: 下載合作夥伴中心 Java SDK
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter/1.8.1/jar
+    - text: Java SDK GitHub 存放庫 (用於提出問題及貢獻)
+      url: https://github.com/Microsoft/Partner-Center-Java
+  - linkListType: reference
+    links:
+    - text: Java API 參照
+      url: https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1
+- title: 使用 PowerShell 模組 (開放原始碼)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: 安裝 PowerShell 模組
+      url: https://www.powershellgallery.com/packages/PartnerCenter
+    - text: PowerShell 模組 GitHub 存放庫 (用於提出問題及貢獻)
+      url: https://github.com/Microsoft/Partner-Center-PowerShell
+  - linkListType: reference
+    links:
+    - text: PowerShell 命令
+      url: https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5
+- title: 使用適用於 CSP 合作夥伴的 Swagger API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 適用於合作夥伴中心服務的 Swagger API 參照 (適用於 CSP 合作夥伴)
+      url: https://apidocs.microsoft.com/services/partnercenter
