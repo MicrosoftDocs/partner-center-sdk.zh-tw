@@ -6,12 +6,12 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c3aae7ed4eeddd9cd2c6c67ae74d3393a6ad540
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 572d5c64343c360f3daf0fb8fef7551da7bdcb2f
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489618"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995193"
 ---
 # <a name="create-an-azure-plan"></a>建立 Azure 方案
 
@@ -63,7 +63,7 @@ ms.locfileid: "74489618"
 成功處理訂單之後，將會為 Azure 方案建立合作夥伴中心**訂**用帳戶資源。 您可以使用下列方法來管理合作夥伴中心**訂**用帳戶資源，以管理 Azure 方案：
 
 * [取得客戶的訂用帳戶](get-all-of-a-customer-s-subscriptions.md)
-* [依訂單取得訂用帳戶清單](get-a-list-of-subscriptions-by-order.md)
+* [依照訂單取得訂用帳戶清單](get-a-list-of-subscriptions-by-order.md)
 
 在合作夥伴中心建立 Azure 方案時，也會在 Azure 中建立對應的 Azure 使用量訂用帳戶。 您也可以使用 Azure 入口網站和 Azure Api，在相同的 Azure 方案底下建立額外的 Azure 使用量訂用帳戶。 您可以遵循[取得合作夥伴中心訂用帳戶的 azure 權利清單](get-a-list-of-azure-entitlements-for-subscription.md)中的步驟，取得與 azure 方案相關聯的所有 azure 使用量訂閱的識別碼
 
@@ -73,9 +73,9 @@ ms.locfileid: "74489618"
 
 *如果現有的 Azure 方案不再具有任何相關聯的使用中資產（包括 Azure 使用量訂用帳戶和 Azure 保留專案），您就只能將其暫止。*
 
-如需如何停用 Azure 使用量訂閱的詳細資訊，請參閱訂用帳戶[生命週期管理上的 AZURE API](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions)。
+如需如何停用 Azure 使用量訂閱的詳細資訊，請參閱訂用帳戶[生命週期管理上的 AZURE API](https://docs.microsoft.com/rest/api/resources/subscriptions)。
 
-若要移除現有的 Azure 保留專案，您必須提交[取消要求](https://docs.microsoft.com/en-us/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)。 一旦 Azure 方案暫停之後，您就無法重新啟用它。
+若要移除現有的 Azure 保留專案，您必須提交[取消要求](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)。 一旦 Azure 方案暫停之後，您就無法重新啟用它。
 
 ## <a name="transition-existing-csp-offers-to-azure-plan"></a>將現有的 CSP 供應專案轉換為 Azure 方案
 
@@ -89,32 +89,32 @@ ms.locfileid: "74489618"
 
 您可以使用下列方法來查詢使用量摘要和詳細使用量記錄，以追蹤[Azure 費用](azure-spending.md)：
 
-* [取得合作夥伴使用量摘要](get-a-partner-usage-summary.md)
-* [取得合作夥伴的所有客戶使用方式記錄](get-a-customer-s-usage-records.md)
-* [取得客戶使用量摘要](get-a-customer-usage-summary.md)
-* [取得客戶的所有訂用帳戶使用方式記錄](get-a-customer-subscription-s-usage-records.md)
-* [取得訂用帳戶使用量摘要](get-a-customer-subscription-usage-summary.md)
-* [取得訂用帳戶的所有每月使用量記錄](get-all-monthly-usage-records-for-a-subscription.md)
-* [依資源取得訂用帳戶的使用量資料](get-a-customer-subscription-resource-usage-records.md)
-* [依計量取得訂用帳戶的使用量資料](get-a-customer-subscription-meter-usage-records.md)
-* [取得計量使用量記錄資源](meter-usage-resources.md)
-* [取得資源使用量記錄資源](resource-usage-resources.md)
+* [取得合作夥伴的使用摘要](get-a-partner-usage-summary.md)
+* [取得合作夥伴的所有客戶使用記錄](get-a-customer-s-usage-records.md)
+* [取得客戶的使用摘要](get-a-customer-usage-summary.md)
+* [取得客戶的所有訂用帳戶使用記錄](get-a-customer-subscription-s-usage-records.md)
+* [取得訂用帳戶使用資料](get-a-customer-subscription-usage-summary.md)
+* [取得訂用帳戶的所有每月使用記錄](get-all-monthly-usage-records-for-a-subscription.md)
+* [依照資源取得訂用帳戶的使用資料](get-a-customer-subscription-resource-usage-records.md)
+* [依照計量取得訂用帳戶的使用資料](get-a-customer-subscription-meter-usage-records.md)
+* [取得計量的使用記錄資源](meter-usage-resources.md)
+* [取得資源的使用記錄資源](resource-usage-resources.md)
 
 您也可以使用下列方法來設定及管理客戶使用量預算：
 
-* [取得客戶使用量預算](get-a-customer-s-usage-spending-budget.md)
-* [更新客戶使用量預算](update-a-customer-s-usage-spending-budget.md)
+* [取得客戶的使用量預算](get-a-customer-s-usage-spending-budget.md)
+* [更新客戶的使用量預算](update-a-customer-s-usage-spending-budget.md)
 
 ## <a name="invoice-and-reconciliation"></a>發票和對帳
 
 您可以使用下列方法來管理發票和對帳資料：
 
-* [取得發票的集合](get-a-collection-of-invoices.md)
-* [取得發票估計連結](get-invoice-estimate-links.md)
+* [取得發票集合](get-a-collection-of-invoices.md)
+* [取得發票估算連結](get-invoice-estimate-links.md)
 * [依識別碼取得發票](get-invoice-by-id.md)
-* [取得發票語句](get-invoice-statement.md)
+* [取得發票對帳單](get-invoice-statement.md)
 * [取得發票摘要](get-invoice-summaries.md)
-* [取得發票計費的耗用量明細專案](get-invoice-billed-consumption-lineitems.md)
-* [取得發票未開立帳單耗用量明細專案](get-invoice-unbilled-consumption-lineitems.md)
+* [取得已開立發票的取用明細項目](get-invoice-billed-consumption-lineitems.md)
+* [取得未開立發票的取用明細項目](get-invoice-unbilled-consumption-lineitems.md)
 * [取得發票計費的偵察明細專案](get-invoiceline-items.md)
-* [取得發票未開立帳單偵察明細專案](get-invoice-unbilled-recon-lineitems.md)
+* [取得未開立發票的對帳明細項目](get-invoice-unbilled-recon-lineitems.md)

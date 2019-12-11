@@ -5,12 +5,12 @@ ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b7785aa3b419ff5160031fb338e78f7130d5b9f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 14a66334793bfe6a1b87f0976a4084e76c331b65
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487708"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995174"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>確認間接轉銷商的 Microsoft 合作夥伴合約簽署狀態
 
@@ -26,7 +26,26 @@ ms.locfileid: "74487708"
 * 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 * 間接轉銷商的 MPN 識別碼或 CSP 租使用者識別碼（Microsoft ID）。 *您必須使用這兩個識別碼的其中一個。*
 
-## <a name="rest"></a>停
+## <a name="c"></a>C\#
+
+若要取得間接轉銷商的 Microsoft 合作夥伴合約簽名狀態：
+
+ 1. 使用您的**iaggregatepartner.customers.byid。合規性**集合 tocall **AgreementSignatureStatus**屬性。 
+ 2. 呼叫[**Get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync)方法。
+
+``` csharp
+// IAggregatePartner partnerOperations;
+
+var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSignatureStatus.Get(mpnId:"Enter MPN Id");
+
+var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
+```
+
+- 範例： **[主控台測試應用程式](console-test-app.md)**
+- 專案： **PartnerCenterSDK. FeaturesSamples**
+- 類別： **GetAgreementSignatureStatus.cs**
+
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -34,20 +53,20 @@ ms.locfileid: "74487708"
 
 | 方法 | 要求 URI |
 | ------ | ----------- |
-| **獲取** | *[{baseURL}](partner-center-rest-urls.md)* /V1/compliance/{ProgramName}/agreementstatus？ mpnId = {mpnId} & tenantId = {tenantId} |
+| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /V1/compliance/{ProgramName}/agreementstatus？ mpnId = {mpnId} & tenantId = {tenantId} |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
 您必須提供下列兩個查詢參數的其中一個，以識別合作夥伴。 如果您未提供這兩個查詢參數的其中一個，則會收到**400 （不正確的要求）** 錯誤。
 
-| 名稱 | 類型 | 必要 | 描述 |
+| 名稱 | 在工作列搜尋方塊中輸入 | 必要 | 說明 |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | 整數 | 否 | 識別間接轉銷商的 Microsoft 合作夥伴網路識別碼。 |
-| **TenantId** | GUID | 否 | 識別間接轉銷商 CSP 帳戶的 Microsoft 識別碼。 |
+| **MpnId** | 整數 | 無 | 識別間接轉銷商的 Microsoft 合作夥伴網路識別碼。 |
+| **TenantId** | GUID | 無 | 識別間接轉銷商 CSP 帳戶的 Microsoft 識別碼。 |
 
 #### <a name="request-headers"></a>要求標頭
 
-如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](https://docs.microsoft.com/en-us/partner-center/develop/headers)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](https://docs.microsoft.com/partner-center/develop/headers)。
 
 #### <a name="request-examples"></a>要求範例
 
@@ -83,7 +102,7 @@ Host: api.partnercenter.microsoft.com
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](https://docs.microsoft.com/en-us/partner-center/develop/error-codes)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](https://docs.microsoft.com/partner-center/develop/error-codes)。
 
 #### <a name="response-example-success"></a>回應範例（成功）
 

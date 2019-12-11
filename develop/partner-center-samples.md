@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: cf5949069ef7eb79c75d91448dd28e0d4ab7e94c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 8a134988ed2e9015e9c044ee537a1631679c0e92
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486788"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995213"
 ---
 # <a name="partner-center-samples"></a>合作夥伴中心範例
 
@@ -55,7 +55,7 @@ ms.locfileid: "74486788"
       <td><p><strong>描述:</strong></p>
           <p>此應用程式示範如何根據雲端解決方案提供者合作夥伴提供的供應專案目錄，建立 web 存放區。 客戶可以建立商店帳戶，並透過您的網站訂購軟體訂閱。</p>
         <p><strong>取得程式碼：</strong></p>
-        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">下載範例程式碼</a></p>
+        <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=746683">下載範例程式碼</a></p>
         <p><strong>發行前的設定事項：</strong></p>
         <ul>
           <li><p>驗證：應用程式識別碼 & 密碼。</p></li>

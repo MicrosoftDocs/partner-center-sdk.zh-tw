@@ -1,19 +1,19 @@
 ---
-title: 立即開始
+title: 入門
 description: 合作夥伴中心 SDK 包含受控 API 和 REST API，供合作夥伴用來管理客戶、訂用帳戶和訂單資料。
 ms.assetid: D9A91032-CA5B-4CD2-ADBA-6C5513E05D32
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 945b8df7d26f8d14386870979f69e3fdbe18d04f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3d47c3c41a7f6a23d8be6e9c20c16e6f7c01f275
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487278"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995223"
 ---
-# <a name="get-started"></a>立即開始
+# <a name="get-started"></a>入門
 
 **適用于**
 
@@ -26,7 +26,7 @@ ms.locfileid: "74487278"
 
 ## <a name="span-idget_the_codespan-idget_the_codespan-idget_the_codeget-the-code"></a><span id="Get_the_code"/><span id="get_the_code"/><span id="GET_THE_CODE"/>取得程式碼
 
-[下載合作夥伴中心 SDK](http://go.microsoft.com/fwlink/p/?LinkId=746681)  
+[下載合作夥伴中心 SDK](https://go.microsoft.com/fwlink/p/?LinkId=746681)  
 
 > [!NOTE]  
 > 對於間接轉銷商而言，合作夥伴中心的 API 存取不是支援的案例。
@@ -59,7 +59,7 @@ ms.locfileid: "74487278"
 
 ## <a name="span-idget_helpspan-idget_helpspan-idget_helpget-help"></a><span id="Get_help"/><span id="get_help"/><span id="GET_HELP"/>取得協助
 
-合作夥伴可以在[合作夥伴中心 SDK Yammer 群組](http://go.microsoft.com/fwlink/p/?LinkID=717360)取得支援。 若要取得更個人化的協助，開發人員可以使用其 MPN 支援權益或頂級支援。
+合作夥伴可以在[合作夥伴中心 SDK Yammer 群組](https://go.microsoft.com/fwlink/p/?LinkID=717360)取得支援。 若要取得更個人化的協助，開發人員可以使用其 MPN 支援權益或頂級支援。
 
 ## <a name="span-idearly_adopter_programspan-idearly_adopter_programspan-idearly_adopter_programjoin-the-partner-center-api-and-sdk-early-adopter-program"></a><span id="Early_adopter_program"/><span id="early_adopter_program"/><span id="EARLY_ADOPTER_PROGRAM"/>加入合作夥伴中心 API 和 SDK 早期採用者計畫
 

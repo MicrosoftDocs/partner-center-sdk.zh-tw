@@ -5,12 +5,12 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: c4bb015d4e8369643bd0bc46e03c8960098369ee
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 02706cb17462105749116a232837a37cce14f2e6
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489288"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995243"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>取得發票計費的商業耗用量明細專案
 
@@ -43,7 +43,7 @@ ms.locfileid: "74489288"
 若要取得對應至**InvoiceDetail**實例的明細專案集合：
 
 1. 將實例的**BillingProvider**和**InvoiceLineItemType**傳遞至[**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)方法。
-2. 呼叫[**Get**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)或[**GetAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)方法，以取出相關聯的明細專案。
+2. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)方法，以取出相關聯的明細專案。
 3. 建立列舉值以遍歷集合，如下列範例所示。
 
 ``` csharp
@@ -109,39 +109,39 @@ while (fetchNext)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetBilledConsumptionReconLineItemsPaging.cs**
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求的語法
 
-使用第一個語法來傳回給定發票之每個明細專案的完整清單。 若為大型發票，請使用第二個語法搭配指定的大小和以0為基礎的位移，以傳回已分頁的明細專案清單。 使用第三個語法，使用 `seekOperation = "Next"`取得偵察明細專案的下一頁。
+使用第一個語法來傳回給定發票之每個明細專案的完整清單。 對於大型發票，使用第二種語法搭配指定的大小和以零起始的位移來傳回已分頁的明細項目清單。 使用第三個語法，使用 `seekOperation = "Next"`取得偵察明細專案的下一頁。
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {CURRENCYCODE} HTTP/1。1                              |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {SIZE} HTTP/1。1  |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & 大小 = {size} & SeekOperation = 下一個                               |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {CURRENCYCODE} HTTP/1。1                              |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {SIZE} HTTP/1。1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & 大小 = {size} & SeekOperation = 下一個                               |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 類型   | 必要 | 描述                                                       |
+| 名稱                   | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| 發票識別碼             | 字串 | 是      | 識別發票的字串。                             |
-| 那裡               | 字串 | 是      | 提供者： "OneTime"。                                  |
-| 發票-明細專案-類型 | 字串 | 是      | 發票詳細資料的類型： "UsageLineItems"。 |
-| currencyCode           | 字串 | 是      | 計費明細專案的貨幣代碼。                    |
-| 長                 | 字串 | 是      | 計費偵察的期間。 範例：目前的、先前的。        |
-| size                   | 數字 | 否       | 要傳回的專案數目上限。 預設大小為2000       |
-| seekOperation          | 字串 | 否       | 設定 seekOperation = Next 以取得偵察明細專案的下一頁。 |
+| 發票識別碼             | 字串 | [是]      | 識別發票的字串。                             |
+| {2&gt;提供者&lt;2}               | 字串 | [是]      | 提供者： "OneTime"。                                  |
+| 發票-明細專案-類型 | 字串 | [是]      | 發票詳細資料的類型： "UsageLineItems"。 |
+| currencyCode           | 字串 | [是]      | 計費明細專案的貨幣代碼。                    |
+| 長                 | 字串 | [是]      | 計費偵察的期間。 範例：目前的、先前的。        |
+| size                   | 數目 | 無       | 要傳回的專案數目上限。 預設大小為2000       |
+| seekOperation          | 字串 | 無       | 設定 seekOperation = Next 以取得偵察明細專案的下一頁。 |
 
 #### <a name="request-headers"></a>要求標頭
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>要求主體
 
 無。
 
@@ -153,7 +153,7 @@ while (fetchNext)
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="rest-examples"></a>REST 範例
 

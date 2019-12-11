@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: a9e9e4182a1350f9e28c5c2c00bf1e57d8170384
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a670cdd82528d2017550cef7484a1e676f73bb3d
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488738"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995103"
 ---
 # <a name="get-a-customers-company-profile"></a>取得客戶的公司設定檔
 
@@ -42,7 +42,7 @@ ms.locfileid: "74488738"
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**範例**：[下載合作夥伴中心 SDK](http://go.microsoft.com/fwlink/p/?LinkId=746681)。 **專案**： PartnerSdk. FeatureSamples**類別**： GetCustomerCompanyProfile.cs
+**範例**：[下載合作夥伴中心 SDK](https://go.microsoft.com/fwlink/p/?LinkId=746681)。 **專案**： PartnerSdk. FeatureSamples**類別**： GetCustomerCompanyProfile.cs
 
 ### <a name="java"></a>Java
 
@@ -63,15 +63,15 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 | 方法  | 要求 URI                                                             |
 |---------|-------------------------------------------------------------------------|
-| **獲取** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1。1 |
+| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
 
 **URI 參數**
 
 使用下列查詢參數來取得公司設定檔。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **客戶-租使用者識別碼** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 
 
 **要求標頭**
@@ -102,7 +102,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

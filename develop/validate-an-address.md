@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: aaa7e7ecb10b73a27ce6e406df95f1fe073d8f28
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 79a4abf7c9aaf791421f008221d32a89c18f5867
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487748"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995203"
 ---
 # <a name="validate-an-address"></a>驗證位址
 
@@ -133,7 +133,7 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 | 方法   | 要求 URI                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1。1 |
 
 **要求標頭**
 
@@ -143,14 +143,14 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 下表描述要求主體中的必要屬性。
 
-| 名稱         | 類型   | 必要 | 描述                                                |
+| 名稱         | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| addressline1 | 字串 | Y        | 位址的第一行。                             |
-| addressline2 | 字串 | N        | 位址的第二行。 這個屬性為選擇性。 |
-| 鹽湖城         | 字串 | Y        | 城市。                                                  |
-| state        | 字串 | Y        | 狀態。                                                 |
+| addressline1 | 字串 | Y        | 第一行地址。                             |
+| addressline2 | 字串 | N        | 第二行地址。 這個屬性為選擇性。 |
+| 城市         | 字串 | Y        | 所在城市。                                                  |
+| state        | 字串 | Y        | 所在州別。                                                 |
 | postalcode   | 字串 | Y        | 郵遞區號。                                           |
-| 國家/地區      | 字串 | Y        | 兩個字元的 ISO Alpha 2 國家/地區代碼。                |
+| 國家/地區      | 字串 | Y        | 兩個字元的 ISO alpha-2 國家/地區代碼。                |
 
 **要求範例**
 
@@ -166,11 +166,11 @@ Host: api.partnercenter.microsoft.com
 Content-Length: 129
 
 {
-    AddressLine1: "One Microsoft Way",
-    City: "Redmond",
-    State: "WA",
-    PostalCode: "98052",
-    Country: "US"
+    "AddressLine1": "One Microsoft Way",
+    "City": "Redmond",
+    "State": "WA",
+    "PostalCode": "98052",
+    "Country": "US"
 }
 ```
 
@@ -182,7 +182,7 @@ Content-Length: 129
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應驗證成功範例**
 

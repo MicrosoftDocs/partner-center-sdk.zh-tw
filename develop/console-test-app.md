@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 51de7cc8b6a721c3c0d04f57d20e4d9afef50283
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0a23e83ef38632b9127b0ecdf99eb7f1860661ec
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488918"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995182"
 ---
 # <a name="console-test-app"></a>主控台測試應用程式
 
@@ -30,7 +30,7 @@ ms.locfileid: "74488918"
 
 ## <a name="net"></a>.NET
 
-[下載範例程式碼](http://go.microsoft.com/fwlink/p/?LinkId=746682)，並視需要加以修改。
+[下載範例程式碼](https://go.microsoft.com/fwlink/p/?LinkId=746682)，並視需要加以修改。
 
 > [!IMPORTANT]
 > 建立應用程式之前，請更新*app.config*檔案中的值，以反映您在[合作夥伴中心驗證](partner-center-authentication.md)中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。
@@ -43,7 +43,7 @@ ms.locfileid: "74488918"
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-[下載範例程式碼](http://go.microsoft.com/fwlink/p/?LinkId=2026887)，並視需要加以修改。
+[下載範例程式碼](https://go.microsoft.com/fwlink/p/?LinkId=2026887)，並視需要加以修改。
 
 > [!IMPORTANT]
 > 在您建立應用程式之前，請先更新*SamplesConfigurations*中的值，以反映您在[合作夥伴中心驗證](partner-center-authentication.md)中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。

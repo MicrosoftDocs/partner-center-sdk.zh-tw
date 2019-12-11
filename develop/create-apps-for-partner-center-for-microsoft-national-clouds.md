@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 494c803af64d8affd126a8de05fcdb18d648d774
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ede0ba85851e4d450d4f28832cd46064d2786d2d
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489548"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995253"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>為 Microsoft 國家雲端的合作夥伴中心註冊應用程式詳細資料
 
@@ -39,7 +39,7 @@ ms.locfileid: "74489548"
 
 1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. 選取 [**新增註冊**]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)。
+2. 選取 [新增註冊]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>設定 web 應用程式的 API 存取權限
 
@@ -60,7 +60,7 @@ ms.locfileid: "74489548"
 您應該會有來自 web 應用程式設定的下列詳細資料：
 
 - 應用程式識別碼
-- 應用程式密碼
+- 應用程式祕密
 
 ### <a name="register-the-web-app-in-partner-center"></a>在合作夥伴中心註冊 Web 應用程式
 
@@ -81,11 +81,11 @@ ms.locfileid: "74489548"
 
 1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. 選取 [**新增註冊**]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)。
+2. 選取 [新增註冊]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>設定原生應用程式的 API 存取權限
 
-1. 選擇您的應用程式。 移至 [**設定**]。
+1. 選擇您的應用程式。 移至 [設定]。
 2. 在 [API 存取] 中，選擇 [**必要許可權**]。
 3. 選擇 [ **Windows Azure Active Directory 許可權**]。 在 [**委派的許可權**] 中，選取下列許可權：
     - **登入和讀取使用者設定檔**
@@ -94,12 +94,12 @@ ms.locfileid: "74489548"
     - **讀取所有群組**
 4. 儲存許可權。
 5. 選擇 [**新增**] [**必要許可權**]。
-6. 選擇 [**選取 API**]。
+6. 選擇 [選取 API]。
     1. 在搜尋方塊中，輸入**Microsoft 合作夥伴中心**，然後從結果清單中選取它。
-    2. 選擇 [**選取**]。
-7. 選擇 [**選取許可權**]。
+    2. 選擇 [選取]。
+7. 選擇 [選取權限]。
     1. 選取 [**存取合作夥伴中心 PPE**]。
-    2. 選擇 [**選取**]。
+    2. 選擇 [選取]。
 8. 選擇 [**完成**]。
 
 >[!IMPORTANT]
