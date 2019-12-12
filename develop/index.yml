@@ -10,12 +10,12 @@ metadata:
   author: lauradolan
   ms.author: ladolan
   ms.date: 11/05/2019
-  ms.openlocfilehash: df534dc5951ac155bde06044a55465d00df18ebe
-  ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+  ms.openlocfilehash: fdc4b89eca5f3530bd3fcda0dc063277dc4b0488
+  ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/26/2019
-  ms.locfileid: "74485598"
+  ms.lasthandoff: 12/10/2019
+  ms.locfileid: "74995233"
 landingContent:
 - title: 使用合作夥伴中心進行開發
   linkLists:
@@ -23,7 +23,7 @@ landingContent:
     links:
     - text: 設定您的開發人員帳戶及驗證
       url: partner-center-authentication.md
-    - text: 設定環境
+    - text: 設定您的環境
       url: get-started.md
   - linkListType: whats-new
     links:
@@ -35,7 +35,7 @@ landingContent:
       url: partner-center-samples.md
     - text: 範例案例
       url: scenarios.md
-- title: 使用 .NET SDK (v1.15.1)
+- title: 使用 .NET SDK (v1.15.2)
   linkLists:
   - linkListType: download
     links:
@@ -47,6 +47,8 @@ landingContent:
     links:
     - text: 受控的 .NET API 參照
       url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+    - text: .NET SDK 版本的版本資訊
+      url: dotnet-release-notes.md
 - title: 使用 REST API
   linkLists:
   - linkListType: reference
