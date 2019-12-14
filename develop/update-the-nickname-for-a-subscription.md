@@ -6,12 +6,12 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: efee3cb912dbe29688b08b6cfc4d684a10bba8be
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 83657fbe507215905a950f16ede31b9a7d6f2d6c
+ms.sourcegitcommit: 41d6e1fe826a51fa43825de6d481663d3d34f290
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486298"
+ms.lasthandoff: 12/14/2019
+ms.locfileid: "75032119"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>更新訂用帳戶的昵稱
 
@@ -60,7 +60,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | 方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
+| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
 
  
 
@@ -68,10 +68,10 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 下表列出更新訂用帳戶昵稱所需的查詢參數。
 
-| 名稱                    | 類型     | 必要 | 描述                          |
+| 名稱                    | 在工作列搜尋方塊中輸入     | 必要 | 說明                          |
 |-------------------------|----------|----------|--------------------------------------|
-| **客戶-租使用者識別碼**  | **guid** | Y        | **客戶租使用者識別碼**（GUID）。 |
-| **訂用帳戶的識別碼** | **guid** | Y        | 訂用帳戶識別碼（GUID）。        |
+| **customer-tenant-id**  | **guid** | Y        | **客戶租使用者識別碼**（GUID）。 |
+| **id-for-subscription** | **guid** | Y        | 訂用帳戶識別碼（GUID）。        |
 
  
 
@@ -81,7 +81,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 **要求本文**
 
-要求主體中需要完整的**訂**用帳戶資源。 請確定已更新 [ **FriendlyName** ] 屬性。
+要求本文中必須有完整的 **Subscription** 資源。 請確定已更新 [ **FriendlyName** ] 屬性。
 
 **要求範例**
 
@@ -125,12 +125,12 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 
 ```http
-PATCH http://partnerapi.store.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-Contract-Version: v1
