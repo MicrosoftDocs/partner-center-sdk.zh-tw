@@ -5,12 +5,12 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: b5aa51983820e33b8a1f6d45f14bd49063ffcd5c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 960d35e71dda4ee30d6fc775299bd8954dcd1a6e
+ms.sourcegitcommit: 9a8a501481f8bdf15bf464bce6c21d25d383aca5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489088"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033454"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>從整合沙箱取消訂單
 
@@ -59,26 +59,30 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 | 方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
+| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來刪除客戶。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **客戶-租使用者識別碼** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
-| **訂單識別碼** | **字串** | Y        | 值為字串，表示需要取消的訂單識別碼。 |
+| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **訂單識別碼** | **string** | Y        | 值為字串，表示需要取消的訂單識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>要求主體
+```http
+{  
+    "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",  
+    "status": "cancelled",  
+}
+```
 
-無。
-
-### <a name="request-example"></a>要求範例
+### <a name="request-example"></a>要求的範例
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/orders/<order-id> HTTP/1.1
@@ -98,7 +102,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 
