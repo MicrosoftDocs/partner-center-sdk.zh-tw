@@ -1,24 +1,22 @@
 ---
 title: 取消購買軟體
 description: 使用合作夥伴中心 Api 取消軟體訂閱和永久軟體購買的自助選項。
-ms.date: 12/11/2019
+ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 214e01588559845ee2b8e4ed072e17d8e3ac4309
-ms.sourcegitcommit: 9a8a501481f8bdf15bf464bce6c21d25d383aca5
+ms.openlocfilehash: 17850452b3789fed861dc7855acd40cac186d5fb
+ms.sourcegitcommit: 9b98bc43ccf70e7f49917292de4b70316c215e0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033524"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75302386"
 ---
 # <a name="cancel-software-purchases"></a>取消購買軟體
 
 適用於：
 
 - 合作夥伴中心
-- Microsoft Cloud 德國合作夥伴中心
-- Microsoft Cloud for US Government 適用的合作夥伴中心
 
 您可以使用合作夥伴中心 Api，從購買日期取消軟體訂閱和永久軟體購買。 您不需要建立支援票證來進行這類取消，而可以改為使用下列自助服務方法。
 
@@ -32,7 +30,7 @@ ms.locfileid: "75033524"
 
 1. 將您的帳號憑證傳遞至[**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)方法，以取得[**ipartner.getinvoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)介面來取得合作夥伴作業。
 
-2. 選取您想要取消的特定[訂單](order-resources.md#order)。 使用客戶識別碼呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，後面接著**ById （）** 與訂單識別碼。
+2. 選取您想要取消的特定[訂單](order-resources.md#order)。 使用客戶識別碼呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，後面接著**ById （）** 與訂單識別碼。
 
 3. 呼叫**Get**或**GetAsync**方法以取得訂單。
 
@@ -65,7 +63,7 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 | 方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
+| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
@@ -73,8 +71,8 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 | 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的客戶租使用者識別碼，可讓轉銷商針對屬於轉售商的特定客戶篩選其結果。 |
-| **訂單識別碼** | **string** | Y        | 值為字串，表示您想要取消之訂單的識別碼。 |
+| **客戶-租使用者識別碼** | **guid** | Y        | 此值是 GUID 格式的客戶租使用者識別碼，可讓轉銷商針對屬於轉售商的特定客戶篩選其結果。 |
+| **訂單識別碼** | **字串** | Y        | 值為字串，表示您想要取消之訂單的識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
