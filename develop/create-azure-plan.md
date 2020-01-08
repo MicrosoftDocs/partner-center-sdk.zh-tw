@@ -2,16 +2,16 @@
 title: 建立 Azure 方案
 description: 開發人員可以使用合作夥伴中心 Api，以程式設計方式購買、建立和管理 Azure 方案。
 ms.assetid: ''
-ms.date: 11/01/2019
+ms.date: 01/02/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 572d5c64343c360f3daf0fb8fef7551da7bdcb2f
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 65d7e33d5a05cbf0b6ca938ea45f0ba03dfefd2e
+ms.sourcegitcommit: efffee16923d06f37d24cd50cbce9bdc82a56a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995193"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75621660"
 ---
 # <a name="create-an-azure-plan"></a>建立 Azure 方案
 
@@ -21,7 +21,7 @@ ms.locfileid: "74995193"
 
 您可以使用合作夥伴中心 Api 來購買、建立和管理 Azure 方案。 此程式類似于建立 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶。 您必須[取得 Azure 方案的類別目錄專案](#get-the-catalog-item-for-azure-plan)，然後[建立並提交訂單](#create-and-submit-an-order)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [合作夥伴中心驗證認證](partner-center-authentication.md)。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 * 客戶識別碼。 如果您沒有客戶的識別碼，請依照[取得客戶清單](get-a-list-of-customers.md)或登入合作夥伴中心中的步驟，從 [客戶] 清單中選擇 [客戶]，選取 [**帳戶**]，然後儲存其**Microsoft 識別碼**。
@@ -63,7 +63,7 @@ ms.locfileid: "74995193"
 成功處理訂單之後，將會為 Azure 方案建立合作夥伴中心**訂**用帳戶資源。 您可以使用下列方法來管理合作夥伴中心**訂**用帳戶資源，以管理 Azure 方案：
 
 * [取得客戶的訂用帳戶](get-all-of-a-customer-s-subscriptions.md)
-* [依照訂單取得訂用帳戶清單](get-a-list-of-subscriptions-by-order.md)
+* [依訂單取得訂用帳戶清單](get-a-list-of-subscriptions-by-order.md)
 
 在合作夥伴中心建立 Azure 方案時，也會在 Azure 中建立對應的 Azure 使用量訂用帳戶。 您也可以使用 Azure 入口網站和 Azure Api，在相同的 Azure 方案底下建立額外的 Azure 使用量訂用帳戶。 您可以遵循[取得合作夥伴中心訂用帳戶的 azure 權利清單](get-a-list-of-azure-entitlements-for-subscription.md)中的步驟，取得與 azure 方案相關聯的所有 azure 使用量訂閱的識別碼
 
@@ -75,7 +75,10 @@ ms.locfileid: "74995193"
 
 如需如何停用 Azure 使用量訂閱的詳細資訊，請參閱訂用帳戶[生命週期管理上的 AZURE API](https://docs.microsoft.com/rest/api/resources/subscriptions)。
 
-若要移除現有的 Azure 保留專案，您必須提交[取消要求](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)。 一旦 Azure 方案暫停之後，您就無法重新啟用它。
+若要移除現有的 Azure 保留專案，您必須[取消保留](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)。  
+暫止 Azure 方案之後，您可以重新啟用它。
+
+如需如何重新啟用 Azure 方案的詳細資訊，請參閱重新啟用已[暫停的訂用](reactivate-a-suspended-a-subscription.md)帳戶
 
 ## <a name="transition-existing-csp-offers-to-azure-plan"></a>將現有的 CSP 供應專案轉換為 Azure 方案
 
@@ -109,7 +112,7 @@ ms.locfileid: "74995193"
 
 您可以使用下列方法來管理發票和對帳資料：
 
-* [取得發票集合](get-a-collection-of-invoices.md)
+* [取得發票的集合](get-a-collection-of-invoices.md)
 * [取得發票估算連結](get-invoice-estimate-links.md)
 * [依識別碼取得發票](get-invoice-by-id.md)
 * [取得發票對帳單](get-invoice-statement.md)
