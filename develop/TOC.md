@@ -242,5 +242,5 @@
 ### [合作夥伴中心 Webhook](partner-center-webhooks.md) 
 ## [合作夥伴中心受控的 .NET API 參照](https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest)
 ### [合作夥伴中心 .NET API 版本的版本資訊](dotnet-release-notes.md)
-## [合作夥伴中心的 Java API 參照](https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1)
-## [合作夥伴中心 PowerShell 命令](https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5)
+## [合作夥伴中心的 Java API 參照](https://docs.microsoft.com/java/partnercenter)
+## [合作夥伴中心 PowerShell 命令](https://docs.microsoft.com/powershell/partnercenter)
