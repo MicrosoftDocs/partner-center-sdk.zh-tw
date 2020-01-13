@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: lauradolan
   ms.author: ladolan
-  ms.date: 11/05/2019
-  ms.openlocfilehash: fdc4b89eca5f3530bd3fcda0dc063277dc4b0488
-  ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+  ms.date: 01/08/2020
+  ms.openlocfilehash: ab73e95835c04806e25cb3cbbd46cecd31e3b86d
+  ms.sourcegitcommit: c6a3508ff9b5d97f6ec2bb232999386444933399
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/10/2019
-  ms.locfileid: "74995233"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75780837"
 landingContent:
 - title: 使用合作夥伴中心進行開發
   linkLists:
@@ -42,7 +42,7 @@ landingContent:
     - text: 合作夥伴中心 .NET SDK
       url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
     - text: 合作夥伴中心 .NET 範例
-      url: https://github.com/Microsoft/Partner-Center-DotNet-Samples
+      url: https://github.com/microsoft/Partner-Center-DotNet-Samples
   - linkListType: reference
     links:
     - text: 受控的 .NET API 參照
@@ -54,19 +54,19 @@ landingContent:
   - linkListType: reference
     links:
     - text: 合作夥伴中心 REST API 參照
-      url: https://docs.microsoft.com/en-us/partner-center/develop/partner-center-rest-api-reference
+      url: https://docs.microsoft.com/partner-center/develop/partner-center-rest-api-reference
 - title: 使用 Java SDK (開放原始碼)
   linkLists:
   - linkListType: download
     links:
     - text: 下載合作夥伴中心 Java SDK
-      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter/1.8.1/jar
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter
     - text: Java SDK GitHub 存放庫 (用於提出問題及貢獻)
-      url: https://github.com/Microsoft/Partner-Center-Java
+      url: https://github.com/microsoft/Partner-Center-Java
   - linkListType: reference
     links:
     - text: Java API 參照
-      url: https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1
+      url: https://docs.microsoft.com/java/partnercenter/overview
 - title: 使用 PowerShell 模組 (開放原始碼)
   linkLists:
   - linkListType: download
@@ -74,11 +74,11 @@ landingContent:
     - text: 安裝 PowerShell 模組
       url: https://www.powershellgallery.com/packages/PartnerCenter
     - text: PowerShell 模組 GitHub 存放庫 (用於提出問題及貢獻)
-      url: https://github.com/Microsoft/Partner-Center-PowerShell
+      url: https://github.com/microsoft/Partner-Center-PowerShell
   - linkListType: reference
     links:
     - text: PowerShell 命令
-      url: https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5
+      url: https://docs.microsoft.com/powershell/partnercenter
 - title: 使用適用於 CSP 合作夥伴的 Swagger API
   linkLists:
   - linkListType: reference
