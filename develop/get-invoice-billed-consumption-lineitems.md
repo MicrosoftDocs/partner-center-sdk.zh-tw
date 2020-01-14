@@ -1,16 +1,16 @@
 ---
 title: 取得發票計費的商業耗用量明細專案
 description: 您可以使用合作夥伴中心 Api，取得指定發票的商業耗用量發票明細專案（已關閉每日評分的使用量明細專案）詳細資料集合。
-ms.date: 11/01/2019
+ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 02706cb17462105749116a232837a37cce14f2e6
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 09f2c36c2b1d3adfa57eda687572533ffd0fde78
+ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995243"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923500"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>取得發票計費的商業耗用量明細專案
 
@@ -20,11 +20,9 @@ ms.locfileid: "74995243"
 
 您可以使用下列方法，針對指定的發票取得商業耗用量發票明細專案（也稱為已關閉的每日已評分的使用量明細專案）的詳細資料集合。
 
-[!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
-
 此 API 也支援適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的**azure**提供者類型。 這表示此 API 是回溯相容的功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 發票識別碼。 這會識別要取得其行專案的發票。
