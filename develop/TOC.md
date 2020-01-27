@@ -11,7 +11,6 @@
 ### [啟用安全應用程式模型](enable-secure-app-model.md)
 ### [測試與偵錯](test-and-debug.md) 
 ### [早期採用者計畫](early-adopter-program.md) 
-### [合作夥伴中心 SDK EULA](EULA-Partner-Center-SDK.md)
 ## [案例](scenarios.md)
 ### [分析](usage-analytics.md)
 #### [合作夥伴中心分析 - 資源](partner-center-analytics-resources.md)

@@ -1,16 +1,16 @@
 ---
 title: 啟用安全應用程式模型
 description: 保護您的合作夥伴中心與控制台應用程式。
-ms.date: 09/17/2019
+ms.date: 01/20/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: c8700ecdf42b0a5e156d68854674c904d8da1d4c
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 0a6c3d14ca55350db832c10956b0751acb8f8a0c
+ms.sourcegitcommit: 0dea06cd7f95026d93f970d3c294370a58dfcb6b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995133"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76723190"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>啟用安全應用程式模型架構
 
@@ -55,11 +55,11 @@ Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Mi
 - [REST 指示和範例](#rest)
 - [PowerShell 指示和範例](#powershell)
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
 若要使用安全的應用程式模型架構進行 REST 呼叫，並搭配範例程式碼，您必須執行下列動作：
 
-1. [建立 Web 應用程式](#create-a-web-app)
+1. [建立 web 應用程式](#create-a-web-app)
 2. [取得授權碼](#get-authorization-code)
 3. [取得重新整理權杖](#get-refresh-token)
 4. [取得存取權杖](#get-access-token)
@@ -68,7 +68,7 @@ Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Mi
 > [!TIP]
 > 您可以使用合作夥伴中心 PowerShell 模組來取得授權碼和重新整理權杖。 您可以選擇此選項來取代步驟2和3。 如需詳細資訊，請參閱[PowerShell 一節和範例](#powershell)。
 
-### <a name="create-a-web-app"></a>建立 Web 應用程式
+### <a name="create-a-web-app"></a>建立 web 應用程式
 
 您必須先在合作夥伴中心建立並註冊 web 應用程式，才能進行 REST 呼叫。
 
@@ -81,7 +81,7 @@ Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Mi
 4. 請確定您應用程式的 [主 URL] 已設定為執行即時 web 應用程式的端點。 此應用程式將需要接受來自 Azure AD 登入呼叫的[授權碼](#get-authorization-code)。 例如，在[下一節](#get-authorization-code)的範例程式碼中，web 應用程式是在 `https://localhost:44395/`執行。
 5. 請注意 Azure AD 中 web 應用程式設定的下列資訊：
     - 應用程式識別碼
-    - 應用程式祕密
+    - 應用程式密碼
 
 > [!NOTE]
 > 建議[使用憑證做為您的應用程式密碼](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)。 不過，您也可以在 Azure 入口網站中建立應用程式金鑰。 [下一節](#get-authorization-code)中的範例程式碼會使用應用程式金鑰。
@@ -90,7 +90,7 @@ Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Mi
 
 您必須取得 web 應用程式的授權碼，才能從 Azure AD 登入呼叫中接受：
 
-1. 以下列 URL 登入 Azure AD： <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>。 請務必以您要用來進行合作夥伴中心 API 呼叫的使用者帳戶登入（例如，系統管理員代理程式或銷售代理程式帳戶）。
+1. 以下列 URL 登入 Azure AD： <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1>。 請務必以您要用來進行合作夥伴中心 API 呼叫的使用者帳戶登入（例如，系統管理員代理程式或銷售代理程式帳戶）。
 2. 將**應用程式識別碼**取代為您的 Azure AD 應用程式識別碼（GUID）。
 3. 出現提示時，使用已設定 MFA 的使用者帳戶登入。
 4. 出現提示時，請輸入其他 MFA 資訊（電話號碼或電子郵件地址）來驗證您的登入。
@@ -221,37 +221,21 @@ Host: api.partnercenter.microsoft.com
     Install-Module PartnerCenter
     ```
 
-2. 使用 PowerShell 將 `urn:ietf:wg:oauth:2.0:oob` 新增為 Azure AD 應用程式的回復 URL。 請務必將物件識別碼參數的值取代為您 Azure AD 應用程式的物件識別碼。 您可以在 Azure 管理入口網站中找到此值。
-
-    ```powershell
-    Connect-AzureAD
-    ```
-
-    ```powershell
-    Set-AzureADApplication -ObjectId 659dd68d-3414-4254-a48b-c081b5631b86 -ReplyUrls @("urn:ietf:wg:oauth:2.0:oob")
-    ```
-
-3. 使用 **[PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** 命令來執行同意程式，並捕捉所需的重新整理權杖。
+2. 使用 **[PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** 命令來執行同意程式，並捕捉所需的重新整理權杖。
 
     ```powershell
     $credential = Get-Credential
-    ```
 
-    ```powershell
-    $token = New-PartnerAccessToken -Consent -Credential $credential -Resource https://api.partnercenter.microsoft.com -ServicePrincipal
+    New-PartnerAccessToken -ApplicationId 'xxxx-xxxx-xxxx-xxxx' -Scopes 'https://api.partnercenter.microsoft.com/user_impersonation' -ServicePrincipal -Credential $credential -Tenant 'yyyy-yyyy-yyyy-yyyy' -UseAuthorizationCode
     ```
 
     > [!NOTE]
-    > **ServicePrincipal**參數會與**PartnerAccessToken**命令搭配使用，因為正在使用具有**web/API**類型的 Azure AD 應用程式。 這種類型的應用程式要求用戶端識別碼和密碼必須包含在存取權杖要求中。
+    > **ServicePrincipal**參數會與**PartnerAccessToken**命令搭配使用，因為正在使用具有**Web/API**類型的 Azure AD 應用程式。 這種類型的應用程式要求用戶端識別碼和密碼必須包含在存取權杖要求中。 叫用**Get-Credential**命令時，系統會提示您輸入使用者名稱和密碼。 輸入應用程式識別碼做為使用者名稱。 輸入 [應用程式秘密] 做為密碼。 叫用**PartnerAccessToken**命令時，系統會提示您再次輸入認證。 輸入您所使用之服務帳戶的認證。 此服務帳戶應該是具有適當許可權的夥伴帳戶。
 
-4. 複製 [重新整理權杖] 值。
+3. 複製 [重新整理權杖] 值。
 
     ```powershell
     $token.RefreshToken | clip
     ```
 
-5. 叫用**Get-Credential**命令時，系統會提示您輸入使用者名稱和密碼。 輸入應用程式識別碼做為使用者名稱。 輸入 [應用程式秘密] 做為密碼。
-
-6. 叫用**PartnerAccessToken**命令時，系統會提示您再次輸入認證。 輸入您所使用之服務帳戶的認證。 此服務帳戶應該是具有 apppropriate 許可權的夥伴帳戶。
-
-7. 成功執行**PartnerAccessToken**之後， **$token**變數現在會包含來自 Azure AD 的回應。 請務必記下重新整理權杖值，並將其儲存在安全的儲存機制中，例如 Azure Key Vault。
+您應該將重新整理權杖值儲存在安全的儲存機制中，例如 Azure Key Vault。 如需如何利用 PowerShell 的安全應用程式模組的詳細資訊，請參閱[多因素驗證一](https://docs.microsoft.com/powershell/partnercenter/multi-factor-auth)文。
