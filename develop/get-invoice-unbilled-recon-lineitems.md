@@ -1,16 +1,16 @@
 ---
 title: 取得發票的未開立帳單對帳明細專案
 description: 您可以使用合作夥伴中心 Api，取得指定期間的未開立帳單對帳明細專案詳細資料集合。
-ms.date: 01/13/2020
+ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6504d612118daabb7d30e64a7b7e0c15d1c90265
-ms.sourcegitcommit: bc0f589e61bc4248f4d98b1849697e9f699ca766
+ms.openlocfilehash: 3f7bc17100c521aeaf7e0be371591942aab6aa21
+ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146720"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76923092"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>取得發票的未開立帳單對帳明細專案
 
@@ -110,7 +110,7 @@ while (fetchNext)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetUnBilledReconLineItemsPaging.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -131,7 +131,7 @@ while (fetchNext)
 | 名稱                   | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
 | 發票識別碼             | 字串 | [是]      | 識別發票的字串。 使用 ' 未開立帳單 ' 取得未開立帳單估計值。 |
-| {2&gt;提供者&lt;2}               | 字串 | [是]      | 提供者： "OneTime"。                                                |
+| 那裡               | 字串 | [是]      | 提供者： "OneTime"。                                                |
 | 發票-明細專案-類型 | 字串 | [是]      | 發票詳細資料的類型： "BillingLineItems"。               |
 | hasPartnerEarnedCredit | bool   | 無       | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。
 | currencyCode           | 字串 | [是]      | 未開立帳單明細專案的貨幣代碼。                                  |
@@ -234,7 +234,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "billableQuantity": 3.1618,
-        "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "883d475b-0000-1234-0000-8818752f1234",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
@@ -278,7 +279,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "billableQuantity": 0.737083,
-        "meterDescription": "",
+            "meterDescription": "",
+            "reservationOrderId": "883d475b-0000-2222-0000-8818752f1234",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
@@ -378,7 +380,14 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "chargeEndDate": "2019-03-03T09:22:34.6455294-08:00",
             "termAndBillingCycle": "1 Month Subscription",
             "alternateId": "123456ad566",
+            "priceAdjustmentDescription": "[\"15.0% Partner earned credit for services managed\",\"100.0% Tier 1 Discount\"]",
             "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": 1,
+            "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
+            "billableQuantity": 0.737083,
+            "meterDescription": "",
+            "reservationOrderId": ""
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }

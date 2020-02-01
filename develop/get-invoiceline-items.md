@@ -1,19 +1,19 @@
 ---
-title: 取得發票明細項目
+title: 取得發票明細專案
 description: 您可以使用合作夥伴中心 Api，取得指定發票的發票明細專案（已關閉的計費明細專案）詳細資料集合。
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
-ms.date: 01/13/2020
+ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 37f9773cde315ea3f37bf1e6c7551666463aa44c
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.openlocfilehash: 758ccbeff877973f9b317ef4008fd7cf8b962939
+ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923528"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76923095"
 ---
-# <a name="get-invoice-line-items"></a>取得發票明細項目
+# <a name="get-invoice-line-items"></a>取得發票明細專案
 
 適用於：
 
@@ -104,7 +104,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetInvoiceLineItems.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>停
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -129,7 +129,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1。1  |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure & invoicelineitemtype = usagelineitems & size = {size} & offset = {OFFSET} HTTP/1。1  |
 
-##### <a name="onetime"></a>一次性
+##### <a name="onetime"></a>OneTime
 
 下列語法適用于**OneTime**計費提供者時。 這包括 Azure 保留、軟體、Azure 方案和商業 marketplace 產品的費用。
 
@@ -642,6 +642,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "billableQuantity": 0.0159369774,
             "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
             "billingFrequency": "Monthly",
+            "reservationOrderId": "883d475b-0000-2222-0000-8818752f1234",
             "invoiceLineItemType": "billing_line_items",
             "billingProvider": "one_time",
             "attributes": {
@@ -687,6 +688,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "pcToBCExchangeRateDate": "2019-09-30T23:59:59Z",
             "billableQuantity": 0.0130687981,
             "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "",
             "invoiceLineItemType": "billing_line_items",
             "billingProvider": "one_time",
             "attributes": {
@@ -793,6 +795,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "pcToBCExchangeRateDate": "2019-09-30T23:59:59Z",
             "billableQuantity": 0.0130687981,
             "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "",
             "billingFrequency": "Monthly",
             "invoiceLineItemType": "billing_line_items",
             "billingProvider": "one_time",
