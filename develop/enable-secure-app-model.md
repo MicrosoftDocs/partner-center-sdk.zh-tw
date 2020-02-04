@@ -16,13 +16,13 @@ ms.locfileid: "76723190"
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 Microsoft 引進了一個安全、可擴充的架構，可透過 Microsoft Azure 多重要素驗證（MFA）架構來驗證雲端解決方案提供者（CSP）合作夥伴和控制台廠商（CPV）。
 
 您可以使用新的模型來提升合作夥伴中心 API 整合呼叫的安全性。 這會協助所有的合作物件（包括 Microsoft、CSP 合作夥伴和 CPVs）保護其基礎結構和客戶資料免于安全性風險。
 
-## <a name="scope"></a>領域
+## <a name="scope"></a>範圍
 
 本主題涉及下列動作專案：
 
@@ -41,7 +41,7 @@ Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Mi
 
 如需新驗證架構的總覽和詳細資訊，請下載[安全的應用程式模型架構](https://assetsprod.microsoft.com/secure-application-model-guide.pdf)檔。 本檔涵蓋的原則和最佳作法，是為了讓 marketplace 應用程式可持續且穩定于安全性危害。
 
-## <a name="samples"></a>範例
+## <a name="samples"></a>Samples
 
 下列總覽檔和範例程式碼會說明合作夥伴如何執行安全的應用程式模型架構：
 
@@ -55,7 +55,7 @@ Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Mi
 - [REST 指示和範例](#rest)
 - [PowerShell 指示和範例](#powershell)
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 若要使用安全的應用程式模型架構進行 REST 呼叫，並搭配範例程式碼，您必須執行下列動作：
 
