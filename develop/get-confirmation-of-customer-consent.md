@@ -1,22 +1,22 @@
 ---
 title: 取得客戶接受 Microsoft Cloud 合約的確認
 description: 本主題說明如何確認客戶接受 Microsoft Cloud 合約。
-ms.date: 09/17/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ae40cd3c9805ee8ddaae6d98fd0d6b61ede8d40
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d6282a82793f2bc9fa6f436ed9c7a6a31ad0969d
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485658"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899885"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>取得客戶接受 Microsoft Cloud 合約的確認
 
 **適用于**
 
-- 合作夥伴中心
+- 夥伴中心
 
 > [!NOTE]  
 > **合約**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
@@ -24,7 +24,7 @@ ms.locfileid: "74485658"
 > - Microsoft Cloud 德國合作夥伴中心
 > - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
 - 如果您使用合作夥伴中心 JAVA SDK，則需要1.8 或更新版本。
@@ -92,7 +92,7 @@ ResourceCollection<Agreement> agreements = partnerOperations.getCustomers().byId
 Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 若要取得先前提供的客戶接受確認，請參閱下列指示。
 
@@ -110,9 +110,9 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 使用下列查詢參數來指定您要確認的客戶。
 
-| 名字             | 類型 | 必要 | 說明                                                                               |
+| 名稱             | 類型 | 必要項 | 描述                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| customerTenantId | GUID | Y        | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
+| CustomerTenantId | GUID | Y        | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -120,9 +120,9 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/14876998-c0dc-46e6-9d0c-65a57a6c32ec/agreements HTTP/1.1
@@ -138,7 +138,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

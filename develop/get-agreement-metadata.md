@@ -1,22 +1,22 @@
 ---
 title: 取得 Microsoft Cloud 合約的合約中繼資料
 description: 本主題說明如何取得 Microsoft Cloud 合約的合約中繼資料。
-ms.date: 09/17/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0608a735705e02fe70ceabfd60d33cda6a9e4d0e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a0bf235be9415b75cc4f766f4a92cb37a14a0d96
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486098"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899955"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>取得 Microsoft Cloud 合約的合約中繼資料
 
 **適用于**
 
-- 合作夥伴中心
+- 夥伴中心
 
 > [!NOTE]  
 > **AgreementMetaData**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
@@ -102,7 +102,7 @@ for (AgreementMetaData metadata : agreements)
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -120,7 +120,7 @@ Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudA
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-example"></a>要求範例
 
@@ -138,7 +138,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

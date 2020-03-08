@@ -1,22 +1,22 @@
 ---
 title: 取得 Microsoft 客戶合約範本的下載連結
 description: 取得 Microsoft 客戶合約範本的下載連結。
-ms.date: 09/19/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 76b0b6ceb20504ad0f9903027ac61feca78c3970
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9cfce85865b41674955b7de5dcd57083a00935c0
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489958"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899935"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>取得 Microsoft 客戶合約範本的下載連結
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 合作夥伴中心目前僅支援在*Microsoft 公用雲端*中使用**AgreementDocument**資源。 此資源不適用於：
 
@@ -36,7 +36,7 @@ ms.locfileid: "74489958"
 > [!IMPORTANT]
 > - Microsoft 客戶合約是國家/地區特定的。 當要求下載 Microsoft 客戶合約範本的連結時，請務必根據客戶的位置指定正確的國家/地區。 或支援的國家/地區清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。
 > - 針對某些國家/地區，Microsoft 客戶合約提供多種語言。 為獲得最佳的客戶體驗，請挑選最符合客戶需求的語言。 如需支援的語言清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。
-> - 只有 Microsoft 客戶合約支援此方法。 您無法使用它來取得 Microsoft Cloud 協定範本的下載連結。
+> - 只有 Microsoft 客戶合約支援此方法。
 
 ## <a name="net"></a>.NET
 
@@ -94,11 +94,11 @@ var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCusto
 
 您可以搭配您的要求使用下列 URI 參數：
 
-| 名稱                   | 類型   | 必要 | 描述                                 |
+| 名稱                   | 類型   | 必要項 | 描述                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| 合約-範本識別碼  | 字串 | 是      | 合約類型的唯一識別碼。 您可以藉由抓取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的 templateId。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](./get-customer-agreement-metadata.md)。 這個參數會區分**大小寫**。|
-| 國家/地區                | 字串 | 否       | 指出套用合約範本的國家/地區。 如果未指定參數，查詢會預設為*US* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
-| language               | 字串 | 否       | 指出應在其中當地語系化協定範本的語言。 如果未指定參數，或指定的國家（地區）代碼 in't 支援指定的國家/地區碼，則查詢會預設為*en-us* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
+| 合約-範本識別碼  | string | 是      | 合約類型的唯一識別碼。 您可以藉由抓取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的 templateId。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](./get-customer-agreement-metadata.md)。 這個參數會區分**大小寫**。|
+| 國家/地區                | string | 否       | 指出套用合約範本的國家/地區。 如果未指定參數，查詢會預設為*US* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
+| 語言               | string | 否       | 指出應在其中當地語系化協定範本的語言。 如果未指定參數，或指定的國家（地區）代碼 in't 支援指定的國家/地區碼，則查詢會預設為*en-us* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -106,7 +106,7 @@ var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCusto
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="request-example"></a>要求範例
 
@@ -126,9 +126,9 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。
 
-使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 
@@ -151,7 +151,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 > [!IMPORTANT]
 > [國家/地區代碼] 屬性會區分大小寫。 請務必使用下表中所指定的正確大小寫。
 
-| 國家/地區                   | 國碼 (地區碼)   | 支援的語言代碼 |
+| Country                   | 國碼 (地區碼)   | 支援的語言代碼 |
 |------------------------|--------|----------|
 | 奧蘭島 | 限於 | en-US |
 | 阿富汗 | AF | en-US |
@@ -166,14 +166,14 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 阿根廷 | AR | en-us、es |
 | 亞美尼亞 | AM | en-US |
 | 阿路巴 | AW | en-US |
-| 澳大利亞 | AU | en-US |
+| 澳洲 | AU | en-US |
 | 奧地利 | AT | en-us，de |
 | 亞塞拜然 | AZ | en-US |
 | 巴哈馬 | BS | en-US |
 | 巴林 | BH | en-us，ar-SA |
 | 孟加拉 | BD | en-US |
 | 巴貝多 | BB | en-US |
-| 白俄羅斯 | BY | en-us，ru-RU |
+| 白俄羅斯 | BY | en-US、ru-RU |
 | 比利時 | BE | en-us、nl-NL |
 | 貝里斯 | 依 | en-us、es |
 | 貝南 | BJ | en-US |
@@ -191,17 +191,17 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 保加利亞 | BG | en-us、bg-BG |
 | 布吉納法索 | BF | en-US |
 | 蒲隆地 | 隔 | en-US |
-| 科特迪瓦 | CI | en-us、fr-fr |
-| 維德角 | 方便 | en-us、pt |
+| 科特迪瓦 | CI | en-US、fr-FR |
+| 維德角 | CV | en-us、pt |
 | 柬埔寨 | KH | en-US |
-| 喀麥隆 | CM | en-us、fr-fr |
-| 加拿大 | CA | en-us、fr-fr |
+| 喀麥隆 | CM | en-US、fr-FR |
+| 加拿大 | CA | en-US、fr-FR |
 | 開曼群島 | KY | en-us、en-us |
 | 中非共和國 | CF | en-US |
 | 查德 | TD | en-US |
 | 智利 | CL | en-us、es |
 | 聖誕島 | CX | en-US |
-| 可可斯群島 | CC | en-US |
+| 可可斯群島 | 副本 | en-US |
 | 哥倫比亞 | CO | en-us、es |
 | 葛摩 | KM | en-US |
 | 剛果民主共和國 (DRC) | CD | en-US |
@@ -214,7 +214,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Czechia | CZ | en-us、cs-CZ |
 | 丹麥 | DK | en-us、da-深色 |
 | 吉布地 | DJ | en-US |
-| 多米尼克 | 等 | en-US |
+| 多米尼克 | DM | en-US |
 | 多明尼加共和國 | DO | en-us、es |
 | 厄瓜多 | EC | en-US |
 | 埃及 | EG | en-us，ar-SA |
@@ -228,14 +228,14 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 法羅群島 | FO | en-US |
 | 斐濟群島 | FJ | en-US |
 | 芬蘭 | FI | en-us、fi |
-| 法國 | FR | en-us、fr-fr |
-| 法屬圭亞那 | GF | en-us、fr-fr  |
+| France | FR | en-US、fr-FR |
+| 法屬圭亞那 | GF | en-US、fr-FR  |
 | 法屬玻里尼西亞 | PF | en-US |
-| 法屬南半球領土 | SETTINGS | en-US |
+| 法屬南半球領土 | TF | en-US |
 | 加彭 | GA | en-US |
 | 甘比亞 | GM | en-US |
-| 喬治亞 | GE | en-US |
-| 德國 | DE | en-us，de |
+| Georgia | GE | en-US |
+| Germany | DE | en-us，de |
 | 迦納 | GH | en-US |
 | 直布羅陀 | GI | en-US |
 | 希臘 | GR | en-us、el-GR |
@@ -246,7 +246,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 瓜地馬拉 | GT | en-us、es |
 | 根息 | GG | en-US |
 | 幾內亞 | GN | en-US |
-| 幾內亞比索 | 關 | en-US |
+| 幾內亞比索 | GW | en-US |
 | 蓋亞納 | GY | en-US |
 | 海地 | HT | en-US |
 | 赫德島及麥當勞群島 | HM | en-US |
@@ -255,7 +255,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 匈牙利 | HU | en-us、hu-HU |
 | 冰島 | IS | en-US |
 | 印度 | IN | en-us，hi |
-| 印尼 | 識別碼 | en-us，識別碼識別碼 |
+| 印尼 | ID | en-us，識別碼識別碼 |
 | 伊拉克 | IQ | en-us，ar-SA |
 | 愛爾蘭 | IE | en-US |
 | 曼城島 | IM | en-US |
@@ -263,16 +263,16 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 義大利 | IT | en-us，it-IT |
 | 牙買加 | JM | en-US |
 | Jan 馬延 | XJ | en-US |
-| 日本 | JP | en-us、ja-jp |
+| Japan | JP | en-us、ja-jp |
 | 澤西島 | JE | en-US |
 | 約旦 | JO | en-us，ar-SA |
 | 哈薩克 | KZ | en-us、kk-KZ |
 | 肯亞 | KE | en-US |
 | 吉里巴斯 | KI | en-US |
-| 韓國 | KR | en-us、ko-KR |
+| Korea | KR | en-us、ko-KR |
 | 科索沃 | XK | en-US |
 | 科威特 | KW | en-us，ar-SA |
-| 吉爾吉斯 | KG | en-us，ru-RU |
+| 吉爾吉斯 | KG | en-US、ru-RU |
 | 寮國 | LA | en-US |
 | 拉脫維亞 | LV | en-us，lv-LV |
 | 黎巴嫩 | LB | en-us，ar-SA |
@@ -281,7 +281,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 利比亞 | 去年年初 | en-us，ar-SA |
 | 列支敦斯登 | L | en-us，de |
 | 立陶宛 | LT | en-us、lt-LT |
-| 盧森堡 | LU | en-us、fr-fr |
+| 盧森堡 | LU | en-US、fr-FR |
 | 澳門特別行政區 | 每月 | en-us、zh-HK |
 | 馬其頓 (FYRO) | MK | en-US |
 | 馬達加斯加 | MG | en-US |
@@ -298,7 +298,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 墨西哥 | MX | en-us、es |
 | 密克羅尼西亞 | 調頻廣播 | en-US |
 | 摩爾多瓦 | MD | en-us、ro-RO |
-| 摩納哥 | [MC] | en-us、fr-fr |
+| 摩納哥 | MC | en-US、fr-FR |
 | 蒙古 | MN | en-US |
 | 蒙特內哥羅 | ME | en-US |
 | 蒙特色拉特島 | MS | en-US |
@@ -334,9 +334,9 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 卡達 | QA | en-us，ar-SA |
 | 留尼旺 | RE | en-US |
 | 羅馬尼亞 | RO | en-us、ro-RO |
-| 俄羅斯 | RU | en-us，ru-RU |
-| 盧安達 | CD-RW | en-us、fr-fr |
-| 聖多美普林西比 | 聖 | en-us、fr-fr |
+| 俄羅斯 | RU | en-US、ru-RU |
+| 盧安達 | CD-RW | en-US、fr-FR |
+| 聖多美普林西比 | ST | en-US、fr-FR |
 | 沙巴 | XS | en-US |
 | 聖巴瑟米 | BL | en-US |
 | 聖克里斯多福及尼維斯 | KN | en-US |
@@ -347,7 +347,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 薩摩亞獨立國 | WIN ENT LTSB 2016 Thai 64 Bits | en-US |
 | 聖馬利諾 | 這些 | en-US |
 | 沙烏地阿拉伯 | SA | en-US |
-| 塞內加爾 | SN | en-us、fr-fr |
+| 塞內加爾 | SN | en-US、fr-FR |
 | 賽爾維亞 | RS | en-us、sr-iov-Latn-RS、en-us |
 | 塞席爾 | SC | en-US |
 | 獅子山 | SL | en-US |
@@ -379,18 +379,18 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 千里達及托巴哥 | TT | en-US |
 | 突尼西亞 | TN | en-us、fr-fr、en-us |
 | 土耳其 | TR | en-us、tr-TR |
-| 土庫曼 | 迅馳 | en-US |
+| 土庫曼 | TM | en-US |
 | 土克斯及開科斯群島 | TC | en-US |
-| 吐瓦魯 | TV | en-US |
+| 吐瓦魯 | 電視 | en-US |
 | 美國外島 | UM | en-US |
 | 美屬維爾京群島 | VI | en-US |
 | 烏干達 | UG | en-US |
 | 烏克蘭 | UA | en-us、uk-UA |
 | 阿拉伯聯合大公國 | AE | en-us，ar-SA |
 | 英國 | GB | en-US |
-| 美國 | 美國 | en-US |
+| 美國 | 美式英文 | en-US |
 | 烏拉圭 | UY | en-us、es |
-| 烏茲別克 | UZ | en-us，ru-RU |
+| 烏茲別克 | UZ | en-US、ru-RU |
 | 萬那杜 | VU | en-US |
 | 梵蒂岡 | 再次 | en-US |
 | 委內瑞拉 | VE | en-us、es |
