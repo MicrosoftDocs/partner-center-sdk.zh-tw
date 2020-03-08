@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: edce4bb1b13550445b49979dd59b2bce0486e7fd
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486258"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899681"
 ---
 # <a name="user-resources"></a>使用者資源
 
 
 **適用于**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -32,18 +32,18 @@ ms.locfileid: "74486258"
 
 | 屬性              | 類型                                                           | 描述                                                                                                                                                                                                                |
 |-----------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                    | 字串                                                         | 使用者識別碼。                                                                                                                                                                                                       |
-| userPrincipalName     | 字串                                                         | 使用者主體識別碼。                                                                                                                                                                                             |
-| firstName             | 字串                                                         | 使用者的名字。                                                                                                                                                                                                |
-| lastName              | 字串                                                         | 使用者的姓氏。                                                                                                                                                                                                 |
-| displayName           | 字串                                                         | 使用者的顯示名稱。                                                                                                                                                                                            |
+| id                    | string                                                         | 使用者識別碼。                                                                                                                                                                                                       |
+| userPrincipalName     | string                                                         | 使用者主體識別碼。                                                                                                                                                                                             |
+| firstName             | string                                                         | 使用者的名字。                                                                                                                                                                                                |
+| lastName              | string                                                         | 使用者的姓氏。                                                                                                                                                                                                 |
+| displayName           | string                                                         | 使用者的顯示名稱。                                                                                                                                                                                            |
 | passwordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | 使用者的密碼設定檔。                                                                                                                                                                                               |
-| phoneNumber           | 字串                                                         | 使用者的電話號碼。                                                                                                                                                                                                   |
+| phoneNumber           | string                                                         | 使用者的電話號碼。                                                                                                                                                                                                   |
 | lastDirectorySyncTime | UTC 日期時間格式的字串                                 | 最後一次此使用者的資訊已在 Azure Active Directory 與內部部署 Active Directory 之間同步處理。 只有在啟用 Azure AD Connect 同步處理時，才會顯示日期時間值。 否則，此值為 null。 |
-| userDomainType        | 字串                                                         | 使用者網欄位型別：「無」、「受管理」或「同盟」。                                                                                                                                                                   |
-| state                 | 字串                                                         | 使用者的狀態：「作用中」、「非作用中」（適用于已刪除的使用者）。                                                                                                                                                          |
+| userDomainType        | string                                                         | 使用者網欄位型別：「無」、「受管理」或「同盟」。                                                                                                                                                                   |
+| State                 | string                                                         | 使用者的狀態：「作用中」、「非作用中」（適用于已刪除的使用者）。                                                                                                                                                          |
 | softDeletionTime      | UTC 日期時間格式的字串                                 | 表示與已刪除的使用者相關聯的資料永久刪除，因而無法復原的三十天期間開始。                                                                          |
-| 相關                 | [ResourceLinks](utility-resources.md#resourcelinks)           | 資源連結。                                                                                                                                                                                                        |
+| 連結                 | [ResourceLinks](utility-resources.md#resourcelinks)           | 資源連結。                                                                                                                                                                                                        |
 | 屬性            | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                                                                                                                                                                                   |
 
  
@@ -55,20 +55,20 @@ ms.locfileid: "74486258"
 
 | 屬性              | 類型                                                           | 描述                                                                                                                                                                                                                |
 |-----------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| usageLocation         | 字串                                                         | 使用者打算使用授權的位置。                                                                                                                                                                    |
-| id                    | 字串                                                         | 使用者識別碼。                                                                                                                                                                                                       |
-| userPrincipalName     | 字串                                                         | 使用者主體識別碼。                                                                                                                                                                                             |
-| firstName             | 字串                                                         | 使用者的名字。                                                                                                                                                                                                |
-| lastName              | 字串                                                         | 使用者的姓氏。                                                                                                                                                                                                 |
-| displayName           | 字串                                                         | 使用者的顯示名稱。                                                                                                                                                                                            |
-| immutableId           | 字串                                                         | 使用者的不彈性識別碼。                                                                                                                                                                                              |
+| usageLocation         | string                                                         | 使用者打算使用授權的位置。                                                                                                                                                                    |
+| id                    | string                                                         | 使用者識別碼。                                                                                                                                                                                                       |
+| userPrincipalName     | string                                                         | 使用者主體識別碼。                                                                                                                                                                                             |
+| firstName             | string                                                         | 使用者的名字。                                                                                                                                                                                                |
+| lastName              | string                                                         | 使用者的姓氏。                                                                                                                                                                                                 |
+| displayName           | string                                                         | 使用者的顯示名稱。                                                                                                                                                                                            |
+| immutableId           | string                                                         | 使用者的不彈性識別碼。                                                                                                                                                                                              |
 | passwordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | 使用者的密碼設定檔。                                                                                                                                                                                               |
-| phoneNumber           | 字串                                                         | 使用者的電話號碼。                                                                                                                                                                                                   |
+| phoneNumber           | string                                                         | 使用者的電話號碼。                                                                                                                                                                                                   |
 | lastDirectorySyncTime | UTC 日期時間格式的字串                                 | 最後一次此使用者的資訊已在 Azure Active Directory 與內部部署 Active Directory 之間同步處理。 只有在啟用 Azure AD Connect 同步處理時，才會顯示日期時間值。 否則，此值為 null。 |
-| userDomainType        | 字串                                                         | 使用者網欄位型別：「無」、「受管理」或「同盟」。                                                                                                                                                                   |
-| state                 | 字串                                                         | 使用者的狀態：「作用中」、「非作用中」（適用于已刪除的使用者）。                                                                                                                                                          |
+| userDomainType        | string                                                         | 使用者網欄位型別：「無」、「受管理」或「同盟」。                                                                                                                                                                   |
+| State                 | string                                                         | 使用者的狀態：「作用中」、「非作用中」（適用于已刪除的使用者）。                                                                                                                                                          |
 | softDeletionTime      | UTC 日期時間格式的字串                                 | 表示與已刪除的使用者相關聯的資料永久刪除，因而無法復原的三十天期間開始。                                                                          |
-| 相關                 | [ResourceLinks](utility-resources.md#resourcelinks)           | 資源連結。                                                                                                                                                                                                        |
+| 連結                 | [ResourceLinks](utility-resources.md#resourcelinks)           | 資源連結。                                                                                                                                                                                                        |
 | 屬性            | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                                                                                                                                                                                   |
 
  
@@ -80,7 +80,7 @@ ms.locfileid: "74486258"
 
 | 屬性 | 類型                                               | 描述                          |
 |----------|----------------------------------------------------|--------------------------------------|
-| userName | 字串                                             | 使用者的名稱。                |
+| userName | string                                             | 使用者的名稱。                |
 | 密碼 | [SecureString](utility-resources.md#securestring) | 使用者安全儲存的密碼。 |
 
  
@@ -92,10 +92,10 @@ ms.locfileid: "74486258"
 
 | 屬性          | 類型                                                           | 描述                        |
 |-------------------|----------------------------------------------------------------|------------------------------------|
-| displayName       | 字串                                                         | 使用者的顯示名稱。   |
-| userPrincipalName | 字串                                                         | 使用者主體的名稱。    |
-| roleId            | 字串                                                         | 使用者角色的識別碼。 |
-| id                | 字串                                                         | 成員的識別碼。      |
+| displayName       | string                                                         | 使用者的顯示名稱。   |
+| userPrincipalName | string                                                         | 使用者主體的名稱。    |
+| roleId            | string                                                         | 使用者角色的識別碼。 |
+| id                | string                                                         | 成員的識別碼。      |
 | 屬性        | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。           |
 
  
