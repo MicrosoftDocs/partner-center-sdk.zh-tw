@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: dc291e4d286e6eeeb1ce4ae6faeb965f59bb1c33
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490088"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899708"
 ---
 # <a name="entitlement-resources"></a>權利資源
 
@@ -31,7 +31,7 @@ ms.locfileid: "74490088"
 
 | 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| ReferenceOrder | [ReferenceOrder](#referenceorder) | 產生許可權的順序參考。 |
+| referenceOrder | [ReferenceOrder](#referenceorder) | 產生許可權的順序參考。 |
 | productId | 字串 | 產品的識別碼。 |
 | skuID | 字串 | SKU 的識別碼。 |
 | quantity | 整數 | 權利的數量（不包括未履行/數目權利）。 |
@@ -59,7 +59,7 @@ ms.locfileid: "74490088"
 
 | 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| quantity | 整數 | 專案的數目。 |
+| quantity | 整數 | 項目數目。 |
 | status | 字串 | 數量的狀態。 |
 
 
@@ -131,7 +131,7 @@ ms.locfileid: "74490088"
 | quantity          | 整數                            | 保留中的虛擬機器數目。                 |
 | expiryDateTime    | UTC 日期時間格式的字串 | 保留的到期日。                                |
 | effectiveDateTime | UTC 日期時間格式的字串 | 保留的生效日期。                             |
-| ProvisioningState | 字串                         | 保留的布建狀態。                         |
+| provisioningState | 字串                         | 保留的布建狀態。                         |
 
 
 ## <a name="span-idvirtualmachinereservedinstanceartifactspan-idvirtualmachinereservedinstanceartifactspan-idvirtualmachinereservedartifactvirtualmachinereservedinstanceartifact"></a><span id="VirtualMachineReservedInstanceArtifact"/><span id="virtualmachinereservedinstanceartifact"/><span id="VIRTUALMACHINERESERVEDARTIFACT"/>VirtualMachineReservedInstanceArtifact
@@ -177,5 +177,5 @@ ms.locfileid: "74490088"
 |     quantity      |              整數               |                             保留中的虛擬機器數目。                             |
 |  expiryDateTime   | UTC 日期時間格式的字串 |                                    保留的到期日。                                     |
 | effectiveDateTime | UTC 日期時間格式的字串 |                                   保留的生效日期。                                   |
-| ProvisioningState |             字串             |                                 保留的布建狀態。                                 |
+| provisioningState |             字串             |                                 保留的布建狀態。                                 |
 
