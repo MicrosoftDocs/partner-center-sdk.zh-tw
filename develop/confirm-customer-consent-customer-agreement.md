@@ -1,16 +1,16 @@
 ---
 title: 確認客戶接受 Microsoft 客戶合約
 description: 確認客戶接受 Microsoft 客戶合約。
-ms.date: 09/19/2019
+ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c7c3acea0f2e45b53fde7372bbb1f33fcb9de13
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
-ms.translationtype: MT
+ms.openlocfilehash: 7a94a4025aefba230f1abf83bcbc681ca7d55ed8
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488948"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899895"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>確認客戶接受 Microsoft 客戶合約
 
@@ -18,21 +18,21 @@ ms.locfileid: "74488948"
 
 - 合作夥伴中心
 
-合作夥伴中心目前僅支援在*microsoft 公用雲端*中確認客戶接受 Microsoft 客戶合約。 此功能目前不適用於：
+合作夥伴中心目前僅支援在「Microsoft 公用雲端」  中確認客戶是否接受 Microsoft 客戶合約。 此功能目前不適用於：
 
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-本文說明如何確認或重新確認客戶接受 Microsoft 客戶合約。
+本文將說明如何確認或重新確認客戶是否接受 Microsoft 客戶合約。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您使用合作夥伴中心 .NET SDK，則需要1.14 或更新版本。
-- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 *此案例僅支援應用程式 + 使用者驗證。*
-- 客戶識別碼（**客戶租使用者 id**）。
-- 當客戶接受 Microsoft 客戶合約時的日期（**dateAgreed**）。
-- 來自已接受 Microsoft 客戶合約之客戶組織使用者的相關資訊。 這包括：
+- 如果您使用合作夥伴中心 .NET SDK，則需要 1.14 版或更新版本。
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援「應用程式 + 使用者」驗證。 
+- 客戶識別碼 (**customer-tenant-id**)。
+- 客戶接受 Microsoft 客戶合約時的日期 (**dateAgreed**)。
+- 客戶組織中已接受 Microsoft 客戶合約的使用者相關資訊。 這包括：
   - 名字
   - 姓氏
   - 電子郵件地址
@@ -40,9 +40,9 @@ ms.locfileid: "74488948"
 
 ## <a name="net"></a>.NET
 
-若要確認或重新確認客戶接受 Microsoft 客戶合約：
+若要確認或重新確認客戶是否接受 Microsoft 客戶合約：
 
-1. 取得 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的**templateId** 。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
+1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -52,9 +52,9 @@ string agreementType = "MicrosoftCustomerAgreement";
 var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-2. 建立包含確認詳細資料的新**協定**物件。
-3. 使用**IAgreggatePartner**集合，並使用指定的**客戶租使用者識別碼**來呼叫**ById**方法。
-4. 使用 [**協定**] 屬性，然後呼叫**Create**或**CreateAsync**。
+2. 建立包含確認詳細資料的新**合約**物件。
+3. 使用 **IAgreggatePartner.Customers** 集合，並使用指定的 **customer-tenant-id**來呼叫 **ById** 方法。
+4. 使用 **Agreements** 屬性，然後呼叫 **Create** 或 **CreateAsync**。
 
 ```csharp
 // string selectedCustomerId;
@@ -75,29 +75,29 @@ var agreementToCreate = new Agreement
 Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
 ```
 
-您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs)類別中找到完整的範例。
+您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的 [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) 類別中找到完整範例。
 
 
 ## <a name="rest-request"></a>REST 要求
 
-若要確認或重新確認客戶接受 Microsoft 客戶合約：
+若要確認或重新確認客戶是否接受 Microsoft 客戶合約：
 
-1. 取得 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的**templateId** 。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
-2. 建立新的[**合約**資源](agreement-resources.md)，以確認客戶已接受 Microsoft 客戶合約。 使用下列[REST 要求語法](#request-syntax)。
+1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
+2. 建立新的[**合約**資源](agreement-resources.md)，確認客戶已接受 Microsoft 客戶合約。 請使用下列 [REST 要求語法](#request-syntax)。
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1。1 |
+| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來指定您要確認的客戶。
 
-| 名稱               | 類型 | 必要 | 描述                                                                                 |
+| 名稱               | 類型 | 必要 | 說明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| 客戶-租使用者識別碼 | GUID | 是 | 值是 GUID 格式的**客戶租使用者**識別碼，這是可讓您指定客戶的識別碼。 |
+| customer-tenant-id | GUID | 是 | 此值是 GUID 格式的 **customer-tenant-id**，此識別碼可讓您用來指定客戶。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -105,22 +105,22 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 
 ### <a name="request-body"></a>要求本文
 
-下表描述 REST 要求主體中的必要屬性。
+下表說明 REST 要求主體中的必要屬性。
 
-| 名稱      | 類型   | 描述                                                                                  |  
+| 名稱      | 類型   | 說明                                                                                  |  
 |-----------|--------|----------------------------------------------------------------------------------------------|  
-| 合約 | 物件 | 合作夥伴提供的詳細資料，以確認客戶接受 Microsoft 客戶合約。 |  
+| 合約 | 物件 | 合作夥伴提供的詳細資料，用來確認客戶是否接受 Microsoft 客戶合約。 |  
 
 #### <a name="agreement"></a>合約
 
-下表描述用來建立[**合約**資源](agreement-resources.md)的最小必要欄位。
+下表說明用來建立[**合約**資源](agreement-resources.md)的最低必要欄位數目。
 
-| 屬性       | 類型   | 描述                              |
+| 屬性       | 類型   | 說明                              |
 |----------------|--------|------------------------------------------|
-| primaryContact | [連絡人](./utility-resources.md#contact) | 來自已接受 Microsoft Cloud 合約之客戶組織使用者的相關資訊，包括： **firstName**、 **lastName**、 **email**和**phoneNumber** （選擇性） |
+| primaryContact | [Contact](./utility-resources.md#contact) | 客戶組織中已接受 Microsoft 客戶合約的使用者相關資訊，包括：**firstName**、**lastName**、**email** 和 **phoneNumber** (選擇性) |
 | dateAgreed     | UTC 日期時間格式的字串 |客戶接受合約的日期。 |
-| templateId     | 字串 | 客戶接受之合約類型的唯一識別碼。 您可以藉由抓取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的**templateId** 。 如需詳細資訊，請參閱[取得 Microsoft Cloud 合約的合約中繼資料](./get-customer-agreement-metadata.md)。 |
-| type           | 字串 | 客戶接受的合約類型。 如果客戶接受 Microsoft 客戶合約，請使用 "MicrosoftCustomerAgreement"。 |
+| templateId     | 字串 | 客戶所接受合約類型的唯一識別碼。 您可以藉由擷取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](./get-customer-agreement-metadata.md)。 |
+| 類型           | 字串 | 客戶接受的合約類型。 如果客戶已接受 Microsoft 客戶合約，請使用 "MicrosoftCustomerAgreement"。 |
   
 #### <a name="request-example"></a>要求範例
 
@@ -145,13 +145,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ### <a name="rest-response"></a>REST 回應
 
-如果成功，這個方法會傳回[**協定**資源](./agreement-resources.md)。
+如果成功，此方法會傳回[**合約**資源](./agreement-resources.md)。
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 
 
-使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

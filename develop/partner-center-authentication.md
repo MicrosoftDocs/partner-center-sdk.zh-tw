@@ -1,16 +1,16 @@
 ---
 title: 合作夥伴中心驗證
-description: 合作夥伴中心會使用 Azure AD 進行驗證，並使用合作夥伴中心 Api，您必須正確地設定驗證設定。
+description: 合作夥伴中心會使用 Azure AD 進行驗證，並使用合作夥伴中心 API，確保您正確地完成驗證設定。
 ms.assetid: 2307F2A8-7BD4-4442-BEF7-F065F16DA0B2
 ms.date: 11/13/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 7a29d178774f301f5f3030df119bf30953fa0d8f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
-ms.translationtype: MT
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/07/2020
 ms.locfileid: "74486978"
 ---
 # <a name="partner-center-authentication"></a>合作夥伴中心驗證
@@ -22,24 +22,24 @@ ms.locfileid: "74486978"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-合作夥伴中心會利用 Azure Active Directory 來進行驗證。 與合作夥伴中心 API、SDK 或 PowerShell 模組互動時，您必須正確地設定 Azure AD 應用程式，然後要求存取權杖。 使用 [僅限應用程式] 或 [應用程式 + 使用者驗證] 取得的存取權杖可與合作夥伴中心搭配使用。 不過，有兩個需要考慮的重要專案
+合作夥伴中心會利用 Azure Active Directory 來進行驗證。 與合作夥伴中心 API、SDK 或 PowerShell 模組互動時，您必須正確地設定 Azure AD 應用程式，然後要求存取權杖。 使用「僅限應用程式」或「應用程式 + 使用者」驗證取得的存取權杖可與合作夥伴中心搭配使用。 不過，有兩個需要考量的重要項目
 
-- 使用應用程式 + 使用者驗證存取合作夥伴中心 API 時，您必須使用多重要素驗證。 若要尋找有關此變更的詳細資訊，請參閱[啟用安全應用程式模型](enable-secure-app-model.md)
-- 合作夥伴中心 API 不支援僅限應用程式驗證的所有作業。 這表示在某些情況下，您需要使用應用程式 + 使用者驗證。 在每個[案例](https://docs.microsoft.com/partner-center/develop/scenarios)文章的*必要條件*標題底下，您會找到說明是否支援僅限應用程式驗證、應用程式 + 使用者驗證或兩者的檔。
+- 使用「應用程式 + 使用者」驗證存取合作夥伴中心 API 時，您必須使用多重要素驗證。 若要尋找有關此變更的詳細資訊，請參閱[啟用安全應用程式模型](enable-secure-app-model.md)
+- 合作夥伴中心 API 並非在所有作業上都支援「僅限應用程式」驗證。 這表示在某些情況下，您必須使用「應用程式 + 使用者」驗證。 在每篇[案例](https://docs.microsoft.com/partner-center/develop/scenarios)文章的「必要條件」  標題底下，您會看到指出能否支援「僅限應用程式」驗證和「應用程式 + 使用者」驗證或兩者皆支援的文件。
 
 ## <a name="initial-setup"></a>初始設定
 
-1. 若要開始，您必須確定您有主要合作夥伴中心帳戶，以及整合沙箱合作夥伴中心帳戶。 如需詳細資訊，請參閱[設定 API 存取的合作夥伴中心帳戶](set-up-api-access-in-partner-center.md)。 請記下您主要帳戶和整合沙箱帳戶的 Azure AAD 應用程式註冊識別碼和密碼（僅限應用程式識別所需的用戶端密碼）。
+1. 若要開始，您必須確定您有主要合作夥伴中心帳戶及整合沙箱合作夥伴中心帳戶。 如需詳細資訊，請參閱[設定合作夥伴中心帳戶以存取 API](set-up-api-access-in-partner-center.md)。 請記下您主要帳戶和整合沙箱帳戶的 Azure AAD 應用程式註冊識別碼和密碼 (「僅限應用程式」識別需要用戶端密碼)。
 
-2. 從 Azure 管理入口網站登入 Azure AD。 在 **其他應用程式的許可權** 中，將  **Windows Azure Active Directory**的許可權設定為 **委派的許可權**，然後選取 以登**入使用者身分存取目錄** 和 登**入及讀取使用者設定檔**。
+2. 從 Azure 管理入口網站登入 Azure AD。 在 [其他應用程式的權限]  中，將 [Windows Azure Active Directory]  的權限設定為 [委派的權限]  ，然後選取 [以登入的使用者身分存取目錄]  和 [登入並讀取使用者設定檔]  。
 
-3. 在 Azure 管理入口網站中，**新增應用程式**。 搜尋「Microsoft 合作夥伴中心」，也就是 Microsoft 合作夥伴中心應用程式。 設定**委派的許可權**以**存取合作夥伴中心 API**。 如果您使用合作夥伴中心來 Microsoft Cloud 德國或合作夥伴中心用於美國政府的 Microsoft Cloud，則此為必要步驟。 如果您使用合作夥伴中心的全域實例，此步驟是選擇性的。 CSP 合作夥伴可以使用合作夥伴中心入口網站中的應用程式管理功能，針對合作夥伴中心的全域實例略過此步驟。
+3. 在 Azure 管理入口網站中，**新增應用程式**。 搜尋「Microsoft 合作夥伴中心」，也就是 Microsoft 合作夥伴中心應用程式。 將 [委派的權限]  設定為 [存取合作夥伴中心 API]  。 如果您使用 Microsoft Cloud 德國適用的合作夥伴中心或 Microsoft Cloud for US Government 適用的合作夥伴中心，則此為必要步驟。 如果您使用合作夥伴中心全域執行個體，則此為選擇性步驟。 CSP 合作夥伴可以使用合作夥伴中心入口網站中的應用程式管理功能，為合作夥伴中心全域執行個體略過此步驟。
 
-## <a name="app-only-authentication"></a>僅限應用程式的驗證
+## <a name="app-only-authentication"></a>僅限應用程式驗證
 
-如果您想要使用僅限應用程式的驗證來存取合作夥伴中心 REST API、.NET API、JAVA API 或 PowerShell 模組，則可以利用下列指示來執行此動作。
+如果您想要使用「僅限應用程式」驗證來存取合作夥伴中心 REST API、.NET API、Java API 或 PowerShell 模組，則可以利用下列指示來執行此動作。
 
-### <a name="net-app-only-authentication"></a>.NET （僅限應用程式驗證）
+### <a name="net-app-only-authentication"></a>.NET (僅限應用程式驗證)
 
 ```csharp
 public static IAggregatePartner GetPartnerCenterTokenUsingAppCredentials()
@@ -55,7 +55,7 @@ public static IAggregatePartner GetPartnerCenterTokenUsingAppCredentials()
 }
 ```
 
-### <a name="java-app-only-authentication"></a>JAVA （僅限應用程式驗證）
+### <a name="java-app-only-authentication"></a>Java (僅限應用程式驗證)
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -72,7 +72,7 @@ public IAggregatePartner getAppPartnerOperations()
 }
 ```
 
-### <a name="rest-app-only-authentication"></a>REST （僅限應用程式驗證）
+### <a name="rest-app-only-authentication"></a>REST (僅限應用程式驗證)
 
 #### <a name="rest-request"></a>REST 要求
 
@@ -103,24 +103,24 @@ Content-Length: 1406
 
 ## <a name="app--user-authentication"></a>應用程式 + 使用者驗證
 
-在過去，[資源擁有者密碼認證授](https://tools.ietf.org/html/rfc6749#section-4.3)與已用來要求存取權杖，以與合作夥伴中心 REST API、.net Api、JAVA Api 或 PowerShell 模組搭配使用。 這是您從 Azure Active Directory 使用用戶端識別碼和使用者認證要求存取權杖的位置。 此方法將不再有效，因為合作夥伴中心在使用應用程式 + 使用者驗證時需要多重要素驗證。 為了符合這項需求，Microsoft 引進了一個安全、可擴充的架構，可使用多重要素驗證來驗證雲端解決方案提供者（CSP）合作夥伴和控制台廠商（CPV）。 此架構稱為安全應用程式模型，它是由同意程式和使用重新整理權杖的存取權杖要求所組成。
+在過去，為了與合作夥伴中心 REST API、.NET API、Java API 或 PowerShell 模組搭配使用，[資源擁有者的密碼認證授與](https://tools.ietf.org/html/rfc6749#section-4.3)會用來要求存取權杖。 您會在此使用用戶端識別碼和使用者認證從 Azure Active Directory 要求存取權杖。 此方法將不再有效，因為合作夥伴中心在使用「應用程式 + 使用者」驗證時需要多重要素驗證。 為符合此要求，Microsoft 已引進一個能使用多重要素驗證的安全可擴充架構，來驗證雲端解決方案提供者 (CSP) 合作夥伴和控制台廠商 (CPV)。 此架構稱為安全應用程式模型，其中包含同意程序和使用重新整理權杖的存取權杖要求。
 
 ### <a name="partner-consent"></a>合作夥伴同意
 
-夥伴同意程式是一種互動式程式，其中合作夥伴會使用多重要素驗證進行驗證、同意至應用程式，而重新整理權杖會儲存在安全的儲存機制中，例如 Azure Key Vault。 我們建議針對此程式使用整合用途的專用帳戶。
+合作夥伴同意程序是一種互動程序，其中合作夥伴會使用多重要素驗證進行驗證及同意應用程式，而重新整理權杖會儲存在安全的存放庫中，例如 Azure Key Vault。 我們建議您針對此程序使用可用於整合的專用帳戶。
 
 > [!IMPORTANT]  
-> 應針對合作夥伴同意程式中所使用的服務帳戶啟用適當的多重要素驗證解決方案。 如果不是，則產生的重新整理權杖將不符合安全性需求。
+> 您應啟用適當的多重要素驗證解決方案，才能在合作夥伴同意程序中使用該服務帳戶。 如果不這麼做，則產生的重新整理權杖將不符合安全性需求。
 
-### <a name="samples-for-app--user-authentication"></a>應用程式 + 使用者驗證的範例
+### <a name="samples-for-app--user-authentication"></a>「應用程式 + 使用者」驗證的範例
 
-您可以透過數種方式來執行合作夥伴同意流程。 為了協助合作夥伴瞭解如何執行每項必要的作業，我們開發了下列範例。 請注意，這些僅為範例。 當您在環境中執行適當的解決方案時，請務必開發符合編碼標準和安全性原則的解決方案。
+您可以透過數種方式來執行合作夥伴同意程序。 為了協助合作夥伴了解如何執行每項必要作業，我們開發了下列範例。 請注意，這些僅為範例。 當您在環境中執行適當的解決方案時，請務必開發符合您編碼標準和安全性原則的解決方案。
 
-### <a name="net-appuser-authentication"></a>.NET （應用程式 + 使用者驗證）
+### <a name="net-appuser-authentication"></a>.NET (應用程式 + 使用者驗證)
 
-[合作夥伴同意](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault)範例專案會示範如何利用使用 ASP.NET 開發的網站來捕捉同意、要求重新整理權杖，並將它安全地儲存在 Azure Key Vault 中。 請執行下列步驟，以建立此範例所需的必要條件。
+[合作夥伴同意](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault)範例專案會示範如何利用以 ASP.NET 開發的網站來擷取同意、要求重新整理權杖，並將其安全地儲存在 Azure Key Vault 中。 請執行下列步驟來建立此範例所需的必要條件。
 
-1. 使用 Azure 管理入口網站或下列 PowerShell 命令，建立 Azure Key Vault 的實例。 執行命令之前，請務必據以修改參數值。 保存庫名稱必須是唯一的。
+1. 使用 Azure 管理入口網站或下列 PowerShell 命令，建立 Azure Key Vault 的執行個體。 執行命令之前，請務必據以修改參數值。 存放庫名稱必須是唯一的。
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -131,7 +131,7 @@ Content-Length: 1406
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    如果您需要建立實例 Azure Key Vault 的說明，請參閱[快速入門：從 Azure Key Vault 設定和取出秘密使用 Azure 入口網站](https://docs.microsoft.com/azure/key-vault/quick-create-portal)或[快速入門：使用 PowerShell 從 Azure Key Vault 設定和取出秘密](https://docs.microsoft.com/azure/key-vault/quick-create-powershell)，以取得如何建立 Azure Key Vault 實例的逐步指示，然後設定和取出秘密。
+    如果您需要建立 Azure Key Vault 執行個體的協助，請參閱[快速入門：使用 Azure 入口網站從 Azure Key Vault 設定和擷取祕密](https://docs.microsoft.com/azure/key-vault/quick-create-portal)，或是[快速入門：使用 PowerShell 從 Azure Key Vault 設定和擷取祕密](https://docs.microsoft.com/azure/key-vault/quick-create-powershell)，以取得何建立 Azure Key Vault 執行個體，然後設定和擷取秘密的逐步指示。
 
 2. 使用 Azure 管理入口網站或下列命令，建立 Azure AD 應用程式和金鑰。
 
@@ -147,9 +147,9 @@ Content-Length: 1406
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    請務必記下 [應用程式識別碼] 和 [密碼] 值，因為它們將用於下列步驟中。
+    請務必記下 [應用程式識別碼] 和 [密碼] 值，因為這些值將用於下列步驟。
 
-3. 使用 Azure 管理入口網站或下列命令，為新建立的 Azure AD 應用程式授與讀取秘密許可權。
+3. 使用 Azure 管理入口網站或下列命令，為新建立的 Azure AD 應用程式授與讀取秘密的權限。
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -157,21 +157,21 @@ Content-Length: 1406
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. 建立針對合作夥伴中心設定的 Azure AD 應用程式。 執行下列動作以完成此步驟。
+4. 建立專為合作夥伴中心設定的 Azure AD 應用程式。 執行下列動作來完成此步驟。
 
-    - 流覽至合作夥伴中心儀表板的[應用程式管理](https://partner.microsoft.com/pcv/apiintegration/appmanagement)功能
-    - 按一下 [*新增 web 應用*程式] 以建立新的 Azure AD 應用程式。
+    - 瀏覽至合作夥伴中心儀表板的[應用程式管理](https://partner.microsoft.com/pcv/apiintegration/appmanagement)功能
+    - 按一下 [新增 Web 應用程式]  來建立新的 Azure AD 應用程式。
 
-    請務必記載 [*應用程式識別碼*]、[帳戶識別碼] * * 和 [*金鑰*] 值，因為它們將用於下列步驟中。
+    請務必記下「應用程式識別碼」  、「帳戶識別碼」和「金鑰」  值，因為這些值將用於下列步驟。
 
-5. 使用 Visual Studio 或下列命令來複製[合作夥伴中心-DotNet 範例](https://github.com/Microsoft/Partner-Center-DotNet-Samples)存放庫。
+5. 使用 Visual Studio 或下列命令，複製 [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) 存放庫。
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-6. 開啟 `Partner-Center-DotNet-Samples\secure-app-model\keyvault` 目錄中找到的*PartnerConsent*專案。
-7. 填入[在 web.config 中](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)找到的應用程式設定
+6. 開啟在 `Partner-Center-DotNet-Samples\secure-app-model\keyvault` 目錄中找到的 PartnerConsent  專案。
+7. 填入在 [web.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config) 中找到的應用程式設定
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -200,15 +200,15 @@ Content-Length: 1406
     ```
 
     > [!IMPORTANT]  
-    > 敏感性資訊（例如應用程式秘密）不應儲存在設定檔中。 因為這是一個範例應用程式，所以是在這裡完成的。 在您的生產應用程式中，我們強烈建議您使用以憑證為基礎的驗證。 如需詳細資訊，請參閱[憑證認證以取得應用程式驗證](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)。
+    > 敏感性資訊 (例如應用程式祕密) 不應儲存在設定檔中。 由於這是範例應用程式，所以已設定完成。 在您的生產應用程式中，我們強烈建議您使用憑證式驗證。 如需詳細資訊，請參閱[適用於應用程式驗證的憑證認證](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)。
 
-8. 當您執行這個範例專案時，它會提示您進行驗證。 成功驗證之後，會從 Azure AD 要求存取權杖。 從 Azure AD 傳回的資訊包含重新整理權杖，此標記儲存在 Azure Key Vault 設定的實例中。  
+8. 執行此範例專案時，您會收到進行驗證的提示。 成功驗證之後，系統就會從 Azure AD 要求存取權杖。 從 Azure AD 傳回的資訊包含重新整理權杖，並且儲存在 Azure Key Vault 的已設定執行個體中。  
 
-### <a name="java-appuser-authentication"></a>JAVA （應用程式 + 使用者驗證）
+### <a name="java-appuser-authentication"></a>Java (應用程式 + 使用者驗證)
 
-[合作夥伴同意](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault)範例專案會示範如何利用使用 JSP 開發的網站來捕捉同意、要求重新整理權杖，以及 Azure Key Vault 中的安全存放區。 執行下列動作，以建立此範例所需的必要條件。
+[合作夥伴同意](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault)範例專案會示範如何利用以 JSP 開發的網站來擷取同意、要求重新整理權杖及安全地儲存在 Azure Key Vault 中。 請執行下列步驟來建立此範例所需的必要條件。
 
-1. 使用 Azure 管理入口網站或下列 PowerShell 命令，建立 Azure Key Vault 的實例。 執行命令之前，請務必據以修改參數值。 保存庫名稱必須是唯一的。
+1. 使用 Azure 管理入口網站或下列 PowerShell 命令，建立 Azure Key Vault 的執行個體。 執行命令之前，請務必據以修改參數值。 存放庫名稱必須是唯一的。
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -219,7 +219,7 @@ Content-Length: 1406
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    如果您需要建立實例 Azure Key Vault 的說明，請參閱[快速入門：從使用 Azure 入口網站或快速入門的 Azure Key Vault 設定和取出秘密](https://docs.microsoft.com/azure/key-vault/quick-create-portal)。如需如何建立 Azure Key Vault 實例及設定和抓取秘密的逐步指示，請參閱[使用 PowerShell 從 Azure Key Vault 設定](https://docs.microsoft.com/azure/key-vault/quick-create-powershell)和取出秘密。
+    如果您需要建立 Azure Key Vault 執行個體的協助，請參閱[快速入門：使用 Azure 入口網站從 Azure Key Vault 設定和擷取祕密](https://docs.microsoft.com/azure/key-vault/quick-create-portal)，或是[快速入門：使用 PowerShell 從 Azure Key Vault 設定和擷取祕密](https://docs.microsoft.com/azure/key-vault/quick-create-powershell)，以取得何建立 Azure Key Vault 執行個體，然後設定和擷取秘密的逐步指示。
 
 2. 使用 Azure 管理入口網站或下列命令，建立 Azure AD 應用程式和金鑰。
 
@@ -235,9 +235,9 @@ Content-Length: 1406
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    請務必記載應用程式識別碼和密碼值，因為它們將用於下列步驟中。
+    請務必記下 [應用程式識別碼] 和 [密碼] 值，因為這些值將用於下列步驟。
 
-3. 使用 Azure 管理入口網站或下列命令，將 [讀取秘密] 許可權授與新建立的 Azure AD 應用程式。
+3. 使用 Azure 管理入口網站或下列命令，為新建立的 Azure AD 應用程式授與讀取秘密的權限。
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -245,21 +245,21 @@ Content-Length: 1406
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. 建立針對合作夥伴中心設定的 Azure AD 應用程式。 請執行下列各項，以完成此步驟。
+4. 建立專為合作夥伴中心設定的 Azure AD 應用程式。 執行下列動作來完成此步驟。
 
-    - 流覽至合作夥伴中心儀表板的[應用程式管理](https://partner.microsoft.com/pcv/apiintegration/appmanagement)功能
-    - 按一下 [*新增 web 應用*程式] 以建立新的 Azure AD 應用程式。
+    - 瀏覽至合作夥伴中心儀表板的[應用程式管理](https://partner.microsoft.com/pcv/apiintegration/appmanagement)功能
+    - 按一下 [新增 Web 應用程式]  來建立新的 Azure AD 應用程式。
 
-    請務必記載 [*應用程式識別碼*]、[帳戶識別碼] * * 和 [*金鑰*] 值，因為它們將用於下列步驟中。
+    請務必記下「應用程式識別碼」  、「帳戶識別碼」和「金鑰」  值，因為這些值將用於下列步驟。
 
-5. 使用下列命令複製[合作夥伴中心-JAVA 範例](https://github.com/Microsoft/Partner-Center-Java-Samples)存放庫
+5. 使用下列命令，複製 [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) 存放庫
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-6. 開啟 `Partner-Center-Java-Samples\secure-app-model\keyvault` 目錄中找到的*PartnerConsent*專案。
-7. 填入在[web .xml](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml)檔案中找到的應用程式設定
+6. 開啟在 `Partner-Center-Java-Samples\secure-app-model\keyvault` 目錄中找到的 PartnerConsent  專案。
+7. 填入在 [web.xml](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml) 檔案中找到的應用程式設定
 
     ```xml
     <filter>
@@ -293,29 +293,29 @@ Content-Length: 1406
     ```
 
     > [!IMPORTANT]  
-    > 敏感性資訊（例如應用程式秘密）不應儲存在設定檔中。 因為這是一個範例應用程式，所以是在這裡完成的。 在您的生產應用程式中，我們強烈建議您使用以憑證為基礎的驗證。 如需詳細資訊，請參閱[Key Vault 憑證驗證](https://github.com/Azure-Samples/key-vault-java-certificate-authentication)。
+    > 敏感性資訊 (例如應用程式祕密) 不應儲存在設定檔中。 由於這是範例應用程式，所以已設定完成。 在您的生產應用程式中，我們強烈建議您使用憑證式驗證。 如需詳細資訊，請參閱 [Key Vault 憑證驗證](https://github.com/Azure-Samples/key-vault-java-certificate-authentication)。
 
-8. 當您執行這個範例專案時，它會提示您進行驗證。 成功驗證之後，會從 Azure AD 要求存取權杖。 從 Azure AD 傳回的資訊包含重新整理權杖，此標記儲存在 Azure Key Vault 設定的實例中。  
+8. 執行此範例專案時，您會收到進行驗證的提示。 成功驗證之後，系統就會從 Azure AD 要求存取權杖。 從 Azure AD 傳回的資訊包含重新整理權杖，並且儲存在 Azure Key Vault 的已設定執行個體中。  
 
 ## <a name="cloud-solution-provider-authentication"></a>雲端解決方案提供者驗證
 
-雲端解決方案提供者合作夥伴可以使用透過[合作夥伴同意](#partner-consent)流程取得的重新整理權杖。
+雲端解決方案提供者合作夥伴可以使用透過[合作夥伴同意](#partner-consent)程序取得的重新整理權杖。
 
 ### <a name="samples-for-cloud-solution-provider-authentication"></a>雲端解決方案提供者驗證的範例
 
-為了協助合作夥伴瞭解如何執行每項必要的作業，我們開發了下列範例。 請注意，這些僅為範例。 當您在環境中執行適當的解決方案時，請務必開發符合編碼標準和安全性原則的解決方案。
+為了協助合作夥伴了解如何執行每項必要作業，我們開發了下列範例。 請注意，這些僅為範例。 當您在環境中執行適當的解決方案時，請務必開發符合您編碼標準和安全性原則的解決方案。
 
-### <a name="net-csp-authentication"></a>.NET （CSP 驗證）
+### <a name="net-csp-authentication"></a>.NET (CSP 驗證)
 
-1. 如果您尚未這麼做，請執行[合作夥伴同意流程](#partner-consent)。
-2. 使用 Visual Studio 或下列命令複製[合作夥伴中心-DotNet 範例](https://github.com/Microsoft/Partner-Center-DotNet-Samples)存放庫
+1. 如果您尚未這麼做，請執行[合作夥伴同意程序](#partner-consent)。
+2. 使用 Visual Studio 或下列命令，複製 [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) 存放庫
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
 3. 開啟在 `Partner-Center-DotNet-Samples\secure-app-model\keyvault` 目錄中找到的 `CSPApplication` 專案。
-4. 更新[app.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config)檔案中找到的應用程式設定。
+4. 更新在 [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config) 檔案中找到的應用程式設定。
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -339,7 +339,7 @@ Content-Length: 1406
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. 為[Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs)檔案中找到的**PartnerId**和**CustomerId**變數設定適當的值。
+5. 針對在 [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs) 檔案中找到的 **PartnerId** 和 **CustomerId** 變數設定適當的值。
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -347,19 +347,19 @@ Content-Length: 1406
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. 當您執行這個範例專案時，它會取得在合作夥伴同意程式期間取得的重新整理權杖。 然後，它會要求存取權杖，以代表合作夥伴與合作夥伴中心 SDK 互動。 最後，它會要求存取權杖，以代表指定的客戶與 Microsoft Graph 互動。
+6. 當您執行此範例專案時，此專案會取得您在合作夥伴同意程序期間取得的重新整理權杖。 然後要求存取權杖代表合作夥伴與合作夥伴中心 SDK 互動。 並在最後要求存取權仗代表指定客戶與 Microsoft Graph 互動。
 
-### <a name="java-csp-authentication"></a>JAVA （CSP 驗證）
+### <a name="java-csp-authentication"></a>Java (CSP 驗證)
 
-1. 如果您尚未這麼做，請執行[合作夥伴同意流程](#partner-consent)。
-2. 使用 Visual Studio 或下列命令複製[合作夥伴中心-JAVA 範例](https://github.com/Microsoft/Partner-Center-Java-Samples)存放庫
+1. 如果您尚未這麼做，請執行[合作夥伴同意程序](#partner-consent)。
+2. 使用 Visual Studio 或下列命令，複製 [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) 存放庫
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
 3. 開啟在 `Partner-Center-Java-Samples\secure-app-model\keyvault` 目錄中找到的 `cspsample` 專案。
-4. 更新在[應用程式. properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties)檔案中找到的應用程式設定。
+4. 更新在 [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties) 檔案中找到的應用程式設定。
 
      ```java
     azuread.authority=https://login.microsoftonline.com
@@ -371,32 +371,32 @@ Content-Length: 1406
     partnercenter.clientSecret=
     ```
 
-5. 當您執行這個範例專案時，它會取得在合作夥伴同意程式期間取得的重新整理權杖。 然後，它會要求存取權杖，以代表合作夥伴與合作夥伴中心 SDK 互動。
-6. 選擇性-如果您想要瞭解如何與 Azure Resource Manager 進行互動，並代表客戶 Microsoft Graph，請取消批註*RunAzureTask*和*RunGraphTask*函式呼叫。
+5. 當您執行此範例專案時，此專案會取得您在合作夥伴同意程序期間取得的重新整理權杖。 然後要求存取權杖代表合作夥伴與合作夥伴中心 SDK 互動。
+6. 選擇性 - 如果您想要查看如何代表客戶與 Azure Resource Manager 和 Microsoft Graph 互動，請取消 RunAzureTask  和 RunGraphTask  函式呼叫的註解。
 
 ## <a name="control-panel-provider-authentication"></a>控制台提供者驗證
 
-「控制台」廠商必須讓他們支援的每個合作夥伴都執行[合作夥伴同意](#partner-consent)流程。 完成後，會使用透過該程式取得的重新整理權杖來存取合作夥伴中心 REST API 和 .NET API。
+控制台廠商必須讓每個支援的合作夥伴執行[合作夥伴同意](#partner-consent)程序。 完成後，透過該程序取得的重新整理權杖就會用來存取合作夥伴中心 REST API 和 .NET API。
 
-### <a name="samples-for-cloud-panel-provider-authentication"></a>雲端面板提供者驗證的範例
+### <a name="samples-for-cloud-panel-provider-authentication"></a>雲端控制台提供者驗證的範例
 
-為了協助「控制台」廠商瞭解如何執行每項必要的作業，我們開發了下列範例。 請注意，這些僅為範例。 當您在環境中執行適當的解決方案時，請務必開發符合編碼標準和安全性原則的解決方案。
+為了協助控制台廠商了解如何執行每項必要作業，我們開發了下列範例。 請注意，這些僅為範例。 當您在環境中執行適當的解決方案時，請務必開發符合您編碼標準和安全性原則的解決方案。
 
-### <a name="net-cpv-authentication"></a>.NET （CPV authentication）
+### <a name="net-cpv-authentication"></a>.NET (CPV 驗證)
 
 1. 為雲端解決方案提供者合作夥伴開發及部署流程，以提供適當的同意。 如需其他詳細資料和範例，請參閱[合作夥伴同意](#partner-consent)。
 
     > [!IMPORTANT]  
-    > 不應儲存來自雲端解決方案提供者合作夥伴的使用者認證。 透過合作夥伴同意程式取得的重新整理權杖應加以儲存，並用來要求存取權杖，以便與任何 Microsoft API 互動。
+    > 您不應儲存來自雲端解決方案提供者合作夥伴的使用者認證。 應儲存透過合作夥伴同意程序取得的重新整理權杖，並用來要求存取權杖，以便與任何 Microsoft API 互動。
 
-2. 使用 Visual Studio 或下列命令複製[合作夥伴中心-DotNet 範例](https://github.com/Microsoft/Partner-Center-DotNet-Samples)存放庫
+2. 使用 Visual Studio 或下列命令，複製 [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) 存放庫
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
 3. 開啟在 `Partner-Center-DotNet-Samples\secure-app-model\keyvault` 目錄中找到的 `CPVApplication` 專案。
-4. 更新[app.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config)檔案中找到的應用程式設定。
+4. 更新在 [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config) 檔案中找到的應用程式設定。
 
     ```xml
     <!-- AppID that represents Control panel vendor application -->
@@ -421,7 +421,7 @@ Content-Length: 1406
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. 為[Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs)檔案中找到的**PartnerId**和**CustomerId**變數設定適當的值。
+5. 針對在 [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs) 檔案中找到的 **PartnerId** 和 **CustomerId** 變數設定適當的值。
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -429,7 +429,7 @@ Content-Length: 1406
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. 當您執行這個範例專案時，它會取得指定之夥伴的重新整理權杖。 然後，它會要求存取權杖以存取合作夥伴中心，並代表合作夥伴 Azure AD 圖形。 它所執行的下一個工作是在客戶租使用者中刪除和建立許可權授與。 由於「控制台」廠商與客戶之間沒有任何關聯性，因此必須使用合作夥伴中心 API 來新增這些許可權。 下列範例顯示如何完成這項作業。
+6. 當您執行此範例專案時，該專案會取得指定合作夥伴的重新整理權杖。 然後代表合作夥伴要求存取權杖來存取合作夥伴中心和 Azure AD Graph。 其執行的下一個工作是在客戶租用戶中刪除和建立授權授與。 由於控制台廠商與客戶之間沒有任何關聯性，因此必須使用合作夥伴中心 API 來新增這些權限。 下列範例會示範如何完成此作業。
 
     ```csharp
     JObject contents = new JObject
@@ -463,23 +463,23 @@ Content-Length: 1406
         contents.ToString());
     ```
 
-建立這些許可權之後，範例會代表客戶使用 Azure AD 圖形來執行作業。
+建立這些權限之後，範例會代表客戶使用 Azure AD Graph 來執行作業。
 
-### <a name="java-cpv-authentication"></a>JAVA （CPV authentication）
+### <a name="java-cpv-authentication"></a>Java (CPV 驗證)
 
 1. 為雲端解決方案提供者合作夥伴開發及部署流程，以提供適當的同意。 如需其他詳細資料和範例，請參閱[合作夥伴同意](#partner-consent)。
 
     > [!IMPORTANT]  
-    > 不應儲存來自雲端解決方案提供者合作夥伴的使用者認證。 透過合作夥伴同意程式取得的重新整理權杖應加以儲存，並用來要求存取權杖，以便與任何 Microsoft API 互動。
+    > 您不應儲存來自雲端解決方案提供者合作夥伴的使用者認證。 應儲存透過合作夥伴同意程序取得的重新整理權杖，並用來要求存取權杖，以便與任何 Microsoft API 互動。
 
-2. 使用下列命令複製[合作夥伴中心-JAVA 範例](https://github.com/Microsoft/Partner-Center-Java-Samples)存放庫
+2. 使用下列命令，複製 [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) 存放庫
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
 3. 開啟在 `Partner-Center-Java-Samples\secure-app-model\keyvault` 目錄中找到的 `cpvsample` 專案。
-4. 更新在[應用程式. properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties)檔案中找到的應用程式設定。
+4. 更新在 [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties) 檔案中找到的應用程式設定。
 
     ```java
     azuread.authority=https://login.microsoftonline.com
@@ -492,16 +492,16 @@ Content-Length: 1406
     partnercenter.displayName=
     ```
 
-    `partnercenter.displayName` 的值應該是 marketplace 應用程式的顯示名稱。
+    `partnercenter.displayName` 值應該是市集應用程式的顯示名稱。
 
-5. 針對[Program. java](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java)檔案中找到的**partnerId**和**customerId**變數設定適當的值。
+5. 針對在 [Program.java](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java) 檔案中找到的 **partnerId** 和 **customerId** 變數設定適當的值。
 
     ```java
     partnerId = "SPECIFY-THE-PARTNER-TENANT-ID-HERE";
     customerId = "SPECIFY-THE-CUSTOMER-TENANT-ID-HERE";
     ```
 
-6. 當您執行這個範例專案時，它會取得指定之夥伴的重新整理權杖。 然後，它會要求存取權杖，以代表合作夥伴存取合作夥伴中心。 它所執行的下一個工作是在客戶租使用者中刪除和建立許可權授與。 由於「控制台」廠商與客戶之間沒有任何關聯性，因此必須使用合作夥伴中心 API 來新增這些許可權。 下列範例顯示如何完成這項作業。
+6. 當您執行此範例專案時，該專案會取得指定合作夥伴的重新整理權杖。 然後代表合作夥伴要求存取權杖來存取合作夥伴中心。 其執行的下一個工作是在客戶租用戶中刪除和建立授權授與。 由於控制台廠商與客戶之間沒有任何關聯性，因此必須使用合作夥伴中心 API 來新增這些權限。 下列範例會示範如何完成此作業。
 
     ```java
     ApplicationGrant azureAppGrant = new ApplicationGrant();
@@ -539,4 +539,4 @@ Content-Length: 1406
         consent);
     ```
 
-如果您想要瞭解如何與 Azure Resource Manager 進行互動，並代表客戶 Microsoft Graph，請取消批註*RunAzureTask*和*RunGraphTask*函式呼叫。
+如果您想要查看如何代表客戶與 Azure Resource Manager 和 Microsoft Graph 互動，請取消 RunAzureTask  和 RunGraphTask  函式呼叫的註解。

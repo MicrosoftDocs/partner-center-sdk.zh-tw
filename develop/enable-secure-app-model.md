@@ -6,30 +6,30 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 0a6c3d14ca55350db832c10956b0751acb8f8a0c
-ms.sourcegitcommit: 0dea06cd7f95026d93f970d3c294370a58dfcb6b
-ms.translationtype: MT
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/07/2020
 ms.locfileid: "76723190"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>啟用安全應用程式模型架構
 
 適用於：
 
-- 夥伴中心
+- 合作夥伴中心
 
-Microsoft 引進了一個安全、可擴充的架構，可透過 Microsoft Azure 多重要素驗證（MFA）架構來驗證雲端解決方案提供者（CSP）合作夥伴和控制台廠商（CPV）。
+Microsoft 正在引進能透過 Microsoft Azure 多重要素驗證 (MFA) 架構來驗證雲端解決方案提供者 (CSP) 合作夥伴和控制台廠商 (CPV) 的安全可擴充架構。
 
-您可以使用新的模型來提升合作夥伴中心 API 整合呼叫的安全性。 這會協助所有的合作物件（包括 Microsoft、CSP 合作夥伴和 CPVs）保護其基礎結構和客戶資料免于安全性風險。
+您可以使用新模型來提升合作夥伴中心 API 整合呼叫的安全性。 這將協助所有合作對象 (包括 Microsoft、雲端解決方案提供者合作夥伴和 CPV) 保護其基礎結構和客戶資料，以免受到安全性風險的影響。
 
-## <a name="scope"></a>範圍
+## <a name="scope"></a>領域
 
-本主題涉及下列動作專案：
+本主題與下列執行者相關：
 
-- CPVs
-  - CPV 是獨立軟體廠商，其會開發應用程式，供 CSP 合作夥伴用來與合作夥伴中心 Api 整合。
-  - CPV 不是可直接存取合作夥伴中心儀表板或 Api 的 CSP 合作夥伴。
-- CSP 間接提供者和 CSP 直接合作夥伴，他們使用應用程式識別碼 + 使用者驗證，並直接與合作夥伴中心 Api 整合。
+- CPV
+  - CPV 是開發應用程式以供雲端解決方案提供者合作夥伴用來與合作夥伴中心 API 整合的獨立軟體廠商。
+  - CPV 不是能直接存取合作夥伴中心儀表板或 API 的雲端解決方案提供者合作夥伴。
+- CSP 間接提供者和 CSP 直接合作夥伴，他們會使用「應用程式識別碼 + 使用者」驗證，並直接與合作夥伴中心 API 整合。
 
 ## <a name="security-requirements"></a>安全性需求
 
@@ -37,18 +37,18 @@ Microsoft 引進了一個安全、可擴充的架構，可透過 Microsoft Azure
 
 ## <a name="secure-application-model"></a>安全應用程式模型
 
-Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Microsoft Api。 這些機密應用程式的安全性攻擊可能會導致客戶資料洩漏。
+市集應用程式需要模擬 CSP 合作夥伴權限來呼叫 Microsoft API。 這些敏感性應用程式上的安全性攻擊可能會導致客戶資料洩漏。
 
-如需新驗證架構的總覽和詳細資訊，請下載[安全的應用程式模型架構](https://assetsprod.microsoft.com/secure-application-model-guide.pdf)檔。 本檔涵蓋的原則和最佳作法，是為了讓 marketplace 應用程式可持續且穩定于安全性危害。
+如需新驗證架構的概觀和詳細資訊，請下載[安全應用程式模型架構](https://assetsprod.microsoft.com/secure-application-model-guide.pdf)文件。 本文件涵蓋的原則和最佳做法，可讓市集應用程式在安全性危害下持續穩定運作。
 
-## <a name="samples"></a>Samples
+## <a name="samples"></a>範例
 
-下列總覽檔和範例程式碼會說明合作夥伴如何執行安全的應用程式模型架構：
+下列概觀文件和範例程式碼會說明合作夥伴如何實作安全應用程式模型架構：
 
-- [CPV 總覽檔](https://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
-- [CSP 總覽檔](https://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
+- [CPV 概觀文件](https://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
+- [CSP 概觀文件](https://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
 - [.NET 範例](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
-- [JAVA 範例](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
+- [Java 範例](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
     [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -57,44 +57,44 @@ Marketplace 應用程式需要模擬 CSP 合作夥伴許可權，才能呼叫 Mi
 
 ## <a name="rest"></a>REST
 
-若要使用安全的應用程式模型架構進行 REST 呼叫，並搭配範例程式碼，您必須執行下列動作：
+若要使用安全應用程式模型架構搭配範例程式碼來進行 REST 呼叫，您必須執行下列動作：
 
-1. [建立 web 應用程式](#create-a-web-app)
+1. [建立 Web 應用程式](#create-a-web-app)
 2. [取得授權碼](#get-authorization-code)
 3. [取得重新整理權杖](#get-refresh-token)
 4. [取得存取權杖](#get-access-token)
-5. [建立合作夥伴中心 API 呼叫](#make-partner-center-api-calls)
+5. [進行合作夥伴中心 API 呼叫](#make-partner-center-api-calls)
 
 > [!TIP]
-> 您可以使用合作夥伴中心 PowerShell 模組來取得授權碼和重新整理權杖。 您可以選擇此選項來取代步驟2和3。 如需詳細資訊，請參閱[PowerShell 一節和範例](#powershell)。
+> 您可以使用合作夥伴中心 PowerShell 模組來取得授權碼和重新整理權杖。 您可以選擇此選項來取代步驟 2 和 3。 如需詳細資訊，請參閱 [PowerShell 區段和範例](#powershell)。
 
-### <a name="create-a-web-app"></a>建立 web 應用程式
+### <a name="create-a-web-app"></a>建立 Web 應用程式
 
-您必須先在合作夥伴中心建立並註冊 web 應用程式，才能進行 REST 呼叫。
+您必須先在合作夥伴中心建立並註冊 Web 應用程式，才能進行 REST 呼叫。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 建立 Azure Active Directory （Azure AD）應用程式。
-3. *根據您應用程式的需求*，授與委派的應用程式許可權給下列資源。 如有需要，您可以為應用程式資源新增更多委派的許可權。
-    1. **Microsoft 合作夥伴中心**（某些租使用者顯示為**SampleBECApp**）
-    2. **Azure 管理 api** （如果您打算呼叫 azure api）
+2. 建立 Azure Active Directory (Azure AD) 應用程式。
+3. 根據您的應用程式需求  ，將委派的應用程式權限授與下列資源。 如有需要，您可以為應用程式資源新增更多委派的權限。
+    1. **Microsoft 合作夥伴中心** (某些租用戶將其顯示為 **SampleBECApp**)
+    2. **Azure 管理 API** (如果您打算呼叫 Azure API)
     3. **Windows Azure Active Directory**
-4. 請確定您應用程式的 [主 URL] 已設定為執行即時 web 應用程式的端點。 此應用程式將需要接受來自 Azure AD 登入呼叫的[授權碼](#get-authorization-code)。 例如，在[下一節](#get-authorization-code)的範例程式碼中，web 應用程式是在 `https://localhost:44395/`執行。
-5. 請注意 Azure AD 中 web 應用程式設定的下列資訊：
+4. 請確定您應用程式的主要 URL 已設定為執行即時 Web 應用程式的端點。 此應用程式必須接受來自 Azure AD 登入呼叫的[授權碼](#get-authorization-code)。 例如，在[下列區段](#get-authorization-code)的範例程式碼中，Web 應用程式正執行於 `https://localhost:44395/` 上。
+5. 請記下 Azure AD 中 Web 應用程式設定的下列資訊：
     - 應用程式識別碼
-    - 應用程式密碼
+    - 應用程式祕密
 
 > [!NOTE]
-> 建議[使用憑證做為您的應用程式密碼](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)。 不過，您也可以在 Azure 入口網站中建立應用程式金鑰。 [下一節](#get-authorization-code)中的範例程式碼會使用應用程式金鑰。
+> 建議您[使用憑證作為應用程式祕密](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)。 不過，您也可以在 Azure 入口網站中建立應用程式金鑰。 [下列區段](#get-authorization-code)中的範例程式碼會使用應用程式金鑰。
 
 ### <a name="get-authorization-code"></a>取得授權碼
 
-您必須取得 web 應用程式的授權碼，才能從 Azure AD 登入呼叫中接受：
+您必須取得 Web 應用程式的授權碼，才能接受來自 Azure AD 登入呼叫的回應：
 
-1. 以下列 URL 登入 Azure AD： <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1>。 請務必以您要用來進行合作夥伴中心 API 呼叫的使用者帳戶登入（例如，系統管理員代理程式或銷售代理程式帳戶）。
-2. 將**應用程式識別碼**取代為您的 Azure AD 應用程式識別碼（GUID）。
+1. 使用下列 URL 登入 Azure AD：<https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1>。 請務必以用來進行合作夥伴中心 API 呼叫的使用者帳戶登入 (例如，系統管理員代理程式或銷售代理程式帳戶)。
+2. 以您的 Azure AD 應用程式識別碼 (GUID) 取代 **Application-Id**。
 3. 出現提示時，使用已設定 MFA 的使用者帳戶登入。
-4. 出現提示時，請輸入其他 MFA 資訊（電話號碼或電子郵件地址）來驗證您的登入。
-5. 登入之後，瀏覽器會使用您的授權碼將呼叫重新導向至您的 web 應用程式端點。 例如，下列範例程式碼會重新導向至 `https://localhost:44395/`。
+4. 出現提示時，請輸入其他 MFA 資訊 (電話號碼或電子郵件地址) 來驗證您的登入。
+5. 登入之後，瀏覽器會使用您的授權碼，將呼叫重新導向至您的 Web 應用程式端點。 例如，下列範例程式碼會重新導向至 `https://localhost:44395/`。
 
 #### <a name="authorization-code-call-trace"></a>授權碼呼叫追蹤
 
@@ -116,14 +116,14 @@ code=AuthorizationCodeValue&id_token=IdTokenValue&<rest of properties for state>
 
 接著，您必須使用您的授權碼來取得重新整理權杖：
 
-1. 使用授權碼對 Azure AD 登入端點進行 POST 呼叫 `https://login.microsoftonline.com/CSPTenantID/oauth2/token`。 如需範例，請參閱下列[範例呼叫](#sample-refresh-call)。
-2. 請注意傳回的重新整理權杖。
-3. 在 Azure Key Vault 中儲存重新整理權杖。 如需詳細資訊，請參閱[KEY VAULT API 檔](https://docs.microsoft.com/rest/api/keyvault/)。
+1. 使用授權碼對 Azure AD 登入端點 `https://login.microsoftonline.com/CSPTenantID/oauth2/token` 進行 POST 呼叫。 如需範例，請參閱下列[呼叫範例](#sample-refresh-call)。
+2. 請記下傳回的重新整理權杖。
+3. 將重新整理權杖儲存在 Azure Key Vault 中。 如需詳細資訊，請參閱 [Key Vault API 文件](https://docs.microsoft.com/rest/api/keyvault/)。
 
 > [!IMPORTANT]
-> 重新整理權杖必須以[秘密的形式儲存](https://docs.microsoft.com/rest/api/keyvault/setsecret/setsecret)在 Key Vault 中。
+> 重新整理權杖必須[以祕密的形式儲存](https://docs.microsoft.com/rest/api/keyvault/setsecret/setsecret)在 Key Vault 中。
 
-#### <a name="sample-refresh-call"></a>範例重新整理呼叫
+#### <a name="sample-refresh-call"></a>重新整理呼叫範例
 
 預留位置要求：
 
@@ -149,7 +149,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-回應主體：
+回應本文：
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","ext_expires_in":"3599","expires_on":"1547579127","not_before":"1547575227","resource":"https://api.partnercenter.microsoft.com","access_token":"Access
@@ -157,7 +157,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="get-access-token"></a>取得存取權杖
 
-您必須先取得存取權杖，才能對合作夥伴中心 Api 進行呼叫。 您必須使用重新整理權杖來取得存取權杖，因為存取權杖通常會有非常有限的存留期（例如，不到一小時）。
+您必須先取得存取權杖，才能對合作夥伴中心 API 進行呼叫。 您必須使用重新整理權杖來取得存取權杖，因為存取權杖通常會有非常有限的存留期 (例如不到一小時)。
 
 預留位置要求：
 
@@ -183,7 +183,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-回應主體：
+回應本文：
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
@@ -191,7 +191,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="make-partner-center-api-calls"></a>進行合作夥伴中心 API 呼叫
 
-您必須使用存取權杖來呼叫合作夥伴中心 Api。 請參閱下列範例呼叫。
+您必須使用存取權杖來呼叫合作夥伴中心 API。 請參閱以下呼叫範例。
 
 #### <a name="example-partner-center-api-call"></a>合作夥伴中心 API 呼叫範例
 
@@ -207,9 +207,9 @@ Host: api.partnercenter.microsoft.com
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-您可以使用[合作夥伴中心 PowerShell 模組](https://www.powershellgallery.com/packages/PartnerCenter)來減少所需的基礎結構，以交換存取權杖的授權碼。 這個方法是讓[合作夥伴中心 REST 呼叫](#rest)的選擇性方式。
+您可以使用[合作夥伴中心 PowerShell 模組](https://www.powershellgallery.com/packages/PartnerCenter)來減少必要的基礎結構，以交換存取權杖的授權碼。 這是進行[合作夥伴中心 REST 呼叫](#rest)的選擇性方法。
 
-如需此流程的詳細資訊，請參閱[保護應用程式模型](https://docs.microsoft.com/powershell/partnercenter/secure-app-model)PowerShell 檔。
+如需此程序的詳細資訊，請參閱[安全應用程式模型](https://docs.microsoft.com/powershell/partnercenter/secure-app-model)的 PowerShell 文件。
 
 1. 安裝 Azure AD 和合作夥伴中心的 PowerShell 模組。
 
@@ -221,7 +221,7 @@ Host: api.partnercenter.microsoft.com
     Install-Module PartnerCenter
     ```
 
-2. 使用 **[PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** 命令來執行同意程式，並捕捉所需的重新整理權杖。
+2. 使用 **[New-PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** 命令來執行同意程序，並擷取所需的重新整理權杖。
 
     ```powershell
     $credential = Get-Credential
@@ -230,12 +230,12 @@ Host: api.partnercenter.microsoft.com
     ```
 
     > [!NOTE]
-    > **ServicePrincipal**參數會與**PartnerAccessToken**命令搭配使用，因為正在使用具有**Web/API**類型的 Azure AD 應用程式。 這種類型的應用程式要求用戶端識別碼和密碼必須包含在存取權杖要求中。 叫用**Get-Credential**命令時，系統會提示您輸入使用者名稱和密碼。 輸入應用程式識別碼做為使用者名稱。 輸入 [應用程式秘密] 做為密碼。 叫用**PartnerAccessToken**命令時，系統會提示您再次輸入認證。 輸入您所使用之服務帳戶的認證。 此服務帳戶應該是具有適當許可權的夥伴帳戶。
+    > **ServicePrincipal** 參數會與 **New-PartnerAccessToken** 命令搭配使用，因為我們使用類型為 **Web/API** 的 Azure AD 應用程式。 此類型的應用程式會要求將用戶端識別碼和祕密包含在存取權杖要求中。 叫用 **Get-Credential** 命令時，系統會提示您輸入使用者名稱和密碼。 輸入應用程式識別碼作為使用者名稱。 輸入應用程式秘密作為密碼。 叫用 **New-PartnerAccessToken** 命令時，系統會提示您再次輸入認證。 輸入您所使用的服務帳戶認證。 此服務帳戶應該是具有適當權限的合作夥伴帳戶。
 
-3. 複製 [重新整理權杖] 值。
+3. 複製重新整理權杖的值。
 
     ```powershell
     $token.RefreshToken | clip
     ```
 
-您應該將重新整理權杖值儲存在安全的儲存機制中，例如 Azure Key Vault。 如需如何利用 PowerShell 的安全應用程式模組的詳細資訊，請參閱[多因素驗證一](https://docs.microsoft.com/powershell/partnercenter/multi-factor-auth)文。
+您應該將重新整理權杖的值儲存在安全的存放庫中，例如 Azure Key Vault。 如需如何搭配 PowerShell 使用安全應用程式模組的詳細資訊，請參閱[多重要素驗證](https://docs.microsoft.com/powershell/partnercenter/multi-factor-auth)一文。
