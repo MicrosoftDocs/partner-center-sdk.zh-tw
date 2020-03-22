@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 1aecf66907d8e39ae3015ba7a7735942555d1d1c
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899765"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083155"
 ---
 # <a name="device-deployment-resources"></a>裝置部署資源
 

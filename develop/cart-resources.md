@@ -6,36 +6,36 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: a9fb1c81cae0e7efa0a5e84d2b4d93e44ce7efb9
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489078"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082975"
 ---
 # <a name="cart-resources"></a>購物車資源
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 當客戶想要從供應專案清單購買訂用帳戶時，合作夥伴會進行訂單。
 
-## <a name="cart"></a>放
+## <a name="cart"></a>購物車
 
 描述購物車。
 
 | 屬性              | 類型             | 描述                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| id                    | 字串           | 成功建立購物車時所提供的購物車識別碼。                               |
+| id                    | string           | 成功建立購物車時所提供的購物車識別碼。                               |
 | creationTimeStamp     | DateTime         | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。      |
 | lastModifiedTimeStamp | DateTime         | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。 |
 | expirationTimeStamp   | DateTime         | 購物車將到期的日期，以日期時間格式為限。 已在成功建立購物車時申請。          |
-| lastModifiedUser      | 字串           | 上次更新購物車的使用者。 已在成功建立購物車時申請。                          |
-| LineItems             | 物件的陣列 | [CartLineItem](#cartlineitem)資源的陣列。                                                   |
-| status                | 字串           | 購物車的狀態。 可能的值為「作用中」（可更新/提交）和「已訂購」（已提交）。 |
+| lastModifiedUser      | string           | 上次更新購物車的使用者。 已在成功建立購物車時申請。                          |
+| lineItems             | 物件的陣列 | [CartLineItem](#cartlineitem)資源的陣列。                                                   |
+| status                | string           | 購物車的狀態。 可能的值為「作用中」（可更新/提交）和「已訂購」（已提交）。 |
 
 ## <a name="cartlineitem"></a>CartLineItem
 
@@ -43,27 +43,27 @@ ms.locfileid: "74489078"
 
 | 屬性             | 類型                             | 描述                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | 字串                           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                                                                   |
-| catalogItemId        | 字串                           | 目錄專案識別碼。                                                                                                                          |
-| friendlyName         | 字串                           | 選用。 由夥伴定義以協助區分的專案易記名稱。                                                                 |
-| quantity             | 整數                              | 授權或實例的數目。                                                                                                                  |
-| currencyCode         | 字串                           | 貨幣代碼。                                                                                                                                    |
-| billingCycle         | 物件                           | 針對目前期間所設定的計費週期類型。                                                                                                 |
-| termDuration         | 字串                           | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為 P1M （1個月）、P1Y （1年）和 P3Y （3年）。                                |
-| 參與者         | 物件字串配對的清單      | 在購買時，記錄（MPNID）上的 PartnerId 集合。                                                                                          |
+| id                   | string                           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                                                                   |
+| catalogItemId        | string                           | 目錄專案識別碼。                                                                                                                          |
+| friendlyName         | string                           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。                                                                 |
+| quantity             | int                              | 授權或實例的數目。                                                                                                                  |
+| currencyCode         | string                           | 貨幣代碼。                                                                                                                                    |
+| BillingCycle         | 物件                           | 針對目前期間所設定的計費週期類型。                                                                                                 |
+| termDuration         | string                           | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為 P1M （1個月）、P1Y （1年）和 P3Y （3年）。                                |
+| participants         | 物件字串配對的清單      | 在購買時，記錄（MPNID）上的 PartnerId 集合。                                                                                          |
 | provisioningCoNtext  | 字典 < 字串，字串 >       | 布建購買的專案時所使用的其他內容。 若要判斷特定專案需要哪些值，請參閱 SKU 的 provisioningVariables 屬性。 |
-| orderGroup           | 字串                           | 一個群組，用來指出可以用相同順序將哪些專案提交在一起。                                                                          |
+| orderGroup           | string                           | 一個群組，用來指出可以用相同順序將哪些專案提交在一起。                                                                          |
 | addonItems           | **CartLineItem**物件的清單 | 附加元件的購物車明細專案集合，會向基礎購物車明細專案購買所產生的基本訂用帳戶購買。 |
-| 錯誤 (error)                | 物件                           | 在購物車建立後，發生錯誤時套用。                                                                                                    |
-| RenewsTo             | 物件的陣列                 | [RenewsTo](#renewsto)資源的陣列。                                                                            |
+| 錯誤                | 物件                           | 在購物車建立後，發生錯誤時套用。                                                                                                    |
+| renewsTo             | 物件的陣列                 | [RenewsTo](#renewsto)資源的陣列。                                                                            |
 
-## <a name="renewsto"></a>RenewsTo
+## <a name="renewsto"></a>renewsTo
 
 表示購物車明細專案中包含的一個專案。
 
-| 屬性              | 類型             | 必要        | 描述 |
+| 屬性              | 類型             | 必要項        | 描述 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | 字串           | 否              | 續訂詞彙之持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。 |
+| termDuration          | string           | 否              | 續訂詞彙之持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。 |
 
 ## <a name="carterror"></a>CartError
 
@@ -71,16 +71,16 @@ ms.locfileid: "74489078"
 
 | 屬性         | 類型                                   | 描述                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
-| 錯誤碼        | [CartErrorCode](#carterrorcode) | 購物車錯誤的類型。                                                                       |
-| errorDescription | 字串                                 | 錯誤描述，包括有關支援的值、預設值或限制的任何附注。 |
+| errorCode        | [CartErrorCode](#carterrorcode) | 購物車錯誤的類型。                                                                       |
+| errorDescription | string                                 | 錯誤描述，包括有關支援的值、預設值或限制的任何附注。 |
 
 ## <a name="carterrorcode"></a>CartErrorCode
 
 具有表示購物車錯誤類型之值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)。
 
-| 值                                | 位置 | 描述                                             |
+| 值                                | Position | 描述                                             |
 |--------------------------------------|----------|---------------------------------------------------------|
-| 不明                              | 0        | 預設值。                                          |
+| 未知                              | 0        | 預設值。                                          |
 | CurrencyIsNotSupported               | 10000    | 指定的市場不支援貨幣。 |
 | CatalogItemIdIsNotValid              | 10001    | 目錄專案識別碼無效。                       |
 | QuotaNotAvailable                    | 10002    | 可用的配額不足。                    |
@@ -106,15 +106,15 @@ ms.locfileid: "74489078"
 
 | 屬性     | 類型   | 描述                                     |
 |--------------|--------|-------------------------------------------------|
-| orderGroupId | 字串 | 具有錯誤之訂單的順序群組識別碼。 |
-| code         | 整數    | 錯誤碼。                                 |
-| description  | 字串 | 錯誤的描述。                   |
+| orderGroupId | string | 具有錯誤之訂單的順序群組識別碼。 |
+| code         | int    | 錯誤碼。                                 |
+| 描述  | string | 錯誤的描述。                   |
 
 ## <a name="ordererrorcode"></a>OrderErrorCode
 
 具有值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)，指出順序錯誤的類型。
 
-| 值 | 位置 | 描述 |
+| 值 | Position | 描述 |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | 要求內容中缺少合作夥伴 Token。 |
 | InvalidInput | 800002 | 不正確要求輸入。 |
@@ -149,7 +149,7 @@ ms.locfileid: "74489078"
 | ResellerProgramStatusNotActive | 800039 | 轉售商計畫狀態並非使用中。 |
 | AssetStatusChangeNotValid | 800040 | 資產狀態無法從 **{1}** 變更為 **{0}** 。 |
 | ItemAlreadyActivated | 800041 | 這個專案已經啟用。 |
-| NotSupported | 800042 | 未支援。 |
+| NotSupported | 800042 | 不支援。 |
 | PricingAccessForbidden | 800043 | 未授與定價資訊的存取權。 |
 | OrderInProgress | 800060 | 您的訂單正在進行中。 請在幾分鐘內檢查訂單歷程記錄中最近的訂單。 |
 | OrderCannotBeCancelled | 800061 | 無法取消訂單。 |

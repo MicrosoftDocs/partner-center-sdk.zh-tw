@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: edce4bb1b13550445b49979dd59b2bce0486e7fd
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899681"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082985"
 ---
 # <a name="user-resources"></a>使用者資源
 

@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: ef8305cd85e93c01b03610d592d4b28928814735
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899724"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083135"
 ---
 # <a name="order-resources"></a>訂單資源
 
@@ -65,7 +65,7 @@ ms.locfileid: "78899724"
 | 連結                | [OrderLineItemLinks](#orderlineitemlinks) | 唯讀。 對應至訂單明細專案的資源連結。                                                                                                                                                                                |
 | renewsTo             | [RenewsTo](#renewsto)                         |續約詞彙的持續時間詳細資料。                                                                           |
 
-## <a name="renewsto"></a>RenewsTo
+## <a name="renewsto"></a>renewsTo
 
 表示續約詞彙的持續時間詳細資料。
 

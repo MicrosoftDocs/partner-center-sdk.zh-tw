@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: e1fab576e69242a50549efc719f98eafad1ad9de
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488048"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082875"
 ---
 # <a name="service-request-resources"></a>服務要求資源
 
 
 **適用于**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -31,25 +31,25 @@ ms.locfileid: "74488048"
 
 | 屬性         | 類型                                                          | 描述                                                                          |
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| 標題            | 字串                                                        | 服務要求標題。                                                           |
-| 描述      | 字串                                                        | 描述。                                                                     |
-| 嚴重性         | 字串                                                        | 嚴重性：「不明」、「重大」、「適中」或「最小」。                       |
-| SupportTopicId   | 字串                                                        | 支援主題的識別碼。                                                         |
-| SupportTopicName | 字串                                                        | 支援主題的名稱。                                                       |
-| Id               | 字串                                                        | 服務要求的識別碼。                                                       |
-| 狀態           | 字串                                                        | 服務要求的狀態： [無]、[開啟]、[已關閉] 或 [\_需要注意]。 |
+| 標題            | string                                                        | 服務要求標題。                                                           |
+| 描述      | string                                                        | 描述。                                                                     |
+| Severity         | string                                                        | 嚴重性：「不明」、「重大」、「適中」或「最小」。                       |
+| SupportTopicId   | string                                                        | 支援主題的識別碼。                                                         |
+| SupportTopicName | string                                                        | 支援主題的名稱。                                                       |
+| Id               | string                                                        | 服務要求的識別碼。                                                       |
+| 狀態           | string                                                        | 服務要求的狀態： [無]、[開啟]、[已關閉] 或 [\_需要注意]。 |
 | 組織     | [ServiceRequestOrganization](#servicerequestorganization)     | 建立服務要求的組織。                               |
-| PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | 服務要求的主要連絡人。                                              |
+| primaryContact   | [ServiceRequestContact](#servicerequestcontact)               | 服務要求的主要連絡人。                                              |
 | LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | 「上次更新者」連絡人，以瞭解服務要求的變更。                        |
-| ProductName      | 字串                                                        | 對應至服務要求的產品名稱。                     |
-| ProductId        | 字串                                                        | 產品的識別碼。                                                               |
+| ProductName      | string                                                        | 對應至服務要求的產品名稱。                     |
+| ProductId        | string                                                        | 產品的識別碼。                                                               |
 | CreatedDate      | date                                                          | 服務要求建立的日期。                                          |
 | lastModifiedDate | date                                                          | 上次修改服務要求的日期。                                 |
 | LastClosedDate   | date                                                          | 上次關閉服務要求的日期。                                   |
 | FileLinks        | [FileInfo](utility-resources.md#fileinfo)資源的陣列 | 與服務要求相關之檔案連結的集合。                    |
 | NewNote          | [ServiceRequestNote](#servicerequestnote)                     | 附注可以加入至現有的服務要求。                                  |
-| 附註            | [ServiceRequestNotes](#servicerequestnote)的陣列           | 加入至服務要求的附注集合。                                  |
-| CountryCode      | 字串                                                        | 對應至服務要求的國家/地區。                                    |
+| 注意事項            | [ServiceRequestNotes](#servicerequestnote)的陣列           | 加入至服務要求的附注集合。                                  |
+| CountryCode      | string                                                        | 對應至服務要求的國家/地區。                                    |
 | 屬性       | ResourceAttributes                                            | 對應至服務要求的中繼資料屬性。                        |
 
  
@@ -62,11 +62,11 @@ ms.locfileid: "74488048"
 | 屬性     | 類型                                                      | 描述                                            |
 |--------------|-----------------------------------------------------------|--------------------------------------------------------|
 | 組織 | [ServiceRequestOrganization](#servicerequestorganization) | 建立服務要求的組織。 |
-| ContactId    | 字串                                                    | 連絡人的唯一識別碼。                               |
-| LastName     | 字串                                                    | 連絡人的姓氏。                          |
-| FirstName    | 字串                                                    | 連絡人的名字。                         |
-| 電子郵件        | 字串                                                    | 連絡人的電子郵件。                              |
-| PhoneNumber  | 字串                                                    | 連絡人的電話號碼。                       |
+| ContactId    | string                                                    | 連絡人的唯一識別碼。                               |
+| LastName     | string                                                    | 連絡人的姓氏。                          |
+| FirstName    | string                                                    | 連絡人的名字。                         |
+| 電子郵件        | string                                                    | 連絡人的電子郵件。                              |
+| PhoneNumber  | string                                                    | 連絡人的電話號碼。                       |
 
  
 
@@ -77,9 +77,9 @@ ms.locfileid: "74488048"
 
 | 屬性      | 類型   | 描述                                  |
 |---------------|--------|----------------------------------------------|
-| CreatedByName | 字串 | 便箋的建立者名稱。         |
+| CreatedByName | string | 便箋的建立者名稱。         |
 | CreatedDate   | date   | 建立便箋的日期和時間。 |
-| 文字          | 字串 | 便箋的文字。                        |
+| Text          | string | 便箋的文字。                        |
 
  
 
@@ -90,9 +90,9 @@ ms.locfileid: "74488048"
 
 | 屬性    | 類型   | 描述                           |
 |-------------|--------|---------------------------------------|
-| Id          | 字串 | 組織的唯一識別碼。    |
-| 名稱        | 字串 | 組織的名稱。         |
-| PhoneNumber | 字串 | 組織的電話號碼。 |
+| Id          | string | 組織的唯一識別碼。    |
+| 名稱        | string | 組織的名稱。         |
+| PhoneNumber | string | 組織的電話號碼。 |
 
  
 
@@ -103,9 +103,9 @@ ms.locfileid: "74488048"
 
 | 屬性    | 類型               | 描述                                                   |
 |-------------|--------------------|---------------------------------------------------------------|
-| 名稱        | 字串             | 支援主題的名稱。                                |
-| 描述 | 字串             | 支援主題的描述。                         |
-| Id          | 字串             | 支援主題的唯一識別碼。                           |
+| 名稱        | string             | 支援主題的名稱。                                |
+| 描述 | string             | 支援主題的描述。                         |
+| Id          | string             | 支援主題的唯一識別碼。                           |
 | 屬性  | ResourceAttributes | 對應至服務要求的中繼資料屬性。 |
 
  

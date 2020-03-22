@@ -6,18 +6,18 @@ ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b36d1f64a9ab02483832674997c66e3fbffd36e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bdcf0fcc79b019460dfa821ea6ce6f88e48f5c1e
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489728"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80070127"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP 客戶店面 Builder 快速入門手冊
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 建立線上 marketplace，使用 CSP 客戶店面 Builder 來銷售雲端解決方案提供者（CSP）供應專案。
 
@@ -62,7 +62,7 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 部署選項：
 
-- 從合作夥伴中心部署您的網站
+- 從 GitHub 下載[合作夥伴中心店面範例程式碼](https://github.com/Microsoft/Partner-Center-Storefront)
 - 與 Azure 整合以部署已設定的網站
 - 在現有的訂用帳戶上部署或攜帶您自己的訂用帳戶
 
@@ -88,7 +88,7 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 | 國碼 (地區碼) | 國家/地區名稱   |
 |--------------|----------------|
-| AU           | 澳大利亞      |
+| AU           | 澳洲      |
 | AT           | 奧地利        |
 | BE           | 比利時        |
 | BG           | 保加利亞       |
@@ -99,21 +99,21 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 | DK           | 丹麥        |
 | EE           | 愛沙尼亞        |
 | FI           | 芬蘭        |
-| FR           | 法國         |
-| DE           | 德國        |
+| FR           | France         |
+| DE           | Germany        |
 | GR           | 希臘         |
 | HU           | 匈牙利        |
 | IS           | 冰島        |
 | IN           | 印度          |
 | IE           | 愛爾蘭        |
 | IT           | 義大利          |
-| JP           | 日本          |
+| JP           | Japan          |
 | LV           | 拉脫維亞         |
 | L           | 列支敦斯登  |
 | LT           | 立陶宛      |
 | LU           | 盧森堡     |
 | MT           | 馬爾他          |
-| [MC]           | 摩納哥         |
+| MC           | 摩納哥         |
 | NL           | 荷蘭    |
 | NZ           | 紐西蘭    |
 | 否           | 挪威         |
@@ -126,28 +126,18 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 | SE           | 瑞典         |
 | CH           | 瑞士    |
 | GB           | 英國 |
-| 美國           | 美國  |
+| 美式英文           | 美國  |
 
-### <a name="additional-resources"></a>其他資源
-
-若要增強或自訂您的 CSP 客戶店面：
-
-- 下載[合作夥伴中心店面範例程式碼](https://github.com/Microsoft/Partner-Center-Storefront)以進行其他自訂。
-- 使用 Microsoft Visual Studio 2015 （或更新版本）進行開發。
-- 建立額外的變更和增強功能（包括授權、認證、資訊清單變更和其他專案）。
 
 ## <a name="partner-experience-scenarios"></a>合作夥伴體驗案例
 
-### <a name="deployment-scenario"></a>部署案例
+### <a name="deployment-scenario"></a>部署狀況
 
-- 合作夥伴系統管理員可以使用合作夥伴中心來部署網站。 在 [帳戶設定] 中，選擇 [ **Web 店面**] 部署新的網站。
-- 在此頁面上，合作夥伴可以查看新網站名稱的可用性，並加以變更（如果有的話）。
-- 此頁面會顯示與此合作夥伴租使用者相關聯的所有作用中 Azure 訂用帳戶，以及合作夥伴可以選擇用來部署網站的訂用帳戶。
-- 如果合作夥伴沒有與此合作夥伴中心帳戶相關聯的作用中訂用帳戶，他們可以將此帳戶新增為現有 Azure 訂用帳戶的系統管理員，然後重新整理以在此清單中看到該訂用帳戶。
-- 合作夥伴會選擇要部署此網站的資料中心位置。
-- [**部署您的存放區**] 連結會根據所提供的資訊來部署這個新網站，並顯示 URL。
-- 請務必複製此 URL，因為合作夥伴中心不會維護這些網站的狀態或歷程記錄。 如果您關閉瀏覽器頁面，將會遺失網站名稱。
-- 在部署期間，將會使用在合作夥伴中心建立的 web 應用程式認證來部署網站。 如果您沒有註冊 web 應用程式，這會在部署期間註冊。
+若要部署增強或自訂的 CSP 客戶店面：
+
+- 下載[合作夥伴中心店面範例程式碼](https://github.com/Microsoft/Partner-Center-Storefront)，以進行額外的自訂。
+- 使用 Microsoft Visual Studio 2015 （或更新版本）進行開發。
+- 建立額外的變更和增強功能（包括授權、認證、資訊清單變更和其他專案）。
 
 ### <a name="configuration-scenario"></a>設定案例
 
@@ -224,4 +214,4 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - 當客戶在現有的訂用帳戶中新增更多基座時，此網站支援按比例計算的價格。
 - 每個訂用帳戶會在一年後到期，且在購買訂閱之後就無法變更。
-- 新增額外基座不會變更訂用帳戶的結束日期。 客戶會在結束日期之前的剩餘天數向您收費。 例如，如果第一天的訂用帳戶成本為 $365，而您在第二天增加了一個基座，新基座的價格將會是 $364。 如果您稍後再新增一個10天，價格將會是 $354。
+- 新增額外基座不會變更訂用帳戶的結束日期。 客戶會在結束日期之前的剩餘天數向您收費。 例如，如果第一天的訂用帳戶成本為 $365，而您在第二天增加了一個基座，新基座的價格將會是 $364。 如果您在10天后再新增一次，則價格會是 $354。

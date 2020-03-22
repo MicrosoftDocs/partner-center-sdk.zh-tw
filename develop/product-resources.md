@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: ef2677994f2a2af2171624d5a7c5f2ad5696fd70
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488248"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083145"
 ---
 # <a name="products-resources"></a>產品資源
 
 
 **適用于**
 
-- 合作夥伴中心
+- 夥伴中心
 
 代表可購買商品或服務的資源。 包含用來描述產品類型和圖形（SKU）的資源，以及用於檢查清查產品的可用性。   
 
@@ -30,13 +30,13 @@ ms.locfileid: "74488248"
 
 | 屬性           | 類型                          | 描述                                                              |
 |--------------------|-------------------------------|--------------------------------------------------------------------------|
-| id                 | 字串                        | 此產品的識別碼。                                                 |
-| title              | 字串                        | 產品標題。                                                       |
-| description        | 字串                        | 產品描述。                                                 |
+| id                 | string                        | 此產品的識別碼。                                                 |
+| title              | string                        | 產品標題。                                                       |
+| 描述        | string                        | 產品描述。                                                 |
 | productType        | [ItemType](#itemtype)         | 物件，描述此產品的類型分類。     |
 | isMicrosoftProduct | bool                          | 指出這是否為 Microswoft 產品。                          |
-| publisherName      | 字串                        | 產品的發行者名稱（如果有的話）。                          |
-| 相關              | [ProductLinks](#productlinks) | 包含在產品內的資源連結。                         |
+| publisherName      | string                        | 產品的發行者名稱（如果有的話）。                          |
+| 連結              | [ProductLinks](#productlinks) | 包含在產品內的資源連結。                         |
 
 
 
@@ -47,9 +47,9 @@ ms.locfileid: "74488248"
 
 | 屬性        | 類型                          | 描述                                                                          |
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
-| id              | 字串                        | 類型識別碼。                                                                 |
-| displayName     | 字串                        | 此類型的顯示名稱。                                                      |
-| 類型         | [ItemType](#itemtype)         | 選用。 物件，描述這個專案類型的子類型分類。     |
+| id              | string                        | 類型識別碼。                                                                 |
+| displayName     | string                        | 此類型的顯示名稱。                                                      |
+| 類型         | [ItemType](#itemtype)         | 選擇性。 物件，描述這個專案類型的子類型分類。     |
 
  
 
@@ -61,30 +61,30 @@ ms.locfileid: "74488248"
 | 屬性        | 類型                                                          | 描述                                          |
 |-----------------|---------------------------------------------------------------|------------------------------------------------------|
 | sku            | [連結](utility-resources.md#link)                             | 用來存取基礎 Sku 的連結。          |
-| 相關           | [ResourceLinks](utility-resources.md#resourcelinks)           | 包含在此資源內的資源連結。   |
+| 連結           | [ResourceLinks](utility-resources.md#resourcelinks)           | 包含在此資源內的資源連結。   |
 
 
 
-## <a name="sku"></a>限量
+## <a name="sku"></a>Sku
 
 
 代表產品下的可購買庫存單位（SKU）。 這些代表產品的不同形狀。 
 
 | 屬性               | 類型             | 描述                                                                           |
 |------------------------|------------------|---------------------------------------------------------------------------------------|
-| id                     | 字串           | 此 SKU 的識別碼。 此識別碼只在其父產品的內容中是唯一的。 |
-| title                  | 字串           | SKU 的標題。                                                                 |
-| description            | 字串           | SKU 的描述。                                                           |
-| productId              | 字串           | 包含此 SKU 之父[產品](#product)的識別碼。                      |
-| minimumQuantity        | 整數              | 允許購買的最小數量。                                            |
-| maximumQuantity        | 整數              | 允許購買的最大數量。                                            |
+| id                     | string           | 此 SKU 的識別碼。 此識別碼只在其父產品的內容中是唯一的。 |
+| title                  | string           | SKU 的標題。                                                                 |
+| 描述            | string           | SKU 的描述。                                                           |
+| productId              | string           | 包含此 SKU 之父[產品](#product)的識別碼。                      |
+| minimumQuantity        | int              | 允許購買的最小數量。                                            |
+| maximumQuantity        | int              | 允許購買的最大數量。                                            |
 | isTrial                | bool             | 指出此 SKU 是否為試用專案。                                           |
-| supportedBillingCycles | 字串陣列 | 此 SKU 支援的計費週期清單。 支援的值為在[為 billingcycletype](#billingcycletype)中找到的成員名稱。 |
-| purchasePrerequisites  | 字串陣列 | 購買此專案之前所需的先決條件步驟或動作清單。 支援的值為：<br/>  "InventoryCheck"-表示在嘗試購買此專案之前，應該先評估該專案的清查。<br/> "AzureSubscriptionRegistration"-表示需要 Azure 訂用帳戶，且必須先註冊，才能嘗試購買此專案。  |
-| inventoryVariables     | 字串陣列 | 在此專案上執行清查檢查所需的變數清單。 支援的值為：<br/> "CustomerId"-購買的客戶識別碼。<br/> "AzureSubscriptionId"-azure 訂用帳戶的識別碼，可用於購買 Azure 保留。</br> "ArmRegionName"-要驗證清查的區域。 此值必須符合 SKU DynamicAttributes 中的 "ArmRegionName"。 |
-| provisioningVariables  | 字串陣列 | 購買此專案時，必須提供給[購物車明細專案](cart-resources.md#cartlineitem)之布建內容的變數清單。 支援的值為：<br/> 範圍-Azure 保留購買的範圍：「單一」、「共用」。<br/> 「SubscriptionId」-azure 訂用帳戶的識別碼，可用於購買 Azure 保留。<br/> 「持續時間」-Azure 保留的持續時間：「1Year」、「3Year」。  |
+| supportedBillingCycles | 字串的陣列 | 此 SKU 支援的計費週期清單。 支援的值為在[為 billingcycletype](#billingcycletype)中找到的成員名稱。 |
+| purchasePrerequisites  | 字串的陣列 | 購買此專案之前所需的先決條件步驟或動作清單。 支援的值為：<br/>  "InventoryCheck"-表示在嘗試購買此專案之前，應該先評估該專案的清查。<br/> "AzureSubscriptionRegistration"-表示需要 Azure 訂用帳戶，且必須先註冊，才能嘗試購買此專案。  |
+| inventoryVariables     | 字串的陣列 | 在此專案上執行清查檢查所需的變數清單。 支援的值為：<br/> "CustomerId"-購買的客戶識別碼。<br/> "AzureSubscriptionId"-azure 訂用帳戶的識別碼，可用於購買 Azure 保留。</br> "ArmRegionName"-要驗證清查的區域。 此值必須符合 SKU DynamicAttributes 中的 "ArmRegionName"。 |
+| provisioningVariables  | 字串的陣列 | 購買此專案時，必須提供給[購物車明細專案](cart-resources.md#cartlineitem)之布建內容的變數清單。 支援的值為：<br/> 範圍-Azure 保留購買的範圍：「單一」、「共用」。<br/> 「SubscriptionId」-azure 訂用帳戶的識別碼，可用於購買 Azure 保留。<br/> 「持續時間」-Azure 保留的持續時間：「1Year」、「3Year」。  |
 | dynamicAttributes      | 索引鍵/值組  | 套用至此專案之動態屬性的字典。 請注意，此字典中的屬性是動態的，而且可以變更，恕不另行通知。 您不應該針對此屬性值中的特定索引鍵建立強式相依性。    |
-| 相關                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU 中包含的資源連結。                   |
+| 連結                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU 中包含的資源連結。                   |
 
 
 
@@ -94,19 +94,19 @@ ms.locfileid: "74488248"
 
 | 屬性        | 類型                                                | 描述                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------------------------------|
-| id              | 字串                                              | 此可用性的識別碼。 此識別碼只在其父[產品](#product)和[SKU](#sku)的內容中是唯一的。 **注意**此識別碼會隨著時間而變更。 在抓取此值之後，您應該只在短時間範圍內依賴此值。  |
-| productId       | 字串                                              | 包含此可用性的[產品](#product)識別碼。           |
-| skuId           | 字串                                              | 包含此可用性之[SKU](#sku)的識別碼。                   |
-| catalogItemId   | 字串                                              | 目錄中這個專案的唯一識別碼。 這是購買父系[SKU](#sku)時，必須填入[OrderLineItem. OfferId](order-resources.md#orderlineitem)或[CartLineItem](cart-resources.md#cartlineitem)的識別碼。 **注意**此識別碼會隨著時間而變更。 在抓取此值之後，您應該只在短時間內依賴此值。 它應該只在購買時存取和使用。  |
-| defaultCurrency | 字串                                              | 此可用性支援的預設貨幣。                               |
-| 片斷         | 字串                                              | 此可用性的產業區段。 支援的值為：商業、教育、政府、非贏利。 |
-| 國家/地區         | 字串                                              | 套用此可用性的國家或地區（ISO 國家/地區代碼格式）。 |
+| id              | string                                              | 此可用性的識別碼。 此識別碼只在其父[產品](#product)和[SKU](#sku)的內容中是唯一的。 **注意**此識別碼會隨著時間而變更。 在抓取此值之後，您應該只在短時間範圍內依賴此值。  |
+| productId       | string                                              | 包含此可用性的[產品](#product)識別碼。           |
+| skuId           | string                                              | 包含此可用性之[SKU](#sku)的識別碼。                   |
+| catalogItemId   | string                                              | 目錄中這個專案的唯一識別碼。 這是購買父系[SKU](#sku)時，必須填入[OrderLineItem. OfferId](order-resources.md#orderlineitem)或[CartLineItem](cart-resources.md#cartlineitem)的識別碼。 **注意**此識別碼會隨著時間而變更。 在抓取此值之後，您應該只在短時間內依賴此值。 它應該只在購買時存取和使用。  |
+| defaultCurrency | string                                              | 此可用性支援的預設貨幣。                               |
+| segment (區段)         | string                                              | 此可用性的產業區段。 支援的值為：商業、教育、政府、非贏利。 |
+| 國家/地區         | string                                              | 套用此可用性的國家或地區（ISO 國家/地區代碼格式）。 |
 | isPurchasable   | bool                                                | 指出此可用性是否為可購買。 |
 | isRenewable     | bool                                                | 指出此可用性是否為可續訂。 |
-| 基礎         | [產品](#product)               | 此可用性對應的產品。 |
-| 限量             | [限量](#sku)                     | 此可用性對應的 SKU。 |
-| 條款           | [詞彙](#term)資源陣列  | 適用于此可用性的詞彙集合。 |
-| 相關           | [ResourceLinks](utility-resources.md#resourcelinks) | 可用性中包含的資源連結。 |
+| 產品         | [產品](#product)               | 此可用性對應的產品。 |
+| sku             | [限量](#sku)                     | 此可用性對應的 SKU。 |
+| 術語           | [詞彙](#term)資源陣列  | 適用于此可用性的詞彙集合。 |
+| 連結           | [ResourceLinks](utility-resources.md#resourcelinks) | 可用性中包含的資源連結。 |
 
 
 ## <a name="term"></a>詞彙
@@ -115,8 +115,8 @@ ms.locfileid: "74488248"
 
 | 屬性              | 類型                                                                              | 描述                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| 期限              | 字串                                                                            | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為 P1M （1個月）、P1Y （1年）和 P3Y （3年）。 |
-| description           | 字串                                                                            | 詞彙的描述。           |
+| 期限              | string                                                                            | 詞彙持續時間的 ISO 8601 標記法。 目前支援的值為 P1M （1個月）、P1Y （1年）和 P3Y （3年）。 |
+| 描述           | string                                                                            | 詞彙的描述。           |
 
 ## <a name="inventorycheckrequest"></a>InventoryCheckRequest
 
@@ -126,7 +126,7 @@ ms.locfileid: "74488248"
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
 | targetItems      | [InventoryItem](#inventoryitem)的陣列            | 清查檢查將評估的目錄專案清單。                           |
 | inventoryCoNtext | 索引鍵/值組                                     | 執行清查檢查所需的內容值字典。 產品的每個[SKU](#sku)都會定義執行此作業所需的值（如果有的話）。  |
-| 相關            | [ResourceLinks](utility-resources.md#resourcelinks) | 清查檢查要求中包含的資源連結。                            |
+| 連結            | [ResourceLinks](utility-resources.md#resourcelinks) | 清查檢查要求中包含的資源連結。                            |
 
 
 
@@ -136,8 +136,8 @@ ms.locfileid: "74488248"
 
 | 屬性         | 類型                                                              | 描述                                                                      |
 |------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| productId        | 字串                                                            | 具備[產品](#product)的識別碼。                            |
-| skuId            | 字串                                                            | [SKU](#sku)的識別碼。 使用此資源做為清查要求的輸入時，這個值是選擇性的。 如果未提供此值，則會將產品下的所有 Sku 視為清查檢查操作的目標專案。      |
+| productId        | string                                                            | 具備[產品](#product)的識別碼。                            |
+| skuId            | string                                                            | [SKU](#sku)的識別碼。 使用此資源做為清查要求的輸入時，這個值是選擇性的。 如果未提供此值，則會將產品下的所有 Sku 視為清查檢查操作的目標專案。      |
 | isRestricted     | bool                                                              | 指出此專案是否有受限制的清查。            |
 | 限制     | [InventoryRestriction](#inventoryrestriction)的陣列            | 針對此專案找到之任何限制的詳細資料。 只有在**isRestricted** = "true" 時，才會填入這個屬性。 |
 
@@ -149,9 +149,9 @@ ms.locfileid: "74488248"
 
 | 屬性         | 類型                  | 描述                                                                                 |
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
-| reasonCode       | 字串                | 識別限制原因的程式碼。                                    |
-| description      | 字串                | 清查限制的描述。                                               |
-| 內容       | 索引鍵/值組       | 屬性的字典，可提供有關限制的進一步詳細資料。           |
+| reasonCode       | string                | 識別限制原因的程式碼。                                    |
+| 描述      | string                | 清查限制的描述。                                               |
+| 屬性       | 索引鍵/值組       | 屬性的字典，可提供有關限制的進一步詳細資料。           |
 
 
 
@@ -159,11 +159,11 @@ ms.locfileid: "74488248"
 
 [列舉](https://docs.microsoft.com/dotnet/api/system.enum)值，表示計費週期的類型。
 
-| 值              | 位置     | 描述                                                                                |
+| 值              | Position     | 描述                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
-| 不明            | 0            | 列舉初始化運算式。                                                                          |
+| 未知            | 0            | 列舉初始化運算式。                                                                          |
 | 每月            | 1            | 表示合作夥伴將按月計費。                                        |
-| 年利率             | 2            | 表示合作夥伴將以每年收費。                                       |
+| 年度定期             | 2            | 表示合作夥伴將以每年收費。                                       |
 | 無               | 3            | 表示不會向合作夥伴收取費用。 此值可用於試用專案。    |
 | OneTime            | 4            | 表示合作夥伴將會收取一次的費用。                                       |
 
