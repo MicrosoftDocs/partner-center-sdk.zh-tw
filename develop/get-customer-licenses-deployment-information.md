@@ -4,21 +4,21 @@ description: 如何取得特定客戶的授權部署深入解析。
 ms.assetid: 8CD6119A-868F-46A2-9730-DECB4A0BC747
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9fb16a6298d7f9007df409d5d56ea8b264b3836f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bc514797bf5fd788271b36f0ad5a26c01db702b9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485698"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415984"
 ---
 # <a name="get-customer-licenses-deployment-information"></a>取得客戶授權部署資訊
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得特定客戶的授權部署深入解析。
 
@@ -29,7 +29,7 @@ ms.locfileid: "74485698"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。
+認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -50,7 +50,7 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 | 方法  | 要求 URI                                                                                                   |
 |---------|---------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/analytics/licenses/deployment HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/analytics/licenses/deployment HTTP/1。1 |
 
  
 
@@ -58,7 +58,7 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 使用下列 path 參數來識別客戶。
 
-| 名字        | 類型 | 必要 | 說明                                                |
+| 名稱        | 類型 | 必要項 | 描述                                                |
 |-------------|------|----------|------------------------------------------------------------|
 | 客戶識別碼 | guid | 是      | 識別客戶的 GUID 格式客戶識別碼。 |
 
@@ -70,7 +70,7 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -91,7 +91,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

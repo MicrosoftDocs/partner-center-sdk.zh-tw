@@ -4,21 +4,21 @@ description: 若要測試您的程式碼，您應該在合作夥伴中心使用�
 ms.assetid: 0A84F92F-CE66-42DF-B686-4D9E6FFECB16
 ms.date: 09/11/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4773474582c1eac17291c0021be1b4d085c57ed3
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6830803d450afb4ef6594324d6052fac783c89e8
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487978"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415152"
 ---
 # <a name="test-and-debug"></a>測試與偵錯
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -59,7 +59,7 @@ CSP Azure 訂用帳戶供應專案預設已不再提供給沙箱帳戶。 這些
 
 如果您要使用您的沙箱帳戶[購買 Azure 保留的 vm 實例](purchase-azure-reservations.md)，您的每位客戶只能有2個 VM 實例。 您也只能從下列 Azure 保留的 VM 實例產品 Sku 中選取： 
 
-| 產品標題  | 生效日期  | Sku 標題                                               | 區域 [ArmRegionName] | 實例索引鍵 [ArmSkuName] | 持續時間 | 耗用量計量識別碼       |
+| 產品標題  | 生效日期  | Sku 標題                                               | 區域 [ArmRegionName] | 實例索引鍵 [ArmSkuName] | 持續期間 | 耗用量計量識別碼       |
 |----------------|-----------------|---------------------------------------------------------|------------------------|--------------|----------|----------------------------|
 | B 系列       | 12/1/2017 0:00  | 保留的 VM 實例，Standard_B1s，KR 南部，1年    | KoreaSouth             | Standard_B1s | 1Year    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
 | B 系列       | 12/1/2017 0:00  | 保留的 VM 實例，Standard_B1s，美國東部，1年     | eastus                 | Standard_B1s | 1Year    | f4d7a5a5-1b67-45ea-b1a0-282fbdd34b05 |

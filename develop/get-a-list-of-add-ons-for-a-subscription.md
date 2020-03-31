@@ -4,20 +4,20 @@ description: 如何取得客戶已選擇要新增至其訂用帳戶的附加元�
 ms.assetid: F10823A2-CA77-4F80-9ED4-CFB4E4343049
 ms.date: 07/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a7b7510e1fb397b1054fd5e526ba17801341821
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6b10fd79c1e93ebc8d888c72433fe2ee86f48bbf
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487548"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416227"
 ---
 # <a name="get-a-list-of-add-ons-for-a-subscription"></a>取得訂用帳戶的附加元件清單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,7 +26,7 @@ ms.locfileid: "74487548"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（**客戶租使用者識別碼**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 訂用帳戶識別碼。
 
@@ -60,13 +60,13 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | 方法  | 要求 URI                                                                                                                       |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/addons HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/addons HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 下表列出必要的查詢參數，以取得訂用帳戶的附加元件清單。
 
-| 名稱                    | 類型     | 必要 | 描述                               |
+| 名稱                    | 類型     | 必要項 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **客戶-租使用者識別碼**  | **guid** | Y        | 對應至客戶的 GUID。     |
 | **訂用帳戶的識別碼** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |
@@ -77,7 +77,7 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="request-example"></a>要求範例
 
@@ -95,7 +95,7 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

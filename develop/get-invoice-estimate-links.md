@@ -3,21 +3,21 @@ title: 取得發票估計連結
 description: 您可以取得評估連結的集合，以查詢對帳明細專案的詳細資料。
 ms.date: 09/24/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.openlocfilehash: 816edf16e389d5541c3bc335809e123a67c6dd5a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6de049b4508181317183d170ce60f5723e5f20a0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490288"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415904"
 ---
 # <a name="get-invoice-estimate-links"></a>取得發票估計連結
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,7 +26,7 @@ ms.locfileid: "74490288"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 發票識別碼。 這會識別要取得其行專案的發票。
 
 ## <a name="c"></a>C\#
@@ -50,7 +50,7 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetEstimatesLinks.cs**
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -58,15 +58,15 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 
 | 方法  | 要求 URI                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/estimates/links？ currencycode = {CURRENCYCODE} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/estimates/links？ currencycode = {CURRENCYCODE} HTTP/1。1 |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 類型   | 必要 | 描述                                                       |
+| 名稱                   | 類型   | 必要項 | 描述                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| currencyCode           | 字串 | 是      | 未開立帳單明細專案的貨幣代碼。                    |
+| currencyCode           | string | 是      | 未開立帳單明細專案的貨幣代碼。                    |
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -74,7 +74,7 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-example"></a>要求範例
 
@@ -95,7 +95,7 @@ Host: api.partnercenter.microsoft.com
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

@@ -3,20 +3,20 @@ title: 變更計費週期
 description: 將訂用帳戶更新為每月或年度計費。
 ms.date: 05/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3080ef40f71a043b4f02a7dc37178973d72aa09c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f3c040745ead22e92a7012155b0fcfc50fe97739
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489018"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412968"
 ---
 # <a name="change-the-billing-cycle"></a>變更計費週期
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -34,7 +34,7 @@ ms.locfileid: "74489018"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 訂單識別碼。
 
@@ -79,7 +79,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 下表列出必要的查詢參數，以變更訂用帳戶的數量。
 
-| 名稱                   | 類型 | 必要 | 描述                                                          |  
+| 名稱                   | 類型 | 必要項 | 描述                                                          |  
 |------------------------|------|----------|----------------------------------------------------------------------|  
 | **客戶-租使用者識別碼** | GUID |    Y     | 識別客戶的 GUID 格式**客戶租使用者識別碼** |  
 | **訂單識別碼**           | GUID |    Y     | 訂單識別碼                                                 |  
@@ -92,27 +92,27 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 下表描述要求主體中的屬性。
 
-## <a name="order"></a>順序
+## <a name="order"></a>使用
 
-| 屬性           | 類型             | 必要 | 描述                                                                |
+| 屬性           | 類型             | 必要項 | 描述                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| Id                 | 字串           |    N     | 成功建立訂單時所提供的訂單識別碼 |
-|ReferenceCustomerId | 字串           |    Y     | 客戶識別碼                                                    |
-| billingCycle       | 字串           |    Y     | 指出此訂單的夥伴計費頻率。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱。 |
-| LineItems          | 物件的陣列 |    Y     | [OrderLineItem](#orderlineitem)資源的陣列                      |
+| Id                 | string           |    N     | 成功建立訂單時所提供的訂單識別碼 |
+|referenceCustomerId | string           |    Y     | 客戶識別碼                                                    |
+| BillingCycle       | string           |    Y     | 指出此訂單的夥伴計費頻率。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱。 |
+| lineItems          | 物件的陣列 |    Y     | [OrderLineItem](#orderlineitem)資源的陣列                      |
 | CreationDate       | datetime         |    N     | 訂單的建立日期（以日期時間格式）                        |
 | 屬性         | 物件           |    N     | 包含 "ObjectType"： "OrderLineItem"                                     |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
-| 屬性             | 類型   | 必要 | 描述                                                                        |
+| 屬性             | 類型   | 必要項 | 描述                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| LineItemNumber       | 數字 |    Y     | 行專案編號，從0開始                                              |
-| OfferId              | 字串 |    Y     | 供應專案的識別碼                                                                |
-| SubscriptionId       | 字串 |    Y     | 訂用帳戶的識別碼                                                         |
-| FriendlyName         | 字串 |    N     | 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分 |
+| lineItemNumber       | 數字 |    Y     | 行專案編號，從0開始                                              |
+| OfferId              | string |    Y     | 供應專案的識別碼                                                                |
+| SubscriptionId       | string |    Y     | 訂用帳戶的識別碼                                                         |
+| FriendlyName         | string |    N     | 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分 |
 | 數量             | 數字 |    Y     | 授權或實例的數目                                                |
-| PartnerIdOnRecord    | 字串 |    N     | 記錄夥伴的 MPN 識別碼                                                |
+| partnerIdOnRecord    | string |    N     | 記錄夥伴的 MPN 識別碼                                                |
 | 屬性           | 物件 |    N     | 包含 "ObjectType"： "OrderLineItem"                                             |
 
 ### <a name="request-example"></a>要求範例
@@ -160,7 +160,7 @@ Expect: 100-continue
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

@@ -4,19 +4,19 @@ description: 本節說明雲端解決方案提供者合作夥伴可以使用合�
 ms.assetid: C8D81324-5D5A-4C42-933F-6C0552FB882D
 ms.date: 02/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b6f5a99d1a0a9ffe05337f1fa628318eb56dc83
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: b91125e313dcad0e582687354339ad885147e659
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899668"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416492"
 ---
 # <a name="manage-customers"></a>管理客戶
 
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -49,7 +49,7 @@ ms.locfileid: "78899668"
 - [為客戶新增已驗證的網域](add-a-verified-domain-for-a-customer.md)   
 - [取得 Microsoft Cloud 合約的合約中繼資料](get-agreement-metadata.md)
 - [取得客戶接受 Microsoft Cloud 合約的確認](get-confirmation-of-customer-consent.md)
-- [取得 Microsoft 客戶合約的直接簽署（直接接受）狀態](get-direct-sign-status-of-customer-agreement.md)
+- [取得 Microsoft 客戶合約的直接簽署 (直接接受) 狀態](get-direct-sign-status-of-customer-agreement.md)
 - [確認客戶接受 Microsoft 客戶合約](confirm-customer-consent-customer-agreement.md)
 - [取得合作夥伴的驗證碼](get-a-partner-s-validation-codes.md)
 - [取得客戶資格](get-a-customer-s-qualification.md)

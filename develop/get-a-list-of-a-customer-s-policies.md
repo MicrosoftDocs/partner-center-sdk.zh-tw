@@ -4,27 +4,27 @@ description: 如何抓取指定客戶設定原則的集合。
 ms.assetid: 37C40EFC-7BC9-4111-BB9E-27018B583391
 ms.date: 07/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f6caf17d58ead909a2903646626a010631f2c0b4
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: abb66f98363587afff2ffb35ea4840e3bb7486ee
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487538"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415660"
 ---
 # <a name="get-a-list-of-a-customers-policies"></a>取得客戶原則的清單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 本主題說明如何抓取指定客戶設定原則的集合。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 
 ## <a name="c"></a>C\#
@@ -54,15 +54,15 @@ var configPolicies = partnerOperations.Customers.ById(selectedCustomerId).Config
 
 | 方法  | 要求 URI                                                                              |
 |---------|------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 建立要求時，請使用下列 path 參數：
 
-| 名稱        | 類型   | 必要 | 描述                                           |
+| 名稱        | 類型   | 必要項 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
+| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -91,7 +91,7 @@ Host: api.partnercenter.microsoft.com
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

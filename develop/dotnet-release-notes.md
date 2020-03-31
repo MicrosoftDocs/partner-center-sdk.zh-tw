@@ -3,14 +3,14 @@ title: 合作夥伴中心 .NET SDK 版本資訊
 description: 最新版合作夥伴中心 .NET SDK 的版本資訊。
 ms.date: 12/09/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b98c6ef23b08947a7dec219ba40b7e19a3e5026
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: c924f691f9d0315d58cf53630776d532ebf8c089
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995615"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415675"
 ---
 # <a name="net-sdk-release-notes"></a>.NET SDK 版本資訊
 
@@ -22,7 +22,7 @@ ms.locfileid: "74995615"
 
 * 夥伴協定
   * 新增間接提供者[驗證間接轉銷商的 Microsoft 合作夥伴合約狀態](verify-indirect-reseller-mpa-status.md)的功能。
-* 產品
+* Products
   * 下列兩個介面不正確地放在 PartnerCenter. Products 命名空間底下。 現在，它們位於 PartnerCenter 的 [Products] 命名空間底下。
     * ICustomerProductByReservationScope
     * ICustomerSkuByReservationScope

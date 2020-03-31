@@ -4,20 +4,20 @@ description: 開發人員可以使用合作夥伴中心 Api 來建立及管理�
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9bdc918387af62eec6abdaf5656e0d8bafb7f2b3
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1db279b2e377ee5e24bf80709a7e84755fc2f132
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488648"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412231"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>建立商業 marketplace 產品的訂用帳戶
 
 適用於：
 
-* 合作夥伴中心
+* 夥伴中心
 
 您可以使用合作夥伴中心 API 來建立商業市集產品的訂用帳戶。 您必須[取得市場](#get-a-list-of-offers-for-a-market)供應專案的清單、[建立並提交](#create-and-submit-an-order)商業 marketplace 訂用帳戶的訂單，然後[取得啟用連結](#get-activation-link)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "74488648"
 
     * [取得產品清單](get-a-list-of-products.md)
     * [使用產品識別碼取得產品](get-a-product-by-id.md)
-    * [取得產品的 Sku 清單](get-a-list-of-skus-for-a-product.md)
+    * [取得產品的 SKU 清單](get-a-list-of-skus-for-a-product.md)
     * [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
     > [!NOTE]
@@ -55,7 +55,7 @@ ms.locfileid: "74488648"
 
 3. 取得 SKU 的可用性。 在下訂單時，您將需要可用性的**CatalogItemId** ，您可以透過下列 api 來取得：
 
-    * [取得 SKU 的 hdinsight 清單](get-a-list-of-availabilities-for-a-sku.md)
+    * [取得 SKU 的可用性清單](get-a-list-of-availabilities-for-a-sku.md)
     * [使用可用性識別碼取得可用性](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>建立並提交訂單
@@ -80,7 +80,7 @@ ms.locfileid: "74488648"
 
 您可以使用下列方法來管理商用 marketplace 產品訂閱的生命週期：
 
-* [取消商用 marketplace 訂用帳戶](cancel-an-azure-marketplace-subscription.md)
+* [取消商業市集訂用帳戶](cancel-an-azure-marketplace-subscription.md)
 * [啟用或停用商業 marketplace 訂用帳戶的 autorenew](update-autorenew-for-an-azure-marketplace-subscription.md)
 
 ## <a name="quantity-management"></a>數量管理
@@ -93,9 +93,9 @@ ms.locfileid: "74488648"
 
 您可以使用下列方法來管理客戶[發票](invoice-resources.md)（包括商用 marketplace 產品的訂閱費用）：
 
-* [取得發票計費的商業 marketplace 耗用量明細專案](get-invoice-billed-consumption-lineitems.md)
-* [取得發票估計連結](get-invoice-estimate-links.md)
-* [取得發票未開立帳單商用 marketplace 耗用量明細專案](get-invoice-unbilled-consumption-lineitems.md)
+* [取得已開立發票的商業市集取用量明細](get-invoice-billed-consumption-lineitems.md)
+* [取得發票估算連結](get-invoice-estimate-links.md)
+* [取得未開立發票的商業市集取用量明細](get-invoice-unbilled-consumption-lineitems.md)
 * [取得發票未開立帳單對帳明細專案](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>使用整合沙箱帳戶進行測試
@@ -104,5 +104,5 @@ ms.locfileid: "74488648"
 
 在 CSP 沙箱環境中，沒有與 Isv 的整合。 如果您嘗試從合作夥伴中心抓取啟用連結，則會傳回虛擬連結。 您無法使用此虛擬連結完成發行者網站上的安裝程式。 若要使用整合沙箱帳戶來測試對商業 marketplace SaaS 產品的訂閱計費，請使用下列方法來改為啟用訂閱。 成功啟用之後，訂用帳戶計費將會開始：
 
-* [啟用商業 marketplace 產品的沙箱訂閱](activate-sandbox-subscription-azure-marketplace-products.md)
+* [啟用商業市集產品的沙箱訂用帳戶](activate-sandbox-subscription-azure-marketplace-products.md)
 

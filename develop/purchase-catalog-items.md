@@ -4,21 +4,21 @@ description: 如何使用合作夥伴中心 API 購買類別目錄專案。
 ms.assetid: B9B1B66A-D1AD-44E8-85AA-49D9C2A94BE5
 ms.date: 07/12/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ff4f04bc53f96e6e7670922093bca830456de921
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 083bb517f20c0a733f7d87bb7107bcface4f79ec
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486738"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416275"
 ---
 # <a name="purchase-catalog-items"></a>購買類別目錄專案
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 
 下列案例示範使用合作夥伴中心 API 從目錄購買專案的一般程式。
@@ -38,16 +38,16 @@ ms.locfileid: "74486738"
 
     - [取得產品清單](get-a-list-of-products.md)
     - [使用產品識別碼取得產品](get-a-product-by-id.md)
-    - [取得產品的 Sku 清單](get-a-list-of-skus-for-a-product.md)
+    - [取得產品的 SKU 清單](get-a-list-of-skus-for-a-product.md)
     - [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
 2.  檢查 SKU 的清查。 只有在[purchasePrerequisites](product-resources.md#sku)屬性中以**InventoryCheck**值標記的 sku 才需要此步驟。
 
-    - [檢查清查](check-inventory.md) 
+    - [確認存貨](check-inventory.md) 
 
 3.  取得[SKU](product-resources.md#sku)的[可用性](product-resources.md#availability)。 您將需要在放置訂單時的可用性**CatalogItemId** 。 若要取得此值，請使用下列其中一個 Api： 
 
-    - [取得 SKU 的 hdinsight 清單](get-a-list-of-availabilities-for-a-sku.md)
+    - [取得 SKU 的可用性清單](get-a-list-of-availabilities-for-a-sku.md)
     - [使用可用性識別碼取得可用性](get-an-availability-by-id.md)
 
 

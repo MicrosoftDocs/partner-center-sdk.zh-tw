@@ -4,26 +4,26 @@ description: 使用產品識別碼取得指定的產品資源。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 752245d5a307da69fff105de09de6ae167b736fc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1b71816ab1a682999704fceb1384518b84b52584
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489478"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413691"
 ---
 # <a name="get-a-product-by-id"></a>依識別碼取得產品
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 使用產品識別碼取得指定的產品資源。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 產品識別碼。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
@@ -66,13 +66,13 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 | 方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}？ country = {COUNTRY} HTTP/1。1  | 
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}？ country = {COUNTRY} HTTP/1。1  | 
 
 **URI 參數**
 
 使用下列路徑參數來取得指定的產品。
 
-| 名字                   | 類型     | 必要 | 說明                                                     |
+| 名稱                   | 類型     | 必要項 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 產品識別碼             | string   | 是      | 識別產品的字串。                           |
 | 國家/地區                | string   | 是      | 國家/地區識別碼。                                            |
@@ -84,7 +84,7 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -103,11 +103,11 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 
-| HTTP 狀態碼     | 錯誤碼   | 說明                                                                |
+| HTTP 狀態碼     | 錯誤碼   | 描述                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
 | 404                  | 400013       | 找不到產品。                                                     |
 

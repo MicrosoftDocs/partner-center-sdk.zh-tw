@@ -4,21 +4,21 @@ description: 合作夥伴中心在世界各地的不同國家和地區都有提�
 ms.assetid: D4E1AC16-3FB1-4192-A06A-5766BF00A6D8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ba06e7eaac0ae8857a6c99bb8d9ee32bfee61182
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 83a85e573fbeb90542a283d150acc6e6cd13982a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488278"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416400"
 ---
 # <a name="partner-center-rest-urls"></a>合作夥伴中心 REST Url
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -35,12 +35,12 @@ ms.locfileid: "74488278"
 <thead>
 <tr class="header">
 <th>合作夥伴中心版本</th>
-<th>基底 URL</th>
+<th>基礎 URL</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>合作夥伴中心</p>
+<td><p>夥伴中心</p>
 <p>Microsoft Cloud 德國合作夥伴中心</p>
 <p>Microsoft Cloud for US Government 適用的合作夥伴中心</p></td>
 <td><em><a href="https://api.partnercenter.microsoft.com">https://api.partnercenter.microsoft.com</a></em></td>

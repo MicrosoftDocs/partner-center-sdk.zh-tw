@@ -4,20 +4,20 @@ description: 您可以使用 CustomerMonthlyUsageRecord 資源集合來取得所
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dac77bab8210a5aa63994e99d9f4b09fa4d90298
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a286dfbef4c7e77c893c3410a982e53ff58a2106
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490168"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412313"
 ---
 # <a name="get-usage-records-for-all-customers"></a>取得所有客戶的使用量記錄
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -25,8 +25,8 @@ ms.locfileid: "74490168"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
-- 客戶識別碼（**客戶租使用者 id**）。 如果您沒有客戶的識別碼，您可以從 [customers] 清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft ID**，以在合作夥伴中心查詢識別碼。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
+- 客戶識別碼 (**customer-tenant-id**)。 如果您沒有客戶的識別碼，您可以從 [customers] 清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft ID**，以在合作夥伴中心查詢識別碼。
 
 ## <a name="c"></a>C\#
 
@@ -46,7 +46,7 @@ ms.locfileid: "74490168"
 - 專案： **PartnerSDK. FeatureSamples**
 - 類別： **GetCustomerUsageRecords.cs**
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -54,7 +54,7 @@ ms.locfileid: "74490168"
 
 | 方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1。1 |
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -62,7 +62,7 @@ ms.locfileid: "74490168"
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-example"></a>要求範例
 
@@ -80,7 +80,7 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

@@ -4,20 +4,20 @@ description: 依訂單明細專案取得訂用帳戶啟用連結。
 ms.assetid: ff1c1b59-f6c2-4f17-b0d6-00109761a1fd
 ms.date: 08/16/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fc455a11c854b6998b23c0810d26f364eb50e6e9
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 99277cbc9eb9053c5b8b4c0e2747438cf188118f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486068"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416201"
 ---
 # <a name="get-activation-link-by-order-line-item"></a>依訂單明細專案取得啟用連結
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74486068"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 已完成的訂單與需要啟用的產品。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
@@ -53,7 +53,7 @@ var partnerOperations.Customers.ById(customerId).Orders.ById(orderId).OrderLineI
 
 | 方法  | 要求 URI                                                                                                                               |
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1。1 |
 
 **要求標頭**
 
@@ -61,7 +61,7 @@ var partnerOperations.Customers.ById(customerId).Orders.ById(orderId).OrderLineI
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -79,7 +79,7 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 

@@ -4,21 +4,21 @@ description: 如何購買現有訂用帳戶的附加元件。
 ms.assetid: 743520E5-0501-4403-B977-5E6D3E32DEC3
 ms.date: 11/29/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e90aa545e2e1b76ccdb9f8e812df73d3113dfd86
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f49685eb142945fc94e551e2113799c4c5b959e5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486748"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416311"
 ---
 # <a name="span-idpc_apiv2purchase_an_add-on_to_a_subscriptionpurchase-an-add-on-to-a-subscription"></a><span id="pc_apiv2.purchase_an_add-on_to_a_subscription"/>購買訂用帳戶的附加元件
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -27,7 +27,7 @@ ms.locfileid: "74486748"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 訂用帳戶識別碼。 這是要購買附加元件供應專案的現有訂用帳戶。
 - 識別要購買之附加元件的供應專案識別碼。
@@ -131,7 +131,7 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 使用下列參數來識別客戶和訂單。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                        |
+| 名稱                   | 類型     | 必要項 | 描述                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
 | **客戶-租使用者識別碼** | **guid** | Y        | 此值是可識別客戶的 GUID 格式**客戶租使用者識別碼**。 |
 | **訂單識別碼**           | **guid** | Y        | 訂單識別碼。                                                              |
@@ -149,29 +149,29 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 ## <a name="span-idorderspan-idorderspan-idorderorder"></a><span id="Order"/><span id="order"/><span id="ORDER"/>順序
 
 
-| 名稱                | 類型             | 必要 | 描述                                          |
+| 名稱                | 類型             | 必要項 | 描述                                          |
 |---------------------|------------------|----------|------------------------------------------------------|
-| Id                  | 字串           | N        | 訂單識別碼。                                        |
-| ReferenceCustomerId | 字串           | Y        | 客戶識別碼。                                     |
-| LineItems           | 物件的陣列 | Y        | [OrderLineItem](#orderlineitem)物件的陣列。 |
-| CreationDate        | 字串           | N        | 訂單的建立日期（採用日期時間格式）。 |
-| 屬性          | 物件           | N        | 包含 "ObjectType"： "Order"。                      |
+| Id                  | string           | N        | 訂單識別碼。                                        |
+| referenceCustomerId | string           | Y        | 客戶識別碼。                                     |
+| lineItems           | 物件的陣列 | Y        | [OrderLineItem](#orderlineitem)物件的陣列。 |
+| CreationDate        | string           | N        | 訂單的建立日期（採用日期時間格式）。 |
+| 屬性          | object           | N        | 包含 "ObjectType"： "Order"。                      |
 
  
 
 ## <a name="span-idorderlineitemspan-idorderlineitemspan-idorderlineitemorderlineitem"></a><span id="orderLineItem"/><span id="orderlineitem"/><span id="ORDERLINEITEM"/>OrderLineItem
 
 
-| 名稱                 | 類型   | 必要 | 描述                                                  |
+| 名稱                 | 類型   | 必要項 | 描述                                                  |
 |----------------------|--------|----------|--------------------------------------------------------------|
-| LineItemNumber       | 數字 | Y        | 行專案編號，從0開始。                       |
-| OfferId              | 字串 | Y        | 附加元件的供應專案識別碼。                                  |
-| SubscriptionId       | 字串 | N        | 購買的附加元件訂用帳戶的識別碼。                 |
-| ParentSubscriptionId | 字串 | Y        | 具有附加元件供應專案之父訂用帳戶的識別碼。 |
-| FriendlyName         | 字串 | N        | 此行專案的易記名稱。                        |
+| lineItemNumber       | 數字 | Y        | 行專案編號，從0開始。                       |
+| OfferId              | string | Y        | 附加元件的供應專案識別碼。                                  |
+| SubscriptionId       | string | N        | 購買的附加元件訂用帳戶的識別碼。                 |
+| parentSubscriptionId | string | Y        | 具有附加元件供應專案之父訂用帳戶的識別碼。 |
+| FriendlyName         | string | N        | 此行專案的易記名稱。                        |
 | 數量             | 數字 | Y        | 授權的數目。                                      |
-| PartnerIdOnRecord    | 字串 | N        | 記錄夥伴的 MPN 識別碼。                         |
-| 屬性           | 物件 | N        | 包含 "ObjectType"： "OrderLineItem"。                      |
+| partnerIdOnRecord    | string | N        | 記錄夥伴的 MPN 識別碼。                         |
+| 屬性           | object | N        | 包含 "ObjectType"： "OrderLineItem"。                      |
 
  
 
@@ -219,7 +219,7 @@ Expect: 100-continue
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 **回應範例**
 

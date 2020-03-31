@@ -3,21 +3,21 @@ title: 移除與客戶的經銷商關係
 description: 如何移除與您不再具有交易之客戶的轉銷商關係。
 ms.date: 01/12/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 950b4c275acbbc699504344108799f6662de607e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3e64b6b9921e500d4f4926a45a624c909988ec00
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486708"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415475"
 ---
 # <a name="remove-a-reseller-relationship-with-a-customer"></a>移除與客戶的經銷商關係
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心  
+- 夥伴中心  
 
 
 移除與您不再具有交易之客戶的轉銷商關係。 
@@ -25,7 +25,7 @@ ms.locfileid: "74486708"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 在移除轉銷商關聯性之前，必須先取消所有 Azure 保留的 VM 實例訂單。 呼叫 Azure 支援以取消任何已開啟的 Azure 保留的 VM 實例訂單。
 
@@ -101,7 +101,7 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 
 下表列出移除轉銷商關聯性所需的查詢參數。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                        |
+| 名稱                   | 類型     | 必要項 | 描述                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
 | **客戶-租使用者識別碼** | **guid** | Y        | 此值是可識別客戶的 GUID 格式**客戶租使用者識別碼**。 |
 
@@ -141,7 +141,7 @@ Date: Fri, 12 Jan 2018 00:31:55 GMT
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

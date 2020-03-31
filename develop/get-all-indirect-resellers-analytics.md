@@ -4,20 +4,20 @@ description: 如何取得所有間接轉銷商分析資訊。
 ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a13814e2e53d89e326b436bba4e134ba41c72547
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7e9de270c7619de51363b2226c6b8a79ac382ef4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485978"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416154"
 ---
 # <a name="get-all-indirect-resellers-analytics-information"></a>取得所有間接轉售商分析資訊
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74485978"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。 
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
@@ -37,7 +37,7 @@ ms.locfileid: "74485978"
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/indirectresellers HTTP/1。1 |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/indirectresellers HTTP/1。1 |
 
  
 
@@ -52,22 +52,22 @@ ms.locfileid: "74485978"
 <tbody>
     <tr>
         <td>partnerTenantId</td>
-        <td>字串</td>
+        <td>string</td>
         <td>您要為其取得間接轉銷商資料之夥伴的租使用者識別碼。 </td>
     </tr>
     <tr>
         <td>id</td>
-        <td>字串</td>
+        <td>string</td>
         <td>間接轉銷商識別碼</td>
     </tr>
     <tr>
-        <td>name</td>
-        <td>字串</td>
+        <td>名稱</td>
+        <td>string</td>
         <td>您要為其取得間接轉銷商資料的夥伴名稱。</td>
     </tr>
     <tr>
         <td>market</td>
-        <td>字串</td>
+        <td>string</td>
         <td>您想要為其取得間接轉銷商資料的合作夥伴市場。</td>
     </tr>
     <tr>
@@ -126,20 +126,20 @@ ms.locfileid: "74485978"
         <td>間接轉銷商計數</td>
     </tr>
     <tr>
-        <td>top</td>
-        <td>字串</td>
+        <td>上</td>
+        <td>string</td>
         <td>要在要求中傳回的資料列數目。 最大值及未指定的預設值為 10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。</td>
     </tr>
     <tr>
         <td>skip</td>
-        <td>整數</td>
+        <td>int</td>
         <td>
           <p>在查詢中要略過的資料列數目。 使用此參數來循頁瀏覽大型資料集。 例如，<code>top=10000 and skip=0</code> 會抓取前10000個數據列，<code>top=10000 and skip=10000</code> 抓取後續10000個數據列，依此類推。</p>
         </td>
     </tr>
     <tr>
-        <td>filter</td>
-        <td>字串</td>
+        <td>篩選器</td>
+        <td>string</td>
         <td>
             <p>要求的 <em>filter</em> 參數包含在回應中篩選資料列的一或多個陳述式。 每個陳述式包含一個與 <strong>eq</strong> 或 <strong>ne</strong> 運算子關聯的欄位和值，而陳述式可以使用 <strong>and</strong> 或 <strong>or</strong> 結合。 您可以指定下列欄位：</p>
             <ul>
@@ -165,14 +165,14 @@ ms.locfileid: "74485978"
     </tr>
     <tr>
         <td>aggregationLevel</td>
-        <td>字串</td>
+        <td>string</td>
         <td><p>指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：&quot;day&quot;、&quot;week&quot; 或 &quot;month&quot;。 如果沒有指定，則預設為 &quot;day&quot;。</p>
         <p>不支援<strong>groupby</strong>的<em>aggregationLevel</em> 。 <em>aggregationLevel</em>適用于所有出現在<strong>groupby</strong>中的<strong>datefields</strong></p>
         </td>
     </tr>
     <tr>
         <td>orderby</td>
-        <td>字串</td>
+        <td>string</td>
         <td>
             <p>對每個安裝的結果資料值做出排序的陳述式。 語法是 <code>...&orderby=field[order],field [order],...</code> 欄位參數可以是下列其中一個字串：</p>
             <ul>
@@ -199,7 +199,7 @@ ms.locfileid: "74485978"
     </tr>
     <tr>
         <td>groupby</td>
-        <td>字串</td>
+        <td>string</td>
         <td>
             <p>將資料彙總僅套用至指定欄位的陳述式。 您可以指定下列欄位：</p>
             <ul>
@@ -238,7 +238,7 @@ ms.locfileid: "74485978"
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -257,7 +257,7 @@ Content-Length: 0
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 
@@ -282,4 +282,4 @@ Content-Length: 0
 
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
- - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)
+ - [合作夥伴中心分析 - 資源](partner-center-analytics-resources.md)

@@ -4,29 +4,29 @@ description: 取得指定 customer 和 biling 週期類型的訂單資源集合�
 ms.assetid: DF1E52F6-1A3D-4B26-8BCC-6E429410C662
 ms.date: 06/19/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a23d96a6b0926b0623a7b7360bd296a993e5211
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f11c818a8c20a0a55f2f8b6519ac9a7b59736591
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487338"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413835"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>依客戶和計費週期類型取得訂單清單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 取得對應至指定的客戶和計費週期類型之訂單資源的集合。 請注意，提交訂單的時間和在客戶訂單的集合中會出現最多15分鐘的延遲。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
 ## <a name="c"></a>C\#
@@ -35,7 +35,7 @@ ms.locfileid: "74487338"
 
 1. 使用您的[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合，並以選取的客戶識別碼呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。
 2. 使用您指定的[**為 billingcycletype**](product-resources.md#billingcycletype)呼叫[**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)屬性和**ByBillingCycleType （）** 方法。
-3. 呼叫[**Get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)方法。
+3. 呼叫 [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) 或 [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,15 +51,15 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 
 | 方法  | 要求 URI                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-tenant-id}/orders？ billingType = {計費-迴圈類型} HTTP/1。1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-tenant-id}/orders？ billingType = {計費-迴圈類型} HTTP/1。1  |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 下表列出必要的查詢參數，以依據客戶識別碼和計費週期類型來取得訂單集合。
 
-| 名字                   | 類型     | 必要 | 說明                                               |
+| 名稱                   | 類型     | 必要項 | 描述                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| 客戶-租使用者識別碼     | string   | 是      | 對應至客戶的 GUID 格式字串。    |
+| customer-tenant-id     | string   | 是      | 對應至客戶的 GUID 格式字串。    |
 | 計費-週期類型     | string   | 否       | 對應至計費週期類型的字串。         |
 
 ### <a name="request-headers"></a>要求標頭
@@ -68,9 +68,9 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/b0d70a69-4c42-4b27-b17b-91a835d8686a/orders?billingType=onetime HTTP/1.1
@@ -87,7 +87,7 @@ Connection: Keep-Alive
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

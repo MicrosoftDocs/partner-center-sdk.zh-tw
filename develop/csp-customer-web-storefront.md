@@ -4,20 +4,20 @@ description: 這個範例網站程式碼會顯示可供客戶購買 Microsoft �
 ms.assetid: 0726B1CA-97A1-42E6-92AD-25787BFE0C67
 ms.date: 05/29/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b8e8a87e0ed22d1703b65085cf6eb9e1743c9f09
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1db077eb789146f945f6d507be84f948ae2cb0a9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489738"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415550"
 ---
 # <a name="csp-customer-web-storefront"></a>CSP 客戶網路店面
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 > [!NOTE]
 > 這個範例應用程式僅適用于合作夥伴中心的全域實例。 不適用於 Microsoft Cloud 德國的合作夥伴中心，或適用于美國政府 Microsoft Cloud 的合作夥伴中心。
@@ -50,7 +50,7 @@ ms.locfileid: "74489738"
 
 - 組織名稱
 - 組織標誌
-- 標頭影像
+- 頁首影像
 - 隱私權合約
 - 連絡人電子郵件
 - 連絡人電話號碼

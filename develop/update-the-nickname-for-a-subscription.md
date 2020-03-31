@@ -4,21 +4,21 @@ description: 更新客戶訂用帳戶的易記名稱或昵稱。
 ms.assetid: 9A4431CB-1EB5-4C1C-B4D1-18B017ADD2F4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 83657fbe507215905a950f16ede31b9a7d6f2d6c
-ms.sourcegitcommit: 41d6e1fe826a51fa43825de6d481663d3d34f290
+ms.openlocfilehash: 97627e0a597307ada230202b936b54804d95380f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2019
-ms.locfileid: "75032119"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414650"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>更新訂用帳戶的昵稱
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -30,7 +30,7 @@ ms.locfileid: "75032119"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 訂用帳戶識別碼。
 
@@ -60,7 +60,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | 方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
+| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
 
  
 
@@ -68,10 +68,10 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 下表列出更新訂用帳戶昵稱所需的查詢參數。
 
-| 名稱                    | 在工作列搜尋方塊中輸入     | 必要 | 說明                          |
+| 名稱                    | 類型     | 必要項 | 描述                          |
 |-------------------------|----------|----------|--------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | **客戶租使用者識別碼**（GUID）。 |
-| **id-for-subscription** | **guid** | Y        | 訂用帳戶識別碼（GUID）。        |
+| **客戶-租使用者識別碼**  | **guid** | Y        | **客戶租使用者識別碼**（GUID）。 |
+| **訂用帳戶的識別碼** | **guid** | Y        | 訂用帳戶識別碼（GUID）。        |
 
  
 
@@ -81,7 +81,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 **要求本文**
 
-要求本文中必須有完整的 **Subscription** 資源。 請確定已更新 [ **FriendlyName** ] 屬性。
+要求主體中需要完整的**訂**用帳戶資源。 請確定已更新 [ **FriendlyName** ] 屬性。
 
 **要求範例**
 

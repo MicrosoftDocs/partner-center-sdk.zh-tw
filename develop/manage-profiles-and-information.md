@@ -4,21 +4,21 @@ description: 本節說明雲端解決方案提供者合作夥伴可以使用合�
 ms.assetid: 7E2D461D-279E-4E6C-ACFA-BC96AAE8503C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 92677668fd3bdf5dcdae39c0716cb0bd481beabe
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1f00233ff5bf1c1747ea919ff718a4fbf4a00dad
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488318"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416473"
 ---
 # <a name="manage-accounts-and-profiles"></a>管理帳戶和設定檔
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -27,7 +27,7 @@ ms.locfileid: "74488318"
 
 - [取得合法的商務設定檔](get-legal-business-profile.md)
 - [取得組織設定檔](get-an-organization-profile.md)
-- [取得合作夥伴帳單設定檔](get-partner-billing-profile.md)
+- [取得合作夥伴的帳單設定檔](get-partner-billing-profile.md)
 - [取得 Microsoft 合作夥伴網路設定檔](get-partner-network-profile.md)
 - [取得支援設定檔](get-support-profile.md)
 - [更新合法的商務設定檔](update-legal-business-profile.md)

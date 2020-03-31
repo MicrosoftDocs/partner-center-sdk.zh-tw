@@ -4,26 +4,26 @@ description: 如何將試用訂閱轉換成付費帳戶。
 ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 593b995c8d17ff5bc2425cb9b2672ad1fc125944
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d41fa94a78d49a6537834ddaf9d4c62c54d8f911
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488888"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413557"
 ---
 # <a name="convert-a-trial-subscription-to-paid"></a>將試用訂用帳戶轉換為付費
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 您可以將試用訂用帳戶轉換為付費。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼。
 - 有效試用訂用帳戶的訂用帳戶識別碼。
 - 可用的轉換供應專案。
@@ -114,16 +114,16 @@ else
 
 | 方法   | 要求 URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列路徑參數來識別客戶和試用版訂用帳戶。
 
-| 名稱            | 類型   | 必要 | 描述                                                     |
+| 名稱            | 類型   | 必要項 | 描述                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| 客戶識別碼     | 字串 | 是      | 識別客戶的 GUID 格式字串。           |
-| 訂用帳戶識別碼 | 字串 | 是      | 可識別試用訂閱的 GUID 格式字串。 |
+| 客戶識別碼     | string | 是      | 識別客戶的 GUID 格式字串。           |
+| 訂用帳戶識別碼 | string | 是      | 可識別試用訂閱的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -165,7 +165,7 @@ Expect: 100-continue
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

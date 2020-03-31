@@ -4,14 +4,14 @@ description: 與合作夥伴中心裝置部署相關的資源。
 ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 06/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1aecf66907d8e39ae3015ba7a7735942555d1d1c
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 910590a9670d7bfc3fe3e0b00d624026b73372e4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083155"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412364"
 ---
 # <a name="device-deployment-resources"></a>裝置部署資源
 

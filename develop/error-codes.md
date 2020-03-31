@@ -4,20 +4,20 @@ description: 來自合作夥伴中心 Api 的錯誤碼和成功回應的描述�
 ms.assetid: 08AC1F2E-5847-4AD8-AE5B-0173C5DB589A
 ms.date: 06/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f9cb33c2518cef84d6948783da7d2c4337ecfaa
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 2bb945de632b0bf18eea73db739ad0aa6085eecc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489668"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415638"
 ---
 # <a name="partner-center-rest-error-codes"></a>合作夥伴中心 REST 錯誤碼
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -55,10 +55,10 @@ ms.locfileid: "74489668"
 
 | 名稱        | 類型   | 描述                                                                                                                                            |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| code        | 字串 | 一律傳回。 表示發生的錯誤類型。 非 null。                                                                                  |
-| description | 字串 | 一律傳回。 詳細描述錯誤，並提供其他的調試資訊。 非 null、非空白。 長度上限為1024個字元。 |
-| 資料        | 陣列  | 僅針對某些錯誤類型傳回。 錯誤物件的清單。                                                                                           |
-| 來源      | 字串 | 一律傳回。 錯誤的來源。                                                                                                              |
+| code        | string | 一律傳回。 表示所發生錯誤的類型。 非 Null。                                                                                  |
+| 描述 | string | 一律傳回。 詳細說明錯誤，並提供其他偵錯資訊。 非 Null、非空白。 長度上限是 1024 個字元。 |
+| data        | 陣列  | 僅針對某些錯誤類型傳回。 錯誤物件的清單。                                                                                           |
+| 來源      | string | 一律傳回。 錯誤的來源。                                                                                                              |
 
 ```json
 {

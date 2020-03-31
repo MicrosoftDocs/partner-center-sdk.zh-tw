@@ -3,26 +3,26 @@ title: 取得客戶的產品升級狀態
 description: 您可以使用 ProductUpgradeRequest 資源，將客戶的產品升級狀態判斷為新的產品系列，例如從 Microsoft Azure （MS-MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶到 Azure 方案。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5ae177c5c57ba12de80884aed3697102a5b1f914
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c99b70f4046a0018d43f395fe7539f608cecf11f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487288"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416692"
 ---
 # <a name="get-the-product-upgrade-status-for-a-customer"></a>取得客戶的產品升級狀態
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 您可以使用[**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest)資源來取得升級到新產品系列的狀態。 當您將客戶從 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶升級為 Azure 方案時，就會套用此資源。 成功的要求會傳回[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)資源。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
 - 客戶識別碼。
 - 產品系列。
 - 升級要求的升級識別碼。
@@ -117,7 +117,7 @@ Connection: Keep-Alive
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

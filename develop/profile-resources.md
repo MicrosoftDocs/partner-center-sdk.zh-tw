@@ -4,19 +4,19 @@ description: 描述雲端解決方案提供者設定檔的行為。
 ms.assetid: 42F2959B-D70D-41A7-9A50-E22A2356A339
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3449aeb3695a9f286f37668d3f0862dc7b5cfa9f
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: e2f7813ef3e41c06b7575e4119a364cb4e037e9b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083035"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416323"
 ---
 # <a name="profile-resources"></a>設定檔資源
 
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -34,7 +34,7 @@ ms.locfileid: "80083035"
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
 | 公司         | string                                                         | 帳單公司名稱。                                   |
 | 位址             | [地址](utility-resources.md#address)                       | 公司或組織的帳單位址位址。 |
-| primaryContact      | [連絡人](utility-resources.md#contact)                       | 公司或組織的主要連絡人。        |
+| primaryContact      | [Contact](utility-resources.md#contact)                       | 公司或組織的主要連絡人。        |
 | purchaseOrderNumber | string                                                         | 公司或組織的訂單號碼。        |
 | taxId               | string                                                         | 公司或組織的稅務識別碼。                       |
 | billingCurrency     | string                                                         | 公司或組織所使用的貨幣。           |
@@ -53,7 +53,7 @@ ms.locfileid: "80083035"
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 公司            | string                                                         | 合法的公司名稱。                                                                                                                                              |
 | 位址                | [地址](utility-resources.md#address)                       | 公司或組織的位址。                                                                                                                          |
-| primaryContact         | [連絡人](utility-resources.md#contact)                       | 公司或組織的主要連絡人。                                                                                                                 |
+| primaryContact         | [Contact](utility-resources.md#contact)                       | 公司或組織的主要連絡人。                                                                                                                 |
 | companyApproverAddress | [地址](utility-resources.md#address)                       | 公司核准者位址。                                                                                                                                        |
 | companyApproverEmail   | string                                                         | 公司核准者電子郵件。                                                                                                                                          |
 | vettingStatus          | string                                                         | 調查狀態。 這個值是在[**VettingStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus)中找到的其中一個成員名稱的字串表示。           |

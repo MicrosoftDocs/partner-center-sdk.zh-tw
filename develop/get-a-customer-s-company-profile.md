@@ -4,20 +4,20 @@ description: 取得客戶的公司設定檔。
 ms.assetid: 762C0F38-2229-464D-9CD6-6AD82135A65C
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a670cdd82528d2017550cef7484a1e676f73bb3d
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: a2d011e425d4fac1eeb2efdd530c6bab312c63c6
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995103"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415597"
 ---
 # <a name="get-a-customers-company-profile"></a>取得客戶的公司設定檔
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,7 +26,7 @@ ms.locfileid: "74995103"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
@@ -63,15 +63,15 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 | 方法  | 要求 URI                                                             |
 |---------|-------------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
+| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1。1 |
 
 **URI 參數**
 
 使用下列查詢參數來取得公司設定檔。
 
-| 名稱                   | 在工作列搜尋方塊中輸入     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要項 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **客戶-租使用者識別碼** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 
 
 **要求標頭**

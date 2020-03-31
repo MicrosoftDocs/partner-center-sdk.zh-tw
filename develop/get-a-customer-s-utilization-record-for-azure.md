@@ -4,20 +4,20 @@ description: 您可以使用 Azure 使用量 API 來取得客戶的 Azure 訂用
 ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 825b5ea8c65d5ae52979ca5b412f36dfdff8ab59
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 07e915f769a0eda998a07333544424d912ea8629
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489588"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413715"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>取得客戶的 Azure 使用量記錄
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -25,7 +25,7 @@ ms.locfileid: "74489588"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 - 訂用帳戶識別碼。
 
@@ -126,7 +126,7 @@ while (utilizationRecordEnumerator.hasValue())
 Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -SubscriptionId $subscriptionId -StartDate (Get-Date).AddDays(-2).ToUniversalTime() -Granularity Hourly -ShowDetails
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -134,19 +134,19 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 | 方法 | 要求 URI |
 |------- | ----------- |
-| **獲取** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure？開始\_時間 = {開始時間} & 結束\_時間 = {結束時間} & 資料細微性 = {資料細微性} & 顯示\_details = {True} |
+| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure？開始\_時間 = {開始時間} & 結束\_時間 = {結束時間} & 資料細微性 = {資料細微性} & 顯示\_details = {True} |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑和查詢參數來取得使用率記錄。
 
-| 名稱 | 類型 | 必要 | 描述 |
+| 名稱 | 類型 | 必要項 | 描述 |
 | ---- | ---- | -------- | ----------- |
-| 客戶-租使用者識別碼 | 字串 | 是 | 識別客戶的 GUID 格式字串。 |
-| 訂用帳戶識別碼 | 字串 | 是 | 識別訂用帳戶的 GUID 格式字串。 |
+| customer-tenant-id | string | 是 | 識別客戶的 GUID 格式字串。 |
+| 訂用帳戶識別碼 | string | 是 | 識別訂用帳戶的 GUID 格式字串。 |
 | start_time | UTC 日期時間位移格式的字串 | 是 | 時間範圍的開頭，表示在計費系統中回報使用率的時機。 |
 | end_time | UTC 日期時間位移格式的字串 | 是 | 時間範圍的結尾，表示在計費系統中回報使用率的時機。 |
-| 劃分 | 字串 | 否 | 定義使用量匯總的資料細微性。 可用的選項為： `daily` （預設值）和 `hourly`。
+| 劃分 | string | 否 | 定義使用量匯總的資料細微性。 可用的選項為： `daily` （預設值）和 `hourly`。
 | show_details | 布林值 | 否 | 指定是否要取得實例層級的使用方式詳細資料。 預設值為 `true`。 |
 | size | 數字 | 否 | 指定單一 API 呼叫所傳回的匯總數目。 預設值為1000。 最大值為1000。 |
 
@@ -180,7 +180,7 @@ Host: api.partnercenter.microsoft.com
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取 HTTP 狀態碼、[錯誤碼類型](error-codes.md)和其他參數。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 使用網路追蹤工具來讀取 HTTP 狀態碼、[錯誤碼類型](error-codes.md)和其他參數。
 
 #### <a name="response-example"></a>回應範例
 

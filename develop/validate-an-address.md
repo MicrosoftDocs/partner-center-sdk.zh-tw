@@ -4,20 +4,20 @@ description: 如何使用位址驗證 API 驗證位址。
 ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 79a4abf7c9aaf791421f008221d32a89c18f5867
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 254fad11cbca2ea8e3c5068b67b7b3cbbcbccc9d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995203"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414391"
 ---
 # <a name="validate-an-address"></a>驗證位址
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74995203"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
 
@@ -143,14 +143,14 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 下表描述要求主體中的必要屬性。
 
-| 名稱         | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                |
+| 名稱         | 類型   | 必要項 | 描述                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| addressline1 | 字串 | Y        | 第一行地址。                             |
-| addressline2 | 字串 | N        | 第二行地址。 這個屬性為選擇性。 |
-| 城市         | 字串 | Y        | 所在城市。                                                  |
-| state        | 字串 | Y        | 所在州別。                                                 |
-| postalcode   | 字串 | Y        | 郵遞區號。                                           |
-| 國家/地區      | 字串 | Y        | 兩個字元的 ISO alpha-2 國家/地區代碼。                |
+| addressline1 | string | Y        | 第一行地址。                             |
+| addressline2 | string | N        | 第二行地址。 這個屬性為選擇性。 |
+| 城市         | string | Y        | 所在城市。                                                  |
+| State        | string | Y        | 狀態。                                                 |
+| postalcode   | string | Y        | 郵遞區號。                                           |
+| 國家/地區      | string | Y        | 兩個字元的 ISO Alpha 2 國家/地區代碼。                |
 
 **要求範例**
 

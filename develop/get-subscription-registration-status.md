@@ -3,20 +3,20 @@ title: 取得訂用帳戶註冊狀態
 description: 取得已註冊使用 Azure 保留的 VM 執行個體之訂用帳戶的狀態。
 ms.date: 03/19/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fe9ea6d21465996b28367ff2fe5d374ac551bfe2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0671ab9bfc9bf254a9bc5472c4ed0f65153af1af
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487118"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416628"
 ---
 # <a name="get-subscription-registration-status"></a>取得訂用帳戶註冊狀態 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得已啟用購買 Azure 保留的 VM 執行個體之客戶訂用帳戶的訂用帳戶註冊狀態。  
 
@@ -25,7 +25,7 @@ ms.locfileid: "74487118"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 訂用帳戶識別碼。
 
@@ -49,16 +49,16 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 | 方法    | 要求 URI                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **獲取**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1。1 |
+| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1。1 |
 
 **URI 參數**
 
 使用下列路徑參數來識別客戶和訂用帳戶。 
 
-| 名稱                    | 類型       | 必要 | 描述                                                   |
+| 名稱                    | 類型       | 必要項 | 描述                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| 客戶識別碼             | 字串     | 是      | 識別客戶的 GUID 格式字串。         |
-| 訂用帳戶識別碼         | 字串     | 是      | 識別訂用帳戶的 GUID 格式字串。     |
+| 客戶識別碼             | string     | 是      | 識別客戶的 GUID 格式字串。         |
+| 訂用帳戶識別碼         | string     | 是      | 識別訂用帳戶的 GUID 格式字串。     |
 
  
 **要求標頭**
@@ -67,7 +67,7 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -89,7 +89,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 

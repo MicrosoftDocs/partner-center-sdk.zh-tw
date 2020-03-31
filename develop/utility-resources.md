@@ -4,19 +4,19 @@ description: 合作夥伴中心 REST API 包含許多資源，其中說明整個
 ms.assetid: C77219B9-FFDD-4779-AE15-5B15BA7BA863
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b19eb80c5be2cc07bd325681f9870a1af7fed481
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 50f60dd17faca5f71e309bcc5c656a8ea3c4cf61
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083075"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414328"
 ---
 # <a name="utility-resources"></a>公用程式資源
 
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -99,7 +99,7 @@ ms.locfileid: "80083075"
 | 屬性            | 類型                          | 描述                                                            |
 |---------------------|-------------------------------|------------------------------------------------------------------------|
 | Password            | [SecureString](#securestring) | 密碼。                                                          |
-| ForceChangePassword | boolean                       | 決定是否需要在下次登入時強制變更密碼。 |
+| ForceChangePassword | 布林值                       | 決定是否需要在下次登入時強制變更密碼。 |
  
 
 ## <a name="span-idresourcelinksspan-idresourcelinksspan-idresourcelinksresourcelinks"></a><span id="ResourceLinks"/><span id="resourcelinks"/><span id="RESOURCELINKS"/>ResourceLinks

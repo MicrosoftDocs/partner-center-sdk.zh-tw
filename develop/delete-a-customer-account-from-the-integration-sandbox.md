@@ -4,20 +4,20 @@ description: 如何從生產環境測試（Tip）整合沙箱中刪除客戶帳�
 ms.assetid: B95431F6-EA7F-4C21-835F-6D6C303B05A5
 ms.date: 06/20/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: eb7defb8cfe7ba6a3dfc2c7952d2ca5e31fbfd36
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 31756f1ff4d4cc4a33e37ba2581cabeb8d5c438b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489918"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412505"
 ---
 # <a name="delete-a-customer-account-from-the-integration-sandbox"></a>從整合沙箱中刪除客戶帳戶
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -29,7 +29,7 @@ ms.locfileid: "74489918"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（**客戶租使用者識別碼**）。
 - 所有 Azure 保留的虛擬機器執行個體和軟體採購單都必須先取消，才能從 Tip 整合沙箱中刪除客戶。
 
@@ -104,9 +104,9 @@ ms.locfileid: "74489918"
 
 使用下列查詢參數來刪除客戶。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                         |
+| 名稱                   | 類型     | 必要項 | 描述                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| 客戶-租使用者識別碼     | GUID     | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| customer-tenant-id     | GUID     | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -114,7 +114,7 @@ ms.locfileid: "74489918"
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="request-example"></a>要求範例
 
@@ -132,7 +132,7 @@ Content-Length: 0
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

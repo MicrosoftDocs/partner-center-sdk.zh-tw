@@ -3,20 +3,20 @@ title: 取得 Microsoft 客戶合約的合約中繼資料
 description: 本主題說明如何取得 Microsoft 客戶合約的合約中繼資料。
 ms.date: 8/29/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 999c2c4cb6146dd62faffbd93f73e5721e019004
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 97dd5582b4903333c4ecd6418459fb557dd4a84b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485668"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415987"
 ---
 # <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>取得 Microsoft 客戶合約的合約中繼資料
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 Microsoft 客戶合約的合約中繼資料目前僅由合作夥伴中心在*microsoft 公用雲端*中提供支援。 其不適用於：
 
@@ -29,10 +29,10 @@ Microsoft 客戶合約的合約中繼資料目前僅由合作夥伴中心在*mic
 - [確認客戶接受 Microsoft 客戶合約](./confirm-customer-consent-customer-agreement.md)
 - [取得 Microsoft 客戶合約範本的下載連結](./download-customer-agreement-template.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如果您使用合作夥伴中心 .NET SDK，則需要1.14 或更新版本。
-- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 此案例僅支援應用程式 + 使用者驗證。
+- 如果您使用合作夥伴中心 .NET SDK，則需要 1.14 版或更新版本。
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
 
 
 ## <a name="net-version-114-or-newer"></a>.NET （1.14 版或更新版本）
@@ -71,7 +71,7 @@ var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgr
 
 #### <a name="uri-parameters"></a>URI 參數
 
-| 名字                   | 類型     | 必要 | 說明                                                             |
+| 名稱                   | 類型     | 必要項 | 描述                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
 | 合約類型 | string | 否 | 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>**MicrosoftCloudAgreement** ，其中只包含*MicrosoftCloudAgreement*類型的合約中繼資料</li><li>**MicrosoftCustomerAgreement** ，其中只包含*MicrosoftCustomerAgreement*類型的合約中繼資料。</li><li>傳回所有合約中繼資料的 **\*** 。 （請勿使用 **\*** ，除非您的程式碼具有必要的執行時間邏輯來處理不熟悉的合約類型，因為 Microsoft 可能會隨時使用新的合約類型來引進合約 metadat）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。  |
 
@@ -81,9 +81,9 @@ var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgr
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/agreements?agreementType=MicrosoftCustomerAgreement HTTP/1.1
@@ -99,9 +99,9 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。
 
-使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

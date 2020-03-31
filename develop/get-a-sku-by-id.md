@@ -4,28 +4,28 @@ description: 使用指定的 SKU 識別碼，為指定的產品取得 SKU。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ed09684463c1e67cdfc96c6d674be50dadae798f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 33c8eb16c1327c8a92e48621d3f793c78aceaa19
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486128"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415652"
 ---
 # <a name="get-a-sku-by-id"></a>依識別碼取得 SKU
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 使用指定的 SKU 識別碼，為指定的產品取得 SKU。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 產品識別碼。 
 - SKU 識別碼。 
 
@@ -52,7 +52,7 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 | 方法  | 要求 URI                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}？ country = {國家/地區-代碼} HTTP/1。1   |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}？ country = {國家/地區-代碼} HTTP/1。1   |
 
  
 
@@ -60,11 +60,11 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 使用下列路徑和查詢參數，以使用指定的 SKU 識別碼來取得指定產品的 SKU。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要項 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
-| sku-識別碼                 | 字串   | 是      | 識別 SKU 的字串。                               |
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
+| 產品識別碼             | string   | 是      | 識別產品的字串。                           |
+| sku-識別碼                 | string   | 是      | 識別 SKU 的字串。                               |
+| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
 
  
 
@@ -74,7 +74,7 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -97,7 +97,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 

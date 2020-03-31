@@ -3,26 +3,26 @@ title: 為客戶建立產品升級實體
 description: 您可以使用 ProductUpgradeRequest 資源來建立產品升級實體，以將客戶升級至指定的產品系列。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: de3382ce6815279528d599f5f039e44358593875
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 00e4f809518ef1e20220a496686627941f439650
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489578"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414234"
 ---
 # <a name="create-a-product-upgrade-entity-for-a-customer"></a>為客戶建立產品升級實體
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 您可以使用**ProductUpgradeRequest**資源，建立產品升級實體，將客戶升級至指定的產品系列（例如 Azure 方案）。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
 - 客戶識別碼。
 - 您要升級客戶的產品系列。
 
@@ -54,7 +54,7 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -62,7 +62,7 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 | 方法   | 要求 URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1。1 |
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -72,7 +72,7 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 要求主體必須包含[ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest)資源。
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/productupgrades HTTP/1.1
@@ -99,7 +99,7 @@ Connection: Keep-Alive
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

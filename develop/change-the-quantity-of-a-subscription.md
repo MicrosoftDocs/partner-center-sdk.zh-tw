@@ -4,20 +4,20 @@ description: 更新訂用帳戶以增加或減少客戶的授權數量。
 ms.assetid: 10535C45-63BF-4E75-A6E5-E03ADC1DF8DC
 ms.date: 06/05/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d4d94d244ca6d2f4c10054f9486e8fd04c514b1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7392b8846dcba6dc4d1a395601289655e05920d1
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488998"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412956"
 ---
 # <a name="change-the-quantity-of-a-subscription"></a>變更訂用帳戶的數量
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74488998"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 訂用帳戶識別碼。
 
@@ -65,7 +65,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 下表列出必要的查詢參數，以變更訂用帳戶的數量。
 
-| 名稱                    | 類型     | 必要 | 描述                               |
+| 名稱                    | 類型     | 必要項 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **客戶-租使用者識別碼**  | **guid** | Y        | 對應至客戶的 GUID。     |
 | **訂用帳戶的識別碼** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |

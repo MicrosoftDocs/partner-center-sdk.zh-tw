@@ -4,28 +4,28 @@ description: 取得客戶的已刪除 CustomerUser 資源清單（依客戶識�
 ms.assetid: B2248C7D-0F68-4F52-9249-D3168C2F6E83
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bce2fd22e301e7a8cdfe25afcbe2078ff811f7bc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cab6b1cd309757f0754610eca362bcf205d199fb
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486228"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414247"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>為客戶檢視已刪除的使用者
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 取得客戶的已刪除 CustomerUser 資源清單（依客戶識別碼）。 您可以選擇性地設定頁面大小。 您必須提供篩選準則。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼。
 
 ## <a name="span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_what-happens-when-you-delete-a-user-account"></a><span id="What_happens_when_you_delete_a_user_account_"/><span id="what_happens_when_you_delete_a_user_account_"/><span id="WHAT_HAPPENS_WHEN_YOU_DELETE_A_USER_ACCOUNT_"/>當您刪除使用者帳戶時，會發生什麼事？
@@ -61,7 +61,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 | 方法  | 要求 URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users？ size = {size} & 篩選準則 = {FILTER} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users？ size = {size} & 篩選準則 = {FILTER} HTTP/1。1 |
 
  
 
@@ -69,11 +69,11 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱        | 類型   | 必要 | 描述                                                                                                                                                                        |
+| 名稱        | 類型   | 必要項 | 描述                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 客戶識別碼 | guid   | 是      | 此值是可識別客戶的 GUID 格式客戶識別碼。                                                                                                            |
-| size        | 整數    | 否       | 要一次顯示的結果數目。 此為選擇性參數。                                                                                                     |
-| filter      | filter | 是      | 篩選使用者搜尋的查詢。 若要取出已刪除的使用者，您必須包含下列字串並為其編碼： {"Field"： "UserState"，"Value"： "非使用中"，"Operator"： "equals"}。 |
+| size        | int    | 否       | 要一次顯示的結果數目。 這個參數是選擇性的。                                                                                                     |
+| 篩選器      | 篩選器 | 是      | 篩選使用者搜尋的查詢。 若要取出已刪除的使用者，您必須包含下列字串並為其編碼： {"Field"： "UserState"，"Value"： "非使用中"，"Operator"： "equals"}。 |
 
  
 
@@ -83,7 +83,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -104,7 +104,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

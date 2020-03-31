@@ -4,21 +4,21 @@ description: 如何取得合作夥伴使用者或應用程式在一段時間內�
 ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ef53290570d3e1c4eb8c8db0418c8b0080d80151
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: aa140c4deb71e4660078ac4f9496da3a834b2f0e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490248"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416758"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>取得合作夥伴中心活動的記錄
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -29,7 +29,7 @@ ms.locfileid: "74490248"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -91,11 +91,11 @@ while (auditRecordEnumerator.HasValue)
 
 | 方法  | 要求 URI                                                                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords？開始日期 = {起始時間} HTTP/1。1                                                                                                     |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords？開始時間 = {開始時間} & 結束日期 = {結束時間} HTTP/1。1                                                                                   |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： ""，"Value"： "{searchSubstring}"，"Operator"： "substring"} HTTP/1。1 |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： "CustomerId"，"Value"： "{CustomerId}"，"Operator"： "equals"} HTTP/1。1          |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： "ResourceType"，"Value"： "{ResourceType}"，"Operator"： "equals"} HTTP/1。1      |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords？開始日期 = {起始時間} HTTP/1。1                                                                                                     |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords？開始時間 = {開始時間} & 結束日期 = {結束時間} HTTP/1。1                                                                                   |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： ""，"Value"： "{searchSubstring}"，"Operator"： "substring"} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： "CustomerId"，"Value"： "{CustomerId}"，"Operator"： "equals"} HTTP/1。1          |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords？起始日期 = {開始時間} & 結束時間 = {結束時間} & 篩選準則 = {"Field"： "ResourceType"，"Value"： "{ResourceType}"，"Operator"： "equals"} HTTP/1。1      |
 
  
 
@@ -103,11 +103,11 @@ while (auditRecordEnumerator.HasValue)
 
 建立要求時，請使用下列查詢參數。
 
-| 名稱      | 類型   | 必要 | 描述                                                                                                                                                                                                                |
+| 名稱      | 類型   | 必要項 | 描述                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | startDate | date   | 否       | 以 yyyy-mm-dd 格式的開始日期。 如果未提供任何值，結果集會預設為要求日期前的30天。 當提供篩選準則時，這個參數是選擇性的。                                          |
 | endDate   | date   | 否       | 以 yyyy-mm-dd 格式的結束日期。 當提供篩選準則時，這個參數是選擇性的。 當結束日期省略或設為 null 時，要求會傳回最大的視窗，或使用今天做為結束日期，以較少者為准。 |
-| filter    | 字串 | 否       | 要套用的篩選準則。 這必須是已編碼的字串。 當提供開始日期或結束日期時，這個參數是選擇性的。                                                                                              |
+| 篩選器    | string | 否       | 要套用的篩選準則。 這必須是已編碼的字串。 當提供開始日期或結束日期時，這個參數是選擇性的。                                                                                              |
 
  
 
@@ -128,7 +128,7 @@ while (auditRecordEnumerator.HasValue)
 </colgroup>
 <thead>
 <tr class="header">
-<th>索引鍵</th>
+<th>Key</th>
 <th>值</th>
 </tr>
 </thead>
@@ -164,7 +164,7 @@ while (auditRecordEnumerator.HasValue)
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -186,7 +186,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

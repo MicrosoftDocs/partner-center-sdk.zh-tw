@@ -4,29 +4,29 @@ description: 您可以使用產品資源來取得依客戶國家/地區的產品
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4f3f00db59fa06769a581fca6ea028bc94f61883
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: dbdeb5a9dec96f5b7f2c518167499523d5aecb45
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487318"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414004"
 ---
 # <a name="get-a-list-of-products-by-country"></a>取得產品清單（依國家/地區）
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 您可以使用下列方法來取得特定國家/地區中可用的產品集合。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 國家/地區。
 
 ## <a name="c"></a>C\#
@@ -91,7 +91,7 @@ ResourceCollection<Products> products = partnerOperations.getProducts().byCountr
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>Rest 要求
 
@@ -99,13 +99,13 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 | 方法  | 要求 URI                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products？ country = {country} & targetView = {targetView} & targetSegment = {TARGETSEGMENT} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products？ country = {country} & targetView = {targetView} & targetSegment = {TARGETSEGMENT} HTTP/1。1 |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑和查詢參數來取得產品清單。
 
-| 名字                   | 類型     | 必要 | 說明                                                             |
+| 名稱                   | 類型     | 必要項 | 描述                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
 | 國家/地區                | string   | 是      | 國家/地區識別碼。                                                  |
 | targetView             | string   | 是      | 識別目錄的目標視圖。 支援的值為： <ul><li>**Azure**，其中包括所有 Azure 專案</li><li>**AzureReservations**，其中包括所有的 Azure 保留專案</li><li>**AzureReservationsVM**，其中包括所有虛擬機器（VM）保留專案</li><li>**AzureReservationsSQL**，其中包含所有 SQL 保留專案</li><li>**AzureReservationsCosmosDb**，其中包含所有 Cosmos 資料庫保留專案</li><li>**Microsoftazure.mobileengagement**，其中包含 Microsoft Azure 訂用帳戶（**ms-azr-0017p-流程 ms-azr-0145p**）和 Azure 方案的專案</li><li>**您**，其中包含所有線上服務專案（包括商用 marketplace 產品）</li><li>包含所有軟體專案的**軟體**</li><li>**SoftwareSUSELinux**，其中包含所有軟體 SUSE Linux 專案</li><li>**SoftwarePerpetual**，其中包含所有永久軟體專案</li><li>**SoftwareSubscriptions**，其中包含所有軟體訂閱專案</li></ul> |
@@ -118,7 +118,7 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-examples"></a>要求範例
 
@@ -164,11 +164,11 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 
-| HTTP 狀態碼     | 錯誤碼   | 說明                                                                                               |
+| HTTP 狀態碼     | 錯誤碼   | 描述                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 403                  | 400030       | 不允許存取要求的 targetSegment。                                                     |
 | 403                  | 400036       | 不允許存取要求的 targetView。                                                        |

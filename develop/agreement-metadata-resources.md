@@ -3,14 +3,14 @@ title: 合約中繼資料資源
 description: AgreementMetadata 資源集合會描述合作夥伴可用來提供確認客戶接受的合約類型。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ba318054d9df22023564fe3796833e49f87282e
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: c772bb5554a551563befe0f40ab8e800a422ee2e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899648"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412752"
 ---
 # <a name="agreement-metadata-resources"></a>合約中繼資料資源
 

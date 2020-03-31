@@ -4,20 +4,20 @@ description: 如何取得所有 Azure 使用量分析資訊。
 ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 49df0ac0741ed486ab34015b409eced7fde59afd
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4e15830afba475e7de694151f67e1731e56c286e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485998"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416155"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>取得所有 Azure 使用量分析資訊
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74485998"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。 
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
@@ -37,7 +37,7 @@ ms.locfileid: "74485998"
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1。1 |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1。1 |
 
  
 
@@ -58,10 +58,10 @@ ms.locfileid: "74485998"
   <tbody>
     <tr>
       <td>
-        <p>top</p>
+        <p>上</p>
       </td>
       <td>
-        <p>字串</p>
+        <p>string</p>
       </td>
       <td>
         <p>要在要求中傳回的資料列數目。 最大值及未指定的預設值為 10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。</p>
@@ -72,7 +72,7 @@ ms.locfileid: "74485998"
         <p>skip</p>
       </td>
       <td>
-        <p>整數</p>
+        <p>int</p>
       </td>
       <td>
         <p>在查詢中要略過的資料列數目。 使用此參數來循頁瀏覽大型資料集。 例如，<code>top=10000 and skip=0</code> 會抓取前10000個數據列，<code>top=10000 and skip=10000</code> 抓取後續10000個數據列，依此類推。</p>
@@ -80,10 +80,10 @@ ms.locfileid: "74485998"
     </tr>
     <tr>
       <td>
-        <p>filter</p>
+        <p>篩選器</p>
       </td>
       <td>
-        <p>字串</p>
+        <p>string</p>
       </td>
       <td>
         <p>要求的 <em>filter</em> 參數包含在回應中篩選資料列的一或多個陳述式。 每個陳述式包含一個與 <strong>eq</strong> 或 <strong>ne</strong> 運算子關聯的欄位和值，而陳述式可以使用 <strong>and</strong> 或 <strong>or</strong> 結合。 您可以指定下列欄位：</p>
@@ -115,7 +115,7 @@ ms.locfileid: "74485998"
         <p>aggregationLevel</p>
       </td>
       <td>
-        <p>字串</p>
+        <p>string</p>
       </td>
       <td>
         <p>指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：&quot;day&quot;、&quot;week&quot; 或 &quot;month&quot;。 如果沒有指定，則預設為 &quot;day&quot;。</p>
@@ -127,7 +127,7 @@ ms.locfileid: "74485998"
         <p>orderby</p>
       </td>
       <td>
-        <p>字串</p>
+        <p>string</p>
       </td>
       <td>
         <p>對每個安裝的結果資料值做出排序的陳述式。 語法是 <code>...&orderby=field [order],field [order],...</code><em>欄位</em>參數可以是下列其中一個字串：</p>
@@ -157,7 +157,7 @@ ms.locfileid: "74485998"
         <p>groupby</p>
       </td>
       <td>
-        <p>字串</p>
+        <p>string</p>
       </td>
       <td>
         <p>將資料彙總僅套用至指定欄位的陳述式。 您可以指定下列欄位：</p>
@@ -193,7 +193,7 @@ ms.locfileid: "74485998"
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -212,7 +212,7 @@ Content-Length: 0
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 
@@ -237,5 +237,5 @@ Content-Length: 0
 
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
-  - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)
+  - [合作夥伴中心分析 - 資源](partner-center-analytics-resources.md)
 

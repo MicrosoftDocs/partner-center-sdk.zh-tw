@@ -4,14 +4,14 @@ description: 用於報告使用量、部署和耗用量之資料的合作夥伴�
 ms.assetid: 1FEB08D6-AD0C-4B01-B7A8-AE05C914912B
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8098de53c3fc4632d17ef6cdba7fe983d9fffbbe
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: e7e2faa7e8a72da4a18ca53711942fcc00ba0513
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082865"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413244"
 ---
 # <a name="analytics-resources"></a>分析資源
 

@@ -4,19 +4,19 @@ description: 描述與授權相關的資源。
 ms.assetid: 20592E06-8A87-41F4-B8B0-6F9200556FDA
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 625209f834a7d89fbf288b7a1430624cb99485b1
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: b582f3d0ea32a7d0977cb983798e3ff8debf52e5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083045"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416528"
 ---
 # <a name="license-resources"></a>授權資源
 
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -160,7 +160,7 @@ ms.locfileid: "80083045"
 | suspendedUnits   | integer                                                        | 已暫停的單位數。                                                                    |
 | totalUnits       | integer                                                        | 總單位數。 這是以作用中和警告單位的總和來計算。         |
 | warningUnits     | integer                                                        | 警告單位數目。                                                                      |
-| productSku       | ProductSku                                                     | 產品 sku。                                                                                  |
+| ProductSku       | ProductSku                                                     | 產品 sku。                                                                                  |
 | servicePlans     | ServicePlan 資源的陣列                                 | 產品的服務方案集合。                                                     |
 | capabilityStatus | string                                                         | 產品的 sku 狀態。                                                                      |
 | 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | 對應至資源的中繼資料屬性。                                            |

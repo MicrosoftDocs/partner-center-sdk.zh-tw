@@ -4,20 +4,20 @@ description: 根據市場的 iso 程式碼，取得預期的位址格式。
 ms.assetid: B02B3ECF-8020-4818-872F-9D70DCBC0228
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bc358d7c421240dcb17c1ca4454ce0e823fb9cd1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d0ceffead4f46734a068439c3019ed1d6d0f218a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488568"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415724"
 ---
 # <a name="get-address-formatting-rules-by-market"></a>依市場取得位址格式規則
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -27,7 +27,7 @@ ms.locfileid: "74488568"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
@@ -36,13 +36,13 @@ ms.locfileid: "74488568"
 
 | 方法  | 要求 URI                                                                                 |
 |---------|---------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/countryvalidationrules/{isocode-id} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/countryvalidationrules/{isocode-id} HTTP/1。1 |
 
  
 
 **URI 參數**
 
-| 名稱           | 類型       | 必要 | 描述                         |
+| 名稱           | 類型       | 必要項 | 描述                         |
 |----------------|------------|----------|-------------------------------------|
 | **isocode-id** | **字串** | Y        | 兩個字元的 ISO 國家/地區代碼。 |
 
@@ -54,7 +54,7 @@ ms.locfileid: "74488568"
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -73,7 +73,7 @@ MS-CorrelationId: 5cfd634d-b936-47af-87f0-0f0217425dcc
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 

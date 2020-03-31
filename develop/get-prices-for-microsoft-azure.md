@@ -4,20 +4,20 @@ description: 如何使用 Azure 供應專案的即時價格取得 Azure 費率�
 ms.assetid: 65262585-0F3B-4BD0-83BE-B2695C33CDB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7aaa68d4a1eab5595d2325e84e555c3ec5117e08
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a306e488a33c96822b8ed9ddc58c9b1edbbd62b7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487308"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412617"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>取得 Microsoft Azure 的價格
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -69,13 +69,13 @@ Get-PartnerAzureRateCard
 
 | 方法  | 要求 URI                                                        |
 |---------|--------------------------------------------------------------------|
-| **獲取** | *{baseURL}* /v1/ratecards/azure？貨幣 = {currency} & 地區 = {region} |
+| **GET** | *{baseURL}* /v1/ratecards/azure？貨幣 = {currency} & 地區 = {region} |
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名字     | 類型   | 必要 | 說明                                                                                                                                                                               |
+| 名稱     | 類型   | 必要項 | 描述                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 符號 | string | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如「EUR」）。 預設值為「美元」。 |
+| 貨幣 | string | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如「EUR」）。 預設值為「美元」。 |
 | 區內   | string | 否       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 "FR"）。 預設值為 "US"。        |
 
 您可以在要求中包含選擇性的 X 地區設定[標頭](headers.md#request-headers)。 如果您未包含 X 地區設定標頭，則會使用預設值（"en-us"）。
@@ -83,15 +83,15 @@ Get-PartnerAzureRateCard
 * 如果您未在要求中提供區域和貨幣參數，則會使用 X 地區設定的值來決定回應的地區、貨幣和語言。
 
 
-### <a name="request-header"></a>要求標頭
+### <a name="request-header"></a>要求的標頭
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/ratecards/azure HTTP/1.1
@@ -111,7 +111,7 @@ Connection: Keep-Alive
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

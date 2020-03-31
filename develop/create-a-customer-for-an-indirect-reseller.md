@@ -4,26 +4,26 @@ description: 間接提供者可以建立間接轉銷商的客戶。
 ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b6f41d4e76cc41d9a2611c95762954e37157f8ab
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 2b9780800b6278d1cfeef902793ef51b61d79982
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488768"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413475"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>為間接轉銷商建立客戶
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 間接提供者可以建立間接轉銷商的客戶。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 間接轉銷商的租使用者識別碼。
 - 間接轉銷商必須與間接提供者合作。
 
@@ -81,7 +81,7 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 | 方法   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -91,31 +91,31 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 下表描述要求主體中的必要屬性。
 
-| 名稱                                          | 類型   | 必要 | 描述                                                                                                                                                                                                                                                                                                                                           |
+| 名稱                                          | 類型   | 必要項 | 描述                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | 物件 | 是      | 客戶的帳單設定檔資訊。                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | 物件 | 是      | 客戶的公司設定檔資訊。                                                                                                                                                                                                                                                                                                           |
-| [AssociatedPartnerId](customer-resources.md#customer) | 字串 | 是      | 間接轉銷商識別碼。 請注意，此處提供的識別碼所指出的間接轉銷商必須與間接提供者合作，否則要求將會失敗。 另請注意，如果未提供 AssociatedPartnerId 值，則會將客戶建立為間接提供者的直接客戶，而不是間接轉銷商。 |
+| [BillingProfile](#billing-profile)             | object | 是      | 客戶的帳單設定檔資訊。                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | object | 是      | 客戶的公司設定檔資訊。                                                                                                                                                                                                                                                                                                           |
+| [AssociatedPartnerId](customer-resources.md#customer) | string | 是      | 間接轉銷商識別碼。 請注意，此處提供的識別碼所指出的間接轉銷商必須與間接提供者合作，否則要求將會失敗。 另請注意，如果未提供 AssociatedPartnerId 值，則會將客戶建立為間接提供者的直接客戶，而不是間接轉銷商。 |
 
 #### <a name="billing-profile"></a>帳單設定檔
 
 下表描述建立新客戶所需的[CustomerBillingProfile](customer-resources.md#customerbillingprofile)資源所需的最低欄位。
 
-| 名稱             | 類型                                     | 必要 | 描述                                                                                                                                                                                                     |
+| 名稱             | 類型                                     | 必要項 | 描述                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 電子郵件            | 字串                                   | 是      | 客戶的電子郵件地址。                                                                                                                                                                                   |
-| 區域          | 字串                                   | 是      | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
-| language         | 字串                                   | 是      | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
-| 公司\_名稱    | 字串                                   | 是      | 已註冊的公司/組織名稱。                                                                                                                                                                       |
-| 預設\_位址 | [應對](utility-resources.md#address) | 是      | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
+| 電子郵件            | string                                   | 是      | 客戶的電子郵件地址。                                                                                                                                                                                   |
+| culture (文化特性)          | string                                   | 是      | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
+| 語言         | string                                   | 是      | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
+| 公司\_名稱    | string                                   | 是      | 已註冊的公司/組織名稱。                                                                                                                                                                       |
+| 預設\_位址 | [地址](utility-resources.md#address) | 是      | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
 
 #### <a name="company-profile"></a>公司設定檔
 
 下表描述建立新客戶所需的[CustomerCompanyProfile](customer-resources.md#customercompanyprofile)資源所需的最低欄位。
 
-| 名稱   | 類型   | 必要 | 描述                                                  |
+| 名稱   | 類型   | 必要項 | 描述                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domain | 字串 | .是的     | 客戶的功能變數名稱，例如 contoso.onmicrosoft.com。 |
+| domain | string | .是的     | 客戶的功能變數名稱，例如 contoso.onmicrosoft.com。 |
 
 ### <a name="request-example"></a>要求範例
 
@@ -184,7 +184,7 @@ Connection: Keep-Alive
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

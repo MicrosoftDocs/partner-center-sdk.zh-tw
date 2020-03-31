@@ -4,21 +4,21 @@ description: 如何更新雲端解決方案提供者已代表客戶向 Microsoft
 ms.assetid: 09C13775-739B-4CB9-9442-456E17F91452
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c29f077ce9caf1a44609b599403f254c5ce7c16
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ef53e0115ac1d37940cb528876977e76cefa0a09
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487888"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414814"
 ---
 # <a name="update-a-service-request"></a>更新服務要求
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -29,7 +29,7 @@ ms.locfileid: "74487888"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 服務要求識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -64,7 +64,7 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 
 使用下列 URI 參數來更新服務要求。
 
-| 名稱                  | 類型     | 必要 | 描述                                 |
+| 名稱                  | 類型     | 必要項 | 描述                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | 識別服務要求的 GUID。 |
 
@@ -129,7 +129,7 @@ Expect: 100-continue
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

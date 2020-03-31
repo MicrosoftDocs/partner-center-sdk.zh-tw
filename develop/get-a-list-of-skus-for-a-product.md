@@ -4,26 +4,26 @@ description: 您可以使用合作夥伴中心 Api，依國家/地區針對產�
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c1bbc6defb67e7196139ce524af42c9c627786c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9613290c34cde57008247eeee05d71e99436d959
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489758"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416793"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>取得產品的 Sku 清單（依國家/地區）
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 您可以使用合作夥伴中心 Api，取得特定產品的國家/地區所提供的 Sku 集合。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 產品識別碼。
 
 ## <a name="c"></a>C\#
@@ -97,13 +97,13 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 # $targetSegment
 
 # Get the available SKUs.
-Get-PartnerProductSku -ProudctId $productId
+Get-PartnerProductSku -ProductId $productId
 
 # Get the available SKUs, filtered by target segment.
 Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -111,18 +111,18 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 | 方法  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus？ country = {國家/地區-代碼} & targetSegment = {目標-區段} HTTP/1。1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus？ country = {國家/地區-代碼} & targetSegment = {目標-區段} HTTP/1。1  |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑和查詢參數來取得產品的 Sku 清單。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要項 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
-| 目標-區段         | 字串   | 否       | 識別用於篩選之目標區段的字串。 |
-| reservationScope | 字串   | 否 | 查詢 Azure 保留產品的 Sku 清單時，請指定 `reservationScope=AzurePlan` 來取得適用于 AzurePlan 的 Sku 清單。 排除此參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Azure 保留產品的 Sku 清單。  |
+| 產品識別碼             | string   | 是      | 識別產品的字串。                           |
+| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
+| 目標-區段         | string   | 否       | 識別用於篩選之目標區段的字串。 |
+| reservationScope | string   | 否 | 查詢 Azure 保留產品的 Sku 清單時，請指定 `reservationScope=AzurePlan` 來取得適用于 AzurePlan 的 Sku 清單。 排除此參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Azure 保留產品的 Sku 清單。  |
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -130,7 +130,7 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-examples"></a>要求範例
 
@@ -170,7 +170,7 @@ MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 

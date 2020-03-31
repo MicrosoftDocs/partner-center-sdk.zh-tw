@@ -4,28 +4,28 @@ description: 取得附加至使用者帳戶的所有角色/許可權清單。 �
 ms.assetid: 304A1C1F-6280-40E9-A96B-F87ECA657FF3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 65492338db16ef83738407510c28f9e1524caed2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 97c377d3a21fe6123a743ec1878f28b0fab719b2
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487078"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416562"
 ---
 # <a name="get-user-roles-for-a-customer"></a>為客戶取得使用者角色
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 取得附加至使用者帳戶的所有角色/許可權清單。 變化包括取得客戶所有使用者帳戶的擁有權限清單，以及取得具有指定角色的使用者清單。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -61,9 +61,9 @@ var userMembers = partnerOperations.Customers.ById(selectedCustomerId).Directory
 
 | 方法  | 要求 URI                                                                                                           |
 |---------|-----------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id}/directoryroles HTTP/1。1 |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles HTTP/1。1                 |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers    |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id}/directoryroles HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles HTTP/1。1                 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers    |
 
  
 
@@ -71,7 +71,7 @@ var userMembers = partnerOperations.Customers.ById(selectedCustomerId).Directory
 
 使用下列查詢參數來識別正確的客戶。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                                                                                 |
+| 名稱                   | 類型     | 必要項 | 描述                                                                                                                                                                                                 |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **客戶-租使用者識別碼** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。                                                      |
 | **使用者識別碼**            | **guid** | N        | 值是屬於單一使用者帳戶的 GUID 格式**使用者識別碼**。                                                                                                                            |
@@ -102,7 +102,7 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 

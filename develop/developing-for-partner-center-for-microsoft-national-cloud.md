@@ -7,14 +7,14 @@ MS-HAID:
 ms.assetid: 13D45776-4837-48F5-AB8B-605FD1D3D52D
 ms.date: 06/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cb94124a8ba12d8ab03a3215266fb351963da5d6
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7302b1a7f7c2fc498936708f48bbdb110b8b2d23
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488468"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415625"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>針對適用于 Microsoft 全國雲端的合作夥伴中心進行開發
 

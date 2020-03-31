@@ -4,32 +4,32 @@ description: 如何建立客戶的訂單。
 ms.assetid: FE4949FA-7C4D-462D-8F32-FAADCF166875
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7600ab546f7bcde0e8c01c3216949bcfef290b1d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7047da45ef14d7749abfadb0aee08147b7df67c2
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489658"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412260"
 ---
 # <a name="create-an-order"></a>建立訂單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 建立**Azure 保留的 VM 實例產品的訂單***僅*適用于：
 
-- 合作夥伴中心
+- 夥伴中心
 
 如需目前可用來銷售之專案的相關資訊，請參閱[雲端解決方案提供者方案中的合作夥伴優惠](https://docs.microsoft.com/partner-center/csp-offers)。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 - 供應專案識別碼。
 
@@ -78,15 +78,15 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | 方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 使用下列 path 參數來識別客戶。
 
-| 名稱        | 類型   | 必要 | 描述                                                |
+| 名稱        | 類型   | 必要項 | 描述                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式客戶識別碼。 |
+| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式客戶識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -94,20 +94,20 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 ### <a name="request-body"></a>要求本文
 
-#### <a name="order"></a>順序
+#### <a name="order"></a>使用
 
 下表描述要求主體中的[Order](order-resources.md)屬性。
 
-| 屬性             | 類型                        | 必要                        | 描述                                                                   |
+| 屬性             | 類型                        | 必要項                        | 描述                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| id                   | 字串                      | 否                              | 成功建立訂單時所提供的訂單識別碼。   |
-| ReferenceCustomerId  | 字串                      | 否                              | 客戶識別碼。 |
-| billingCycle         | 字串                      | 否                              | 指出此訂單的夥伴計費頻率。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱。 預設值為「每月」或「OneTime」建立順序。 此欄位會在成功建立訂單時套用。 |
-| LineItems            | [OrderLineItem](order-resources.md#orderlineitem)資源的陣列 | 是      | 客戶所購買供應專案的詳細清單，包括數量。        |
-| currencyCode         | 字串                      | 否                              | 唯讀。 放置訂單時使用的貨幣。 已在成功建立訂單時套用。           |
-| CreationDate         | datetime                    | 否                              | 唯讀。 訂單的建立日期（採用日期時間格式）。 已在成功建立訂單時套用。                                   |
-| status               | 字串                      | 否                              | 唯讀。 訂單的狀態。  支援的值為在[OrderStatus](order-resources.md#orderstatus)中找到的成員名稱。        |
-| 相關                | [OrderLinks](utility-resources.md#resourcelinks)              | 否                              | 對應至訂單的資源連結。 |
+| id                   | string                      | 否                              | 成功建立訂單時所提供的訂單識別碼。   |
+| referenceCustomerId  | string                      | 否                              | 客戶識別碼。 |
+| BillingCycle         | string                      | 否                              | 指出此訂單的夥伴計費頻率。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱。 預設值為「每月」或「OneTime」建立順序。 此欄位會在成功建立訂單時套用。 |
+| lineItems            | [OrderLineItem](order-resources.md#orderlineitem)資源的陣列 | 是      | 客戶所購買供應專案的詳細清單，包括數量。        |
+| currencyCode         | string                      | 否                              | 唯讀。 放置訂單時使用的貨幣。 已在成功建立訂單時套用。           |
+| creationDate         | datetime                    | 否                              | 唯讀。 訂單的建立日期（採用日期時間格式）。 已在成功建立訂單時套用。                                   |
+| status               | string                      | 否                              | 唯讀。 訂單的狀態。  支援的值為在[OrderStatus](order-resources.md#orderstatus)中找到的成員名稱。        |
+| 連結                | [OrderLinks](utility-resources.md#resourcelinks)              | 否                              | 對應至訂單的資源連結。 |
 | 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 否                              | 對應至順序的中繼資料屬性。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
@@ -117,27 +117,27 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 >[!NOTE]
 >只有當間接提供者代表間接轉銷商下單時，才應該提供 partnerIdOnRecord。 它是用來儲存僅限間接轉銷商的 Microsoft 合作夥伴網路識別碼（永遠不是間接提供者的識別碼）。
 
-| 名稱                 | 類型   | 必要 | 描述                                                                                                                                                                                                                                |
+| 名稱                 | 類型   | 必要項 | 描述                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LineItemNumber       | 整數    | 是      | 集合中的每個明細專案都會取得唯一的行號，從0計算到計數1。                                                                                                                                                 |
-| offerId              | 字串 | 是      | 供應專案識別碼。                                                                                                                                                                                                                      |
-| 訂閱       | 字串 | 否       | 訂用帳戶識別碼。                                                                                                                                                                                                               |
-| ParentSubscriptionId | 字串 | 否       | 選用。 附加元件供應專案中父訂用帳戶的識別碼。 僅適用于 PATCH。                                                                                                                                                     |
-| friendlyName         | 字串 | 否       | 選用。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。                                                                                                                                              |
-| quantity             | 整數    | 是      | 以授權為基礎之訂用帳戶的授權數目。                                                                                                                                                                                   |
-| partnerIdOnRecord    | 字串 | 否       | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適當的獎勵會計。 |
+| lineItemNumber       | int    | 是      | 集合中的每個明細專案都會取得唯一的行號，從0計算到計數1。                                                                                                                                                 |
+| offerId              | string | 是      | 供應專案識別碼。                                                                                                                                                                                                                      |
+| subscriptionId       | string | 否       | 訂用帳戶識別碼。                                                                                                                                                                                                               |
+| parentSubscriptionId | string | 否       | 選擇性。 附加元件供應專案中父訂用帳戶的識別碼。 僅適用于 PATCH。                                                                                                                                                     |
+| friendlyName         | string | 否       | 選擇性。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。                                                                                                                                              |
+| quantity             | int    | 是      | 以授權為基礎之訂用帳戶的授權數目。                                                                                                                                                                                   |
+| partnerIdOnRecord    | string | 否       | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適當的獎勵會計。 |
 | provisioningCoNtext  | 字典 < 字串，字串 >                | 否       |  針對目錄中的某些專案布建所需的資訊。 SKU 中的 provisioningVariables 屬性會指出目錄中特定專案所需的屬性。                  |
-| 相關                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | 否       |  唯讀。 對應至訂單明細專案的資源連結。  |
+| 連結                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | 否       |  唯讀。 對應至訂單明細專案的資源連結。  |
 | 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 否       | 對應至 OrderLineItem 的中繼資料屬性。 |
-| RenewsTo             | 物件的陣列                          | 否    |[RenewsTo](order-resources.md#renewsto)資源的陣列。                                                                            |
+| renewsTo             | 物件的陣列                          | 否    |[RenewsTo](order-resources.md#renewsto)資源的陣列。                                                                            |
 
-##### <a name="renewsto"></a>RenewsTo
+##### <a name="renewsto"></a>renewsTo
 
 下表描述要求主體中的[RenewsTo](order-resources.md#renewsto)屬性。
 
-| 屬性              | 類型             | 必要        | 描述 |
+| 屬性              | 類型             | 必要項        | 描述 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | 字串           | 否              | 續訂詞彙之持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。 |
+| termDuration          | string           | 否              | 續訂詞彙之持續時間的 ISO 8601 標記法。 目前支援的值為**P1M** （1個月）和**P1Y** （1年）。 |
 
 ### <a name="request-example"></a>要求範例
 
@@ -173,7 +173,7 @@ Content-Type: application/json
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 

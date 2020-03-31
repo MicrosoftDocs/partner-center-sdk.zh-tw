@@ -4,14 +4,14 @@ description: 透過合作夥伴中心 Api 可取得多個發票相關資源。 �
 ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/27/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6540af51e462974592ec18d7dd9ede8517ba1725
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 151c2c0bbd486790c472c4c65f163561c93d303e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083105"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416534"
 ---
 # <a name="invoice-resources"></a>發票資源
 
@@ -51,7 +51,7 @@ ms.locfileid: "80083105"
 
 | 屬性            | 類型                                                           | 描述                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | 發票詳細資料的類型：「無」、「使用量\_行\_專案」、「帳單\_行\_專案」。 |
+| InvoiceLineItemType | string                                                         | 發票詳細資料的類型：「無」、「使用量\_行\_專案」、「帳單\_行\_專案」。 |
 | billingProvider     | string                                                         | 計費提供者： [無]、[office]、[azure] 或 [azure\_資料\_市場]。         |
 | 連結               | [ResourceLinks](utility-resources.md#resourcelinks)           | 資源連結。                                                               |
 | 屬性          | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                                          |
@@ -62,7 +62,7 @@ ms.locfileid: "80083105"
 
 | 屬性            | 類型                                                           | 描述                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | 發票明細專案的類型： [無]、[使用量\_行\_專案]、[帳單\_行\_專案]。 |
+| InvoiceLineItemType | string                                                         | 發票明細專案的類型： [無]、[使用量\_行\_專案]、[帳單\_行\_專案]。 |
 | billingProvider     | string                                                         | 計費提供者： [無]、[office]、[azure] 或 [azure\_資料\_市場]。            |
 | 屬性          | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                                             |
 
@@ -119,7 +119,7 @@ ms.locfileid: "80083105"
 | customerName             | UTC 日期時間格式的字串                                 | 取得或設定客戶名稱。                                       |
 | domainName               | string                                                         | 取得或設定功能變數名稱。                                             |
 | durableOfferId           | string                                                         | 取得或設定持久性供應專案的唯一識別碼。                     |
-| invoiceLineItemType      | string                                                         | 取得發票明細專案的類型。                                   |
+| InvoiceLineItemType      | string                                                         | 取得發票明細專案的類型。                                   |
 | mpnId                    | 數字                                                         | 取得或設定與此行專案相關聯的 MPN 識別碼。 對於直接轉銷商，這是轉銷商的 MPN 識別碼。 對於間接轉銷商，這是已新增轉銷商（VAR）之值的 MPN 識別碼。                                   |
 | offerId                  | string                                                         | 取得或設定供應專案唯一識別碼。                             |
 | offerName                | string                                                         | 取得或設定供應專案名稱。                                          |
@@ -160,7 +160,7 @@ ms.locfileid: "80083105"
 | detailLineItemId         | 數字                                                         | 取得或設定詳細資料行專案識別碼。 唯一識別適用于所耗用單位之計算不同案例的明細專案。 範例：已使用的總計 = 1338，1024以一種費率計費，314以不同的費率收費。        |
 | domainName               | string                                                         | 取得或設定功能變數名稱。                                             |
 | includedQuantity         | 數字                                                         | 取得或設定訂單中包含的單位。                         |
-| invoiceLineItemType      | string                                                         | 取得發票明細專案的類型。                                   |
+| InvoiceLineItemType      | string                                                         | 取得發票明細專案的類型。                                   |
 | invoiceNumber            | string                                                         | 取得或設定發票編號。                                      |
 | listPrice                | 數字                                                         | 取得或設定每個單位的價格。                                  |
 | mpnId                    | 數字                                                         | 取得或設定與此行專案相關聯的 MPN 識別碼。 對於直接轉銷商，這是轉銷商的 MPN 識別碼。 對於間接轉銷商，這是已新增轉銷商（VAR）之值的 MPN 識別碼。                                   |
@@ -222,7 +222,7 @@ ms.locfileid: "80083105"
 | 小計 | decimal | 取得或設定折扣後的金額。 |
 | TaxTotal | decimal | 取得或設定收取的稅金。 |
 | TotalForCustomer | decimal | 取得或設定折扣和稅金後的總金額。 |
-| Currency | string | 取得或設定此行專案所使用的貨幣。 |
+| 貨幣 | string | 取得或設定此行專案所使用的貨幣。 |
 | PublisherName | string | 取得或設定與此購買相關聯的發行者名稱。 |
 | PublisherId | string | 取得或設定與此購買相關聯的發行者識別碼。 |
 | SubscriptionDescription | string | 取得或設定與此購買相關聯的訂用帳戶描述。 |
@@ -241,7 +241,7 @@ ms.locfileid: "80083105"
 | ReservationOrderId | string | 取得或設定 Azure RI 購買的保留訂單識別碼。 |
 | BillingFrequency | string | 取得或設定計費頻率。 |
 | InvoiceLineItemType | InvoiceLineItemType | 傳回發票明細專案的類型。 |
-| BillingProvider | BillingProvider | 傳回計費提供者。 |
+| billingProvider | billingProvider | 傳回計費提供者。 |
 
 ## <a name="dailyratedusagelineitem"></a>DailyRatedUsageLineItem
 
@@ -301,4 +301,4 @@ ms.locfileid: "80083105"
 | RateOfPartnerEarnedCredit | decimal | 取得或設定合作夥伴取得信用額度的速率。 |
 | hasPartnerEarnedCredit | bool | 取得或設定是已套用的合作夥伴獲額。 |
 | InvoiceLineItemType | InvoiceLineItemType | 傳回發票明細專案的類型。 |
-| BillingProvider | BillingProvider | 傳回計費提供者。 |
+| billingProvider | billingProvider | 傳回計費提供者。 |

@@ -4,14 +4,14 @@ description: 訂用帳戶資源可以在整個生命週期中提供有關訂閱�
 ms.assetid: E99B5EC3-2247-4CAD-B651-3000E36AF6B6
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dc771fcbc8cb03e95684dd32ff0f1f29076bba49
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: e817762b2e058614a1fe594a9e2ee74f001cbfb9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082915"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415121"
 ---
 # <a name="subscription-resources"></a>訂用帳戶資源
 
@@ -45,12 +45,12 @@ ms.locfileid: "80082915"
 | RateplaNcharge.effectivestartdate   | UTC 日期時間格式的字串                                | 取得或設定此訂用帳戶的有效開始日期（以日期時間格式表示）。 它可用來備份已遷移的訂閱，或將它與另一個訂用帳戶對齊。                |
 | commitmentEndDate    | UTC 日期時間格式的字串                                | 此訂用帳戶的承諾結束日期（以日期時間格式表示）。 對於不是自動可續訂的訂用帳戶，這代表未來最遠的日期。       |
 | status               | string                                                        | 訂用帳戶狀態： [無]、[作用中]、[擱置中]、[已暫停] 或 [已刪除]。                                                                                                         |
-| autoRenewEnabled     | boolean                                                       | 取得值，指出是否自動更新訂閱。                                                                                                    |
+| autoRenewEnabled     | 布林值                                                       | 取得值，指出是否自動更新訂閱。                                                                                                    |
 | billingType          | string                                                        | 指定訂用帳戶的計費方式： [無]、[使用量] 或 [授權]。                                                                                                      |
 | BillingCycle         | string                                                        | 指出此訂單的夥伴計費頻率。 支援的值為在[**為 billingcycletype**](product-resources.md#billingcycletype)中找到的成員名稱。 |
-| hasPurchasableAddons | boolean                                                       | 取得或設定值，指出訂閱是否有可購買附加元件。                                                                                             |
-| isTrial              | boolean                                                       | 值，指出這是否為試用訂閱。                                                                                                                      |
-| isMicrosoftProduct   | boolean                                                       | 值，指出這是否為 Microsoft 產品。                                                                                                                       |
+| hasPurchasableAddons | 布林值                                                       | 取得或設定值，指出訂閱是否有可購買附加元件。                                                                                             |
+| isTrial              | 布林值                                                       | 值，指出這是否為試用訂閱。                                                                                                                      |
+| isMicrosoftProduct   | 布林值                                                       | 值，指出這是否為 Microsoft 產品。                                                                                                                       |
 | publisherName        | string                                                        | 發行者名稱。                                                                                                                                                           |
 | actions              | 字串的陣列                                              | 取得或設定允許的動作。 可能的值： [編輯]、[取消]                                                                                                  |
 | partnerId            | string                                                        | 記錄轉銷商的 MPN 識別碼，用於間接夥伴模型。                                                                                                     |

@@ -4,20 +4,20 @@ description: 描述與客戶購買之服務相關的資源。
 ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a7d08c740e0a338e1c8b09908b346257f60fe444
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 58ec7fc5806a86c3d4f3aad00c4aaef418b753ca
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488078"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415317"
 ---
 # <a name="service-costs-resources"></a>服務成本資源
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 描述與客戶購買之服務相關的資源。
 
@@ -27,8 +27,8 @@ ms.locfileid: "74488078"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| details | [ServiceCostsSummaryDetail](#servicecostssummarydetail)物件的陣列 | 服務成本摘要詳細資料清單，以發票類型區分。|
-| 相關 | [ResourceLinks](utility-resources.md#resourcelinks) | 資源連結。 |
+| 詳細資料 | [ServiceCostsSummaryDetail](#servicecostssummarydetail)物件的陣列 | 服務成本摘要詳細資料清單，以發票類型區分。|
+| 連結 | [ResourceLinks](utility-resources.md#resourcelinks) | 資源連結。 |
 | 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。 |
 
 > [!IMPORTANT]
@@ -37,13 +37,13 @@ ms.locfileid: "74488078"
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | BillingStartDate | date | 計費週期的開始。 |
-| billingEndDate | date | 計費週期結束。 |
+| BillingEndDate | date | 計費週期結束。 |
 | pretaxTotal | double | 客戶所有成本的預先稅總計。 |
 | 銷  | double | 客戶購買的所有專案所產生的總稅額。 |
 | afterTaxTotal | double | 客戶購買之所有專案的淨總成本。 |
-| currencyCode | 字串 | 代表成本所使用的貨幣。 |
-| currencySymbol | 字串 | 成本所使用的貨幣符號。 |
-| Id | 字串 | 進行購買之客戶的識別碼。 |
+| currencyCode | string | 代表成本所使用的貨幣。 |
+| currencySymbol | string | 成本所使用的貨幣符號。 |
+| Id | string | 進行購買之客戶的識別碼。 |
 
 ## <a name="servicecostssummarydetail"></a>ServiceCostsSummaryDetail
 
@@ -51,8 +51,8 @@ ms.locfileid: "74488078"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| invoiceType | 字串 | 已產生「服務成本摘要」的 invoiceType。 |
-| 總計 | [ServiceCostsSummary](#servicecostssummary) | 客戶在一個發票類型下匯總的服務成本摘要。 |
+| invoiceType | string | 已產生「服務成本摘要」的 invoiceType。 |
+| 摘要 | [ServiceCostsSummary](#servicecostssummary) | 客戶在一個發票類型下匯總的服務成本摘要。 |
 
 ## <a name="servicecostlineitem"></a>ServiceCostLineItem
 
@@ -65,36 +65,36 @@ ms.locfileid: "74488078"
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
 | startDate                | UTC 日期時間格式的字串 | 費用的開始日期。                                       |
 | endDate                  | UTC 日期時間格式的字串 | 費用的結束日期。                                         |
-| subscriptionFriendlyName | 字串                         | 訂用帳戶的易記名稱。                              |
-| 訂閱           | 字串                         | 訂用帳戶識別碼。                                         |
-| orderId                  | 字串                         | 訂單識別碼。                                                |
-| offerId                  | 字串                         | 供應專案識別碼。                                                |
-| offerName                | 字串                         | 供應專案名稱。                                                      |
-| resellerMPNId            | 字串                         | 僅用於2層合作夥伴案例。 參考 MPN 識別碼。 |
-| chargeType               | 字串                         | 相關聯的收費類型。                                          |
+| subscriptionFriendlyName | string                         | 訂用帳戶的易記名稱。                              |
+| subscriptionId           | string                         | 訂用帳戶識別碼。                                         |
+| orderId                  | string                         | 訂單識別碼。                                                |
+| offerId                  | string                         | 供應專案識別碼。                                                |
+| offerName                | string                         | 供應專案名稱。                                                      |
+| resellerMPNId            | string                         | 僅用於2層合作夥伴案例。 參考 MPN 識別碼。 |
+| chargeType               | string                         | 相關聯的收費類型。                                          |
 | quantity                 | 數字                         | 使用或購買的單位數量。                             |
 | unitPrice                | 數字                         | 每個單位的價格。                                                  |
 | pretaxTotal              | 數字                         | 此專案在稅金之前的總費用。                         |
 | 銷                      | 數字                         | 此專案產生的總稅金費用。                         |
 | afterTaxTotal            | 數字                         | 此專案的淨總成本。                                    |
-| currencyCode             | 字串                         | 代表成本所使用的貨幣。                          |
-| currencySymbol           | 字串                         | 成本所使用的貨幣符號。                              |
-| Id               | 字串                         | 進行購買之客戶的識別碼。                          |
-| customerName             | 字串                         | 進行購買的客戶名稱。                        |
-| invoiceNumber            | 字串                         | 這個明細專案所屬的發票號碼。                   |
-| productId                | 字串                         | 產品識別碼。                                              |
-| skuId                    | 字串                         | Sku 識別碼。                                                  |
-| availabilityId           | 字串                         | 可用性識別碼。                                         |
-| productName              | 字串                         | 產品名稱。                                                    |
-| skuName                  | 字串                         | Sku 名稱。                                                        |
-| publisherName            | 字串                         | 發行者名稱。                                                  |
-| PublisherId              | 字串                         | 發行者識別碼。                                            |
-| termAndBillingCycle      | 字串                         | 詞彙和計費週期。                                          |
-| discountDetails          | 字串                         | 折扣詳細資料。                                                |
+| currencyCode             | string                         | 代表成本所使用的貨幣。                          |
+| currencySymbol           | string                         | 成本所使用的貨幣符號。                              |
+| Id               | string                         | 進行購買之客戶的識別碼。                          |
+| customerName             | string                         | 進行購買的客戶名稱。                        |
+| invoiceNumber            | string                         | 這個明細專案所屬的發票號碼。                   |
+| productId                | string                         | 產品識別碼。                                              |
+| skuId                    | string                         | Sku 識別碼。                                                  |
+| availabilityId           | string                         | 可用性識別碼。                                         |
+| productName              | string                         | 產品名稱。                                                    |
+| skuName                  | string                         | Sku 名稱。                                                        |
+| publisherName            | string                         | 發行者名稱。                                                  |
+| PublisherId              | string                         | 發行者識別碼。                                            |
+| TermAndBillingCycle      | string                         | 詞彙和計費週期。                                          |
+| discountDetails          | string                         | 折扣詳細資料。                                                |
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 
 | 屬性             | 類型                               | 描述                         |
 |----------------------|------------------------------------|-------------------------------------|
 | serviceCostLineItems | [連結](utility-resources.md#link) | 要取出明細專案的 URI。 |
-| 供電                 | [連結](utility-resources.md#link) | 自我 URI。                       |
+| self                 | [連結](utility-resources.md#link) | 自我 URI。                       |

@@ -4,28 +4,28 @@ description: 如何取得指定客戶的使用者可用的授權清單。
 ms.assetid: E0915C58-92D1-4BFA-88F2-0710C6B0AB0D
 ms.date: 07/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e77dbde770bd260165e4c4b5c3c7246320819d7
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 15bdd66a248b33ef543fbd186ba897a4a7063db1
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487508"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416263"
 ---
 # <a name="get-a-list-of-available-licenses"></a>取得可用授權的清單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 本主題描述如何取得所指定客戶的使用者可用的授權清單。
 
 下列範例會傳回可從**group1**取得的授權，這是代表受 Azure Active Directory （Azure AD）管理之授權的預設授權群組。 若要取得指定授權群組的可用授權，請參閱[依授權群組取得可用的授權清單](get-a-list-of-available-licenses-by-license-group.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼。
 
 ## <a name="c"></a>C\#
@@ -55,13 +55,13 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 
 | 方法  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 使用下列 path 參數來識別客戶。
 
-| 名字        | 類型   | 必要 | 說明                                           |
+| 名稱        | 類型   | 必要項 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。 |
 
@@ -71,9 +71,9 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/subscribedskus HTTP/1.1
@@ -91,7 +91,7 @@ Host: api.partnercenter.microsoft.com
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

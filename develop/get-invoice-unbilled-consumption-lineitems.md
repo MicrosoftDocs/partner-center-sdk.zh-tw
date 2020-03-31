@@ -3,28 +3,28 @@ title: 取得發票未開立帳單商業使用量明細專案
 description: 您可以使用合作夥伴中心 Api，為指定的發票取得未開立帳單的商業耗用量明細專案詳細資料集合。
 ms.date: 01/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b0be2c6f27e208fe9e212363a60085c46ef34f12
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.openlocfilehash: 2544ae1a719792e8645c855d426bad640eb2510d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923543"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415855"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>取得發票未開立帳單商業使用量明細專案
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得未開立帳單商業消費明細專案詳細資料的集合。
 
 您可以使用下列方法，以程式設計方式取得未開立帳單商業耗用量明細專案（也稱為開放式使用明細專案）的詳細資料集合。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 發票識別碼。 這會識別要取得其行專案的發票。
 
 ## <a name="c"></a>C\#
@@ -124,22 +124,22 @@ while (fetchNext)
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                                     |
+| 名稱                   | 類型   | 必要項 | 描述                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| {2&gt;提供者&lt;2}               | 字串 | [是]      | 提供者： "**OneTime**"。                                                |
-| 發票-明細專案-類型 | 字串 | [是]      | 發票詳細資料的類型： "**UsageLineItems**"、"**UsageLineItems**"。               |
-| currencyCode           | 字串 | [是]      | 未開立帳單明細專案的貨幣代碼。                                  |
-| 長                 | 字串 | [是]      | 未開立帳單偵察的期間（例如： **current**、 **previous**）。                      |
-| size                   | 數目 | 無       | 要傳回的專案數目上限。 預設大小為2000。                    |
-| seekOperation          | 字串 | 無       | 設定 `seekOperation=Next` 以取得下一頁的對帳明細專案。                |
+| Provider - 提供者               | string | 是      | 提供者： "**OneTime**"。                                                |
+| 發票-明細專案-類型 | string | 是      | 發票詳細資料的類型： "**UsageLineItems**"、"**UsageLineItems**"。               |
+| currencyCode           | string | 是      | 未開立帳單明細專案的貨幣代碼。                                  |
+| 長                 | string | 是      | 未開立帳單偵察的期間（例如： **current**、 **previous**）。                      |
+| size                   | 數字 | 否       | 要傳回的專案數目上限。 預設大小為2000。                    |
+| seekOperation          | string | 否       | 設定 `seekOperation=Next` 以取得下一頁的對帳明細專案。                |
 
 #### <a name="request-headers"></a>要求標頭
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="rest-response"></a>REST 回應
 

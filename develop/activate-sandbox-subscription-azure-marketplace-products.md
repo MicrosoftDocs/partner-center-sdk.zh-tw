@@ -3,20 +3,20 @@ title: 啟用商業 marketplace 產品的沙箱訂閱
 description: 啟用商業 marketplace 產品的沙箱訂閱。
 ms.date: 09/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ec5046131369b68eb958b8143982abb65addbd09
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9e4641f5a623a1c3cf42634b409d4c2c0514cc0c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488748"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412481"
 ---
 # <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>啟用商業 marketplace 產品的沙箱訂閱
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何從整合沙箱帳戶啟用商業 marketplace 軟體即服務（SaaS）產品的訂閱以進行計費。
 
@@ -25,7 +25,7 @@ ms.locfileid: "74488748"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 整合沙箱合作夥伴帳戶，其客戶具有商業 marketplace SaaS 產品的有效訂閱。
 - 針對使用合作夥伴中心 .NET SDK 的合作夥伴，您必須使用 SDK version 1.14.0 或更高版本來存取這項功能。
 
@@ -82,7 +82,7 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

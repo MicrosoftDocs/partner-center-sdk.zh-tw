@@ -4,21 +4,21 @@ description: 如何將訂用帳戶的支援連絡人更新為其中一個合作�
 ms.assetid: 6DE6EF60-6F8B-46F2-8278-CD706081B180
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 96cb4ae8bd938b5ab486e2bd81602132c449be55
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 8bd46c84d169924288b87b0c6a349a192d702e6b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486418"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414775"
 ---
 # <a name="update-a-subscriptions-support-contact"></a>更新訂用帳戶的支援連絡人
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -27,7 +27,7 @@ ms.locfileid: "74486418"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼。
 - 訂用帳戶識別碼。
 - 新支援連絡人的相關資訊：租使用者識別碼、Microsoft 合作夥伴網路識別碼和名稱。 支援連絡人必須是其中一個合作夥伴的增值轉銷商。
@@ -63,7 +63,7 @@ var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscri
 
 | 方法  | 要求 URI                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **提出** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1。1 |
+| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1。1 |
 
  
 
@@ -71,10 +71,10 @@ var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscri
 
 使用下列路徑參數來識別客戶和訂用帳戶。
 
-| 名稱            | 類型   | 必要 | 描述                                                     |
+| 名稱            | 類型   | 必要項 | 描述                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| 客戶識別碼     | 字串 | 是      | 識別客戶的 GUID 格式字串。           |
-| 訂用帳戶識別碼 | 字串 | 是      | 可識別試用訂閱的 GUID 格式字串。 |
+| 客戶識別碼     | string | 是      | 識別客戶的 GUID 格式字串。           |
+| 訂用帳戶識別碼 | string | 是      | 可識別試用訂閱的 GUID 格式字串。 |
 
  
 
@@ -124,7 +124,7 @@ Expect: 100-continue
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 **回應範例**
 

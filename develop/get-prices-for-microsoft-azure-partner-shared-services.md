@@ -4,20 +4,20 @@ description: 如何取得具有 Microsoft Azure 合作夥伴共用服務價格�
 ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a11731aedbe3014f6f9b4eb4c26207e3372d070
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d8e4fb8364c05a4e50524a1a75cb20a6755e0ba5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489998"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416711"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>取得 Microsoft Azure 合作夥伴共用服務的價格
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -65,14 +65,14 @@ Get-PartnerAzureRateCard -SharedServices
 
 | 方法  | 要求 URI                                                               |
 |---------|---------------------------------------------------------------------------|
-| **獲取** | *{baseURL}* /v1/ratecards/azure-shared？貨幣 = {currency} & 地區 = {region} |
+| **GET** | *{baseURL}* /v1/ratecards/azure-shared？貨幣 = {currency} & 地區 = {region} |
 
 **URI 參數**
 
-| 名稱     | 類型   | 必要 | 描述                                                                                                                                                                               |
+| 名稱     | 類型   | 必要項 | 描述                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 符號 | 字串 | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如「EUR」）。 預設值是與夥伴設定檔中的市場相關聯的貨幣。 |
-| 區內   | 字串 | 否       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 "FR"）。 預設值為夥伴設定檔中設定的國家/地區代碼。        |
+| 貨幣 | string | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如「EUR」）。 預設值是與夥伴設定檔中的市場相關聯的貨幣。 |
+| 區內   | string | 否       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 "FR"）。 預設值為夥伴設定檔中設定的國家/地區代碼。        |
 
 如果要求中包含選擇性的 X 地區設定標頭，則其值會決定回應中的詳細資料所使用的語言。
 
@@ -82,7 +82,7 @@ Get-PartnerAzureRateCard -SharedServices
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -103,7 +103,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

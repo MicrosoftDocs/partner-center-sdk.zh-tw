@@ -4,20 +4,20 @@ description: 取得客戶所指定產品的 Sku 集合。
 ms.assetid: ''
 ms.date: 10/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 11eec1cc35465d4939dc21dd2d9b5f655d6a573b
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: fb149389e9da11ea8e03d869eebbf9c96e83504e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490178"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412738"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-customer"></a>取得產品的 Sku 清單（由客戶）
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,11 +26,11 @@ ms.locfileid: "74490178"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼（**客戶租使用者 id**）。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼 (**customer-tenant-id**)。
 - 產品識別碼（**產品識別碼**）。
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -42,10 +42,10 @@ ms.locfileid: "74490178"
 
 #### <a name="request-uri-parameter"></a>要求 URI 參數
 
-| 名稱               | 類型 | 必要 | 描述                                                                                 |
+| 名稱               | 類型 | 必要項 | 描述                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| 客戶-租使用者識別碼 | GUID | 是 | 值是 GUID 格式的**客戶租使用者**識別碼，這是可讓您指定客戶的識別碼。 |
-| 產品識別碼 | 字串 | 是 | 識別產品的字串。 |
+| customer-tenant-id | GUID | 是 | 此值是 GUID 格式的 **customer-tenant-id**，此識別碼可讓您用來指定客戶。 |
+| 產品識別碼 | string | 是 | 識別產品的字串。 |
 
 #### <a name="request-header"></a>要求的標頭
 
@@ -53,7 +53,7 @@ ms.locfileid: "74490178"
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-example"></a>要求範例
 
@@ -69,7 +69,7 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 

@@ -4,28 +4,28 @@ description: 如何取得權利的集合。
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/28/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a6ed1d2b7589830af909cde5df5dc2e82bcfb2f5
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d3856e0e975099fc1cc72128f8f950968a10a352
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490108"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415564"
 ---
 # <a name="get-a-collection-of-entitlements"></a>取得權利的集合
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得權利的集合。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 - 客戶識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -52,7 +52,7 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1。1                            |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1。1                            |
 
  
 
@@ -60,10 +60,10 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱 | 類型 | 必要 | 描述 |
+| 名稱 | 類型 | 必要項 | 描述 |
 |------|------|----------|-------------|
-| Id | 字串 | 是 | 識別客戶的 GUID 格式的 customerId。 |
-| entitlementType | 字串 | 否 | 可以用來指定要抓取的權利類型（**軟體**或**reservedInstance** ）。 如果未設定，則會抓取所有類型 |
+| Id | string | 是 | 識別客戶的 GUID 格式的 customerId。 |
+| entitlementType | string | 否 | 可以用來指定要抓取的權利類型（**軟體**或**reservedInstance** ）。 如果未設定，則會抓取所有類型 |
 | showExpiry | 布林值 | 否 | 選擇性旗標，指出是否需要權利 exipry 日期。 |
 
  
@@ -74,7 +74,7 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -95,7 +95,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 

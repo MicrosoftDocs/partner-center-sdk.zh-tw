@@ -4,20 +4,20 @@ description: 您可以使用合作夥伴中心 Api，取得指定發票的發票
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/27/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 758ccbeff877973f9b317ef4008fd7cf8b962939
-ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
+ms.openlocfilehash: 9232e27755f253d4ef017765f8f58e9a04f38b59
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76923095"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415836"
 ---
 # <a name="get-invoice-line-items"></a>取得發票明細專案
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -30,9 +30,9 @@ ms.locfileid: "76923095"
 
 此 API 也支援適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶和 Office 供應專案的**azure**和**office** **提供者**類型，讓 API 功能回溯相容。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 發票識別碼。 這會識別要取得其行專案的發票。
 
 ## <a name="c"></a>C\#
@@ -104,7 +104,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetInvoiceLineItems.cs**
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -156,15 +156,15 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 在工作列搜尋方塊中輸入   | 必要 | 說明                                                       |
+| 名稱                   | 類型   | 必要項 | 描述                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| 發票識別碼             | 字串 | [是]      | 識別發票的字串。                             |
-| 計費-提供者       | 字串 | [是]      | 計費提供者： "Office"、"Azure"、"OneTime"。               |
-| 發票-明細專案-類型 | 字串 | [是]      | 發票詳細資料的類型： "BillingLineItems"、"UsageLineItems"。 |
-| size                   | 數目 | 無       | 要傳回的專案數目上限。                            |
-| offset                 | 數目 | 無       | 要傳回的第一個行專案之以零為起始的索引。            |
-| seekOperation          | 字串 | 無       | 如果**計費提供者**等於**OneTime**，請將**SeekOperation**設定為 **[下一頁]** ，以取得發票明細專案的下一頁。 |
-| hasPartnerEarnedCredit | bool | 無 | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在計費提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。 |
+| 發票識別碼             | string | 是      | 識別發票的字串。                             |
+| 計費-提供者       | string | 是      | 計費提供者： "Office"、"Azure"、"OneTime"。               |
+| 發票-明細專案-類型 | string | 是      | 發票詳細資料的類型： "BillingLineItems"、"UsageLineItems"。 |
+| size                   | 數字 | 否       | 要傳回的專案數目上限。                            |
+| offset                 | 數字 | 否       | 要傳回的第一個行專案之以零為起始的索引。            |
+| seekOperation          | string | 否       | 如果**計費提供者**等於**OneTime**，請將**SeekOperation**設定為 **[下一頁]** ，以取得發票明細專案的下一頁。 |
+| hasPartnerEarnedCredit | bool | 否 | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在計費提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。 |
 
  
 
@@ -172,9 +172,9 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求主體
+#### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="rest-response"></a>REST 回應
 

@@ -4,20 +4,20 @@ description: 此主控台測試應用程式會針對合作夥伴中心 Api 支�
 ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a23e83ef38632b9127b0ecdf99eb7f1860661ec
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 35ebb92e8e9705cbce8c629d0a862613cc2f50b6
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995182"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412854"
 ---
 # <a name="console-test-app"></a>主控台測試應用程式
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心

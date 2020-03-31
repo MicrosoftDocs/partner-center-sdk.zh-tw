@@ -3,20 +3,20 @@ title: 取得合作夥伴的政府群雲端驗證碼
 description: 如何取得合作夥伴的政府群雲端驗證碼。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 23753490ee5c88de5474cace45bec8039fa93150
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ea547798e591731bba2ec23ab3c125d00e758887
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489528"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412564"
 ---
 # <a name="get-a-partners-validation-codes"></a>取得合作夥伴的驗證碼
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得合作夥伴的政府社區雲端驗證代碼的集合。 必須有驗證碼，才能在政府機關雲端中建立客戶。
 
@@ -25,7 +25,7 @@ ms.locfileid: "74489528"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 在[此](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)填寫表單之後確認驗證。
 - 沒有資格的客戶。
 
@@ -48,7 +48,7 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 
 | 方法  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1。1 |
 
 
 **要求標頭**
@@ -57,7 +57,7 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -76,7 +76,7 @@ MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

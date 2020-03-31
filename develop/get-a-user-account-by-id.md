@@ -4,25 +4,25 @@ description: 取得客戶的特定使用者帳戶。
 ms.assetid: 758C2477-2EF9-4480-9724-C4A001BAC014
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1294f7f8cf3249e8068231e3f808e02d7fecd5e0
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 2f020710cc264543df006d82b24be489e506857d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486078"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416214"
 ---
 # <a name="get-a-user-account-by-id"></a>依識別碼取得使用者帳戶
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 取得客戶的特定使用者帳戶。
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -48,7 +48,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 | 方法  | 要求 URI                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1。1 |
 
  
 
@@ -56,7 +56,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 使用下列 URI 參數來識別正確的客戶和使用者。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要項 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **客戶-租使用者識別碼** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 | **使用者識別碼**            | **guid** | Y        | 值是屬於單一使用者帳戶的 GUID 格式**使用者識別碼**。                                                                       |
@@ -69,7 +69,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -90,7 +90,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

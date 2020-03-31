@@ -3,21 +3,21 @@ title: 合作夥伴中心支援的語言和地區設定
 description: 合作夥伴中心所支援的 ISO2 和 ISO3 地區設定清單。
 ms.date: 12/03/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b066c4afb87656717327e57cef94ab84eb93309
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bf12829decaebd8525ef0a51a7856c75aa69785d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488288"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416375"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>合作夥伴中心支援的語言和地區設定
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -29,7 +29,7 @@ ms.locfileid: "74488288"
 下表列出合作夥伴中心 Api 支援的文化特性和國際標準組織（ISO）國家/地區代碼。 
 
 
-| 國家/地區                           | ISO Alpha 2 國家/地區代碼 | ISO Alpha 3 國家/地區代碼 | 支援的文化特性                  |
+| Country/Region                           | ISO Alpha 2 國家/地區代碼 | ISO Alpha 3 國家/地區代碼 | 支援的文化特性                  |
 |------------------------------------------|--------------------------|--------------------------|---------------------------------------|
 | 阿富汗                              | AF                       | AFG                      | ps-AF/en-us                         |
 | 奧蘭島                            | 限於                       | 亨茨維爾                      | sv-SE/en-us                         |
@@ -44,7 +44,7 @@ ms.locfileid: "74488288"
 | 阿根廷                                | AR                       | ARG                      | es-AR/en-us                         |
 | 亞美尼亞                                  | AM                       | ARM                      | hy-AM/en-us                         |
 | 阿路巴                                    | AW                       | ABW                      | nl-NL/en-us                         |
-| 澳大利亞                                | AU                       | 澳大利亞                      | en-us/en-us                         |
+| 澳洲                                | AU                       | 澳大利亞                      | en-us/en-us                         |
 | 奧地利                                  | AT                       | 自動                      | de/en-us                         |
 | 亞塞拜然                               | AZ                       | AZE                      | az-Latn-AZ/en-us                    |
 | 巴哈馬                                  | BS                       | BHS                      | en-GB/en-us                         |
@@ -69,7 +69,7 @@ ms.locfileid: "74488288"
 | 保加利亞                                 | BG                       | BGR                      | bg-BG/en-us                         |
 | 布吉納法索                             | BF                       | BFA                      | fr-FR/en-us                         |
 | 蒲隆地                                  | 隔                       | BDI                      | fr-FR/en-us                         |
-| 維德角                               | 方便                       | CPV                      | pt-CV/en-us                         |
+| 維德角                               | CV                       | CPV                      | pt-CV/en-us                         |
 | 柬埔寨                                 | KH                       | KHM                      | 公里-KH/en-us                         |
 | 喀麥隆                                 | CM                       | CMR                      | fr-FR/en-us                         |
 | 加拿大                                   | CA                       | 可以                      | fr-CA/en-us                         |
@@ -79,7 +79,7 @@ ms.locfileid: "74488288"
 | 智利                                    | CL                       | CHL                      | es-CL/en-us                         |
 | 中國                                    | CN                       | CHN                      | zh-CN/en-us                         |
 | 聖誕島                         | CX                       | .CXR                      | en-US                                 |
-| 可可斯群島                  | CC                       | CCK                      | en-US                                 |
+| 可可斯群島                  | 副本                       | CCK                      | en-US                                 |
 | 哥倫比亞                                 | CO                       | 均值                      | es-共同/en-us                         |
 | 葛摩                                  | KM                       | COM                      | fr-FR/en-us                         |
 | 剛果共和國                                    | CG                       | 齒輪                      | fr-FR/en-us                         |
@@ -93,8 +93,8 @@ ms.locfileid: "74488288"
 | Czechia                                  | CZ                       | CZE                      | cs-CZ/en-us                         |
 | 丹麥                                  | DK                       | DNK                      | da-深/en-us                         |
 | 吉布地                                 | DJ                       | DJI                      | fr-FR/en-us                         |
-| 多米尼克                                 | 等                       | DMA                      | en-US                                 |
-| 多明尼加共和國                       | DO                       | 陣列                      | es-DO/en-us                         |
+| 多米尼克                                 | DM                       | DMA                      | en-US                                 |
+| 多明尼加共和國                       | DO                       | DOM                      | es-DO/en-us                         |
 | 厄瓜多                                  | EC                       | ECU                      | es-EC/en-us                         |
 | 埃及                                    | EG                       | EGY                      | ar-例如/en-us                         |
 | 薩爾瓦多                              | SV                       | SLV                      | es-SV/en-us                         |
@@ -107,14 +107,14 @@ ms.locfileid: "74488288"
 | 法羅群島                            | FO                       | 從                      | fo/en-us                         |
 | 斐濟群島                                     | FJ                       | FJI                      | en-GB/en-us                         |
 | 芬蘭                                  | FI                       | FIN                      | wi-fi/sv-FI/en-us                 |
-| 法國                                   | FR                       | FRA                      | fr-FR/en-us                         |
+| France                                   | FR                       | FRA                      | fr-FR/en-us                         |
 | 法屬圭亞那                            | GF                       | GUF                      | fr-FR/en-us                         |
 | 法屬玻里尼西亞                         | PF                       | PYF                      | fr-FR/en-us                         |
-| 法屬南半球領土              | SETTINGS                       | ATF                      | fr-FR/en-us                         |
+| 法屬南半球領土              | TF                       | ATF                      | fr-FR/en-us                         |
 | 加彭                                    | GA                       | GAB                      | fr-FR/en-us                         |
 | 甘比亞                                   | GM                       | GMB                      | en-US                                 |
-| 喬治亞                                  | GE                       | 異地                      | ka-GE/en-us                         |
-| 德國                                  | DE                       | DEU                      | de/en-us                         |
+| Georgia                                  | GE                       | 異地                      | ka-GE/en-us                         |
+| Germany                                  | DE                       | DEU                      | de/en-us                         |
 | 迦納                                    | GH                       | GHA                      | en-GB/en-us                         |
 | 直布羅陀                                | GI                       | GIB                      | en-US                                 |
 | 希臘                                   | GR                       | GRC                      | el-GR/en-us                         |
@@ -125,7 +125,7 @@ ms.locfileid: "74488288"
 | 瓜地馬拉                                | GT                       | GTM                      | es-GT/en-us                         |
 | 根息                                 | GG                       | GGY                      | en-US                                 |
 | 幾內亞                                   | GN                       | GIN                      | fr-FR/en-us                         |
-| 幾內亞比索                            | 關                       | GNB                      | pt-PT/en-us                         |
+| 幾內亞比索                            | GW                       | GNB                      | pt-PT/en-us                         |
 | 蓋亞納                                   | GY                       | 傢伙                      | en-US                                 |
 | 海地                                    | HT                       | HTI                      | fr-FR/en-us                         |
 | 赫德島及麥當勞群島        | HM                       | HMD                      | en-US                                 |
@@ -134,21 +134,21 @@ ms.locfileid: "74488288"
 | 匈牙利                                  | HU                       | HUN                      | hu-HU/en-us                         |
 | 冰島                                  | IS                       | 交換器                      | is/en-us                         |
 | 印度                                    | IN                       | IND                      | en-us/hi/en-us                 |
-| 印尼                                | 識別碼                       | IDN                      | 識別碼-識別碼/en-us                         |
+| 印尼                                | ID                       | IDN                      | 識別碼-識別碼/en-us                         |
 | 伊拉克                                     | IQ                       | IRQ                      | ar-IQ/en-us                         |
 | 愛爾蘭                                  | IE                       | IRL                      | en-IE/en-us                         |
 | 曼城島                              | IM                       | IMN                      | en-US                                 |
 | 以色列                                   | IL                       | ISR                      | 他-IL/en-us                         |
 | 義大利                                    | IT                       | ITA                      | it-en-us                         |
 | 牙買加                                  | JM                       | 卡住                      | en-us-JM/en-us                         |
-| Jan 馬延                                | XJ                       | XJA                      | nb-否/en-us                         |
-| 日本                                    | JP                       | JPN                      | ja-jp/en-us                         |
+| 尖棉                                | XJ                       | XJA                      | nb-否/en-us                         |
+| Japan                                    | JP                       | JPN                      | ja-jp/en-us                         |
 | 澤西島                                   | JE                       | JEY                      | en-US                                 |
 | 約旦                                   | JO                       | JOR                      | ar-JO/en-us                         |
 | 哈薩克                               | KZ                       | KAZ                      | kk-KZ/en-us                         |
 | 肯亞                                    | KE                       | KEN                      | sw-KE/en-us                         |
 | 吉里巴斯                                 | KI                       | KIR                      | en-US                                 |
-| 韓國                                    | KR                       | KOR                      | ko-KR/en-us                         |
+| Korea                                    | KR                       | KOR                      | ko-KR/en-us                         |
 | 科索沃                                   | XK                       | XKS                      | en-US                                 |
 | 科威特                                   | KW                       | KWT                      | ar-KW/en-us                         |
 | 吉爾吉斯                               | KG                       | KGZ                      | ky-公斤/en-us                         |
@@ -177,7 +177,7 @@ ms.locfileid: "74488288"
 | 墨西哥                                   | MX                       | MEX                      | es-MX/en-us                         |
 | 密克羅尼西亞                               | 調頻廣播                       | FSM                      | en-US                                 |
 | 摩爾多瓦                                  | MD                       | MDA                      | ro-RO/en-us                         |
-| 摩納哥                                   | [MC]                       | MCO                      | fr-MC/en-us                         |
+| 摩納哥                                   | MC                       | MCO                      | fr-MC/en-us                         |
 | 蒙古                                 | MN                       | MNG                      | mn-MN/en-us                         |
 | 蒙特內哥羅                               | ME                       | MNE                      | Latn-ME/en-us                    |
 | 蒙特色拉特島                               | MS                       | MSR                      | en-US                                 |
@@ -225,14 +225,14 @@ ms.locfileid: "74488288"
 | 聖巴瑟米                         | BL                       | BLM                      | fr-FR/en-us                         |
 | 薩摩亞獨立國                                    | WIN ENT LTSB 2016 Thai 64 Bits                       | WSM                      | en-US                                 |
 | 聖馬利諾                               | 這些                       | SMR                      | it-en-us                         |
-| 聖多美普林西比                    | 聖                       | STP                      | pt-PT/en-us                         |
+| 聖多美普林西比                    | ST                       | STP                      | pt-PT/en-us                         |
 | 沙烏地阿拉伯                             | SA                       | SAU                      | ar-SA/en-us                         |
 | 塞內加爾                                  | SN                       | SEN                      | wo-SN/en-us                         |
 | 賽爾維亞                                   | RS                       | SRB                      | Latn-RS/sr-iov-Cyrl-RS/en-us       |
 | 塞席爾                               | SC                       | SYC                      | en-US                                 |
 | 獅子山                             | SL                       | SLE                      | en-US                                 |
 | 新加坡                                | SG                       | SGP                      | en-SG/zh-SG/en-us                 |
-| 聖尤斯特斯                           | XE                       | XSE                      | nl-NL/en-us                         |
+| 聖佑達修斯                           | XE                       | XSE                      | nl-NL/en-us                         |
 | 荷屬聖馬丁                             | X                       | SXM                      | en-US                                 |
 | 斯洛伐克                                 | SK                       | SVK                      | sk-SK/en-us                         |
 | 斯洛維尼亞                                 | SI                       | SVN                      | sl-SI/en-us                         |
@@ -241,9 +241,9 @@ ms.locfileid: "74488288"
 | 南非                             | ZA                       | ZAF                      | en-ZA/en-us                         |
 | 南喬治亞與南三明治群島 | GS                       | SG                      | en-US                                 |
 | 南蘇丹                              | SS                       | SSD                      | en-US                                 |
-| 西班牙                                    | ES                       | 能力                      | es/ca-ES/eu-ES/gl-ES/en-us |
+| 西班牙                                    | ES                       | ESP                      | es/ca-ES/eu-ES/gl-ES/en-us |
 | 斯里蘭卡                                | LK                       | LKA                      | si-LK/en-us                         |
-| 聖赫勒拿、阿森松、特裡斯坦達庫尼亞群島   | SH                       | SHN                      | en-US                                 |
+| 聖赫勒拿、阿森松、特里斯坦達庫尼亞群島   | SH                       | SHN                      | en-US                                 |
 | 蘇利南                                 | SR                       | SUR                      | nl-NL                                 |
 | 冷岸                                 | SJ                       | SJM                      | nb-否/en-us                         |
 | 瑞典                                   | SE                       | SWE                      | sv-SE/en-us                         |
@@ -259,16 +259,16 @@ ms.locfileid: "74488288"
 | 千里達及托巴哥                      | TT                       | 為了                      | en-us/en-us                         |
 | 突尼西亞                                  | TN                       | 執行                      | ar-TN/en-us                         |
 | 土耳其                                   | TR                       | TUR                      | tr-TR/en-us                         |
-| 土庫曼                             | 迅馳                       | TKM                      | tk-TM/en-us                         |
+| 土庫曼                             | TM                       | TKM                      | tk-TM/en-us                         |
 | 土克斯及開科斯群島                 | TC                       | TCA                      | en-US                                 |
-| 吐瓦魯                                   | TV                       | TUV                      | en-US                                 |
+| 吐瓦魯                                   | 電視                       | TUV                      | en-US                                 |
 | 烏干達                                   | UG                       | UGA                      | en-GB/en-us                         |
 | 烏克蘭                                  | UA                       | UKR                      | 英國-UA/en-us                         |
 | 阿拉伯聯合大公國                     | AE                       | 確實                      | ar-AE/en-us                         |
 | 英國                           | GB                       | GBR                      | en-GB/en-us                         |
 | 美國外島                    | UM                       | UMI                      | en-US                                 |
 | 美屬維爾京群島                      | VI                       | PR1-ASCS-VIR                      | en-US                                 |
-| 美國                            | 美國                       | A                      | en-us/es-US                         |
+| 美國                            | 美式英文                       | A                      | en-us/es-US                         |
 | 烏拉圭                                  | UY                       | URY                      | es-UY/en-us                         |
 | 烏茲別克                               | UZ                       | UZB                      | uz-Latn-UZ/en-us                    |
 | 萬那杜                                  | VU                       | VUT                      | en-US                                 |

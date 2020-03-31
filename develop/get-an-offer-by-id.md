@@ -4,20 +4,20 @@ description: 取得符合供應專案識別碼的供應專案資源。
 ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 850c498578f69bdbcbad69ef8185c9ce9bad01ea
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 51d5ad603dc813225ace49b90abf7af5c1d36479
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485738"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416041"
 ---
 # <a name="get-an-offer-by-id"></a>依識別碼取得供應專案
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,7 +26,7 @@ ms.locfileid: "74485738"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 供應專案識別碼。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
@@ -80,11 +80,11 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 | 方法  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id} 嗎？國家/地區 = {country-ID} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id} 嗎？國家/地區 = {country-ID} HTTP/1。1 |
 
 **URI 參數**
 
-| 名稱           | 類型       | 必要 | 描述                           |
+| 名稱           | 類型       | 必要項 | 描述                           |
 |----------------|------------|----------|---------------------------------------|
 | **供應專案識別碼**   | **guid**   | Y        | 對應至供應專案的 GUID。 |
 | **國家/地區識別碼** | **字串** | Y        | 國家/地區識別碼。                |
@@ -96,7 +96,7 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -116,7 +116,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 

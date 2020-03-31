@@ -4,14 +4,14 @@ description: 取得指定計費期間的客戶服務成本明細專案。
 ms.assetid: 1D6364A2-51FE-44E4-96A0-444EDB3BB56A
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 67e6c803995759942748aac79473911b2aa2f9e7
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: df99beb15820a33204a114b68de6cd87cbba13db
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80070120"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415687"
 ---
 # <a name="get-a-customers-service-costs-line-items"></a>取得客戶的服務成本明細專案
 
@@ -23,7 +23,7 @@ ms.locfileid: "80070120"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式加上使用者的認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 - 客戶識別碼。
 - 計費週期指標（**mostrecent**）。
 
@@ -68,7 +68,7 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 None。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/65726577-c208-40fd-9735-8c85ac9cac68/servicecosts/mostrecent/lineitems HTTP/1.1

@@ -4,26 +4,26 @@ description: 檢查一組特定目錄專案的清查。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 347b131efccee318043c824984285fde9cd38a64
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1dfd831917689f8d06dfb5b30b4d07a899f6eee0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488968"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412908"
 ---
 # <a name="check-inventory"></a>檢查清查
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何檢查一組特定目錄專案的清查。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 一或多個產品識別碼。 或者，也可以指定 SKU 識別碼。
 - 驗證所提供的產品/SKU 識別碼所參考的 SKU 清查所需的任何其他內容。 這些需求可能因產品/SKU 類型而異，而且可以從[SKU 的](product-resources.md#sku) **InventoryVariables**屬性來判斷。 
 
@@ -61,15 +61,15 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 | 方法   | 要求 URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory？ country = {國家/地區-代碼} HTTP/1。1                        |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory？ country = {國家/地區-代碼} HTTP/1。1                        |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來檢查清查。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要項 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
+| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -103,7 +103,7 @@ Content-Type: application/json
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 

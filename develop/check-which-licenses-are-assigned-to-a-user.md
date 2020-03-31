@@ -4,26 +4,26 @@ description: 取得在客戶帳戶內指派給使用者的授權清單。
 ms.assetid: 87DC74A1-92E2-4639-BC4C-168A677F5F52
 ms.date: 05/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 73997593b0997a0faca8d702b527e57266a45dfb
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c51a7b2bb03d21ed1a83c1773267772042d56e63
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488958"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412894"
 ---
 # <a name="get-licenses-assigned-to-a-user"></a>取得指派給使用者的授權
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得在客戶帳戶內指派給使用者的授權清單。 此處顯示的範例會傳回從 group1 指派的授權，預設的授權群組代表由 Azure Active Directory 管理的授權。 若要從指定的授權群組取得指派的授權，請參閱[取得依授權群組指派給使用者的](get-licenses-assigned-to-a-user-by-license-group.md)授權。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼。
 - 使用者識別碼。
 
@@ -47,16 +47,16 @@ var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCust
 
 | 方法  | 要求 URI                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列 path 參數來識別客戶和使用者。
 
-| 名稱        | 類型   | 必要 | 描述                                           |
+| 名稱        | 類型   | 必要項 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
-| user-id     | 字串 | 是      | 識別使用者的 GUID 格式字串。     |
+| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。 |
+| user-id     | string | 是      | 識別使用者的 GUID 格式字串。     |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -64,7 +64,7 @@ var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCust
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="request-example"></a>要求範例
 
@@ -84,7 +84,7 @@ Host: api.partnercenter.microsoft.com
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

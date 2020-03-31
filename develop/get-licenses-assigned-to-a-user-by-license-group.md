@@ -4,27 +4,27 @@ description: 如何取得指定授權群組的使用者指派授權清單。
 ms.assetid: 8BC0B0BA-894D-42F8-8186-6963AA02E9F6
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bec87b822012188da4a2bdb90f0a77f31e1677f2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6eb55645c6d3ef2663799a4966e9993280fbfc35
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488608"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415820"
 ---
 # <a name="get-licenses-assigned-to-a-user-by-license-group"></a>取得依授權群組指派給使用者的授權
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得指定授權群組的使用者指派授權清單。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼。
 - 使用者識別碼。
 - 一或多個授權群組識別碼的清單。
@@ -58,20 +58,20 @@ var customerUserBothAadAndSfbAssignedLicenses = partnerOperations.Customers.ById
 
 | 方法  | 要求 URI                                                                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group1 HTTP/1。1                        |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group2 HTTP/1。1                        |
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group1 & LicenseGroupIds = Group2 HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group1 HTTP/1。1                        |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group2 HTTP/1。1                        |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses？ LicenseGroupIds = Group1 & LicenseGroupIds = Group2 HTTP/1。1 |
 
 
 **URI 參數**
 
 使用下列路徑和查詢參數來識別客戶、使用者和授權群組。
 
-| 名稱            | 類型   | 必要 | 描述                                                                                                                                                                                                                                                           |
+| 名稱            | 類型   | 必要項 | 描述                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 客戶識別碼     | 字串 | 是      | 識別客戶的 GUID 格式字串。                                                                                                                                                                                                                 |
-| user-id         | 字串 | 是      | 識別使用者的 GUID 格式字串。                                                                                                                                                                                                                     |
-| licenseGroupIds | 字串 | 否       | 列舉值，表示所指派授權的授權群組。 有效值： Group1、Group2 Group1-此群組具有可在 Azure Active Directory （AAD）中管理其授權的所有產品。 Group2-此群組只有 Minecraft 產品授權。 |
+| 客戶識別碼     | string | 是      | 識別客戶的 GUID 格式字串。                                                                                                                                                                                                                 |
+| user-id         | string | 是      | 識別使用者的 GUID 格式字串。                                                                                                                                                                                                                     |
+| licenseGroupIds | string | 否       | 列舉值，表示所指派授權的授權群組。 有效值： Group1、Group2 Group1-此群組具有可在 Azure Active Directory （AAD）中管理其授權的所有產品。 Group2-此群組只有 Minecraft 產品授權。 |
 
  
 
@@ -81,7 +81,7 @@ var customerUserBothAadAndSfbAssignedLicenses = partnerOperations.Customers.ById
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -101,7 +101,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 **回應範例**
 

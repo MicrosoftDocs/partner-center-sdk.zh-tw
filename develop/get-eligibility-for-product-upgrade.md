@@ -3,26 +3,26 @@ title: 檢查客戶是否有資格升級至 Azure 方案
 description: 您可以使用 ProductUpgradeRequest 資源來傳回 ProductUpgradesEligibility 資源，以判斷客戶是否有資格從 Microsoft Azure （MS-MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶升級為 Azure 方案。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 71a9cc393b9273a156e0fd3cc434ee668cdaa324
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b94aa50364ef770a843624d397240e35eaa8cecf
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490298"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415943"
 ---
 # <a name="check-a-customers-eligibility-for-upgrading-to-an-azure-plan"></a>檢查客戶是否有資格升級至 Azure 方案
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 您可以使用[**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest)資源來檢查客戶是否有資格從 MICROSOFT AZURE （Ms-azr-0017p-流程 ms-azr-0145p）訂用帳戶升級為 Azure 方案。此方法會傳回具有客戶產品升級資格的[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用應用程式 + 使用者認證進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
 - 客戶識別碼。
 - 產品系列。
 
@@ -56,7 +56,7 @@ if (productUpgradeEligibility.IsEligibile)
 
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -64,7 +64,7 @@ if (productUpgradeEligibility.IsEligibile)
 
 | 方法   | 要求 URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productUpgrades/eligibility HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productUpgrades/eligibility HTTP/1。1 |
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -106,7 +106,7 @@ Connection: Keep-Alive
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

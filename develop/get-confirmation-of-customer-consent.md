@@ -3,23 +3,23 @@ title: 取得客戶接受 Microsoft Cloud 合約的確認
 description: 本主題說明如何確認客戶接受 Microsoft Cloud 合約。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d6282a82793f2bc9fa6f436ed9c7a6a31ad0969d
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 3151eb851a3ae3204fd2a9b6004d6ae31ddb9174
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899885"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416004"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>取得客戶接受 Microsoft Cloud 合約的確認
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 
 > [!NOTE]  
-> **合約**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
+> **合約**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 合約資源不適用於：
 > - 由 21Vianet 營運的合作夥伴中心
 > - Microsoft Cloud 德國合作夥伴中心
 > - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "78899885"
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
 - 如果您使用合作夥伴中心 JAVA SDK，則需要1.8 或更新版本。
-- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 此案例僅支援應用程式 + 使用者驗證。
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
 - 客戶識別碼（客戶租使用者識別碼）。
 
 ## <a name="net-version-14-or-newer"></a>.NET （1.4 版或更新版本）
@@ -104,7 +104,7 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 | 方法 | 要求 URI                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1。1 |
+| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
 ##### <a name="uri-parameter"></a>URI 參數
 

@@ -4,21 +4,21 @@ description: 本節提供使用合作夥伴中心 REST API 建立要求和剖析
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4be969f9bced111c3ba95f773920f4aecfc4942d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3e84ce1f55eedd94519582fc57ce75eed2fddee0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486818"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416411"
 ---
 # <a name="partner-center-rest-resources"></a>合作夥伴中心 REST 資源
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -44,7 +44,7 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="auditing-resources.md">統計</a></td>
+<td><a href="auditing-resources.md">稽核</a></td>
 <td><ul>
 <li>AuditRecord</li>
 </ul></td>
@@ -66,9 +66,9 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="cart-resources.md">放</a></td>
+<td><a href="cart-resources.md">購物車</a></td>
 <td><ul>
-<li>放</li>
+<li>購物車</li>
 <li>CartLineItem</li>
 <li>CartError</li>
 </ul></td>
@@ -89,7 +89,7 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">顧客</a></td>
+<td><a href="customer-resources.md">客戶</a></td>
 <td><ul>
 <li>客戶</li>
 <li>CustomerCompanyProfile</li>
@@ -107,10 +107,10 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="entitlement-resources.md">變化</a></td>
+<td><a href="entitlement-resources.md">權利</a></td>
 <td><ul>
 <li>變化</li>
-<li>ReferenceOrder</li>
+<li>referenceOrder</li>
 <li>entitlementType</li>
 <li>構件</li>
 <li>artifactType</li>
@@ -120,9 +120,9 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="invoice-resources.md">票</a></td>
+<td><a href="invoice-resources.md">發票</a></td>
 <td><ul>
-<li>票</li>
+<li>發票</li>
 <li>InvoiceDetail</li>
 <li>InvoiceLineItem</li>
 <li>InvoiceSummary</li>
@@ -134,14 +134,14 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="license-resources.md">執照</a></td>
+<td><a href="license-resources.md">授權</a></td>
 <td><ul>
 <li>授權</li>
 <li>LicenseUpdate</li>
 <li>LicenseAssignment</li>
 <li>LicenseWarning</li>
 <li>ProductSku</li>
-<li>ServicePlan</li>
+<li>服務方案</li>
 <li>SubscribedSku</li>
 </ul></td>
 </tr>
@@ -162,9 +162,9 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="order-resources.md">順序</a></td>
+<td><a href="order-resources.md">訂單</a></td>
 <td><ul>
-<li>順序</li>
+<li>使用</li>
 <li>OrderLineItem</li>
 <li>OrderLinks</li>
 <li>OrderLineItemLinks</li>
@@ -174,7 +174,7 @@ ms.locfileid: "74486818"
 <tr class="even">
 <td><a href="profile-resources.md">設定檔</a></td>
 <td><ul>
-<li>BillingProfile</li>
+<li>billingProfile</li>
 <li>LegalBusinessProfile</li>
 <li>MpnProfile</li>
 <li>OrganizationProfile</li>
@@ -182,12 +182,12 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="product-resources.md">Products</a></td>
+<td><a href="product-resources.md">產品</a></td>
 <td><ul>
 <li>產品</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
-<li>限量</li>
+<li>Sku</li>
 <li>可用性</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
@@ -196,7 +196,7 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="relationships-resources.md">關係</a></td>
+<td><a href="relationships-resources.md">人際關係</a></td>
 <td><ul>
 <li>PartnerRelationship</li>
 <li>RelationshipRequest</li>
@@ -221,7 +221,7 @@ ms.locfileid: "74486818"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="subscription-resources.md">預定</a></td>
+<td><a href="subscription-resources.md">訂閱帳戶</a></td>
 <td><ul>
 <li>訂閱</li>
 <li>SubscriptionLinks</li>
@@ -253,7 +253,7 @@ ms.locfileid: "74486818"
 <td><ul>
 <li>使用者</li>
 <li>CustomerUser</li>
-<li>UserCredentials</li>
+<li>userCredentials</li>
 <li>UserMember</li>
 </ul></td>
 </tr>
@@ -261,11 +261,11 @@ ms.locfileid: "74486818"
 <td><a href="utility-resources.md">公用程式資源</a></td>
 <td><ul>
 <li>地址</li>
-<li>Contact</li>
+<li>連絡人</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
-<li>Link</li>
-<li>PasswordProfile</li>
+<li>連結</li>
+<li>passwordProfile</li>
 <li>ResourceLinks</li>
 <li>ResourceAttributes</li>
 <li>SecureString</li>

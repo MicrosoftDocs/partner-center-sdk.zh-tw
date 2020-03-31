@@ -3,23 +3,23 @@ title: 取得 Microsoft Cloud 合約的合約中繼資料
 description: 本主題說明如何取得 Microsoft Cloud 合約的合約中繼資料。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a0bf235be9415b75cc4f766f4a92cb37a14a0d96
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: f3868efef7e1eaca2f408efbf8f631a3fed198fb
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899955"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416210"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>取得 Microsoft Cloud 合約的合約中繼資料
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 
 > [!NOTE]  
-> **AgreementMetaData**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
+> **AgreementMetaData**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 合約資源不適用於：
 > - 由 21Vianet 營運的合作夥伴中心
 > - Microsoft Cloud 德國合作夥伴中心
 > - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "78899955"
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
 - 如果您使用合作夥伴中心 JAVA SDK，則需要1.8 或更新版本。
-- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 此案例支援應用程式 + 使用者驗證。
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例支援應用程式 + 使用者驗證。
 
 ## <a name="net-version-114-or-newer"></a>.NET （1.14 版或更新版本）
 

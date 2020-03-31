@@ -4,21 +4,21 @@ description: 取得符合篩選準則的客戶資源集合。 您可以選擇性
 ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cd050514f49fbb867df117d2220d4f60f94e32b8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f99a91139a1341dcd82efe3727a9603beb3f1622
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490118"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413355"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>取得依搜尋欄位篩選的客戶清單
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74490118"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 使用者結構化的篩選準則。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -68,7 +68,7 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 | 方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers？ size = {size} & 篩選準則 = {FILTER} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers？ size = {size} & 篩選準則 = {FILTER} HTTP/1。1 |
 
  
 
@@ -76,10 +76,10 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 使用下列查詢參數。
 
-| 名稱   | 類型   | 必要 | 描述                                                                    |
+| 名稱   | 類型   | 必要項 | 描述                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| size   | 整數    | 否       | 要一次顯示的結果數目。 此為選擇性參數。 |
-| filter | filter | 是      | 要套用至客戶的篩選準則。 這必須是已編碼的字串。              |
+| size   | int    | 否       | 要一次顯示的結果數目。 這個參數是選擇性的。 |
+| 篩選器 | 篩選器 | 是      | 要套用至客戶的篩選準則。 這必須是已編碼的字串。              |
 
  
 
@@ -95,7 +95,7 @@ var customers = partnerOperations.Customers.Query(myQuery);
   
 下表描述必要的機碼值組：
 
-| 索引鍵      | 值                                                                                                                    |
+| Key      | 值                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
 | 欄位    | 要篩選的欄位。 可以在[**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)中找到有效的值。 |
 | 值    | 要做為篩選依據的值。 會忽略值的大小寫。                                                                |
@@ -109,7 +109,7 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -131,7 +131,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

@@ -4,20 +4,20 @@ description: 取得符合客戶和訂單識別碼的訂單資源。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 875a1f14483b40a1ec2ccb355ae8837d55bddb3c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c6c5c72592cf5273265ba34d9fcc70d3cfbd466f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485718"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416026"
 ---
 # <a name="get-an-order-by-id"></a>依識別碼取得訂單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,7 +26,7 @@ ms.locfileid: "74485718"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 訂單識別碼。
 
@@ -85,16 +85,16 @@ Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrder
 
 | 方法  | 要求 URI                                                                                                  |
 |---------|--------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1。1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1。1  |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 下表列出必要的查詢參數，以取得依識別碼排序的訂單。
 
-| 名稱                   | 類型     | 必要 | 描述                                            |
+| 名稱                   | 類型     | 必要項 | 描述                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
-| 客戶-租使用者識別碼     | 字串   | 是      | 對應至客戶的 GUID 格式字串。 |
-| 識別碼-依序           | 字串   | 是      | 對應至訂單識別碼的字串。                |
+| customer-tenant-id     | string   | 是      | 對應至客戶的 GUID 格式字串。 |
+| 識別碼-依序           | string   | 是      | 對應至訂單識別碼的字串。                |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -102,7 +102,7 @@ Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrder
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="request-example"></a>要求範例
 
@@ -121,7 +121,7 @@ Connection: Keep-Alive
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

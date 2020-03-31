@@ -3,21 +3,21 @@ title: 更新客戶的資格
 description: 更新客戶的資格，包括與設定檔相關聯的位址。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f1faf509f67fa5dbb370acb9e0985a36810ed439
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0896c44ab193ca564ee210f48f536382c8070305
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486438"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414961"
 ---
 # <a name="update-a-customers-qualification"></a>更新客戶的資格
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 更新客戶的資格。
 
@@ -25,7 +25,7 @@ ms.locfileid: "74486438"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼（客戶租使用者識別碼）。
 
 
@@ -56,17 +56,17 @@ var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 
 | 方法  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **提出** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer_id}/qualification？ code = {VALIDATIONCODE} HTTP/1。1 |
+| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer_id}/qualification？ code = {VALIDATIONCODE} HTTP/1。1 |
 
 
 **URI 參數**
 
 使用下列查詢參數來更新限定性。
 
-| 名稱                   | 類型 | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 類型 | 必要項 | 描述                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **客戶-租使用者識別碼** | GUID | 是      | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
-| **validationCode**     | 整數  | 否       | 只有政府機關雲端才需要。                                                                                                            |
+| **validationCode**     | int  | 否       | 只有政府機關雲端才需要。                                                                                                            |
 
 
 **要求標頭**
@@ -95,7 +95,7 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 

@@ -4,21 +4,21 @@ description: 如何取得供應專案識別碼的附加元件。
 ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 97126efdc2cb859158e6d3e3d1c8797ab22bc002
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0969ae1d347946fbbe9aa2fe1a14d5c582ef0dae
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486038"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416191"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>取得供應專案識別碼的附加元件
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74486038"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 供應專案識別碼。 如果您沒有供應專案識別碼，請參閱[取得市場優惠清單](get-a-list-of-offers-for-a-market.md)。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -53,7 +53,7 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 | 方法  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons？ country = {國家/地區-代碼} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons？ country = {國家/地區-代碼} HTTP/1。1 |
 
  
 
@@ -61,7 +61,7 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 使用下列參數來提供供應專案識別碼和國家/地區代碼。
 
-| 名稱         | 類型       | 必要 | 描述                       |
+| 名稱         | 類型       | 必要項 | 描述                       |
 |--------------|------------|----------|-----------------------------------|
 | **供應專案識別碼** | **guid**   | Y        | 識別供應專案的 GUID。 |
 | **全國**  | **字串** | Y        | 國家（地區）代碼（例如 US）。       |
@@ -74,7 +74,7 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -95,7 +95,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

@@ -3,20 +3,20 @@ title: 透過搜尋查詢取得訂用帳戶分析
 description: 如何取得搜尋查詢所篩選的訂用帳戶分析資訊。
 ms.date: 05/10/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d742dce1d9f3cb24da4da70281ca04b0030d87b2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4cb71638c5ad2c3a708d2eaf874fe904803cd712
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487258"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416661"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>取得搜尋查詢所篩選的訂用帳戶分析資訊
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -27,7 +27,7 @@ ms.locfileid: "74487258"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
@@ -37,7 +37,7 @@ ms.locfileid: "74487258"
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions？ filter = {filter_string} |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions？ filter = {filter_string} |
 
  
 
@@ -45,9 +45,9 @@ ms.locfileid: "74487258"
 
 使用下列必要的 path 參數來識別您的組織並篩選搜尋。
 
-| 名稱 | 類型 | 必要 | 描述 |
+| 名稱 | 類型 | 必要項 | 描述 |
 |------|------|----------|-------------|
-| filter_string | 字串 | 是 | 要套用至訂用帳戶分析的篩選準則。 請參閱篩選語法和篩選欄位章節，以瞭解要在此參數中使用的語法、欄位和運算子。 |
+| filter_string | string | 是 | 要套用至訂用帳戶分析的篩選準則。 請參閱篩選語法和篩選欄位章節，以瞭解要在此參數中使用的語法、欄位和運算子。 |
  
 
 **篩選語法**
@@ -76,19 +76,19 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 | 參數 | 支援的運算子 | 描述 |
 |-----------|---------------------|-------------|
-| customerTenantId | eq、ne | GUID 格式的字串，可識別客戶租使用者。 |
+| CustomerTenantId | eq、ne | GUID 格式的字串，可識別客戶租使用者。 |
 | customerName | 包含 | 客戶的名稱。 |
 | customerMarket | eq、ne | 客戶執行業務的國家/地區。 |
 | id | eq、ne | 識別訂用帳戶的 GUID 格式字串。 |
 | status | eq、ne | 訂用帳戶狀態。 支援的值為： "ACTIVE"、"暫止" 或 "取消布建"。 |
 | productName | contains、eq、ne | 產品的名稱。 |
-| subscriptionType | eq、ne | 訂用帳戶類型。 **注意**：此欄位會區分大小寫。 支援的值為： "Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS"。 |
+| subscriptionType | eq、ne | 訂閱類型。 **注意**：此欄位會區分大小寫。 支援的值為： "Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS"。 |
 | autoRenewEnabled | eq、ne | 值，指出是否自動更新訂用帳戶。 |
 | partnerId | eq、ne | MPN 識別碼。 若為直接轉銷商，這會是合作夥伴的 MPN 識別碼。 若為間接轉銷商，這將是間接轉銷商的 MPN 識別碼。 |
-| friendlyName | 包含 | 訂用帳戶的名稱。 |
-| partnerName | 字串 | 購買訂閱之夥伴的名稱 |  
-| providerName | 字串 | 若為間接轉銷商的訂閱交易，提供者名稱就是購買訂閱的間接提供者。
-| CreationDate | eq、ne、gt、lt、ge、le  | 建立訂用帳戶的日期。 |
+| friendlyName | 包含 | 訂閱的名稱。 |
+| partnerName | string | 購買訂閱之夥伴的名稱 |  
+| providerName | string | 若為間接轉銷商的訂閱交易，提供者名稱就是購買訂閱的間接提供者。
+| creationDate | eq、ne、gt、lt、ge、le  | 建立訂用帳戶的日期。 |
 | RateplaNcharge.effectivestartdate | eq、ne、gt、lt、ge、le | 訂用帳戶開始的日期。 |
 | commitmentEndDate | eq、ne、gt、lt、ge、le  | 訂閱結束的日期。 |
 | currentStateEndDate | eq、ne、gt、lt、ge、le | 訂用帳戶的目前狀態將會變更的日期。 |
@@ -105,7 +105,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -126,7 +126,7 @@ Content-Length: 0
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 **回應範例**
 
@@ -164,4 +164,4 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
 
- - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)
+ - [合作夥伴中心分析 - 資源](partner-center-analytics-resources.md)

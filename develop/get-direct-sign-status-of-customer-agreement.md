@@ -3,14 +3,14 @@ title: 取得客戶對 Microsoft 客戶合約的直接簽署狀態。
 description: 您可以使用 DirectSignedCustomerAgreementStatus 資源來取得 Microsoft 客戶合約之客戶直接簽署（直接接受）的狀態。
 ms.date: 02/11/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f44e64061690603fb82088b03ebacb01ce5515f2
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 0d07630a23ad4d18f992f2fcd9db2d19c637df98
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78909064"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415946"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>取得 Microsoft 客戶合約的客戶直接簽署（直接接受）的狀態
 
@@ -46,7 +46,7 @@ ms.locfileid: "78909064"
 
 | 名稱             | 類型 | 必要項 | 描述                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| 客戶-租使用者識別碼 | GUID | 是 | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶的租使用者識別碼。 |
+| customer-tenant-id | GUID | 是 | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶的租使用者識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 

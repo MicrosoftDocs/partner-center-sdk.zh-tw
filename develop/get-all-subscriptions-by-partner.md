@@ -4,20 +4,20 @@ description: 如何取得給定合作夥伴提供給指定客戶的訂閱清單�
 ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 45f899a429c81faaff8dc4ea8747ebc0df289a45
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d2029e9079d31d06995dad5c8e57cacfb2ae2015
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485828"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416071"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>依合作夥伴 MPN 識別碼取得客戶的訂用帳戶
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -27,7 +27,7 @@ ms.locfileid: "74485828"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 - 合作夥伴 Microsoft 合作夥伴網路（MPN）識別碼。
 
@@ -80,16 +80,16 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 | 方法  | 要求 URI |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions？ mpn\_id = {mpn-ID} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions？ mpn\_id = {mpn-ID} HTTP/1。1 |
 
 **URI 參數**
 
 使用下列路徑和查詢參數來識別客戶和合作夥伴。
 
-| 名稱        | 類型   | 必要 | 描述                                                 |
+| 名稱        | 類型   | 必要項 | 描述                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。       |
-| mpn-id      | 整數    | 是      | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
+| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。       |
+| mpn-id      | int    | 是      | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
 
  
 **要求標頭**
@@ -98,7 +98,7 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -119,7 +119,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 
@@ -178,4 +178,4 @@ Date: Thu, 13 Apr 2017 20:58:08 GMT
 ```
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>另請參閱
- - [合作夥伴中心分析-資源](partner-center-analytics-resources.md)
+ - [合作夥伴中心分析 - 資源](partner-center-analytics-resources.md)

@@ -4,20 +4,20 @@ description: 如何取得所有訂用帳戶分析資訊。
 ms.assetid: 243E54BD-EA34-400E-B9AB-D735EB46B9F6
 ms.date: 08/02/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a6b3d77dc23a0246d168979f754a3c1be5a2a02d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 051103450cc0d13dc8a5bc6d77047fc3f6907768
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485848"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416063"
 ---
 # <a name="get-all-subscription-analytics-information"></a>取得所有訂用帳戶分析資訊
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,7 +26,7 @@ ms.locfileid: "74485848"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -34,7 +34,7 @@ ms.locfileid: "74485848"
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **獲取** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1。1 |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
@@ -42,11 +42,11 @@ ms.locfileid: "74485848"
 
 | 參數 | 類型 |  描述 |
 |-----------|------|--------------|
-| top | 整數 | 要在要求中傳回的資料列數目。 如果未指定此值，則會 `10000`最大值和預設值。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
-| skip | 整數 | 在查詢中要略過的資料列數目。 使用此參數來循頁瀏覽大型資料集。 例如，`top=10000` 和 `skip=0` 會抓取前10000個數據列，`top=10000` 和 `skip=10000` 會抓取接下來的10000個數據列。 |
-| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與**eq**、 **ne**或特定欄位（ **contains**運算子）相關聯的值。 陳述式可以使用 **and** 或 **or** 來結合。 **filter** 參數中的字串值必須由單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
-| aggregationLevel | 字串 | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 如果未指定此值，則預設為**dateRange**。 只有在將日期欄位當做**groupBy**參數的一部分傳遞時，此參數才適用。 |
-| groupBy | 字串 | 將資料彙總僅套用至指定欄位的陳述式。 |
+| 上 | int | 要在要求中傳回的資料列數目。 如果未指定此值，則會 `10000`最大值和預設值。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
+| skip | int | 在查詢中要略過的資料列數目。 使用此參數來循頁瀏覽大型資料集。 例如，`top=10000` 和 `skip=0` 會抓取前10000個數據列，`top=10000` 和 `skip=10000` 會抓取接下來的10000個數據列。 |
+| 篩選器 | string | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與**eq**、 **ne**或特定欄位（ **contains**運算子）相關聯的值。 陳述式可以使用 **and** 或 **or** 來結合。 **filter** 參數中的字串值必須由單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
+| aggregationLevel | string | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 如果未指定此值，則預設為**dateRange**。 只有在將日期欄位當做**groupBy**參數的一部分傳遞時，此參數才適用。 |
+| groupBy | string | 將資料彙總僅套用至指定欄位的陳述式。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -54,7 +54,7 @@ ms.locfileid: "74485848"
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="request-example"></a>要求範例
 
@@ -72,7 +72,7 @@ Content-Length: 0
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 
@@ -107,6 +107,6 @@ Content-Length: 0
 }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
-- [合作夥伴中心分析-資源](partner-center-analytics-resources.md)
+- [合作夥伴中心分析 - 資源](partner-center-analytics-resources.md)

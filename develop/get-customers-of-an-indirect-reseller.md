@@ -4,28 +4,28 @@ description: 如何取得間接轉銷商的客戶清單。
 ms.assetid: 2920F056-E6B8-4C66-9EEA-4577BEC034F9
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9d1cacd519cbe79157ab095ba7dbff036725ecef
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7237a2175ec6eb117b8fd1125aaa7fd28690667b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485708"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415961"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>取得間接轉銷商的客戶
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何取得間接轉銷商的客戶清單。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 間接轉銷商的租使用者識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -81,7 +81,7 @@ while (customersEnumerator.HasValue)
 
 | 方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers？ size = {size}？ filter = {FILTER} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers？ size = {size}？ filter = {FILTER} HTTP/1。1 |
 
  
 
@@ -89,10 +89,10 @@ while (customersEnumerator.HasValue)
 
 使用下列查詢參數來建立要求。
 
-| 名稱   | 類型   | 必要 | 描述                                                                                                                                                                                                                                                                                   |
+| 名稱   | 類型   | 必要項 | 描述                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| size   | 整數    | 否       | 要一次顯示的結果數目。 此為選擇性參數。                                                                                                                                                                                                                |
-| filter | filter | 是      | 篩選搜尋的查詢。 若要取得指定之間接轉銷商的客戶，您必須插入間接轉銷商識別碼，並包含並編碼下列字串： {"Field"： "IndirectReseller"，"Value"： "{間接轉銷商識別碼}"，"Operator"： "開始\_的"}。 |
+| size   | int    | 否       | 要一次顯示的結果數目。 這個參數是選擇性的。                                                                                                                                                                                                                |
+| 篩選器 | 篩選器 | 是      | 篩選搜尋的查詢。 若要取得指定之間接轉銷商的客戶，您必須插入間接轉銷商識別碼，並包含並編碼下列字串： {"Field"： "IndirectReseller"，"Value"： "{間接轉銷商識別碼}"，"Operator"： "開始\_的"}。 |
 
  
 
@@ -102,7 +102,7 @@ while (customersEnumerator.HasValue)
 
 **要求本文**
 
-無。
+None。
 
 **要求範例（已編碼）**
 
@@ -135,7 +135,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 **回應範例**
 

@@ -4,20 +4,20 @@ description: 如何建立新的客戶。
 ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 94ce486779ca53d27d7a53a5277060324b7acc23
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bf9007c4f3750b66326475e15479006c87e9f6a7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489328"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413491"
 ---
 # <a name="create-a-customer"></a>建立客戶
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -34,9 +34,9 @@ ms.locfileid: "74489328"
 
 建立客戶之後，請務必儲存客戶識別碼，並 Azure AD 詳細資料，以供日後用於合作夥伴中心 SDK （例如，帳戶管理）。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 > [!IMPORTANT]
 > 若要建立客戶租使用者，您必須在建立程式期間提供有效的實體位址。 您可以遵循[驗證位址](validate-an-address.md)案例中所述的步驟來驗證位址。 如果您在沙箱環境中使用不正確位址建立客戶，就無法刪除該客戶租使用者。
@@ -152,7 +152,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 | 方法   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -164,32 +164,32 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 下表描述要求主體中的必要屬性。
 
-| 名字                              | 類型   | 說明                                 |
+| 名稱                              | 類型   | 描述                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | 物件 | 客戶的帳單設定檔資訊。 |
-| [CompanyProfile](#company-profile) | 物件 | 客戶的公司設定檔資訊。 |
+| [BillingProfile](#billing-profile) | object | 客戶的帳單設定檔資訊。 |
+| [CompanyProfile](#company-profile) | object | 客戶的公司設定檔資訊。 |
 
 #### <a name="billing-profile"></a>帳單設定檔
 
 下表描述建立新客戶所需的[CustomerBillingProfile](customer-resources.md#customerbillingprofile)資源所需的最低欄位。
 
-| 名字             | 類型                                     | 說明                                                                                                                                                                                                     |
+| 名稱             | 類型                                     | 描述                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 電子郵件            | string                                   | 客戶的電子郵件地址。                                                                                                                                                                                   |
-| 區域          | string                                   | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
-| language         | string                                   | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
+| culture (文化特性)          | string                                   | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
+| 語言         | string                                   | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
 | 公司\_名稱    | string                                   | 已註冊的公司/組織名稱。                                                                                                                                                                       |
-| 預設\_位址 | [應對](utility-resources.md#address) | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
+| 預設\_位址 | [地址](utility-resources.md#address) | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
 
 #### <a name="company-profile"></a>公司設定檔
 
 下表描述建立新客戶所需的[CustomerCompanyProfile](customer-resources.md#customercompanyprofile)資源所需的最低欄位。
 
-| 名字   | 類型   | 說明                                                  |
+| 名稱   | 類型   | 描述                                                  |
 |--------|--------|--------------------------------------------------------------|
 | domain | string | 客戶的功能變數名稱，例如 contoso.onmicrosoft.com。 |
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers HTTP/1.1
@@ -232,7 +232,7 @@ Connection: Keep-Alive
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

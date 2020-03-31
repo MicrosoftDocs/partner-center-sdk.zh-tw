@@ -4,21 +4,21 @@ description: 如何為指定的客戶取得裝置批次上傳的狀態。
 ms.assetid: 2965869E-824A-497E-9A77-6FC1BA18C55B
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: aaf4132b826046ee724c0aaca942694346185228
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0e60fad2247cf9e87f1b7e1b494e693c35d8fb8c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487088"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416579"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>取得裝置批次上傳的狀態
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 如何為指定的客戶取得裝置批次上傳的狀態。
@@ -26,7 +26,7 @@ ms.locfileid: "74487088"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 - 提交裝置批次時，在位置標頭中傳回的批次追蹤識別碼。 如需詳細資訊，請參閱[上傳指定客戶的裝置清單](upload-a-list-of-devices-for-the-specified-customer.md)。
 
@@ -53,7 +53,7 @@ var status =
 
 | 方法  | 要求 URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/batchJobStatus/{batchtracking-id} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/batchJobStatus/{batchtracking-id} HTTP/1。1 |
 
  
 
@@ -61,10 +61,10 @@ var status =
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱             | 類型   | 必要 | 描述                                                                                                                                                                    |
+| 名稱             | 類型   | 必要項 | 描述                                                                                                                                                                    |
 |------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 客戶識別碼      | 字串 | 是      | 識別客戶的 GUID 格式字串。                                                                                                                          |
-| batchtracking-id | 字串 | 是      | GUID 格式的識別碼，用來抓取裝置批次上傳狀態。 成功提交裝置批次時，此識別碼會在位置標頭中傳回。 |
+| 客戶識別碼      | string | 是      | 識別客戶的 GUID 格式字串。                                                                                                                          |
+| batchtracking-id | string | 是      | GUID 格式的識別碼，用來抓取裝置批次上傳狀態。 成功提交裝置批次時，此識別碼會在位置標頭中傳回。 |
 
  
 
@@ -95,7 +95,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

@@ -4,28 +4,28 @@ description: 如何抓取已登入之合作夥伴的間接轉銷商清單。
 ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e796312e76038174329967d106eefb4ac40d629f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a1ed1d4d3c0d105a489774d698d832f2e0212934
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486528"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415376"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>取得間接轉銷商清單
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何抓取已登入之合作夥伴的間接轉銷商清單。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -47,7 +47,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 | 方法  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships？關聯性\_類型 = IsIndirectCloudSolutionProviderOf HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships？關聯性\_類型 = IsIndirectCloudSolutionProviderOf HTTP/1。1 |
 
  
 
@@ -66,14 +66,14 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 <tr class="header">
 <th>名稱</th>
 <th>類型</th>
-<th>必要</th>
+<th>必要項</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>relationship_type</td>
-<td>字串</td>
+<td>string</td>
 <td>是</td>
 <td>值是在<a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>中找到的其中一個成員名稱的字串表示。
 <p>如果合作夥伴以提供者身分登入，而您想要取得他們已建立關聯性的間接轉銷商清單，請使用 IsIndirectCloudSolutionProviderOf。</p>
@@ -90,7 +90,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -111,7 +111,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 **回應範例**
 

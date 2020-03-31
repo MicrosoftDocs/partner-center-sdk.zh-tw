@@ -3,21 +3,21 @@ title: 合作夥伴中心 webhook
 description: Webhook 允許合作夥伴註冊資源變更事件。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ead6d1da325534f2b58667365a509ef07ee295b1
-ms.sourcegitcommit: b9d44c881015065e2c375afa4deb05fe6bf3aeb8
+ms.openlocfilehash: 9a470ad6e3ee049f2cea3bc71b8a26f47aba1601
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559474"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416361"
 ---
 # <a name="partner-center-webhooks"></a>合作夥伴中心 webhook
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心   
+- 夥伴中心   
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心   
@@ -62,7 +62,7 @@ ms.locfileid: "74559474"
 ## <a name="prerequisites"></a>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。   
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。   
 
 
 
@@ -104,7 +104,7 @@ Content-Length: 195
 3.  驗證憑證鏈。
 4.  驗證憑證的「組織」。
 5.  將具有 UTF8 編碼的內容讀取到緩衝區。
-6.  建立 RSA 加密提供者。
+6.  建立 RSA 密碼編譯提供者。
 7.  確認資料符合指定的雜湊演算法（例如 SHA256）所簽署的內容。
 8.  如果驗證成功，則處理訊息。
 
@@ -118,12 +118,12 @@ Content-Length: 195
 
 **屬性**
 
-| 名稱                      | 說明                                                                           |
+| 名稱                      | 描述                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
 | **EventName**             | 事件的名稱。 以 {resource}-{action} 形式呈現。 例如，「測試已建立」。  |
 | **ResourceUri**           | 已變更之資源的 URI。                                                 |
 | **ResourceName**          | 已變更之資源的名稱。                                                |
-| **AuditUrl**              | 選用。 Audit 記錄的 URI。                                                |
+| **AuditUrl**              | 選擇性。 Audit 記錄的 URI。                                                |
 | **ResourceChangeUtcDate** | 發生資源變更時的日期和時間（UTC 格式）。                  |
 
 
@@ -145,9 +145,9 @@ Content-Length: 195
 ## <a name="webhook-apis"></a>Webhook Api   
 
 
-[驗證]   
+**驗證**   
 
-所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 您必須取得存取權杖才能存取 https://api.partnercenter.microsoft.com 。 這是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
+所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 您必須取得存取權杖才能存取 https://api.partnercenter.microsoft.com。 這是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
 
 
  

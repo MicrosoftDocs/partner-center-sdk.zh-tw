@@ -4,32 +4,32 @@ description: 您可以使用客戶識別碼來取得依客戶的產品集合。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ac244c6b6d561d93be47e232c5b3e4fdbc440707
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 2141de3cd52f4e270b6668321d7736f33b578b3c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487328"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412285"
 ---
 # <a name="get-a-list-of-products-by-customer"></a>取得產品清單（依客戶）
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 您可以使用下列方法來取得現有客戶的產品集合。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼（**客戶租使用者 id**）。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 客戶識別碼 (**customer-tenant-id**)。
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>Rest 要求
 
@@ -41,20 +41,20 @@ ms.locfileid: "74487328"
 
 #### <a name="request-uri-parameters"></a>要求 URI 參數
 
-| 名字               | 類型 | 必要 | 說明                                                                                 |
+| 名稱               | 類型 | 必要項 | 描述                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **客戶-租使用者識別碼** | GUID | 是 | 值是 GUID 格式的**客戶租使用者**識別碼，這是可讓您指定客戶的識別碼。 |
+| **客戶-租使用者識別碼** | GUID | 是 | 此值是 GUID 格式的 **customer-tenant-id**，此識別碼可讓您用來指定客戶。 |
 | **targetView** | string | 是 | 識別目錄的目標視圖。 支援的值為： <ul><li>**Azure**，其中包括所有 Azure 專案</li><li>**AzureReservations**，其中包括所有的 Azure 保留專案</li><li>**AzureReservationsVM**，其中包括所有虛擬機器（VM）保留專案</li><li>**AzureReservationsSQL**，其中包含所有 SQL 保留專案</li><li>**AzureReservationsCosmosDb**，其中包含所有 Cosmos 資料庫保留專案</li><li>**Microsoftazure.mobileengagement**，其中包含 Microsoft Azure 訂用帳戶（**ms-azr-0017p-流程 ms-azr-0145p**）和 Azure 方案的專案</li><li>**您**，其中包含所有線上服務專案，包括商用 marketplace 產品</li><li>包含所有軟體專案的**軟體**</li><li>**SoftwareSUSELinux**，其中包含所有軟體 SUSE Linux 專案</li><li>**SoftwarePerpetual**，其中包含所有永久軟體專案</li><li>**SoftwareSubscriptions**，其中包含所有軟體訂閱專案 </ul> |
 
-#### <a name="request-header"></a>要求標頭
+#### <a name="request-header"></a>要求的標頭
 
 如需詳細資訊，請參閱[標頭](headers.md)。
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
-#### <a name="request-example"></a>要求的範例
+#### <a name="request-example"></a>要求範例
 
 要求提供給特定客戶的 Azure 使用量型產品清單。 針對公用雲端中的客戶，將會傳回 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）和 Azure 方案的產品：
 
@@ -70,11 +70,11 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 
-| HTTP 狀態碼 | 錯誤碼   | 說明                     |
+| HTTP 狀態碼 | 錯誤碼   | 描述                     |
 |------------------|--------------|---------------------------------|
 | 403 | 400036 | 不允許存取要求的 targetView。 | 
 

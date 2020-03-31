@@ -4,19 +4,19 @@ description: 代表可購買商品或服務的資源。 包含用來描述產品
 ms.assetid: 80C1F9B5-35FB-4DD8-B501-03467E1D75AD
 ms.date: 04/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ef2677994f2a2af2171624d5a7c5f2ad5696fd70
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 780dad337c04627c30db4fd3c207c2fda0e3bb98
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083145"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416348"
 ---
 # <a name="products-resources"></a>產品資源
 
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 

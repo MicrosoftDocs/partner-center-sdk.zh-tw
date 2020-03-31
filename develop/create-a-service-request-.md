@@ -4,28 +4,28 @@ description: 如何建立合作夥伴中心服務要求。
 ms.assetid: 16DA9836-7052-4103-82D4-933E5EEB7E71
 ms.date: 05/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7dcac9a9938f9d197d3ece0d7b777e7efc40274b
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: e2060beb7b276e76c29e7bc92e0543aa41a703b1
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489318"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413847"
 ---
 # <a name="create-a-service-request"></a>建立服務要求
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 如何建立合作夥伴中心服務要求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 支援主題識別碼。 如果您沒有支援主題識別碼，請參閱[取得服務要求支援主題](get-service-request-support-topics--pending-.md)。
 
 ## <a name="c"></a>C\#
@@ -60,13 +60,13 @@ ServiceRequest serviceRequest = partnerOperations.ServiceRequests.Create(service
 
 | 方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 使用下列 URI 參數來識別代理程式的地區設定。
 
-| 名字             | 類型       | 必要 | 說明                                                  |
+| 名稱             | 類型       | 必要項 | 描述                                                  |
 |------------------|------------|----------|--------------------------------------------------------------|
 | **代理程式-地區設定** | **字串** | Y        | 建立服務要求的組織地區設定。 |
 
@@ -78,17 +78,17 @@ ServiceRequest serviceRequest = partnerOperations.ServiceRequests.Create(service
 
 下表描述要求主體中的必要和選擇性屬性。
 
-| 名字             | 類型                                                                        | 必要 | 說明                                                                          |
+| 名稱             | 類型                                                                        | 必要項 | 描述                                                                          |
 |------------------|-----------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
 | 標題            | string                                                                      | Y        | 服務要求標題。                                                           |
-| 說明      | string                                                                      | Y        | 描述。                                                                     |
+| 描述      | string                                                                      | Y        | 描述。                                                                     |
 | Severity         | string                                                                      | Y        | 嚴重性：「不明」、「重大」、「適中」或「最小」。                       |
 | SupportTopicId   | string                                                                      | Y        | 支援主題的識別碼。                                                         |
 | SupportTopicName | string                                                                      | N        | 支援主題的名稱。                                                       |
 | Id               | string                                                                      | N        | 服務要求的識別碼。                                                       |
 | 狀態           | string                                                                      | N        | 服務要求的狀態： [無]、[開啟]、[已關閉] 或 [\_需要注意]。 |
 | 組織     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | 建立服務要求的組織。                               |
-| PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | 服務要求的主要連絡人。                                              |
+| primaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | 服務要求的主要連絡人。                                              |
 | LastUpdatedBy    | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | 「上次更新者」連絡人，以瞭解服務要求的變更。                        |
 | ProductName      | string                                                                      | N        | 對應至服務要求的產品名稱。                     |
 | ProductId        | string                                                                      | N        | 產品的識別碼。                                                               |
@@ -97,13 +97,13 @@ ServiceRequest serviceRequest = partnerOperations.ServiceRequests.Create(service
 | LastClosedDate   | date                                                                        | N        | 上次關閉服務要求的日期。                                   |
 | FileLinks        | [FileInfo](utility-resources.md#fileinfo)資源的陣列               | N        | 與服務要求相關之檔案連結的集合。                    |
 | NewNote          | [ServiceRequestNote](service-request-resources.md#servicerequestnote)                 | N        | 附注可以加入至現有的服務要求。                                  |
-| 注意            | [ServiceRequestNotes](service-request-resources.md#servicerequestnote)的陣列       | N        | 加入至服務要求的附注集合。                                  |
+| 注意事項            | [ServiceRequestNotes](service-request-resources.md#servicerequestnote)的陣列       | N        | 加入至服務要求的附注集合。                                  |
 | CountryCode      | string                                                                      | N        | 對應至服務要求的國家/地區。                                    |
-| 屬性       | 物件                                                                      | N        | 包含 "ObjectType"： "ServiceRequest"。                                             |
+| 屬性       | object                                                                      | N        | 包含 "ObjectType"： "ServiceRequest"。                                             |
 
 下表描述要求主體中的必要屬性。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/servicerequests/en-US HTTP/1.1
@@ -149,7 +149,7 @@ Expect: 100-continue
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

@@ -4,26 +4,26 @@ description: 如何取得指定產品和 SKU 的 hdinsight 集合（依客戶國
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c761e97d0a9302c9b42947552b67464d6a0b64f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b8474506ecb928785c274566eda393ccd96620f4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487528"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415615"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>取得 SKU 的 hdinsight 清單（依國家/地區）
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 本主題描述如何針對指定的產品和 SKU，取得特定國家/地區的 hdinsight 集合。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 產品識別碼。
 - SKU 識別碼。
 - 國家/地區。
@@ -60,7 +60,7 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 ```
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -68,19 +68,19 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 | 方法  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities？ country = {國家/地區-代碼} & targetSegment = {目標-區段} HTTP/1。1     |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities？ country = {國家/地區-代碼} & targetSegment = {目標-區段} HTTP/1。1     |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑和查詢參數來取得 SKU 的 hdinsight 清單。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要項 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
-| sku-識別碼                 | 字串   | 是      | 識別 SKU 的字串。                               |
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
-| 目標-區段         | 字串   | 否       | 識別用於篩選之目標區段的字串。 |
-| reservationScope | 字串   | 否 | 查詢 Azure 保留 SKU 的 hdinsight 清單時，請指定 `reservationScope=AzurePlan` 來取得適用于 AzurePlan 的 hdinsight 清單。 排除這個參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂閱的 hdinsight 清單。  |
+| 產品識別碼             | string   | 是      | 識別產品的字串。                           |
+| sku-識別碼                 | string   | 是      | 識別 SKU 的字串。                               |
+| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
+| 目標-區段         | string   | 否       | 識別用於篩選之目標區段的字串。 |
+| reservationScope | string   | 否 | 查詢 Azure 保留 SKU 的 hdinsight 清單時，請指定 `reservationScope=AzurePlan` 來取得適用于 AzurePlan 的 hdinsight 清單。 排除這個參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂閱的 hdinsight 清單。  |
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -88,7 +88,7 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-examples"></a>要求範例
 
@@ -134,7 +134,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 這個方法會傳回下列錯誤碼：
 

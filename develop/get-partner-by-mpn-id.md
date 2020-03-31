@@ -4,20 +4,20 @@ description: 如何驗證合作夥伴的 Microsoft 合作夥伴網路識別碼�
 ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f2aa72aa00575e42ff0cb38640aeca78164f77f1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cc18ee559bd3ceafd7239ccb46e7d616d8fc5f13
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490048"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415701"
 ---
 # <a name="verify-a-partner-mpn-id"></a>驗證合作夥伴 MPN 識別碼
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "74490048"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 要驗證的合作夥伴 MPN 識別碼。 如果您省略此值，要求會抓取已登入夥伴的 MPN 設定檔。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -51,15 +51,15 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 | 方法  | 要求 URI                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/profiles/mpn？ mpnId = {mpn-ID} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/profiles/mpn？ mpnId = {mpn-ID} HTTP/1。1 |
 
 **URI 參數**
 
 提供下列查詢參數來識別合作夥伴。 如果您省略此查詢參數，要求會傳回已登入夥伴的 MPN 設定檔。
 
-| 名稱   | 類型 | 必要 | 描述                                                 |
+| 名稱   | 類型 | 必要項 | 描述                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| mpn-id | 整數  | 否       | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
+| mpn-id | int  | 否       | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
 
 **要求標頭**
 
@@ -67,7 +67,7 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 **要求本文**
 
-無。
+None。
 
 **要求範例**
 
@@ -89,7 +89,7 @@ Connection: Keep-Alive
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例（成功）**
 

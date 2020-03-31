@@ -4,20 +4,20 @@ description: 您可以針對每個貨幣類型使用發票摘要資源，以顯�
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 09/24/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d1e94104e40dc97538ac493e1da98ebed73bd709
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9123104494523d158058ef55e7d6790f201012f3
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490238"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415872"
 ---
 # <a name="get-invoice-summaries"></a>取得發票摘要
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -26,7 +26,7 @@ ms.locfileid: "74490238"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 有效的發票識別碼。
 
 ## <a name="c"></a>C\#
@@ -53,7 +53,7 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 - 專案： **PartnerSDK. FeatureSample**
 - 類別： **GetInvoiceSummaries.cs**
 
-## <a name="rest"></a>停
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -61,11 +61,11 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 
 | 方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1。1     |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1。1     |
 
 ##### <a name="uri-parameter"></a>URI 參數
 
-無。
+None。
 
 #### <a name="request-headers"></a>要求標頭
 
@@ -73,7 +73,7 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 
 #### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 #### <a name="request-example"></a>要求範例
 
@@ -92,7 +92,7 @@ Connection: Keep-Alive
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

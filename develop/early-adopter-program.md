@@ -3,20 +3,20 @@ title: 加入合作夥伴中心 API 及 SDK 早期採用者計畫
 description: 合作夥伴可以與 Microsoft 共同作業，以開發合作夥伴的特色和功能。
 ms.date: 06/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8bb07bd99e860e3b094908ab100f39f310ccf80f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 5e0a7a554efbcd519a5c06e82053e47c909a56bc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489928"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412187"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>加入合作夥伴中心 API 及 SDK 早期採用者計畫
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心

@@ -4,20 +4,20 @@ description: 您可以透過現有的 Microsoft Azure 訂用帳戶（MS-AZR-0017
 ms.assetid: 1BCDA7B8-93FC-4AAC-94E0-B15BFC95737F
 ms.date: 11/01/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 85e6325054c6a5dc257ac7a70169fa020a68345d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a3c0f64bf6bddb483a485cc4f1e1d96ed1599cb0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488128"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416300"
 ---
 # <a name="purchase-azure-reservations"></a>購買 Azure 保留
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 若要使用合作夥伴中心 API 為客戶購買 Azure 保留專案，您必須擁有現有的 Microsoft Azure （**MS ms-azr-0017p-流程 ms-azr-0145p**）訂用帳戶或 azure 方案。
@@ -38,17 +38,17 @@ ms.locfileid: "74488128"
 > | 不丹                         | 海地                             | 聖匹島                |
 > | 波奈                        | 赫德島及麥當勞群島 | 聖文森及格瑞那丁         |
 > | 布威島                  | 曼城島                       | 薩摩亞獨立國                                    |
-> | 巴西                         | Jan 馬延                         | 聖馬利諾                               |
+> | 巴西                         | 尖棉                         | 聖馬利諾                               |
 > | 英屬印度洋領土 | 澤西島                            | 聖多美普林西比                    |
 > | 英屬維爾京群島         | 吉里巴斯                          | 塞席爾                               |
 > | 布吉納法索                   | 科索沃                            | 獅子山                             |
-> | 蒲隆地                        | 寮國                              | 聖尤斯特斯                           |
+> | 蒲隆地                        | 寮國                              | 聖佑達修斯                           |
 > | 柬埔寨                       | 賴索托                           | 荷屬聖馬丁                             |
 > | 中非共和國       | 賴比瑞亞                           | 索羅門群島                          |
 > | 查德                           | 馬達加斯加                        | 索馬利亞                                  |
 > | 中國                          | 馬拉威                            | 南喬治亞與南三明治群島 |
 > | 聖誕島               | 馬爾地夫                          | 南蘇丹                              |
-> | 可可斯群島        | 馬利                              | 聖赫勒拿、阿森松、特裡斯坦達庫尼亞群島   |
+> | 可可斯群島        | 馬利                              | 聖赫勒拿、阿森松、特里斯坦達庫尼亞群島   |
 > | 葛摩                        | 馬紹爾群島                  | 蘇利南                                 |
 > | 剛果共和國                          | 馬丁尼克                        | 冷岸                                 |
 > | 剛果民主共和國 (DRC)                    | 茅利塔尼亞                        | 史瓦濟蘭                                |
@@ -68,7 +68,7 @@ ms.locfileid: "74488128"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - Active CSP Azure 訂用帳戶或 Azure 方案的訂用帳戶識別碼。
 
@@ -114,18 +114,18 @@ ms.locfileid: "74488128"
 
 1. 識別並取得您想要購買的產品和 SKU。 若要這麼做，您可以先列出產品和 Sku，或如果您已經知道產品和 SKU 的識別碼，請選取它們。
 
-    - [取得產品清單（依國家/地區）](get-a-list-of-products.md)
+    - [取得產品清單 (以國家/地區為基礎)](get-a-list-of-products.md)
     - [使用產品識別碼取得產品](get-a-product-by-id.md)
-    - [取得產品的 Sku 清單（依國家/地區）](get-a-list-of-skus-for-a-product.md)
+    - [取得產品的 SKU 清單 (以國家/地區為基礎)](get-a-list-of-skus-for-a-product.md)
     - [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
 2. 檢查 SKU 的清查。 只有以**InventoryCheck**必要條件標記的 sku 才需要此步驟。
 
-    - [檢查清查](check-inventory.md)
+    - [確認存貨](check-inventory.md)
 
 3. 取得[SKU](product-resources.md#sku)的[可用性](product-resources.md#availability)。 您將需要在放置訂單時的可用性**CatalogItemId** 。 若要取得此值，請使用下列其中一個 Api：
 
-    - [取得 SKU 的 hdinsight 清單（依國家/地區）](get-a-list-of-availabilities-for-a-sku.md)
+    - [取得 SKU 的可用性清單 (以國家/地區為基礎)](get-a-list-of-availabilities-for-a-sku.md)
     - [使用可用性識別碼取得可用性](get-an-availability-by-id.md)
 
 > [!IMPORTANT]  

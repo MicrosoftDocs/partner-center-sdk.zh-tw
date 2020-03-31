@@ -4,27 +4,27 @@ description: 如何在指定的裝置批次中，為客戶取得裝置和裝置�
 ms.assetid: 13FD2D2D-1EF3-4BE2-977D-83577DA57F51
 ms.date: 07/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c0cb3aef6817d94b0fcb4fafaa7cdfefcc6bcb1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b6e1c06ede7c240b9bd86179e35402cc956a7bd4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489768"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415611"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>取得指定之批次和客戶的裝置清單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 本主題描述如何針對指定的客戶，在指定的裝置批次中抓取裝置的集合。 每個裝置資源都包含有關裝置的詳細資料。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 - 裝置批次識別碼。
 
@@ -58,16 +58,16 @@ var devices =
 
 | 方法  | 要求 URI                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱           | 類型   | 必要 | 描述                                           |
+| 名稱           | 類型   | 必要項 | 描述                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| 客戶識別碼    | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
-| devicebatch-id | 字串 | 是      | 識別裝置批次的字串識別碼。 |
+| 客戶識別碼    | string | 是      | 識別客戶的 GUID 格式字串。 |
+| devicebatch-id | string | 是      | 識別裝置批次的字串識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -95,7 +95,7 @@ Host: api.partnercenter.microsoft.com
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

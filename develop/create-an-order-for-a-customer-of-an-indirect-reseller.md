@@ -4,26 +4,26 @@ description: 如何為間接轉銷商的客戶建立訂單。
 ms.assetid: 3B89F8CE-96A8-443F-927E-6351E24FDBFF
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 08926408e8cc6cab62a3edf5885724f943f1ccc8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 126c90e936daa50fcf84b8ec97a8f3e4db0f5321
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489538"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413912"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>為間接轉銷商的客戶建立訂單
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 如何為間接轉銷商的客戶建立訂單。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 客戶識別碼。
 - 要購買之專案的供應專案識別碼。
 - 間接轉銷商的租使用者識別碼。
@@ -83,13 +83,13 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | 方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 使用下列 path 參數來識別客戶。
 
-| 名字        | 類型   | 必要 | 說明                                           |
+| 名稱        | 類型   | 必要項 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。 |
 
@@ -99,35 +99,35 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 ### <a name="request-body"></a>要求本文
 
-#### <a name="order"></a>順序
+#### <a name="order"></a>使用
 
 下表描述要求主體中的**Order**屬性。
 
-| 名字 | 類型 | 必要 | 說明 |
+| 名稱 | 類型 | 必要項 | 描述 |
 | ---- | ---- | -------- | ----------- |
 | id | string | 否 | 成功建立訂單時所提供的訂單識別碼。 |
-| ReferenceCustomerId | string | 是 | 客戶識別碼。 |
-| billingCycle | string | 否 | 以此訂單為夥伴計費的頻率。 預設值為 &quot;每月&quot;，並會在成功建立訂單時套用。 支援的值為在[**為 billingcycletype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)中找到的成員名稱。 注意：年度帳單功能尚未正式推出。 年度計費的支援即將推出。 |
-| LineItems | 物件的陣列 | 是 | [**OrderLineItem**](#orderlineitem)資源的陣列。 |
-| CreationDate | string | 否 | 訂單的建立日期（採用日期時間格式）。 已在成功建立訂單時套用。 |
-| 屬性 | 物件 | 否 | 包含 "ObjectType"： "Order"。 |
+| referenceCustomerId | string | 是 | 客戶識別碼。 |
+| BillingCycle | string | 否 | 以此訂單為夥伴計費的頻率。 預設值為 &quot;每月&quot;，並會在成功建立訂單時套用。 支援的值為在[**為 billingcycletype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)中找到的成員名稱。 注意：年度帳單功能尚未正式推出。 年度計費的支援即將推出。 |
+| lineItems | 物件的陣列 | 是 | [**OrderLineItem**](#orderlineitem)資源的陣列。 |
+| creationDate | string | 否 | 訂單的建立日期（採用日期時間格式）。 已在成功建立訂單時套用。 |
+| 屬性 | object | 否 | 包含 "ObjectType"： "Order"。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
 下表描述要求主體中的**OrderLineItem**屬性。
 
-| 名字 | 類型 | 必要 | 說明 |
+| 名稱 | 類型 | 必要項 | 描述 |
 | ---- | ---- | -------- | ----------- |
-| LineItemNumber | int | 是 | 集合中的每個明細專案都會取得唯一的行號，從0計算到計數1。 |
+| lineItemNumber | int | 是 | 集合中的每個明細專案都會取得唯一的行號，從0計算到計數1。 |
 | offerId | string | 是 | 供應專案識別碼。 |
-| 訂閱 | string | 否 | 訂用帳戶識別碼。 |
-| ParentSubscriptionId | string | 否 | 選擇性。 附加元件供應專案中父訂用帳戶的識別碼。 僅適用于 PATCH。 |
+| subscriptionId | string | 否 | 訂用帳戶識別碼。 |
+| parentSubscriptionId | string | 否 | 選擇性。 附加元件供應專案中父訂用帳戶的識別碼。 僅適用于 PATCH。 |
 | friendlyName | string | 否 | 選擇性。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。 |
 | quantity | int | 是 | 以授權為基礎之訂用帳戶的授權數目。 |
 | partnerIdOnRecord | string | 否 | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適當的獎勵會計。 **無法提供轉售商 MPN 識別碼，並不會造成訂單失敗。不過，轉銷商不會記錄下來，因此獎勵計算可能不會包含銷售。** |
-| 屬性 | 物件 | 否 | 包含 "ObjectType"： "OrderLineItem"。 |
+| 屬性 | object | 否 | 包含 "ObjectType"： "OrderLineItem"。 |
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/c501c3c4-d776-40ef-9ecf-9cefb59442c1/orders HTTP/1.1
@@ -171,7 +171,7 @@ Expect: 100-continue
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

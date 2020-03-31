@@ -4,14 +4,14 @@ description: 建立線上 marketplace，使用 CSP 客戶店面 Builder 來銷�
 ms.assetid: 333EE80D-E49E-4E89-87FB-3F02AC48C236
 ms.date: 05/29/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bdcf0fcc79b019460dfa821ea6ce6f88e48f5c1e
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 4f823479af9c8c295ab45e9129b8aa538f45220b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80070127"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415537"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP 客戶店面 Builder 快速入門手冊
 

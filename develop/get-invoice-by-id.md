@@ -4,29 +4,29 @@ description: 使用發票識別碼抓取指定的發票。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fc79d6c534eef027c5dea9a05361d441f5c5b6cf
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4045369991f37d3ef562f9966bb1206ad60aa677
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489388"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415907"
 ---
 # <a name="get-invoice-by-id"></a>依識別碼取得發票
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 使用發票識別碼抓取指定的發票。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 有效的發票識別碼。
 
 ## <a name="c"></a>C\#
@@ -51,13 +51,13 @@ var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 
 | 方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來取得發票。
 
-| 名字           | 類型       | 必要 | 說明                                                                                        |
+| 名稱           | 類型       | 必要項 | 描述                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
 | **發票識別碼** | **字串** | 是      | 值是**發票識別碼**，可讓轉銷商篩選特定發票的結果。 |
 
@@ -67,9 +67,9 @@ var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/<invoice-id> HTTP/1.1
@@ -85,7 +85,7 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

@@ -7,14 +7,14 @@ MS-HAID:
 ms.assetid: 73C5926A-0DEB-42E5-8982-7E44A2031F0B
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ede0ba85851e4d450d4f28832cd46064d2786d2d
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: fd6f3ccee577c12af473a5c4f821d73cc625e10f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995253"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414081"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>為 Microsoft 國家雲端的合作夥伴中心註冊應用程式詳細資料
 
@@ -39,7 +39,7 @@ ms.locfileid: "74995253"
 
 1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. 選取 [新增註冊]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
+2. 選取 [**新增註冊**]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>設定 web 應用程式的 API 存取權限
 
@@ -81,7 +81,7 @@ ms.locfileid: "74995253"
 
 1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. 選取 [新增註冊]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
+2. 選取 [**新增註冊**]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>設定原生應用程式的 API 存取權限
 
@@ -94,12 +94,12 @@ ms.locfileid: "74995253"
     - **讀取所有群組**
 4. 儲存許可權。
 5. 選擇 [**新增**] [**必要許可權**]。
-6. 選擇 [選取 API]。
+6. 選擇 [**選取 API**]。
     1. 在搜尋方塊中，輸入**Microsoft 合作夥伴中心**，然後從結果清單中選取它。
-    2. 選擇 [選取]。
-7. 選擇 [選取權限]。
+    2. 選擇 [**選取**]。
+7. 選擇 [**選取許可權**]。
     1. 選取 [**存取合作夥伴中心 PPE**]。
-    2. 選擇 [選取]。
+    2. 選擇 [**選取**]。
 8. 選擇 [**完成**]。
 
 >[!IMPORTANT]

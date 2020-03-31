@@ -4,19 +4,19 @@ description: 描述與關聯性相關的資源。
 ms.assetid: F6157FE3-7C9D-4A8F-AC11-6F4007594C3D
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b1d6d41256c081f3ef5ce7b27d89498839d8f5c8
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 8050b8afa3b92007dbcad2869050b6f2a8c248f7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083025"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415472"
 ---
 # <a name="relationships-resources"></a>關聯性資源
 
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 

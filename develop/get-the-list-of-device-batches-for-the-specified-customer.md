@@ -4,21 +4,21 @@ description: 如何為指定的客戶抓取裝置批次的集合。
 ms.assetid: 46865031-E067-4FE3-9EC1-FE18F49F137A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b84300db5ee9f4f422993051397c80130370c0c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7dafb22639105321c0c13740f6404039e41ec5cd
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487138"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416603"
 ---
 # <a name="get-a-list-of-device-batches-for-the-specified-customer"></a>取得指定客戶的裝置批次清單
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 如何為指定的客戶抓取裝置批次的集合。
@@ -28,7 +28,7 @@ ms.locfileid: "74487138"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -53,7 +53,7 @@ var devicesBatches =
 
 | 方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **獲取** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches HTTP/1。1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches HTTP/1。1 |
 
  
 
@@ -61,9 +61,9 @@ var devicesBatches =
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱        | 類型   | 必要 | 描述                                           |
+| 名稱        | 類型   | 必要項 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 客戶識別碼 | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
+| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。 |
 
  
 
@@ -93,7 +93,7 @@ Host: api.partnercenter.microsoft.com
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

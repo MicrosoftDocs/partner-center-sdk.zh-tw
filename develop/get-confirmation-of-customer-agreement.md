@@ -3,20 +3,20 @@ title: 取得客戶對 Microsoft 客戶合約的接受確認
 description: 本主題說明如何確認客戶接受 Microsoft 客戶合約。
 ms.date: 09/19/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b25e48955ed8fb89934c5296492a9525154c264
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4cf76af611d05913f04d8c9268d61acf16334d76
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486588"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416013"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>取得客戶對 Microsoft 客戶合約的接受確認
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 
 **合約**資源目前僅由合作夥伴中心在*Microsoft 公用雲端*中受到支援。 此資源不適用於：
 
@@ -28,9 +28,9 @@ ms.locfileid: "74486588"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您使用合作夥伴中心 .NET SDK，則需要1.14 或更新版本。
-- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 此案例僅支援應用程式 + 使用者驗證。
-- 客戶識別碼（**客戶租使用者 id**）。
+- 如果您使用合作夥伴中心 .NET SDK，則需要 1.14 版或更新版本。
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
+- 客戶識別碼 (**customer-tenant-id**)。
 
 ## <a name="net"></a>.NET
 
@@ -71,10 +71,10 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 
 您可以搭配您的要求使用下列 URI 參數：
 
-| 名稱             | 類型 | 必要 | 描述                                                                               |
+| 名稱             | 類型 | 必要項 | 描述                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| 客戶-租使用者識別碼 | GUID | 是 | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
-| 合約類型 | 字串 | 否 | 此參數會傳回所有合約中繼資料。 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>僅包含*MicrosoftCloudAgreement*類型之協定中繼資料的**MicrosoftCloudAgreement** 。</li><li>僅包含*MicrosoftCustomerAgreement*類型之協定中繼資料的**MicrosoftCustomerAgreement** 。</li><li>傳回所有合約中繼資料的 **\*** 。 （除非您的程式碼具有處理非預期協定類型所需的邏輯，否則請不要使用 **\*** ）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。 Microsoft 可能會隨時以新的合約類型引進合約中繼資料。  |
+| customer-tenant-id | GUID | 是 | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
+| 合約類型 | string | 否 | 此參數會傳回所有合約中繼資料。 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>僅包含*MicrosoftCloudAgreement*類型之協定中繼資料的**MicrosoftCloudAgreement** 。</li><li>僅包含*MicrosoftCustomerAgreement*類型之協定中繼資料的**MicrosoftCustomerAgreement** 。</li><li>傳回所有合約中繼資料的 **\*** 。 （除非您的程式碼具有處理非預期協定類型所需的邏輯，否則請不要使用 **\*** ）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。 Microsoft 可能會隨時以新的合約類型引進合約中繼資料。  |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -82,7 +82,7 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
 ### <a name="request-example"></a>要求範例
 
@@ -100,9 +100,9 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 
 
-使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

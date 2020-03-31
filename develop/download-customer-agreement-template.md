@@ -3,14 +3,14 @@ title: 取得 Microsoft 客戶合約範本的下載連結
 description: 取得 Microsoft 客戶合約範本的下載連結。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cfce85865b41674955b7de5dcd57083a00935c0
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: a84f1d2e5d6c156cba10284a5718bdaee3c9fe93
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899935"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414155"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>取得 Microsoft 客戶合約範本的下載連結
 
@@ -28,8 +28,8 @@ ms.locfileid: "78899935"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您使用合作夥伴中心 .NET SDK，則需要1.14 或更新版本。
-- 如[合作夥伴中心驗證](./partner-center-authentication.md)中所述的認證。 此案例僅支援應用程式 + 使用者驗證。
+- 如果您使用合作夥伴中心 .NET SDK，則需要 1.14 版或更新版本。
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
 - Microsoft 客戶合約範本適用的客戶國家/地區。
 - 應在其中當地語系化 Microsoft 客戶合約範本的語言。
 
@@ -42,7 +42,7 @@ ms.locfileid: "78899935"
 
 若要取出連結以下載 Microsoft 客戶合約範本：
 
-1. 取得 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的**templateId** 。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
+1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -76,7 +76,7 @@ var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCusto
 
 若要取出連結以下載 Microsoft 客戶合約範本：
 
-1. 取得 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的**templateId** 。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
+1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
 2. 建立 REST 要求以提取[ **AgreementDocument**資源](./agreement-document-resources.md)。 如需範例，請參閱[要求語法](#request-syntax)範例。 您必須指定下列資訊：
     - Microsoft 客戶合約的**templateId** 。
     - Microsoft 客戶合約範本適用的國家/地區。
@@ -262,7 +262,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 以色列 | IL | en-us、他-IL |
 | 義大利 | IT | en-us，it-IT |
 | 牙買加 | JM | en-US |
-| Jan 馬延 | XJ | en-US |
+| 尖棉 | XJ | en-US |
 | Japan | JP | en-us、ja-jp |
 | 澤西島 | JE | en-US |
 | 約旦 | JO | en-us，ar-SA |
@@ -352,7 +352,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 塞席爾 | SC | en-US |
 | 獅子山 | SL | en-US |
 | 新加坡 | SG | en-us、zh-SG |
-| 聖尤斯特斯 | XE | en-US |
+| 聖佑達修斯 | XE | en-US |
 | 荷屬聖馬丁 | X | en-us、en-us |
 | 斯洛伐克 | SK | en-us，sk |
 | 斯洛維尼亞 | SI | en-us、sl-SI |
@@ -363,7 +363,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | 南蘇丹 | SS | en-US |
 | 西班牙 | ES | en-us、es、en-us、en-us （us） |
 | 斯里蘭卡 | LK | en-US |
-| 聖赫勒拿、阿森松、特裡斯坦達庫尼亞群島 | SH | en-US |
+| 聖赫勒拿、阿森松、特里斯坦達庫尼亞群島 | SH | en-US |
 | 蘇利南 | SR | en-US |
 | 冷岸 | SJ | en-US |
 | 瑞典 | SE | en-us、sv-SE |

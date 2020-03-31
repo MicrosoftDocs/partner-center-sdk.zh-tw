@@ -4,21 +4,21 @@ description: 如何將裝置的相關資訊清單上傳至指定客戶的現有�
 ms.assetid: 5EC2895C-1361-4EBA-9D86-7125D4FE10D3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 050915fb729b4e9cc0e8a9144254ad2313244cfc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 849f88b43737cbb61908a45b2e53213099e89871
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487818"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414475"
 ---
 # <a name="upload-a-list-of-devices-to-an-existing-batch-for-the-specified-customer"></a>將裝置清單上傳至指定客戶的現有批次
 
 
-**適用于**
+**適用於**
 
-- 合作夥伴中心
+- 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 如何將裝置的相關資訊清單上傳至指定客戶的現有批次。 這會使裝置與已建立的裝置批次產生關聯。
@@ -26,7 +26,7 @@ ms.locfileid: "74487818"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
 
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。
 - 裝置批次識別碼。
 - 提供個別裝置相關資訊的裝置資源清單。
@@ -80,7 +80,7 @@ var trackingLocation =
 
 | 方法   | 要求 URI                                                                                                            |
 |----------|------------------------------------------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1。1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1。1 |
 
  
 
@@ -88,10 +88,10 @@ var trackingLocation =
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱           | 類型   | 必要 | 描述                                           |
+| 名稱           | 類型   | 必要項 | 描述                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| 客戶識別碼    | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
-| devicebatch-id | 字串 | 是      | 識別裝置批次的字串識別碼。 |
+| 客戶識別碼    | string | 是      | 識別客戶的 GUID 格式字串。 |
+| devicebatch-id | string | 是      | 識別裝置批次的字串識別碼。 |
 
  
 
@@ -160,7 +160,7 @@ Expect: 100-continue
 
 **回應成功和錯誤碼**
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
 **回應範例**
 

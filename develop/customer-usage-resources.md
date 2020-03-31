@@ -4,14 +4,14 @@ description: 以使用量為基礎的訂用帳戶和每月使用預算（包括 
 ms.assetid: 268C7AF5-3A95-451F-8092-033A3E8126F2
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f94168e7f56e3e6c769c5a563e516046d7cc3509
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 880a53503bce2f06d14e9794bf42b85bcd30e7ff
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082885"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414154"
 ---
 # <a name="customer-usage-resources"></a>客戶使用資源
 
@@ -89,5 +89,5 @@ ms.locfileid: "80082885"
 
 | 屬性   | 類型               | 描述                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
-| 金額     | decimal             | 已配置的預算。 如果值為 null，則不會配置給此客戶的消費預算。 |
+| 數量     | decimal             | 已配置的預算。 如果值為 null，則不會配置給此客戶的消費預算。 |
 | 屬性 | ResourceAttributes | 對應至預算的中繼資料屬性。                                                |

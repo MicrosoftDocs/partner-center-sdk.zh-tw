@@ -4,19 +4,19 @@ description: 合作夥伴可以代表他們的合作夥伴提出服務要求，�
 ms.assetid: E9FBF7D8-A7E8-4DC6-B370-8339B9EE16B7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e1fab576e69242a50549efc719f98eafad1ad9de
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 8437e847d5de273b7b5c8eb870e1f0de91fc2ace
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082875"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415307"
 ---
 # <a name="service-request-resources"></a>服務要求資源
 
 
-**適用于**
+**適用於**
 
 - 夥伴中心
 - Microsoft Cloud 德國合作夥伴中心

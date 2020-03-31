@@ -4,14 +4,14 @@ description: 代表客戶或轉銷商的客戶資源。
 ms.assetid: C7EC2657-62F2-43B3-B171-2F74498D45E0
 ms.date: 01/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5afcf2a9bd673a903f7cc75072ec0c3f35cae5c5
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 458c2a3d888cadb4d45dd059a3865c8f1f43cc2e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082895"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412275"
 ---
 # <a name="customer-resources"></a>客戶資源
 
@@ -36,7 +36,7 @@ ms.locfileid: "80082895"
 | companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | 公司或組織的其他相關資訊。                                                                                    |
 | billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | 用於計費的其他資訊。                                                                                                     |
 | relationshipToPartner | string                                                           | 定義合作夥伴用於此客戶的授權方案： [無]、[轉售商]、[advisor]、[新聞訂閱] 或 [microsoft\_支援]。 |
-| allowDelegatedAccess  | boolean                                                          | 合作夥伴是否已被此客戶授與委派的系統管理員許可權。 只有在依識別碼取得客戶時，才可以使用此屬性，而不是依清單。                                                         |
+| allowDelegatedAccess  | 布林值                                                          | 合作夥伴是否已被此客戶授與委派的系統管理員許可權。 只有在依識別碼取得客戶時，才可以使用此屬性，而不是依清單。                                                         |
 | userCredentials       | [UserCredentials](user-resources.md#usercredentials) | 使用者認證。                                                                                                                        |
 | customDomains         | 字串的陣列                                                 | 客戶的自訂網域清單。                                                                                                        |
 | associatedPartnerId   | string                                                           | 與此客戶帳戶相關聯的間接轉售商。 此值只能由間接 CSP 合作夥伴設定。                              |

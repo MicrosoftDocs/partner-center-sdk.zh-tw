@@ -3,29 +3,29 @@ title: 結帳購物車
 description: 如何結帳購物車中的客戶訂單。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d5af4369e3a654d932c01a0428bbeb50a522da0e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 123ff771fad9982f6fb84484010456d38e785a74
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489408"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412901"
 ---
 # <a name="checkout-a-cart"></a>結帳購物車
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 如何結帳購物車中的客戶訂單。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如[合作夥伴中心驗證](partner-center-authentication.md)中所述的認證。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 - 客戶識別碼。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
 - 現有購物車的購物車識別碼。
 
@@ -76,13 +76,13 @@ Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 
 | 方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **發佈** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1。1     |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1。1     |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 使用下列 path 參數來識別客戶，並指定要簽出的購物車。
 
-| 名字            | 類型     | 必要 | 說明                                                            |
+| 名稱            | 類型     | 必要項 | 描述                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **客戶識別碼** | string   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
 | **購物車-識別碼**     | string   | 是      | 可識別購物車的 GUID 格式的購物車識別碼。                     |
@@ -93,9 +93,9 @@ Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 
 ### <a name="request-body"></a>要求本文
 
-無。
+None。
 
-### <a name="request-example"></a>要求的範例
+### <a name="request-example"></a>要求範例
 
 ```http
 POST /v1/customers/d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d/carts/b4c8fdea-cbe4-4d17-9576-13fcacbf9605/checkout HTTP/1.1
@@ -119,7 +119,7 @@ No-Content-Body
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，指出成功或失敗，以及其他的偵錯工具資訊。 使用網路追蹤工具來讀取此程式碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

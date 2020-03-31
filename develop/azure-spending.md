@@ -4,20 +4,20 @@ description: CSP 合作夥伴可以使用合作夥伴中心 Api 來查看和管�
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d4db9a7c8c52b33618652aa5bfaf1fb00d24c49b
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3b67120a057510ce53b43001420b3e3a2d792b0f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489118"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413194"
 ---
 # <a name="azure-spending"></a>Azure 費用
 
 適用於：
 
-- 合作夥伴中心
+- 夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
