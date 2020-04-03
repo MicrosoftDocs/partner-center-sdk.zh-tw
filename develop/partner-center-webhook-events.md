@@ -5,12 +5,12 @@ ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a1ff31e3aeed4ebc57cbab6717e724a15613ee6a
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 50e10b8d36e801e0b8e176c5e8567e77cab1ae67
+ms.sourcegitcommit: d7d67522405c5b1903bea6560e2353a8e925b0de
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416362"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80588916"
 ---
 # <a name="partner-center-webhook-events"></a>合作夥伴中心 webhook 事件
 
@@ -64,7 +64,9 @@ ms.locfileid: "80416362"
 
 ### <a name="subscription-updated-event"></a>訂閱更新事件
 
-當指定的訂用帳戶變更時，就會引發這個事件。 當透過合作夥伴中心 API 進行變更時，除了進行內部變更之外，也會產生訂用帳戶更新事件。 
+當指定的訂用帳戶變更時，就會引發這個事件。 當透過合作夥伴中心 API 進行變更時，除了進行內部變更之外，也會產生訂用帳戶更新事件。  只有在商務層級變更時才會產生此事件，例如，當授權數目已修改，且訂用帳戶的狀態變更時。 在訂用帳戶內建立資源時，不會產生此檔案。 
+
+
 
 >[!NOTE]
 >在訂用帳戶變更和觸發訂閱更新事件的時間之間，最多會有48小時的延遲。  
