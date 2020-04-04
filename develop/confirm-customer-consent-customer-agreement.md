@@ -3,14 +3,14 @@ title: 確認客戶接受 Microsoft 客戶合約
 description: 確認客戶接受 Microsoft 客戶合約。
 ms.date: 02/04/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a94a4025aefba230f1abf83bcbc681ca7d55ed8
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 8215fa2a39e269195d2b13d88561b6fbf61875e2
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899895"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412874"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>確認客戶接受 Microsoft 客戶合約
 
@@ -120,7 +120,7 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 | primaryContact | [Contact](./utility-resources.md#contact) | 客戶組織中已接受 Microsoft 客戶合約的使用者相關資訊，包括：**firstName**、**lastName**、**email** 和 **phoneNumber** (選擇性) |
 | dateAgreed     | UTC 日期時間格式的字串 |客戶接受合約的日期。 |
 | templateId     | 字串 | 客戶所接受合約類型的唯一識別碼。 您可以藉由擷取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](./get-customer-agreement-metadata.md)。 |
-| 類型           | 字串 | 客戶接受的合約類型。 如果客戶已接受 Microsoft 客戶合約，請使用 "MicrosoftCustomerAgreement"。 |
+| 型別           | 字串 | 客戶接受的合約類型。 如果客戶已接受 Microsoft 客戶合約，請使用 "MicrosoftCustomerAgreement"。 |
   
 #### <a name="request-example"></a>要求範例
 

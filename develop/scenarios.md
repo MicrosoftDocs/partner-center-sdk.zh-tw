@@ -4,14 +4,14 @@ description: 本節將說明雲端解決方案提供者計畫中的合作夥伴�
 ms.assetid: D278B9D1-D5B9-4FAD-89D8-44244715D6C9
 ms.date: 02/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a6eef30501fc3e6b4cf018bfeaf84a7a92c2caaf
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: c9192a5ed7055e280db219307cd539fcdc4be842
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899945"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415333"
 ---
 # <a name="scenarios"></a>案例
 
