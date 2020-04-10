@@ -6,12 +6,12 @@ ms.date: 04/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 780dad337c04627c30db4fd3c207c2fda0e3bb98
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 1e57514fd9782a525a1dc95009e9b5005339b886
+ms.sourcegitcommit: cd71c397f0bc8aeaefb1d9dfe8dc941c6b439004
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416348"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112647"
 ---
 # <a name="products-resources"></a>產品資源
 
@@ -34,7 +34,7 @@ ms.locfileid: "80416348"
 | title              | string                        | 產品標題。                                                       |
 | 描述        | string                        | 產品描述。                                                 |
 | productType        | [ItemType](#itemtype)         | 物件，描述此產品的類型分類。     |
-| isMicrosoftProduct | bool                          | 指出這是否為 Microswoft 產品。                          |
+| isMicrosoftProduct | bool                          | 指出這是否為 Microsoft 產品。                          |
 | publisherName      | string                        | 產品的發行者名稱（如果有的話）。                          |
 | 連結              | [ProductLinks](#productlinks) | 包含在產品內的資源連結。                         |
 
