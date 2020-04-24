@@ -5,16 +5,16 @@ ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8215fa2a39e269195d2b13d88561b6fbf61875e2
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 33a2dacc622c87feb3058931259ad7fbea7a0758
+ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412874"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82093810"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>確認客戶接受 Microsoft 客戶合約
 
-適用於：
+**適用於：**
 
 - 合作夥伴中心
 
@@ -77,7 +77,6 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 
 您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的 [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) 類別中找到完整範例。
 
-
 ## <a name="rest-request"></a>REST 要求
 
 若要確認或重新確認客戶是否接受 Microsoft 客戶合約：
@@ -107,9 +106,9 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 
 下表說明 REST 要求主體中的必要屬性。
 
-| 名稱      | 類型   | 說明                                                                                  |  
-|-----------|--------|----------------------------------------------------------------------------------------------|  
-| 合約 | 物件 | 合作夥伴提供的詳細資料，用來確認客戶是否接受 Microsoft 客戶合約。 |  
+| 名稱      | 類型   | 說明                                                                                  |
+|-----------|--------|----------------------------------------------------------------------------------------------|
+| 合約 | 物件 | 合作夥伴提供的詳細資料，用來確認客戶是否接受 Microsoft 客戶合約。 |
 
 #### <a name="agreement"></a>合約
 
@@ -121,7 +120,7 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 | dateAgreed     | UTC 日期時間格式的字串 |客戶接受合約的日期。 |
 | templateId     | 字串 | 客戶所接受合約類型的唯一識別碼。 您可以藉由擷取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](./get-customer-agreement-metadata.md)。 |
 | 型別           | 字串 | 客戶接受的合約類型。 如果客戶已接受 Microsoft 客戶合約，請使用 "MicrosoftCustomerAgreement"。 |
-  
+
 #### <a name="request-example"></a>要求範例
 
 ```http
@@ -149,7 +148,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。
 
 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
