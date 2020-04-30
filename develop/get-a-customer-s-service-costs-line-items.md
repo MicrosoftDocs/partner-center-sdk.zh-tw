@@ -1,39 +1,44 @@
 ---
-title: 取得客戶的服務成本明細專案
+title: 取得客戶的服務成本明細項目
 description: 取得指定計費期間的客戶服務成本明細專案。
 ms.assetid: 1D6364A2-51FE-44E4-96A0-444EDB3BB56A
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: df99beb15820a33204a114b68de6cd87cbba13db
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 940c02b28a7d70fcff304caaf0b1cffd0f535fd3
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415687"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154390"
 ---
-# <a name="get-a-customers-service-costs-line-items"></a>取得客戶的服務成本明細專案
+# <a name="get-a-customers-service-costs-line-items"></a>取得客戶的服務成本明細項目
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 取得指定計費期間的客戶服務成本明細專案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
-- 客戶識別碼。
-- 計費週期指標（**mostrecent**）。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+
+- 計費週期指示器（**`mostrecent`**）。
 
 ## <a name="c"></a>C\#
 
 若要取得指定客戶的服務成本摘要：
 
 1. 使用客戶識別碼呼叫[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以識別客戶。
+
 2. 使用[**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts)屬性來取得客戶服務成本集合作業的介面。
+
 3. 呼叫具有[**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod)列舉成員的[**ByBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod)方法，以傳回[**iservicecostscollection 請使用**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection)。
+
 4. 使用[**iservicecostscollection 請使用. LineItems. get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.getasync)方法來取得客戶的服務成本明細專案。
 
 ``` csharp
@@ -49,16 +54,16 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | 方法  | 要求 URI                                                                                                             |
 |---------|-------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period}/lineitems HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period}/lineitems HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑參數來識別客戶和計費期間。
 
-| 名稱           | 類型   | 必要項 | 描述                                                                                                                      |
+| 名稱           | 類型   | 必要 | 描述                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| 客戶識別碼    | guid   | 是      | 識別客戶的 GUID 格式客戶識別碼。                                                                       |
-| 計費-期間 | string | 是      | 表示計費週期的指標。 唯一支援的值為 MostRecent。 字串的大小寫並不重要。 |
+| customer-id    | guid   | 是      | 識別客戶的 GUID 格式客戶識別碼。                                                                       |
+| billing-period | 字串 | 是      | 表示計費週期的指標。 唯一支援的值為 MostRecent。 字串的大小寫並不重要。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -66,7 +71,7 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="request-body"></a>要求本文
 
-None。
+無。
 
 ### <a name="request-example"></a>要求範例
 

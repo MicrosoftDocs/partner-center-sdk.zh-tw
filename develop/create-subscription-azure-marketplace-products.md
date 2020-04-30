@@ -1,40 +1,39 @@
 ---
 title: 建立商業 marketplace 產品的訂用帳戶
 description: 開發人員可以使用合作夥伴中心 Api 來建立及管理商業 marketplace 產品的訂用帳戶。
-ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1db279b2e377ee5e24bf80709a7e84755fc2f132
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7d3c030d7e808e5bc40b985ce02dda84672a020c
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412231"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82125430"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>建立商業 marketplace 產品的訂用帳戶
 
-適用於：
+**適用於：**
 
-* 夥伴中心
+* 合作夥伴中心
 
 您可以使用合作夥伴中心 API 來建立商業市集產品的訂用帳戶。 您必須[取得市場](#get-a-list-of-offers-for-a-market)供應專案的清單、[建立並提交](#create-and-submit-an-order)商業 marketplace 訂用帳戶的訂單，然後[取得啟用連結](#get-activation-link)。
 
 您也可以[執行生命週期管理](#lifecycle-management)，並管理這些訂閱的[發票](#invoice-and-reconciliation)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [合作夥伴中心驗證認證](partner-center-authentication.md)。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-* 客戶識別碼。 如果您沒有客戶的識別碼：請登入合作夥伴中心，從 [客戶] 清單中選擇 [客戶]，選取 [**帳戶**]，然後儲存其**Microsoft 識別碼**。
+* 客戶識別碼。 如果您沒有客戶的識別碼，請依照[取得客戶清單](get-a-list-of-customers.md)中的步驟進行。 或者，登入合作夥伴中心，從客戶清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft 識別碼**。
 
-## <a name="get-a-list-of-offers-for-a-market"></a>取得市場供應專案清單
+## <a name="get-a-list-of-offers-for-a-market"></a>取得市場的供應項目清單
 
 您可以使用下列合作夥伴中心 API 模型，來查看市場的供應專案：
 
-* **[Product](product-resources.md#product)** ：可購買商品或服務的群組結構。 產品本身不是可購買專案。
-* **[SKU](product-resources.md#sku)** ：產品下的可購買庫存單位（SKU）。 這些代表產品的不同形狀。
-* **[可用性](product-resources.md#availability)** ：可供購買 SKU 的設定（例如國家/地區、貨幣或產業區段）。
+* **[Product](product-resources.md#product)**：可購買商品或服務的群組結構。 產品本身不是可購買專案。
+* **[SKU](product-resources.md#sku)**：產品下的可購買庫存單位（SKU）。 這些代表產品的不同形狀。
+* **[可用性](product-resources.md#availability)**：可供購買 SKU 的設定（例如國家/地區、貨幣或產業區段）。
 
 購買 Azure 保留區之前，請先完成下列步驟：
 
@@ -42,7 +41,7 @@ ms.locfileid: "80412231"
 
     * [取得產品清單](get-a-list-of-products.md)
     * [使用產品識別碼取得產品](get-a-product-by-id.md)
-    * [取得產品的 SKU 清單](get-a-list-of-skus-for-a-product.md)
+    * [取得產品的 Sku 清單](get-a-list-of-skus-for-a-product.md)
     * [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
     > [!NOTE]
@@ -55,12 +54,12 @@ ms.locfileid: "80412231"
 
 3. 取得 SKU 的可用性。 在下訂單時，您將需要可用性的**CatalogItemId** ，您可以透過下列 api 來取得：
 
-    * [取得 SKU 的可用性清單](get-a-list-of-availabilities-for-a-sku.md)
+    * [取得 SKU 的 hdinsight 清單](get-a-list-of-availabilities-for-a-sku.md)
     * [使用可用性識別碼取得可用性](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>建立並提交訂單
 
-若要提交您的 Azure 保留訂單，請執行下列動作：
+若要提交您的 Azure 保留訂單，請遵循下列步驟：
 
 1. [建立購物車](create-a-cart.md)，以保存您想要購買的類別目錄專案集合。 當您建立[購物車](cart-resources.md#cart)時，[購物車明細專案](cart-resources.md#cartlineitem)會自動根據可依相同[順序](order-resources.md#order)購買的內容進行分組。 （您也可以[更新購物車](update-a-cart.md)）。
 2. [查看購物車](checkout-a-cart.md)，這會導致建立[訂單](order-resources.md#order)。
@@ -74,7 +73,7 @@ ms.locfileid: "80412231"
 
 ## <a name="get-activation-link"></a>取得啟用連結
 
-合作夥伴或客戶必須啟用 Azure Markeplace 產品的訂用帳戶。 您可以[依訂單明細專案取得啟用連結](get-activation-link-by-order-line-item.md)。 您也可以[依識別碼取得訂用](get-a-subscription-by-id.md)帳戶，然後列舉其**Links**屬性來建立啟用連結。
+合作夥伴或客戶必須啟用 Azure Marketplace 產品的訂閱。 您可以[依訂單明細專案取得啟用連結](get-activation-link-by-order-line-item.md)。 您也可以[依識別碼取得訂用](get-a-subscription-by-id.md)帳戶，然後列舉其**Links**屬性來建立啟用連結。
 
 ## <a name="lifecycle-management"></a>生命週期管理
 
@@ -93,9 +92,9 @@ ms.locfileid: "80412231"
 
 您可以使用下列方法來管理客戶[發票](invoice-resources.md)（包括商用 marketplace 產品的訂閱費用）：
 
-* [取得已開立發票的商業市集取用量明細](get-invoice-billed-consumption-lineitems.md)
+* [取得發票計費的商業 marketplace 耗用量明細專案](get-invoice-billed-consumption-lineitems.md)
 * [取得發票估算連結](get-invoice-estimate-links.md)
-* [取得未開立發票的商業市集取用量明細](get-invoice-unbilled-consumption-lineitems.md)
+* [取得發票未開立帳單商用 marketplace 耗用量明細專案](get-invoice-unbilled-consumption-lineitems.md)
 * [取得發票未開立帳單對帳明細專案](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>使用整合沙箱帳戶進行測試

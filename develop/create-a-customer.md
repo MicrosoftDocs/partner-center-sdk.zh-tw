@@ -6,37 +6,39 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bf9007c4f3750b66326475e15479006c87e9f6a7
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 343b339a93d6542a6475cd2607a1da9a899d02b1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413491"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154880"
 ---
 # <a name="create-a-customer"></a>建立客戶
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-本主題說明如何建立新的客戶。
+本文說明如何建立新的客戶。
 
 > [!IMPORTANT]
 > 如果您是間接提供者，而且想要建立間接轉銷商的客戶，請參閱[建立間接轉銷](create-a-customer-for-an-indirect-reseller.md)商的客戶。
 
-身為雲端解決方案提供者（CSP）合作夥伴，當您建立客戶時，您可以代表客戶來放置訂單。 當您建立客戶時，您也會建立：
+身為雲端解決方案提供者（CSP）合作夥伴，當您建立客戶時，您可以代表客戶來放置訂單。 當您建立客戶時，也會建立：
 
 - 客戶的 Azure Active Directory （AD）租使用者物件。
+
 - 轉銷商與客戶之間的關聯性，用於委派的系統管理員許可權。
+
 - 用來以系統管理員身分登入客戶的使用者名稱和密碼。
 
 建立客戶之後，請務必儲存客戶識別碼，並 Azure AD 詳細資料，以供日後用於合作夥伴中心 SDK （例如，帳戶管理）。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 > [!IMPORTANT]
 > 若要建立客戶租使用者，您必須在建立程式期間提供有效的實體位址。 您可以遵循[驗證位址](validate-an-address.md)案例中所述的步驟來驗證位址。 如果您在沙箱環境中使用不正確位址建立客戶，就無法刪除該客戶租使用者。
@@ -46,9 +48,10 @@ ms.locfileid: "80413491"
 若要新增客戶：
 
 1. 具現化新的[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)物件。 請務必填寫[**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)和[**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)。
+
 2. 藉由呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)，將新客戶新增至您的[**iaggregatepartner.customers.byid 客戶**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合。
 
-### <a name="c-example"></a>C\# 範例
+### <a name="c-example"></a>C\#範例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -91,14 +94,15 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 若要建立新的客戶：
 
 1. 建立**CustomerBillingProfile**的新實例和**CustomerCompanyProfile**物件。 請務必填入必要欄位。
+
 2. 呼叫**iaggregatepartner.customers.byid. getCustomers （）. create** function 來建立客戶。
 
-### <a name="java-example"></a>JAVA 範例
+### <a name="java-example"></a>Java 範例
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -136,11 +140,9 @@ Customer newCustomer = partnerOperations.getCustomers().create( customerToCreate
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 若要建立客戶，請執行[**PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md)命令。
-
-### <a name="powershell-example"></a>Powershell 範例
 
 ```powershell
 New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity 'Redmond' -BillingAddressCountry 'US' -BillingAddressPostalCode '98052' -BillingAddressState 'WA' -ContactEmail 'jdoe@customer.com' -ContactFirstName 'Jane' -ContactLastName 'Doe' -Culture 'en-US' -Domain 'newcustomer.onmicrosoft.com' -Language 'en' -Name 'New Customer'
@@ -152,12 +154,14 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 | 方法   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
 - 此 API 具有等冪性（如果您多次呼叫，則不會產生不同的結果）。
+
 - 需要要求識別碼和相互關聯識別碼。
+
 - 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
@@ -166,8 +170,8 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 | 名稱                              | 類型   | 描述                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | object | 客戶的帳單設定檔資訊。 |
-| [CompanyProfile](#company-profile) | object | 客戶的公司設定檔資訊。 |
+| [BillingProfile](#billing-profile) | 物件 | 客戶的帳單設定檔資訊。 |
+| [CompanyProfile](#company-profile) | 物件 | 客戶的公司設定檔資訊。 |
 
 #### <a name="billing-profile"></a>帳單設定檔
 
@@ -175,11 +179,11 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 | 名稱             | 類型                                     | 描述                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 電子郵件            | string                                   | 客戶的電子郵件地址。                                                                                                                                                                                   |
-| culture (文化特性)          | string                                   | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
-| 語言         | string                                   | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
-| 公司\_名稱    | string                                   | 已註冊的公司/組織名稱。                                                                                                                                                                       |
-| 預設\_位址 | [地址](utility-resources.md#address) | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
+| 電子郵件            | 字串                                   | 客戶的電子郵件地址。                                                                                                                                                                                   |
+| culture          | 字串                                   | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
+| 語言         | 字串                                   | 預設語言。 支援兩個字元語言代碼（ `en`例如`fr`或）。                                                                                                                                |
+| 公司\_名稱    | 字串                                   | 已註冊的公司/組織名稱。                                                                                                                                                                       |
+| 預設\_位址 | [位址](utility-resources.md#address) | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
 
 #### <a name="company-profile"></a>公司設定檔
 
@@ -187,7 +191,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 | 名稱   | 類型   | 描述                                                  |
 |--------|--------|--------------------------------------------------------------|
-| domain | string | 客戶的功能變數名稱，例如 contoso.onmicrosoft.com。 |
+| 網域 | 字串 | 客戶的網域名稱，例如 contoso.onmicrosoft.com |
 
 ### <a name="request-example"></a>要求範例
 

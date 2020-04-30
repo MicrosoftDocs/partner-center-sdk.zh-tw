@@ -1,31 +1,33 @@
 ---
-title: 刪除客戶的使用者帳戶
+title: 為客戶刪除使用者帳戶
 description: 如何刪除客戶現有的使用者帳戶。
 ms.assetid: 12097809-A62D-4929-9F1D-08676784BA39
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 728694cc236e0257a24940ad4c3a9284e4e28b21
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 5e6814c1bcdfbd459d9a8e8c590806f18ff00eb5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415586"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154220"
 ---
-# <a name="delete-a-user-account-for-a-customer"></a>刪除客戶的使用者帳戶
+# <a name="delete-a-user-account-for-a-customer"></a>為客戶刪除使用者帳戶
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
-本主題說明如何刪除客戶現有的使用者帳戶。
+本文說明如何刪除客戶現有的使用者帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
-- 客戶識別碼（**客戶租使用者識別碼**）。 如果您沒有客戶的識別碼，請在 [合作夥伴中心] 中查詢識別碼。 從 [customers] 清單中選擇客戶，選取 [**帳戶**]，然後儲存其 Microsoft 識別碼。
-- 使用者識別碼。 如果您沒有使用者識別碼，請參閱[取得客戶的所有使用者帳戶清單](get-a-list-of-all-user-accounts-for-a-customer.md)。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+
+- 使用者 ID。 如果您沒有使用者識別碼，請參閱[取得客戶的所有使用者帳戶清單](get-a-list-of-all-user-accounts-for-a-customer.md)。
 
 ## <a name="deleting-a-user-account"></a>刪除使用者帳戶
 
@@ -38,7 +40,9 @@ ms.locfileid: "80415586"
 若要刪除現有的客戶使用者帳戶：
 
 1. 使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。
+
 2. 呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法來識別使用者。
+
 3. 呼叫[**delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete)方法來刪除使用者，並將使用者狀態設定為非作用中。
 
 ``` csharp
@@ -57,13 +61,13 @@ partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdTo
 
 | 方法     | 要求 URI                                                                                            |
 |------------|--------------------------------------------------------------------------------------------------------|
-| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1。1 |
+| 刪除     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 使用下列查詢參數來識別客戶和使用者。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                                                                               |
+| 名稱                   | 類型     | 必要 | 說明                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
 | customer-tenant-id     | GUID     | Y        | 此值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商篩選指定客戶的結果。 |
 | user-id                | GUID     | Y        | 值是屬於單一使用者帳戶的 GUID 格式**使用者識別碼**。                                          |
@@ -74,7 +78,7 @@ partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdTo
 
 ### <a name="request-body"></a>要求本文
 
-None。
+無。
 
 ### <a name="request-example"></a>要求範例
 

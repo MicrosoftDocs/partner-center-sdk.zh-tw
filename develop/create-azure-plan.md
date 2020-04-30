@@ -1,39 +1,38 @@
 ---
 title: 建立 Azure 方案
 description: 開發人員可以使用合作夥伴中心 Api，以程式設計方式購買、建立和管理 Azure 方案。
-ms.assetid: ''
 ms.date: 01/02/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e17f2c42e8f0c78d9a406e8cd0314fb08cb1683
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 2e57835aaa5c2c2e0871107094adc154617c6e4f
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413833"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82125271"
 ---
 # <a name="create-an-azure-plan"></a>建立 Azure 方案
 
-適用於：
+**適用於：**
 
-* 夥伴中心
+* 合作夥伴中心
 
 您可以使用合作夥伴中心 Api 來購買、建立和管理 Azure 方案。 此程式類似于建立 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶。 您必須[取得 Azure 方案的類別目錄專案](#get-the-catalog-item-for-azure-plan)，然後[建立並提交訂單](#create-and-submit-an-order)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [合作夥伴中心驗證認證](partner-center-authentication.md)。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-* 客戶識別碼。 如果您沒有客戶的識別碼，請依照[取得客戶清單](get-a-list-of-customers.md)或登入合作夥伴中心中的步驟，從 [客戶] 清單中選擇 [客戶]，選取 [**帳戶**]，然後儲存其**Microsoft 識別碼**。
+* 客戶識別碼。 如果您沒有客戶的識別碼，請依照[取得客戶清單](get-a-list-of-customers.md)中的步驟進行。 或者，登入合作夥伴中心，從客戶清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft 識別碼**。
 * [確認客戶接受 Microsoft 客戶合約](https://docs.microsoft.com/partner-center/confirm-customer-agreement)。
 
 ## <a name="get-the-catalog-item-for-azure-plan"></a>取得 Azure 方案的類別目錄專案
 
 您必須先取得對應的類別目錄專案，才能為客戶建立 Azure 方案。 您可以使用現有的合作夥伴中心目錄 Api 和下列資源模型來抓取類別目錄專案。
 
-* **[Product](product-resources.md#product)** ：可購買商品或服務的群組結構。 產品本身不是可購買專案。
-* **[SKU](product-resources.md#sku)** ：產品下的可購買庫存單位（SKU）。 Sku 代表產品的不同形狀。
-* **[可用性](product-resources.md#availability)** ：可供購買 SKU 的設定（例如國家/地區、貨幣或產業區段）。
+* **[Product](product-resources.md#product)**：可購買商品或服務的群組結構。 產品本身不是可購買專案。
+* **[SKU](product-resources.md#sku)**：產品下的可購買庫存單位（SKU）。 Sku 代表產品的不同形狀。
+* **[可用性](product-resources.md#availability)**：可供購買 SKU 的設定（例如國家/地區、貨幣或產業區段）。
 
 若要取得 Azure 方案的類別目錄專案，請完成下列步驟：
 
@@ -45,7 +44,7 @@ ms.locfileid: "80413833"
 
 ## <a name="create-and-submit-an-order"></a>建立並提交訂單
 
-若要提交您的 Azure 方案訂單，請執行下列動作：
+若要提交您的 Azure 方案訂單，請遵循下列步驟：
 
 1. [建立購物車](create-a-cart.md)，以保存您想要購買的類別目錄專案集合。 當您建立[購物車](cart-resources.md#cart)時，[購物車明細專案](cart-resources.md#cartlineitem)會自動根據可依相同[順序](order-resources.md#order)購買的內容進行分組。 （您也可以[更新購物車](update-a-cart.md)）。
 
@@ -75,14 +74,14 @@ ms.locfileid: "80413833"
 
 如需如何停用 Azure 使用量訂閱的詳細資訊，請參閱訂用帳戶[生命週期管理上的 AZURE API](https://docs.microsoft.com/rest/api/resources/subscriptions)。
 
-若要移除現有的 Azure 保留專案，您必須[取消保留](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)。  
+若要移除現有的 Azure 保留專案，您必須[取消保留](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)。
 暫止 Azure 方案之後，您可以重新啟用它。
 
 如需如何重新啟用 Azure 方案的詳細資訊，請參閱重新啟用已[暫停的訂用](reactivate-a-suspended-a-subscription.md)帳戶
 
 ## <a name="transition-existing-csp-offers-to-azure-plan"></a>將現有的 CSP 供應專案轉換為 Azure 方案
 
-您無法為具有 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的現有客戶建立 Azure 方案。 不過，您可以透過合作夥伴中心內的 CSP 方案新商務體驗，將[客戶從現有的 Csp azure 供應專案轉換為 azure 服務](https://docs.microsoft.com/partner-center/azure-plan-transition)。 若要轉換現有的客戶，請使用產品升級 Api 來執行下列動作：
+您無法為具有 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的現有客戶建立 Azure 方案。 不過，您可以透過合作夥伴中心內的 CSP 方案新商務體驗，將[客戶從現有的 Csp azure 供應專案轉換為 azure 服務](https://docs.microsoft.com/partner-center/azure-plan-transition)。 若要轉換現有的客戶，請使用產品升級 Api 來遵循下列步驟：
 
 * [檢查客戶是否符合轉換至 Azure 方案的資格](get-eligibility-for-product-upgrade.md)
 * [起始客戶的產品升級](create-product-upgrade-entity.md)
@@ -97,7 +96,6 @@ ms.locfileid: "80413833"
 * [取得客戶的使用摘要](get-a-customer-usage-summary.md)
 * [取得客戶的所有訂用帳戶使用記錄](get-a-customer-subscription-s-usage-records.md)
 * [取得訂用帳戶使用資料](get-a-customer-subscription-usage-summary.md)
-* [取得訂用帳戶的所有每月使用記錄](get-all-monthly-usage-records-for-a-subscription.md)
 * [依照資源取得訂用帳戶的使用資料](get-a-customer-subscription-resource-usage-records.md)
 * [依照計量取得訂用帳戶的使用資料](get-a-customer-subscription-meter-usage-records.md)
 * [取得計量的使用記錄資源](meter-usage-resources.md)
@@ -114,7 +112,7 @@ ms.locfileid: "80413833"
 
 * [取得發票的集合](get-a-collection-of-invoices.md)
 * [取得發票估算連結](get-invoice-estimate-links.md)
-* [依識別碼取得發票](get-invoice-by-id.md)
+* [依照識別碼取得發票](get-invoice-by-id.md)
 * [取得發票對帳單](get-invoice-statement.md)
 * [取得發票摘要](get-invoice-summaries.md)
 * [取得已開立發票的取用明細項目](get-invoice-billed-consumption-lineitems.md)

@@ -1,41 +1,46 @@
 ---
-title: 建立具有附加元件的購物車
+title: 使用附加元件建立購物車
 description: 如何為購物車中的客戶新增訂單和附加元件。
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 99556ccb26dfe8ce8a43e62bc4a24ea5e7760ef0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: eb5177b9263f8a21aec20fa5e4a3b4970f4525f7
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413534"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154970"
 ---
-# <a name="create-a-cart-with-add-ons"></a>建立具有附加元件的購物車
+# <a name="create-a-cart-with-add-ons"></a>使用附加元件建立購物車
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 您可以透過購物車購買附加元件。 如需目前可用來銷售之專案的詳細資訊，請參閱[雲端解決方案提供者方案中的合作夥伴優惠](https://docs.microsoft.com/partner-center/csp-offers)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
 
 ## <a name="c"></a>C\#
 
 購物車可讓您購買基底供應專案及其對應的附加元件。 請遵循下列步驟來建立購物車：
 
 1. 具現化[**購物車**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart)物件。
+
 2. 建立代表基底供應專案的[**CartLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem)物件清單，並將清單指派給購物車的[**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems)屬性。
+
 3. 在每個基底供應專案的 [購物車] 明細專案底下，將**AddOnItems**清單填入其他**CartLineItem**物件，這些物件分別代表會針對該基底供應專案購買的附加元件。
+
 4. 藉由使用[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)呼叫[**ICustomerCollection. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來識別客戶，然後從**購物車**屬性取得介面，以取得購物車作業的介面。
+
 5. 最後，呼叫[**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync)方法來建立購物車。
 
-### <a name="c-example"></a>C\# 範例
+### <a name="c-example"></a>C\#範例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -79,6 +84,7 @@ var createdCart = partnerOperations.Customers.ById(customerId).Carts.Create(cart
 請遵循下列步驟來建立可讓您針對現有的基本訂用帳戶購買附加元件的購物車：
 
 1. 建立具有新**CartLineItem**的**購物車**，其中包含**ProvisioningCoNtext**屬性中索引鍵為 "PARENTSUBSCRIPTIONID" 的訂用帳戶識別碼。
+
 2. 呼叫**Create**或**CreateAsync**方法。
 
 ```csharp
@@ -114,15 +120,15 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 | 方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1。1                        |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1。1                        |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-使用下列 path 參數來識別客戶。
+使用下列路徑參數來識別客戶。
 
-| 名稱            | 類型     | 必要項 | 描述                                                            |
+| 名稱            | 類型     | 必要 | 描述                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **客戶識別碼** | string   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -132,30 +138,30 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 下表描述要求主體中的[購物車](cart-resources.md)屬性。
 
-| 屬性              | 類型             | 必要項        | 描述 |
+| 屬性              | 類型             | 必要        | 描述 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | 否              | 成功建立購物車時所提供的購物車識別碼。                                  |
-| creationTimeStamp     | DateTime         | 否              | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。         |
-| lastModifiedTimeStamp | DateTime         | 否              | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。    |
-| expirationTimeStamp   | DateTime         | 否              | 購物車將到期的日期，以日期時間格式為限。  已在成功建立購物車時申請。            |
-| lastModifiedUser      | string           | 否              | 上次更新購物車的使用者。 已在成功建立購物車時申請。                             |
+| id                    | 字串           | 否              | 成功建立購物車時所提供的購物車識別碼。                                  |
+| creationTimeStamp     | Datetime         | 否              | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。         |
+| lastModifiedTimeStamp | Datetime         | 否              | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。    |
+| expirationTimeStamp   | Datetime         | 否              | 購物車將到期的日期，以日期時間格式為限。  已在成功建立購物車時申請。            |
+| lastModifiedUser      | 字串           | 否              | 上次更新購物車的使用者。 已在成功建立購物車時申請。                             |
 | lineItems             | 物件的陣列 | 是             | [CartLineItem](cart-resources.md#cartlineitem)資源的陣列。                                             |
 
 下表描述要求主體中的[CartLineItem](cart-resources.md#cartlineitem)屬性。
 
-| 屬性             | 類型                             | 描述                                                                                                                                           |
+| 屬性             | 類型                             | 說明                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | string                           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                                                                   |
-| catalogId            | string                           | 目錄專案識別碼。                                                                                                                          |
-| friendlyName         | string                           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。                                                                 |
+| id                   | 字串                           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                                                                   |
+| catalogId            | 字串                           | 目錄專案識別碼。                                                                                                                          |
+| friendlyName         | 字串                           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。                                                                 |
 | quantity             | int                              | 授權或實例的數目。                                                                                                                  |
-| currencyCode         | string                           | 貨幣代碼。                                                                                                                                    |
-| BillingCycle         | 物件                           | 針對目前期間所設定的計費週期類型。                                                                                                 |
-| participants         | 物件字串配對的清單      | 在購買時，記錄（MPNID）上的 PartnerId 集合。                                                                                          |
-| provisioningCoNtext  | 字典 < 字串，字串 >       | 用於布建供應專案的內容。                                                                                                             |
-| orderGroup           | string                           | 用來指出哪些專案可以放在一起的群組。                                                                                               |
+| currencyCode         | 字串                           | 貨幣代碼。                                                                                                                                    |
+| billingCycle         | Object                           | 針對目前期間所設定的計費週期類型。                                                                                                 |
+| 參與者         | 物件字串配對的清單      | 在購買時，記錄（MPNID）上的 PartnerId 集合。                                                                                          |
+| provisioningCoNtext  | 字典<字串，字串>       | 用於布建供應專案的內容。                                                                                                             |
+| orderGroup           | 字串                           | 用來指出哪些專案可以放在一起的群組。                                                                                               |
 | addonItems           | **CartLineItem**物件的清單 | 附加元件的購物車明細專案集合，將會向「父購物車」明細專案購買結果的「基本」訂用帳戶購買。 |
-| 錯誤                | 物件                           | 在購物車建立後，發生錯誤時套用。                                                                                                    |
+| error                | Object                           | 在購物車建立後，發生錯誤時套用。                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>要求範例（新的基本訂用帳戶）
 
@@ -219,7 +225,7 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 }
 ```
 
-### <a name="rest-response"></a>REST 回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，此方法會在回應本文中傳回已填入的[購物車](cart-resources.md)資源。
 

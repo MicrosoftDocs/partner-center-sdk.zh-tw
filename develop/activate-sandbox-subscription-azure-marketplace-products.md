@@ -1,71 +1,76 @@
 ---
-title: 啟用商業 marketplace 產品的沙箱訂閱
+title: 啟用商業市集產品的沙箱訂用帳戶
 description: 啟用商業 marketplace 產品的沙箱訂閱。
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e4641f5a623a1c3cf42634b409d4c2c0514cc0c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cee833f110c45e8f53a47aed3d8a8c3b1ccd6946
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412481"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154370"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>啟用商業 marketplace 產品的沙箱訂閱
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>啟用商業市集產品的沙箱訂用帳戶
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 如何從整合沙箱帳戶啟用商業 marketplace 軟體即服務（SaaS）產品的訂閱以進行計費。
 
->[!NOTE]
->您只可以從整合沙箱帳戶啟用商業 marketplace SaaS 產品的訂閱。 如果您有生產訂用帳戶，則必須造訪發行者的網站，才能完成安裝程式。 只有在安裝完成後，訂用帳戶才會開始計費。
+> [!NOTE]
+> 您只可以從整合沙箱帳戶啟用商業 marketplace SaaS 產品的訂閱。 如果您有生產訂用帳戶，則必須造訪發行者的網站，才能完成安裝程式。 只有在安裝完成後，訂用帳戶才會開始計費。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+
 - 整合沙箱合作夥伴帳戶，其客戶具有商業 marketplace SaaS 產品的有效訂閱。
+
 - 針對使用合作夥伴中心 .NET SDK 的合作夥伴，您必須使用 SDK version 1.14.0 或更高版本來存取這項功能。
 
-## <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 使用下列步驟來啟用商業 marketplace SaaS 產品的訂用帳戶：
 
 1. 對可用的訂用帳戶作業提供介面。 您必須識別客戶，並指定試用訂用帳戶的訂用帳戶識別碼。
 
-    ``` csharp
-    var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
+   ```csharp
+   var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
+   ```
 
-2. Activate the subscription using the **Activate** operation.
+2. 使用**啟用**作業來啟動訂用帳戶。
 
-    ``` csharp
-    var subscriptionActivationResult = subscriptionOperations.Activate();
-## REST request
+   ```csharp
+   var subscriptionActivationResult = subscriptionOperations.Activate();
+   ```
 
-### Request syntax
+## <a name="rest-request"></a>REST 要求
 
-| Method     | Request URI                                                                            |
+### <a name="request-syntax"></a>要求的語法
+
+| 方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/activate HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/activate HTTP/1。1 |
 
-### URI parameter
+### <a name="uri-parameter"></a>URI 參數
 
-| Name                   | Type     | Required | Description                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y | The value is a GUID-formatted customer tenant identifier (**customer-tenant-id**), which allows you to specify a customer. |
-| **subscription-id** | **guid** | Y | The value is a GUID-formatted subscription identifier (**subscription-id**), which allows you to specify a subscription. |
+| **customer-tenant-id** | **guid** | Y | 此值是 GUID 格式的客戶租使用者識別碼（**客戶租使用者 id**），可讓您指定客戶。 |
+| **訂用帳戶識別碼** | **guid** | Y | 此值是 GUID 格式的訂用帳戶識別碼（訂用帳戶**id**），可讓您指定訂用帳戶。 |
 
-### Request headers
+### <a name="request-headers"></a>要求標頭
 
-See [Partner Center REST headers](headers.md) for more information.
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### Request body
+### <a name="request-body"></a>要求本文
 
-None.
+無。
 
-### Request example
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/42b5f772-5c5c-4bce-b9d7-bdadeecca411/subscriptions/87363db7-39ab-dd25-d371-94340aaa2f97/activate HTTP/1.1

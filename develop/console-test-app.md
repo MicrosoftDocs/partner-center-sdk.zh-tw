@@ -6,23 +6,23 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 35ebb92e8e9705cbce8c629d0a862613cc2f50b6
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: a75f01a6636b20865d5f5a0e6ec59aa3f7779e00
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412854"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155030"
 ---
 # <a name="console-test-app"></a>主控台測試應用程式
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-主控台測試應用程式是在和C# JAVA 中提供，它會針對合作夥伴中心 api 支援的所有案例提供範例程式碼。 您也可以使用它來進行測試。
+主控台測試應用程式是以 c # 和 JAVA 提供，它會針對合作夥伴中心 Api 支援的所有案例提供範例程式碼。 您也可以使用它來進行測試。
 
 ## <a name="get-the-code"></a>取得程式碼
 
@@ -37,11 +37,11 @@ ms.locfileid: "80412854"
 
 在*app.config*檔案的**ScenarioSettings**下，您可以設定將自動傳遞至您執行之案例的參數。
 
-若要修改執行的案例清單，請將 IPartnerScenario\[中的程式程式碼批註 **\] mainScenarios** ，或在*Program.cs*檔案中找到的個別**Get 情節**方法中。
+若要修改執行的案例清單，請將**IPartnerScenario\[ \] mainScenarios**或在*Program.cs*檔案中找到的個別**Get 情節**方法中的程式程式碼批註。
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 [下載範例程式碼](https://go.microsoft.com/fwlink/p/?LinkId=2026887)，並視需要加以修改。
 
@@ -50,7 +50,7 @@ ms.locfileid: "80412854"
 
 在*SamplesConfiguration*檔案的**ScenarioSettings**下，您可以設定將自動傳遞至您執行之案例的參數。
 
-若要修改執行的案例清單，請將 IPartnerScenario\[中的程式程式碼批註 **\] mainScenarios** ，或在*Program. java*檔案中找到的個別**Get 案例**方法中。
+若要修改執行的案例清單，請在**\[ \] IPartnerScenario mainScenarios**或在*程式 .java*檔案中找到的個別**Get 情節**方法中，批註掉行。
 
 ## <a name="what-to-change"></a>要變更的內容
 

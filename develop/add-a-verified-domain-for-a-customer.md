@@ -5,37 +5,39 @@ ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 89ff3dd9ad8d752f559f23a886d632f60b846eac
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0db7f51c606d76c661d03d2beac6e58c029cfd80
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412596"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154440"
 ---
 # <a name="add-a-verified-domain-for-a-customer"></a>為客戶新增已驗證的網域
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 如何將已驗證的網域新增至現有客戶的核准網域清單。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 您必須是網域註冊機構的夥伴。
+
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼（**CustomerTenantId**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [**帳戶**]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
 
 ## <a name="adding-a-verified-domain"></a>新增已驗證的網域
 
-如果您是身為網域註冊機構的合作夥伴，您可以使用 verifieddomain API 將新的[網域](#domain)資源張貼到現有客戶的網域清單。 若要這麼做，請使用使用者的 CustomerTenantId 來識別客戶、指定 VerifiedDomainName 屬性的值，然後在要求中傳遞包含必要名稱、功能、AuthenticationType、狀態和 VerificationMethod 屬性的[網域](#domain)資源。 若要指定新的[網域](#domain)是同盟網域，請將[網域](#domain)資源中的 AuthenticationType 屬性設定為「同盟」，並在要求中包含[DomainFederationSettings](#domain-federation-settings)資源。 如果方法成功，回應將會包含新的已驗證網域的[網域](#domain)資源。
+如果您是身為網域註冊機構的合作夥伴，您可以使用`verifieddomain` API 將新的[網域](#domain)資源張貼到現有客戶的網域清單。 若要這麼做，請使用其 CustomerTenantId 來識別客戶。 指定 VerifiedDomainName 屬性的值。 在要求中傳遞包含必要名稱、功能、AuthenticationType、狀態和 VerificationMethod 屬性的[網域](#domain)資源。 若要指定新的[網域](#domain)是同盟網域，請將[網域](#domain)資源中的 AuthenticationType 屬性設定為`Federated`，並在要求中包含[DomainFederationSettings](#domain-federation-settings)資源。 如果方法成功，回應將會包含新的已驗證網域的[網域](#domain)資源。
 
 ### <a name="custom-verified-domains"></a>自訂驗證的網域
 
-新增自訂的已驗證網域時，未在**onmicrosoft.com**上註冊的網域，您必須將[CustomerUser. immutableId](user-resources.md#customeruser)屬性設定為您要為其新增網域之客戶的唯一識別碼值。 在驗證過程中，當網域正在進行驗證時，就需要這個唯一的識別碼。 如需客戶使用者帳戶的詳細資訊，請參閱為[客戶建立使用者帳戶](create-user-accounts-for-a-customer.md)。
+新增自訂的已驗證網域（未在**onmicrosoft.com**上註冊的網域）時，您必須將[CustomerUser. immutableId](user-resources.md#customeruser)屬性設定為您要為其新增網域之客戶的唯一識別碼值。 在驗證過程中，當網域正在進行驗證時，就需要這個唯一的識別碼。 如需客戶使用者帳戶的詳細資訊，請參閱為[客戶建立使用者帳戶](create-user-accounts-for-a-customer.md)。
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -43,13 +45,13 @@ ms.locfileid: "80412596"
 
 | 方法 | 要求 URI                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{CustomerTenantId}/verifieddomain HTTP/1。1 |
+| POST   | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{CustomerTenantId}/verifieddomain HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來指定您要為其新增已驗證網域的客戶。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CustomerTenantId | guid | Y        | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
 
@@ -61,47 +63,47 @@ ms.locfileid: "80412596"
 
 下表描述要求主體中的必要屬性。
 
-| 名稱                                                  | 類型   | 必要項                                      | 描述                                                |
+| 名稱                                                  | 類型   | 必要                                      | 描述                                                |
 |-------------------------------------------------------|--------|-----------------------------------------------|--------------------------------------------------------|
-| VerifiedDomainName                                    | string | 是                                           | 已驗證的功能變數名稱。 |
-| [網域](#domain)                                     | object | 是                                           | 包含網域資訊。 |
-| [DomainFederationSettings](#domain-federation-settings) | object | 是（如果 AuthenticationType = "同盟"）     | 網域同盟設定，以在網域是「同盟」網域而非「受控」網域時使用。 |
+| VerifiedDomainName                                    | 字串 | 是                                           | 已驗證的功能變數名稱。 |
+| [Domain](#domain)                                     | 物件 | 是                                           | 包含網域資訊。 |
+| [DomainFederationSettings](#domain-federation-settings) | 物件 | 是（如果 AuthenticationType = `Federated`）     | 網域同盟設定，以在網域為`Federated`網域而非`Managed`網域時使用。 |
 
-#### <a name="domain"></a>網域
+### <a name="domain"></a>Domain
 
 下表描述要求主體中的必要和選擇性**網域**屬性。
 
-| 名稱               | 類型                                     | 必要項 | 描述                                                                                                                                                                                                     |
+| 名稱               | 類型                                     | 必要 | 描述                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AuthenticationType                                    | string           | 是      | 定義網域是否為「受控」網域或「同盟」網域。 支援的值： Managed、同盟。|
-| 功能                                            | string           | 是      | 指定網域功能。 例如，"Email"。                  |
-| IsDefault                                             | 可為 null 的布林值 | 否       | 指出網域是否為租使用者的預設網域。 支援的值： True、False、Null。        |
-| IsInitial                                             | 可為 null 的布林值 | 否       | 指出網域是否為初始網域。 支援的值： True、False、Null。                       |
-| 名稱                                                  | string           | 是      | 網域名稱。                                                          |
-| RootDomain                                            | string           | 否       | 根域的名稱。                                              |
-| 狀態                                                | string           | 是      | 網域狀態。 例如，「已驗證」。 支援的值：未驗證、已驗證、PendingDeletion。                               |
-| VerificationMethod                                    | string           | 是      | 網域驗證方法類型。 支援的值： None、DnsRecord、Email。                                    |
+| AuthenticationType                                    | 字串           | 是      | 定義網域是否為`Managed`網域或`Federated`網域。 支援的值`Managed`： `Federated`、。|
+| 功能                                            | 字串           | 是      | 指定網域功能。 例如： `Email` 。                  |
+| IsDefault                                             | 可為 null 的布林值 | 否       | 指出網域是否為租使用者的預設網域。 支援的值`True`： `False`、 `Null`、。        |
+| IsInitial                                             | 可為 null 的布林值 | 否       | 指出網域是否為初始網域。 支援的值`True`： `False`、 `Null`、。                       |
+| 名稱                                                  | 字串           | 是      | 網域名稱。                                                          |
+| RootDomain                                            | 字串           | 否       | 根域的名稱。                                              |
+| 狀態                                                | 字串           | 是      | 網域狀態。 例如： `Verified` 。 支援的值`Unverified`： `Verified`、 `PendingDeletion`、。                               |
+| VerificationMethod                                    | 字串           | 是      | 網域驗證方法類型。 支援的值`None`： `DnsRecord`、 `Email`、。                                    |
 
-##### <a name="domain-federation-settings"></a>網域同盟設定
+### <a name="domain-federation-settings"></a>網域同盟設定
 
 下表描述要求主體中的必要和選擇性**DomainFederationSettings**屬性。
 
-| 名稱   | 類型   | 必要項 | 描述                                                  |
+| 名稱   | 類型   | 必要 | 描述                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | string           | 否      | 豐富型用戶端所使用的登入 URI。 這是合作夥伴的 STS 驗證 URL。 |
-| DefaultInteractiveAuthenticationMethod | string           | 否      | 指出當應用程式需要使用者進行互動式登入時，應使用的預設驗證方法。 |
-| FederationBrandName                    | string           | 否      | 同盟品牌名稱。        |
-| IssuerUri                              | string           | 是     | 憑證的簽發者名稱。                        |
-| LogOffUri                              | string           | 是     | 登出 URI。 這會描述同盟網域登出 URI。        |
-| MetadataExchangeUri                    | string           | 否      | URL，指定用於從豐富型用戶端應用程式進行驗證的中繼資料交換端點。 |
-| NextSigningCertificate                 | string           | 否      | ADFS V2 STS 用來簽署宣告的未來所用的憑證。 這是憑證的 base64 編碼標記法。 |
-| OpenIdConnectDiscoveryEndpoint         | string           | 否      | 同盟 IDP STS 的 OpenID Connect 探索端點。 |
-| PassiveLogOnUri                        | string           | 是     | 較舊的被動用戶端所使用的登入 URI。 這是傳送同盟登入要求的位址。 |
-| PreferredAuthenticationProtocol        | string           | 是     | 驗證 token 的格式。 例如，"WsFed"。 支援的值： WsFed、Samlp |
-| PromptLoginBehavior                    | string           | 是     | 提示登入行為類型。  例如，"TranslateToFreshPasswordAuth"。 支援的值： TranslateToFreshPasswordAuth、NativeSupport、Disabled |
-| SigningCertificate                     | string           | 是     | ADFS V2 STS 目前用來簽署宣告的憑證。 這是憑證的 base64 編碼標記法。 |
-| SigningCertificateUpdateStatus         | string           | 否      | 表示簽署憑證的更新狀態。 |
-| SigningCertificateUpdateStatus         | 可為 null 的布林值 | 否      | 指出 IDP STS 是否支援 MFA。 支援的值： True、False、Null。|
+| ActiveLogOnUri                         | 字串           | 否      | 豐富型用戶端所使用的登入 URI。 此屬性是合作夥伴的 STS 驗證 URL。 |
+| DefaultInteractiveAuthenticationMethod | 字串           | 否      | 指出當應用程式需要使用者進行互動式登入時，應使用的預設驗證方法。 |
+| FederationBrandName                    | 字串           | 否      | 同盟品牌名稱。        |
+| IssuerUri                              | 字串           | 是     | 憑證的簽發者名稱。                        |
+| LogOffUri                              | 字串           | 是     | 登出 URI。 此屬性描述同盟網域登出 URI。        |
+| MetadataExchangeUri                    | 字串           | 否      | URL，指定用於從豐富型用戶端應用程式進行驗證的中繼資料交換端點。 |
+| NextSigningCertificate                 | 字串           | 否      | ADFS V2 STS 用來簽署宣告的未來所用的憑證。 此屬性是憑證的 base64 編碼標記法。 |
+| OpenIdConnectDiscoveryEndpoint         | 字串           | 否      | 同盟 IDP STS 的 OpenID Connect 探索端點。 |
+| PassiveLogOnUri                        | 字串           | 是     | 較舊的被動用戶端所使用的登入 URI。 此屬性是用來傳送同盟登入要求的位址。 |
+| PreferredAuthenticationProtocol        | 字串           | 是     | 驗證 token 的格式。 例如： `WsFed` 。 支援的值`WsFed`：、`Samlp` |
+| PromptLoginBehavior                    | 字串           | 是     | 提示登入行為類型。  例如： `TranslateToFreshPasswordAuth` 。 支援的值`TranslateToFreshPasswordAuth`： `NativeSupport`、、`Disabled` |
+| SigningCertificate                     | 字串           | 是     | ADFS V2 STS 目前用來簽署宣告的憑證。 此屬性是憑證的 base64 編碼標記法。 |
+| SigningCertificateUpdateStatus         | 字串           | 否      | 表示簽署憑證的更新狀態。 |
+| SigningCertificateUpdateStatus         | 可為 null 的布林值 | 否      | 指出 IDP STS 是否支援 MFA。 支援的值`True`： `False`、 `Null`、。|
 
 ### <a name="request-example"></a>要求範例
 

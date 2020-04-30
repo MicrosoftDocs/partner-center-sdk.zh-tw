@@ -6,29 +6,30 @@ ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1dfd831917689f8d06dfb5b30b4d07a899f6eee0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 5d874b1d69750a08506669061573e511dd6704de
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412908"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154620"
 ---
 # <a name="check-inventory"></a>檢查清查
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 如何檢查一組特定目錄專案的清查。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+
 - 一或多個產品識別碼。 或者，也可以指定 SKU 識別碼。
-- 驗證所提供的產品/SKU 識別碼所參考的 SKU 清查所需的任何其他內容。 這些需求可能因產品/SKU 類型而異，而且可以從[SKU 的](product-resources.md#sku) **InventoryVariables**屬性來判斷。 
 
-## <a name="c"></a>C#
+- 驗證所提供的產品/SKU 識別碼所參考的 SKU 清查所需的任何其他內容。 這些需求可能因產品/SKU 類型而異，而且可以從[SKU 的](product-resources.md#sku) **InventoryVariables**屬性來判斷。
 
+## <a name="c"></a>C\#
 
 若要檢查清查，請針對每個要檢查的專案，使用[InventoryItem](product-resources.md#inventoryitem)物件來建立[InventoryCheckRequest](product-resources.md#inventorycheckrequest)物件。 然後，使用**Iaggregatepartner.customers.byid 擴充**功能存取子，將其範圍細分為**產品**，然後使用**ByCountry （）** 方法選取國家/地區。 最後，使用您的**InventoryCheckRequest**物件來呼叫**CheckInventory （）** 方法。
 
@@ -61,23 +62,23 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 | 方法   | 要求 URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory？ country = {國家/地區-代碼} HTTP/1。1                        |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/extensions/product/checkInventory？ country = {國家/地區-代碼} HTTP/1。1                        |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來檢查清查。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
+| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
 
 ### <a name="request-headers"></a>要求標頭
 
-- 如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
 
-清查要求詳細資料，由包含一或多個[InventoryItem](product-resources.md#inventoryitem)資源的[InventoryCheckRequest](product-resources.md#inventorycheckrequest)資源所組成。 
+清查要求詳細資料，由包含一或多個[InventoryItem](product-resources.md#inventoryitem)資源的[InventoryCheckRequest](product-resources.md#inventorycheckrequest)資源所組成。
 
 ### <a name="request-example"></a>要求範例
 
@@ -94,7 +95,7 @@ Content-Type: application/json
 {"TargetItems":[{"ProductId":"DZH318Z0BQ3P"}],"InventoryContext":{"customerId":"d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d","azureSubscriptionId":"3A231FBE-37FE-4410-93FD-730D3D5D4C75","armRegionName":"Europe"}}
 ```
 
-## <a name="response"></a>回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，回應主體會包含已填入限制詳細資料的[InventoryItem](product-resources.md#inventoryitem)物件集合（如果有的話）。
 
