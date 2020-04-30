@@ -1,74 +1,68 @@
 ---
-title: 合作夥伴中心 webhook
+title: 合作夥伴中心 Webhook
 description: Webhook 允許合作夥伴註冊資源變更事件。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9a470ad6e3ee049f2cea3bc71b8a26f47aba1601
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: fc0749f146aa507cab27b36120722d2f6844e4cb
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416361"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157060"
 ---
-# <a name="partner-center-webhooks"></a>合作夥伴中心 webhook
+# <a name="partner-center-webhooks"></a>合作夥伴中心 Webhook
 
+**適用于**
 
-**適用於**
-
-- 夥伴中心   
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
-- Microsoft Cloud for US Government 適用的合作夥伴中心   
+- Microsoft Cloud for US Government 適用的合作夥伴中心
 
+合作夥伴中心 Webhook Api 可讓合作夥伴註冊資源變更事件。 這些事件會以 HTTP Post 的形式傳遞給合作夥伴的已註冊 URL。 若要接收來自合作夥伴中心的事件，合作夥伴將裝載可供合作夥伴中心張貼資源變更事件的回呼。 該事件將會經過數位簽署，讓合作夥伴可以驗證它是否已從合作夥伴中心送出。
 
-合作夥伴中心 Webhook Api 可讓合作夥伴註冊資源變更事件。 這些事件會以 HTTP Post 的形式傳遞給合作夥伴的已註冊 URL。 若要接收來自合作夥伴中心的事件，合作夥伴將裝載可供合作夥伴中心張貼資源變更事件的回呼。 該事件將會經過數位簽署，讓合作夥伴可以驗證它是否已從合作夥伴中心送出。 
-
-合作夥伴可以選擇合作夥伴中心所支援的 Webhook 事件，如下所示。  
+合作夥伴可以從「合作夥伴中心」所支援的 Webhook 事件（如下列範例）中選取。
 
 - **測試事件（「測試已建立」）**
 
-    此事件可讓您透過要求測試事件並追蹤其進度，自行上線並測試您的註冊。 嘗試傳遞事件時，您將能夠看到 Microsoft 收到的失敗訊息。 這只會套用至「測試建立」事件，而超過7天的資料則會被清除。
+    此事件可讓您透過要求測試事件並追蹤其進度，自行上線並測試您的註冊。 嘗試傳遞事件時，您可以看到 Microsoft 收到的失敗訊息。 此限制只適用于「測試建立」事件。 將會清除超過7天的資料。
 
 - **訂用帳戶更新事件（「訂用帳戶更新」）**
 
-    這個事件會在訂閱變更時引發。 除了在透過合作夥伴中心 API 進行變更時，還會在發生內部變更時產生這些事件。 
-    
+    當訂閱變更時，就會引發此事件。 當透過合作夥伴中心 API 進行變更時，將會在發生內部變更時產生這些事件。
+
     >[!NOTE]
-    >在訂用帳戶變更和觸發訂閱更新事件的時間之間，最多會有48小時的延遲。 
+    >在訂用帳戶變更和觸發訂閱更新事件的時間之間，最多會有48小時的延遲。
 
 - **閾值已超過事件（"usagerecords 和 resources-thresholdExceeded"）**
 
-    這個事件會在任何客戶的 Microsoft Azure 使用量超過其使用量消費預算 (閾值) 時引發。 如需詳細資訊，請參閱[為您的客戶設定 Azure 消費預算](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)。
+    當任何客戶的 Microsoft Azure 使用量量超過其使用量支出預算（其臨界值）時，就會引發此事件。 如需詳細資訊，請參閱[為您的客戶設定 Azure 消費預算](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)。
 
 - **參考建立的事件（「已建立參考」）**
 
-    建立參考時，會引發此事件。 
+    建立參考時，會引發此事件。
 
 - **參考已更新事件（「已更新參考」）**
 
-    當參考更新時，就會引發此事件。 
+    當參考更新時，就會引發此事件。
 
 - **發票就緒事件（「發票就緒」）**
 
     當新發票準備就緒時，就會引發此事件。
 
-
-未來的 Webhook 事件將會針對在合作夥伴不會控制的系統中變更的資源加入，並會進一步進行更新，以盡可能接近「即時」事件。 來自合作夥伴的意見反應，其中的事件會將價值加入其公司，在判斷要新增的新事件時非常有用。 
+未來的 Webhook 事件將會針對在合作夥伴無法控制的系統中變更的資源加入，並會進行進一步的更新，以盡可能接近「即時」取得這些事件。 來自合作夥伴的意見反應，其中的事件會將價值加入其業務，對於判斷要新增的新事件很有用。
 
 如需合作夥伴中心所支援之 Webhook 事件的完整清單，請參閱[合作夥伴中心 Webhook 事件](partner-center-webhook-events.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。   
-
-
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
 ## <a name="receiving-events-from-partner-center"></a>從合作夥伴中心接收事件
 
-若要從合作夥伴中心接收事件，您必須公開可公開存取的端點;而且因為此端點已公開，所以您必須驗證通訊是否來自合作夥伴中心。 您收到的所有 Webhook 事件都會以連結至 Microsoft 根的憑證進行數位簽署。 也會提供用來簽署事件的憑證連結。 這可讓您更新憑證，而不必重新部署或重新設定您的服務。 合作夥伴中心會進行10次的事件傳遞。 如果嘗試10次後仍未傳遞事件，它會移到離線佇列中，而且不會在傳遞時進行進一步的嘗試。 
+若要從合作夥伴中心接收事件，您必須公開可公開存取的端點。 因為此端點已公開，所以您必須驗證通訊是否來自合作夥伴中心。 您收到的所有 Webhook 事件都會以連結至 Microsoft 根的憑證進行數位簽署。 也會提供用來簽署事件的憑證連結。 這可讓憑證更新，而不需要重新部署或重新設定您的服務。 合作夥伴中心會進行10次的事件傳遞。 如果嘗試10次後仍未傳遞事件，則會將它移到離線佇列中，而且不會在傳遞時進行進一步的嘗試。
 
 下列範例顯示從合作夥伴中心張貼的事件。
 
@@ -88,35 +82,40 @@ Content-Length: 195
     "ResourceName": "test",
     "AuditUri": null,
     "ResourceChangeUtcDate": "2017-11-16T16:19:06.3520276+00:00"
-} 
+}
 ```
 
->[!NOTE] 
+>[!NOTE]
 >Authorization 標頭具有「簽章」的配置。 這是內容的 base64 編碼簽章。
 
 ## <a name="how-to-authenticate-the-callback"></a>如何驗證回呼
 
+若要驗證從合作夥伴中心收到的回呼事件，請遵循下列步驟：
 
-若要驗證從合作夥伴中心收到的回呼事件，請執行下列動作：
+1. 確認所需的標頭存在（Authorization，x-ms-憑證-url，x-ms-signature-演算法）。
 
-1.  確認所需的標頭存在（Authorization，x-ms-憑證-url，x-ms-signature-演算法）。
-2.  下載用來簽署內容的憑證（[x-ms-憑證-url]）。
-3.  驗證憑證鏈。
-4.  驗證憑證的「組織」。
-5.  將具有 UTF8 編碼的內容讀取到緩衝區。
-6.  建立 RSA 密碼編譯提供者。
-7.  確認資料符合指定的雜湊演算法（例如 SHA256）所簽署的內容。
-8.  如果驗證成功，則處理訊息。
+2. 下載用來簽署內容的憑證 (x-ms-certificate-url)。
+
+3. 驗證憑證鏈。
+
+4. 驗證憑證的「組織」。
+
+5. 將具有 UTF8 編碼的內容讀取到緩衝區。
+
+6. 建立 RSA 密碼編譯提供者。
+
+7. 確認資料符合指定的雜湊演算法（例如 SHA256）所簽署的內容。
+
+8. 如果驗證成功，則處理訊息。
 
 > [!NOTE]
 > 根據預設，簽章權杖會在授權標頭中傳送。 如果您在註冊中將**SignatureTokenToMsSignatureHeader**設定為 true，簽章權杖將會改為以 x-ms-signature 標頭傳送。
 
 ## <a name="event-model"></a>事件模型
 
-
 下表描述合作夥伴中心事件的屬性。
 
-**屬性**
+### <a name="properties"></a>屬性
 
 | 名稱                      | 描述                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
@@ -126,8 +125,7 @@ Content-Length: 195
 | **AuditUrl**              | 選擇性。 Audit 記錄的 URI。                                                |
 | **ResourceChangeUtcDate** | 發生資源變更時的日期和時間（UTC 格式）。                  |
 
-
-**抽樣**
+### <a name="sample"></a>範例
 
 下列範例顯示合作夥伴中心事件的結構。
 
@@ -141,24 +139,21 @@ Content-Length: 195
 }
 ```
 
+## <a name="webhook-apis"></a>Webhook Api
 
-## <a name="webhook-apis"></a>Webhook Api   
+### <a name="authentication"></a>驗證
 
+所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 取得存取權杖以存取https://api.partnercenter.microsoft.com。 此權杖是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
 
-**驗證**   
-
-所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 您必須取得存取權杖才能存取 https://api.partnercenter.microsoft.com。 這是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
-
-
- 
 ### <a name="get-a-list-of-events"></a>取得事件清單
 
 傳回 Webhook Api 目前支援的事件清單。
 
-**資源 URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration/events
+### <a name="resource-url"></a>資源 URL
 
-**要求範例**   
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration/events`
+
+### <a name="request-example"></a>要求範例
 
 ```http
 GET /webhooks/v1/registration/events
@@ -168,7 +163,7 @@ accept: */*
 host: api.partnercenter.microsoft.com
 ```
 
-**回應範例**   
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200
@@ -180,21 +175,19 @@ Vary: Accept-Encoding
 MS-CorrelationId: c0bcf3a3-46e9-48fd-8e05-f674b8fd5d66
 MS-RequestId: 79419bbb-06ee-48da-8221-e09480537dfc
 X-Locale: en-US
- 
+
 [ "subscription-updated", "test-created", "usagerecords-thresholdExceeded" ]
 ```
 
-
-
-### <a name="register-to-receive-events"></a>註冊以接收事件      
+### <a name="register-to-receive-events"></a>註冊以接收事件
 
 註冊租使用者以接收指定的事件。
 
-**資源 URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration
+#### <a name="resource-url"></a>資源 URL
 
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-**要求範例**   
+### <a name="request-example"></a>要求範例
 
 ```http
 POST /webhooks/v1/registration
@@ -204,14 +197,14 @@ Accept: */*
 Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 Content-Length: 219
- 
+
 {
     "WebhookUrl": "{{YourCallbackUrl}}",
     "WebhookEvents": ["subscription-updated", "test-created"]
 }
 ```
 
-**回應範例**   
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200
@@ -221,7 +214,7 @@ Content-Type: application/json; charset=utf-8
 content-encoding: gzip
 Vary: Accept-Encoding
 MS-CorrelationId: 718f2336-8b56-4f42-93ac-54896047c59a
-MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2 
+MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 
 {
     "SubscriberId": "e82cac64-dc67-4cd3-849b-78b6127dd57d",
@@ -230,17 +223,15 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
-
-
-### <a name="view-a-registration"></a>查看註冊        
+### <a name="view-a-registration"></a>查看註冊
 
 傳回租使用者的 Webhook 事件註冊。
 
-**資源 URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration
+#### <a name="resource-url"></a>資源 URL
 
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-**要求範例**   
+### <a name="request-example"></a>要求範例
 
 ```http
 GET /webhooks/v1/registration
@@ -251,7 +242,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**回應範例**   
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200
@@ -270,17 +261,15 @@ X-Locale: en-US
 }
 ```
 
+### <a name="update-an-event-registration"></a>更新事件註冊
 
+更新現有的事件註冊。
 
-### <a name="update-an-event-registration"></a>更新事件註冊      
+#### <a name="resource-url"></a>資源 URL
 
-更新現有的事件註冊。 
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-**資源 URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration
-
-
-**要求範例**   
+### <a name="request-example"></a>要求範例
 
 ```http
 PUT /webhooks/v1/registration
@@ -290,14 +279,14 @@ Accept: */*
 Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 Content-Length: 258
- 
+
 {
     "WebhookUrl": "{{YourCallbackUrl}}",
     "WebhookEvents": ["subscription-updated", "test-created"]
 }
 ```
 
-**回應範例**   
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200
@@ -307,7 +296,7 @@ Content-Type: application/json; charset=utf-8
 content-encoding: gzip
 Vary: Accept-Encoding
 MS-CorrelationId: 718f2336-8b56-4f42-93ac-54896047c59a
-MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2 
+MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 
 {
     "SubscriberId": "e82cac64-dc67-4cd3-849b-78b6127dd57d",
@@ -316,18 +305,18 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
+### <a name="send-a-test-event-to-validate-your-registration"></a>傳送測試事件來驗證您的註冊
 
-### <a name="send-a-test-event-to-validate-your-registration"></a>傳送測試事件來驗證您的註冊   
-
-產生測試事件以驗證 Webhook 註冊。 此測試的目的是要驗證您是否可以從合作夥伴中心接收事件。 這些事件的資料會在初始事件建立後的7天內刪除。 在傳送驗證事件之前，您必須使用註冊 API 來註冊「測試建立」事件。 
+產生測試事件以驗證 Webhook 註冊。 此測試的目的是要驗證您是否可以從合作夥伴中心接收事件。 這些事件的資料會在初始事件建立後七天刪除。 在傳送驗證事件之前，您必須使用註冊 API 來註冊「測試建立」事件。
 
 >[!NOTE]
->發佈驗證事件時，每分鐘有2個要求的節流限制。 
+>發佈驗證事件時，每分鐘有2個要求的節流限制。
 
-**資源 URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents
+#### <a name="resource-url"></a>資源 URL
 
-**要求範例**   
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents`
+
+### <a name="request-example"></a>要求範例
 
 ```http
 POST /webhooks/v1/registration/validationEvents
@@ -339,7 +328,7 @@ Accept-Encoding: gzip, deflate
 Content-Length:
 ```
 
-**回應範例**   
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200
@@ -355,16 +344,15 @@ X-Locale: en-US
 { "correlationId": "04af2aea-d413-42db-824e-f328001484d1" }
 ```
 
+### <a name="verify-that-the-event-was-delivered"></a>確認已傳遞事件
 
+傳回驗證事件的目前狀態。 這種驗證有助於疑難排解事件傳遞問題。 回應會包含每次嘗試傳遞事件時所得到的結果。
 
-### <a name="verify-that-the-event-was-delivered"></a>確認已傳遞事件   
+#### <a name="resource-url"></a>資源 URL
 
-傳回驗證事件的目前狀態。 這有助於疑難排解事件傳遞問題。 回應會包含每次嘗試傳遞事件時所得到的結果。
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents/{correlationId}`
 
-**資源 URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents/{correlationId}
-
-**要求範例**   
+### <a name="request-example"></a>要求範例
 
 ```http
 GET /webhooks/v1/registration/validationEvents/04af2aea-d413-42db-824e-f328001484d1
@@ -375,7 +363,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**回應範例**     
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200
@@ -402,11 +390,9 @@ X-Locale: en-US
 }
 ```
 
-
 ## <a name="example-for-signature-validation"></a>簽章驗證的範例
 
-
-**範例回呼控制器簽章（ASP.NET）**     
+### <a name="sample-callback-controller-signature-aspnet"></a>範例回呼控制器簽章（ASP.NET）
 
 ``` csharp
 [AuthorizeSignature]
@@ -414,7 +400,8 @@ X-Locale: en-US
 public IHttpActionResult Post(PartnerResourceChangeCallBack callback)
 ```
 
-簽章**驗證**      
+### <a name="signature-validation"></a>簽章驗證
+
 下列範例示範如何將授權屬性新增至從 Webhook 事件接收回呼的控制器。
 
 ``` csharp
@@ -517,7 +504,7 @@ namespace Webhooks.Security
             var certificateUrl = GetHeaderValue(request.Headers, CertificateUrlHeader);
             var certificate = await GetCertificate(certificateUrl);
             var content = await GetContentAsync(request);
-            var alg = signatureAlgorithm.Split('-'); // e.g. RSA-SHA1
+            var alg = signatureAlgorithm.Split('-'); // for example RSA-SHA1
             var isValid = false;
 
             var logger = GetLoggerIfAvailable(request);

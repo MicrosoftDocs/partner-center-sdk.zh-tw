@@ -1,29 +1,30 @@
 ---
-title: 取得產品的 Sku 清單（依國家/地區）
+title: 取得產品的 SKU 清單 (以國家/地區為基礎)
 description: 您可以使用合作夥伴中心 Api，依國家/地區針對產品取得及篩選 Sku 集合。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9613290c34cde57008247eeee05d71e99436d959
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 18af0d68aae4d05e34c239c4dc8e473353507954
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416793"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156210"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-country"></a>取得產品的 Sku 清單（依國家/地區）
+# <a name="get-a-list-of-skus-for-a-product-by-country"></a>取得產品的 SKU 清單 (以國家/地區為基礎)
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 您可以使用合作夥伴中心 Api，取得特定產品的國家/地區所提供的 Sku 集合。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+
 - 產品識別碼。
 
 ## <a name="c"></a>C\#
@@ -31,9 +32,13 @@ ms.locfileid: "80416793"
 若要取得產品的 Sku 清單：
 
 1. 遵循依[識別碼取得產品](get-a-product-by-id.md)中的步驟，取得特定產品作業的介面。
+
 2. 從介面中選取 [ **sku** ] 屬性，以取得具有適用于 sku 之可用作業的介面。
+
 3. 呼叫**Get （）** 或**GetAsync （）** 方法，以取得產品的可用 sku 集合。
+
 4. 選擇性使用**ByReservationScope （）** 方法選取保留範圍。
+
 5. 選擇性在呼叫**Get （）** 或**GetAsync （）** 之前，請使用**ByTargetSegment （）** 方法依目標區段篩選 sku。
 
 ``` csharp
@@ -60,13 +65,16 @@ var skus = partnerOperations.Products.ByCountry(countryCode).ById(productIdForAz
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 若要取得產品的 Sku 清單：
 
 1. 遵循依[識別碼取得產品](get-a-product-by-id.md)中的步驟，取得特定產品作業的介面。
+
 2. 從介面中選取**getSkus**函式，以取得具有適用于 sku 之可用作業的介面。
+
 3. 呼叫**get （）** 函式，以取得產品的可用 sku 集合。
+
 4. 選擇性在呼叫**get （）** 函式之前，請使用**byTargetSegment （）** 函數依目標區段篩選 sku。
 
 ```java
@@ -85,11 +93,12 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 若要取得產品的 Sku 清單：
 
 1. 執行[**PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md)命令。
+
 2. 選擇性指定**區段**參數，依目標區段篩選 sku。
 
 ```powershell
@@ -103,36 +112,34 @@ Get-PartnerProductSku -ProductId $productId
 Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
-
-#### <a name="request-syntax"></a>要求的語法
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus？ country = {國家/地區-代碼} & targetSegment = {目標-區段} HTTP/1。1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus？ country = {國家/地區-代碼} &targetSegment = {目標-區段} HTTP/1。1  |
 
-##### <a name="uri-parameters"></a>URI 參數
+#### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑和查詢參數來取得產品的 Sku 清單。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | string   | 是      | 識別產品的字串。                           |
-| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
-| 目標-區段         | string   | 否       | 識別用於篩選之目標區段的字串。 |
-| reservationScope | string   | 否 | 查詢 Azure 保留產品的 Sku 清單時，請指定 `reservationScope=AzurePlan` 來取得適用于 AzurePlan 的 Sku 清單。 排除此參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Azure 保留產品的 Sku 清單。  |
+| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
+| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
+| 目標-區段         | 字串   | 否       | 識別用於篩選之目標區段的字串。 |
+| reservationScope | 字串   | 否 | 查詢 Azure 保留產品的 Sku 清單時，請指定`reservationScope=AzurePlan`以取得適用于 AzurePlan 的 sku 清單。 排除此參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Azure 保留產品的 Sku 清單。  |
 
-#### <a name="request-headers"></a>要求標頭
+### <a name="request-headers"></a>要求標頭
 
-如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>要求本文
 
-None。
+無。
 
-#### <a name="request-examples"></a>要求範例
+### <a name="request-examples"></a>要求範例
 
 取得給定產品的 Sku 清單：
 
@@ -164,11 +171,11 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-### <a name="rest-response"></a>REST 回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，回應主體會包含[SKU](product-resources.md#sku)資源的集合。
 
-#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
@@ -179,7 +186,7 @@ MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 | 403                  | 400030       | 不允許存取要求的 targetSegment。                                                     |
 | 404                  | 400013       | 找不到父產品。                                                                         |
 
-#### <a name="response-example"></a>回應範例
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK

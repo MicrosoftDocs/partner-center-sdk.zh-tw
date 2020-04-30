@@ -5,27 +5,28 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e197cd9e1d756c0a5c9a826d0156266735261290
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: 0a76d30ca66c8d056341077bd85b7a36b169d9d9
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220724"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157080"
 ---
 # <a name="reject-a-transfer"></a>拒絕傳輸
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+
 - 現有傳輸的傳輸識別碼。
 
 ## <a name="rest-request"></a>REST 要求
@@ -34,16 +35,16 @@ ms.locfileid: "81220724"
 
 | 方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id} HTTP/1。1                    |
+| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id} HTTP/1。1                    |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列 path 參數來識別客戶，並指定要接受的傳輸。
 
-| 名稱            | 類型     | 必要項 | 描述                                                            |
+| 名稱            | 類型     | 必要 | 描述                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **客戶識別碼** | string   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
-| **轉移-識別碼** | string   | 是      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
+| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **轉移-識別碼** | 字串   | 是      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -53,10 +54,10 @@ ms.locfileid: "81220724"
 
 下表描述要求主體中的[TransferEntity](transfer-entity-resources.md)屬性。
 
-| 屬性              | 類型          | 必要項  | 描述                                                                                |
+| 屬性              | 類型          | 必要  | 描述                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | string        | 否    | 成功建立 transferEntity 時所提供的 transferEntity 識別碼。                               |
-| status                | string        | 否    | TransferEntity 的狀態。 若要拒絕傳輸，此值會設為「拒絕」|
+| id                    | 字串        | 否    | 成功建立 transferEntity 時所提供的 transferEntity 識別碼。                               |
+| status                | 字串        | 否    | TransferEntity 的狀態。 若要拒絕傳輸，此值會設為「拒絕」|
 
 ### <a name="request-example"></a>要求範例
 
@@ -114,7 +115,7 @@ Date: Fri, 27 Mar 2020 17:50:33 GMT
       "quantity": 20,
       "partnerIdOnRecord": "5139005",
       "addonItems": [
-        
+
       ]
     }
   ],
@@ -123,7 +124,7 @@ Date: Fri, 27 Mar 2020 17:50:33 GMT
       "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/ac4a9d22-ba07-444e-890f-cfe084eed498",
       "method": "GET",
       "headers": [
-        
+
       ]
     }
   },

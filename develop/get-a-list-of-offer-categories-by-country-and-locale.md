@@ -1,30 +1,30 @@
 ---
-title: 依市場取得供應專案類別的清單
+title: 依照市場取得供應項目類別的清單
 description: 如何取得集合，其中包含指定國家/地區和地區設定中的所有供應專案類別。
 ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e04fb68aa3e75ddd0171386b3f9eab7064e7d2ab
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0cb3d64444558b301fb1f5991f8d5e78c58c53b2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416790"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156870"
 ---
-# <a name="get-a-list-of-offer-categories-by-market"></a>依市場取得供應專案類別的清單
+# <a name="get-a-list-of-offer-categories-by-market"></a>依照市場取得供應項目類別的清單
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-本主題描述如何取得集合，其中包含指定國家/地區和地區設定中的所有供應專案類別。
+本文說明如何取得集合，其中包含指定國家/地區和地區設定中的所有供應專案類別。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -32,7 +32,8 @@ ms.locfileid: "80416790"
 
 若要取得指定國家/地區和地區設定中的供應專案類別清單：
 
-1. 使用您的[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)集合，在指定的內容上呼叫[**With （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with)方法。
+1. 使用您的[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)集合，在指定的內容上呼叫[**With （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with)方法。
+
 2. 檢查所產生之物件的[**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories)屬性。
 
 ``` csharp
@@ -53,25 +54,25 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 | 方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offercategories 嗎？國家/地區 = {country-ID} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories 嗎？國家/地區 = {country-ID} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 下表列出取得供應專案分類所需的查詢參數。
 
-| 名稱           | 類型       | 必要項 | 描述            |
+| 名稱           | 類型       | 必要 | 描述            |
 |----------------|------------|----------|------------------------|
-| **國家/地區識別碼** | **字串** | Y        | 國家/地區識別碼。 |
+| **country-id** | **string** | Y        | 國家/地區識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
 需要格式化為字串的**地區設定識別碼**。
 
-如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
 
-None。
+無。
 
 ### <a name="request-example"></a>要求範例
 

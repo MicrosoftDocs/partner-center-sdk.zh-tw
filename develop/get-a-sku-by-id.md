@@ -1,82 +1,75 @@
 ---
-title: 依識別碼取得 SKU
+title: 識別碼取得 SKU
 description: 使用指定的 SKU 識別碼，為指定的產品取得 SKU。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 33c8eb16c1327c8a92e48621d3f793c78aceaa19
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f24b0881f1e09986e68547321d095c01d094faf2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415652"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156930"
 ---
-# <a name="get-a-sku-by-id"></a>依識別碼取得 SKU
+# <a name="get-a-sku-by-id"></a>識別碼取得 SKU
 
+**適用于**
 
-**適用於**
-
-- 夥伴中心
+- 合作夥伴中心
 
 使用指定的 SKU 識別碼，為指定的產品取得 SKU。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
-
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 產品識別碼。 
-- SKU 識別碼。 
 
+- 產品識別碼。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+- SKU 識別碼。
 
+## <a name="c"></a>C\#
 
 若要取得特定 SKU 的詳細資料，請先遵循[依識別碼取得產品](get-a-product-by-id.md)中的步驟來取得特定產品作業的介面。 從產生的介面中選取 [ **sku** ] 屬性，以取得具有適用于 sku 之可用作業的介面。 將 SKU 識別碼傳遞給**ById （）** 方法，並呼叫**Get （）** 或**GETASYNC （）** 以取得 SKU 詳細資料。
 
 ``` csharp
 IAggregatePartner partnerOperations;
 string countryCode;
-string productId; 
+string productId;
 string skuId;
 
 // Get the SKU details.
 var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}？ country = {國家/地區-代碼} HTTP/1。1   |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}？ country = {國家/地區-代碼} HTTP/1。1   |
 
- 
-
-**URI 參數**
+### <a name="uri-parameter"></a>URI 參數
 
 使用下列路徑和查詢參數，以使用指定的 SKU 識別碼來取得指定產品的 SKU。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | string   | 是      | 識別產品的字串。                           |
-| sku-識別碼                 | string   | 是      | 識別 SKU 的字串。                               |
-| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
+| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
+| sku-識別碼                 | 字串   | 是      | 識別 SKU 的字串。                               |
+| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
 
- 
+### <a name="request-headers"></a>要求標頭
 
-**要求標頭**
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-- 如需詳細資訊，請參閱[標頭](headers.md)。
+### <a name="request-body"></a>要求本文
 
-**要求本文**
+無。
 
-None。
-
-**要求範例**
+### <a name="request-example"></a>要求範例
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3V/skus/00G1?country=US HTTP/1.1
@@ -90,12 +83,11 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
-
+## <a name="rest-response"></a>REST 回應
 
 如果成功，回應主體會包含[SKU](product-resources.md#sku)資源。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
@@ -106,8 +98,7 @@ Host: api.partnercenter.microsoft.com
 | 404                  | 400013       | 找不到產品。                                                                                    |
 | 404                  | 400018       | 找不到 Sku。                                                                                        |
 
-
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK
@@ -169,4 +160,3 @@ Content-Length: 1108
     }
 }
 ```
-

@@ -1,37 +1,35 @@
 ---
-title: 取得服務要求支援主題
+title: 取得服務要求支援主題的清單
 description: 取得專案的集合，代表服務要求的有效主題。
 ms.assetid: 50A61342-70C4-49F5-BEA2-2754338CF5A1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b816ad4e7c89aaa2a60514cc3b2409bf256ca8a
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cccaa14c450e9c73b65172c85e5a09058c9fdef2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416678"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157250"
 ---
-# <a name="get-service-request-support-topics"></a>取得服務要求支援主題
+# <a name="get-service-request-support-topics"></a>取得服務要求支援主題的清單
 
-**適用於**
+**適用于**
 
-- 夥伴中心
+- 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 取得專案的集合，代表服務要求的有效主題。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
+## <a name="c"></a>C\#
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
-
-若要取得服務要求主題的集合，請使用您的[**ipartneroperations.profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)集合來取出產生之物件的[**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.servicerequests)屬性，後面接著[**SupportTopics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection)屬性和[**get （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.get)或[**GetAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.getasync)方法。
+若要取得服務要求主題的集合，請使用您的[**ipartneroperations.profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)集合來取出產生之物件的[**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.servicerequests)屬性，後面接著[**SupportTopics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection)屬性和[**get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.getasync)方法。
 
 ``` csharp
 // IPartner partnerOperations;
@@ -39,26 +37,23 @@ ms.locfileid: "80416678"
 ResourceCollection<SupportTopic> supportTopicsCollection = partnerOperations.ServiceRequests.SupportTopics.Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                           |
 |---------|---------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/supporttopics HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/supporttopics HTTP/1。1 |
 
- 
+### <a name="request-headers"></a>要求標頭
 
-**要求標頭**
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-- 如需詳細資訊，請參閱[標頭](headers.md)。
+### <a name="request-body"></a>要求本文
 
-**要求本文**
+無。
 
-None。
-
-**要求範例**
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/servicerequests/supporttopics HTTP/1.1
@@ -69,16 +64,15 @@ MS-CorrelationId: f447b215-f9bc-48da-a05a-3b5322d86a9c
 X-Locale: en-US
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
-
+## <a name="rest-response"></a>REST 回應
 
 如果成功，這個方法會傳回支援要求的有效主題集合。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK

@@ -6,28 +6,28 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e4b7b78f51351e40851a743b45d2049b7921126a
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8f1115385ad020f8a7c20810765842e19dd53cd1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416735"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156880"
 ---
 # <a name="get-a-list-of-customers"></a>取得客戶清單
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-本主題描述如何取得代表合作夥伴所有客戶的資源集合。
+本文說明如何取得代表合作夥伴所有客戶的資源集合。
 
 > [!TIP]
 > 您也可以在合作夥伴中心儀表板中執行此操作。 在主頁面的 [**客戶管理**] 底下，選取 [ **View Customers**]。 或者，在提要欄位上選取 [**客戶**]。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -36,7 +36,8 @@ ms.locfileid: "80416735"
 若要取得所有客戶的清單：
 
 1. 使用[**iaggregatepartner.customers.byid. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合來建立**ipartner.getinvoices**物件。
-2. 使用[**Query （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)或[**QueryAsync （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)方法來取出客戶清單。 （如需有關建立查詢的指示，請參閱[**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)類別）。
+
+2. 使用[**Query （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)或[**QueryAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)方法來取出客戶清單。 （如需有關建立查詢的指示，請參閱[**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)類別）。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -57,11 +58,12 @@ var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(c
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 若要取得所有客戶的清單：
 
 1. 使用 [**Iaggregatepartner.customers.byid getCustomers**] 函數來取得客戶作業的參考。
+
 2. 使用**query （）** 函數來抓取客戶清單。
 
 ```java
@@ -88,7 +90,7 @@ while (customersEnumerator.hasValue())
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 執行不含參數的[**PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md)命令，以取得完整的客戶清單。
 
@@ -102,23 +104,23 @@ Get-PartnerCustomer
 
 | 方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers？ size = {SIZE} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers？ size = {SIZE} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來取得客戶的清單。
 
-| 名稱     | 類型    | 必要項 | 描述                                        |
+| 名稱     | 類型    | 必要 | 描述                                        |
 |----------|---------|----------|----------------------------------------------------|
 | **size** | **int** | Y        | 要一次顯示的結果數目。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
 
-None。
+無。
 
 ### <a name="request-example"></a>要求範例
 

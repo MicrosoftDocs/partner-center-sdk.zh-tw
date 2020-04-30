@@ -6,33 +6,31 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 502b86fb4b9544f852e94b9f1eb54294bd222341
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 98314143aec247e31d681e8d202e79f4aeeed9f5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416110"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156640"
 ---
 # <a name="get-a-customers-subscriptions"></a>取得客戶的訂用帳戶
 
+**適用于**
 
-**適用於**
-
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 如何取得客戶訂用帳戶的集合。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
-
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
 
+## <a name="c"></a>C\#
 
 若要取得客戶的所有訂用帳戶清單，請先使用[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 然後使用 [[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] 屬性來抓取訂用帳戶集合作業的介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)方法，以取出客戶的訂用帳戶集合。
 
@@ -45,36 +43,31 @@ var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscri
 
 **範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetSubscriptions.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
-
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1。1 |
 
- 
-
-**URI 參數**
+### <a name="uri-parameter"></a>URI 參數
 
 下表列出取得所有訂閱所需的查詢參數。
 
-| 名稱               | 類型   | 必要項 | 描述                                           |
+| 名稱               | 類型   | 必要 | 說明                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | string | 是      | 識別客戶的 GUID 格式字串。 |
+| customer-tenant-id | 字串 | 是      | 用來識別客戶的 GUID 格式字串。 |
 
- 
+### <a name="request-headers"></a>要求標頭
 
-**要求標頭**
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
+### <a name="request-body"></a>要求本文
 
-**要求本文**
+無。
 
-None。
-
-**要求範例**
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions HTTP/1.1
@@ -85,16 +78,15 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
-
+## <a name="rest-response"></a>REST 回應
 
 如果成功，這個方法會傳迴響應主體中的[訂](subscription-resources.md)用帳戶資源集合。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK
@@ -107,7 +99,7 @@ Date: Wed, 25 Nov 2015 05:43:06 GMT
 {
     "totalCount": 37,
     "items": [{
-        "id": "83ef9d05-4169-4ef9-9657-0e86b1eab1de", 
+        "id": "83ef9d05-4169-4ef9-9657-0e86b1eab1de",
         "entitlementId": "a356ac8c-e310-44f4-bf85-C7f29044af99",
         "friendlyName": "nickname",
         "quantity": 1,
@@ -142,11 +134,3 @@ Date: Wed, 25 Nov 2015 05:43:06 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-
