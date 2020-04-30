@@ -6,32 +6,29 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ec8023248f132d1a0cf0f40e784a243f7297a9c9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 278f445a2e4072eecf6e1f91a5e2f9f2fd1d7c02
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412367"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157310"
 ---
 # <a name="get-partner-licenses-deployment-information"></a>取得合作夥伴授權部署資訊
 
-**適用於**
+**適用于**
 
-- 夥伴中心
+- 合作夥伴中心
 
 如何取得匯總的合作夥伴授權部署資訊，以包含所有客戶。
 
 > [!NOTE]
 > 此案例是透過[取得授權部署資訊](get-licenses-deployment-information.md)來取代。
 
-
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
-
+## <a name="prerequisites"></a>Prerequisites
 
 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 若要在授權部署上取得匯總資料，請先從[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.analytics)屬性取得合作夥伴層級分析集合作業的介面。 然後從 [[**授權**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses)] 屬性，將介面抓取到夥伴層級授權分析集合。 最後，呼叫[**部署. get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)方法以取得授權部署的匯總資料。 如果方法成功，您會取得[**PartnerLicensesDeploymentInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesdeploymentinsights)物件的集合。
 
@@ -41,26 +38,23 @@ ms.locfileid: "80412367"
 var partnerLicensesDeploymentAnalytics = partnerOperations.Analytics.Licenses.Deployment.Get();
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
-
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                           |
 |---------|---------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/licenses/deployment HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/licenses/deployment HTTP/1。1 |
 
- 
+### <a name="request-headers"></a>要求標頭
 
-**要求標頭**
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
+### <a name="request-body"></a>要求本文
 
-**要求本文**
+無。
 
-None。
-
-**要求範例**
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/analytics/licenses/deployment HTTP/1.1
@@ -72,15 +66,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，回應本文會包含[PartnerLicensesDeploymentInsights](analytics-resources.md#partnerlicensesdeploymentinsights)資源的集合，以提供已部署之授權的相關資訊。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK

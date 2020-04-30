@@ -6,27 +6,25 @@ ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e84ce1f55eedd94519582fc57ce75eed2fddee0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e452681406a717ef618808b4b699cda5f6684931
+ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416411"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559037"
 ---
 # <a name="partner-center-rest-resources"></a>合作夥伴中心 REST 資源
 
+**適用于**
 
-**適用於**
-
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 本節提供使用合作夥伴中心 REST API 建立要求和剖析回應所需之 JSON 元素的定義。 如需如何使用這些元素的詳細資訊，包括範例程式碼，請參閱[案例](scenarios.md)一節和[合作夥伴中心範例](partner-center-samples.md)一節。
 
-## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a>本節中的 <span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>
-
+## <a name="in-this-section"></a>本節內容
 
 <table>
 <colgroup>
@@ -109,11 +107,11 @@ ms.locfileid: "80416411"
 <tr class="even">
 <td><a href="entitlement-resources.md">權利</a></td>
 <td><ul>
-<li>變化</li>
-<li>referenceOrder</li>
-<li>entitlementType</li>
+<li>Entitlement</li>
+<li>ReferenceOrder</li>
+<li>EntitlementType</li>
 <li>構件</li>
-<li>artifactType</li>
+<li>ArtifactType</li>
 <li>VirtualMachineReservedInstanceArtifact</li>
 <li>VirtualMachineReservedInstanceArtifactDetails</li>
 <li>VirtualMachineReservation</li>
@@ -122,7 +120,7 @@ ms.locfileid: "80416411"
 <tr class="odd">
 <td><a href="invoice-resources.md">發票</a></td>
 <td><ul>
-<li>發票</li>
+<li>Invoice</li>
 <li>InvoiceDetail</li>
 <li>InvoiceLineItem</li>
 <li>InvoiceSummary</li>
@@ -164,7 +162,7 @@ ms.locfileid: "80416411"
 <tr class="odd">
 <td><a href="order-resources.md">訂單</a></td>
 <td><ul>
-<li>使用</li>
+<li>單</li>
 <li>OrderLineItem</li>
 <li>OrderLinks</li>
 <li>OrderLineItemLinks</li>
@@ -174,7 +172,7 @@ ms.locfileid: "80416411"
 <tr class="even">
 <td><a href="profile-resources.md">設定檔</a></td>
 <td><ul>
-<li>billingProfile</li>
+<li>BillingProfile</li>
 <li>LegalBusinessProfile</li>
 <li>MpnProfile</li>
 <li>OrganizationProfile</li>
@@ -184,15 +182,15 @@ ms.locfileid: "80416411"
 <tr class="odd">
 <td><a href="product-resources.md">產品</a></td>
 <td><ul>
-<li>產品</li>
+<li>Products</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
-<li>Sku</li>
+<li>SKU</li>
 <li>可用性</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
 <li>InventoryRestriction</li>
-<li>BillingCycleType</li>
+<li>為 billingcycletype</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -203,7 +201,7 @@ ms.locfileid: "80416411"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="service-costs-resources.md">ServiceCosts</a></td>
+<td><a href="self-serve-policy-resources.md">SelfServePolicy</a></td>
 <td><ul>
 <li>ServiceCostsSummary</li>
 <li>ServiceCostsLineItem</li>
@@ -211,6 +209,14 @@ ms.locfileid: "80416411"
 </ul></td>
 </tr>
 <tr class="even">
+<td><a href="service-costs-resources.md">ServiceCosts</a></td>
+<td><ul>
+<li>ServiceCostsSummary</li>
+<li>ServiceCostsLineItem</li>
+<li>ServiceCostsSummaryLinks</li>
+</ul></td>
+</tr>
+<tr class="odd">
 <td><a href="service-request-resources.md">ServiceRequest</a></td>
 <td><ul>
 <li>ServiceRequest</li>
@@ -220,10 +226,10 @@ ms.locfileid: "80416411"
 <li>SupportTopic</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="subscription-resources.md">訂閱帳戶</a></td>
 <td><ul>
-<li>訂閱</li>
+<li>訂用帳戶</li>
 <li>SubscriptionLinks</li>
 <li>SubscriptionProvisioningStatus</li>
 <li>SubscriptionRegistrationStatus</li>
@@ -231,7 +237,7 @@ ms.locfileid: "80416411"
 <li>RegisterSubscription</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="subscription-usage-resources.md">訂用帳戶使用方式</a></td>
 <td><ul>
 <li>SubscriptionDailyUsageRecord <em>（已過時）</em></li>
@@ -239,7 +245,7 @@ ms.locfileid: "80416411"
 <li>SubscriptionUsageSummary</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="upgrade-resources.md">升級</a></td>
 <td><ul>
 <li>升級</li>
@@ -248,24 +254,24 @@ ms.locfileid: "80416411"
 <li>UserLicenseError</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="user-resources.md">使用者</a></td>
 <td><ul>
-<li>使用者</li>
+<li>User</li>
 <li>CustomerUser</li>
-<li>userCredentials</li>
+<li>UserCredentials</li>
 <li>UserMember</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="utility-resources.md">公用程式資源</a></td>
 <td><ul>
-<li>地址</li>
+<li>位址</li>
 <li>連絡人</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
 <li>連結</li>
-<li>passwordProfile</li>
+<li>PasswordProfile</li>
 <li>ResourceLinks</li>
 <li>ResourceAttributes</li>
 <li>SecureString</li>

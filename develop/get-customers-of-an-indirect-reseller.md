@@ -6,30 +6,28 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7237a2175ec6eb117b8fd1125aaa7fd28690667b
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f03c3dc15c71c2a435280ee4138a6b5beddb9a92
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415961"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157510"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>取得間接轉銷商的客戶
 
+**適用于**
 
-**適用於**
-
-- 夥伴中心
+- 合作夥伴中心
 
 如何取得間接轉銷商的客戶清單。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 - 間接轉銷商的租使用者識別碼。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 若要取得與指定間接轉銷商有關聯性的客戶集合，請先將[**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)物件具現化，以建立篩選準則。 您必須傳遞轉換成字串的[**CustomerSearchField IndirectReseller**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)列舉成員，並將[**FieldFilterOperation**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation)指定為篩選作業的類型。 您也必須提供間接轉銷商的租使用者識別碼，以進行篩選。
 
@@ -45,8 +43,8 @@ string indirectResellerId;
 
 // Create a filter.
 var filter = new SimpleFieldFilter(
-    CustomerSearchField.IndirectReseller.ToString(), 
-    FieldFilterOperation.StartsWith, 
+    CustomerSearchField.IndirectReseller.ToString(),
+    FieldFilterOperation.StartsWith,
     indirectResellerId);
 
 // Create an iQuery object to pass to the Query method.
@@ -74,37 +72,32 @@ while (customersEnumerator.HasValue)
 
 **範例**：[主控台測試應用程式](console-test-app.md)**專案**：合作夥伴中心 SDK 範例**類別**： GetCustomersOfIndirectReseller.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
-
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers？ size = {size}？ filter = {FILTER} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers？ size = {size}？ filter = {FILTER} HTTP/1。1 |
 
- 
-
-**URI 參數**
+### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來建立要求。
 
-| 名稱   | 類型   | 必要項 | 描述                                                                                                                                                                                                                                                                                   |
+| 名稱   | 類型   | 必要 | 描述                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| size   | int    | 否       | 要一次顯示的結果數目。 這個參數是選擇性的。                                                                                                                                                                                                                |
-| 篩選器 | 篩選器 | 是      | 篩選搜尋的查詢。 若要取得指定之間接轉銷商的客戶，您必須插入間接轉銷商識別碼，並包含並編碼下列字串： {"Field"： "IndirectReseller"，"Value"： "{間接轉銷商識別碼}"，"Operator"： "開始\_的"}。 |
+| 大小   | int    | 否       | 要一次顯示的結果數目。 這是選擇性參數。                                                                                                                                                                                                                |
+| filter | filter | 是      | 篩選搜尋的查詢。 若要抓取指定間接轉銷商的客戶，您必須插入間接轉銷商識別碼，並包含並編碼下列字串： {"Field"： "IndirectReseller"，"Value"： "{間接轉銷商識別碼}"，"\_Operator"： "開頭為"}。 |
 
- 
+### <a name="request-headers"></a>要求標頭
 
-**要求標頭**
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
+### <a name="request-body"></a>要求本文
 
-**要求本文**
+無。
 
-None。
-
-**要求範例（已編碼）**
+### <a name="request-example-encoded"></a>要求範例（已編碼）
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers?size=0&filter=%7B%22Field%22%3A%22IndirectReseller%22%2C%22Value%22%3A%22484e548c-f5f3-4528-93a9-c16c6373cb59%22%2C%22Operator%22%3A%22starts_with%22%7D HTTP/1.1
@@ -116,7 +109,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-**要求範例（已解碼）**
+### <a name="request-example-decoded"></a>要求範例（已解碼）
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers?size=0&filter={"Field":"IndirectReseller","Value":"484e548c-f5f3-4528-93a9-c16c6373cb59","Operator":"starts_with"} HTTP/1.1
@@ -128,16 +121,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
-
+## <a name="rest-response"></a>REST 回應
 
 如果成功，回應主體會包含轉銷商客戶的相關資訊。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK
@@ -207,18 +199,10 @@ Date: Tue, 11 Apr 2017 23:31:28 GMT
             "attributes": {
                 "objectType": "Customer"
             }
-        }, 
+        },
     ],
     "attributes": {
         "objectType": "Collection"
     }
 }
 ```
-
- 
-
- 
-
-
-
-

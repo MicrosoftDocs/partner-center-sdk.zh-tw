@@ -6,30 +6,28 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: edc706d791b12268cbd39ba356bee9199bdeaa54
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 065bb6a1cf4eee11ad0d1f5b6ceebd8d8e5f00bc
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415231"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157690"
 ---
 # <a name="set-user-roles-for-a-customer"></a>為客戶設定使用者角色
 
+**適用于**
 
-**適用於**
-
-- 夥伴中心
+- 合作夥伴中心
 
 在客戶帳戶內，有一組目錄角色。 您可以將使用者帳戶指派給這些角色。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
-- 客戶識別碼（客戶租使用者識別碼）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 若要將目錄角色指派給客戶使用者，請建立具有相關使用者詳細資料的新[**UserMember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) 。 然後，使用指定的客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以識別客戶。 從該處，使用[**DirectoryRoles. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid)方法搭配目錄角色識別碼來指定角色。 然後，存取**UserMembers**集合，並使用[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create)方法將新的使用者成員新增至指派給該角色的使用者成員集合。
 
@@ -53,46 +51,39 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 **範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： AddUserMemberToDirectoryRole.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法   | 要求 URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1。1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1。1 |
 
- 
-
-**URI 參數**
+### <a name="uri-parameter"></a>URI 參數
 
 使用下列 URI 參數來識別正確的客戶和角色。 若要識別要指派角色的使用者，請在要求主體中提供識別資訊。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **客戶-租使用者識別碼** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 | **角色識別碼**            | **guid** | Y        | 值是 GUID 格式的**角色識別碼**，可識別要指派給使用者的角色。                                                              |
 
- 
+### <a name="request-headers"></a>要求標頭
 
-**要求標頭**
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-- 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
-
-**要求本文**
+### <a name="request-body"></a>要求本文
 
 下表描述要求主體中的必要屬性。
 
-| 名稱                  | 類型       | 必要項 | 描述                            |
+| 名稱                  | 類型       | 必要 | 描述                            |
 |-----------------------|------------|----------|----------------------------------------|
-| **號**                | **字串** | Y        | 要加入至角色的使用者識別碼。 |
-| **DisplayName**       | **字串** | Y        | 使用者的易記顯示名稱。 |
-| **UserPrincipalName** | **字串** | Y        | 使用者主體的名稱。        |
-| **特性**        | **目標** | Y        | 包含 "ObjectType"： "UserMember"     |
+| **Id**                | **string** | Y        | 要加入至角色的使用者識別碼。 |
+| **DisplayName**       | **string** | Y        | 使用者的易記顯示名稱。 |
+| **UserPrincipalName** | **string** | Y        | 使用者主體的名稱。        |
+| **屬性**        | **目標** | Y        | 包含 "ObjectType"： "UserMember"     |
 
- 
-
-**要求範例**
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/directoryroles/f023fd81-a637-4b56-95fd-791ac0226033/usermembers HTTP/1.1
@@ -116,16 +107,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 回應
-
+## <a name="rest-response"></a>REST 回應
 
 當使用者成功指派角色時，這個方法會傳回已附加角色識別碼的使用者帳戶。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 201 Created
@@ -147,11 +137,3 @@ Date: Tue, 20 Dec 2016 23:36:55 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

@@ -1,38 +1,36 @@
 ---
-title: 取得供應專案識別碼的附加元件
+title: 取得應用程式識別碼的附加元件
 description: 如何取得供應專案識別碼的附加元件。
 ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0969ae1d347946fbbe9aa2fe1a14d5c582ef0dae
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 67b8a2c636ff56a1624635e5756782c067e2662f
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416191"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157570"
 ---
-# <a name="get-add-ons-for-an-offer-id"></a>取得供應專案識別碼的附加元件
+# <a name="get-add-ons-for-an-offer-id"></a>取得應用程式識別碼的附加元件
 
+**適用于**
 
-**適用於**
-
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 如何取得供應專案識別碼的附加元件。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
-
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+
 - 供應專案識別碼。 如果您沒有供應專案識別碼，請參閱[取得市場優惠清單](get-a-list-of-offers-for-a-market.md)。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 若要依識別碼取得供應專案的附加元件，請先使用 country 代碼呼叫[**iaggregatepartner.customers.byid. ByCountry**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry)方法，以取得介面來根據指定的國家/地區來提供作業。 然後使用供應專案識別碼來呼叫[**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)方法，以識別您想要取得其附加元件的供應專案。 接下來，使用[**附加元件**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons)屬性來取得目前供應專案的附加元件作業介面。 最後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync)方法，以取得指定供應專案的所有附加元件集合。
 
@@ -46,37 +44,32 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 **範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetOffer.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
-
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons？ country = {國家/地區-代碼} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons？ country = {國家/地區-代碼} HTTP/1。1 |
 
- 
-
-**URI 參數**
+### <a name="uri-parameters"></a>URI 參數
 
 使用下列參數來提供供應專案識別碼和國家/地區代碼。
 
-| 名稱         | 類型       | 必要項 | 描述                       |
+| 名稱         | 類型       | 必要 | 描述                       |
 |--------------|------------|----------|-----------------------------------|
 | **供應專案識別碼** | **guid**   | Y        | 識別供應專案的 GUID。 |
-| **全國**  | **字串** | Y        | 國家（地區）代碼（例如 US）。       |
+| **全國**  | **string** | Y        | 國家（地區）代碼（ `US`例如）。       |
 
- 
-
-**要求標頭**
+### <a name="request-headers"></a>要求標頭
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**要求本文**
+### <a name="request-body"></a>要求本文
 
-None。
+無。
 
-**要求範例**
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/195416C1-3447-423A-B37B-EE59A99A19C4/addons?country=us HTTP/1.1
@@ -88,16 +81,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
-
+## <a name="rest-response"></a>REST 回應
 
 如果成功，此方法會在回應主體中傳回[供應](offer-resources.md)專案物件的集合。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK
@@ -211,11 +203,3 @@ Date: Wed, 01 Feb 2017 22:37:58 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

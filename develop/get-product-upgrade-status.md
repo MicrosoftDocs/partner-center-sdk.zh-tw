@@ -5,26 +5,29 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c99b70f4046a0018d43f395fe7539f608cecf11f
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 98737e75c643cb9ca90572544173fe5000f475d9
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416692"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157270"
 ---
 # <a name="get-the-product-upgrade-status-for-a-customer"></a>取得客戶的產品升級狀態
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 您可以使用[**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest)資源來取得升級到新產品系列的狀態。 當您將客戶從 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶升級為 Azure 方案時，就會套用此資源。 成功的要求會傳回[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)資源。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
-- 客戶識別碼。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+
 - 產品系列。
+
 - 升級要求的升級識別碼。
 
 ## <a name="c"></a>C\#
@@ -32,9 +35,12 @@ ms.locfileid: "80416692"
 若要檢查客戶是否有資格升級至 Azure 方案：
 
 1. 建立**ProductUpgradesRequest**物件，並指定客戶識別碼和 "Azure" 做為產品系列。
+
 2. 使用**iaggregatepartner.customers.byid. ProductUpgrades**集合。
-2. 呼叫**ById**方法，並傳入**升級識別碼**。
-3. 呼叫**CheckStatus**方法，並傳入**ProductUpgradesRequest**物件，這會傳回**ProductUpgradeStatus**物件。
+
+3. 呼叫**ById**方法，並傳入**升級識別碼**。
+
+4. 呼叫**CheckStatus**方法，並傳入**ProductUpgradesRequest**物件，這會傳回**ProductUpgradeStatus**物件。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -57,35 +63,32 @@ if (productUpgradeEligibility.IsEligibile)
 }
 
 ```
-```
 
-## REST
+## <a name="rest-request"></a>REST 要求
 
-### REST request
+### <a name="request-syntax"></a>要求的語法
 
-#### Request syntax
-
-| Method   | Request URI |
+| 方法   | 要求 URI |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{upgrade-id}/status HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{upgrade-id}/status HTTP/1。1 |
 
-#### URI parameter
+### <a name="uri-parameter"></a>URI 參數
 
-Use the following query parameter to specify the customer for whom you're getting a product upgrade status.
+使用下列查詢參數來指定您要取得產品升級狀態的客戶。
 
-| Name               | Type | Required | Description                                                                                 |
+| 名稱               | 類型 | 必要 | 描述                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **upgrade-id** | GUID | Yes | The value is a GUID-formatted upgrade identifier. You can use this identifier to specify an upgrade to track. |
+| **升級-識別碼** | GUID | 是 | 值是 GUID 格式的升級識別碼。 您可以使用此識別碼來指定要追蹤的升級。 |
 
-#### Request headers
+### <a name="request-headers"></a>要求標頭
 
-For more information, see [Partner Center REST headers](headers.md).
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### Request body
+### <a name="request-body"></a>要求本文
 
-The request body must contain a [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) resource.
+要求主體必須包含[**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest)資源。
 
-#### Request example
+### <a name="request-example"></a>要求範例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/productupgrades/42d075a4-bfe7-43e7-af6d-7c68a57edcb4/status  HTTP/1.1
@@ -111,15 +114,15 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST 回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，這個方法會傳回主體中的[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)資源。
 
-#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-#### <a name="response-example"></a>回應範例
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 Ok

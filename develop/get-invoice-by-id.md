@@ -1,32 +1,33 @@
 ---
-title: 依識別碼取得發票
+title: 依照識別碼取得發票
 description: 使用發票識別碼抓取指定的發票。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4045369991f37d3ef562f9966bb1206ad60aa677
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f0abd0abbf090b9ad6f06903c45a58d85f2168b1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415907"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157450"
 ---
-# <a name="get-invoice-by-id"></a>依識別碼取得發票
+# <a name="get-invoice-by-id"></a>依照識別碼取得發票
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 使用發票識別碼抓取指定的發票。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+
 - 有效的發票識別碼。
 
 ## <a name="c"></a>C\#
@@ -34,6 +35,7 @@ ms.locfileid: "80415907"
 若要依識別碼取得發票：
 
 1. 使用您的**ipartner.getinvoices**集合，並呼叫**ById （）** 方法。
+
 2. 呼叫**Get （）** 或**GetAsync （）** 方法。
 
 ``` csharp
@@ -51,23 +53,23 @@ var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 
 | 方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來取得發票。
 
-| 名稱           | 類型       | 必要項 | 描述                                                                                        |
+| 名稱           | 類型       | 必要 | 描述                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **發票識別碼** | **字串** | 是      | 值是**發票識別碼**，可讓轉銷商篩選特定發票的結果。 |
+| **發票識別碼** | **string** | 是      | 值是**發票識別碼**，可讓轉銷商篩選特定發票的結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
 
-無
+None
 
 ### <a name="request-example"></a>要求範例
 

@@ -6,38 +6,39 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cff15d30a7fc218a2b6a12e50cc016dec3c8fe98
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 34c1dd0c40b4594142a239ccb81a884e3212cbdf
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416045"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157760"
 ---
-# <a name="get-an-availability-by-id"></a>依識別碼取得可用性 
+# <a name="get-the-availability-by-id"></a>依識別碼取得可用性
 
-**適用於**
+**適用于**
 
-- 夥伴中心
+- 合作夥伴中心
 
 使用可用性識別碼取得指定產品和 SKU 的可用性。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 產品識別碼。 
-- SKU 識別碼。 
-- 可用性識別碼。 
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>範例
+- 產品識別碼。
 
-### <a name="c"></a>C# 
+- SKU 識別碼。
+
+- 可用性識別碼。
+
+## <a name="c"></a>C\#
 
 若要取得特定[可用性](product-resources.md#availability)的詳細資料，請從使用[依識別碼取得 SKU](get-a-sku-by-id.md)中的步驟開始，以取得特定[SKU](product-resources.md#sku)作業的介面。 從產生的介面中選取 [ **hdinsight** ] 屬性，以取得具有 hdinsight 可用作業的介面。 之後，請將可用性識別碼傳遞給**ById （）** 方法，以取得該特定可用性的作業，然後呼叫**get （）** 或**GetAsync （）** 以取得可用性詳細資料。
 
 ```csharp
 IAggregatePartner partnerOperations;
 string countryCode;
-string productId; 
+string productId;
 string skuId;
 string availabilityId;
 
@@ -45,16 +46,16 @@ string availabilityId;
 var availability = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Availabilities.ById(availabilityId).Get();
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 若要取得特定[可用性](product-resources.md#availability)的詳細資料，請從使用[依識別碼取得 SKU](get-a-sku-by-id.md)中的步驟開始，以取得特定[SKU](product-resources.md#sku)作業的介面。 從產生的介面中選取**getAvailabilities**函式，以取得具有 hdinsight 可用作業的介面。 之後，請將可用性識別碼傳遞給**byId （）** 函式，以取得該特定可用性的作業，然後呼叫**get （）** 函式來取得可用性詳細資料。
 
 ```java
 IAggregatePartner partnerOperations;
 String countryCode;
-String productId; 
+String productId;
 String skuId;
 String availabilityId;
 
@@ -62,9 +63,9 @@ String availabilityId;
 Availability availability = partnerOperations.getProducts().byCountry(countryCode).byId(productId).getSkus().byId(skuId).getAvailabilities().byId(availabilityId).get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 若要取得特定[可用性](product-resources.md#availability)的詳細資料，請執行[**PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) ，並指定**AvailabilityId**、 **CountryCode**、 **ProductId**和**SkuId**參數，以取得可用性詳細資料。
 
@@ -72,35 +73,34 @@ Availability availability = partnerOperations.getProducts().byCountry(countryCod
 Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId $availabilityId
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-**要求語法**
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}？ country = {國家/地區-代碼} HTTP/1。1         |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}？ country = {國家/地區-代碼} HTTP/1。1         |
 
-**URI 參數**
+### <a name="uri-parameter"></a>URI 參數
 
 使用下列路徑和查詢參數，以使用可用性識別碼來取得特定的可用性。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | string   | 是      | 識別產品的 GUID 格式字串。            |
-| sku-識別碼                 | string   | 是      | 識別 SKU 的 GUID 格式字串。                |
-| 可用性-識別碼        | string   | 是      | 識別可用性的 GUID 格式字串。       |
-| 國家/地區代碼           | string   | 是      | 國家/地區識別碼。                                            |
+| 產品識別碼             | 字串   | 是      | 識別產品的 GUID 格式字串。            |
+| sku-識別碼                 | 字串   | 是      | 識別 SKU 的 GUID 格式字串。                |
+| 可用性-識別碼        | 字串   | 是      | 識別可用性的 GUID 格式字串。       |
+| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
 
- 
-**要求標頭**
+### <a name="request-headers"></a>要求標頭
 
-- 如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-**要求本文**
+### <a name="request-body"></a>要求本文
 
-None。
+無。
 
-**要求範例**
+### <a name="request-example"></a>要求範例
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities/DZH318XZXPHL?country=US HTTP/1.1
@@ -113,11 +113,11 @@ MS-PartnerCenter-Client: Partner Center .NET SDK
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，回應主體會包含[可用性](product-resources.md#availability)資源。
 
-**回應成功和錯誤碼**
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
@@ -129,7 +129,7 @@ Host: api.partnercenter.microsoft.com
 | 404                  | 400018       | 找不到 Sku。                                                                                        |
 | 404                  | 400019       | 找不到可用性。                                                                                   |
 
-**回應範例**
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK

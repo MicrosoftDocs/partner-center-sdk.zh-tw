@@ -1,22 +1,22 @@
 ---
 title: 取得 Microsoft 客戶合約的合約中繼資料
-description: 本主題說明如何取得 Microsoft 客戶合約的合約中繼資料。
+description: 本文說明如何取得 Microsoft 客戶合約的合約中繼資料。
 ms.date: 8/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 97dd5582b4903333c4ecd6418459fb557dd4a84b
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 419be44e0dc82f931826dbf849c7122a98bc8646
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415987"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157700"
 ---
 # <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>取得 Microsoft 客戶合約的合約中繼資料
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 Microsoft 客戶合約的合約中繼資料目前僅由合作夥伴中心在*microsoft 公用雲端*中提供支援。 其不適用於：
 
@@ -32,8 +32,8 @@ Microsoft 客戶合約的合約中繼資料目前僅由合作夥伴中心在*mic
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要 1.14 版或更新版本。
-- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
 
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
 
 ## <a name="net-version-114-or-newer"></a>.NET （1.14 版或更新版本）
 
@@ -55,25 +55,25 @@ var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgr
 
 您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)類別中找到完整的範例。
 
-
 ## <a name="rest-request"></a>REST 要求
 
 若要取得 Microsoft 客戶合約的合約中繼資料：
 
 1. 建立 REST 要求以取得[AgreementMetaData](./agreement-metadata-resources.md)集合。
+
 2. 使用**agreementType**查詢參數，將結果的範圍限定為 Microsoft 客戶合約。
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/V1/agreements？ agreementType = {合約類型} HTTP/1。1 |
+| GET    | baseURL/v1/agreements？ agreementType = {合約類型} HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-| 名稱                   | 類型     | 必要項 | 描述                                                             |
+| 名稱                   | 類型     | 必要 | 描述                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| 合約類型 | string | 否 | 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>**MicrosoftCloudAgreement** ，其中只包含*MicrosoftCloudAgreement*類型的合約中繼資料</li><li>**MicrosoftCustomerAgreement** ，其中只包含*MicrosoftCustomerAgreement*類型的合約中繼資料。</li><li>傳回所有合約中繼資料的 **\*** 。 （請勿使用 **\*** ，除非您的程式碼具有必要的執行時間邏輯來處理不熟悉的合約類型，因為 Microsoft 可能會隨時使用新的合約類型來引進合約 metadat）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。  |
+| 合約類型 | 字串 | 否 | 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>**MicrosoftCloudAgreement** ，其中只包含*MicrosoftCloudAgreement*類型的合約中繼資料</li><li>**MicrosoftCustomerAgreement** ，其中只包含*MicrosoftCustomerAgreement*類型的合約中繼資料。</li><li>**\*** 傳回所有合約中繼資料的。 （除非您**\*** 的程式碼具有必要的執行時間邏輯來處理不熟悉的合約類型，否則請不要使用），因為 Microsoft 可能會隨時使用新的合約類型來引進合約中繼資料）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。  |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -81,7 +81,7 @@ var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgr
 
 ### <a name="request-body"></a>要求本文
 
-None。
+無。
 
 ### <a name="request-example"></a>要求範例
 
