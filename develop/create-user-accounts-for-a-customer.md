@@ -6,33 +6,36 @@ ms.date: 05/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f0dd189d8eaba1f657543feb9acebda90521f0f1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0c4c6f41dd5bda3965aad4e1b68f339305f18e30
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414203"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155390"
 ---
 # <a name="create-user-accounts-for-a-customer"></a>為客戶建立使用者帳戶
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 為您的客戶建立新的使用者帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
-- 客戶識別碼（**客戶租使用者識別碼**）。 如果您沒有客戶的識別碼，您可以從 [客戶] 清單中選擇 [客戶]，然後選取 [帳戶]，然後儲存其 Microsoft 識別碼，以在合作夥伴中心查詢識別碼。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
 
 ## <a name="c"></a>C\#
 
 若要為客戶取得新的使用者帳戶：
 
-1. 建立具有相關使用者資訊的新**CustomerUser**物件。
+1. 使用相關的使用者資訊，建立新的 **CustomerUser** 物件。
+
 2. 使用您的**iaggregatepartner.customers.byid**集合，並呼叫**ById （）** 方法。
-3. 呼叫**Users**屬性，後面接著**Create**方法。
+
+3. 呼叫 **Users** 屬性，接著呼叫 **Create** 方法。
 
 ``` csharp
 // string selectedCustomerId;
@@ -60,24 +63,24 @@ User createdUser = partnerOperations.Customers.ById(selectedCustomerId).Users.Cr
 
 | 方法   | 要求 URI                                                                                  |
 |----------|----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1。1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 使用下列查詢參數來識別正確的客戶。
 
-| 名稱 | 類型 | 必要項 | 描述 |
+| 名稱 | 類型 | 必要 | 描述 |
 |----- |----- | -------- |------------ |
-| **客戶-租使用者識別碼** | **guid** | Y | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **customer-tenant-id** | **guid** | Y | 值是 GUID 格式的**客戶租使用者識別碼**。它可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 | **使用者識別碼** | **guid** | N | 值是屬於單一使用者帳戶的 GUID 格式**使用者識別碼**。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
 
-None。
+無。
 
 ### <a name="request-example"></a>要求範例
 
@@ -92,7 +95,7 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
       "userPrincipalName": "userid@domain.onmicrosoft.com",
       "firstName": "First",
       "lastName": "Last",
-      "displayName": "User name",  
+      "displayName": "User name",
       "immutableId": "Some unique ID",
       "passwordProfile":{
                  password: "abCD123*",

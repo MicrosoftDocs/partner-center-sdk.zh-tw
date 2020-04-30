@@ -5,18 +5,18 @@ ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a84f1d2e5d6c156cba10284a5718bdaee3c9fe93
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: dcc81acbab84e7f6ac9a495c00b2798c87075d89
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414155"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155578"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>取得 Microsoft 客戶合約範本的下載連結
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 合作夥伴中心目前僅支援在*Microsoft 公用雲端*中使用**AgreementDocument**資源。 此資源不適用於：
 
@@ -29,12 +29,17 @@ ms.locfileid: "80414155"
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要 1.14 版或更新版本。
-- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
+
+- 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援「應用程式 + 使用者」驗證。 
+
 - Microsoft 客戶合約範本適用的客戶國家/地區。
+
 - 應在其中當地語系化 Microsoft 客戶合約範本的語言。
 
 > [!IMPORTANT]
+>
 > - Microsoft 客戶合約是國家/地區特定的。 當要求下載 Microsoft 客戶合約範本的連結時，請務必根據客戶的位置指定正確的國家/地區。 或支援的國家/地區清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。
+>
 > - 針對某些國家/地區，Microsoft 客戶合約提供多種語言。 為獲得最佳的客戶體驗，請挑選最符合客戶需求的語言。 如需支援的語言清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。
 > - 只有 Microsoft 客戶合約支援此方法。
 
@@ -44,40 +49,46 @@ ms.locfileid: "80414155"
 
 1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
 
-```csharp
-// IAggregatePartner partnerOperations;
+   ```csharp
+   // IAggregatePartner partnerOperations;
 
-string agreementType = "MicrosoftCustomerAgreement";
+   string agreementType = "MicrosoftCustomerAgreement";
 
-AgreementMetaData microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
-```
+   AgreementMetaData microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.   ByAgreementType(agreementType).Get().Items.Single();
+   ```
 
 2. 使用 Iaggregatepartner.customers.byid. AgreementTemplates 集合。
+
 3. 呼叫**ById**方法，並指定 Microsoft 客戶合約的**templateId** 。
+
 4. 提取**Document**屬性。
+
 5. 呼叫**ByCountry**方法，並指定要套用合約範本的客戶國家/地區。 如果未指定方法，則查詢會預設為*US* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。 這個方法會區分**大小寫**。
-6. 呼叫**ByLanguage**方法，並指定應該在其中當地語系化協定範本的語言。 如果未指定方法，或指定國家/地區代碼不支援指定的國家/地區碼，則查詢會預設為*en-us* 。 如需支援的語言代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)
+
+6. 呼叫**ByLanguage**方法，並指定應該在其中當地語系化協定範本的語言。 如果未指定方法，或指定國家/地區代碼不支援指定的國家/地區碼，則查詢會預設為*en-us* 。 如需支援的語言代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。
+
 7. 呼叫**Get**或**GetAsync**方法。
 
-```csharp
-// IAggregatePartner partnerOperations;
+   ```csharp
+   // IAggregatePartner partnerOperations;
 
-string customerCountry = "US";
+   string customerCountry = "US";
 
-string languageForLocalization = "en-US";
+   string languageForLocalization = "en-US";
 
-var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCustomerAgreementDetails.TemplateId).Document.ByCountry(customerCountry).ByLanguage(languageForLocalization).Get();
-```
+   var agreementDocument = partnerOperations.   AgreementTemplates.ById   (microsoftCustomerAgreementDetails.   TemplateId).Document.ByCountry   (customerCountry).ByLanguage   (languageForLocalization).Get();
+   ```
 
-您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[GetAgreementDocument](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDocument.cs)類別中找到完整的範例。
-
+您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)類別中找到完整的範例。
 
 ## <a name="rest-request"></a>REST 要求
 
 若要取出連結以下載 Microsoft 客戶合約範本：
 
 1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
+
 2. 建立 REST 要求以提取[ **AgreementDocument**資源](./agreement-document-resources.md)。 如需範例，請參閱[要求語法](#request-syntax)範例。 您必須指定下列資訊：
+
     - Microsoft 客戶合約的**templateId** 。
     - Microsoft 客戶合約範本適用的國家/地區。
     - 應在其中當地語系化 Microsoft 客戶合約範本的語言。
@@ -88,17 +99,17 @@ var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCusto
 
 | 方法 | 要求 URI |
 |--------|---------------------------------------------------------------------|
-| GET | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreementtemplates/{agreement-template-id}/document？ language = {language} & 國家/地區 = {COUNTRY} HTTP/1。1 |
+| GET | baseURL/v1/agreementtemplates/{agreement-template-id}/document？ language = {language} &country = {country} HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 您可以搭配您的要求使用下列 URI 參數：
 
-| 名稱                   | 類型   | 必要項 | 描述                                 |
+| 名稱                   | 類型   | 必要 | 描述                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| 合約-範本識別碼  | string | 是      | 合約類型的唯一識別碼。 您可以藉由抓取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的 templateId。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](./get-customer-agreement-metadata.md)。 這個參數會區分**大小寫**。|
-| 國家/地區                | string | 否       | 指出套用合約範本的國家/地區。 如果未指定參數，查詢會預設為*US* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
-| 語言               | string | 否       | 指出應在其中當地語系化協定範本的語言。 如果未指定參數，或指定的國家（地區）代碼 in't 支援指定的國家/地區碼，則查詢會預設為*en-us* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
+| 合約-範本識別碼  | 字串 | 是      | 合約類型的唯一識別碼。 您可以藉由擷取 Microsoft 客戶合約的合約中繼資料，取得 Microsoft 客戶合約的 templateId。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](./get-customer-agreement-metadata.md)。 這個參數會區分**大小寫**。|
+| country                | 字串 | 否       | 指出套用合約範本的國家/地區。 如果未指定參數，查詢會預設為*US* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
+| 語言               | 字串 | 否       | 指出應在其中當地語系化協定範本的語言。 如果未指定參數，或指定的國家（地區）代碼 in't 支援指定的國家/地區碼，則查詢會預設為*en-us* 。 如需支援的國家/地區代碼清單，請參閱[支援的國家/地區和語言清單](#list-of-supported-countries-and-languages)。|
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -106,7 +117,7 @@ var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCusto
 
 ### <a name="request-body"></a>要求本文
 
-None。
+無。
 
 ### <a name="request-example"></a>要求範例
 
@@ -153,251 +164,249 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 | Country                   | 國碼 (地區碼)   | 支援的語言代碼 |
 |------------------------|--------|----------|
-| 奧蘭島 | 限於 | en-US |
-| 阿富汗 | AF | en-US |
-| 阿爾巴尼亞 | AL | en-US |
+| 奧蘭島 | 限於 | zh-TW |
+| 阿富汗 | AF | zh-TW |
+| 阿爾巴尼亞 | AL | zh-TW |
 | 阿爾及利亞 | DZ | en-us、fr-fr、en-us |
-| 美屬薩摩亞 | 一旦 | en-US |
-| 安道爾 | 計畫 | en-US |
+| 美屬薩摩亞 | AS | zh-TW |
+| 安道爾 | AD | zh-TW |
 | 安哥拉 | AO | en-us、pt |
-| 安圭拉 | AI | en-US |
-| 南極大陸 | AQ | en-US |
-| 安地卡及巴布達 | AG | en-US |
+| 安圭拉 | AI | zh-TW |
+| 南極大陸 | AQ | zh-TW |
+| 安地卡及巴布達 | AG | zh-TW |
 | 阿根廷 | AR | en-us、es |
-| 亞美尼亞 | AM | en-US |
-| 阿路巴 | AW | en-US |
-| 澳洲 | AU | en-US |
+| 亞美尼亞 | AM | zh-TW |
+| 阿路巴 | AW | zh-TW |
+| 澳大利亞 | AU | zh-TW |
 | 奧地利 | AT | en-us，de |
-| 亞塞拜然 | AZ | en-US |
-| 巴哈馬 | BS | en-US |
+| 亞塞拜然 | AZ | zh-TW |
+| 巴哈馬 | BS | zh-TW |
 | 巴林 | BH | en-us，ar-SA |
-| 孟加拉 | BD | en-US |
-| 巴貝多 | BB | en-US |
+| 孟加拉 | BD | zh-TW |
+| 巴貝多 | BB | zh-TW |
 | 白俄羅斯 | BY | en-US、ru-RU |
 | 比利時 | BE | en-us、nl-NL |
-| 貝里斯 | 依 | en-us、es |
-| 貝南 | BJ | en-US |
-| 百慕達 | BM | en-US |
-| 不丹 | BT | en-US |
+| 貝里斯 | BZ | en-us、es |
+| 貝南 | BJ | zh-TW |
+| 百慕達 | BM | zh-TW |
+| 不丹 | BT | zh-TW |
 | 玻利維亞 | BO | en-us、es |
-| 波奈 | BQ | en-US |
-| 波士尼亞與赫塞哥維納 | BA | en-US |
-| 波札那 | BW | en-US |
-| 布威島 | BV | en-US |
+| 波奈 | BQ | zh-TW |
+| 波士尼亞赫塞哥維納 | BA | zh-TW |
+| 波札那 | BW | zh-TW |
+| 布威島 | BV | zh-TW |
 | 巴西 | BR | en-us、pt-BR |
-| 英屬印度洋領土 | IO | en-US |
-| 英屬維爾京群島 | VG | en-US |
-| 汶萊 | BN | en-US |
+| 英屬印度洋領土 | IO | zh-TW |
+| 英屬維爾京群島 | VG | zh-TW |
+| 汶萊 | BN | zh-TW |
 | 保加利亞 | BG | en-us、bg-BG |
-| 布吉納法索 | BF | en-US |
-| 蒲隆地 | 隔 | en-US |
-| 科特迪瓦 | CI | en-US、fr-FR |
+| 布吉納法索 | BF | zh-TW |
+| 蒲隆地 | BI | zh-TW |
+| 象牙海岸 | CI | en-US、fr-FR |
 | 維德角 | CV | en-us、pt |
-| 柬埔寨 | KH | en-US |
+| 柬埔寨 | KH | zh-TW |
 | 喀麥隆 | CM | en-US、fr-FR |
-| 加拿大 | CA | en-US、fr-FR |
+| Canada | CA | en-US、fr-FR |
 | 開曼群島 | KY | en-us、en-us |
-| 中非共和國 | CF | en-US |
-| 查德 | TD | en-US |
+| 中非共和國 | CF | zh-TW |
+| 查德 | TD | zh-TW |
 | 智利 | CL | en-us、es |
-| 聖誕島 | CX | en-US |
-| 可可斯群島 | 副本 | en-US |
+| 聖誕島 | CX | zh-TW |
+| 可可斯群島 | CC | zh-TW |
 | 哥倫比亞 | CO | en-us、es |
-| 葛摩 | KM | en-US |
-| 剛果民主共和國 (DRC) | CD | en-US |
-| 剛果共和國 | CG | en-US |
-| 柯克群島 | CK | en-US |
+| 葛摩 | KM | zh-TW |
+| 剛果民主共和國 (DRC) | CD | zh-TW |
+| 剛果共和國 | CG | zh-TW |
+| 柯克群島 | CK | zh-TW |
 | 哥斯大黎加 | CR | en-us、es |
 | 克羅埃西亞 | HR | en-us、hr-HR |
-| 古拉梳 | 順 | en-US |
-| 賽普勒斯 | CY | en-US |
-| Czechia | CZ | en-us、cs-CZ |
+| 古拉果 | 順 | zh-TW |
+| 賽浦路斯 | CY | zh-TW |
+| 捷克 | CZ | en-us、cs-CZ |
 | 丹麥 | DK | en-us、da-深色 |
-| 吉布地 | DJ | en-US |
-| 多米尼克 | DM | en-US |
+| 吉布地 | DJ | zh-TW |
+| 多米尼克 | DM | zh-TW |
 | 多明尼加共和國 | DO | en-us、es |
-| 厄瓜多 | EC | en-US |
+| 厄瓜多 | EC | zh-TW |
 | 埃及 | EG | en-us，ar-SA |
 | 薩爾瓦多 | SV | en-us、es |
-| 赤道幾內亞 | GQ | en-US |
-| 厄利垂亞 | ER | en-US |
+| 赤道幾內亞 | GQ | zh-TW |
+| 厄利垂亞 | ER | zh-TW |
 | 愛沙尼亞 | EE | en-us，et-EE |
-| eSwatini | SZ | en-US |
-| 衣索比亞 | ET | en-US |
-| 福克蘭群島 | FK | en-US |
-| 法羅群島 | FO | en-US |
-| 斐濟群島 | FJ | en-US |
+| eSwatini | SZ | zh-TW |
+| 衣索比亞 | ET | zh-TW |
+| 福克蘭群島 | FK | zh-TW |
+| 法羅群島 | FO | zh-TW |
+| 斐濟 | FJ | zh-TW |
 | 芬蘭 | FI | en-us、fi |
-| France | FR | en-US、fr-FR |
+| 法國 | FR | en-US、fr-FR |
 | 法屬圭亞那 | GF | en-US、fr-FR  |
-| 法屬玻里尼西亞 | PF | en-US |
-| 法屬南半球領土 | TF | en-US |
-| 加彭 | GA | en-US |
-| 甘比亞 | GM | en-US |
-| Georgia | GE | en-US |
-| Germany | DE | en-us，de |
-| 迦納 | GH | en-US |
-| 直布羅陀 | GI | en-US |
+| 法屬玻里尼西亞 | PF | zh-TW |
+| 法屬南半球領土 | TF | zh-TW |
+| 加彭 | GA | zh-TW |
+| 甘比亞 | GM | zh-TW |
+| 喬治亞 | GE | zh-TW |
+| 德國 | DE | en-us，de |
+| 迦納 | GH | zh-TW |
+| 直布羅陀 | GI | zh-TW |
 | 希臘 | GR | en-us、el-GR |
-| 格陵蘭 | 總帳 | en-US |
-| 格瑞那達 | GD | en-US |
-| 哥德普洛 | GP | en-US |
-| 關島 | GU | en-US |
+| 格陵蘭 | GL | zh-TW |
+| 格瑞那達 | GD | zh-TW |
+| 哥德普洛 | GP | zh-TW |
+| 關島 | GU | zh-TW |
 | 瓜地馬拉 | GT | en-us、es |
-| 根息 | GG | en-US |
-| 幾內亞 | GN | en-US |
-| 幾內亞比索 | GW | en-US |
-| 蓋亞納 | GY | en-US |
-| 海地 | HT | en-US |
-| 赫德島及麥當勞群島 | HM | en-US |
+| 根息 | GG | zh-TW |
+| 幾內亞 | GN | zh-TW |
+| 幾內亞比索 | GW | zh-TW |
+| 蓋亞納 | GY | zh-TW |
+| 海地 | HT | zh-TW |
+| 赫德島及麥當勞群島 | HM | zh-TW |
 | 宏都拉斯 | HN | en-us、es |
 | 香港特別行政區 | HK | en-us、zh-HK |
 | 匈牙利 | HU | en-us、hu-HU |
-| 冰島 | IS | en-US |
+| 冰島 | IS | zh-TW |
 | 印度 | IN | en-us，hi |
-| 印尼 | ID | en-us，識別碼識別碼 |
+| 印尼 | 識別碼 | en-us，識別碼識別碼 |
 | 伊拉克 | IQ | en-us，ar-SA |
-| 愛爾蘭 | IE | en-US |
-| 曼城島 | IM | en-US |
+| 愛爾蘭 | IE | zh-TW |
+| 曼城島 | IM | zh-TW |
 | 以色列 | IL | en-us、他-IL |
 | 義大利 | IT | en-us，it-IT |
-| 牙買加 | JM | en-US |
-| 尖棉 | XJ | en-US |
-| Japan | JP | en-us、ja-jp |
-| 澤西島 | JE | en-US |
+| 牙買加 | JM | zh-TW |
+| 尖棉 | XJ | zh-TW |
+| 日本 | JP | en-us、ja-jp |
+| 澤西島 | JE | zh-TW |
 | 約旦 | JO | en-us，ar-SA |
 | 哈薩克 | KZ | en-us、kk-KZ |
-| 肯亞 | KE | en-US |
-| 吉里巴斯 | KI | en-US |
-| Korea | KR | en-us、ko-KR |
-| 科索沃 | XK | en-US |
+| 肯亞 | KE | zh-TW |
+| 吉里巴斯 | KI | zh-TW |
+| 南韓 | KR | en-us、ko-KR |
+| 科索沃 | XK | zh-TW |
 | 科威特 | KW | en-us，ar-SA |
 | 吉爾吉斯 | KG | en-US、ru-RU |
-| 寮國 | LA | en-US |
+| 寮國 | LA | zh-TW |
 | 拉脫維亞 | LV | en-us，lv-LV |
 | 黎巴嫩 | LB | en-us，ar-SA |
-| 賴索托 | ！ | en-US |
-| 賴比瑞亞 | LR | en-US |
-| 利比亞 | 去年年初 | en-us，ar-SA |
-| 列支敦斯登 | L | en-us，de |
+| 賴索托 | LS | zh-TW |
+| 賴比瑞亞 | LR | zh-TW |
+| 利比亞 | LY | en-us，ar-SA |
+| 列支敦斯登 | LI | en-us，de |
 | 立陶宛 | LT | en-us、lt-LT |
 | 盧森堡 | LU | en-US、fr-FR |
-| 澳門特別行政區 | 每月 | en-us、zh-HK |
-| 馬其頓 (FYRO) | MK | en-US |
-| 馬達加斯加 | MG | en-US |
-| 馬拉威 | MW | en-US |
+| 澳門特別行政區 | MO | en-us、zh-HK |
+| 馬其頓 (FYRO) | MK | zh-TW |
+| 馬達加斯加 | MG | zh-TW |
+| 馬拉威 | MW | zh-TW |
 | 馬來西亞 | MY | en-us、ms-MY |
-| 馬爾地夫 | MV | en-US |
-| 馬利 | 機器 | en-US |
-| 馬爾他 | MT | en-US |
-| 馬紹爾群島 | MH | en-US |
-| 馬丁尼克 | MQ | en-US |
-| 茅利塔尼亞 | MR | en-US |
+| 馬爾地夫 | MV | zh-TW |
+| 馬利 | ML | zh-TW |
+| 馬爾他 | MT | zh-TW |
+| 馬紹爾群島 | MH | zh-TW |
+| 馬丁尼克 | MQ | zh-TW |
+| 茅利塔尼亞 | MR | zh-TW |
 | 模里西斯 | MU | en-us，ar-SA |
-| 馬約特島 | YT | en-US |
+| 馬約特島 | YT | zh-TW |
 | 墨西哥 | MX | en-us、es |
-| 密克羅尼西亞 | 調頻廣播 | en-US |
+| 密克羅尼西亞 | FM | zh-TW |
 | 摩爾多瓦 | MD | en-us、ro-RO |
 | 摩納哥 | MC | en-US、fr-FR |
-| 蒙古 | MN | en-US |
-| 蒙特內哥羅 | ME | en-US |
-| 蒙特色拉特島 | MS | en-US |
+| 蒙古 | MN | zh-TW |
+| 蒙特內哥羅 | ME | zh-TW |
+| 蒙特色拉特島 | MS | zh-TW |
 | 摩洛哥 | MA | en-us、fr-fr、en-us |
-| 莫三比克 | MZ | en-US |
-| 緬甸 | MM | en-US |
-| 納米比亞 | NA | en-US |
-| 諾魯 | NR | en-US |
-| 尼泊爾 | NP | en-US |
+| 莫三比克 | MZ | zh-TW |
+| 緬甸 | MM | zh-TW |
+| 納米比亞 | NA | zh-TW |
+| 諾魯 | NR | zh-TW |
+| 尼泊爾 | NP | zh-TW |
 | 荷蘭 | NL | en-us、nl-NL |
-| 新喀里多尼亞群島 | NC | en-US |
-| 紐西蘭 | NZ | en-US |
+| 新喀里多尼亞群島 | NC | zh-TW |
+| 紐西蘭 | NZ | zh-TW |
 | 尼加拉瓜 | NI | en-us、es |
-| 尼日 | NE | en-US |
-| 奈及利亞 | NG | en-US |
-| 紐威島 | NU | en-US |
-| 諾福克島 | NF-E | en-US |
-| 北馬里安納群島 | MP | en-US |
+| 尼日 | NE | zh-TW |
+| 奈及利亞 | NG | zh-TW |
+| 紐威島 | NU | zh-TW |
+| 諾福克島 | NF | zh-TW |
+| 北馬里安納群島 | MP | zh-TW |
 | 挪威 | 否 | en-us，nb-否 |
 | 阿曼 | OM | en-us，ar-SA |
-| 巴基斯坦 | PK | en-US |
-| 帛琉 | PW | en-US |
-| 巴勒斯坦民族權力機構 | PS | en-US |
+| 巴基斯坦 | PK | zh-TW |
+| 帛琉 | PW | zh-TW |
+| 巴勒斯坦民族權力機構 | PS | zh-TW |
 | 巴拿馬 | PA | en-us、es |
-| 巴布亞紐幾內亞 | PG | en-US |
+| 巴布亞紐幾內亞 | PG | zh-TW |
 | 巴拉圭 | PY | en-us、es |
-| 秘魯 | PE | en-us、es |
-| 菲律賓 | PH | en-US |
-| 皮特康群島 | PN | en-US |
+| 祕魯 | PE | en-us、es |
+| 菲律賓 | PH | zh-TW |
+| 皮特康群島 | PN | zh-TW |
 | 波蘭 | PL | en-us，pl-PL |
 | 葡萄牙 | PT | en-us、pt |
 | 波多黎各 | PR | en-us、en-us |
 | 卡達 | QA | en-us，ar-SA |
-| 留尼旺 | RE | en-US |
+| 留尼旺 | RE | zh-TW |
 | 羅馬尼亞 | RO | en-us、ro-RO |
 | 俄羅斯 | RU | en-US、ru-RU |
-| 盧安達 | CD-RW | en-US、fr-FR |
+| 盧安達 | RW | en-US、fr-FR |
 | 聖多美普林西比 | ST | en-US、fr-FR |
-| 沙巴 | XS | en-US |
-| 聖巴瑟米 | BL | en-US |
-| 聖克里斯多福及尼維斯 | KN | en-US |
-| 聖露西亞 | 小寫 | en-us、en-us |
+| 沙巴 | XS | zh-TW |
+| 聖巴瑟米 | BL | zh-TW |
+| 聖克里斯多福及尼維斯 | KN | zh-TW |
+| 聖露西亞 | LC | en-us、en-us |
 | 聖馬丁 | MF | en-us、en-us |
-| 聖匹島 | 下午 | en-US |
-| 聖文森及格瑞那丁 | VC | en-US |
-| 薩摩亞獨立國 | WIN ENT LTSB 2016 Thai 64 Bits | en-US |
-| 聖馬利諾 | 這些 | en-US |
-| 沙烏地阿拉伯 | SA | en-US |
+| 聖匹島 | 下午 | zh-TW |
+| 聖文森及格瑞那丁 | VC | zh-TW |
+| 薩摩亞獨立國 | WS | zh-TW |
+| 聖馬利諾 | SM | zh-TW |
+| 沙烏地阿拉伯 | SA | zh-TW |
 | 塞內加爾 | SN | en-US、fr-FR |
-| 賽爾維亞 | RS | en-us、sr-iov-Latn-RS、en-us |
-| 塞席爾 | SC | en-US |
-| 獅子山 | SL | en-US |
+| 塞爾維亞 | RS | en-us、sr-iov-Latn-RS、en-us |
+| 塞席爾 | SC | zh-TW |
+| 獅子山 | SL | zh-TW |
 | 新加坡 | SG | en-us、zh-SG |
-| 聖佑達修斯 | XE | en-US |
+| 聖佑達修斯 | XE | zh-TW |
 | 荷屬聖馬丁 | X | en-us、en-us |
 | 斯洛伐克 | SK | en-us，sk |
 | 斯洛維尼亞 | SI | en-us、sl-SI |
-| 索羅門群島 | SB | en-US |
-| 索馬利亞 | 因此 | en-US |
-| 南非 | ZA | en-US |
-| 南喬治亞與南三明治群島 | GS | en-US |
-| 南蘇丹 | SS | en-US |
+| 索羅門群島 | SB | zh-TW |
+| 索馬利亞 | SO | zh-TW |
+| 南非 | ZA | zh-TW |
+| 南喬治亞與南三明治群島 | GS | zh-TW |
+| 南蘇丹 | SS | zh-TW |
 | 西班牙 | ES | en-us、es、en-us、en-us （us） |
-| 斯里蘭卡 | LK | en-US |
-| 聖赫勒拿、阿森松、特里斯坦達庫尼亞群島 | SH | en-US |
-| 蘇利南 | SR | en-US |
-| 冷岸 | SJ | en-US |
+| 斯里蘭卡 | LK | zh-TW |
+| 聖赫勒拿、阿森松、特里斯坦達庫尼亞群島 | SH | zh-TW |
+| 蘇利南 | SR | zh-TW |
+| 冷岸 | SJ | zh-TW |
 | 瑞典 | SE | en-us、sv-SE |
 | 瑞士 | CH | en-us、fr-fr、en-us、en-us （us） |
 | 台灣 | TW | en-us、zh-HK |
-| 塔吉克 | TJ | en-US |
-| 坦尚尼亞 | TZ | en-US |
-| 泰國 | TH | en-us，第一次 |
-| 東帝汶 | TL | en-US |
-| 多哥 | TG | en-US |
-| 托克勞群島 | TK | en-US |
-| 東加 | 自 | en-US |
-| 千里達及托巴哥 | TT | en-US |
+| 塔吉克 | TJ | zh-TW |
+| 坦尚尼亞 | TZ | zh-TW |
+| 泰國 | 二四 | en-us，第一次 |
+| 東帝汶 | TL | zh-TW |
+| 多哥 | TG | zh-TW |
+| 托克勞群島 | TK | zh-TW |
+| 東加 | TO | zh-TW |
+| 千里達及托巴哥 | TT | zh-TW |
 | 突尼西亞 | TN | en-us、fr-fr、en-us |
 | 土耳其 | TR | en-us、tr-TR |
-| 土庫曼 | TM | en-US |
-| 土克斯及開科斯群島 | TC | en-US |
-| 吐瓦魯 | 電視 | en-US |
-| 美國外島 | UM | en-US |
-| 美屬維爾京群島 | VI | en-US |
-| 烏干達 | UG | en-US |
+| 土庫曼 | TM | zh-TW |
+| 土克斯及開科斯群島 | TC | zh-TW |
+| 吐瓦魯 | TV | zh-TW |
+| 美國外島 | UM | zh-TW |
+| 美屬維爾京群島 | VI | zh-TW |
+| 烏干達 | UG | zh-TW |
 | 烏克蘭 | UA | en-us、uk-UA |
 | 阿拉伯聯合大公國 | AE | en-us，ar-SA |
-| 英國 | GB | en-US |
-| 美國 | 美式英文 | en-US |
+| United Kingdom | GB | zh-TW |
+| 美國 | US | zh-TW |
 | 烏拉圭 | UY | en-us、es |
 | 烏茲別克 | UZ | en-US、ru-RU |
-| 萬那杜 | VU | en-US |
-| 梵蒂岡 | 再次 | en-US |
+| 萬那杜 | VU | zh-TW |
+| 梵蒂岡 | VA | zh-TW |
 | 委內瑞拉 | VE | en-us、es |
 | 越南 | VN | en-us、vi-VN |
-| 瓦利斯及福杜納 | WF | en-US |
+| 瓦利斯及福杜納 | WF | zh-TW |
 | 葉門 | YE | en-us，ar-SA |
-| 尚比亞 | ZM | en-US |
-| 辛巴威 | ZW | en-US |
-
-
+| 尚比亞 | ZM | zh-TW |
+| 辛巴威 | ZW | zh-TW |

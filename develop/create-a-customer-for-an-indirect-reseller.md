@@ -1,30 +1,32 @@
 ---
-title: 為間接轉銷商建立客戶
+title: 建立間接轉銷商的客戶
 description: 間接提供者可以建立間接轉銷商的客戶。
 ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b9780800b6278d1cfeef902793ef51b61d79982
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f67dcd1bfa2e3f896e2fb1e9ae777ef3974e22eb
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413475"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155210"
 ---
-# <a name="create-a-customer-for-an-indirect-reseller"></a>為間接轉銷商建立客戶
+# <a name="create-a-customer-for-an-indirect-reseller"></a>建立間接轉銷商的客戶
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 間接提供者可以建立間接轉銷商的客戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+
 - 間接轉銷商的租使用者識別碼。
+
 - 間接轉銷商必須與間接提供者合作。
 
 ## <a name="c"></a>C\#
@@ -32,10 +34,12 @@ ms.locfileid: "80413475"
 為間接轉銷商新增客戶：
 
 1. 具現化新的[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)物件，然後具現化並填入[**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)和[**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)。 請務必將間接轉銷商識別碼指派給[**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid)屬性。
-2. 使用 [ [**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) ] 屬性可取得客戶集合作業的介面。 
+
+2. 使用 [ [**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) ] 屬性可取得客戶集合作業的介面。
+
 3. 呼叫[**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)方法以建立客戶。
 
-### <a name="c-example"></a>C\# 範例
+### <a name="c-example"></a>C\#範例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -81,7 +85,7 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 | 方法   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -91,31 +95,31 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 下表描述要求主體中的必要屬性。
 
-| 名稱                                          | 類型   | 必要項 | 描述                                                                                                                                                                                                                                                                                                                                           |
+| 名稱                                          | 類型   | 必要 | 描述                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | object | 是      | 客戶的帳單設定檔資訊。                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | object | 是      | 客戶的公司設定檔資訊。                                                                                                                                                                                                                                                                                                           |
-| [AssociatedPartnerId](customer-resources.md#customer) | string | 是      | 間接轉銷商識別碼。 請注意，此處提供的識別碼所指出的間接轉銷商必須與間接提供者合作，否則要求將會失敗。 另請注意，如果未提供 AssociatedPartnerId 值，則會將客戶建立為間接提供者的直接客戶，而不是間接轉銷商。 |
+| [BillingProfile](#billing-profile)             | 物件 | 是      | 客戶的帳單設定檔資訊。                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | 物件 | 是      | 客戶的公司設定檔資訊。                                                                                                                                                                                                                                                                                                           |
+| [AssociatedPartnerId](customer-resources.md#customer) | 字串 | 是      | 間接轉銷商識別碼。 如這裡提供的識別碼所指出的間接轉銷商，必須與間接提供者合作，否則要求將會失敗。 另請注意，如果未提供 AssociatedPartnerId 值，則會將客戶建立為間接提供者的直接客戶，而不是間接轉銷商。 |
 
 #### <a name="billing-profile"></a>帳單設定檔
 
 下表描述建立新客戶所需的[CustomerBillingProfile](customer-resources.md#customerbillingprofile)資源所需的最低欄位。
 
-| 名稱             | 類型                                     | 必要項 | 描述                                                                                                                                                                                                     |
+| 名稱             | 類型                                     | 必要 | 描述                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 電子郵件            | string                                   | 是      | 客戶的電子郵件地址。                                                                                                                                                                                   |
-| culture (文化特性)          | string                                   | 是      | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
-| 語言         | string                                   | 是      | 預設語言。 支援兩個字元語言代碼（例如 en、fr）。                                                                                                                                |
-| 公司\_名稱    | string                                   | 是      | 已註冊的公司/組織名稱。                                                                                                                                                                       |
-| 預設\_位址 | [地址](utility-resources.md#address) | 是      | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
+| 電子郵件            | 字串                                   | 是      | 客戶的電子郵件地址。                                                                                                                                                                                   |
+| culture          | 字串                                   | 是      | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
+| 語言         | 字串                                   | 是      | 預設語言。 支援兩個字元語言代碼（ `en`例如`fr`或）。                                                                                                                                |
+| 公司\_名稱    | 字串                                   | 是      | 已註冊的公司/組織名稱。                                                                                                                                                                       |
+| 預設\_位址 | [位址](utility-resources.md#address) | 是      | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
 
 #### <a name="company-profile"></a>公司設定檔
 
 下表描述建立新客戶所需的[CustomerCompanyProfile](customer-resources.md#customercompanyprofile)資源所需的最低欄位。
 
-| 名稱   | 類型   | 必要項 | 描述                                                  |
+| 名稱   | 類型   | 必要 | 描述                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domain | string | .是的     | 客戶的功能變數名稱，例如 contoso.onmicrosoft.com。 |
+| 網域 | 字串 | .是的     | 客戶的網域名稱，例如 contoso.onmicrosoft.com |
 
 ### <a name="request-example"></a>要求範例
 

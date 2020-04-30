@@ -1,31 +1,33 @@
 ---
-title: 為指定的客戶刪除設定原則
+title: 為指定客戶刪除設定原則
 description: 如何刪除指定的客戶和原則識別碼的設定原則。
 ms.assetid: DEFEC12E-3EA0-401B-B612-ACD1D71DB415
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1534b6b18bcc14789c8f6945243f9cd591e2eed4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8741f036ce535e918b92552084ba84db6dff6899
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413401"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155290"
 ---
-# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>為指定的客戶刪除設定原則
+# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>為指定客戶刪除設定原則
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 如何刪除指定的客戶和原則識別碼的設定原則。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+
 - 原則識別碼。
 
 ## <a name="c"></a>C\#
@@ -33,7 +35,9 @@ ms.locfileid: "80413401"
 若要刪除指定客戶的設定原則：
 
 1. 使用客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以在指定的客戶上取得作業的介面。
+
 2. 使用原則識別碼呼叫[**ConfigurationPolicies. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)方法，以取得指定原則之設定原則作業的介面。
+
 3. 呼叫[**delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete)或[**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync)方法以刪除設定原則。
 
 ``` csharp
@@ -52,16 +56,16 @@ partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(
 
 | 方法     | 要求 URI                                                                                          |
 |------------|------------------------------------------------------------------------------------------------------|
-| **DELETE** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1。1 |
+| **DELETE** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱        | 類型   | 必要項 | 描述                                                   |
+| 名稱        | 類型   | 必要 | 描述                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| 客戶識別碼 | string | 是      | 識別客戶的 GUID 格式字串。         |
-| 原則-識別碼   | string | 是      | GUID 格式的字串，用來識別要刪除的原則。 |
+| customer-id | 字串 | 是      | 用來識別客戶的 GUID 格式字串。         |
+| 原則-識別碼   | 字串 | 是      | GUID 格式的字串，用來識別要刪除的原則。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -69,7 +73,7 @@ partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(
 
 ### <a name="request-body"></a>要求本文
 
-無
+None
 
 ### <a name="request-example"></a>要求範例
 

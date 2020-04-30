@@ -1,23 +1,22 @@
 ---
 title: 取得合作夥伴的使用量摘要
 description: 您可以使用 PartnerUsageSummary 資源，取得在目前計費期間購買特定 Azure 服務或資源之所有客戶的合作夥伴使用量摘要。
-ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: eb155bcb2add6035062fcf3671003d2688a1e85e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 2e31c21001fc009b1bc4c380514102158f29724d
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416778"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155270"
 ---
 # <a name="get-a-usage-summary-for-a-partner"></a>取得合作夥伴的使用量摘要
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -25,15 +24,16 @@ ms.locfileid: "80416778"
 
 *此 API 傳回的總計不會針對具有 Azure 方案的客戶傳回耗用量。* 計畫在未來淘汰。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
 
 ## <a name="c"></a>C\#
 
 若要取得在目前計費期間購買特定 Azure 服務或資源之所有客戶的使用量摘要：
 
 1. 使用您的**iaggregatepartner.customers.byid**。
+
 2. 呼叫**UsageSummary**屬性，後面接著**Get （）** 或**GetAsync （）** 方法：
 
     ``` csharp
@@ -48,25 +48,23 @@ ms.locfileid: "80416778"
 - 專案： **PartnerSDK. FeatureSamples**
 - 類別： **GetPartnerUsageSummary.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
-
-#### <a name="request-syntax"></a>要求的語法
+### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                         |
 |---------|---------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/usagesummary HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/usagesummary HTTP/1。1 |
 
-#### <a name="request-headers"></a>要求標頭
+### <a name="request-headers"></a>要求標頭
 
-如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>要求本文
 
-None。
+無。
 
-#### <a name="request-example"></a>要求範例
+### <a name="request-example"></a>要求範例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/usagesummary HTTP/1.1
@@ -76,15 +74,15 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-### <a name="rest-response"></a>REST 回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，此方法會在回應主體中傳回**PartnerUsageSummary**資源。
 
-#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
 
-#### <a name="response-example"></a>回應範例
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK

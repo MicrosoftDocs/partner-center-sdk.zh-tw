@@ -1,60 +1,59 @@
 ---
-title: 取得產品清單（依客戶）
+title: 取得產品清單 (以客戶為基礎)
 description: 您可以使用客戶識別碼來取得依客戶的產品集合。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2141de3cd52f4e270b6668321d7736f33b578b3c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 6252209dca0a2fada15ee5e44f2f65c4b4230eca
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412285"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156010"
 ---
-# <a name="get-a-list-of-products-by-customer"></a>取得產品清單（依客戶）
+# <a name="get-a-list-of-products-by-customer"></a>取得產品清單 (以客戶為基礎)
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 您可以使用下列方法來取得現有客戶的產品集合。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼 (**customer-tenant-id**)。
 
-## <a name="rest"></a>REST
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
 
-### <a name="rest-request"></a>Rest 要求
+## <a name="rest-request"></a>REST 要求
 
-#### <a name="request-syntax"></a>要求的語法
+### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI                                                                                                              |
 |--------|--------------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/V1/customers/{customer-tenant-id}/products？ targetView = {TARGETVIEW} HTTP/1。1 |
+| POST   | baseURL/v1/customers/{customer-tenant-id}/products？ targetView = {targetView} HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
 
 #### <a name="request-uri-parameters"></a>要求 URI 參數
 
-| 名稱               | 類型 | 必要項 | 描述                                                                                 |
+| 名稱               | 類型 | 必要 | 描述                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **客戶-租使用者識別碼** | GUID | 是 | 此值是 GUID 格式的 **customer-tenant-id**，此識別碼可讓您用來指定客戶。 |
-| **targetView** | string | 是 | 識別目錄的目標視圖。 支援的值為： <ul><li>**Azure**，其中包括所有 Azure 專案</li><li>**AzureReservations**，其中包括所有的 Azure 保留專案</li><li>**AzureReservationsVM**，其中包括所有虛擬機器（VM）保留專案</li><li>**AzureReservationsSQL**，其中包含所有 SQL 保留專案</li><li>**AzureReservationsCosmosDb**，其中包含所有 Cosmos 資料庫保留專案</li><li>**Microsoftazure.mobileengagement**，其中包含 Microsoft Azure 訂用帳戶（**ms-azr-0017p-流程 ms-azr-0145p**）和 Azure 方案的專案</li><li>**您**，其中包含所有線上服務專案，包括商用 marketplace 產品</li><li>包含所有軟體專案的**軟體**</li><li>**SoftwareSUSELinux**，其中包含所有軟體 SUSE Linux 專案</li><li>**SoftwarePerpetual**，其中包含所有永久軟體專案</li><li>**SoftwareSubscriptions**，其中包含所有軟體訂閱專案 </ul> |
+| **customer-tenant-id** | GUID | 是 | 此值是 GUID 格式的 **customer-tenant-id**，此識別碼可讓您用來指定客戶。 |
+| **targetView** | 字串 | 是 | 識別目錄的目標視圖。 支援的值為： <ul><li>**Azure**，其中包括所有 Azure 專案</li><li>**AzureReservations**，其中包括所有的 Azure 保留專案</li><li>**AzureReservationsVM**，其中包括所有虛擬機器（VM）保留專案</li><li>**AzureReservationsSQL**，其中包含所有 SQL 保留專案</li><li>**AzureReservationsCosmosDb**，其中包含所有 Cosmos 資料庫保留專案</li><li>**Microsoftazure.mobileengagement**，其中包含 Microsoft Azure 訂用帳戶（**ms-azr-0017p-流程 ms-azr-0145p**）和 Azure 方案的專案</li><li>**您**，其中包含所有線上服務專案，包括商用 marketplace 產品</li><li>包含所有軟體專案的**軟體**</li><li>**SoftwareSUSELinux**，其中包含所有軟體 SUSE Linux 專案</li><li>**SoftwarePerpetual**，其中包含所有永久軟體專案</li><li>**SoftwareSubscriptions**，其中包含所有軟體訂閱專案 </ul> |
 
-#### <a name="request-header"></a>要求的標頭
+### <a name="request-header"></a>要求標頭
 
-如需詳細資訊，請參閱[標頭](headers.md)。
+如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>要求本文
 
-None。
+無。
 
-#### <a name="request-example"></a>要求範例
+### <a name="request-example"></a>要求範例
 
 要求提供給特定客戶的 Azure 使用量型產品清單。 針對公用雲端中的客戶，將會傳回 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）和 Azure 方案的產品：
 
@@ -66,9 +65,9 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>Rest 回應
+## <a name="rest-response"></a>Rest 回應
 
-#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
 
@@ -76,9 +75,9 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 | HTTP 狀態碼 | 錯誤碼   | 描述                     |
 |------------------|--------------|---------------------------------|
-| 403 | 400036 | 不允許存取要求的 targetView。 | 
+| 403 | 400036 | 不允許存取要求的 targetView。 |
 
-#### <a name="response-example"></a>回應範例
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK
@@ -86,7 +85,7 @@ Content-Length: 1909
 Content-Type: application/json; charset=utf-8
 MS-CorrelationId: cad955c2-8efc-47fe-b112-548ff002ba18
 MS-RequestId: ae7288e2-2673-4ad4-8c12-7aad818d5949
- 
+
 {
     "totalCount": 2,
     "items": [

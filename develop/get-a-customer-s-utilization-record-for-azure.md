@@ -1,35 +1,37 @@
 ---
-title: 取得客戶的 Azure 使用量記錄
+title: 取得客戶的 Azure 使用率記錄
 description: 您可以使用 Azure 使用量 API 來取得客戶的 Azure 訂用帳戶在指定期間內的使用率記錄。
 ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 07e915f769a0eda998a07333544424d912ea8629
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 3ee3f2187f0e4961a7945c865bbcb80b90a6cf4b
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413715"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155320"
 ---
-# <a name="get-a-customers-utilization-records-for-azure"></a>取得客戶的 Azure 使用量記錄
+# <a name="get-a-customers-utilization-records-for-azure"></a>取得客戶的 Azure 使用率記錄
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 您可以使用 Azure 使用量 API，在一段指定的時間內取得客戶 Azure 訂用帳戶的使用量記錄。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
-- 客戶識別碼。
+
+- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+
 - 訂用帳戶識別碼。
 
-此 API 會傳回任意時間範圍的每日和每小時未分級耗用量。 不過， *Azure 方案不支援此 API*。 如果您有 Azure 方案，請參閱文章[取得發票未開立帳單耗用量明細專案](get-invoice-unbilled-consumption-lineitems.md)，並改為[取得發票計費的耗用量明細專案](get-invoice-billed-consumption-lineitems.md)。 這些文章說明如何依每個資源的每個計量，取得每日層級的評分耗用量。 這相當於 Azure 使用量 API 所提供的每日資料細微性。 您將需要使用發票識別碼來取出計費的使用量資料。 或者，您可以使用目前和前一個週期來取得未開立帳單使用量預估。 *Azure 方案訂用帳戶資源目前不支援每小時的資料細微性和任意日期範圍篩選*。
+此 API 會傳回任意時間範圍的每日和每小時未分級耗用量。 不過， *Azure 方案不支援此 API*。 如果您有 Azure 方案，請參閱文章[取得發票未開立帳單耗用量明細專案](get-invoice-unbilled-consumption-lineitems.md)，並改為[取得發票計費的耗用量明細專案](get-invoice-billed-consumption-lineitems.md)。 這些文章說明如何依每個資源每個計量的每日層級取得評分的耗用量。 此速率耗用量相當於 Azure 使用量 API 所提供的每日資料細微性。 您必須使用發票識別碼來取出計費的使用量資料。 或者，您可以使用目前和前一個週期來取得未開立帳單使用量預估。 *Azure 方案訂用帳戶資源目前不支援每小時的資料細微性和任意日期範圍篩選*。
 
 ## <a name="azure-utilization-api"></a>Azure 使用量 API
 
@@ -43,9 +45,11 @@ ms.locfileid: "80413715"
 
 若要取得 Azure 使用量記錄：
 
-1. 取得客戶識別碼和訂用帳戶識別碼。 
-2. 呼叫[**IAzureUtilizationCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query)方法，以傳回包含使用率記錄的[**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) 。 
-3. 取得 Azure 使用率記錄列舉值，以流覽使用率頁面。 您必須執行此動作，因為已將資源集合分頁。
+1. 取得客戶識別碼和訂用帳戶識別碼。
+
+2. 呼叫[**IAzureUtilizationCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query)方法，以傳回包含使用率記錄的[**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) 。
+
+3. 取得 Azure 使用率記錄列舉值，以流覽使用率頁面。 這是必要步驟，因為已將資源集合分頁。
 
 - **範例**：[主控台測試應用程式](console-test-app.md)
 - **專案**：合作夥伴中心 SDK 範例
@@ -80,9 +84,9 @@ while (utilizationRecordEnumerator.HasValue)
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-若要取得 Azure 使用量記錄，您首先需要客戶識別碼和訂用帳戶識別碼。 接著，您可以呼叫**IAzureUtilizationCollection**函式，以傳回包含使用率記錄的**ResourceCollection** 。 由於資源集合已分頁，因此您必須取得 Azure 使用率記錄列舉值，以流覽使用率頁面。
+若要取得 Azure 使用量記錄，您首先需要客戶識別碼和訂用帳戶識別碼。 接著，您可以呼叫**IAzureUtilizationCollection**函式，以傳回包含使用率記錄的**ResourceCollection** 。 資源集合已分頁，因此您必須取得 Azure 使用率記錄列舉程式才能周遊使用率頁面。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -115,7 +119,7 @@ while (utilizationRecordEnumerator.hasValue())
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 若要取得 Azure 使用量記錄，您首先需要客戶識別碼和訂用帳戶識別碼。 然後呼叫[**PartnerCustomerSubscriptionUtilization**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md)。 此命令會傳回指定時間內所有可用的記錄。
 
@@ -126,39 +130,37 @@ while (utilizationRecordEnumerator.hasValue())
 Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -SubscriptionId $subscriptionId -StartDate (Get-Date).AddDays(-2).ToUniversalTime() -Granularity Hourly -ShowDetails
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
-
-#### <a name="request-syntax"></a>要求的語法
+### <a name="request-syntax"></a>要求的語法
 
 | 方法 | 要求 URI |
 |------- | ----------- |
-| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure？開始\_時間 = {開始時間} & 結束\_時間 = {結束時間} & 資料細微性 = {資料細微性} & 顯示\_details = {True} |
+| **GET** | *{baseURL}*/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure 嗎？\_開始時間 = {開始時間} &結束\_時間 = {結束時間} &資料細微性 = {資料細微性} &\_show details = {True} |
 
-##### <a name="uri-parameters"></a>URI 參數
+#### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑和查詢參數來取得使用率記錄。
 
-| 名稱 | 類型 | 必要項 | 描述 |
+| 名稱 | 類型 | 必要 | 說明 |
 | ---- | ---- | -------- | ----------- |
-| customer-tenant-id | string | 是 | 識別客戶的 GUID 格式字串。 |
-| 訂用帳戶識別碼 | string | 是 | 識別訂用帳戶的 GUID 格式字串。 |
+| customer-tenant-id | 字串 | 是 | 用來識別客戶的 GUID 格式字串。 |
+| subscription-id | 字串 | 是 | 用來識別訂用帳戶的 GUID 格式字串。 |
 | start_time | UTC 日期時間位移格式的字串 | 是 | 時間範圍的開頭，表示在計費系統中回報使用率的時機。 |
 | end_time | UTC 日期時間位移格式的字串 | 是 | 時間範圍的結尾，表示在計費系統中回報使用率的時機。 |
-| 劃分 | string | 否 | 定義使用量匯總的資料細微性。 可用的選項為： `daily` （預設值）和 `hourly`。
-| show_details | 布林值 | 否 | 指定是否要取得實例層級的使用方式詳細資料。 預設值為 `true`。 |
-| size | 數字 | 否 | 指定單一 API 呼叫所傳回的匯總數目。 預設值為1000。 最大值為1000。 |
+| 資料粒度 | 字串 | 否 | 定義使用量彙總的細微性。 可用的選項為`daily` ：（預設值`hourly`）和。
+| show_details | boolean | 否 | 指定是否要取得執行個體層級的使用量詳細資料。 預設值為 `true`。 |
+| 大小 | number | 否 | 指定單一 API 呼叫所傳回的彙總數目。 預設值是 1000。 最大值為1000。 |
 
-#### <a name="request-headers"></a>要求標頭
+### <a name="request-headers"></a>要求標頭
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-#### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>要求本文
 
-無
+None
 
-#### <a name="request-example"></a>要求範例
+### <a name="request-example"></a>要求範例
 
 下列範例要求會產生類似于 7/2-8/1 期間所顯示之對帳檔案的結果。 這些結果可能不完全相符（如需詳細資訊，請參閱[Azure 使用量 API](#azure-utilization-api)一節）。
 
@@ -174,15 +176,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST 回應
+## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回[Azure 使用率記錄](azure-utilization-record-resources.md)資源的集合。 如果 Azure 使用量資料尚未在相依系統中就緒，這個方法會傳回 HTTP 狀態碼204並加上重試標頭。
+如果成功，此方法會在回應主體中傳回[Azure 使用率記錄](azure-utilization-record-resources.md)資源的集合。 如果相依系統尚未準備好使用 Azure 使用量資料，這個方法會傳回 HTTP 狀態碼204並加上重試標頭。
 
-#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 使用網路追蹤工具來讀取 HTTP 狀態碼、[錯誤碼類型](error-codes.md)和其他參數。
 
-#### <a name="response-example"></a>回應範例
+### <a name="response-example"></a>回應範例
 
 ```http
 HTTP/1.1 200 OK

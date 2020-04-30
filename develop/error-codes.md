@@ -6,18 +6,18 @@ ms.date: 06/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bb945de632b0bf18eea73db739ad0aa6085eecc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: d4f31783b94ed8cae85687b806624945bb185486
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415638"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155750"
 ---
 # <a name="partner-center-rest-error-codes"></a>合作夥伴中心 REST 錯誤碼
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -53,12 +53,12 @@ ms.locfileid: "80415638"
 
 下表和程式碼範例描述錯誤回應的架構：
 
-| 名稱        | 類型   | 描述                                                                                                                                            |
+| 名稱        | 類型   | 說明                                                                                                                                            |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| code        | string | 一律傳回。 表示所發生錯誤的類型。 非 Null。                                                                                  |
-| 描述 | string | 一律傳回。 詳細說明錯誤，並提供其他偵錯資訊。 非 Null、非空白。 長度上限是 1024 個字元。 |
-| data        | 陣列  | 僅針對某些錯誤類型傳回。 錯誤物件的清單。                                                                                           |
-| 來源      | string | 一律傳回。 錯誤的來源。                                                                                                              |
+| code        | 字串 | 一律傳回。 表示所發生錯誤的類型。 非 Null。                                                                                  |
+| description | 字串 | 一律傳回。 詳細說明錯誤，並提供其他偵錯資訊。 非 Null、非空白。 長度上限是 1024 個字元。 |
+| data        | array  | 僅針對某些錯誤類型傳回。 錯誤物件的清單。                                                                                           |
+| source      | 字串 | 一律傳回。 錯誤的來源。                                                                                                              |
 
 ```json
 {
@@ -68,6 +68,6 @@ ms.locfileid: "80415638"
 
   ],
   "source": <string>
-## }
+}
 WWW-Authenticate: OAuth realm=urn:cpsvc:cpid:{some cid}
 ```
