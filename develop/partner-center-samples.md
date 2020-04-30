@@ -6,27 +6,27 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cc3605287da38cee9a67e4e7fe9ec5b5784b7dc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e076e7d7c6b67eb8795e8f19ad6971459984f3db
+ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416382"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82095160"
 ---
 # <a name="partner-center-samples"></a>合作夥伴中心範例
 
-**適用於**
+**適用于**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-為了協助您快速啟動並執行合作夥伴中心 Api，我們提供了範例程式、 C#受控碼程式碼片段和 REST 範例要求和回應。
+為了協助您快速啟動並執行合作夥伴中心 Api，我們提供範例程式、c # managed 程式碼片段和 REST 範例要求和回應。
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 <table>
   <thead>
@@ -44,7 +44,7 @@ ms.locfileid: "80416382"
     </tr>
     <tr>
       <td><a href="console-test-app.md">主控台測試應用程式</a></td>
-      <td>此應用程式可在C#和 JAVA 中使用，它會針對案例一節中列出的所有案例提供程式碼和一些錯誤處理。</td>
+      <td>此應用程式可在 c # 和 JAVA 中使用，它會針對案例一節中列出的所有案例提供程式碼和一些錯誤處理。</td>
     </tr>
     <tr>
       <td><a href="csp-customer-web-storefront.md">CSP 客戶網路店面</a></td>

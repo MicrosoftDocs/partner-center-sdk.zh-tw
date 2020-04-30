@@ -1,23 +1,22 @@
 ---
 title: Azure 費用
 description: CSP 合作夥伴可以使用合作夥伴中心 Api 來查看和管理其 Azure 費用。 他們也可以透過程式設計方式，針對其預算來查看其客戶的 Azure 費用。
-ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3b67120a057510ce53b43001420b3e3a2d792b0f
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7729c973622a7db6cae6ba9fc492e6f9b7caa981
+ms.sourcegitcommit: 685137f5dd204912efcb4c406a1bf02278ce5dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413194"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81785081"
 ---
 # <a name="azure-spending"></a>Azure 費用
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心

@@ -6,18 +6,18 @@ ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 07c529d85ca2246d9b39da92ada8910e1588fef9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 6890a3b23c3c998baaf80f8aabf4fc36ed9354e7
+ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416417"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82089828"
 ---
 # <a name="partner-center-rest-api-reference"></a>合作夥伴中心 REST API 參照
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -28,7 +28,7 @@ ms.locfileid: "80416417"
 
 如需 API 可執行之工作（包括範例程式碼）的詳細資訊，請參閱[案例](scenarios.md)主題，包括背景總覽。
 
-開始撰寫程式碼之前，請先閱讀[開始](get-started.md)使用主題。 本主題包含設定測試和生產帳戶、取得驗證運作，以及尋找範例程式碼的相關資訊。
+開始撰寫程式碼之前，請先閱讀[開始](get-started.md)使用主題。 本文包含有關設定您的測試和生產帳戶、取得驗證運作，以及尋找範例程式碼的資訊。
 
 ## <a name="topics"></a>主題
 

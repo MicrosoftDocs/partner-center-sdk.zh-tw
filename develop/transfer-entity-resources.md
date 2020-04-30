@@ -5,18 +5,18 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 550c9cffdc7dd5c6fbf5b2aaf5051618106bd185
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: c9b891673fb933ae787f8231e36158ed69224a04
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220744"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666611"
 ---
 # <a name="transferentity-resources"></a>TransferEntity 資源
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -29,19 +29,19 @@ ms.locfileid: "81220744"
 
 | 屬性              | 類型             | 描述                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| id                    | string           | 成功建立 transferEntity 時所提供的 transferEntity 識別碼。                               |
-| createdTime           | DateTime         | TransferEntity 的建立日期（以日期時間格式）。 已在成功建立 transferEntity 時套用。      |
-| lastModifiedTime      | DateTime         | 上次更新 transferEntity 的日期（以日期時間格式）。 已在成功建立 transferEntity 時套用。 |
-| lastModifiedUser      | string           | 上次更新 transferEntity 的使用者。 已在成功建立 transferEntity 時套用。                          |
-| customerName          | string           | 選擇性。 要轉移其訂閱的客戶名稱。                                              |
-| customerTenantId      | string           | 識別客戶的 GUID 格式客戶識別碼。 已在成功建立 transferEntity 時套用。         |
-| partnertenantid       | string           | 識別合作夥伴的 GUID 格式合作夥伴識別碼。                                                                   |
-| sourcePartnerName     | string           | 選擇性。 起始轉移的夥伴組織名稱。                                           |
-| sourcePartnerTenantId | string           | GUID 格式的夥伴識別碼，識別起始傳輸的夥伴。                                           |
-| targetPartnerName     | string           | 選擇性。 傳送目標的夥伴組織名稱。                                         |
-| targetPartnerTenantId | string           | GUID 格式的夥伴識別碼，可識別傳送目標的夥伴。                                  |
+| id                    | 字串           | 成功建立 transferEntity 時所提供的 transferEntity 識別碼。                               |
+| createdTime           | Datetime         | TransferEntity 的建立日期（以日期時間格式）。 已在成功建立 transferEntity 時套用。      |
+| lastModifiedTime      | Datetime         | 上次更新 transferEntity 的日期（以日期時間格式）。 已在成功建立 transferEntity 時套用。 |
+| lastModifiedUser      | 字串           | 上次更新 transferEntity 的使用者。 已在成功建立 transferEntity 時套用。                          |
+| customerName          | 字串           | 選擇性。 要轉移其訂閱的客戶名稱。                                              |
+| customerTenantId      | 字串           | 識別客戶的 GUID 格式客戶識別碼。 已在成功建立 transferEntity 時套用。         |
+| partnertenantid       | 字串           | 識別合作夥伴的 GUID 格式合作夥伴識別碼。                                                                   |
+| sourcePartnerName     | 字串           | 選擇性。 起始轉移的夥伴組織名稱。                                           |
+| sourcePartnerTenantId | 字串           | GUID 格式的夥伴識別碼，識別起始傳輸的夥伴。                                           |
+| targetPartnerName     | 字串           | 選擇性。 傳送目標的夥伴組織名稱。                                         |
+| targetPartnerTenantId | 字串           | GUID 格式的夥伴識別碼，可識別傳送目標的夥伴。                                  |
 | lineItems             | 物件的陣列 | [TransferLineItem](#transferlineitem)資源的陣列。                                                   |
-| status                | string           | TransferEntity 的狀態。 可能的值為「作用中」（可以刪除/提交）和「已完成」（已完成）。 已在成功建立 transferEntity 時套用。|
+| status                | 字串           | TransferEntity 的狀態。 可能的值為「作用中」（可以刪除/提交）和「已完成」（已完成）。 已在成功建立 transferEntity 時套用。|
 
 ## <a name="transferlineitem"></a>TransferLineItem
 
@@ -49,16 +49,16 @@ ms.locfileid: "81220744"
 
 | 屬性             | 類型                             | 描述                                                                                             |
 |----------------------|----------------------------------|---------------------------------------------------------------------------------------------------------|
-| id                   | string                           | 傳送明細專案的唯一識別碼。 已在成功建立 transferEntity 時套用。   |
-| subscriptionId       | string                           | 訂用帳戶識別碼。                                                                            |
+| id                   | 字串                           | 傳送明細專案的唯一識別碼。 已在成功建立 transferEntity 時套用。   |
+| subscriptionId       | 字串                           | 訂用帳戶識別碼。                                                                            |
 | quantity             | int                              | 授權或實例的數目。                                                                    |
-| billingCycle         | 物件                           | 針對目前期間所設定的計費週期類型。                                                   |
-| friendlyName         | string                           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。                   |
-| partnerIdOnRecord    | string                           | 在購買時 PartnerId 記錄（MPNID），這是在接受轉移時所發生。                 |
-| offerId              | string                           | 供應專案識別碼。    |
+| billingCycle         | Object                           | 針對目前期間所設定的計費週期類型。                                                   |
+| friendlyName         | 字串                           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。                   |
+| partnerIdOnRecord    | 字串                           | 在購買時 PartnerId 記錄（MPNID），這是在接受轉移時所發生。                 |
+| offerId              | 字串                           | 供應項目識別碼。    |
 | addonItems           | **TransferLineItem**物件的清單 | 附加元件的 transferEntity 行專案集合，將與所傳輸的基底訂用帳戶一起傳輸。 已在成功建立 transferEntity 時套用。|
-| transferError        | string                           | 在發生錯誤的情況下接受 transferEntity 之後套用。                |
-| status               | string           | TransferEntity 中 lineitem 的狀態。|
+| transferError        | 字串                           | 在發生錯誤的情況下接受 transferEntity 之後套用。                |
+| status               | 字串           | TransferEntity 中 lineitem 的狀態。|
 
 ## <a name="transfersubmitresult"></a>TransferSubmitResult
 
@@ -75,16 +75,16 @@ ms.locfileid: "81220744"
 
 | 屬性          | 類型   | 描述                                     |
 |-------------------|--------|-------------------------------------------------|
-| transferGroupId   | string | 具有錯誤之訂單的順序群組識別碼。 |
+| transferGroupId   | 字串 | 具有錯誤之訂單的順序群組識別碼。 |
 | code              | int    | 錯誤碼。                                 |
-| description       | string | 錯誤的描述。                   |
+| description       | 字串 | 錯誤的描述。                   |
 | lineItems         | **TransferLineItem**物件的清單 | 屬於傳送錯誤之一部分的 transferEntity 行專案集合。|
 
 ## <a name="transfererrorcode"></a>TransferErrorCode
 
 具有值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)，指出順序錯誤的類型。
 
-| 值 | Position | 描述 |
+| 值 | 位置 | 描述 |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | 要求內容中缺少合作夥伴 Token。 |
 | InvalidInput | 800002 | 不正確要求輸入。 |

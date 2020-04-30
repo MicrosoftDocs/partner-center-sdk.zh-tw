@@ -6,18 +6,18 @@ ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 58ec7fc5806a86c3d4f3aad00c4aaef418b753ca
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e61ef7e2d6c72938a365d28774a90b993c5d3e7b
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415317"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666301"
 ---
 # <a name="service-costs-resources"></a>服務成本資源
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 描述與客戶購買之服務相關的資源。
 
@@ -36,14 +36,14 @@ ms.locfileid: "80415317"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| BillingStartDate | date | 計費週期的開始。 |
-| BillingEndDate | date | 計費週期結束。 |
+| billingStartDate | date | 計費週期的開始。 |
+| billingEndDate | date | 計費週期結束。 |
 | pretaxTotal | double | 客戶所有成本的預先稅總計。 |
-| 銷  | double | 客戶購買的所有專案所產生的總稅額。 |
+| tax  | double | 客戶購買的所有專案所產生的總稅額。 |
 | afterTaxTotal | double | 客戶購買之所有專案的淨總成本。 |
-| currencyCode | string | 代表成本所使用的貨幣。 |
-| currencySymbol | string | 成本所使用的貨幣符號。 |
-| Id | string | 進行購買之客戶的識別碼。 |
+| currencyCode | 字串 | 代表成本所使用的貨幣。 |
+| currencySymbol | 字串 | 成本所使用的貨幣符號。 |
+| customerId | 字串 | 進行購買之客戶的識別碼。 |
 
 ## <a name="servicecostssummarydetail"></a>ServiceCostsSummaryDetail
 
@@ -51,8 +51,8 @@ ms.locfileid: "80415317"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| invoiceType | string | 已產生「服務成本摘要」的 invoiceType。 |
-| 摘要 | [ServiceCostsSummary](#servicecostssummary) | 客戶在一個發票類型下匯總的服務成本摘要。 |
+| invoiceType | 字串 | 已產生「服務成本摘要」的 invoiceType。 |
+| summary | [ServiceCostsSummary](#servicecostssummary) | 客戶在一個發票類型下匯總的服務成本摘要。 |
 
 ## <a name="servicecostlineitem"></a>ServiceCostLineItem
 
@@ -65,32 +65,32 @@ ms.locfileid: "80415317"
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
 | startDate                | UTC 日期時間格式的字串 | 費用的開始日期。                                       |
 | endDate                  | UTC 日期時間格式的字串 | 費用的結束日期。                                         |
-| subscriptionFriendlyName | string                         | 訂用帳戶的易記名稱。                              |
-| subscriptionId           | string                         | 訂用帳戶識別碼。                                         |
-| orderId                  | string                         | 訂單識別碼。                                                |
-| offerId                  | string                         | 供應專案識別碼。                                                |
-| offerName                | string                         | 供應專案名稱。                                                      |
-| resellerMPNId            | string                         | 僅用於2層合作夥伴案例。 參考 MPN 識別碼。 |
-| chargeType               | string                         | 相關聯的收費類型。                                          |
-| quantity                 | 數字                         | 使用或購買的單位數量。                             |
-| unitPrice                | 數字                         | 每個單位的價格。                                                  |
-| pretaxTotal              | 數字                         | 此專案在稅金之前的總費用。                         |
-| 銷                      | 數字                         | 此專案產生的總稅金費用。                         |
-| afterTaxTotal            | 數字                         | 此專案的淨總成本。                                    |
-| currencyCode             | string                         | 代表成本所使用的貨幣。                          |
-| currencySymbol           | string                         | 成本所使用的貨幣符號。                              |
-| Id               | string                         | 進行購買之客戶的識別碼。                          |
-| customerName             | string                         | 進行購買的客戶名稱。                        |
-| invoiceNumber            | string                         | 這個明細專案所屬的發票號碼。                   |
-| productId                | string                         | 產品識別碼。                                              |
-| skuId                    | string                         | Sku 識別碼。                                                  |
-| availabilityId           | string                         | 可用性識別碼。                                         |
-| productName              | string                         | 產品名稱。                                                    |
-| skuName                  | string                         | Sku 名稱。                                                        |
-| publisherName            | string                         | 發行者名稱。                                                  |
-| PublisherId              | string                         | 發行者識別碼。                                            |
-| TermAndBillingCycle      | string                         | 詞彙和計費週期。                                          |
-| discountDetails          | string                         | 折扣詳細資料。                                                |
+| subscriptionFriendlyName | 字串                         | 訂用帳戶的易記名稱。                              |
+| subscriptionId           | 字串                         | 訂用帳戶識別碼。                                         |
+| orderId                  | 字串                         | 訂單識別碼。                                                |
+| offerId                  | 字串                         | 供應項目識別碼。                                                |
+| offerName                | 字串                         | 供應專案名稱。                                                      |
+| resellerMPNId            | 字串                         | 僅用於2層合作夥伴案例。 參考 MPN 識別碼。 |
+| chargeType               | 字串                         | 相關聯的收費類型。                                          |
+| quantity                 | number                         | 使用或購買的單位數量。                             |
+| unitPrice                | number                         | 每個單位的價格。                                                  |
+| pretaxTotal              | number                         | 此專案在稅金之前的總費用。                         |
+| tax                      | number                         | 此專案產生的總稅金費用。                         |
+| afterTaxTotal            | number                         | 此專案的淨總成本。                                    |
+| currencyCode             | 字串                         | 代表成本所使用的貨幣。                          |
+| currencySymbol           | 字串                         | 成本所使用的貨幣符號。                              |
+| customerId               | 字串                         | 進行購買之客戶的識別碼。                          |
+| customerName             | 字串                         | 進行購買的客戶名稱。                        |
+| invoiceNumber            | 字串                         | 這個明細專案所屬的發票號碼。                   |
+| productId                | 字串                         | 產品識別碼。                                              |
+| skuId                    | 字串                         | Sku 識別碼。                                                  |
+| availabilityId           | 字串                         | 可用性識別碼。                                         |
+| productName              | 字串                         | 產品名稱。                                                    |
+| skuName                  | 字串                         | Sku 名稱。                                                        |
+| publisherName            | 字串                         | 發行者名稱。                                                  |
+| publisherId              | 字串                         | 發行者識別碼。                                            |
+| termAndBillingCycle      | 字串                         | 詞彙和計費週期。                                          |
+| discountDetails          | 字串                         | 折扣詳細資料。                                                |
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 

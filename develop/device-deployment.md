@@ -6,18 +6,18 @@ ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6842fdefd71a066e6b1be3a5ab302b24e445366d
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: eff3dcdc9a5717699152eaa4980f07aa48325bae
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412431"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666249"
 ---
 # <a name="device-deployment"></a>裝置部署
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 合作夥伴中心 Api 提供對零觸控部署功能的存取，讓您可以為客戶簡化裝置設定的安全。

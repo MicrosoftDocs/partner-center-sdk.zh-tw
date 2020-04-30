@@ -5,22 +5,22 @@ ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1da4e45bcfa3c54316139fefa348044643256190
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7d984deb3c80a6f02ae1880ccbc8d9c7c882226f
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413047"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82123163"
 ---
 # <a name="cancel-software-purchases"></a>取消購買軟體
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
-您可以使用合作夥伴中心 Api，從購買日期取消軟體訂閱和永久軟體購買。 您不需要建立支援票證來進行這類取消，而可以改為使用下列自助服務方法。
+您可以使用合作夥伴中心 Api 來取消軟體訂用帳戶和永久軟體購買（只要這些購買是從購買日期的取消時段進行）。 您不需要建立支援票證來進行這類取消，而可以改為使用下列自助服務方法。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -30,11 +30,11 @@ ms.locfileid: "80413047"
 
 1. 將您的帳號憑證傳遞至[**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)方法，以取得[**ipartner.getinvoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)介面來取得合作夥伴作業。
 
-2. 選取您想要取消的特定[訂單](order-resources.md#order)。 使用客戶識別碼呼叫[**ById （）** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，後面接著**ById （）** 與訂單識別碼。
+2. 選取您想要取消的特定[訂單](order-resources.md#order)。 使用客戶識別碼呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，後面接著**ById （）** 與訂單識別碼。
 
 3. 呼叫**Get**或**GetAsync**方法以取得訂單。
 
-4. 將[**Order. Status**](order-resources.md#order)屬性設為「已取消」。
+4. 將[**Order. Status**](order-resources.md#order)屬性設定為`cancelled`。
 
 5. 選擇性如果您想要指定取消的特定行專案，請將[**LineItems**](order-resources.md#order)設定為您要取消之行專案的清單。
 
@@ -63,16 +63,16 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 | 方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **跳** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
+| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 使用下列查詢參數來刪除客戶。
 
-| 名稱                   | 類型     | 必要項 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **客戶-租使用者識別碼** | **guid** | Y        | 此值是 GUID 格式的客戶租使用者識別碼，可讓轉銷商針對屬於轉售商的特定客戶篩選其結果。 |
-| **訂單識別碼** | **字串** | Y        | 值為字串，表示您想要取消之訂單的識別碼。 |
+| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的客戶租使用者識別碼，可讓轉銷商針對屬於轉售商的特定客戶篩選其結果。 |
+| **訂單識別碼** | **string** | Y        | 值為字串，表示您想要取消之訂單的識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -117,7 +117,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 如果成功，這個方法會傳回具有已取消之明細專案的順序。
 
-訂單狀態會標示為 [已**取消**] （如果訂單中的所有明細專案已取消）或 [**已完成**] （如果未取消訂單中的所有明細專案）。
+如果訂單中的所有明細專案都已取消，則訂單狀態會標示為 [已**取消**]，如果未取消訂單中的所有明細專案，則為 [**已完成**]。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -125,7 +125,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ### <a name="response-example"></a>回應範例
 
-在下列範例回應中，您可以看到具有供應專案識別碼**DG7GMGF0FKZV：0003： DG7GMGF0DWMS**的明細專案數量已變成零（0）。 這項變更表示已成功取消標示為取消的行專案。 範例順序包含其他未取消的明細專案，這表示整體訂單的狀態會標示為**已完成**，而不是**取消**。
+在下列範例回應中，您可以看到具有供應專案識別碼**`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** 的明細專案數量已變成零（0）。 這項變更表示已成功取消標示為取消的行專案。 範例順序包含未取消的其他明細專案，這表示整體訂單的狀態會標示為**已完成**，而不是**取消**。
 
 ```http
 HTTP/1.1 200 OK

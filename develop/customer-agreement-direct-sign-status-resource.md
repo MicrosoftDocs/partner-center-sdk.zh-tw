@@ -5,18 +5,18 @@ ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 539d395aa096632dd7e15edeb2b2c98035c191ca
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 23397ab479f32879b00c04a817ef889221a6f091
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412456"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81665988"
 ---
 # <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>客戶合約的直接簽署（直接接受）狀態
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 合作夥伴中心目前僅支援在 Microsoft 公用雲端中使用**DirectSignedCustomerAgreementStatus**資源。
 
@@ -34,4 +34,4 @@ ms.locfileid: "80412456"
 
 | 屬性       | 類型   | 描述                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| isSigned | 布林值 | 指出客戶是否已直接簽署（接受）客戶合約。 |
+| isSigned | boolean | 指出客戶是否已直接簽署（接受）客戶合約。 |

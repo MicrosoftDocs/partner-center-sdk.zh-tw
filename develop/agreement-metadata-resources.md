@@ -5,18 +5,18 @@ ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c772bb5554a551563befe0f40ab8e800a422ee2e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: ccc726a74ca17082576b53c2b1edba085a1610bc
+ms.sourcegitcommit: 685137f5dd204912efcb4c406a1bf02278ce5dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412752"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81785125"
 ---
 # <a name="agreement-metadata-resources"></a>合約中繼資料資源
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 合作夥伴中心目前僅支援在*Microsoft 公用雲端*中使用**AgreementMetaData**資源。 此資源不適用於：
 
@@ -28,10 +28,10 @@ ms.locfileid: "80412752"
 
 ## <a name="agreementmetadata"></a>AgreementMetaData
 
-傳回的合約中繼資料包括下列各項：
+傳回的合約中繼資料包括下列屬性：
 
 | 屬性      | 類型               | 描述                                                                       |
 |---------------|--------------------|-----------------------------------------------------------------------------------|
-| templateId    | string             | 協定範本的唯一識別碼。                                       |
-| 類型          | string             | 合約類型。 目前支援的值包括**MicrosoftCloudAgreement**和**MicrosoftCustomerAgreement** （預覽）。 |
-| agreementLink | string             | 合約範本的 URL。                                                    |
+| templateId    | 字串             | 協定範本的唯一識別碼。                                       |
+| type          | 字串             | 合約類型。 目前支援的值包括**MicrosoftCloudAgreement**和**MicrosoftCustomerAgreement** （預覽）。 |
+| agreementLink | 字串             | 合約範本的 URL。                                                    |

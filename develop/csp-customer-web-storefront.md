@@ -6,18 +6,18 @@ ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1db077eb789146f945f6d507be84f948ae2cb0a9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: a85c5f4ab3050d0120a42389e906ab4502ef6a04
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415550"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81665929"
 ---
 # <a name="csp-customer-web-storefront"></a>CSP 客戶網路店面
 
-適用於：
+**適用於：**
 
-- 夥伴中心
+- 合作夥伴中心
 
 > [!NOTE]
 > 這個範例應用程式僅適用于合作夥伴中心的全域實例。 不適用於 Microsoft Cloud 德國的合作夥伴中心，或適用于美國政府 Microsoft Cloud 的合作夥伴中心。
@@ -52,7 +52,7 @@ ms.locfileid: "80415550"
 - 組織標誌
 - 頁首影像
 - 隱私權合約
-- 連絡人電子郵件
+- 連絡電子郵件
 - 連絡人電話號碼
 - 支援電子郵件
 - 支援電話號碼
