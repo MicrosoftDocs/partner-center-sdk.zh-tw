@@ -6,12 +6,12 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7199c03733c2bfdb496939af94e35c9aafa9931c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 734b9df837a7c036de89ba2ced7bb83ae051b5fe
+ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155800"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82882374"
 ---
 # <a name="get-a-collection-of-invoices"></a>取得發票的集合
 
@@ -77,13 +77,16 @@ while (invoicesEnumerator.HasValue)
 
 如需稍微不同的範例，請參閱**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetPagedInvoices.cs
 
+> [!NOTE] 
+> 相同的 API 會用於所有新式商業購買，以及145p 和 Office 授權。 只有傳統發票會考慮大小和位移。 針對所有新式商業採購，將會忽略 pagesize & 位移。
+
 ## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
 | 方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices？ size = {size} &offset = {OFFSET} HTTP/1。1  |
+| **獲取** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices？ size = {size} &offset = {OFFSET} HTTP/1。1  |
 
 ### <a name="uri-parameters"></a>URI 參數
 
@@ -100,7 +103,7 @@ while (invoicesEnumerator.HasValue)
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 

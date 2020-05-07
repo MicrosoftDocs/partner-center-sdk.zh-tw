@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1267a10bff9e428720bf16d6dcb53ade69d6a343
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e20a7bbfbfcd557be1f27904eafed31e4a7691a6
+ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157400"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82882394"
 ---
 # <a name="get-invoice-line-items"></a>取得發票明細項目
 
@@ -119,7 +119,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = office&invoicelineitemtype = billinglineitems&大小 = {大小} &位移 = {OFFSET} HTTP/1。1                               |
+| **獲取** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = office&invoicelineitemtype = billinglineitems&大小 = {大小} &位移 = {OFFSET} HTTP/1。1                               |
 
 #### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶
 
@@ -127,8 +127,8 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure&invoicelineitemtype = billinglineitems&size = {size} &offset = {OFFSET} HTTP/1。1  |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure&invoicelineitemtype = usagelineitems&size = {size} &offset = {OFFSET} HTTP/1。1  |
+| **獲取** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure&invoicelineitemtype = billinglineitems&size = {size} &offset = {OFFSET} HTTP/1。1  |
+| **獲取** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure&invoicelineitemtype = usagelineitems&size = {size} &offset = {OFFSET} HTTP/1。1  |
 
 ##### <a name="onetime"></a>OneTime
 
@@ -136,8 +136,8 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime&invoicelineitemtype = billinglineitems&size = {SIZE} HTTP/1。1  |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size = {size}？ SeekOperation = Next                           |
+| **獲取** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime&invoicelineitemtype = billinglineitems&size = {SIZE} HTTP/1。1  |
+| **獲取** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size = {size}？ SeekOperation = Next                           |
 
 #### <a name="previous-syntaxes"></a>先前的語法
 
@@ -162,9 +162,9 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 | 發票識別碼             | 字串 | 是      | 識別發票的字串。                             |
 | billing-provider       | 字串 | 是      | 計費提供者： "Office"、"Azure"、"OneTime"。               |
 | invoice-line-item-type | 字串 | 是      | 發票詳細資料的類型： "BillingLineItems"、"UsageLineItems"。 |
-| 大小                   | number | 否       | 要傳回的專案數目上限。                            |
+| 大小                   | number | 否       | 要傳回的專案數目上限。 預設大小上限 = 2000    |
 | Offset                 | number | 否       | 要傳回的第一個行專案之以零為起始的索引。            |
-| seekOperation          | 字串 | 否       | 如果**計費提供者**等於**OneTime**，請將**SeekOperation**設定為 **[下一頁]** ，以取得發票明細專案的下一頁。 |
+| seekOperation          | 字串 | No       | 如果**計費提供者**等於**OneTime**，請將**SeekOperation**設定為 **[下一頁]** ，以取得發票明細專案的下一頁。 |
 | hasPartnerEarnedCredit | bool | 否 | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在計費提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。 |
 
 ### <a name="request-headers"></a>要求標頭

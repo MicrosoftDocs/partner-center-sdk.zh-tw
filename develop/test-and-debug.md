@@ -6,12 +6,12 @@ ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2ed7a22fbf8e2e8736f906663e88509e58b2791a
-ms.sourcegitcommit: e24ee5d22fd89b5120b8e8c2dbf7ed61117a70ab
+ms.openlocfilehash: d24becdaf89798fd99ca0ed3fe0ea60d75d0d2f9
+ms.sourcegitcommit: 58fecbc8e6f20dae7cde34ae44b72d5d37ae09b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596445"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869062"
 ---
 # <a name="test-and-debug"></a>測試與偵錯
 
@@ -37,7 +37,7 @@ ms.locfileid: "82596445"
 
 ### <a name="azure-plan"></a>Azure 方案
 
-根據預設，合作夥伴無法使用其沙箱帳戶布建 Azure 方案。 需要使用其沙箱帳戶來執行此動作的合作夥伴必須申請存取權。 若要申請存取，請聯繫您的 Microsoft 帳戶經理或業務連絡人。 先前已申請在其沙箱帳戶中存取布建 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂閱的合作夥伴，不需要再次申請存取。 系統會授與他們自動布建 Azure 方案的存取權。
+根據預設，合作夥伴無法使用其沙箱帳戶布建 Azure 方案。 需要使用其沙箱帳戶來執行此動作的合作夥伴必須申請存取權。 若要申請存取，請聯繫您的 Microsoft 帳戶經理或商務連絡人。 先前已申請在其沙箱帳戶中存取布建 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂閱的合作夥伴，不需要再次申請存取。 系統會授與他們自動布建 Azure 方案的存取權。
 
 針對已核准其沙箱帳戶以布建 Azure 方案的合作夥伴，適用下列限制：
 
