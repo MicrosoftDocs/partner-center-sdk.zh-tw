@@ -6,12 +6,12 @@ ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9317e84df5ef6789f7f555e9cb98bb603b412a54
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: 80dc28411c78b7bf3524456d4c1426d8fad7e0a4
+ms.sourcegitcommit: caadf6300aac239f37e6964baf179a9d848308f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559059"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82973224"
 ---
 # <a name="manage-customers"></a>管理客戶
 
@@ -73,7 +73,8 @@ ms.locfileid: "82559059"
 - [指派授權給使用者](assign-licenses-to-a-user.md)
 - [檢查已指派給使用者的授權](check-which-licenses-are-assigned-to-a-user.md)
 
-**管理客戶自助服務原則**
+## <a name="manage-a-customers-self-serve-policies"></a>管理客戶的自助服務原則
+
 - [建立自助式原則](create-a-self-serve-policy.md)
 - [刪除自助式原則](delete-a-self-serve-policy.md)
 - [更新自助式原則](update-a-self-serve-policy.md)
