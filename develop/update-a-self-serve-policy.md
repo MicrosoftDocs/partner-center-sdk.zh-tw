@@ -5,14 +5,14 @@ ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 75d19c27dfbad8d35532239f6fb101311f67ccb3
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: d618d27dc7e17ff37b3186ad20fbc28057024538
+ms.sourcegitcommit: 093dd5bb3e1a4d3d02839b39cec2b62d5800fd3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564366"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83383903"
 ---
-# <a name="create-a-selfservepolicy"></a>建立 SelfServePolicy
+# <a name="update-a-selfservepolicy"></a>更新 SelfServePolicy
 
 **適用於：**
 
@@ -43,7 +43,7 @@ ms.locfileid: "82564366"
 
 | 名稱                              | 類型   | 描述                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
-| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| 物件 | 自助服務原則資訊。 |
+| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| 物件 (object) | 自助服務原則資訊。 |
 
 #### <a name="selfservepolicy"></a>SelfServePolicy
 
