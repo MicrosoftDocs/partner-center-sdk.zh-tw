@@ -6,23 +6,23 @@ ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f98541f22f905238bc374c6215edd8460cc34fc6
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: d253583b1d207d17a46d692910276a8529f9626d
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415236"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157810"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>在合作夥伴中心設定 API 存取
 
-適用於：
+**適用於：**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-本主題將說明針對合作夥伴中心 SDK 進行開發所需的帳戶。 本主題也會說明如何建立[整合沙箱帳戶](#integration-sandbox-account)，並在整合沙箱中進行測試。
+本文將說明針對合作夥伴中心 SDK 進行開發所需的帳戶。 本文也會說明如何建立[整合沙箱帳戶](#integration-sandbox-account)，並在整合沙箱中進行測試。
 
 ## <a name="account-definitions"></a>帳戶定義
 
@@ -51,15 +51,20 @@ ms.locfileid: "80415236"
 ### <a name="create-an-integration-sandbox"></a>建立整合沙箱
 
 1. 使用全域系統管理員帳戶 (您的主要夥伴帳戶) 登入合作夥伴儀表板。
+
 2. 從 [設定]  功能表 (齒輪圖示) 中，選擇 [合作夥伴設定]  。
+
 3. 在 [帳戶設定]  頁面上，選擇 [整合沙箱]  。
 
     >[!NOTE]
     >如果您沒有看到 [整合沙箱] 選項，可能是您沒有全域管理員帳戶。 也有可能是您正在使用整合沙箱帳戶，而且已設定整合沙箱。
 
 4. 輸入整合沙箱管理帳戶的連絡人資訊。 然後，選擇 [建立帳戶]  。 等候幾分鐘的時間，直到出現確認已建立帳戶的確認訊息。
+
 5. 查看確認訊息之後，請登出合作夥伴儀表板。
+
 6. 使用新的整合沙箱管理帳戶重新登入。 請務必使用格式為 **username@domain** 的認證及您剛才指定的密碼。
+
 7. 在 [目前的工作]  **上方選擇 [設定帳戶]** 來完成沙箱帳戶設定。
 
 ### <a name="enable-api-access"></a>啟用 API 存取
@@ -67,11 +72,17 @@ ms.locfileid: "80415236"
 設定帳戶之後，您必須先啟用 API 存取，才能搭配整合沙箱使用合作夥伴中心 SDK。 您必須針對主要夥伴帳戶和整合沙箱帳戶，分別啟用 API 的存取權。
 
 1. 使用全域系統管理員帳戶登入合作夥伴儀表板。
+
 2. 從 [設定]  功能表 (齒輪圖示) 中，選取 [合作夥伴設定]  。
+
 3. 在 [帳戶設定]  頁面上，選擇 [應用程式管理]  。
+
 4. 如果您沒有現有的應用程式，請新增 Web 應用程式。 如果您有現有的 Web 應用程式，請選擇 [新增金鑰]  按鈕。
+
 5. 複製應用程式註冊資訊，特別是**金鑰** (如果您要建立 Web 應用程式的話)，並將其儲存在安全的地方。
+
 6. 登出合作夥伴儀表板。
+
 7. 使用您的整合沙箱帳戶重新登入。 重複步驟 2-5，以在整合沙箱中啟用 API 存取。
 
 ## <a name="write-and-test-code"></a>撰寫和測試程式碼
@@ -91,4 +102,5 @@ ms.locfileid: "80415236"
 當您準備好在主要合作夥伴帳戶中使用已測試的程式碼時，您必須取得 Azure AD 安全性權杖。 此安全性權杖會以您合作夥伴中心的應用程式、金鑰和網域為基礎 (而不是您整合沙箱的應用程式、金鑰和網域)。
 
 1. 遵循[合作夥伴中心驗證](partner-center-authentication.md)中的步驟，使用主要合作夥伴中心認證來取得 Azure AD 安全性權杖。 (您先前已遵循這些步驟來取得整合沙箱的 Azure AD 安全性權杖)。
+
 2. 將程式碼中的整合安全性權杖取代為主要合作夥伴帳戶的新安全性權杖。

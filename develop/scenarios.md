@@ -6,16 +6,16 @@ ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c9192a5ed7055e280db219307cd539fcdc4be842
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 26ae536f766f799d0ebcab0ecc5640358f997d33
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415333"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157680"
 ---
 # <a name="scenarios"></a>案例
 
-適用於：
+**適用於：**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,14 +24,16 @@ ms.locfileid: "80415333"
 
 本節將說明雲端解決方案提供者計畫中的合作夥伴，可如何利用合作夥伴中心 API 以程式設計方式管理客戶帳戶、合作夥伴帳戶、訂單、訂用帳戶、支援及帳單。
 
-請注意，您可以使用不同的合作夥伴中心版本，其中包含不同的功能。 並非所有合作夥伴中心版本都支援所有案例。 若要深入了解，請參閱[針對 Microsoft 國家/地區雲端的合作夥伴中心進行開發](developing-for-partner-center-for-microsoft-national-cloud.md)。
+您可以使用不同的合作夥伴中心版本，其中包含不同的功能。 並非所有合作夥伴中心版本都支援所有案例。 若要深入了解，請參閱[針對 Microsoft 國家/地區雲端的合作夥伴中心進行開發](developing-for-partner-center-for-microsoft-national-cloud.md)。
 
 ## <a name="scenarios-supported-by-the-partner-center-sdk"></a>合作夥伴中心 SDK 支援的案例
 
 下列所有案例都可以用三種不同的方式完成：
 
-- 在[合作夥伴中心](https://go.microsoft.com/fwlink/p/?LinkId=620294)儀表板中手動進行。
+- 在[合作夥伴中心](https://partner.microsoft.com/dashboard)儀表板中手動進行。
+
 - 以程式設計方式使用合作夥伴中心受控 API。
+
 - 以程式設計方式使用合作夥伴中心 REST API。
 
 <table>
@@ -146,7 +148,7 @@ ms.locfileid: "80415333"
 <li><p><a href="create-a-customer.md">建立客戶</a></p></li>
 <li><p><a href="create-a-customer-for-an-indirect-reseller.md">建立間接轉銷商的客戶</a></p></li>
 <li><p><a href="request-reseller-relationship.md">擷取關聯性的要求 URL</a></p></li>
-<li><p><a href="remove-a-reseller-relationship-with-a-customer.md">移除與客戶的經銷商關係</a></p></li> 
+<li><p><a href="remove-a-reseller-relationship-with-a-customer.md">移除與客戶的經銷商關係</a></p></li>
 </ul>
 <p>查閱客戶</p>
 <ul>
@@ -158,7 +160,7 @@ ms.locfileid: "80415333"
 <ul>
 <li><p><a href="get-all-of-a-customer-s-orders.md">取得客戶的所有訂單</a></p></li>
 <li><p><a href="get-a-list-of-orders-by-customer-and-billing-cycle-type.md">依照客戶和計費週期類型取得訂單清單</a></p></li>
-<li><p><a href="get-a-collection-of-entitlements.md">取得權利的集合</a></p></li> 
+<li><p><a href="get-a-collection-of-entitlements.md">取得權利的集合</a></p></li>
 <li><p><a href="get-all-of-a-customer-s-subscriptions.md">取得客戶的訂用帳戶</a></p></li>
 <li><p><a href="update-the-nickname-for-a-subscription.md">更新訂用帳戶的暱稱</a></p></li>
 </ul>
@@ -206,7 +208,7 @@ ms.locfileid: "80415333"
 </ul>
 <p>進行一次性購買</p>
 <ul>
-<li><p><a href="make-a-one-time-purchase.md">進行一次性購買</a></p></li> 
+<li><p><a href="make-a-one-time-purchase.md">進行一次性購買</a></p></li>
 </ul>
 <p>從目錄取得供應項目</p>
 <ul>
@@ -278,7 +280,7 @@ ms.locfileid: "80415333"
 <li><p><a href="create-a-service-request-.md">建立服務要求</a></p></li>
 <li><p><a href="get-service-request-support-topics--pending-.md">取得服務要求支援主題的清單</a></p></li>
 <li><p><a href="get-all-service-requests-for-a-customer.md">為客戶取得所有服務要求</a></p></li>
-<li><p><a href="get-service-request-details-by-id.md">依照識別碼取得服務要求詳細資料</a></p></li> 
+<li><p><a href="get-service-request-details-by-id.md">依照識別碼取得服務要求詳細資料</a></p></li>
 <li><p><a href="update-a-service-request.md">更新服務要求</a></p></li>
 </ul></td>
 </tr>
@@ -286,10 +288,10 @@ ms.locfileid: "80415333"
   <td><p><a href="https://docs.microsoft.com/partner/develop/referrals">轉介</a></p></td>
   <td><p>轉介</p>
     <ul>
-      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">建立轉介</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">取得轉介清單</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">依照識別碼取得轉介</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">更新轉介</a></p></li> 
+      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">建立轉介</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">取得轉介清單</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">依照識別碼取得轉介</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">更新轉介</a></p></li>
     </ul>
   </td>
 </tr>
