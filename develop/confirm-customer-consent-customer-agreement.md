@@ -5,12 +5,12 @@ ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 33a2dacc622c87feb3058931259ad7fbea7a0758
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+ms.openlocfilehash: 2f59616191a4ce255a294e9c80c26a4e73eda267
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093810"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154400"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>確認客戶接受 Microsoft 客戶合約
 
@@ -29,9 +29,13 @@ ms.locfileid: "82093810"
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要 1.14 版或更新版本。
+
 - 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援「應用程式 + 使用者」驗證。 
-- 客戶識別碼 (**customer-tenant-id**)。
+
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
+
 - 客戶接受 Microsoft 客戶合約時的日期 (**dateAgreed**)。
+
 - 客戶組織中已接受 Microsoft 客戶合約的使用者相關資訊。 這包括：
   - 名字
   - 姓氏
@@ -44,36 +48,38 @@ ms.locfileid: "82093810"
 
 1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
 
-```csharp
-// IAggregatePartner partnerOperations;
+   ```csharp
+   // IAggregatePartner partnerOperations;
 
-string agreementType = "MicrosoftCustomerAgreement";
+   string agreementType = "MicrosoftCustomerAgreement";
 
-var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
-```
+   var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
+   ```
 
 2. 建立包含確認詳細資料的新**合約**物件。
+
 3. 使用 **IAgreggatePartner.Customers** 集合，並使用指定的 **customer-tenant-id**來呼叫 **ById** 方法。
+
 4. 使用 **Agreements** 屬性，然後呼叫 **Create** 或 **CreateAsync**。
 
-```csharp
-// string selectedCustomerId;
+   ```csharp
+   // string selectedCustomerId;
 
-var agreementToCreate = new Agreement
-{
-    DateAgreed = DateTime.UtcNow,
-    TemplateId = microsoftCustomerAgreementDetails.TemplateId,
-    PrimaryContact = new Contact
-    {
-        FirstName = "Tania",
-        LastName = "Carr",
-        Email = "someone@example.com",
-        PhoneNumber = "1234567890"
-    }
-};
+   var agreementToCreate = new Agreement
+   {
+       DateAgreed = DateTime.UtcNow,
+       TemplateId = microsoftCustomerAgreementDetails.TemplateId,
+       PrimaryContact = new Contact
+       {
+           FirstName = "Tania",
+           LastName = "Carr",
+           Email = "someone@example.com",
+           PhoneNumber = "1234567890"
+       }
+   };
 
-Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
-```
+   Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
+   ```
 
 您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的 [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) 類別中找到完整範例。
 
@@ -82,6 +88,7 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 若要確認或重新確認客戶是否接受 Microsoft 客戶合約：
 
 1. 擷取 Microsoft 客戶合約的合約中繼資料。 您必須取得 Microsoft 客戶合約的 **templateId**。 如需詳細資訊，請參閱[取得 Microsoft 客戶合約的合約中繼資料](get-customer-agreement-metadata.md)。
+
 2. 建立新的[**合約**資源](agreement-resources.md)，確認客戶已接受 Microsoft 客戶合約。 請使用下列 [REST 要求語法](#request-syntax)。
 
 ### <a name="request-syntax"></a>要求的語法
@@ -142,11 +149,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-### <a name="rest-response"></a>REST 回應
+## <a name="rest-response"></a>REST 回應
 
 如果成功，此方法會傳回[**合約**資源](./agreement-resources.md)。
 
-#### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
+### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。
 
