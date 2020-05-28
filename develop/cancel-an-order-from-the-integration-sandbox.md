@@ -5,12 +5,12 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 05c54d753548b6fadfc0595e43720877393cd0c4
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 459db3cfb9a85fd2f4a0d32b065d6929ab40006b
+ms.sourcegitcommit: 99fa2c7669f3db84fd00cb5f28ef8d783900c8d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154720"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84121228"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>從整合沙箱中取消訂單
 
@@ -24,9 +24,12 @@ ms.locfileid: "82154720"
 如何從整合沙箱帳戶取消保留實例、軟體和商業 marketplace 軟體即服務（SaaS）訂閱訂單。
 
 >[!NOTE]
->請注意，只有整合沙箱帳戶才能進行保留實例、軟體或商用 marketplace SaaS 訂閱訂單的取消。 若要取消生產訂單，請洽詢合作夥伴中心支援。
+>請注意，您只能從整合沙箱帳戶進行保留實例或商業 marketplace SaaS 訂閱訂單的取消。  
 
-## <a name="prerequisites"></a>Prerequisites
+若要透過 API 取消軟體的生產訂單，請使用 [[取消]-[軟體-購買](cancel-software-purchases.md)]。
+您也可以使用 [[取消購買](https://docs.microsoft.com/partner-center/csp-software-subscriptions.md)]，透過儀表板取消軟體的生產訂單。
+
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -34,11 +37,11 @@ ms.locfileid: "82154720"
 
 ## <a name="c"></a>C\#
 
-若要取消整合沙箱中的訂單，請將您的[**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)帳號憑證傳遞至方法， [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)以取得介面來取得夥伴作業。
+若要取消整合沙箱中的訂單，請將您的帳號憑證傳遞至 [**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) 方法，以取得 [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) 介面來取得夥伴作業。
 
-若要選取特定的[訂單](order-resources.md#order)，請使用夥伴作業和[**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)呼叫方法搭配客戶識別碼來指定客戶，並在後面**`Orders.ById()`** 加上 order identifier 來指定訂單，最後**`Get`** 或**`GetAsync`** 方法來取得此順序。
+若要選取特定的[訂單](order-resources.md#order)，請使用夥伴作業和呼叫 [**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法搭配客戶識別碼來指定客戶，並在後面加上 **`Orders.ById()`** order identifier 來指定訂單，最後 **`Get`** 或 **`GetAsync`** 方法來取得此順序。
 
-將[**`Order.Status`**](order-resources.md#order)屬性設定為`cancelled` ，並使用**`Patch()`** 方法來更新順序。
+將 [**`Order.Status`**](order-resources.md#order) 屬性設定為 `cancelled` ，並使用 **`Patch()`** 方法來更新順序。
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
