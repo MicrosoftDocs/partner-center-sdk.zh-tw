@@ -5,21 +5,18 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c9b891673fb933ae787f8231e36158ed69224a04
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 0a9a357d9f2fd90069df0b39427e32fe25dc16af
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666611"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489165"
 ---
 # <a name="transferentity-resources"></a>TransferEntity 資源
 
 **適用於：**
 
 - 合作夥伴中心
-- 由 21Vianet 營運的合作夥伴中心
-- Microsoft Cloud 德國合作夥伴中心
-- Microsoft Cloud for US Government 適用的合作夥伴中心
 
 當客戶想要將合作夥伴的訂用帳戶轉移給另一個夥伴時，合作夥伴會建立轉移。
 
@@ -27,7 +24,7 @@ ms.locfileid: "81666611"
 
 描述 transferEntity。
 
-| 屬性              | 類型             | 描述                                                                                            |
+| 屬性              | 類型             | 說明                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | id                    | 字串           | 成功建立 transferEntity 時所提供的 transferEntity 識別碼。                               |
 | createdTime           | Datetime         | TransferEntity 的建立日期（以日期時間格式）。 已在成功建立 transferEntity 時套用。      |
@@ -47,12 +44,12 @@ ms.locfileid: "81666611"
 
 表示 transferEntity 中包含的一個專案。
 
-| 屬性             | 類型                             | 描述                                                                                             |
+| 屬性             | 類型                             | 說明                                                                                             |
 |----------------------|----------------------------------|---------------------------------------------------------------------------------------------------------|
 | id                   | 字串                           | 傳送明細專案的唯一識別碼。 已在成功建立 transferEntity 時套用。   |
 | subscriptionId       | 字串                           | 訂用帳戶識別碼。                                                                            |
 | quantity             | int                              | 授權或實例的數目。                                                                    |
-| billingCycle         | Object                           | 針對目前期間所設定的計費週期類型。                                                   |
+| billingCycle         | 物件                           | 針對目前期間所設定的計費週期類型。                                                   |
 | friendlyName         | 字串                           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。                   |
 | partnerIdOnRecord    | 字串                           | 在購買時 PartnerId 記錄（MPNID），這是在接受轉移時所發生。                 |
 | offerId              | 字串                           | 供應項目識別碼。    |
@@ -64,7 +61,7 @@ ms.locfileid: "81666611"
 
 表示傳輸接受的結果。
 
-| 屬性          | 類型                                                  | 描述                        |
+| 屬性          | 類型                                                  | 說明                        |
 |-------------------|-------------------------------------------------------|------------------------------------|
 | 訂單            | [Order](order-resources.md#order)物件的清單。    | 訂單的集合。          |
 | transferErrors    | [TransferError](#transfererror)物件的清單。      | 傳輸錯誤的集合。 |
@@ -73,7 +70,7 @@ ms.locfileid: "81666611"
 
 表示接受傳輸時所發生的錯誤。
 
-| 屬性          | 類型   | 描述                                     |
+| 屬性          | 類型   | 說明                                     |
 |-------------------|--------|-------------------------------------------------|
 | transferGroupId   | 字串 | 具有錯誤之訂單的順序群組識別碼。 |
 | code              | int    | 錯誤碼。                                 |
@@ -84,7 +81,7 @@ ms.locfileid: "81666611"
 
 具有值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)，指出順序錯誤的類型。
 
-| 值 | 位置 | 描述 |
+| 值 | 位置 | 說明 |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | 要求內容中缺少合作夥伴 Token。 |
 | InvalidInput | 800002 | 不正確要求輸入。 |
