@@ -5,16 +5,16 @@ ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ac08f528606891de7c67d11ae9931378286887a8
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 93582ccf08e7f97e7a6cfa05a18cbeae9754d7da
+ms.sourcegitcommit: 51dc972a66af76d033d22f1d92f8ccc46ae3d36b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157110"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85096032"
 ---
 # <a name="make-a-one-time-purchase"></a>進行一次性購買
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
@@ -24,7 +24,7 @@ ms.locfileid: "82157110"
 > [!NOTE]
 > 下列市場不提供軟體訂閱：
 >
-> | 無法使用的市場            | &nbsp;                            | &nbsp;                                   |
+> | 不適用的市場            | 無法使用的市場（續） | 無法使用的市場（續）      |
 > |--------------------------------|-----------------------------------|------------------------------------------|
 > | 奧蘭島                  | 格陵蘭                         | 巴布亞紐幾內亞                         |
 > | 美屬薩摩亞                 | 格瑞那達                           | 皮特康群島                         |
@@ -33,12 +33,12 @@ ms.locfileid: "82157110"
 > | 南極大陸                     | 根息                          | 沙巴                                     |
 > | 安地卡及巴布達            | 幾內亞                            | 聖巴瑟米                         |
 > | 阿路巴                          | 幾內亞比索                     | 聖露西亞                              |
-> | 貝南                          | 蓋亞納                            | 聖馬丁                             |
+> | 貝南                          | 蓋亞那                            | 法屬聖馬丁                             |
 > | 不丹                         | 海地                             | 聖匹島                |
-> | 波奈                        | 赫德島及麥當勞群島 | 聖文森及格瑞那丁         |
-> | 布威島                  | 曼城島                       | 薩摩亞獨立國                                    |
+> | 波奈                        | 赫德島及麥唐納群島 | 聖文森及格瑞那丁         |
+> | 布威島                  | 曼島                       | 薩摩亞                                    |
 > | 巴西                         | 尖棉                         | 聖馬利諾                               |
-> | 英屬印度洋領土 | 澤西島                            | 聖多美普林西比                    |
+> | 英屬印度洋領土 | 澤西島                            | 聖多美和普林西比                    |
 > | 英屬維爾京群島         | 吉里巴斯                          | 塞席爾                               |
 > | 布吉納法索                   | 科索沃                            | 獅子山                             |
 > | 蒲隆地                        | 寮國                              | 聖佑達修斯                           |
@@ -60,7 +60,7 @@ ms.locfileid: "82157110"
 > | 法屬圭亞那                  | 新喀里多尼亞群島                     | 美國外島                    |
 > | 法屬玻里尼西亞               | 尼日                             | 萬那杜                                  |
 > | 法屬南半球領土    | 紐威島                              | 梵蒂岡                             |
-> | 加彭                          | 諾福克島                    | 瓦利斯及福杜納                        |
+> | 加彭                          | 諾福克島                    | 瓦利斯及福杜納群島                        |
 > | 甘比亞                         | 北馬里安納群島          | 葉門                                    |
 > | 直布羅陀                      | 帛琉                             | &nbsp;                                   |
 >
@@ -68,11 +68,11 @@ ms.locfileid: "82157110"
 > [!NOTE]
 > 若要購買永久軟體，您必須先經過限定。 Contact support for more information. (無法更新擁有 'account2 account2@outlook.com' 的 Microsoft 帳戶。若此帳戶已連結到另一個 NuGet 帳戶，就可能發生此情形。請連絡支援人員以取得詳細資訊。)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="making-a-one-time-purchase"></a>進行一次性購買
 
@@ -114,7 +114,7 @@ ms.locfileid: "82157110"
 
    - [取得產品清單](get-a-list-of-products.md)
    - [使用產品識別碼取得產品](get-a-product-by-id.md)
-   - [取得產品的 Sku 清單](get-a-list-of-skus-for-a-product.md)
+   - [取得產品的 SKU 清單](get-a-list-of-skus-for-a-product.md)
    - [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
 2. 檢查 SKU 的清查。 只有以**InventoryCheck**必要條件標記的 sku 才需要此步驟。
@@ -123,7 +123,7 @@ ms.locfileid: "82157110"
 
 3. 取得[SKU](product-resources.md#sku)的[可用性](product-resources.md#availability)。 您將需要在放置訂單時的可用性**CatalogItemId** 。 若要取得此值，請使用下列其中一個 Api：
 
-   - [取得 SKU 的 hdinsight 清單](get-a-list-of-availabilities-for-a-sku.md)
+   - [取得 SKU 的可用性清單](get-a-list-of-availabilities-for-a-sku.md)
    - [使用可用性識別碼取得可用性](get-an-availability-by-id.md)
 
 ## <a name="order-submission"></a>訂單提交

@@ -6,12 +6,12 @@ ms.date: 11/01/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c171598871a44ae6614b826959989a8d6722e8d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 92cd267ea7364db7a804ef291c207a71ef6baa7b
+ms.sourcegitcommit: 51dc972a66af76d033d22f1d92f8ccc46ae3d36b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157050"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85096042"
 ---
 # <a name="purchase-azure-reservations"></a>購買 Azure 保留
 
@@ -25,7 +25,7 @@ ms.locfileid: "82157050"
 > [!NOTE]
 > 以下是未提供 Azure 保留的市場：
 >
-> | 無法使用的市場            | &nbsp;                            | &nbsp;                                   |
+> | 不適用的市場            | 無法使用的市場（續） | 無法使用的市場（續）      |
 > |--------------------------------|-----------------------------------|------------------------------------------|
 > | 奧蘭島                  | 格陵蘭                         | 巴布亞紐幾內亞                         |
 > | 美屬薩摩亞                 | 格瑞那達                           | 皮特康群島                         |
@@ -34,12 +34,12 @@ ms.locfileid: "82157050"
 > | 南極大陸                     | 根息                          | 沙巴                                     |
 > | 安地卡及巴布達            | 幾內亞                            | 聖巴瑟米                         |
 > | 阿路巴                          | 幾內亞比索                     | 聖露西亞                              |
-> | 貝南                          | 蓋亞納                            | 聖馬丁                             |
+> | 貝南                          | 蓋亞那                            | 法屬聖馬丁                             |
 > | 不丹                         | 海地                             | 聖匹島                |
-> | 波奈                        | 赫德島及麥當勞群島 | 聖文森及格瑞那丁         |
-> | 布威島                  | 曼城島                       | 薩摩亞獨立國                                    |
+> | 波奈                        | 赫德島及麥唐納群島 | 聖文森及格瑞那丁         |
+> | 布威島                  | 曼島                       | 薩摩亞                                    |
 > | 巴西                         | 尖棉                         | 聖馬利諾                               |
-> | 英屬印度洋領土 | 澤西島                            | 聖多美普林西比                    |
+> | 英屬印度洋領土 | 澤西島                            | 聖多美和普林西比                    |
 > | 英屬維爾京群島         | 吉里巴斯                          | 塞席爾                               |
 > | 布吉納法索                   | 科索沃                            | 獅子山                             |
 > | 蒲隆地                        | 寮國                              | 聖佑達修斯                           |
@@ -61,16 +61,16 @@ ms.locfileid: "82157050"
 > | 法屬圭亞那                  | 新喀里多尼亞群島                     | 美國外島                    |
 > | 法屬玻里尼西亞               | 尼日                             | 萬那杜                                  |
 > | 法屬南半球領土    | 紐威島                              | 梵蒂岡                             |
-> | 加彭                          | 諾福克島                    | 瓦利斯及福杜納                        |
+> | 加彭                          | 諾福克島                    | 瓦利斯及福杜納群島                        |
 > | 甘比亞                         | 北馬里安納群島          | 葉門                                    |
 > | 直布羅陀                      | 帛琉                             | &nbsp;                                   |
 >
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - Active CSP Azure 訂用帳戶或 Azure 方案的訂用帳戶識別碼。
 
