@@ -5,12 +5,12 @@ ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 537f39eb8c4c5bd786d69e6287fbaecb9e52c7c6
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b39efc495712476d72706e769957bec0484b268d
+ms.sourcegitcommit: 3a5154692071b5dee597c9d00e63a57efb2aff06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157420"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85365797"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>取得發票未開立帳單商業使用量明細專案
 
@@ -22,7 +22,10 @@ ms.locfileid: "82157420"
 
 您可以使用下列方法，以程式設計方式取得未開立帳單商業耗用量明細專案（也稱為開放式使用明細專案）的詳細資料集合。
 
-## <a name="prerequisites"></a>Prerequisites
+>[!NOTE]
+>每日評分的使用量通常需要24小時才會出現在合作夥伴中心，或透過 API 存取。
+
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -105,7 +108,7 @@ while (fetchNext)
 
 如需類似的範例，請參閱：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetUnBilledConsumptionReconLineItemsPaging.cs**
 
@@ -119,7 +122,7 @@ while (fetchNext)
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems？ provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {PERIOD} HTTP/1。1                              | 使用此語法來傳回給定發票之每個明細專案的完整清單。 |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems？ provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {period} &size = {SIZE} HTTP/1。1  | 針對大型發票使用此語法。 請使用此語法搭配指定的大小和以0為基礎的位移，以傳回已分頁的明細專案清單。 |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems？ provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {period} &size = {size} &SeekOperation = Next                               | 使用此語法可使用`seekOperation = "Next"`來取得下一頁的對帳明細專案。 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems？ provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {period} &size = {size} &SeekOperation = Next                               | 使用此語法可使用來取得下一頁的對帳明細專案 `seekOperation = "Next"` 。 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
@@ -132,7 +135,7 @@ while (fetchNext)
 | currencyCode           | 字串 | 是      | 未開立帳單明細專案的貨幣代碼。                                  |
 | 長                 | 字串 | 是      | 未開立帳單偵察的期間（例如： **current**、 **previous**）。                      |
 | 大小                   | number | 否       | 要傳回的專案數目上限。 預設大小為2000。                    |
-| seekOperation          | 字串 | 否       | 設定`seekOperation=Next`以取得下一頁的對帳明細專案。                |
+| seekOperation          | 字串 | No       | 設定 `seekOperation=Next` 以取得下一頁的對帳明細專案。                |
 
 ### <a name="request-headers"></a>要求標頭
 
