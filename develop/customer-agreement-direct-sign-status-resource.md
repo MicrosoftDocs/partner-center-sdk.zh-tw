@@ -5,12 +5,13 @@ ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 23397ab479f32879b00c04a817ef889221a6f091
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
-ms.translationtype: MT
+author: aarzh-AaronZhang
+ms.author: v-aarzh
+ms.openlocfilehash: 7575d5654cd8de9a65d4ee9ed484ff8cc0df2b0e
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665988"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022615"
 ---
 # <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>客戶合約的直接簽署（直接接受）狀態
 
@@ -32,6 +33,6 @@ ms.locfileid: "81665988"
 
 **DirectSignedCustomerAgreementStatus**資源包括下列屬性：
 
-| 屬性       | 類型   | 描述                                                                                               |
+| 屬性       | 類型   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | isSigned | boolean | 指出客戶是否已直接簽署（接受）客戶合約。 |

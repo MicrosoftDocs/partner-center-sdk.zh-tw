@@ -6,16 +6,17 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 734b9df837a7c036de89ba2ced7bb83ae051b5fe
-ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
-ms.translationtype: MT
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: f288dd201faa99480fe42bf190611faaa0cf8b0e
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82882374"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022565"
 ---
 # <a name="get-a-collection-of-invoices"></a>取得發票的集合
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +25,7 @@ ms.locfileid: "82882374"
 
 如何取出合作夥伴發票的集合。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -86,13 +87,13 @@ while (invoicesEnumerator.HasValue)
 
 | 方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **獲取** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices？ size = {size} &offset = {OFFSET} HTTP/1。1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices？ size = {size} &offset = {OFFSET} HTTP/1。1  |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 建立要求時，請使用下列查詢參數。
 
-| 名稱   | 類型 | 必要 | 描述                                                                            |
+| 名稱   | 類型 | 必要 | 說明                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
 | 大小   | int  | 否       | 要在回應中傳回的發票資源數目。 這是選擇性參數。 |
 | Offset | int  | 否       | 要傳回的第一個發票之以零為基底的索引。                                   |
@@ -103,7 +104,7 @@ while (invoicesEnumerator.HasValue)
 
 ### <a name="request-body"></a>要求本文
 
-無
+None
 
 ### <a name="request-example"></a>要求範例
 

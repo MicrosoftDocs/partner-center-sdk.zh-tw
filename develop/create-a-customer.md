@@ -6,12 +6,13 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 343b339a93d6542a6475cd2607a1da9a899d02b1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 35ed60b6053fc688249af40ab07b2245a7d8b92c
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154880"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022735"
 ---
 # <a name="create-a-customer"></a>建立客戶
 
@@ -36,7 +37,7 @@ ms.locfileid: "82154880"
 
 建立客戶之後，請務必儲存客戶識別碼，並 Azure AD 詳細資料，以供日後用於合作夥伴中心 SDK （例如，帳戶管理）。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -51,7 +52,7 @@ ms.locfileid: "82154880"
 
 2. 藉由呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)，將新客戶新增至您的[**iaggregatepartner.customers.byid 客戶**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合。
 
-### <a name="c-example"></a>C\#範例
+### <a name="c-example"></a>C \# 範例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -168,28 +169,28 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 下表描述要求主體中的必要屬性。
 
-| 名稱                              | 類型   | 描述                                 |
+| 名稱                              | 類型   | Description                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | 物件 | 客戶的帳單設定檔資訊。 |
-| [CompanyProfile](#company-profile) | 物件 | 客戶的公司設定檔資訊。 |
+| [BillingProfile](#billing-profile) | 物件 (object) | 客戶的帳單設定檔資訊。 |
+| [CompanyProfile](#company-profile) | 物件 (object) | 客戶的公司設定檔資訊。 |
 
 #### <a name="billing-profile"></a>帳單設定檔
 
 下表描述建立新客戶所需的[CustomerBillingProfile](customer-resources.md#customerbillingprofile)資源所需的最低欄位。
 
-| 名稱             | 類型                                     | 描述                                                                                                                                                                                                     |
+| 名稱             | 類型                                     | Description                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 電子郵件            | 字串                                   | 客戶的電子郵件地址。                                                                                                                                                                                   |
 | culture          | 字串                                   | 其慣用的通訊和貨幣文化特性，例如 "en-us"。 請參閱[合作夥伴中心支援的語言和地區](partner-center-supported-languages-and-locales.md)設定以取得支援的文化特性。 |
-| 語言         | 字串                                   | 預設語言。 支援兩個字元語言代碼（ `en`例如`fr`或）。                                                                                                                                |
-| 公司\_名稱    | 字串                                   | 已註冊的公司/組織名稱。                                                                                                                                                                       |
-| 預設\_位址 | [位址](utility-resources.md#address) | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
+| 語言         | 字串                                   | 預設語言。 支援兩個字元語言代碼（例如 `en` 或 `fr` ）。                                                                                                                                |
+| 公司 \_ 名稱    | 字串                                   | 已註冊的公司/組織名稱。                                                                                                                                                                       |
+| 預設 \_ 位址 | [位址](utility-resources.md#address) | 客戶的公司/組織註冊的位址。 如需任何長度限制的資訊，請參閱[位址](utility-resources.md#address)資源。                                             |
 
 #### <a name="company-profile"></a>公司設定檔
 
 下表描述建立新客戶所需的[CustomerCompanyProfile](customer-resources.md#customercompanyprofile)資源所需的最低欄位。
 
-| 名稱   | 類型   | 描述                                                  |
+| 名稱   | 類型   | Description                                                  |
 |--------|--------|--------------------------------------------------------------|
 | 網域 | 字串 | 客戶的網域名稱，例如 contoso.onmicrosoft.com |
 

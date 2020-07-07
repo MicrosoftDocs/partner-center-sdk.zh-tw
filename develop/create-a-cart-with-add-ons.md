@@ -5,12 +5,13 @@ ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: eb5177b9263f8a21aec20fa5e4a3b4970f4525f7
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 63dd12725ae488b6676077fe3a646551b793be73
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154970"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022675"
 ---
 # <a name="create-a-cart-with-add-ons"></a>使用附加元件建立購物車
 
@@ -20,11 +21,11 @@ ms.locfileid: "82154970"
 
 您可以透過購物車購買附加元件。 如需目前可用來銷售之專案的詳細資訊，請參閱[雲端解決方案提供者方案中的合作夥伴優惠](https://docs.microsoft.com/partner-center/csp-offers)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
@@ -40,7 +41,7 @@ ms.locfileid: "82154970"
 
 5. 最後，呼叫[**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync)方法來建立購物車。
 
-### <a name="c-example"></a>C\#範例
+### <a name="c-example"></a>C \# 範例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -128,7 +129,7 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 | 名稱            | 類型     | 必要 | 描述                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **客戶識別碼** | 字串   | Yes      | 識別客戶的 GUID 格式客戶識別碼。             |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -140,16 +141,16 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 | 屬性              | 類型             | 必要        | 描述 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | 字串           | 否              | 成功建立購物車時所提供的購物車識別碼。                                  |
-| creationTimeStamp     | Datetime         | 否              | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。         |
-| lastModifiedTimeStamp | Datetime         | 否              | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。    |
-| expirationTimeStamp   | Datetime         | 否              | 購物車將到期的日期，以日期時間格式為限。  已在成功建立購物車時申請。            |
-| lastModifiedUser      | 字串           | 否              | 上次更新購物車的使用者。 已在成功建立購物車時申請。                             |
-| lineItems             | 物件的陣列 | 是             | [CartLineItem](cart-resources.md#cartlineitem)資源的陣列。                                             |
+| id                    | 字串           | No              | 成功建立購物車時所提供的購物車識別碼。                                  |
+| creationTimeStamp     | Datetime         | No              | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。         |
+| lastModifiedTimeStamp | Datetime         | No              | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。    |
+| expirationTimeStamp   | Datetime         | No              | 購物車將到期的日期，以日期時間格式為限。  已在成功建立購物車時申請。            |
+| lastModifiedUser      | 字串           | No              | 上次更新購物車的使用者。 已在成功建立購物車時申請。                             |
+| lineItems             | 物件的陣列 | Yes             | [CartLineItem](cart-resources.md#cartlineitem)資源的陣列。                                             |
 
 下表描述要求主體中的[CartLineItem](cart-resources.md#cartlineitem)屬性。
 
-| 屬性             | 類型                             | 說明                                                                                                                                           |
+| 屬性             | 類型                             | Description                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                   | 字串                           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                                                                   |
 | catalogId            | 字串                           | 目錄專案識別碼。                                                                                                                          |
@@ -161,7 +162,7 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 | provisioningCoNtext  | 字典<字串，字串>       | 用於布建供應專案的內容。                                                                                                             |
 | orderGroup           | 字串                           | 用來指出哪些專案可以放在一起的群組。                                                                                               |
 | addonItems           | **CartLineItem**物件的清單 | 附加元件的購物車明細專案集合，將會向「父購物車」明細專案購買結果的「基本」訂用帳戶購買。 |
-| error                | Object                           | 在購物車建立後，發生錯誤時套用。                                                                                                    |
+| 錯誤                | Object                           | 在購物車建立後，發生錯誤時套用。                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>要求範例（新的基本訂用帳戶）
 

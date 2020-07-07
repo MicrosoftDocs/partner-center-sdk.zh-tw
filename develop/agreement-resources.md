@@ -5,12 +5,13 @@ ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d2ec1ab76a718b7bef51d98335ac49b68621a11b
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
-ms.translationtype: MT
+author: aarzh-AaronZhang
+ms.author: v-aarzh
+ms.openlocfilehash: 3e59debb59700f7d2d4f0eba9dc156c325b3688d
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82122441"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022665"
 ---
 # <a name="agreement-resources"></a>合約資源
 
@@ -30,7 +31,7 @@ ms.locfileid: "82122441"
 
 **協定**資源代表合作夥伴提供之認證的詳細資料。
 
-| 屬性       | 類型   | 描述                                                                                               |
+| 屬性       | 類型   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | userId         | 字串                         | 合作夥伴租使用者中已登入使用者的物件識別碼，代表夥伴組織提供確認。 使用 [應用程式 + 使用者驗證] 建立合約資源時，合作夥伴中心會自動從應用程式 + 使用者權杖衍生**userId**屬性值。                                                                             |
 | primaryContact | [Contact](./utility-resources.md#contact) | 來自已接受合約之客戶組織使用者的相關資訊，包括： **firstName**、 **lastName**、 **email**和**phoneNumber** （選擇性）。 |

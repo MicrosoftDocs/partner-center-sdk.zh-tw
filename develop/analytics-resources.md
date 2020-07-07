@@ -6,12 +6,13 @@ ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b33412a74cb4ba733de0f0d95fbc3d39448ab23
-ms.sourcegitcommit: 685137f5dd204912efcb4c406a1bf02278ce5dae
-ms.translationtype: MT
+author: v-sumukh
+ms.author: v-sumukh
+ms.openlocfilehash: 50c04b1df512ab2475cd555e06bc2b6b92b6c8a7
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81785138"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022686"
 ---
 # <a name="analytics-resources"></a>分析資源
 
@@ -25,7 +26,7 @@ ms.locfileid: "81785138"
 
 **PartnerLicensesDeploymentInsights**資源包含有關授權部署的夥伴層級深入解析。
 
-| 屬性                  | 類型                                                           | 描述                                                                         |
+| 屬性                  | 類型                                                           | Description                                                                         |
 |---------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | proratedDeploymentPercent | number                                                         | 已部署的授權百分比。                                                |
 | licensesSold              | number                                                         | 售出的授權數目。                                                        |
@@ -38,7 +39,7 @@ ms.locfileid: "81785138"
 
 **PartnerLicensesUsageInsights**資源包含有關授權使用方式的合作夥伴層級深入解析。
 
-| 屬性                     | 類型                                                           | 描述                                                                    |
+| 屬性                     | 類型                                                           | Description                                                                    |
 |------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | proratedLicensesUsagePercent | number                                                         | 已部署的授權百分比。                                           |
 | workloadName                 | 字串                                                         | 工作負載名稱（例如： exchange）。                                             |
@@ -51,7 +52,7 @@ ms.locfileid: "81785138"
 
 **CustomerLicensesDeploymentInsights**資源包含有關授權部署的客戶層級深入解析。
 
-| 屬性          | 類型                                                           | 描述                                                                          |
+| 屬性          | 類型                                                           | Description                                                                          |
 |-------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | licensesDeployed  | number                                                         | 已部署的授權數量。                                                     |
 | licensesSold      | number                                                         | 售出的授權數目。                                                         |
@@ -69,7 +70,7 @@ ms.locfileid: "81785138"
 
 **CustomerLicensesUsageInsights**資源包含有關授權使用方式的客戶層級深入解析。
 
-| 屬性          | 類型                                                           | 描述                                                                     |
+| 屬性          | 類型                                                           | Description                                                                     |
 |-------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | workloadCode      | 字串                                                         | 工作負載程式碼。                                                              |
 | workloadName      | number                                                         | 工作負載名稱（例如： Exchange）。                                              |

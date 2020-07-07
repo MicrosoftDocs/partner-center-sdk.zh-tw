@@ -5,12 +5,13 @@ ms.date: 01/02/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e57835aaa5c2c2e0871107094adc154617c6e4f
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
-ms.translationtype: MT
+author: mowrim
+ms.author: mowrim
+ms.openlocfilehash: 315cee7cfe19a4d1d0fc1c0c3a77623086ee8473
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125271"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022755"
 ---
 # <a name="create-an-azure-plan"></a>建立 Azure 方案
 
@@ -20,7 +21,7 @@ ms.locfileid: "82125271"
 
 您可以使用合作夥伴中心 Api 來購買、建立和管理 Azure 方案。 此程式類似于建立 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶。 您必須[取得 Azure 方案的類別目錄專案](#get-the-catalog-item-for-azure-plan)，然後[建立並提交訂單](#create-and-submit-an-order)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 * [合作夥伴中心驗證認證](partner-center-authentication.md)。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 * 客戶識別碼。 如果您沒有客戶的識別碼，請依照[取得客戶清單](get-a-list-of-customers.md)中的步驟進行。 或者，登入合作夥伴中心，從客戶清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft 識別碼**。
