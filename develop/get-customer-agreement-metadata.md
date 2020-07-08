@@ -4,13 +4,14 @@ description: 本文說明如何取得 Microsoft 客戶合約的合約中繼資�
 ms.date: 8/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 419be44e0dc82f931826dbf849c7122a98bc8646
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: 45cc1284d872072a80a973cfee5a6218452a2409
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157700"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096962"
 ---
 # <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>取得 Microsoft 客戶合約的合約中繼資料
 
@@ -67,13 +68,13 @@ var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgr
 
 | 方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | baseURL/v1/agreements？ agreementType = {合約類型} HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| GET    | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/agreements？ agreementType = {合約類型} HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
-| 名稱                   | 類型     | 必要 | 描述                                                             |
+| 名稱                   | 類型     | 必要 | 說明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| 合約類型 | 字串 | 否 | 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>**MicrosoftCloudAgreement** ，其中只包含*MicrosoftCloudAgreement*類型的合約中繼資料</li><li>**MicrosoftCustomerAgreement** ，其中只包含*MicrosoftCustomerAgreement*類型的合約中繼資料。</li><li>**\*** 傳回所有合約中繼資料的。 （除非您**\*** 的程式碼具有必要的執行時間邏輯來處理不熟悉的合約類型，否則請不要使用），因為 Microsoft 可能會隨時使用新的合約類型來引進合約中繼資料）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。  |
+| 合約類型 | 字串 | No | 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>**MicrosoftCloudAgreement** ，其中只包含*MicrosoftCloudAgreement*類型的合約中繼資料</li><li>**MicrosoftCustomerAgreement** ，其中只包含*MicrosoftCustomerAgreement*類型的合約中繼資料。</li><li>**\*** 傳回所有合約中繼資料的。 （ **\*** 除非您的程式碼具有必要的執行時間邏輯來處理不熟悉的合約類型，否則請不要使用），因為 Microsoft 可能會隨時使用新的合約類型來引進合約中繼資料）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。  |
 
 ### <a name="request-headers"></a>要求標頭
 

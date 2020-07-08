@@ -1,21 +1,19 @@
 ---
 title: 取得合作夥伴的合法商務設定檔
 description: 如何取得合作夥伴的合法商務設定檔。
-ms.assetid: 84A7C363-FD19-457B-8C45-A6E4E254712B
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 533384ac775a5792ace8667a0202f7cd740b8c5f
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 27ee41a9b7ac3586c13f3675d8b688ab52103fca
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157390"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096827"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>取得合作夥伴的合法商務設定檔
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +22,7 @@ ms.locfileid: "82157390"
 
 如何取得合作夥伴的合法商務設定檔。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 

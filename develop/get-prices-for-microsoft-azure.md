@@ -1,21 +1,19 @@
 ---
 title: 取得 Microsoft Azure 定價
 description: 如何使用 Azure 供應專案的即時價格取得 Azure 費率卡片。 Azure 定價是相當動態的，經常變動。
-ms.assetid: 65262585-0F3B-4BD0-83BE-B2695C33CDB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 011c95c80fa793606a62ebb8fa8645b22da413bc
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 9b56e4bbfdf93cf2f4e9c6c07d638f5a24436c3e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157280"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097703"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>取得 Microsoft Azure 定價
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -71,10 +69,10 @@ Get-PartnerAzureRateCard
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名稱     | 類型   | 必要 | 描述                                                                                                                                                                               |
+| 名稱     | 類型   | 必要 | 說明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 貨幣 | 字串 | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如`EUR`）。 預設值為 `USD`。 |
-| region   | 字串 | 否       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如`FR`）。 預設值為 `US`。        |
+| 貨幣 | 字串 | No       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如 `EUR` ）。 預設值為 `USD`。 |
+| region   | 字串 | No       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 `FR` ）。 預設值為 `US`。        |
 
 您可以在要求中包含選擇性的 X 地區設定[標頭](headers.md#rest-request-headers)。 如果您未包含 X 地區設定標頭，則會使用預設值（"en-us"）。
 

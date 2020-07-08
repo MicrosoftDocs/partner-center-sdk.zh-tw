@@ -1,17 +1,17 @@
 ---
 title: 取得可用授權的清單
 description: 如何取得指定客戶的使用者可用的授權清單。
-ms.assetid: E0915C58-92D1-4BFA-88F2-0710C6B0AB0D
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e0ddb15b931f21aea535bbff25f64488e2a93907
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 8837ab832fee888df57540f16cbaa4d656481df7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155780"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098160"
 ---
 # <a name="get-a-list-of-available-licenses"></a>取得可用授權的清單
 
@@ -23,11 +23,11 @@ ms.locfileid: "82155780"
 
 下列範例會傳回可從**group1**取得的授權，這是代表受 Azure Active Directory （Azure AD）管理之授權的預設授權群組。 若要取得指定授權群組的可用授權，請參閱[依授權群組取得可用的授權清單](get-a-list-of-available-licenses-by-license-group.md)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
@@ -48,7 +48,7 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 
 如需範例，請參閱下列各項：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetCustomerSubscribedSkus.cs**
 
@@ -64,9 +64,9 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 
 使用下列路徑參數來識別客戶。
 
-| 名稱        | 類型   | 必要 | 描述                                           |
+| 名稱        | 類型   | 必要 | 說明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
+| customer-id | 字串 | Yes      | 識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 

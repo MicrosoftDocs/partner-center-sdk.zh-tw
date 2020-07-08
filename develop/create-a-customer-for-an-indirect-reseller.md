@@ -1,18 +1,17 @@
 ---
 title: 建立間接轉銷商的客戶
 description: 間接提供者可以建立間接轉銷商的客戶。
-ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-author: rbars
-ms.author: rbars
-ms.openlocfilehash: 9838c3bc17bde79c0557d873df78b3da58a6b940
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: b11a952be19819a6c5acce17287c10a2e01e2421
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022725"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096253"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>建立間接轉銷商的客戶
 

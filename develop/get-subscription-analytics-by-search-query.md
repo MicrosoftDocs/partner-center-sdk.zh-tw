@@ -4,17 +4,16 @@ description: 如何取得搜尋查詢所篩選的訂用帳戶分析資訊。
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e93582b004429f1e15fb00e29e4e80e898c8846c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c1046ea3c7e813eedae4890eebf6356337c80ede
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157230"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097551"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>取得根據搜尋查詢所篩選的訂用帳戶分析資訊
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -23,7 +22,7 @@ ms.locfileid: "82157230"
 
 如何為您的客戶取得搜尋查詢所篩選的訂用帳戶分析資訊。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
@@ -33,19 +32,19 @@ ms.locfileid: "82157230"
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **GET** | baseURL/partner/v1/analytics/subscriptions？ filter = {filter_string} [* \{ \} *](partner-center-rest-urls.md) |
+| **GET** | [* \{ baseURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions？ filter = {filter_string} |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 使用下列必要的 path 參數來識別您的組織並篩選搜尋。
 
-| 名稱 | 類型 | 必要 | 描述 |
+| 名稱 | 類型 | 必要 | 說明 |
 |------|------|----------|-------------|
-| filter_string | 字串 | 是 | 要套用至訂用帳戶分析的篩選準則。 請參閱篩選語法和篩選欄位章節，以瞭解要在此參數中使用的語法、欄位和運算子。 |
+| filter_string | 字串 | Yes | 要套用至訂用帳戶分析的篩選準則。 請參閱篩選語法和篩選欄位章節，以瞭解要在此參數中使用的語法、欄位和運算子。 |
 
 ### <a name="filter-syntax"></a>篩選語法
 
-篩選參數必須以一系列的欄位、值和運算子組合來組成。 可以使用**`and`** or **`or`** 運算子來合併多個組合。
+篩選參數必須以一系列的欄位、值和運算子組合來組成。 可以使用 or 運算子來合併多個組合 **`and`** **`or`** 。
 
 未編碼的範例如下所示：
 
@@ -55,7 +54,7 @@ ms.locfileid: "82157230"
 
 ### <a name="filter-fields"></a>篩選欄位
 
-要求的 filter 參數包含在回應中篩選資料列的一或多個陳述式。 每個語句都包含與**`eq`** 或**`ne`** 運算子相關聯的欄位和值。 有些欄位**`contains`** 也支援、 **`gt`**、 **`lt`** **`ge`**、和**`le`** 運算子。 語句可以使用**`and`** or **`or`** 運算子來結合。
+要求的 filter 參數包含在回應中篩選資料列的一或多個陳述式。 每個語句都包含與或運算子相關聯的欄位和值 **`eq`** **`ne`** 。 有些欄位也支援 **`contains`** 、 **`gt`** 、、 **`lt`** **`ge`** 和 **`le`** 運算子。 語句可以使用 **`and`** or 運算子來結合 **`or`** 。
 
 以下是篩選字串的範例：
 
@@ -67,7 +66,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 下表顯示篩選參數支援的欄位和支援運算子清單。 字串值必須以單引號括住。
 
-| 參數 | 支援的運算子 | 描述 |
+| 參數 | 支援的運算子 | Description |
 |-----------|---------------------|-------------|
 | autoRenewEnabled | `eq`, `ne` | 值，指出是否自動更新訂用帳戶。 |
 | commitmentEndDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le`  | 訂閱結束的日期。 |

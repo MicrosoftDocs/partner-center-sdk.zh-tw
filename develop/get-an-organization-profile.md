@@ -1,21 +1,21 @@
 ---
 title: 取得組織設定檔
 description: 取得物件，代表合作夥伴的組織設定檔。
-ms.assetid: 2AA159F1-CC84-4367-A2AF-DFA4C8B0E673
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93a1ea368baa3ad776fcd1fcae4d0a86aec20c15
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: d0d4caed36b1ab58fdb40d32a7ccb159e3895207
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157730"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097056"
 ---
 # <a name="get-an-organization-profile"></a>取得組織設定檔
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,9 +24,9 @@ ms.locfileid: "82157730"
 
 取得物件，代表合作夥伴的組織設定檔。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 ## <a name="c"></a>C\#
 

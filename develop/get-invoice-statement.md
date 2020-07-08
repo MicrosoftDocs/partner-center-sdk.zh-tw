@@ -1,21 +1,21 @@
 ---
 title: 取得發票對帳單
 description: 使用發票識別碼抓取發票語句。
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8a9107fc3de986c328f534dc420c8478a48b0b93
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 42e5201919eea5644da463dfe2584c8d55002083
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096916"
 ---
 # <a name="get-invoice-statement"></a>取得發票對帳單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,9 +24,9 @@ ms.locfileid: "82157440"
 
 使用發票識別碼抓取發票語句。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 - 有效的發票識別碼。
 
@@ -55,9 +55,9 @@ var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).
 
 使用下列查詢參數來取得 invoice 語句。
 
-| 名稱       | 類型       | 必要 | 描述                                                                                        |
+| 名稱       | 類型       | 必要 | 說明                                                                                        |
 |------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| 發票識別碼 | 字串     | 是      | 值是發票識別碼，可讓轉銷商篩選特定發票的結果。 |
+| 發票識別碼 | 字串     | Yes      | 值是發票識別碼，可讓轉銷商篩選特定發票的結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 

@@ -4,23 +4,22 @@ description: 如何取得 Office 和 Dynamics 工作負載層級的授權使用�
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 41248b1ad681c0897d4cc720634c495bd6b8ab48
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: a65f007ca368cf06a2248fa716166a0b01e509da
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157360"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096781"
 ---
 # <a name="get-licenses-usage-information"></a>取得授權使用資訊
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 如何取得 Office 和 Dynamics 工作負載層級的授權使用量資訊。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
@@ -38,13 +37,13 @@ ms.locfileid: "82157360"
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 參數         | 類型     | 描述 | 必要 |
+| 參數         | 類型     | 說明 | 必要 |
 |-------------------|----------|-------------|----------|
-| top               | 字串   | 在要求中傳回的資料列數目。 如果未指定，最大值和預設值為 10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 | 否 |
-| skip              | int      | 在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如，top=10000 且 skip=0 將擷取前 10000 個資料列的資料，top=10000 且 skip=10000 將擷取下 10000 個資料列的資料，以此類推。 | 否 |
-| filter            | 字串   | <p>要求的 <em>filter</em> 參數包含在回應中篩選資料列的一或多個陳述式。 每個語句都包含**`eq`** 與或**`ne`** 運算子相關聯的欄位和值，而且語句可以使用**`and`** 或**`or`** 結合。 下列為一些範例 <em>filter</em> 參數：</p><ul><li><em>filter = workloadCode eq ' SFB '</em></li><li><em>filter = workloadCode eq ' SFB '</em> or （<em>通道 Eq ' 轉售商 '</em>）</li></ul><p>您可以指定下欄欄位</p><ul><li><strong>workloadCode</strong></li><li><strong>workloadName</strong></li><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>頻道</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul> | 否 |
-| groupby           | 字串   | <p>將資料彙總僅套用至指定欄位的陳述式。 您可以指定下列欄位：</p><ul><li><strong>workloadCode</strong></li><li><strong>workloadName</strong></li><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>頻道</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul><p>傳回的資料列將包含 <em>groupby</em> 參數中指定的欄位，以及下列項目：</p><ul><li><strong>licensesActive</strong></li><li><strong>licensesQualified</strong></li></ul> | 否 |
-| processedDateTime | Datetime | 其中一個可以指定處理使用量資料的日期。 預設為處理資料時的最新日期 | 否 |
+| top               | 字串   | 在要求中傳回的資料列數目。 如果未指定，最大值和預設值為 10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 | No |
+| skip              | int      | 在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如，top=10000 且 skip=0 將擷取前 10000 個資料列的資料，top=10000 且 skip=10000 將擷取下 10000 個資料列的資料，以此類推。 | No |
+| filter            | 字串   | <p>要求的 <em>filter</em> 參數包含在回應中篩選資料列的一或多個陳述式。 每個語句都包含與或運算子相關聯的欄位和值 **`eq`** **`ne`** ，而且語句可以使用或結合 **`and`** **`or`** 。 下列為一些範例 <em>filter</em> 參數：</p><ul><li><em>filter = workloadCode eq ' SFB '</em></li><li><em>filter = workloadCode eq ' SFB '</em> or （<em>通道 Eq ' 轉售商 '</em>）</li></ul><p>您可以指定下欄欄位</p><ul><li><strong>workloadCode</strong></li><li><strong>workloadName</strong></li><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>頻道</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul> | No |
+| groupby           | 字串   | <p>將資料彙總僅套用至指定欄位的陳述式。 您可以指定下列欄位：</p><ul><li><strong>workloadCode</strong></li><li><strong>workloadName</strong></li><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>頻道</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul><p>傳回的資料列將包含 <em>groupby</em> 參數中指定的欄位，以及下列項目：</p><ul><li><strong>licensesActive</strong></li><li><strong>licensesQualified</strong></li></ul> | No |
+| processedDateTime | Datetime | 其中一個可以指定處理使用量資料的日期。 預設為處理資料時的最新日期 | No |
 
 ### <a name="request-example"></a>要求範例
 
@@ -62,7 +61,7 @@ Host: api.partnercenter.microsoft.com
 
 如果成功，回應主體會包含下欄欄位，其中包含授權使用方式的相關資料。
 
-| 欄位             | 類型     | 描述                                   |
+| 欄位             | 類型     | Description                                   |
 |-------------------|----------|-----------------------------------------------|
 | workloadCode      | 字串   | 工作負載程式碼                                 |
 | workloadName      | 字串   | 工作負載名稱                                 |

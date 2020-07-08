@@ -3,18 +3,19 @@ title: 取得 MFA 採用狀態
 description: 使用合作夥伴 REST API 取得每個合作夥伴的多重要素驗證採用狀態清單。
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: ac47df306c19194a50b14f000fe4182a437d8c84
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: f82d163b704323c81e2948b78eb9b9d1a14ddc52
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186336"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097008"
 ---
 # <a name="get-mfa-adoption-status"></a>取得 MFA 採用狀態
 
-適用於：
+適用於︰
 
 - 合作夥伴中心 API
 
@@ -36,7 +37,7 @@ ms.locfileid: "84186336"
 
 - 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>Request body
 
 無。
 

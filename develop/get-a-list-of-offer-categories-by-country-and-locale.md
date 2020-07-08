@@ -1,17 +1,17 @@
 ---
 title: 依照市場取得供應項目類別的清單
 description: 如何取得集合，其中包含指定國家/地區和地區設定中的所有供應專案類別。
-ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0cb3d64444558b301fb1f5991f8d5e78c58c53b2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: c94368219bce2242e79d142ae999d45b9145e2de
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156870"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098124"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>依照市場取得供應項目類別的清單
 
@@ -24,7 +24,7 @@ ms.locfileid: "82156870"
 
 本文說明如何取得集合，其中包含指定國家/地區和地區設定中的所有供應專案類別。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -44,7 +44,7 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 如需範例，請參閱下列各項：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSample**
 - 類別： **PartnerSDK. FeatureSample**
 
@@ -60,7 +60,7 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 下表列出取得供應專案分類所需的查詢參數。
 
-| 名稱           | 類型       | 必要 | 描述            |
+| 名稱           | 類型       | 必要 | 說明            |
 |----------------|------------|----------|------------------------|
 | **country-id** | **string** | Y        | 國家/地區識別碼。 |
 

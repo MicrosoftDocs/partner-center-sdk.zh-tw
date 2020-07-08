@@ -1,21 +1,19 @@
 ---
 title: 重新啟用暫止的訂用帳戶
 description: 重新啟動先前已暫止因為未付款的訂用帳戶。在合作夥伴中心儀表板中，您可以先選取客戶來執行這項作業。
-ms.assetid: BA30B220-C67D-4795-ACB7-7FE22B0B0F63
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8a04a216970e87bf144f78110e08605355f0eddf
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 2d77b71803f788751c348651f74fc993ac0f0702
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157040"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096178"
 ---
 # <a name="reactivate-a-suspended-subscription"></a>重新啟用暫止的訂用帳戶
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -26,11 +24,11 @@ ms.locfileid: "82157040"
 
 在合作夥伴中心儀表板中，您可以先[選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取您想要重新命名的訂用帳戶。 若要完成，請選擇 **[使用中**] 按鈕，然後選取 [提交] **。**
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 訂用帳戶識別碼。
 
@@ -65,7 +63,7 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
 
 下表列出重新開機訂閱所需的查詢參數。
 
-| 名稱                    | 類型     | 必要 | 描述                               |
+| 名稱                    | 類型     | 必要 | 說明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 對應至客戶的 GUID。     |
 | **id-for-subscription** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |

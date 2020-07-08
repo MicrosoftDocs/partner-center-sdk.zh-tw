@@ -1,17 +1,17 @@
 ---
 title: 取得產品清單 (以國家/地區為基礎)
 description: 您可以使用產品資源來取得依客戶國家/地區的產品集合。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7427c3b3f28ac3cd6a2694fe90ac9024f913c749
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: f04d030aac1256e7d76c9a9e644a50d771485090
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156900"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098114"
 ---
 # <a name="get-a-list-of-products-by-country"></a>取得產品清單 (以國家/地區為基礎)
 
@@ -24,7 +24,7 @@ ms.locfileid: "82156900"
 
 您可以使用下列方法來取得特定國家/地區中可用的產品集合。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -111,12 +111,12 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 使用下列路徑和查詢參數來取得產品清單。
 
-| 名稱                   | 類型     | 必要 | 描述                                                             |
+| 名稱                   | 類型     | 必要 | 說明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| country                | 字串   | 是      | 國家/地區識別碼。                                                  |
-| targetView             | 字串   | 是      | 識別目錄的目標視圖。 支援的值為： <ul><li>**Azure**，其中包括所有 Azure 專案</li><li>**AzureReservations**，其中包括所有的 Azure 保留專案</li><li>**AzureReservationsVM**，其中包括所有虛擬機器（VM）保留專案</li><li>**AzureReservationsSQL**，其中包含所有 SQL 保留專案</li><li>**AzureReservationsCosmosDb**，其中包含所有 Cosmos 資料庫保留專案</li><li>**Microsoftazure.mobileengagement**，其中包含 Microsoft Azure 訂用帳戶（**ms-azr-0017p-流程 ms-azr-0145p**）和 Azure 方案的專案</li><li>**您**，其中包含所有線上服務專案（包括商用 marketplace 產品）</li><li>包含所有軟體專案的**軟體**</li><li>**SoftwareSUSELinux**，其中包含所有軟體 SUSE Linux 專案</li><li>**SoftwarePerpetual**，其中包含所有永久軟體專案</li><li>**SoftwareSubscriptions**，其中包含所有軟體訂閱專案</li></ul> |
-| targetSegment          | 字串   | 否       | 識別目標區段。 不同目標物件的視圖。 支援的值為： <ul><li>**商用**</li><li>**教育**</li><li>**身份證**</li><li>**非營利**</li></ul> |
-| reservationScope | 字串   | 否 | 查詢 Azure 保留的產品清單時，請指定`reservationScope=AzurePlan`以取得適用于 azure 方案的產品清單。 排除此參數以取得適用于 Microsoft Azure （**ms-azr-0017p-流程 ms-azr-0145p**）訂用帳戶的 Azure 保留產品清單。  |
+| country                | 字串   | Yes      | 國家/地區識別碼。                                                  |
+| targetView             | 字串   | Yes      | 識別目錄的目標視圖。 支援的值為： <ul><li>**Azure**，其中包括所有 Azure 專案</li><li>**AzureReservations**，其中包括所有的 Azure 保留專案</li><li>**AzureReservationsVM**，其中包括所有虛擬機器（VM）保留專案</li><li>**AzureReservationsSQL**，其中包含所有 SQL 保留專案</li><li>**AzureReservationsCosmosDb**，其中包含所有 Cosmos 資料庫保留專案</li><li>**Microsoftazure.mobileengagement**，其中包含 Microsoft Azure 訂用帳戶（**ms-azr-0017p-流程 ms-azr-0145p**）和 Azure 方案的專案</li><li>**您**，其中包含所有線上服務專案（包括商用 marketplace 產品）</li><li>包含所有軟體專案的**軟體**</li><li>**SoftwareSUSELinux**，其中包含所有軟體 SUSE Linux 專案</li><li>**SoftwarePerpetual**，其中包含所有永久軟體專案</li><li>**SoftwareSubscriptions**，其中包含所有軟體訂閱專案</li></ul> |
+| targetSegment          | 字串   | No       | 識別目標區段。 不同目標物件的視圖。 支援的值為： <ul><li>**商用**</li><li>**教育**</li><li>**身份證**</li><li>**非營利**</li></ul> |
+| reservationScope | 字串   | No | 查詢 Azure 保留的產品清單時，請指定 `reservationScope=AzurePlan` 以取得適用于 azure 方案的產品清單。 排除此參數以取得適用于 Microsoft Azure （**ms-azr-0017p-流程 ms-azr-0145p**）訂用帳戶的 Azure 保留產品清單。  |
 
 ### <a name="request-headers"></a>要求標頭
 

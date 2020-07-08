@@ -1,21 +1,21 @@
 ---
 title: 取得所有間接轉銷商的分析資訊
 description: 如何取得所有間接轉銷商分析資訊。
-ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4a8bf1a958b28b5ea8c471a3bbee9009243f7455
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 65bbc79ff456022c399a0a0c08e4561f0c7babcd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157770"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097865"
 ---
 # <a name="get-all-indirect-resellers-analytics-information"></a>取得所有間接轉銷商的分析資訊
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +24,7 @@ ms.locfileid: "82157770"
 
 如何取得客戶的所有間接轉銷商分析資訊。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
@@ -34,7 +34,7 @@ ms.locfileid: "82157770"
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **GET** | baseURL/partner/v1/analytics/indirectresellers HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/indirectresellers HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
@@ -42,7 +42,7 @@ ms.locfileid: "82157770"
 <thead>
     <th>參數</th>
     <th>類型</th>
-    <th>描述</th>
+    <th>Description</th>
 </thead>
 <tbody>
     <tr>
@@ -129,7 +129,7 @@ ms.locfileid: "82157770"
         <td>skip</td>
         <td>int</td>
         <td>
-          <p>在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如， <code>top=10000 and skip=0</code>會抓取前10000個數據列， <code>top=10000 and skip=10000</code>並抓取接下來的10000個數據列，依此類推。</p>
+          <p>在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如，會抓取 <code>top=10000 and skip=0</code> 前10000個數據列， <code>top=10000 and skip=10000</code> 並抓取接下來的10000個數據列，依此類推。</p>
         </td>
     </tr>
     <tr>
@@ -151,9 +151,9 @@ ms.locfileid: "82157770"
                 <li><em>firstSubscriptionDeprovisionedDate</em></li>
                 <li><em>latestSubscriptionDeprovisionedDate</em></li>
             </ul>
-            <p><strong>範例：</strong></br>
+            <p><strong>範例︰</strong></br>
               <code>.../indirectresellers?filter=market eq &#39;US&#39;</code></p>
-            <p><strong>範例：</strong></br>
+            <p><strong>範例︰</strong></br>
                 <code>.../indirectresellers?filter=market eq &#39;US&#39; or (firstSubscriptionCreationDate le cast(&#39;2018-01-01&#39;,Edm.DateTimeOffset) and firstSubscriptionCreationDate le cast(&#39;2018-04-01&#39;,Edm.DateTimeOffset))</code>
             </p>
         </td>
@@ -162,7 +162,7 @@ ms.locfileid: "82157770"
         <td>aggregationLevel</td>
         <td>字串</td>
         <td><p>指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：&quot;day&quot;、&quot;week&quot; 或 &quot;month&quot;。 如果沒有指定，則預設為 &quot;天&quot;。</p>
-        <p><code>aggregationLevel</code>不支援，沒有<code>aggregationLevel</code>。 <code>aggregationLevel</code>適用于出現在中的所有<strong>datefields</strong><code>aggregationLevel</code></p>
+        <p><code>aggregationLevel</code>不支援，沒有 <code>aggregationLevel</code> 。 <code>aggregationLevel</code>適用于出現在中的所有<strong>datefields</strong><code>aggregationLevel</code></p>
         </td>
     </tr>
     <tr>
@@ -186,8 +186,8 @@ ms.locfileid: "82157770"
                 <li>&quot;subscriptionCount&quot;</li>
                 <li>&quot;licenseCount&quot;</li>
             </ul>
-            <p><em>Order</em>參數是選擇性的，而且可以是<code>asc</code>或<code>desc</code>;為每個欄位指定遞增或遞減順序。 預設值為 <code>asc</code>。</p>
-            <p><strong>範例：</strong></br>
+            <p><em>Order</em>參數是選擇性的，而且可以是 <code>asc</code> 或 <code>desc</code> ; 指定每個欄位的遞增或遞減順序。 預設值為 <code>asc</code>。</p>
+            <p><strong>範例︰</strong></br>
                 <code>...&orderby=market,subscriptionCount</code>
             </p>
         </td>
@@ -211,14 +211,14 @@ ms.locfileid: "82157770"
                 <li><em>firstSubscriptionDeprovisionedDate</em></li>
                 <li><em>latestSubscriptionDeprovisionedDate</em></li>
             </ul>
-            <p>傳回的資料列包含<code>groupby</code>子句中指定的欄位，以及下欄欄位：</p>
+            <p>傳回的資料列包含子句中指定的欄位 <code>groupby</code> ，以及下欄欄位：</p>
             <ul>
                 <li><em>indirectResellerCount</em></li>
                 <li><em>licenseCount</em></li>
                 <li><em>subscriptionCount</em></li>
             </ul>
-            <p><code>groupby</code>參數可以與<code>aggregationLevel</code>參數搭配使用。</p>
-            <p><strong>範例：</strong></br>
+            <p><code>groupby</code>參數可以與參數搭配使用 <code>aggregationLevel</code> 。</p>
+            <p><strong>範例︰</strong></br>
                 <code>...&groupby=ageGroup,market&aggregationLevel=week</code>
             </p>
         </td>

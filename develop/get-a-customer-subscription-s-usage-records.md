@@ -4,13 +4,12 @@ description: 在目前的計費期間，您可以使用 SubscriptionMonthlyUsage
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7ca784990f1d28755dadd6a5231118ec3078c301
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 765ea16ff58b462d83ae3b8764b8b34c3ef804dc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156230"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098258"
 ---
 # <a name="get-subscription-usage-records-for-a-customer"></a>取得客戶的訂用帳戶使用方式記錄
 
@@ -22,11 +21,11 @@ ms.locfileid: "82156230"
 
 在目前的計費期間，您可以使用**SubscriptionMonthlyUsageRecord**資源集合來取得特定 Azure 服務或資源之客戶的訂用帳戶使用方式記錄。 此資源代表客戶的所有訂用帳戶。 針對具有 Azure 方案的客戶，此資源會傳回這些方案的清單（不是個別的 Azure 訂用帳戶）。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
@@ -45,7 +44,7 @@ ms.locfileid: "82156230"
 
 如需範例，請參閱下列各項：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSamples**
 - 類別： **GetSubscriptionUsageRecords.cs**
 
@@ -61,7 +60,7 @@ ms.locfileid: "82156230"
 
 下表列出必要的查詢參數，以取得客戶的評等使用量資訊。
 
-| 名稱                   | 類型     | 必要 | 描述                           |
+| 名稱                   | 類型     | 必要 | 說明                           |
 |------------------------|----------|----------|---------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 對應至客戶的 GUID。 |
 

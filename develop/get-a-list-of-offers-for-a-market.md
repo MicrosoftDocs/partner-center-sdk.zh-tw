@@ -1,21 +1,21 @@
 ---
 title: 取得市場的供應項目清單
 description: 取得集合，其中包含特定市場的所有供應專案。
-ms.assetid: 9251B841-498D-4B20-A90B-EB493A8FF212
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93ffb0d87daee327825673c217233e502a4779a5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 3a004f6f8f8de8cd398d82c300793e4f196efaaa
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156840"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098101"
 ---
 # <a name="get-a-list-of-offers-for-a-market"></a>取得市場的供應項目清單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +24,7 @@ ms.locfileid: "82156840"
 
 取得集合，其中包含特定市場的所有供應專案。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -52,7 +52,7 @@ ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get(
 
 下表列出取得供應專案所需的查詢參數。
 
-| 名稱           | 類型       | 必要 | 描述            |
+| 名稱           | 類型       | 必要 | 說明            |
 |----------------|------------|----------|------------------------|
 | **country-id** | **string** | Y        | 國家/地區識別碼。 |
 

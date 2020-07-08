@@ -1,21 +1,19 @@
 ---
 title: 提供支援
 description: 本節說明雲端解決方案提供者合作夥伴可以使用合作夥伴中心以程式設計方式管理支援和服務要求的方式。
-ms.assetid: 2E92EEA0-13D6-4FAB-896F-F95C65E7B495
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 38fa47e81f92a9830bac558bddddaeb97eda7f82
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: 4dd6251841e3e854de66debcf316cec9d0af6b44
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089258"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097249"
 ---
 # <a name="provide-support"></a>提供支援
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心

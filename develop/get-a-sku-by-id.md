@@ -1,27 +1,27 @@
 ---
 title: 識別碼取得 SKU
 description: 使用指定的 SKU 識別碼，為指定的產品取得 SKU。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f24b0881f1e09986e68547321d095c01d094faf2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 54ef72413d2d2b9e7154e82e4bbdd7427a79a2dd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156930"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097978"
 ---
 # <a name="get-a-sku-by-id"></a>識別碼取得 SKU
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 使用指定的 SKU 識別碼，為指定的產品取得 SKU。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -55,11 +55,11 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 使用下列路徑和查詢參數，以使用指定的 SKU 識別碼來取得指定產品的 SKU。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 說明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
-| sku-識別碼                 | 字串   | 是      | 識別 SKU 的字串。                               |
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
+| 產品識別碼             | 字串   | Yes      | 識別產品的字串。                           |
+| sku-識別碼                 | 字串   | Yes      | 識別 SKU 的字串。                               |
+| 國家/地區代碼           | 字串   | Yes      | 國家/地區識別碼。                                            |
 
 ### <a name="request-headers"></a>要求標頭
 

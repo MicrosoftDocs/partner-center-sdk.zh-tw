@@ -1,17 +1,15 @@
 ---
 title: 國家/地區資訊資源
 description: 國家/地區的描述性中繼資料。
-ms.assetid: 19460437-5611-49A1-A7E7-704420C1DE8F
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4ff89cccf9c3605887b89f35b6505ae809d0ac9f
-ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
+ms.openlocfilehash: ed744cf131c2d5956575ab1aa2c79f0303b226fc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82092985"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096310"
 ---
 # <a name="country-information-resources"></a>國家/地區資訊資源
 
@@ -26,16 +24,16 @@ ms.locfileid: "82092985"
 
 ## <a name="countryinformation"></a>CountryInformation
 
-| 屬性                      | 類型               | 描述                                                                                        |
+| 屬性                      | 類型               | Description                                                                                        |
 |-------------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | ExtensionData                 | 字串             | 延伸模組資料。                                                                                |
 | Iso2Code                      | 字串             | ISO-2 代碼。                                                                                     |
 | Iso3Code                      | 字串             | ISO-3 代碼。                                                                                     |
 | DefaultCulture                | 字串             | 預設的文化特性。                                                                               |
 | IsStateRequired               | boolean            | 指出是否需要州/省。                                             |
-| SupportedStatesList           | 字串的陣列   | 如果需要州/省，則會傳回該國家/地區的完整清單。                    |
-| SupportedLanguagesList        | 字串的陣列   | 支援的語言清單。                                                                     |
-| SupportedCulturesList         | 字串的陣列   | 支援的文化特性清單。                                                                      |
+| SupportedStatesList           | 字串陣列   | 如果需要州/省，則會傳回該國家/地區的完整清單。                    |
+| SupportedLanguagesList        | 字串陣列   | 支援的語言清單。                                                                     |
+| SupportedCulturesList         | 字串陣列   | 支援的文化特性清單。                                                                      |
 | IsPostalCodeRequired          | boolean            | 指出郵遞區號是否為必要。                                    |
 | PostalCodeRegex               | 字串             | 定義郵遞區號的正則運算式。                                          |
 | IsCityRequired                | boolean            | 指出是否需要城市。                                                       |
@@ -48,21 +46,21 @@ ms.locfileid: "82092985"
 | IsTaxIdSupported              | boolean            | 指出是否支援稅務識別碼。 這與 IsVatIdSupported 不同。 |
 | ResellerAgreementRegion       | 字串             | 轉售商合約區域。                                                                     |
 | GeographicRegion              | 字串             | 地理區域。                                                                             |
-| CountryCallingCodesList       | 字串的陣列   | 國家/地區支援的呼叫碼。                                                 |
+| CountryCallingCodesList       | 字串陣列   | 國家/地區支援的呼叫碼。                                                 |
 | 屬性                    | ResourceAttributes | 對應至 CountryInformation 資源的中繼資料屬性。                          |
 
 ## <a name="countryvalidationrules"></a>CountryValidationRules
 
 說明國家/地區的位址格式規則。
 
-| 屬性                | 類型               | 描述                                                                                        |
+| 屬性                | 類型               | Description                                                                                        |
 |-------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | Iso2Code                | 字串             | ISO-2 代碼。                                                                                     |
 | DefaultCulture          | 字串             | 預設的文化特性。                                                                               |
 | IsStateRequired         | boolean            | 指出是否需要州/省。                                             |
-| SupportedStatesList     | 字串的陣列   | 如果需要州/省，則會傳回該國家/地區的完整清單。                    |
-| SupportedLanguagesList  | 字串的陣列   | 支援的語言清單。                                                                     |
-| SupportedCulturesList   | 字串的陣列   | 支援的文化特性清單。                                                                      |
+| SupportedStatesList     | 字串陣列   | 如果需要州/省，則會傳回該國家/地區的完整清單。                    |
+| SupportedLanguagesList  | 字串陣列   | 支援的語言清單。                                                                     |
+| SupportedCulturesList   | 字串陣列   | 支援的文化特性清單。                                                                      |
 | IsPostalCodeRequired    | boolean            | 指出郵遞區號是否為必要。                                    |
 | PostalCodeRegex         | 字串             | 定義郵遞區號的正則運算式。                                          |
 | IsCityRequired          | boolean            | 指出是否需要城市。                                                       |
@@ -73,5 +71,5 @@ ms.locfileid: "82092985"
 | PhoneNumberRegex        | 字串             | 電話號碼正則運算式。                                                               |
 | IsTaxIdSupported        | boolean            | 指出是否支援稅務識別碼。 這個屬性與 IsVatIdSupported 不同。 |
 | IsTaxIdOptional         | boolean            | 指出是否為選擇性的稅務識別碼。                                                     |
-| CountryCallingCodesList | 字串的陣列   | 國家/地區支援的呼叫碼。                                                 |
+| CountryCallingCodesList | 字串陣列   | 國家/地區支援的呼叫碼。                                                 |
 | 屬性              | ResourceAttributes | 對應至 CountryInformation 資源的中繼資料屬性。                          |

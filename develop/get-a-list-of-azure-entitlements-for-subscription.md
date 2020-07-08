@@ -1,16 +1,17 @@
 ---
 title: 取得訂用帳戶的 Azure 權利清單
 description: 您可以使用 AzureEntitlement 資源來取得屬於訂用帳戶的 Azure 權利資源集合。
-ms.date: 11/01/2019
+ms.date: 07/06/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 91a356ad22281f50d180645989fa06eb631a3305
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: d7d0a10c571dc073bd49e82084f3b7ece7234daf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156860"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098143"
 ---
 # <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>取得訂用帳戶的 Azure 權利清單
 
@@ -20,11 +21,11 @@ ms.locfileid: "82156860"
 
 您可以使用[Azure 權利資源](subscription-resources.md#azureentitlement)（**AzureEntitlement**）來取得屬於訂用帳戶的資源集合。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 訂用帳戶識別碼。
 
@@ -40,7 +41,7 @@ ms.locfileid: "82156860"
 
 下表列出取得訂用帳戶的所有 Azure 權利所需的查詢參數。
 
-| 名稱                   | 類型     | 必要 | 描述                           |
+| 名稱                   | 類型     | 必要 | 說明                           |
 |------------------------|----------|----------|---------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 對應至客戶的 GUID。 |
 | **訂用帳戶識別碼**       | **guid** | Y        | 對應至訂用帳戶的 GUID。    |
@@ -93,3 +94,4 @@ Date: Wed, 04 Oct 2019 05:50:45 GMT
    }],
     "attributes":{"objectType":"Collection"}
   }
+```

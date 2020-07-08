@@ -1,17 +1,15 @@
 ---
 title: 檢查清查
 description: 檢查一組特定目錄專案的清查。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5d874b1d69750a08506669061573e511dd6704de
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c0860c4840df6924ffb8e222b79efa28fa33d9ea
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154620"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096443"
 ---
 # <a name="check-inventory"></a>檢查清查
 
@@ -21,7 +19,7 @@ ms.locfileid: "82154620"
 
 如何檢查一組特定目錄專案的清查。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -68,9 +66,9 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 使用下列查詢參數來檢查清查。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 說明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
+| 國家/地區代碼           | 字串   | Yes      | 國家/地區識別碼。                                            |
 
 ### <a name="request-headers"></a>要求標頭
 

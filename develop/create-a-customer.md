@@ -1,18 +1,17 @@
 ---
 title: 建立客戶
 description: 如何建立新的客戶。
-ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-author: rbars
-ms.author: rbars
-ms.openlocfilehash: 35ed60b6053fc688249af40ab07b2245a7d8b92c
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 81231861532a426d71c739c35894697d17863f72
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022735"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096247"
 ---
 # <a name="create-a-customer"></a>建立客戶
 

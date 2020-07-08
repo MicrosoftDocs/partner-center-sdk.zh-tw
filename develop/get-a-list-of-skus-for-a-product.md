@@ -1,17 +1,17 @@
 ---
 title: 取得產品的 SKU 清單 (以國家/地區為基礎)
 description: 您可以使用合作夥伴中心 Api，依國家/地區針對產品取得及篩選 Sku 集合。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 18af0d68aae4d05e34c239c4dc8e473353507954
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 9d5ec9172ed92d33e6ff291eafd523cbc13bfbbd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156210"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098055"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>取得產品的 SKU 清單 (以國家/地區為基礎)
 
@@ -21,7 +21,7 @@ ms.locfileid: "82156210"
 
 您可以使用合作夥伴中心 Api，取得特定產品的國家/地區所提供的 Sku 集合。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -124,12 +124,12 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 使用下列路徑和查詢參數來取得產品的 Sku 清單。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 說明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | 字串   | 是      | 識別產品的字串。                           |
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
-| 目標-區段         | 字串   | 否       | 識別用於篩選之目標區段的字串。 |
-| reservationScope | 字串   | 否 | 查詢 Azure 保留產品的 Sku 清單時，請指定`reservationScope=AzurePlan`以取得適用于 AzurePlan 的 sku 清單。 排除此參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Azure 保留產品的 Sku 清單。  |
+| 產品識別碼             | 字串   | Yes      | 識別產品的字串。                           |
+| 國家/地區代碼           | 字串   | Yes      | 國家/地區識別碼。                                            |
+| 目標-區段         | 字串   | No       | 識別用於篩選之目標區段的字串。 |
+| reservationScope | 字串   | No | 查詢 Azure 保留產品的 Sku 清單時，請指定 `reservationScope=AzurePlan` 以取得適用于 AzurePlan 的 sku 清單。 排除此參數，以取得適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的 Azure 保留產品的 Sku 清單。  |
 
 ### <a name="request-headers"></a>要求標頭
 

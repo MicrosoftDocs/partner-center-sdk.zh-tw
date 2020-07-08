@@ -3,18 +3,17 @@ title: 取得沒有 MFA 的入口網站要求
 description: 使用合作夥伴 REST API 取得沒有多重要素驗證（MFA）的使用者要求清單。
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: c4a32376690165f7aa883f35ec4aff22f8b1e432
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+ms.openlocfilehash: fd350aa3301f00926942ae6c6af359b0d0edc423
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097756"
 ---
 # <a name="get-portal-requests-without-mfa"></a>取得沒有 MFA 的入口網站要求
 
-適用於：
+適用於︰
 
 - 合作夥伴中心 API
 
@@ -36,7 +35,7 @@ ms.locfileid: "84186346"
 
 - 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>Request body
 
 無。
 

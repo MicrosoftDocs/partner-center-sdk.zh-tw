@@ -1,17 +1,17 @@
 ---
 title: 取得客戶清單
 description: 如何取得代表合作夥伴所有客戶的資源集合。
-ms.assetid: 6D636257-7C23-4DDF-9895-96F208B66232
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8f1115385ad020f8a7c20810765842e19dd53cd1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: feff7ee333914fd578d5cf7024b2417548d58027
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156880"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098155"
 ---
 # <a name="get-a-list-of-customers"></a>取得客戶清單
 
@@ -27,7 +27,7 @@ ms.locfileid: "82156880"
 > [!TIP]
 > 您也可以在合作夥伴中心儀表板中執行此操作。 在主頁面的 [**客戶管理**] 底下，選取 [ **View Customers**]。 或者，在提要欄位上選取 [**客戶**]。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -52,7 +52,7 @@ var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(c
 
 如需範例，請參閱下列各項：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSamples**
 - 類別： **CustomerPaging.cs**
 

@@ -1,21 +1,19 @@
 ---
 title: 取得服務要求支援主題的清單
 description: 取得專案的集合，代表服務要求的有效主題。
-ms.assetid: 50A61342-70C4-49F5-BEA2-2754338CF5A1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cccaa14c450e9c73b65172c85e5a09058c9fdef2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: dbc2197f47681b36cd66d0fd5d19732999f86066
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157250"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097619"
 ---
 # <a name="get-service-request-support-topics"></a>取得服務要求支援主題的清單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -23,9 +21,9 @@ ms.locfileid: "82157250"
 
 取得專案的集合，代表服務要求的有效主題。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 ## <a name="c"></a>C\#
 

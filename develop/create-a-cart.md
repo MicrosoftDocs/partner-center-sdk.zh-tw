@@ -4,14 +4,14 @@ description: 如何在購物車中新增客戶的訂單。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 38d292f54d6a26cad4c796e422369e58e5c998e6
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: aa3bd159a850028a30ee88edc22bb3b263df310e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022745"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096322"
 ---
 # <a name="create-a-cart"></a>建立購物車
 

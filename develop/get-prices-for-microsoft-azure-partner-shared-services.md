@@ -1,21 +1,19 @@
 ---
 title: 取得 Microsoft Azure 合作夥伴共用服務的報價
 description: 如何取得具有 Microsoft Azure 合作夥伴共用服務價格的 Azure 費率卡片。
-ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f8da51f0f23e8a45aa4708d7cc6891483ebf46a7
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 608520b8d0219e423eab35a8001e3d54d9ea7085
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157290"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097726"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>取得 Microsoft Azure 合作夥伴共用服務的報價
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -69,10 +67,10 @@ Get-PartnerAzureRateCard -SharedServices
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名稱     | 類型   | 必要 | 描述                                                                                                                                                                               |
+| 名稱     | 類型   | 必要 | 說明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 貨幣 | 字串 | 否       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如`EUR`）。 預設值是合作夥伴設定檔中與市場相關聯的貨幣。 |
-| region   | 字串 | 否       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如`FR`）。 預設值是在合作夥伴設定檔中設定的國家/區域代碼。        |
+| 貨幣 | 字串 | No       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如 `EUR` ）。 預設值是合作夥伴設定檔中與市場相關聯的貨幣。 |
+| region   | 字串 | No       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 `FR` ）。 預設值是在合作夥伴設定檔中設定的國家/區域代碼。        |
 
 如果要求中包含選擇性的 X 地區設定標頭，則其值會決定回應中的詳細資料所使用的語言。
 

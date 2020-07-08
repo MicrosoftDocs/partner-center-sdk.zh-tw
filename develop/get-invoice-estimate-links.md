@@ -5,13 +5,14 @@ ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.assetid: ''
-ms.localizationpriority: medium
-ms.openlocfilehash: 9003c388b80552b0f7a71df25e8ecab3a0364583
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 10801cdb1f9d4f50a1f8fc86c2d0eaf8610ed68c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157470"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096940"
 ---
 # <a name="get-invoice-estimate-links"></a>取得發票估算連結
 
@@ -24,7 +25,7 @@ ms.locfileid: "82157470"
 
 您可以取得評估連結，以協助查詢未開立帳單對帳明細專案的詳細資料。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -47,7 +48,7 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 
 如需類似的範例，請參閱下列各項：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetEstimatesLinks.cs**
 
@@ -63,9 +64,9 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 類型   | 必要 | 描述                                                       |
+| 名稱                   | 類型   | 必要 | 說明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| currencyCode           | 字串 | 是      | 未開立帳單明細專案的貨幣代碼。                    |
+| currencyCode           | 字串 | Yes      | 未開立帳單明細專案的貨幣代碼。                    |
 
 ### <a name="request-headers"></a>要求標頭
 

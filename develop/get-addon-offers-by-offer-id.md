@@ -1,21 +1,21 @@
 ---
 title: 取得應用程式識別碼的附加元件
 description: 如何取得供應專案識別碼的附加元件。
-ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 67b8a2c636ff56a1624635e5756782c067e2662f
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: cff024700c3ab04986d468c839053cbfa7670a86
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157570"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097876"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>取得應用程式識別碼的附加元件
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +24,7 @@ ms.locfileid: "82157570"
 
 如何取得供應專案識別碼的附加元件。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -56,10 +56,10 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 使用下列參數來提供供應專案識別碼和國家/地區代碼。
 
-| 名稱         | 類型       | 必要 | 描述                       |
+| 名稱         | 類型       | 必要 | 說明                       |
 |--------------|------------|----------|-----------------------------------|
 | **供應專案識別碼** | **guid**   | Y        | 識別供應專案的 GUID。 |
-| **全國**  | **string** | Y        | 國家（地區）代碼（ `US`例如）。       |
+| **全國**  | **string** | Y        | 國家（地區）代碼（例如 `US` ）。       |
 
 ### <a name="request-headers"></a>要求標頭
 

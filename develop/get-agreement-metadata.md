@@ -4,17 +4,18 @@ description: 本文說明如何取得 Microsoft Cloud 合約的合約中繼資�
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6a249bcac40294fa0d6966425b5135f8fbed2088
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 909dec77dd189005839d72caeb0e66a7ad5c8a1b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157600"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097156"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>取得 Microsoft Cloud 合約的合約中繼資料
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
@@ -24,7 +25,7 @@ ms.locfileid: "82157600"
 > - Microsoft Cloud 德國合作夥伴中心
 > - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
 
@@ -112,7 +113,7 @@ Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudA
 
 | 方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | baseURL/v1/agreements HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| GET    | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/agreements HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 

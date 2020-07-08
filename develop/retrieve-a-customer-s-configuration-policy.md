@@ -1,32 +1,30 @@
 ---
 title: 擷取客戶的設定原則
 description: 如何為指定的客戶取出指定的設定原則。
-ms.assetid: A26B5CDA-C23C-4DC3-BC56-A27F3DDDCFB1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7cda3baefb717a600a05bf473042a531379a9266
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 39d78dca2186a9839f3b62facadf852444c5774b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156970"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096613"
 ---
 # <a name="retrieve-a-customers-configuration-policy"></a>擷取客戶的設定原則
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 如何為指定的客戶取出指定的設定原則。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 原則識別碼。
 
@@ -57,10 +55,10 @@ ConfigurationPolicy retrievedConfigurationPolicy =
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱        | 類型   | 必要 | 描述                                           |
+| 名稱        | 類型   | 必要 | 說明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | 字串 | 是      | 用來識別客戶的 GUID 格式字串。 |
-| 原則-識別碼   | 字串 | 是      | 可識別原則的 GUID 格式字串。   |
+| customer-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
+| 原則-識別碼   | 字串 | Yes      | 可識別原則的 GUID 格式字串。   |
 
 ### <a name="request-headers"></a>要求標頭
 

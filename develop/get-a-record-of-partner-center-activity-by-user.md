@@ -1,21 +1,19 @@
 ---
 title: 取得合作夥伴中心活動的記錄
 description: 在一段時間內，如何抓取由合作夥伴使用者或應用程式所執行的作業記錄。
-ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9247573eff347784655b38e3315f4d1415dd5c2a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 7a17e5e7dbded778e5938d9f8024cee4b507111e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156950"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097120"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>取得合作夥伴中心活動的記錄
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -25,7 +23,7 @@ ms.locfileid: "82156950"
 
 使用此 API，從目前的日期，或在包含開始日期和/或結束日期的指定日期範圍內，抓取過去30天的審核記錄。 不過，請注意，基於效能的考慮，活動記錄資料可用性受限於前90天。 開始日期超過目前日期之前90天的要求將會收到不正確的要求例外狀況（錯誤碼：400）和適當的訊息。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -97,11 +95,11 @@ while (auditRecordEnumerator.HasValue)
 
 建立要求時，請使用下列查詢參數。
 
-| 名稱      | 類型   | 必要 | 描述                                                                                                                                                                                                                |
+| 名稱      | 類型   | 必要 | 說明                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | date   | 否       | 以 yyyy-mm-dd 格式的開始日期。 如果未提供任何值，結果集會預設為要求日期前的30天。 當提供篩選準則時，這個參數是選擇性的。                                          |
-| endDate   | date   | 否       | 以 yyyy-mm-dd 格式的結束日期。 當提供篩選準則時，這個參數是選擇性的。 當結束日期省略或設為 null 時，要求會傳回最大的視窗，或使用今天做為結束日期，以較少者為准。 |
-| filter    | 字串 | 否       | 要套用的篩選條件。 這個參數必須是編碼的字串。 當提供開始日期或結束日期時，這個參數是選擇性的。                                                                                              |
+| startDate | date   | No       | 以 yyyy-mm-dd 格式的開始日期。 如果未提供任何值，結果集會預設為要求日期前的30天。 當提供篩選準則時，這個參數是選擇性的。                                          |
+| endDate   | date   | No       | 以 yyyy-mm-dd 格式的結束日期。 當提供篩選準則時，這個參數是選擇性的。 當結束日期省略或設為 null 時，要求會傳回最大的視窗，或使用今天做為結束日期，以較少者為准。 |
+| filter    | 字串 | No       | 要套用的篩選條件。 這個參數必須是編碼的字串。 當提供開始日期或結束日期時，這個參數是選擇性的。                                                                                              |
 
 ### <a name="filter-syntax"></a>篩選語法
 您必須以一系列以逗號分隔的索引鍵/值組來撰寫篩選參數。 每個索引鍵和值都必須個別括住並以冒號分隔。 整個篩選條件必須加以編碼。
@@ -121,7 +119,7 @@ while (auditRecordEnumerator.HasValue)
 </colgroup>
 <thead>
 <tr class="header">
-<th>Key</th>
+<th>機碼</th>
 <th>值</th>
 </tr>
 </thead>
@@ -134,12 +132,12 @@ while (auditRecordEnumerator.HasValue)
 <td>值</td>
 <td>篩選所依據的值。 會忽略值的大小寫。 以下是支援的值參數，如<a href="#rest-request">要求語法</a>所示：
 <ul>
-<li><p>searchSubstring-以公司名稱取代。 您可以輸入符合部分公司名稱的子字串（例如， `bri`將會相符`Fabrikam, Inc`）。</p>
-<p>範例： &quot;值&quot;：&quot;bri&quot;</p></li>
+<li><p>searchSubstring-以公司名稱取代。 您可以輸入符合部分公司名稱的子字串（例如， `bri` 將會相符 `Fabrikam, Inc` ）。</p>
+<p>範例： &quot; 值 &quot; ： &quot; bri&quot;</p></li>
 <li><p>customerId-取代為代表客戶識別碼的 GUID 格式字串。</p>
-<p>範例： &quot;值&quot;：&quot;0c39d6d5-c70d-4c55-bc02-f620844f3fd1&quot;</p></li>
+<p>範例： &quot; 值 &quot; ： &quot; 0c39d6d5-c70d-4c55-bc02-f620844f3fd1&quot;</p></li>
 <li><p>resourceType-取代為要取得其審核記錄的資源類型（例如，訂用帳戶）。 可用的資源類型定義于<a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>中。</p>
-<p>範例： &quot;值&quot;：&quot;訂用帳戶&quot;</p></li>
+<p>範例： &quot; 值 &quot; ： &quot; 訂用帳戶&quot;</p></li>
 </ul></td>
 </tr>
 <tr class="odd">

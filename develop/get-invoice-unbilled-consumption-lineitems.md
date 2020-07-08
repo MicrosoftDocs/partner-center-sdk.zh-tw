@@ -4,13 +4,12 @@ description: 您可以使用合作夥伴中心 Api，為指定的發票取得未
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b39efc495712476d72706e769957bec0484b268d
-ms.sourcegitcommit: 3a5154692071b5dee597c9d00e63a57efb2aff06
+ms.openlocfilehash: 2a74029e1125616edf7a3be96d9f635dad56927c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85365797"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096893"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>取得發票未開立帳單商業使用量明細專案
 
@@ -128,13 +127,13 @@ while (fetchNext)
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 類型   | 必要 | 描述                                                                     |
+| 名稱                   | 類型   | 必要 | 說明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| provider               | 字串 | 是      | 提供者： "**OneTime**"。                                                |
-| invoice-line-item-type | 字串 | 是      | 發票詳細資料的類型： "**UsageLineItems**"、"**UsageLineItems**"。               |
-| currencyCode           | 字串 | 是      | 未開立帳單明細專案的貨幣代碼。                                  |
-| 長                 | 字串 | 是      | 未開立帳單偵察的期間（例如： **current**、 **previous**）。                      |
-| 大小                   | number | 否       | 要傳回的專案數目上限。 預設大小為2000。                    |
+| provider               | 字串 | Yes      | 提供者： "**OneTime**"。                                                |
+| invoice-line-item-type | 字串 | Yes      | 發票詳細資料的類型： "**UsageLineItems**"、"**UsageLineItems**"。               |
+| currencyCode           | 字串 | Yes      | 未開立帳單明細專案的貨幣代碼。                                  |
+| 長                 | 字串 | Yes      | 未開立帳單偵察的期間（例如： **current**、 **previous**）。                      |
+| 大小                   | number | No       | 要傳回的專案數目上限。 預設大小為2000。                    |
 | seekOperation          | 字串 | No       | 設定 `seekOperation=Next` 以取得下一頁的對帳明細專案。                |
 
 ### <a name="request-headers"></a>要求標頭

@@ -1,21 +1,19 @@
 ---
 title: 依照市場取得地址格式規則
 description: 根據市場的 iso 程式碼，取得預期的位址格式。
-ms.assetid: B02B3ECF-8020-4818-872F-9D70DCBC0228
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6f9dd36ef3f2dca11f2d6ca690fb6950f22805d8
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c755a38c11ed9803edb7777a0f661c1fbc5a6107
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157350"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096730"
 ---
 # <a name="get-address-formatting-rules-by-market"></a>依照市場取得地址格式規則
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +22,7 @@ ms.locfileid: "82157350"
 
 根據市場的 iso 程式碼，取得預期的位址格式。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -38,7 +36,7 @@ ms.locfileid: "82157350"
 
 ### <a name="uri-parameter"></a>URI 參數
 
-| 名稱           | 類型       | 必要 | 描述                         |
+| 名稱           | 類型       | 必要 | 說明                         |
 |----------------|------------|----------|-------------------------------------|
 | **isocode-id** | **string** | Y        | 兩個字元的 ISO 國家/地區代碼。 |
 

@@ -4,13 +4,14 @@ description: 您可以使用 PartnerUsageSummary 資源，取得在目前計費�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2e31c21001fc009b1bc4c380514102158f29724d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: ba1885f46043a75274595239fe61ce3ef0998acf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155270"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097146"
 ---
 # <a name="get-a-usage-summary-for-a-partner"></a>取得合作夥伴的使用量摘要
 
@@ -24,9 +25,9 @@ ms.locfileid: "82155270"
 
 *此 API 傳回的總計不會針對具有 Azure 方案的客戶傳回耗用量。* 計畫在未來淘汰。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 ## <a name="c"></a>C\#
 
@@ -44,7 +45,7 @@ ms.locfileid: "82155270"
 
 如需範例，請參閱下列各項：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSamples**
 - 類別： **GetPartnerUsageSummary.cs**
 

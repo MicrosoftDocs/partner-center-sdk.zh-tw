@@ -4,13 +4,12 @@ description: 如何拒絕客戶的訂用帳戶轉移。
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 62e934f0b2289b9cb235d7360bce01b5bf3474c4
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: e4a182ff92a21cf72ca1c2da9de7e211b433725f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489195"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096163"
 ---
 # <a name="reject-a-transfer"></a>拒絕傳輸
 
@@ -40,8 +39,8 @@ ms.locfileid: "84489195"
 
 | 名稱            | 類型     | 必要 | 說明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
-| **轉移-識別碼** | 字串   | 是      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
+| **客戶識別碼** | 字串   | Yes      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **轉移-識別碼** | 字串   | Yes      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -51,7 +50,7 @@ ms.locfileid: "84489195"
 
 下表描述要求主體中的[TransferEntity](transfer-entity-resources.md)屬性。
 
-| 屬性              | 類型          | 必要  | 說明                                                                                |
+| 屬性              | 類型          | 必要  | 描述                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
 | id                    | 字串        | No    | 成功建立 transferEntity 時所提供的 transferEntity 識別碼。                               |
 | status                | 字串        | No    | TransferEntity 的狀態。 若要拒絕傳輸，此值會設為「拒絕」|

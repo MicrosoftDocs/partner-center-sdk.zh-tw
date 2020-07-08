@@ -1,17 +1,15 @@
 ---
 title: 轉換資源
 description: 轉換資源支援將試用訂閱轉換成付費訂用帳戶。
-ms.assetid: 4AE796E3-47D9-428B-8267-A5247B573E0C
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 74e974a3475015374a9014fb3dc372501d1348d9
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 10526af03ee66b81d790816dfa9925c28e410114
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665258"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096385"
 ---
 # <a name="conversions-resources"></a>轉換資源
 
@@ -28,7 +26,7 @@ ms.locfileid: "81665258"
 
 包含用來將試用訂閱轉換成付費訂用帳戶的資訊。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 | -------- | ---- | ----------- |
 | offerId | 字串 | 原始試用版供應專案的供應專案識別碼。 |
 | targetOfferId | 字串 | 目標供應專案的供應專案識別碼。 |
@@ -54,4 +52,4 @@ ms.locfileid: "81665258"
 | subscriptionId | 字串                              | 訂用帳戶識別碼。                                           |
 | offerId        | 字串                              | 原始供應專案識別碼。                                         |
 | targetOfferId  | 字串                              | 目標供應專案的供應專案識別碼。                             |
-| error          | [ConversionError](#conversionerror) | 嘗試轉換時所發生的錯誤（如果適用的話）。 |
+| 錯誤          | [ConversionError](#conversionerror) | 嘗試轉換時所發生的錯誤（如果適用的話）。 |

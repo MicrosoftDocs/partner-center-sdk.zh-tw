@@ -1,31 +1,29 @@
 ---
 title: 取得試用版轉換方案的清單
 description: 如何取得試用版轉換供應專案清單。
-ms.assetid: 7B97505F-10B9-4ACD-9307-111FC1E7D042
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e55edde2753f3c6ec7e85db9f4463072e09a8cd4
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 865b557dcfa275c3ec68dc7350b76c2fa9208d0f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156910"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097202"
 ---
 # <a name="get-a-list-of-trial-conversion-offers"></a>取得試用版轉換方案的清單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 如何取得試用版轉換供應專案清單。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 有效試用訂用帳戶的訂用帳戶識別碼。
 
@@ -55,10 +53,10 @@ var conversions =
 
 使用下列路徑參數來識別客戶和試用版訂用帳戶。
 
-| 名稱            | 類型   | 必要 | 描述                                                     |
+| 名稱            | 類型   | 必要 | 說明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | 字串 | 是      | 識別客戶的 GUID 格式字串。           |
-| subscription-id | 字串 | 是      | 可識別試用訂閱的 GUID 格式字串。 |
+| customer-id     | 字串 | Yes      | 識別客戶的 GUID 格式字串。           |
+| subscription-id | 字串 | Yes      | 可識別試用訂閱的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 

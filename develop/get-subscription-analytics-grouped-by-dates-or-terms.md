@@ -1,21 +1,19 @@
 ---
 title: 取得依日期或詞彙分組的訂用帳戶分析
 description: 如何取得依日期或詞彙分組的訂用帳戶分析資訊。
-ms.assetid: 5D0C0649-F64D-40A9-ACCC-2077E2D2BA4E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 713dceb4c037918f2dfd7793659b70ae8ef3148b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 4a9946027fa89f5a93fff5eede86e36a6be5b721
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157220"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097523"
 ---
 # <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>取得依日期或詞彙分組的訂用帳戶分析
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +22,7 @@ ms.locfileid: "82157220"
 
 如何取得客戶的訂用帳戶分析資訊，並依日期或詞彙分組。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
@@ -34,7 +32,7 @@ ms.locfileid: "82157220"
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **GET** | baseURL/partner/v1/analytics/subscriptions？ groupby = {groupby_queries} [* \{ \} *](partner-center-rest-urls.md) |
+| **GET** | [* \{ baseURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions？ groupby = {groupby_queries} |
 
 ### <a name="uri-parameters"></a>URI 參數
 
@@ -42,7 +40,7 @@ ms.locfileid: "82157220"
 
 | 名稱 | 類型 | 必要 | 描述 |
 |------|------|----------|-------------|
-| groupby_queries | 字串與日期時間的配對 | 是 | 用來篩選結果的詞彙和日期。 |
+| groupby_queries | 字串與日期時間的配對 | Yes | 用來篩選結果的詞彙和日期。 |
 
 ### <a name="groupby-syntax"></a>GroupBy 語法
 
@@ -56,7 +54,7 @@ Group by 參數必須以一系列以逗號分隔的域值來組成。
 
 下表顯示 [群組依據] 支援的欄位清單。
 
-| 欄位 | 類型 | 說明 |
+| 欄位 | 類型 | Description |
 |-------|------|-------------|
 | customerTenantId | 字串 | GUID 格式的字串，可識別客戶租使用者。 |
 | customerName | 字串 | 客戶的名稱。 |
@@ -84,11 +82,11 @@ Group by 參數必須以一系列以逗號分隔的域值來組成。
 
 下表列出選擇性的篩選欄位和其描述：
 
-| 欄位 | 類型 |  描述 |
+| 欄位 | 類型 |  Description |
 |-------|------|--------------|
 | top | int | 在要求中傳回的資料列數目。 如果未指定值，則最大值和預設值為10000。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
 | skip | int | 在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如，top = 10000 和 skip = 0 會抓取前10000個數據列，top = 10000，skip = 10000 會抓取下一個10000個數據列。 |
-| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與**`eq`**、 **`ne`** 或相關聯的值，適用于特定欄位的**`contains`** 運算子。 語句可以使用**`and`** 或**`or`** 結合。 篩選 參數中的字串值必須由單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
+| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與、或相關聯的值 **`eq`** ， **`ne`** 適用于特定欄位的 **`contains`** 運算子。 語句可以使用或結合 **`and`** **`or`** 。 篩選 參數中的字串值必須由單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
 | aggregationLevel | 字串 | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 如果未指定值，則預設為**dateRange**。 **注意**：只有在將日期欄位當做 groupBy 參數的一部分傳遞時，此參數才適用。 |
 | groupBy | 字串 | 將資料彙總僅套用至指定欄位的陳述式。 |
 

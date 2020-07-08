@@ -4,13 +4,14 @@ description: 本文說明如何確認客戶接受 Microsoft 客戶合約。
 ms.date: 09/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9daa54968128cdc0b7c6e44fb2a2f0392055b42b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: d5fdf6e7f2c075b4b954e990e6f30cb07f09290f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157710"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096999"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>取得客戶接受 Microsoft 客戶合約的確認
 
@@ -32,7 +33,7 @@ ms.locfileid: "82157710"
 
 - 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援「應用程式 + 使用者」驗證。 
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="net"></a>.NET
 
@@ -69,7 +70,7 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 
 | 方法 | 要求 URI                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | baseURL/v1/customers/{customer-tenant-id}/agreements？ agreementType = {合約類型} HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| GET    | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements？ agreementType = {合約類型} HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
@@ -78,7 +79,7 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 | 名稱             | 類型 | 必要 | 說明                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
 | customer-tenant-id | GUID | 是 | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
-| 合約類型 | 字串 | 否 | 此參數會傳回所有合約中繼資料。 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>僅包含*MicrosoftCloudAgreement*類型之協定中繼資料的**MicrosoftCloudAgreement** 。</li><li>僅包含*MicrosoftCustomerAgreement*類型之協定中繼資料的**MicrosoftCustomerAgreement** 。</li><li>**\*** 傳回所有合約中繼資料的。 （除非您**\*** 的程式碼具有處理非預期協定類型所需的邏輯，否則請勿使用）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。 Microsoft 可能會隨時以新的合約類型引進合約中繼資料。  |
+| 合約類型 | 字串 | No | 此參數會傳回所有合約中繼資料。 使用此參數將查詢回應的範圍限定為特定的合約類型。 支援的值為： <ul><li>僅包含*MicrosoftCloudAgreement*類型之協定中繼資料的**MicrosoftCloudAgreement** 。</li><li>僅包含*MicrosoftCustomerAgreement*類型之協定中繼資料的**MicrosoftCustomerAgreement** 。</li><li>**\*** 傳回所有合約中繼資料的。 （ **\*** 除非您的程式碼具有處理非預期協定類型所需的邏輯，否則請勿使用）。</li></ul> 如果未指定 URI 參數，則查詢會預設為**MicrosoftCloudAgreement**以提供回溯相容性。 Microsoft 可能會隨時以新的合約類型引進合約中繼資料。  |
 
 ### <a name="request-headers"></a>要求標頭
 

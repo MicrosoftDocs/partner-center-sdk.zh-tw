@@ -4,13 +4,12 @@ description: 您可以使用 ResourceUsageRecord 資源來描述目前計費週�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d58c3787a76c9dd1aa0e3d5cd90956f940d6de19
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: 6a293818cf4a6545dc705bf30fae6753f2e7eaf1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089238"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096685"
 ---
 # <a name="resource-usage-record-resources"></a>資源使用量記錄資源
 

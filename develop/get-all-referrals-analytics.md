@@ -1,21 +1,21 @@
 ---
 title: 取得所有轉介的分析資訊
 description: 如何取得所有的參考分析資訊。
-ms.assetid: C6051714-1D8A-4448-9705-12AEC9A6420E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 397e36cf45fd2a43af58585ab8162a01086316b9
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: Kim-Davis
+ms.author: kimnich
+ms.openlocfilehash: b470c59cecf8b214e6d90a244e928e5d15ebd3e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156580"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097784"
 ---
 # <a name="get-all-referrals-analytics-information"></a>取得所有轉介的分析資訊
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -23,7 +23,7 @@ ms.locfileid: "82156580"
 
 如何為您的客戶取得所有的參考分析資訊。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
@@ -33,17 +33,17 @@ ms.locfileid: "82156580"
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **GET** | baseURL/partner/v1/analytics/referrals HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/referrals HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 參數 | 類型 | 描述 |
+| 參數 | 類型 | Description |
 |-----------|------|-------------|
-| filter | 字串 | 傳回符合篩選準則的資料。</br> **範例：**</br>  `.../referrals?filter=field eq 'value'` |
-| groupby | 字串 | 支援條款和日期。 用來限制值區數目的短路邏輯。</br> **範例：**</br>  `.../referrals?groupby=termField1,dateField1,termField2` |
-| aggregationLevel | 字串 | *AggregationLevel*參數需要*groupby*。 *AggregationLevel*參數會套用到出現在*groupby*中的所有日期欄位。</br> **範例：**</br> `.../referrals?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
-| top | 字串 | 頁面限制為10000。 採用小於10000的任何值。</br> **範例：**</br> `.../referrals?top=100`</br> |
-| skip | 字串 | 要略過的資料列數目。</br> **範例：**</br>  `.../referrals?top=100&skip=100` |
+| filter | 字串 | 傳回符合篩選準則的資料。</br> **範例︰**</br>  `.../referrals?filter=field eq 'value'` |
+| groupby | 字串 | 支援條款和日期。 用來限制值區數目的短路邏輯。</br> **範例︰**</br>  `.../referrals?groupby=termField1,dateField1,termField2` |
+| aggregationLevel | 字串 | *AggregationLevel*參數需要*groupby*。 *AggregationLevel*參數會套用到出現在*groupby*中的所有日期欄位。</br> **範例︰**</br> `.../referrals?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
+| top | 字串 | 頁面限制為10000。 採用小於10000的任何值。</br> **範例︰**</br> `.../referrals?top=100`</br> |
+| skip | 字串 | 要略過的資料列數目。</br> **範例︰**</br>  `.../referrals?top=100&skip=100` |
 
 ### <a name="request-headers"></a>要求標頭
 

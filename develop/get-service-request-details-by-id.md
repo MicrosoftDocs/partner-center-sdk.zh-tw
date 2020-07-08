@@ -4,17 +4,16 @@ description: 如何依識別碼取得現有客戶服務要求的詳細資料。
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a99a470eb7abd0d16cfa4e73abe0e720542e274a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 93fd56931913d674591735d3da6f60a3b9b15607
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157260"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097620"
 ---
 # <a name="get-service-request-details-by-id"></a>依照識別碼取得服務要求詳細資料
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -22,9 +21,9 @@ ms.locfileid: "82157260"
 
 如何使用服務要求識別碼來取得現有客戶服務要求的詳細資料。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 - 服務要求識別碼。
 
@@ -57,7 +56,7 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 使用下列 URI 參數來取得指定的服務要求。
 
-| 名稱                  | 類型     | 必要 | 描述                                 |
+| 名稱                  | 類型     | 必要 | 說明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | 識別服務要求的 GUID。 |
 

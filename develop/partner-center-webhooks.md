@@ -4,17 +4,18 @@ description: Webhook 允許合作夥伴註冊資源變更事件。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fc0749f146aa507cab27b36120722d2f6844e4cb
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 1ff3631ed70b197a781d2ca30d71eb8fbf211509
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157060"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097335"
 ---
 # <a name="partner-center-webhooks"></a>合作夥伴中心 Webhook
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -56,7 +57,7 @@ ms.locfileid: "82157060"
 
 如需合作夥伴中心所支援之 Webhook 事件的完整清單，請參閱[合作夥伴中心 Webhook 事件](partner-center-webhook-events.md)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -117,7 +118,7 @@ Content-Length: 195
 
 ### <a name="properties"></a>屬性
 
-| 名稱                      | 描述                                                                           |
+| 名稱                      | 說明                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
 | **EventName**             | 事件的名稱。 以 {resource}-{action} 形式呈現。 例如，「測試已建立」。  |
 | **ResourceUri**           | 已變更之資源的 URI。                                                 |
@@ -143,7 +144,7 @@ Content-Length: 195
 
 ### <a name="authentication"></a>驗證
 
-所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 取得存取權杖以存取https://api.partnercenter.microsoft.com。 此權杖是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
+所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 取得存取權杖以存取 https://api.partnercenter.microsoft.com 。 此權杖是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
 
 ### <a name="get-a-list-of-events"></a>取得事件清單
 

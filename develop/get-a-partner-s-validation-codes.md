@@ -4,17 +4,18 @@ description: 如何取得合作夥伴的政府群雲端驗證碼。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 1f671229f5c427c9c25f7fe3c2799f1ed739a7f3
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: 5ad255dadb499fb6c311bb3a2e9d76892611a91b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156940"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097178"
 ---
 # <a name="get-a-partners-validation-codes"></a>取得合作夥伴的驗證碼
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
@@ -22,7 +23,7 @@ ms.locfileid: "82156940"
 
 如果您想要讓組織或客戶組織核准適用于 CSP 的 Office 365 政府 GCC，請參閱[適用于 csp 的 office 365 政府 Gcc 合作夥伴和客戶資格準則](https://docs.microsoft.com/partner-center/csp-gcc-validate)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 

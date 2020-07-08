@@ -4,17 +4,18 @@ description: 本文說明如何確認客戶接受 Microsoft Cloud 合約。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 03412538cc61d748edd3dea08558a3203b3e0f87
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+aauthor: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: d2a6b6d10d07abf8c3565fa568691a44691170e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157720"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096979"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>取得客戶接受 Microsoft Cloud 合約的確認
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
@@ -25,7 +26,7 @@ ms.locfileid: "82157720"
 > - Microsoft Cloud 德國合作夥伴中心
 > - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
 
@@ -33,7 +34,7 @@ ms.locfileid: "82157720"
 
 - 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="net-version-14-or-newer"></a>.NET （1.4 版或更新版本）
 
@@ -114,7 +115,7 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 使用下列查詢參數來指定您要確認的客戶。
 
-| 名稱             | 類型 | 必要 | 描述                                                                               |
+| 名稱             | 類型 | 必要 | 說明                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
 | CustomerTenantId | GUID | Y        | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
 

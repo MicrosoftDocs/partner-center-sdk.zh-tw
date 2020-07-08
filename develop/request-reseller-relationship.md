@@ -1,21 +1,19 @@
 ---
 title: 擷取關聯性的要求 URL
 description: 如何取得要傳送給客戶的關聯性要求 URL。
-ms.assetid: 31D9EDB2-4ABE-4C57-A394-2FF256F7D3CA
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: de6eaa1451e91df29f6a9ed0448e70b348b1e64c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 90a749b7bb4e78391831aed162857d55e028158a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157000"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096705"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>擷取關聯性的要求 URL
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -23,9 +21,9 @@ ms.locfileid: "82157000"
 
 如何取得要傳送給客戶的關聯性要求 URL。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 ## <a name="c"></a>C\#
 

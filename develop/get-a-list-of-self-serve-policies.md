@@ -1,26 +1,27 @@
 ---
-title: 取得自助服務 prolicies 的清單
+title: 取得自助服務原則的清單
 description: 如何取得代表客戶自助服務原則的資源集合。
-ms.date: 04/13/2020
+ms.date: 07/06/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c2a2b779a552af2f2071994c53f56038e9036169
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 8d2e7e461fee0993176f954aab2d020c2bbc9714
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564326"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098076"
 ---
-# <a name="get-a-list-of-self-serve-policies"></a>取得自助式服務原則的清單
+# <a name="get-a-list-of-self-serve-policies"></a>取得自助服務原則的清單
 
 **適用於：**
 
 - 合作夥伴中心
 
-本主題描述如何取得資源集合，以代表實體的自助服務原則。
+本文說明如何取得代表實體自助原則的資源集合。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
@@ -36,9 +37,9 @@ ms.locfileid: "82564326"
 
 使用下列查詢參數來取得客戶的清單。
 
-| 名稱          | 類型       | 必要 | 描述                                        |
+| 名稱          | 類型       | 必要 | 說明                                        |
 |---------------|------------|----------|----------------------------------------------------|
-| **entity_id** | **string** | Y        | 要求存取的實體識別碼。 這會是客戶租使用者識別碼。 |
+| **entity_id** | **string** | Y        | 要求存取的實體識別碼。 這會是客戶的租使用者識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 

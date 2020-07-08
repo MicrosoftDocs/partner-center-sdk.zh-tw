@@ -1,33 +1,31 @@
 ---
 title: 擷取間接轉銷商清單
 description: 如何抓取已登入之合作夥伴的間接轉銷商清單。
-ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c3f672626b5ebe2514d0e17e88b6f98eb3d806b2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 92d79bb031fdf1cb132791ed9103451cf8ba32bf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096602"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>擷取間接轉銷商清單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 如何抓取已登入之合作夥伴的間接轉銷商清單。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 ## <a name="c"></a>C\#
 
-若要取出已登入夥伴具有關聯性的間接轉銷商清單，請先從[**partnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships)屬性取得關聯性集合作業的介面。 然後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)或[**get\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)方法，傳遞[**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列舉的成員來識別關聯性類型。 若要擷取間接轉銷商，您必須使用 IsIndirectCloudSolutionProviderOf。
+若要取出已登入夥伴具有關聯性的間接轉銷商清單，請先從[**partnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships)屬性取得關聯性集合作業的介面。 然後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)或[**get \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)方法，傳遞[**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列舉的成員來識別關聯性類型。 若要擷取間接轉銷商，您必須使用 IsIndirectCloudSolutionProviderOf。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,7 +41,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 | 方法  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships？關聯\_性類型 = IsIndirectCloudSolutionProviderOf HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships？關聯性 \_ 類型 = IsIndirectCloudSolutionProviderOf HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
@@ -61,14 +59,14 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 <th>名稱</th>
 <th>類型</th>
 <th>必要</th>
-<th>描述</th>
+<th>說明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>relationship_type</td>
 <td>字串</td>
-<td>是</td>
+<td>Yes</td>
 <td>值是在<a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>中找到的其中一個成員名稱的字串表示。
 <p>如果合作夥伴以提供者身分登入，而您想要取得他們已建立關聯性的間接轉銷商清單，請使用 IsIndirectCloudSolutionProviderOf。</p>
 <p>如果合作夥伴以轉銷商的身分登入，而您想要取得他們已建立關聯性的間接提供者清單，請使用 IsIndirectResellerOf。</p></td>

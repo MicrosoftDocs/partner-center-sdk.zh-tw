@@ -4,13 +4,12 @@ description: 您可以使用 ProductUpgradeRequest 資源，將客戶的產品�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 98737e75c643cb9ca90572544173fe5000f475d9
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 1819887d459ec72a48ea2b7a5a4121dc56718313
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157270"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097637"
 ---
 # <a name="get-the-product-upgrade-status-for-a-customer"></a>取得客戶的產品升級狀態
 
@@ -20,11 +19,11 @@ ms.locfileid: "82157270"
 
 您可以使用[**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest)資源來取得升級到新產品系列的狀態。 當您將客戶從 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶升級為 Azure 方案時，就會套用此資源。 成功的要求會傳回[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)資源。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 產品系列。
 
@@ -76,7 +75,7 @@ if (productUpgradeEligibility.IsEligibile)
 
 使用下列查詢參數來指定您要取得產品升級狀態的客戶。
 
-| 名稱               | 類型 | 必要 | 描述                                                                                 |
+| 名稱               | 類型 | 必要 | 說明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | **升級-識別碼** | GUID | 是 | 值是 GUID 格式的升級識別碼。 您可以使用此識別碼來指定要追蹤的升級。 |
 

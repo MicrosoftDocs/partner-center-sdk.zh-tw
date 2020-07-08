@@ -4,14 +4,14 @@ description: 如何為購物車中的客戶新增訂單和附加元件。
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 63dd12725ae488b6676077fe3a646551b793be73
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 6528c83b64908d08f058f18a987c5b7362312551
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022675"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096293"
 ---
 # <a name="create-a-cart-with-add-ons"></a>使用附加元件建立購物車
 

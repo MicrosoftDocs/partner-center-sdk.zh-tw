@@ -1,21 +1,21 @@
 ---
 title: 合作夥伴中心範例
 description: 為了協助您快速啟動並執行合作夥伴中心 Api，我們提供了範例程式、C 管理的程式碼片段，以及 REST 範例要求和回應。
-ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e076e7d7c6b67eb8795e8f19ad6971459984f3db
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 78f1c7a66b07579b9955d4ac76413a4ce7ede306
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82095160"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097402"
 ---
 # <a name="partner-center-samples"></a>合作夥伴中心範例
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
