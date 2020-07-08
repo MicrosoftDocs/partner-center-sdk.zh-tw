@@ -1,17 +1,15 @@
 ---
 title: 服務成本資源
 description: 描述與客戶購買之服務相關的資源。
-ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e61ef7e2d6c72938a365d28774a90b993c5d3e7b
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: c0236329d93d8ddc9019a15fb67a81a3af3e7620
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666301"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098494"
 ---
 # <a name="service-costs-resources"></a>服務成本資源
 
@@ -25,7 +23,7 @@ ms.locfileid: "81666301"
 
 **ServiceCostsSummary**包含摘要，可匯總指定客戶在計費期間所購買的所有服務。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 | -------- | ---- | ----------- |
 | 詳細資料 | [ServiceCostsSummaryDetail](#servicecostssummarydetail)物件的陣列 | 服務成本摘要詳細資料清單，以發票類型區分。|
 | 連結 | [ResourceLinks](utility-resources.md#resourcelinks) | 資源連結。 |
@@ -34,7 +32,7 @@ ms.locfileid: "81666301"
 > [!IMPORTANT]
 > **下表中的欄位已被取代。** 若要取出週期性和一次性服務成本摘要，請改用 [**詳細資料**] 欄位。 [**詳細資料**] 欄位會在上表中說明。 請參閱**details**欄位對應的資料值，但不參考根層級的欄位。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 | -------- | ---- | ----------- |
 | billingStartDate | date | 計費週期的開始。 |
 | billingEndDate | date | 計費週期結束。 |
@@ -49,7 +47,7 @@ ms.locfileid: "81666301"
 
 **ServiceCostsSummaryDetail**描述的服務成本摘要會匯總指定客戶在計費期間（從週期性或一次性發票）購買的所有服務。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 | -------- | ---- | ----------- |
 | invoiceType | 字串 | 已產生「服務成本摘要」的 invoiceType。 |
 | summary | [ServiceCostsSummary](#servicecostssummary) | 客戶在一個發票類型下匯總的服務成本摘要。 |
@@ -61,7 +59,7 @@ ms.locfileid: "81666301"
 > [!IMPORTANT]
 > 下列屬性*僅適用于*產品為*一次性購買*的服務成本明細專案： **productId**、 **productName**、 **skuId**、 **skuName**、 **availabilityId**、 **publisherId**、 **publisherName**、 **termAndBillingCycle**、 **discountDetails**。 這些屬性不適*用於*產品為*週期性購買*的服務明細專案。 例如，這些屬性*不適*用於以訂用帳戶為基礎的 Office 365 和 Azure。
 
-| 屬性                 | 類型                           | 描述                                                          |
+| 屬性                 | 類型                           | Description                                                          |
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
 | startDate                | UTC 日期時間格式的字串 | 費用的開始日期。                                       |
 | endDate                  | UTC 日期時間格式的字串 | 費用的結束日期。                                         |
@@ -94,7 +92,7 @@ ms.locfileid: "81666301"
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 
-| 屬性             | 類型                               | 描述                         |
+| 屬性             | 類型                               | Description                         |
 |----------------------|------------------------------------|-------------------------------------|
 | serviceCostLineItems | [連結](utility-resources.md#link) | 要取出明細專案的 URI。 |
 | self                 | [連結](utility-resources.md#link) | 自我 URI。                       |

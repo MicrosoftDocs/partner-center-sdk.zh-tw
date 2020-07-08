@@ -1,21 +1,21 @@
 ---
 title: 取得依搜尋欄位篩選的客戶清單
 description: 取得符合篩選準則的客戶資源集合。 您可以選擇性地設定頁面大小。 您可以依公司名稱、網域、間接轉銷商或間接雲端解決方案提供者（CSP）進行篩選。
-ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 833c84e08ee1a8ec7ad606504ea4076db9a42377
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 60875f960c228c9eca90c21cc0c34f5747c04860
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155900"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098354"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>取得依搜尋欄位篩選的客戶清單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +24,7 @@ ms.locfileid: "82155900"
 
 取得符合篩選準則的[客戶](customer-resources.md#customer)資源集合。 您可以選擇性地設定頁面大小。 您可以依公司名稱、網域、間接轉銷商或間接雲端解決方案提供者（CSP）進行篩選。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -71,10 +71,10 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 使用下列查詢參數。
 
-| 名稱   | 類型   | 必要 | 描述                                                                    |
+| 名稱   | 類型   | 必要 | 說明                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
 | 大小   | int    | 否       | 要一次顯示的結果數目。 這是選擇性參數。 |
-| filter | filter | 是      | 要套用到客戶的篩選條件。 這必須是已編碼的字串。              |
+| filter | filter | Yes      | 要套用到客戶的篩選條件。 這必須是已編碼的字串。              |
 
 ### <a name="filter-syntax"></a>篩選語法
 
@@ -88,11 +88,11 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 下表描述必要的機碼值組：
 
-| Key      | 值                                                                                                                    |
+| 機碼      | 值                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
 | 欄位    | 要篩選的欄位。 可以在[**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)中找到有效的值。 |
 | 值    | 篩選所依據的值。 會忽略值的大小寫。                                                                |
-| 運算子 | 要套用的運算子。 此客戶案例唯一支援的值為「開頭\_為」。                            |
+| 運算子 | 要套用的運算子。 此客戶案例唯一支援的值為「開頭 \_ 為」。                            |
 
 ### <a name="request-headers"></a>要求標頭
 

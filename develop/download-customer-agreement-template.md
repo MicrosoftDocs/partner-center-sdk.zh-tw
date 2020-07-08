@@ -4,14 +4,14 @@ description: 取得 Microsoft 客戶合約範本的下載連結。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: fc7f96cf6518a3fc761270c8ae1d4ba3575abc90
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 8c794d264ad64a42fa6ca823ddfc3841248c01cd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022765"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098379"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>取得 Microsoft 客戶合約範本的下載連結
 

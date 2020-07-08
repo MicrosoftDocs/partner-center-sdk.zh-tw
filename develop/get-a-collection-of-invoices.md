@@ -1,18 +1,17 @@
 ---
 title: 取得發票的集合
 description: 如何取出合作夥伴發票的集合。
-ms.assetid: B5392987-3D2E-493B-9F97-A20055D5D46A
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: f288dd201faa99480fe42bf190611faaa0cf8b0e
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: d0237b02f3a4e8a837b70559f5858dff5ff08a33
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022565"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098367"
 ---
 # <a name="get-a-collection-of-invoices"></a>取得發票的集合
 

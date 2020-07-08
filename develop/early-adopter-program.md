@@ -1,18 +1,17 @@
 ---
-title: 加入合作夥伴中心 API 和 SDK 早期採用者計畫
+title: 加入合作夥伴中心 API 及 SDK 早期採用者計畫
 description: 合作夥伴可以與 Microsoft 共同作業，以開發合作夥伴的特色和功能。
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 486b2e9002c1b0130c96345c2b5ed296418be4da
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 62770ea695f63e1be7dbd624f1239286620a6432
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155590"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098391"
 ---
-# <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>加入合作夥伴中心 API 和 SDK 早期採用者計畫
+# <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>加入合作夥伴中心 API 及 SDK 早期採用者計畫
 
 **適用於：**
 
@@ -42,7 +41,7 @@ ms.locfileid: "82155590"
    > [!NOTE]
    > 您可能需要先加入 Microsoft Cloud Yammer 社區網路，才能加入合作夥伴中心的早期採用者計畫 Yammer 群組。
 
-2. 使用您的 Microsoft ID 或提示（在生產環境中測試）沙箱帳戶和您的主要網域，**傳送電子郵件給[pctap@microsoft.com](mailto:pctap@microsoft.com) ** 。
+2. **傳送電子郵件至 [pctap@microsoft.com](mailto:pctap@microsoft.com) **使用您的 Microsoft ID 或 TiP （在生產環境中測試）沙箱帳戶和您的主域。
 
    > [!TIP]
    > 您可以在 [**組織設定檔**] 頁面的 [**帳戶設定**] 功能表中找到您的 Microsoft ID。

@@ -1,17 +1,15 @@
 ---
 title: 主控台測試應用程式
 description: 此主控台測試應用程式會針對合作夥伴中心 Api 支援的所有案例提供範例程式碼。 您也可以使用它來進行測試。
-ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a75f01a6636b20865d5f5a0e6ec59aa3f7779e00
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e82bac3ccc22d0e7cf898e5b2d2e002c622584ae
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155030"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098413"
 ---
 # <a name="console-test-app"></a>主控台測試應用程式
 
@@ -33,11 +31,11 @@ ms.locfileid: "82155030"
 [下載範例程式碼](https://go.microsoft.com/fwlink/p/?LinkId=746682)，並視需要加以修改。
 
 > [!IMPORTANT]
-> 建立應用程式之前，請更新*app.config*檔案中的值，以反映您在[合作夥伴中心驗證](partner-center-authentication.md)中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。
+> 建立應用程式之前，請先更新*App.config*檔案中的值，以反映您在[合作夥伴中心驗證](partner-center-authentication.md)中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。
 
-在*app.config*檔案的**ScenarioSettings**下，您可以設定將自動傳遞至您執行之案例的參數。
+在*App.config*檔案的 [ **ScenarioSettings** ] 下，您可以設定將自動傳遞至您所執行之案例的參數。
 
-若要修改執行的案例清單，請將**IPartnerScenario\[ \] mainScenarios**或在*Program.cs*檔案中找到的個別**Get 情節**方法中的程式程式碼批註。
+若要修改執行的案例清單，請將**IPartnerScenario \[ \] mainScenarios**或在*Program.cs*檔案中找到的個別**Get 情節**方法中的程式程式碼批註。
 
 ## <a name="java"></a>Java
 
@@ -46,11 +44,11 @@ ms.locfileid: "82155030"
 [下載範例程式碼](https://go.microsoft.com/fwlink/p/?LinkId=2026887)，並視需要加以修改。
 
 > [!IMPORTANT]
-> 在您建立應用程式之前，請先更新*SamplesConfigurations*中的值，以反映您在[合作夥伴中心驗證](partner-center-authentication.md)中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。
+> 建立應用程式之前，請更新檔案中*SamplesConfigurations.js*的值，以反映您在 [[合作夥伴中心驗證](partner-center-authentication.md)] 中建立的 Azure AD 驗證資訊。 具體而言，您應該在早期開發期間使用整合沙箱帳戶設定，或在生產環境中進行測試。
 
-在*SamplesConfiguration*檔案的**ScenarioSettings**下，您可以設定將自動傳遞至您執行之案例的參數。
+在*SamplesConfiguration.json*檔案的 [ **ScenarioSettings** ] 底下，您可以設定將自動傳遞至您所執行之案例的參數。
 
-若要修改執行的案例清單，請在**\[ \] IPartnerScenario mainScenarios**或在*程式 .java*檔案中找到的個別**Get 情節**方法中，批註掉行。
+若要修改執行的案例清單，請在**IPartnerScenario \[ \] MainScenarios**或在*程式 .java*檔案中找到的個別**Get 情節**方法中，批註掉行。
 
 ## <a name="what-to-change"></a>要變更的內容
 
