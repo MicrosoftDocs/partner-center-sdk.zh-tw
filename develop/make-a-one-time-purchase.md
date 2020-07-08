@@ -4,13 +4,12 @@ description: 如何使用合作夥伴中心 API，一次性購買軟體和保留
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93582ccf08e7f97e7a6cfa05a18cbeae9754d7da
-ms.sourcegitcommit: 51dc972a66af76d033d22f1d92f8ccc46ae3d36b
+ms.openlocfilehash: 17a5f5c1e845ba36a94d7ce909df30e0146ba448
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096032"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095052"
 ---
 # <a name="make-a-one-time-purchase"></a>進行一次性購買
 
@@ -35,10 +34,10 @@ ms.locfileid: "85096032"
 > | 阿路巴                          | 幾內亞比索                     | 聖露西亞                              |
 > | 貝南                          | 蓋亞那                            | 法屬聖馬丁                             |
 > | 不丹                         | 海地                             | 聖匹島                |
-> | 波奈                        | 赫德島及麥唐納群島 | 聖文森及格瑞那丁         |
+> | 波奈                        | 赫德島及麥當勞群島 | 聖文森及格瑞那丁         |
 > | 布威島                  | 曼島                       | 薩摩亞                                    |
 > | 巴西                         | 尖棉                         | 聖馬利諾                               |
-> | 英屬印度洋領土 | 澤西島                            | 聖多美和普林西比                    |
+> | 英屬印度洋領土 | 澤西島                            | 聖多美普林西比                    |
 > | 英屬維爾京群島         | 吉里巴斯                          | 塞席爾                               |
 > | 布吉納法索                   | 科索沃                            | 獅子山                             |
 > | 蒲隆地                        | 寮國                              | 聖佑達修斯                           |
@@ -60,7 +59,7 @@ ms.locfileid: "85096032"
 > | 法屬圭亞那                  | 新喀里多尼亞群島                     | 美國外島                    |
 > | 法屬玻里尼西亞               | 尼日                             | 萬那杜                                  |
 > | 法屬南半球領土    | 紐威島                              | 梵蒂岡                             |
-> | 加彭                          | 諾福克島                    | 瓦利斯及福杜納群島                        |
+> | 加彭                          | 諾福克島                    | 瓦利斯及福杜納                        |
 > | 甘比亞                         | 北馬里安納群島          | 葉門                                    |
 > | 直布羅陀                      | 帛琉                             | &nbsp;                                   |
 >

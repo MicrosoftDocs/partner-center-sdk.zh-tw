@@ -4,14 +4,14 @@ description: 將訂用帳戶更新為每月或年度計費。
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 7333d2a7216551e50672db3beac0624776709701
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: f5a18634a0250bd1614d456d6c35e443a3e9be67
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022625"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096075"
 ---
 # <a name="change-the-billing-cycle"></a>變更計費擁週期
 

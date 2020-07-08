@@ -4,24 +4,25 @@ description: 合作夥伴中心所支援之所有 Webhook 事件的檔。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9e88ae502d7426b13137484d0e9e85dc7188ef7f
-ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: c874a44e1b43cb05ee20834f9c7a14d221edcab6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82092755"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094996"
 ---
 # <a name="partner-center-webhook-events"></a>合作夥伴中心 webhook 事件
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-合作夥伴中心 webhook 事件是以 HTTP Post 形式傳遞至已註冊 URL 的資源變更事件。 若要接收來自合作夥伴中心的事件，您可以裝載可供合作夥伴中心張貼事件的回呼。 事件經過數位簽署，因此您可以驗證它是否已從合作夥伴中心傳送。 
+合作夥伴中心 webhook 事件是以 HTTP Post 形式傳遞至已註冊 URL 的資源變更事件。 若要接收來自合作夥伴中心的事件，您可以裝載可供合作夥伴中心張貼事件的回呼。 事件經過數位簽署，因此您可以驗證它是否已從合作夥伴中心傳送。
 
 如需有關如何接收事件、驗證回呼，以及使用合作夥伴中心 webhook Api 來建立、查看和更新事件註冊的詳細資訊，請參閱[合作夥伴中心 webhook](partner-center-webhooks.md)。
 
@@ -38,7 +39,7 @@ ms.locfileid: "82092755"
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | 描述                                                                                                  |
+| 屬性                  | 類型                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「測試已建立」。                                          |
 | ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
@@ -60,14 +61,14 @@ ms.locfileid: "82092755"
 
 ### <a name="subscription-updated-event"></a>訂閱更新事件
 
-當指定的訂用帳戶變更時，就會引發這個事件。 當透過合作夥伴中心 API 進行變更時，除了進行內部變更之外，也會產生訂用帳戶更新事件。  只有在商務層級變更時才會產生此事件，例如，當授權數目已修改，且訂用帳戶的狀態變更時。 在訂用帳戶內建立資源時，不會產生此檔案。 
+當指定的訂用帳戶變更時，就會引發這個事件。 當透過合作夥伴中心 API 進行變更時，除了進行內部變更之外，也會產生訂用帳戶更新事件。  只有在商務層級變更時才會產生此事件，例如，當授權數目已修改，且訂用帳戶的狀態變更時。 在訂用帳戶內建立資源時，不會產生此檔案。
 
 >[!NOTE]
->在訂用帳戶變更和觸發訂閱更新事件的時間之間，最多會有48小時的延遲。  
+>在訂用帳戶變更和觸發訂閱更新事件的時間之間，最多會有48小時的延遲。
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | 描述                                                                                                  |
+| 屬性                  | 類型                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「訂用帳戶更新」。                                  |
 | ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
@@ -82,7 +83,7 @@ ms.locfileid: "82092755"
     "EventName": "subscription-updated",
     "ResourceUri": "http://api.partnercenter.microsoft.com/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}",
     "ResourceName": "subscription",
-    "AuditUri": "https://api.partnercenter.microsoft.com/v1/auditrecords/{{AuditId}}", 
+    "AuditUri": "https://api.partnercenter.microsoft.com/v1/auditrecords/{{AuditId}}",
     "ResourceChangeUtcDate": "2017-11-16T16:19:06.3520276+00:00"
 }
 ```
@@ -93,7 +94,7 @@ ms.locfileid: "82092755"
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | 描述                                                                                                  |
+| 屬性                  | 類型                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為 "usagerecords 和 resources-thresholdExceeded"。                                  |
 | ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" |
@@ -115,11 +116,11 @@ ms.locfileid: "82092755"
 
 ### <a name="referral-created-event"></a>參考已建立事件
 
-建立參考時，會引發此事件。 
+建立參考時，會引發此事件。
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | 描述                                                                                                  |
+| 屬性                  | 類型                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「已建立參考」。                                  |
 | ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
@@ -145,7 +146,7 @@ ms.locfileid: "82092755"
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | 描述                                                                                                  |
+| 屬性                  | 類型                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「已更新參照」。                                  |
 | ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
@@ -169,7 +170,7 @@ ms.locfileid: "82092755"
 
 當新發票準備就緒時，就會引發此事件。
 
-| 屬性                  | 類型                               | 描述                                                                                                  |
+| 屬性                  | 類型                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName | 字串 | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「發票就緒」。 |
 | ResourceUri | URI | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |

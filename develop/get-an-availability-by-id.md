@@ -1,27 +1,27 @@
 ---
 title: 依識別碼取得可用性
 description: 使用可用性識別碼取得指定產品和 SKU 的可用性。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 34c1dd0c40b4594142a239ccb81a884e3212cbdf
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 824303d40e1dcb0405246c8e29562c4527d147fd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157760"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093895"
 ---
 # <a name="get-the-availability-by-id"></a>依識別碼取得可用性
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 使用可用性識別碼取得指定產品和 SKU 的可用性。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -85,12 +85,12 @@ Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId
 
 使用下列路徑和查詢參數，以使用可用性識別碼來取得特定的可用性。
 
-| 名稱                   | 類型     | 必要 | 描述                                                     |
+| 名稱                   | 類型     | 必要 | 說明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 產品識別碼             | 字串   | 是      | 識別產品的 GUID 格式字串。            |
-| sku-識別碼                 | 字串   | 是      | 識別 SKU 的 GUID 格式字串。                |
-| 可用性-識別碼        | 字串   | 是      | 識別可用性的 GUID 格式字串。       |
-| 國家/地區代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
+| 產品識別碼             | 字串   | Yes      | 識別產品的 GUID 格式字串。            |
+| sku-識別碼                 | 字串   | Yes      | 識別 SKU 的 GUID 格式字串。                |
+| 可用性-識別碼        | 字串   | Yes      | 識別可用性的 GUID 格式字串。       |
+| 國家/地區代碼           | 字串   | Yes      | 國家/地區識別碼。                                            |
 
 ### <a name="request-headers"></a>要求標頭
 

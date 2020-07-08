@@ -4,17 +4,15 @@ description: 開發人員必須透過 Azure 入口網站向 Azure AD 註冊其�
 MS-HAID:
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_cloud\_germany
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_national\_clouds
-ms.assetid: 73C5926A-0DEB-42E5-8982-7E44A2031F0B
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ada59eaae21c920aa94b5da13f8dd9f04e6012ad
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: acb84caddfc42de957b4e45b781f650ec9640038
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155040"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094425"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>為 Microsoft 國家雲端的合作夥伴中心註冊應用程式詳細資料
 
@@ -39,7 +37,7 @@ ms.locfileid: "82155040"
 
 1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. 選取 [新增註冊]  。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
+2. 選取 [新增註冊]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>設定 web 應用程式的 API 存取權限
 
@@ -72,7 +70,7 @@ ms.locfileid: "82155040"
 
 ### <a name="register-the-web-app-in-partner-center"></a>在合作夥伴中心註冊 Web 應用程式
 
-1. 登入[https://partnercenter.microsoft.com](https://partnercenter.microsoft.com)。
+1. 登入 [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) 。
 
 2. 選擇 [**儀表板**]，然後依序選擇 [**帳戶設定**] 和 [**應用程式管理**]。
 
@@ -93,7 +91,7 @@ ms.locfileid: "82155040"
 
 1. 流覽至 [ [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面，註冊您的應用程式。 使用工作或學校帳戶或個人 Microsoft 帳戶登入 Azure 入口網站。
 
-2. 選取 [新增註冊]  。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
+2. 選取 [新增註冊]。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)。
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>設定原生應用程式的 API 存取權限
 
@@ -116,13 +114,13 @@ ms.locfileid: "82155040"
 
     1. 在搜尋方塊中，輸入**Microsoft 合作夥伴中心**，然後從結果清單中選取它。
 
-    2. 選擇 [選取]  。
+    2. 選擇 [選取]。
 
 7. 選擇 [選取權限]****。
 
     1. 選取 [**存取合作夥伴中心 PPE**]。
     
-    2. 選擇 [選取]  。
+    2. 選擇 [選取]。
 
 8. 選擇 [**完成**]。
 

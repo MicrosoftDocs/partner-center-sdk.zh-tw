@@ -4,13 +4,12 @@ description: 您可以使用 MeterUsageRecord 資源來描述目前計費週期�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 33aa7c2639bd423579b879d0444e1be98eb4109a
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+ms.openlocfilehash: 8c02c859d1d8ba3edd236d83d3056cb82533f7e8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82095790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094776"
 ---
 # <a name="meter-usage-record-resource"></a>計量使用量記錄資源
 
@@ -25,7 +24,7 @@ ms.locfileid: "82095790"
 | 屬性         | 類型               | 描述                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
 | SubscriptionId           | 字串             | 對應至合作夥伴中心訂用帳戶[資源](subscription-resources.md#subscription)識別碼的 GUID，代表 MICROSOFT AZURE （Ms-azr-0017p-流程 ms-azr-0145p）訂用帳戶或 Azure 方案。 對於 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶，此值是 commerce 訂閱識別碼。 若為 Azure 方案訂用帳戶資源，此值為 Azure 方案識別碼。                  |
-| 計量識別碼  | 字串             | 取得或設定計量識別碼。                                                        |
+| MeterId  | 字串             | 取得或設定計量識別碼。                                                        |
 | MeterName          | 字串             | 取得或設定計量名稱。                                       |
 | 類別               | 字串             | 取得或設定 Azure 資源類別。                                                 |
 | 子類別             | 字串             |  取得或設定 Azure 資源子類別。                                                     |

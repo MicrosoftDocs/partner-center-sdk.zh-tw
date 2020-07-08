@@ -1,21 +1,21 @@
 ---
 title: 依合作夥伴 MPN 識別碼取得客戶的訂用帳戶
 description: 如何取得給定合作夥伴提供給指定客戶的訂閱清單。
-ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2346ebec68b56e7449a7f70fc1bf34aaf8265c3a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 545eb08e54a5a74fb6e8ca27fd1f02d4ba5bf055
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156360"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093902"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>依合作夥伴 MPN 識別碼取得客戶的訂用帳戶
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,11 +24,11 @@ ms.locfileid: "82156360"
 
 如何取得給定合作夥伴提供給指定客戶的訂閱清單。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 合作夥伴 Microsoft 合作夥伴網路（MPN）識別碼。
 
@@ -79,16 +79,16 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 | 方法  | 要求 URI |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions？ mpn\_id = {MPN-id} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions？ mpn \_ id = {mpn-id} HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 使用下列路徑和查詢參數來識別客戶和合作夥伴。
 
-| 名稱        | 類型   | 必要 | 描述                                                 |
+| 名稱        | 類型   | 必要 | 說明                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | 字串 | 是      | 識別客戶的 GUID 格式字串。       |
-| mpn-id      | int    | 是      | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
+| customer-id | 字串 | Yes      | 識別客戶的 GUID 格式字串。       |
+| mpn-id      | int    | Yes      | 識別合作夥伴的 Microsoft 合作夥伴網路識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 

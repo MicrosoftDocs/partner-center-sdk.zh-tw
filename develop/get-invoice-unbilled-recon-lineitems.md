@@ -4,13 +4,14 @@ description: 您可以使用合作夥伴中心 Api，取得指定期間的未開
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b615565524b79877aa817aaf246655a7175b4ac2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: 6101ddd6ead66c78531273af959d53d37c71f678
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157410"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093626"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>取得發票的未開立帳單對帳明細專案
 
@@ -23,7 +24,7 @@ ms.locfileid: "82157410"
 
 您可以使用下列方法取得未開立帳單發票明細專案（也稱為 open 帳務明細專案）的詳細資料集合。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -111,7 +112,7 @@ while (fetchNext)
 
 如需類似的範例，請參閱：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetUnBilledReconLineItemsPaging.cs**
 
@@ -125,22 +126,22 @@ while (fetchNext)
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {PERIOD} HTTP/1。1                              | 使用此語法來傳回給定發票之每個明細專案的完整清單。 |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {period} &size = {SIZE} HTTP/1。1  | 若為大型發票，請使用此語法搭配指定的大小和以0為基礎的位移，以傳回已分頁的明細專案清單。 |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {period} &size = {size} &SeekOperation = Next                               | 使用此語法可使用`seekOperation = "Next"`來取得下一頁的對帳明細專案。 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {period} &size = {size} &SeekOperation = Next                               | 使用此語法可使用來取得下一頁的對帳明細專案 `seekOperation = "Next"` 。 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 類型   | 必要 | 描述                                                                     |
+| 名稱                   | 類型   | 必要 | 說明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| 發票識別碼             | 字串 | 是      | 識別發票的字串。 使用 ' 未開立帳單 ' 取得未開立帳單估計值。 |
-| provider               | 字串 | 是      | 提供者： "OneTime"。                                                |
-| invoice-line-item-type | 字串 | 是      | 發票詳細資料的類型： "BillingLineItems"。               |
-| hasPartnerEarnedCredit | bool   | 否       | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。
-| currencyCode           | 字串 | 是      | 未開立帳單明細專案的貨幣代碼。                                  |
-| 長                 | 字串 | 是      | 未開立帳單偵察的期間。 範例：目前的、先前的。                      |
-| 大小                   | number | 否       | 要傳回的專案數目上限。 預設大小為2000                     |
-| seekOperation          | 字串 | 否       | 設定 seekOperation = Next 以取得偵察明細專案的下一頁。                |
+| 發票識別碼             | 字串 | Yes      | 識別發票的字串。 使用 ' 未開立帳單 ' 取得未開立帳單估計值。 |
+| provider               | 字串 | Yes      | 提供者： "OneTime"。                                                |
+| invoice-line-item-type | 字串 | Yes      | 發票詳細資料的類型： "BillingLineItems"。               |
+| hasPartnerEarnedCredit | bool   | No       | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。
+| currencyCode           | 字串 | Yes      | 未開立帳單明細專案的貨幣代碼。                                  |
+| 長                 | 字串 | Yes      | 未開立帳單偵察的期間。 範例：目前的、先前的。                      |
+| 大小                   | number | No       | 要傳回的專案數目上限。 預設大小為2000                     |
+| seekOperation          | 字串 | No       | 設定 seekOperation = Next 以取得偵察明細專案的下一頁。                |
 
 ### <a name="request-headers"></a>要求標頭
 

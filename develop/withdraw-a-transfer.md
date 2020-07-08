@@ -4,13 +4,12 @@ description: 如何為客戶提取已建立的訂用帳戶轉移。
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4f4e0949ba9ee948e987d9cdb6b117285340d098
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: a9e1e2a33d21fc1338a36b8ac96b528e70b61c86
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489145"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093456"
 ---
 # <a name="withdraw-a-transfer"></a>收回轉移
 
@@ -40,8 +39,8 @@ ms.locfileid: "84489145"
 
 | 名稱            | 類型     | 必要 | 說明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
-| **轉移-識別碼** | 字串   | 是      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
+| **客戶識別碼** | 字串   | Yes      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **轉移-識別碼** | 字串   | Yes      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
 
 ### <a name="request-headers"></a>要求標頭
 

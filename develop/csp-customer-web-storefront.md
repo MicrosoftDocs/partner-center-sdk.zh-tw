@@ -1,17 +1,15 @@
 ---
 title: CSP 客戶網路店面
 description: 這個範例網站程式碼會顯示可供客戶購買 Microsoft 產品訂閱的工作線上商店。
-ms.assetid: 0726B1CA-97A1-42E6-92AD-25787BFE0C67
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a85c5f4ab3050d0120a42389e906ab4502ef6a04
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: bd488b9b9bf2c1df4bebc8513d230a02b06b2ce4
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665929"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094336"
 ---
 # <a name="csp-customer-web-storefront"></a>CSP 客戶網路店面
 

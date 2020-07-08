@@ -4,13 +4,14 @@ description: 您可以使用合作夥伴中心 Api，取得指定發票的商業
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0b1fce3f2d5eea5713fe87c4c1f60ac5e70551b4
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 1fbc16217a45b8b5d5fb8513723ff28c01efe06d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157480"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093562"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>取得發票計費的商業耗用量明細專案
 
@@ -22,7 +23,7 @@ ms.locfileid: "82157480"
 
 此 API 也支援適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶的**azure**提供者類型。 這表示此 API 是回溯相容的功能。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -106,7 +107,7 @@ while (fetchNext)
 
 如需類似的範例，請參閱下列各項：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案：**合作夥伴中心 SDK 範例**
 - 類別： **GetBilledConsumptionReconLineItemsPaging.cs**
 
@@ -114,7 +115,7 @@ while (fetchNext)
 
 ### <a name="request-syntax"></a>要求的語法
 
-使用第一個語法來傳回給定發票之每個明細專案的完整清單。 對於大型發票，使用第二種語法搭配指定的大小和以零起始的位移來傳回已分頁的明細項目清單。 使用第三個語法，利用`seekOperation = "Next"`來取得偵察明細專案的下一頁。
+使用第一個語法來傳回給定發票之每個明細專案的完整清單。 對於大型發票，使用第二種語法搭配指定的大小和以零起始的位移來傳回已分頁的明細項目清單。 使用第三個語法，利用來取得偵察明細專案的下一頁 `seekOperation = "Next"` 。
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -126,15 +127,15 @@ while (fetchNext)
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 類型   | 必要 | 描述                                                       |
+| 名稱                   | 類型   | 必要 | 說明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| 發票識別碼             | 字串 | 是      | 識別發票的字串。                             |
-| provider               | 字串 | 是      | 提供者： "OneTime"。                                  |
-| invoice-line-item-type | 字串 | 是      | 發票詳細資料的類型： "UsageLineItems"。 |
-| currencyCode           | 字串 | 是      | 計費明細專案的貨幣代碼。                    |
-| 長                 | 字串 | 是      | 計費偵察的期間。 範例：目前的、先前的。        |
-| 大小                   | number | 否       | 要傳回的專案數目上限。 預設大小為2000       |
-| seekOperation          | 字串 | 否       | 設定 seekOperation = Next 以取得偵察明細專案的下一頁。 |
+| 發票識別碼             | 字串 | Yes      | 識別發票的字串。                             |
+| provider               | 字串 | Yes      | 提供者： "OneTime"。                                  |
+| invoice-line-item-type | 字串 | Yes      | 發票詳細資料的類型： "UsageLineItems"。 |
+| currencyCode           | 字串 | Yes      | 計費明細專案的貨幣代碼。                    |
+| 長                 | 字串 | Yes      | 計費偵察的期間。 範例：目前的、先前的。        |
+| 大小                   | number | No       | 要傳回的專案數目上限。 預設大小為2000       |
+| seekOperation          | 字串 | No       | 設定 seekOperation = Next 以取得偵察明細專案的下一頁。 |
 
 ### <a name="request-headers"></a>要求標頭
 

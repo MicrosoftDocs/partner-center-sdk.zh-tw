@@ -4,13 +4,14 @@ description: 如何取得客戶訂用帳戶的集合，這些訂用帳戶符合�
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 78daa51d97cfb3cd223bb9e8893393977275fe72
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 43086a32fa0dbbdecf65aac167c687f26fc4c2c6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489205"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093732"
 ---
 # <a name="get-a-customers-subscriptions-transfer-eligibility"></a>取得客戶的訂用帳戶轉移資格
 
@@ -40,8 +41,8 @@ ms.locfileid: "84489205"
 
 | 名稱               | 類型   | 必要 | 說明                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | 字串 | 是      | 用來識別客戶的 GUID 格式字串。 |
-| 傳輸類型      | 字串 | 是      | 預期的傳輸類型。                |
+| customer-tenant-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
+| 傳輸類型      | 字串 | Yes      | 預期的傳輸類型。                |
 
 ### <a name="request-headers"></a>要求標頭
 

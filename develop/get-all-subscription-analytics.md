@@ -1,17 +1,17 @@
 ---
 title: 取得所有訂用帳戶的分析資訊
 description: 如何取得所有訂用帳戶分析資訊。
-ms.assetid: 243E54BD-EA34-400E-B9AB-D735EB46B9F6
 ms.date: 08/02/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b0afac55646980fb59f9cc42051a5532f45bf223
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: f32fb99ad52939ae8e9de26276588d3022f18fbc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093860"
 ---
 # <a name="get-all-subscription-analytics-information"></a>取得所有訂用帳戶的分析資訊
 
@@ -24,7 +24,7 @@ ms.locfileid: "82156440"
 
 本文說明如何取得客戶的所有訂用帳戶分析資訊。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
@@ -34,17 +34,17 @@ ms.locfileid: "82156440"
 
 | 方法 | 要求 URI |
 |--------|-------------|
-| **GET** | baseURL/partner/v1/analytics/subscriptions HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1。1 |
 
 #### <a name="uri-parameters"></a>URI 參數
 
 下表列出選擇性參數和其描述：
 
-| 參數 | 類型 |  描述 |
+| 參數 | 類型 |  Description |
 |-----------|------|--------------|
-| top | int | 在要求中傳回的資料列數目。 如果未指定值，則最大值和預設值為`10000`。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
-| skip | int | 在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如， `top=10000`和`skip=0`會抓取前10000個數據列， `top=10000`並`skip=10000`抓取接下來的10000個數據列。 |
-| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與**`eq`**、 **`ne`** 或相關聯的值，適用于特定欄位的**`contains`** 運算子。 語句可以使用**`and`** 或**`or`** 結合。 **篩選** 參數中的字串值必須由單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
+| top | int | 在要求中傳回的資料列數目。 如果未指定值，則最大值和預設值為 `10000` 。 如果查詢中有更多資料列，回應主體將會包含您可以用來要求下一頁資料的下一頁連結。 |
+| skip | int | 在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如，和會抓取 `top=10000` `skip=0` 前10000個數據列， `top=10000` 並抓取 `skip=10000` 接下來的10000個數據列。 |
+| filter | 字串 | 一或多個篩選回應中資料列的陳述式。 每個篩選語句都會包含回應主體的功能變數名稱，以及與、或相關聯的值 **`eq`** ， **`ne`** 適用于特定欄位的 **`contains`** 運算子。 語句可以使用或結合 **`and`** **`or`** 。 **篩選** 參數中的字串值必須由單引號括住。 請參閱下一節，以取得可篩選的欄位清單，以及這些欄位支援的運算子。 |
 | aggregationLevel | 字串 | 指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串：**day**、**week** 或 **month**。 如果未指定值，則預設為**dateRange**。 只有在將日期欄位當做**groupBy**參數的一部分傳遞時，此參數才適用。 |
 | groupBy | 字串 | 將資料彙總僅套用至指定欄位的陳述式。 |
 

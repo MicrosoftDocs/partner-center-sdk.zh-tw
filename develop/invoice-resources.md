@@ -1,17 +1,15 @@
 ---
 title: 發票資源
 description: 透過合作夥伴中心 Api 可取得多個發票相關資源。 這些資源與發票和明細專案詳細資料相關。
-ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 04de53676527330ed1ff0bdfa2d762ce0bcae13a
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: bd2caefe4ae18c81a31083d084f1e87da1288dd9
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124707"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095124"
 ---
 # <a name="invoice-resources"></a>發票資源
 
@@ -41,7 +39,7 @@ ms.locfileid: "82124707"
 | 條款      | [發票](#invoice)物件的陣列   | 此發票的改正。  |
 | documentType    | 字串 | 發票的檔案類型：「點數附注」、「發票」。 |
 | amendsOf        | 字串 | 本檔為修訂檔的參考編號。  |
-| invoiceType     | 字串  | 發票的類型：「週期性」、「一\_次」。   |
+| invoiceType     | 字串  | 發票的類型：「週期性」、「一 \_ 次」。   |
 | 連結           | [ResourceLinks](utility-resources.md#resourcelinks)  | 資源連結。  |
 | 屬性      | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。  |
 
@@ -49,10 +47,10 @@ ms.locfileid: "82124707"
 
 發票包含計費專案的集合，且每個專案都以 InvoiceDetail 資源表示。
 
-| 屬性            | 類型                                                           | 描述                                                                       |
+| 屬性            | 類型                                                           | Description                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| invoiceLineItemType | 字串                                                         | 發票詳細資料的類型：「無」、「使用\_明細\_專案」、「帳單\_明細\_專案」。 |
-| billingProvider     | 字串                                                         | 計費提供者：「無」、「辦公室」、「azure」或「azure\_資料\_市場」。         |
+| invoiceLineItemType | 字串                                                         | 發票詳細資料的類型：「無」、「使用 \_ 明細 \_ 專案」、「帳單 \_ 明細 \_ 專案」。 |
+| billingProvider     | 字串                                                         | 計費提供者：「無」、「辦公室」、「azure」或「azure \_ 資料 \_ 市場」。         |
 | 連結               | [ResourceLinks](utility-resources.md#resourcelinks)           | 資源連結。                                                               |
 | 屬性          | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                                          |
 
@@ -60,17 +58,17 @@ ms.locfileid: "82124707"
 
 發票中的每個個別費用都會以 InvoiceLineItem 表示。
 
-| 屬性            | 類型                                                           | 描述                                                                          |
+| 屬性            | 類型                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceLineItemType | 字串                                                         | 發票明細專案的類型：「無」、「\_使用明細\_專案」、「帳單\_明細\_專案」。 |
-| billingProvider     | 字串                                                         | 計費提供者：「無」、「辦公室」、「azure」或「azure\_資料\_市場」。            |
+| invoiceLineItemType | 字串                                                         | 發票明細專案的類型：「無」、「使用 \_ 明細 \_ 專案」、「帳單 \_ 明細專案」 \_ 。 |
+| billingProvider     | 字串                                                         | 計費提供者：「無」、「辦公室」、「azure」或「azure \_ 資料 \_ 市場」。            |
 | 屬性          | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                                             |
 
 ## <a name="invoicesummary"></a>InvoiceSummary
 
 描述發票的餘額和總費用的摘要。
 
-| 屬性                 | 類型                                                           | 描述                                                           |
+| 屬性                 | 類型                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | balanceAmount            | number                                                         | 發票的餘額。 這是未付款帳單的總金額。 |
 | currencyCode             | 字串                                                         | 指出用於餘額金額之貨幣的程式碼。       |
@@ -86,18 +84,18 @@ ms.locfileid: "82124707"
 
 ## <a name="invoicesummarydetail"></a>InvoiceSummaryDetail
 
-表示發票類型的個別詳細資料摘要（例如，重複執行、一\_次）。
+表示發票類型的個別詳細資料摘要（例如，重複執行、一 \_ 次）。
 
-| 屬性            | 類型                                                           | 描述                                                                          |
+| 屬性            | 類型                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceType         | 字串                                                         | 發票的類型：「週期性」、「一\_次」。                                       |
+| invoiceType         | 字串                                                         | 發票的類型：「週期性」、「一 \_ 次」。                                       |
 | summary             | [InvoiceSummary](#invoicesummary)物件                       | 每張發票類型的發票摘要。                                         |
 
 ## <a name="invoicesummaries"></a>InvoiceSummaries
 
 代表[InvoiceSummary](#invoicesummary)類型的集合，其中包含每個貨幣之發票類型的個別詳細資料。
 
-| 屬性            | 類型                                                           | 描述                                                                          |
+| 屬性            | 類型                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | collectionOfSummary | [InvoiceSummary](#invoicesummary)物件的陣列             | 每筆發票類型的發票摘要（依貨幣）。                            |
 
@@ -105,7 +103,7 @@ ms.locfileid: "82124707"
 
 表示以授權為基礎之訂用帳戶的發票計費明細專案。
 
-| 屬性                 | 類型                                                           | 描述                                                           |
+| 屬性                 | 類型                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | 銷售額                   | 字串                                                         | 取得或設定總金額。 總金額 = 單位價格 * 數量。  |
 | 屬性               | 字串                                                         | 取得屬性。                                                  |
@@ -127,10 +125,10 @@ ms.locfileid: "82124707"
 | partnerId                | 字串                                                         | 取得或設定合作夥伴的 Azure active directory 租使用者識別碼。            |
 | quantity                 | number                                                         | 取得或設定與此行專案相關聯的單位數。      |
 | subscriptionDescription  | 字串                                                         | 取得或設定訂用帳戶描述。                            |
-| Subscription.subscriptionenddate      | UTC 日期時間格式的字串                                 | 取得或設定訂閱到期的日期。                      |
+| subscriptionEndDate      | UTC 日期時間格式的字串                                 | 取得或設定訂閱到期的日期。                      |
 | subscriptionId           | 字串                                                         | 取得或設定訂用帳戶的唯一識別碼。                      |
 | subscriptionName         | 字串                                                         | 取得或設定訂用帳戶名稱。                                   |
-| And subscription.subscriptionstartdate    | UTC 日期時間格式的字串                                 | 取得或設定訂閱開始的日期。                   |
+| subscriptionStartDate    | UTC 日期時間格式的字串                                 | 取得或設定訂閱開始的日期。                   |
 | 進行                 | number                                                         | 取得或設定折扣後的金額。                               |
 | syndicationPartnerSubscriptionNumber | 字串                                             | 取得或設定新聞訂閱合作夥伴訂用帳戶號碼。             |
 | tax                      | number                                                         | 取得或設定收取的稅金。                                       |
@@ -143,7 +141,7 @@ ms.locfileid: "82124707"
 
 表示以使用量為基礎之訂用帳戶的發票計費明細專案。
 
-| 屬性                 | 類型                                                           | 描述                                                           |
+| 屬性                 | 類型                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | 屬性               | 字串                                                         | 取得屬性。                                                  |
 | 為 billingcycletype         | 字串                                                         | 取得或設定計費週期類型。                                  |
@@ -190,15 +188,15 @@ ms.locfileid: "82124707"
 
 表示應用程式/pdf 中發票語句上可用的作業。
 
-| 屬性                 | 類型                                                           | 描述                                                           |
+| 屬性                 | 類型                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| HTTPResponseMessage      | 物件                                                         | 具有 contentType 的 ByteArrayContent = 應用程式/pdf。                  |
+| HTTPResponseMessage      | 物件 (object)                                                         | 具有 contentType 的 ByteArrayContent = 應用程式/pdf。                  |
 
 ## <a name="onetimeinvoicelineitem"></a>OneTimeInvoiceLineItem
 
 代表授權型訂用帳戶的發票計費明細專案。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 | --- | --- | --- |
 | PartnerId | 字串 | 取得或設定合作夥伴租使用者識別碼。 |
 | CustomerId | 字串 | 取得或設定客戶租使用者識別碼。 |
@@ -247,7 +245,7 @@ ms.locfileid: "82124707"
 
 代表每日評等使用量的未開立帳單、計費的對帳明細專案。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 | --- | --- | --- |
 | PartnerId | 字串 | 取得或設定合作夥伴租使用者識別碼。 |
 | PartnerName | 字串 | 取得或設定夥伴名稱。 |
@@ -269,7 +267,7 @@ ms.locfileid: "82124707"
 | UsageDate | Datetime | 取得或設定使用日期。 |
 | MeterType | 字串 | 取得或設定計量類型。 |
 | MeterCategory | 字串 | 取得或設定計量類別目錄。 |
-| 計量識別碼 | 字串 | 取得或設定計量識別碼（GUID）。 |
+| MeterId | 字串 | 取得或設定計量識別碼（GUID）。 |
 | MeterSubCategory | 字串 | 取得或設定計量子類別目錄。 |
 | MeterName | 字串 | 取得或設定計量名稱。 |
 | MeterRegion | 字串 | 取得或設定計量區域。 |
@@ -278,7 +276,7 @@ ms.locfileid: "82124707"
 | ConsumedService | 字串 | 取得或設定已使用的服務名稱。 |
 | ResourceGroup | 字串 | 取得或設定資源群組的名稱。 |
 | ResourceUri | 字串 | 取得或設定使用方式的資源實例 uri。 |
-| Tags | 字串 | 取得或設定客戶已新增的標記。 |
+| 標籤 | 字串 | 取得或設定客戶已新增的標記。 |
 | AdditionalInfo | 字串 | 取得或設定服務特定的中繼資料。 例如，虛擬機器的影像類型。 |
 | ServiceInfo1 | 字串 | 取得或設定內部 Azure 服務中繼資料。 |
 | ServiceInfo2 | 字串 | 取得或設定服務資訊，例如虛擬機器的映射類型和 ExpressRoute 的 ISP 名稱。 |

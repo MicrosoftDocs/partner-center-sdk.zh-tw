@@ -1,17 +1,15 @@
 ---
 title: 產品升級資源
 description: 您可以使用與 Azure 方案的合作夥伴中心產品升級相關的多個資源。 其中包括 ProductUpgradeRequest、ProductUpgradesEligibility、ProductUpgradesStatus、UpgradesLineItem、UpgradeProduct 和 ErrorDetails。
-ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 3da809a303580e79e03a7f0e0720901d1bf911d7
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: c0245141dc99832f47bff9b68741724d5d313ab8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089288"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094964"
 ---
 # <a name="product-upgrade-resources"></a>產品升級資源
 
@@ -25,7 +23,7 @@ ms.locfileid: "82089288"
 
 **ProductUpgradesRequest**資源會提供產品升級要求物件的相關資訊。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 |----------------------|----------------------------------------------|----------------------------------------------------------------|
 | customerId           | 字串                                       | 用來識別客戶的 GUID 格式字串。 |
 | productFamily        | 字串                                       | 為其要求升級的產品系列。 |
@@ -35,7 +33,7 @@ ms.locfileid: "82089288"
 
 **ProductUpgradesEligibility**資源會提供客戶升級產品之資格的相關資訊。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 |----------------------|--------------------------------------------- |----------------------------------------------------------------|
 | customerId           | 字串                                       | 用來識別客戶的 GUID 格式字串。 |          | productFamily        | 字串                                       | 為其要求升級的產品系列。 |
 | isEligible           | bool                                         | Bool 值指出客戶是否符合要求的升級資格。 |
@@ -48,7 +46,7 @@ ms.locfileid: "82089288"
 
 **ProductUpgradesStatus**資源會提供產品升級狀態的相關資訊。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------|
 | Id                  | 字串                                                         | 識別升級的 GUID 格式字串。 |
 | productFamily       | 字串                                                         | 為其要求升級的產品系列。
@@ -61,7 +59,7 @@ ms.locfileid: "82089288"
 
 **UpgradesLineItem**資源會針對要求的每個明細專案，描述產品升級詳細資料的狀態。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 |-----------------|-----------------------------------------------------|--------------------------------------------------------------|
 | sourceProduct   | [UpgradeProduct](#upgradeproduct)物件            | 要升級之來源產品的資訊。 |
 | targetProduct   | [UpgradeProduct](#upgradeproduct)物件            | 升級後的目標產品資訊。 |
@@ -87,5 +85,5 @@ ms.locfileid: "82089288"
 | 屬性 | 類型 | 說明 |
 |-------------------------|----------------------------------------------|-------------------------------------------------------------|
 | code                    | 字串                                       | 產品升級失敗時的錯誤碼。 |
-| 訊息                 | 字串                                       | 產品升級失敗時的錯誤訊息。 |
+| message                 | 字串                                       | 產品升級失敗時的錯誤訊息。 |
 | 屬性              | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。 |

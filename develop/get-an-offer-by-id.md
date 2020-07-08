@@ -1,21 +1,21 @@
 ---
 title: 依照識別碼取得供應項目
 description: 取得符合供應專案識別碼的供應專案資源。
-ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0b3cb5856bb9b4259267c2284d8b00668f4427cf
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: brentserbus
+ms.author: brserbus
+ms.openlocfilehash: 2765859db2da91f544c926b264eeb7e32a22cd6c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157750"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093833"
 ---
 # <a name="get-an-offer-by-id"></a>依照識別碼取得供應項目
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +24,7 @@ ms.locfileid: "82157750"
 
 取得符合供應專案識別碼的**供應**專案資源。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -83,7 +83,7 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 ### <a name="uri-parameter"></a>URI 參數
 
-| 名稱           | 類型       | 必要 | 描述                           |
+| 名稱           | 類型       | 必要 | 說明                           |
 |----------------|------------|----------|---------------------------------------|
 | **供應專案識別碼**   | **guid**   | Y        | 可對應至供應項目的 GUID。 |
 | **country-id** | **string** | Y        | 國家/地區識別碼。                |

@@ -4,14 +4,14 @@ description: 開發人員可以使用合作夥伴中心 Api，以程式設計方
 ms.date: 01/02/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: mowrim
 ms.author: mowrim
-ms.openlocfilehash: 315cee7cfe19a4d1d0fc1c0c3a77623086ee8473
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 213577f2235d58c4f1d91869b4f6405409369fc2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022755"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094534"
 ---
 # <a name="create-an-azure-plan"></a>建立 Azure 方案
 

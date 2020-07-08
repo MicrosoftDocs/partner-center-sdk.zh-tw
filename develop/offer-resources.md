@@ -1,21 +1,19 @@
 ---
 title: 供應專案資源
 description: 描述在轉銷商目錄中列出的產品，其可提供給客戶。
-ms.assetid: 702B18DB-D78A-4E3B-BC8F-EFD4092131DE
 ms.date: 03/15/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a4bec5d83faa4454857cd093bb109495bce4c17a
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: 45af02705d2a03c7586ba6bf3a5537c3e4eec3c7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82118654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094749"
 ---
 # <a name="offer-resources"></a>供應專案資源
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +22,7 @@ ms.locfileid: "82118654"
 
 描述在轉銷商目錄中列出的產品，其可提供給客戶。
 
-## <a name="offer"></a>產品
+## <a name="offer"></a>供應項目
 
 | 屬性                    | 類型                      | 描述                                                                                                                                                                |
 |-----------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -45,12 +43,12 @@ ms.locfileid: "82118654"
 | hasAddOns                   | boolean                   | 值，指出此供應專案是否有任何附加元件。                                                           |
 | isAvailableForPurchase      | boolean                   | 值，指出此實例是否可供購買。                                             |
 | 計費                     | 字串                    | 指定明細專案購買的計費類型： [無]、[使用量] 或 [授權]。                           |
-| supportedBillingCycles      | 字串的陣列          | 指出此供應專案支援的計費週期。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱   |
+| supportedBillingCycles      | 字串陣列          | 指出此供應專案支援的計費週期。 支援的值為在[為 billingcycletype](product-resources.md#billingcycletype)中找到的成員名稱   |
 | isAutoRenewable             | boolean                   | 值，指出供應專案是否自動續約。                                                      |
-| upgradeTargetOffers         | 字串的陣列          | 這項供應專案可升級到的供應專案清單。                                                          |
-| conversionTargetOffers      | 字串的陣列          | 可將此供應專案轉換成的供應專案清單。                                                         |
-| reselleeQualifications      | 字串的陣列          | 客戶為了讓合作夥伴購買該客戶的供應專案所需的資格。     |
-| resellerQualifications      | 字串的陣列          | 合作夥伴所需的資格，以便購買客戶的供應專案。                       |
+| upgradeTargetOffers         | 字串陣列          | 這項供應專案可升級到的供應專案清單。                                                          |
+| conversionTargetOffers      | 字串陣列          | 可將此供應專案轉換成的供應專案清單。                                                         |
+| reselleeQualifications      | 字串陣列          | 客戶為了讓合作夥伴購買該客戶的供應專案所需的資格。     |
+| resellerQualifications      | 字串陣列          | 合作夥伴所需的資格，以便購買客戶的供應專案。                       |
 | salesGroupId                | 字串                    | 用來將供應專案分組成不同訂單的字串。                                                             |
 | isTrial                     | boolean                   | 值，指出這是否為試用版供應專案。                                                               |
 | product                     | [OfferProduct](#offerproduct)           | 取得供應專案產品。                                                                           |
@@ -76,7 +74,7 @@ ms.locfileid: "82118654"
 
 包含連結，以瞭解供應專案的詳細資訊。
 
-| 屬性  | 類型 | 描述                 |
+| 屬性  | 類型 | Description                 |
 |-----------|------|-----------------------------|
 | learnMore | 連結 | [深入瞭解] 連結。      |
 | self      | 連結 | 自我 URI                |
@@ -87,7 +85,7 @@ ms.locfileid: "82118654"
 
 可能有多個供應專案相關聯的產品或服務，各有不同的功能集，並以不同的客戶需求為目標。
 
-| 屬性 | 類型   | 描述              |
+| 屬性 | 類型   | Description              |
 |----------|--------|--------------------------|
 | Id       | 字串 | 分類識別碼。 |
 | 名稱     | 字串 | 類別名稱。       |

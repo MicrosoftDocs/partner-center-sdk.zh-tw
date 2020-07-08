@@ -4,13 +4,14 @@ description: 您可以使用 DirectSignedCustomerAgreementStatus 資源來取得
 ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f92e3d57438260af0b8e7beb12e9c7a4448eaf13
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 3f1deb20a18bc6e7133cac91db528f2d1ad694e2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157520"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093684"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>取得 Microsoft 客戶合約的客戶直接簽署（直接接受）的狀態
 
@@ -38,7 +39,7 @@ ms.locfileid: "82157520"
 
 | 方法 | 要求 URI                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | baseURL/v1/customers/{customer-tenant-id}/directSignedMicrosoftCustomerAgreementStatus HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| GET    | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directSignedMicrosoftCustomerAgreementStatus HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 

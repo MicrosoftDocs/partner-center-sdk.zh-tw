@@ -4,17 +4,15 @@ description: 合作夥伴中心 SDK 在針對 Microsoft 全國雲端進行合作
 MS-HAID:
 - pc\_apiv2.developing\_with\_different\_partner\_center\_versions
 - pc\_apiv2.developing\_for\_partner\_center\_for\_microsoft\_national\_cloud
-ms.assetid: 13D45776-4837-48F5-AB8B-605FD1D3D52D
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c2f8e9e61c02b037b817305989bbad430c6fd579
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 6220b9f89f960f6d403e88e993c7e46444374cfc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154230"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094119"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>針對適用于 Microsoft 全國雲端的合作夥伴中心進行開發
 
@@ -60,7 +58,7 @@ ms.locfileid: "82154230"
   - 合作夥伴必須在 Office 365 系統管理中心或透過 Azure 入口網站手動建立或更新其客戶的使用者。 請參閱[Azure Active Directory 檔](https://docs.microsoft.com/azure/active-directory/)。
 
 - 您無法使用 Microsoft Cloud 德國入口網站或 Api 的合作夥伴中心，來管理客戶使用者的授權。 相反地，您必須使用 Office 365 系統管理中心或 Azure Active 直接群組授權管理（即將推出）來管理其授權。
-  - （選擇性）您可以使用 Azure AD 圖形 API。 請參閱[新增或移除使用者的授權](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)。 針對 Microsoft Cloud 德國的合作夥伴中心，請務必使用圖形端點`https://graph.cloudapi.de` ，而不是`https://graph.windows.net`。
+  - （選擇性）您可以使用 Azure AD 圖形 API。 請參閱[新增或移除使用者的授權](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)。 針對 Microsoft Cloud 德國的合作夥伴中心，請務必使用圖形端點， `https://graph.cloudapi.de` 而不是 `https://graph.windows.net` 。
 
 - 您無法以程式設計方式重設客戶使用者或完整合作夥伴使用者的密碼。 使用 Office 365 系統管理中心或 Azure 入口網站。 請參閱[在 Azure Active Directory 中重設使用者的密碼](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/)。 針對步驟1，您必須登入 Microsoft Cloud 德國的 Azure 入口網站。
 
@@ -82,6 +80,6 @@ ms.locfileid: "82154230"
 
 - 您無法以程式設計方式重設客戶使用者或完整合作夥伴使用者的密碼。 使用 Azure 入口網站。 請參閱[在 Azure Active Directory 中重設使用者的密碼](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal)。 針對步驟1，您必須登入適用于美國政府 Microsoft Cloud 的 Azure 入口網站。
 
-- 適用于美國政府之合作夥伴中心的 REST 端點，與合作夥伴中心的 Microsoft Cloud 相同： `https://api.partnercenter.microsoft.com`。
+- 適用于美國政府之合作夥伴中心的 REST 端點，與合作夥伴中心的 Microsoft Cloud 相同： `https://api.partnercenter.microsoft.com` 。
 
 - 開發人員必須手動註冊其應用程式識別碼，以便將合作夥伴中心 API/SDK 功能整合到其應用程式中，以供美國政府的 Microsoft Cloud 合作夥伴中心。 如需詳細資訊，請參閱[註冊 Microsoft 國家雲端合作夥伴中心的應用程式詳細資料](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)。

@@ -3,18 +3,19 @@ title: 取得所有合作夥伴使用者要求的清單
 description: 取得使用合作夥伴 REST API 的所有合作夥伴使用者要求清單。
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: 6e3f3c248d39ace5fc4aa82694d3120f15eff66c
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 43b1e3d4a6220ac8adba8eed0389395113072288
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186356"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093789"
 ---
 # <a name="get-app-and-user-api-requests"></a>取得應用程式和使用者 API 要求
 
-適用於：
+適用於︰
 
 - 合作夥伴中心 API
 
@@ -39,7 +40,7 @@ ms.locfileid: "84186356"
 
 - 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>Request body
 
 無。
 

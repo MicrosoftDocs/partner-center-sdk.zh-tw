@@ -1,29 +1,29 @@
 ---
 title: 取得間接轉銷商的客戶
 description: 如何取得間接轉銷商的客戶清單。
-ms.assetid: 2920F056-E6B8-4C66-9EEA-4577BEC034F9
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f03c3dc15c71c2a435280ee4138a6b5beddb9a92
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 513fe5d1372dfcc69c076b72c16cfe4d05147ccf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157510"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093720"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>取得間接轉銷商的客戶
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 如何取得間接轉銷商的客戶清單。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 - 間接轉銷商的租使用者識別碼。
 
@@ -84,10 +84,10 @@ while (customersEnumerator.HasValue)
 
 使用下列查詢參數來建立要求。
 
-| 名稱   | 類型   | 必要 | 描述                                                                                                                                                                                                                                                                                   |
+| 名稱   | 類型   | 必要 | 說明                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 大小   | int    | 否       | 要一次顯示的結果數目。 這是選擇性參數。                                                                                                                                                                                                                |
-| filter | filter | 是      | 篩選搜尋的查詢。 若要抓取指定間接轉銷商的客戶，您必須插入間接轉銷商識別碼，並包含並編碼下列字串： {"Field"： "IndirectReseller"，"Value"： "{間接轉銷商識別碼}"，"\_Operator"： "開頭為"}。 |
+| filter | filter | Yes      | 篩選搜尋的查詢。 若要抓取指定間接轉銷商的客戶，您必須插入間接轉銷商識別碼，並包含並編碼下列字串： {"Field"： "IndirectReseller"，"Value"： "{間接轉銷商識別碼}"，"Operator"： "開頭 \_ 為"}。 |
 
 ### <a name="request-headers"></a>要求標頭
 

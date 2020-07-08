@@ -4,17 +4,16 @@ description: 針對符合客戶和訂用帳戶識別碼的訂用帳戶資源，�
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 00a190aa5051e88a6e10cdfaf7595cb845539465
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 0549f1066038594c9e2a8c30a5427cc94b5ac296
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157800"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095954"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>更新商業市集訂用帳戶的自動續約
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
@@ -22,11 +21,11 @@ ms.locfileid: "82157800"
 
 在合作夥伴中心儀表板中，這項作業是藉由先[選取客戶](get-a-customer-by-name.md)來執行。 然後，選取您想要更新的訂用帳戶。 最後，切換**自動續約**選項，然後選取 [**提交**]。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 訂用帳戶識別碼。
 
@@ -58,7 +57,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 下表列出暫止訂閱所需的查詢參數。
 
-| 名稱                    | 類型     | 必要 | 描述                               |
+| 名稱                    | 類型     | 必要 | 說明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **GUID** | Y        | 對應至客戶的 GUID。     |
 | **id-for-subscription** | **GUID** | Y        | 對應至訂用帳戶的 GUID。 |

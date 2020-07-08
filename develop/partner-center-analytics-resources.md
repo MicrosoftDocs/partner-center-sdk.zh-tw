@@ -1,21 +1,19 @@
 ---
 title: 合作夥伴中心分析
 description: 合作夥伴中心分析公用 API 檔。
-ms.assetid: B605C1CD-FC40-4393-8588-55C8F0CAA51A
 ms.date: 06/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e5516312815b08b2ebc7fb54754c30506c30e0bd
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 4b14ee929f3020079f409be8817e077673d3219f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124692"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094710"
 ---
 # <a name="partner-center-analytics---resources"></a>合作夥伴中心分析 - 資源
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +22,7 @@ ms.locfileid: "82124692"
 
 分析 API 可讓您以程式設計方式存取在使用者體驗中呈現的資料。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 這些案例僅支援使用使用者認證進行驗證。
 
@@ -40,7 +38,7 @@ ms.locfileid: "82124692"
 
 代表 Azure 使用量的所有分析資料。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 |----------|------|-------------|
 | CustomerTenantId | 字串 | 客戶租使用者識別碼。 |
 | customerName | 字串 | 客戶名稱。 |
@@ -68,7 +66,7 @@ ms.locfileid: "82124692"
 
 代表間接轉銷商的所有分析資料。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 |----------|------|-------------|
 | partnerTenantId | 字串 | 您要為其取得間接轉銷商資料之夥伴的租使用者識別碼。 |
 | id | 字串 | 間接轉銷商識別碼。 |
@@ -100,7 +98,7 @@ ms.locfileid: "82124692"
 
 表示訂用帳戶的所有分析資料。
 
-|         屬性          |              類型              |                                                                      描述                                                                       |
+|         屬性          |              類型              |                                                                      Description                                                                       |
 |---------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     customerTenantId      |             字串             |                                              GUID 格式的字串，可識別客戶租使用者。                                              |
 |       customerName        |             字串             |                                                               客戶的名稱。                                                                |
@@ -141,7 +139,7 @@ ms.locfileid: "82124692"
 
 表示搜尋的所有分析資料。
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | Description |
 |----------|------|-------------|
 | companyName | 字串 | 帳單公司名稱。 |
 | contactButtonClicked | Boolean | 指出是否已按下 [連絡人] 按鈕。 |

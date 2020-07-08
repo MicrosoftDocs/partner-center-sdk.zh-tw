@@ -1,32 +1,30 @@
 ---
 title: 透過原則更新裝置清單
 description: 如何使用指定客戶的設定原則來更新裝置清單。
-ms.assetid: D68DAE8B-EFBC-4C71-8CB4-3ADA8D45DDBA
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cd6b6fe6e36144a6ee963739f57456dd87c7bd10
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e7a39d25f72fca9b66ee29791c72e3bf50fa74d8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157950"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095609"
 ---
 # <a name="update-a-list-of-devices-with-a-policy"></a>透過原則更新裝置清單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
 如何使用指定客戶的設定原則來更新裝置清單。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 原則識別碼。
 
@@ -90,9 +88,9 @@ var trackingLocation =
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱        | 類型   | 必要 | 描述                                           |
+| 名稱        | 類型   | 必要 | 說明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | 字串 | 是      | 用來識別客戶的 GUID 格式字串。 |
+| customer-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 

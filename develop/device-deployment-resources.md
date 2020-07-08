@@ -1,17 +1,15 @@
 ---
 title: 裝置部署資源
 description: 與合作夥伴中心裝置部署相關的資源。
-ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5aaf4c9dc80b681c274c68af3439654e27e27be7
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: a464cdad3979c305df16a3bdc9133ce70a7ac688
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81664620"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094106"
 ---
 # <a name="device-deployment-resources"></a>裝置部署資源
 
@@ -33,7 +31,7 @@ ms.locfileid: "81664620"
 | category             | 字串                                       | 類別目錄。                                                                        |
 | description          | 字串                                       | 原則描述。                                                              |
 | devicesAssignedCount | number                                       | 指派給此原則的裝置數目。                                       |
-| policySettings       | 字串的陣列                             | 原則設定： [無]、[移除\_oem\_預先安裝]、[oobe\_使用者\_不\_是本機\_系統管理員]、[\_略\_過快速設定]、\_[\_略過 oem 註冊]\_、[略過 eula]。    |
+| policySettings       | 字串陣列                             | 原則設定： [無]、[移除 \_ oem \_ 預先安裝]、[oobe \_ 使用者不是本機系統 \_ \_ \_ 管理員]、[略過 \_ 快速 \_ 設定]、[略過 \_ oem \_ 註冊]、[略過 \_ eula]。    |
 | createdDate          | UTC 日期時間格式的字串               | 建立原則的日期和時間。                                            |
 | lastModifiedDate     | UTC 日期時間格式的字串               | 上次修改原則的日期和時間。                                      |
 | 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。                                            |
@@ -52,17 +50,17 @@ ms.locfileid: "81664620"
 | oemManufacturerName | 字串                                                         | 與裝置相關聯的 OEM 製造商名稱。             |
 | 原則            | 物件的陣列                                               | 指派給裝置的原則清單。                             |
 | uploadedDate        | UTC 日期時間格式的字串                                 | 裝置詳細資料上傳的日期和時間。                      |
-| allowedOperations   | 字串的陣列                                               | 裝置同步處理所允許的 HTTP 方法清單，例如 GET、PATCH、DELETE。 |
+| allowedOperations   | 字串陣列                                               | 裝置同步處理所允許的 HTTP 方法清單，例如 GET、PATCH、DELETE。 |
 | 屬性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。                                                 |
 
 ## <a name="batchuploaddetails"></a>BatchUploadDetails
 
 **BatchUploadDetails**描述裝置批次上傳裝置清單中每個裝置的相關資訊的狀態。
 
-| 屬性        | 類型     | 描述                                                                  |
+| 屬性        | 類型     | Description                                                                  |
 |-----------------|----------|------------------------------------------------------------------------------|
 | batchTrackingId | 字串   | GUID 格式的字串，與上傳的裝置批次相關聯。 |
-| status          | 字串   | 批次上傳的狀態：「不明」、「已排入佇列」、「處理中」、「已\_完成\_」、「已完成但發生錯誤」。 |
+| status          | 字串   | 批次上傳的狀態：「不明」、「已排入佇列」、「處理中」、「已完成」、「已完成 \_ 但 \_ 發生錯誤」。 |
 | startedTime     | UTC 日期時間格式的字串 | 批次上傳程式開始的日期和時間。   |
 | completedTime   | UTC 日期時間格式的字串  | 批次上傳程式完成的日期和時間。   |
 | devicesStatus   | [DeviceUploadDetails](#deviceuploaddetails)資源的陣列 | 物件的陣列，指定每個裝置資訊上傳的狀態。 |
@@ -72,12 +70,12 @@ ms.locfileid: "81664620"
 
 **DeviceUploadDetails**描述上傳裝置相關資訊的狀態。
 
-| 屬性         | 類型                    | 描述                                 |
+| 屬性         | 類型                    | Description                                 |
 |------------------|-------------------------|---------------------------------------------|
 | deviceId         | 字串                  | 與裝置相關聯的 GUID 格式字串。 |
 | serialNumber     | 字串                  | 與裝置唯一相關聯的序號。 |
 | productKey       | 字串                  | 與裝置唯一相關聯的產品金鑰。 |
-| status           | 字串                  | 裝置資訊上傳的狀態：「進行中」、「已完成」、「已完成\_但\_發生錯誤」。 |
+| status           | 字串                  | 裝置資訊上傳的狀態：「進行中」、「已完成」、「已完成 \_ 但 \_ 發生錯誤」。 |
 | errorCode        | 字串                  | 當裝置上傳失敗時傳回的 HTTP 狀態錯誤碼。 |
 | errorDescription | 字串                  | 如果裝置上傳失敗，則為 HTTP 錯誤描述。 |
 | 屬性       | [ResourceAttributes](utility-resources.md#resourceattributes) | 中繼資料屬性。   |
@@ -99,7 +97,7 @@ ms.locfileid: "81664620"
 
 **DeviceBatchCreationRequest**提供建立裝置批次並在其中填入裝置所需的資訊。
 
-| 屬性     | 類型                                                           | 描述                                                           |
+| 屬性     | 類型                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | batchId      | 字串                                                         | 與裝置批次相關聯的 GUID 格式字串。 |
 | devices      | [裝置](#device)物件的陣列                             | 每個物件都會指定一個裝置。 已接受下列用於識別裝置的欄位組合： hardwareHash + productKey、hardwareHash + serialNumber、hardwareHash + productKey + serialNumber、hardwareHash only、僅 productKey、serialNumber + oemManufacturerName + modelName。 |
@@ -109,7 +107,7 @@ ms.locfileid: "81664620"
 
 **DevicePolicyUpdateRequest**提供使用原則更新裝置清單所需的資訊。
 
-| 屬性     | 類型                                                           | 描述                                                           |
+| 屬性     | 類型                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | devices      | [裝置](#device)物件的陣列                             | 每個物件都會指定一個裝置。 需要下列屬性：識別碼、原則。 |
 | 屬性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | 中繼資料屬性。                                              |

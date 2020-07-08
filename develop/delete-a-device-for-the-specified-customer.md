@@ -1,17 +1,15 @@
 ---
 title: 為指定客戶刪除裝置
 description: 如何刪除屬於指定客戶的裝置。
-ms.assetid: 44F06D4B-E9DE-470F-BAE2-15205CC7C699
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5665b4bad82ee2ae51a1c33c2c7b85d3f1776c70
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 2e1727b36f7775f59c191172c5514f0accbf3091
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155450"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094167"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>為指定客戶刪除裝置
 
@@ -22,11 +20,11 @@ ms.locfileid: "82155450"
 
 本文說明如何刪除屬於指定客戶的裝置。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 裝置批次識別碼。
 
@@ -67,11 +65,11 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱           | 類型   | 必要 | 描述                                                        |
+| 名稱           | 類型   | 必要 | 說明                                                        |
 |----------------|--------|----------|--------------------------------------------------------------------|
-| customer-id    | 字串 | 是      | 用來識別客戶的 GUID 格式字串。              |
-| devicebatch-id | 字串 | 是      | 包含裝置之批次的裝置批次識別碼。 |
-| 裝置識別碼      | 字串 | 是      | 裝置識別碼。                                             |
+| customer-id    | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。              |
+| devicebatch-id | 字串 | Yes      | 包含裝置之批次的裝置批次識別碼。 |
+| 裝置識別碼      | 字串 | Yes      | 裝置識別碼。                                             |
 
 ### <a name="request-headers"></a>要求標頭
 

@@ -1,17 +1,15 @@
 ---
 title: 合作夥伴中心 REST 錯誤碼
 description: 來自合作夥伴中心 Api 的錯誤碼和成功回應的描述。
-ms.assetid: 08AC1F2E-5847-4AD8-AE5B-0173C5DB589A
 ms.date: 06/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d4f31783b94ed8cae85687b806624945bb185486
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b75f7fa6b9b82c2b1744a21fa0dbac95aa7c7acd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155750"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093997"
 ---
 # <a name="partner-center-rest-error-codes"></a>合作夥伴中心 REST 錯誤碼
 

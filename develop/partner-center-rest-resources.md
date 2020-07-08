@@ -1,21 +1,21 @@
 ---
 title: 合作夥伴中心 REST 資源
 description: 本節提供使用合作夥伴中心 REST API 建立要求和剖析回應所需之 JSON 元素的定義。
-ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e452681406a717ef618808b4b699cda5f6684931
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: ec760a6643a90878a1c5c3c37f0a4f14046e6ce1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559037"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094656"
 ---
 # <a name="partner-center-rest-resources"></a>合作夥伴中心 REST 資源
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -87,7 +87,7 @@ ms.locfileid: "82559037"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">客戶</a></td>
+<td><a href="customer-resources.md">Customer</a></td>
 <td><ul>
 <li>客戶</li>
 <li>CustomerCompanyProfile</li>
@@ -153,7 +153,7 @@ ms.locfileid: "82559037"
 <tr class="even">
 <td><a href="offer-resources.md">供應項目</a></td>
 <td><ul>
-<li>產品</li>
+<li>供應項目</li>
 <li>OfferCategory</li>
 <li>OfferLinks</li>
 <li>OfferProduct</li>
@@ -182,7 +182,7 @@ ms.locfileid: "82559037"
 <tr class="odd">
 <td><a href="product-resources.md">產品</a></td>
 <td><ul>
-<li>Products</li>
+<li>產品</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
 <li>SKU</li>
@@ -227,7 +227,7 @@ ms.locfileid: "82559037"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="subscription-resources.md">訂閱帳戶</a></td>
+<td><a href="subscription-resources.md">訂用帳戶</a></td>
 <td><ul>
 <li>訂用帳戶</li>
 <li>SubscriptionLinks</li>
@@ -257,7 +257,7 @@ ms.locfileid: "82559037"
 <tr class="odd">
 <td><a href="user-resources.md">使用者</a></td>
 <td><ul>
-<li>User</li>
+<li>使用者</li>
 <li>CustomerUser</li>
 <li>UserCredentials</li>
 <li>UserMember</li>
@@ -267,7 +267,7 @@ ms.locfileid: "82559037"
 <td><a href="utility-resources.md">公用程式資源</a></td>
 <td><ul>
 <li>位址</li>
-<li>連絡人</li>
+<li>Contact</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
 <li>連結</li>

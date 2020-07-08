@@ -4,13 +4,12 @@ description: 如何取得客戶的傳輸清單。
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fd732f9868d5a6db936092f4d3392ae2ca60768b
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: 4a25a9f6ccba0a3d64934b23ccd83a535da05e4a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489125"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093957"
 ---
 # <a name="get-a-customers-transfers"></a>取得客戶的轉移
 
@@ -38,7 +37,7 @@ ms.locfileid: "84489125"
 
 | 名稱               | 類型   | 必要 | 說明                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | 字串 | 是      | 用來識別客戶的 GUID 格式字串。 |
+| customer-tenant-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 

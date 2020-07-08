@@ -1,21 +1,21 @@
 ---
 title: 管理帳戶和設定檔
 description: 本節說明雲端解決方案提供者合作夥伴可以使用合作夥伴中心以程式設計方式管理其使用者帳戶和設定檔的方式。
-ms.assetid: 7E2D461D-279E-4E6C-ACFA-BC96AAE8503C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 81f086ddb3efa83ea72060363eea288fd70d1ed9
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+author: parthpandyaMSFT
+ms.author: parthp
+ms.openlocfilehash: 1ec57757ebd45eba26af7834a484b00aa92234ce
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089328"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094836"
 ---
 # <a name="manage-accounts-and-profiles"></a>管理帳戶和設定檔
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心

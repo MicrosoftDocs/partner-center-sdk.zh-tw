@@ -1,21 +1,19 @@
 ---
 title: 驗證網域可用性
 description: 如何判斷網域是否可供使用。
-ms.assetid: 9ECF8241-3672-441D-B34D-83F7C23138B3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7518253d937567e78c5afd59b9b0a1375d047c89
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: f0ae17a7f929e74a32647c616bb35bc20ed9bcc3
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157840"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093490"
 ---
 # <a name="verify-domain-availability"></a>驗證網域可用性
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,11 +22,11 @@ ms.locfileid: "82157840"
 
 如何判斷網域是否可供使用。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 網域（例如`contoso.onmicrosoft.com`）。
+- 網域（例如 `contoso.onmicrosoft.com` ）。
 
 ## <a name="c"></a>C\#
 
@@ -49,13 +47,13 @@ bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 
 | 方法   | 要求 URI                                                              |
 |----------|--------------------------------------------------------------------------|
-| **HEAD** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1。1 |
+| **前端** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來驗證網域可用性。
 
-| 名稱       | 類型       | 必要 | 描述                                   |
+| 名稱       | 類型       | 必要 | 說明                                   |
 |------------|------------|----------|-----------------------------------------------|
 | **domain** | **string** | Y        | 用來識別受檢網域的字串。 |
 

@@ -1,18 +1,17 @@
 ---
 title: Azure 使用率記錄資源
 description: Azure 使用率記錄包含 Azure 訂用帳戶資源使用量的詳細資料。
-ms.assetid: 4C1EEEB3-DB25-4D61-BFED-C4AB5D3BB5CF
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 1e4782815c9b777c7cdb3e11e342dd9be94d9310
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 21d39c4497c00f5abeeeb771dfe20cd1e2b1c13a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022693"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094561"
 ---
 # <a name="azure-utilization-record-resources"></a>Azure 使用率記錄資源
 

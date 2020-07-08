@@ -4,17 +4,16 @@ description: 使用發票識別碼和回條識別碼來抓取發票收據。
 ms.date: 02/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6767337f2d3510f7ac98d61c060e2ee8c1191514
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 96cef11d6778de2d9bf28e466d88a39f9415727d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157460"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093551"
 ---
 # <a name="get-invoice-receipt-statement"></a>取得發票收據對帳單
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
@@ -23,9 +22,9 @@ ms.locfileid: "82157460"
 > [!IMPORTANT]
 > 這項功能僅適用于臺灣稅務收據。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 - 有效的發票識別碼和對應的接收識別碼。
 
@@ -54,10 +53,10 @@ var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).
 
 使用下列查詢參數來取得發票收據語句。
 
-| 名稱       | 類型   | 必要 | 描述                                                                                    |
+| 名稱       | 類型   | 必要 | 說明                                                                                    |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|
-| 發票識別碼 | 字串 | 是      | 值是發票識別碼，可讓轉銷商篩選特定發票的結果。 |
-| 收據識別碼 | 字串 | 是      | 此值是可讓轉銷商篩選指定發票之收據的回條識別碼。 |
+| 發票識別碼 | 字串 | Yes      | 值是發票識別碼，可讓轉銷商篩選特定發票的結果。 |
+| 收據識別碼 | 字串 | Yes      | 此值是可讓轉銷商篩選指定發票之收據的回條識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 

@@ -1,17 +1,15 @@
 ---
 title: 客戶使用資源
 description: 以使用量為基礎的訂用帳戶和每月使用預算（包括 CustomerMonthlyUsageRecord、Customerrelationshiprequest、PartnerUsageSummary 和 SpendingBudget）的客戶所適用的資源。
-ms.assetid: 268C7AF5-3A95-451F-8092-033A3E8126F2
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c792e93f872b2224049d20a6de99f5dcaa15084b
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: ec82fcfe6c08a8ad55dd1fb48984859b954dd3c8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666033"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094216"
 ---
 # <a name="customer-usage-resources"></a>客戶使用資源
 
@@ -30,7 +28,7 @@ ms.locfileid: "81666033"
 
 **CustomerMonthlyUsageRecord**代表客戶在當月使用的預估貨幣成本。
 
-| 屬性         | 類型               | 描述                                                              |
+| 屬性         | 類型               | Description                                                              |
 |------------------|--------------------|--------------------------------------------------------------------------|
 | 預算           | SpendingBudget     | 為客戶配置的消費預算。                          |
 | PercentUsed      | decimal             | 已配置的預算所用的百分比。                        |
@@ -48,7 +46,7 @@ ms.locfileid: "81666033"
 
 **Customerrelationshiprequest**代表客戶在整個計費週期中的使用量摘要。
 
-| 屬性         | 類型               | 描述                                                                                                      |
+| 屬性         | 類型               | Description                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
 | 預算           | SpendingBudget     | 為客戶配置的消費預算。                                                                  |
 | ResourceId       | 字串             | 資源的唯一識別碼。 在 CustomerMonthlyUsageRecord 的內容中，此識別碼是客戶識別碼。 |
@@ -67,9 +65,9 @@ ms.locfileid: "81666033"
 
 **PartnerUsageSummary**代表所有客戶的使用量預算的夥伴層級摘要。
 
-| 屬性         | 類型               | 描述                                                                                                      |
+| 屬性         | 類型               | Description                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| EmailsToNotify   | 字串的陣列   | 通知的電子郵件地址清單。                                                                   |
+| EmailsToNotify   | 字串陣列   | 通知的電子郵件地址清單。                                                                   |
 | CustomerOverBudget | integer          | 超過預算的客戶數目。                                                                    |
 | CustomersTrendingOver | integer       | 接近預算的客戶數目。                                                     |
 | CustomersWithUsageBasedSubscriptions  | integer | 具有以使用量為基礎之訂用帳戶的客戶數目。                                               |
@@ -87,7 +85,7 @@ ms.locfileid: "81666033"
 
 **SpendingBudget**代表針對以使用量為基礎的訂用帳戶，配置給此客戶的預算。
 
-| 屬性   | 類型               | 描述                                                                                         |
+| 屬性   | 類型               | Description                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
-| Amount     | decimal             | 已配置的預算。 如果值為 null，則不會配置給此客戶的消費預算。 |
+| 數量     | decimal             | 已配置的預算。 如果值為 null，則不會配置給此客戶的消費預算。 |
 | 屬性 | ResourceAttributes | 對應至預算的中繼資料屬性。                                                |

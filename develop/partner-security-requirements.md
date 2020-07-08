@@ -1,21 +1,19 @@
 ---
 title: 合作夥伴安全性需求
 description: 瞭解可協助您針對合作夥伴租使用者強制執行多重要素驗證的 REST Api。
-ms.assetid: B39B335E-5B18-4432-8F9E-8B7E84037A3C
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: 33cd6a32d928b4af64797a1962674ec12a4f485b
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+ms.openlocfilehash: a09074637b887717fcbcb40cc91661420a6f226a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186306"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094978"
 ---
 # <a name="partner-security-requirements-status"></a>合作夥伴安全性需求狀態
 
-適用於：
+適用於︰
 
 - 合作夥伴中心
 

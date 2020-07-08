@@ -1,19 +1,17 @@
 ---
-title: Audit 作業
+title: 稽核作業
 description: 使用審核作業來取得合作夥伴中心活動的記錄。
-ms.assetid: C6337A08-6009-4F12-A7A3-B1CA1AE016A1
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 36b20d41d3313a1151c45177f4c74ed0b44b180d
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0e31990df06a67d4f02b97dab8422ee498a09b43
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413218"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095397"
 ---
-# <a name="audit-operations"></a>Audit 作業
+# <a name="audit-operations"></a>稽核作業
 
 合作夥伴中心 Api 提供了審核功能，讓您可以取得合作夥伴中心活動的記錄。
 

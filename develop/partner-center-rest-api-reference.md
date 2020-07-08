@@ -1,17 +1,17 @@
 ---
 title: 合作夥伴中心 REST API 參照
 description: 合作夥伴中心 REST API 協助 CSP 合作夥伴將其現有的 CRM 或帳單軟體與管理客戶帳戶、下訂單、管理訂閱及處理支援要求的 Microsoft 系統整合在一起。
-ms.assetid: 25191A95-52BB-4E33-A63C-5D00FAF55806
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6890a3b23c3c998baaf80f8aabf4fc36ed9354e7
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: adab62c38d46c5ec0fbaf9fd7c7a03936788890c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089828"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094662"
 ---
 # <a name="partner-center-rest-api-reference"></a>合作夥伴中心 REST API 參照
 
@@ -32,7 +32,7 @@ ms.locfileid: "82089828"
 
 ## <a name="topics"></a>主題
 
-| 主題 | 描述 |
+| 主題 | 說明 |
 | ----- | ----------- |
 | [合作夥伴中心 REST URL](partner-center-rest-urls.md) | 定義不同合作夥伴中心版本的 REST API 端點。 |
 | [合作夥伴中心 REST 標頭](headers.md) | 定義 REST API 所使用的要求和回應標頭。 |

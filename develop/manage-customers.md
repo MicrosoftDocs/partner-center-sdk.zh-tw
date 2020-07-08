@@ -1,21 +1,19 @@
 ---
 title: 管理客戶
 description: 本節說明雲端解決方案提供者合作夥伴可以使用合作夥伴中心以程式設計方式管理客戶帳戶的方式。
-ms.assetid: C8D81324-5D5A-4C42-933F-6C0552FB882D
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 80dc28411c78b7bf3524456d4c1426d8fad7e0a4
-ms.sourcegitcommit: caadf6300aac239f37e6964baf179a9d848308f3
+ms.openlocfilehash: 9b89b7766bed42206df8b7d3612a660576a46d54
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82973224"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095867"
 ---
 # <a name="manage-customers"></a>管理客戶
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心

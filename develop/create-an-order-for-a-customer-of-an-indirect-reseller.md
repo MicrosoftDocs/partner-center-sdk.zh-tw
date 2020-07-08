@@ -1,17 +1,15 @@
 ---
 title: 為間接轉銷商的客戶建立訂單
 description: 如何為間接轉銷商的客戶建立訂單。
-ms.assetid: 3B89F8CE-96A8-443F-927E-6351E24FDBFF
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: bddc562c4c7f0288076c322859060bf1f1f98a34
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: eba8c5e8610e3b6b551c6a00c563c115c94d8c16
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155280"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094438"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>為間接轉銷商的客戶建立訂單
 
@@ -21,11 +19,11 @@ ms.locfileid: "82155280"
 
 如何為間接轉銷商的客戶建立訂單。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 要購買之專案的供應專案識別碼。
 
@@ -47,7 +45,7 @@ ms.locfileid: "82155280"
 
 6. 呼叫[**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync)方法來建立訂單。
 
-### <a name="c-example"></a>C\#範例
+### <a name="c-example"></a>C \# 範例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -97,9 +95,9 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 使用下列路徑參數來識別客戶。
 
-| 名稱        | 類型   | 必要 | 描述                                           |
+| 名稱        | 類型   | 必要 | 說明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | 字串 | 是      | 識別客戶的 GUID 格式字串。 |
+| customer-id | 字串 | Yes      | 識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -113,27 +111,27 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | 名稱 | 類型 | 必要 | 描述 |
 | ---- | ---- | -------- | ----------- |
-| id | 字串 | 否 | 成功建立訂單時所提供的訂單識別碼。 |
-| referenceCustomerId | 字串 | 是 | 客戶識別碼。 |
-| billingCycle | 字串 | 否 | 針對這張訂單向合作夥伴計費的頻率。 預設值為&quot;[&quot;每月]，並且會在成功建立訂單時套用。 支援的值為在[**為 billingcycletype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)中找到的成員名稱。 注意：年度計費功能尚未正式推出。 即將推出年度計費的支援。 |
-| lineItems | 物件的陣列 | 是 | [**OrderLineItem**](#orderlineitem)資源的陣列。 |
-| creationDate | 字串 | 否 | 訂單的建立日期 (採用日期-時間格式)。 已在成功建立訂單時套用。 |
-| 屬性 | 物件 | 否 | 包含 "ObjectType"： "Order"。 |
+| id | 字串 | No | 成功建立訂單時所提供的訂單識別碼。 |
+| referenceCustomerId | 字串 | Yes | 客戶識別碼。 |
+| billingCycle | 字串 | No | 針對這張訂單向合作夥伴計費的頻率。 預設值為 [ &quot; 每月] &quot; ，並且會在成功建立訂單時套用。 支援的值為在[**為 billingcycletype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)中找到的成員名稱。 注意：年度計費功能尚未正式推出。 即將推出年度計費的支援。 |
+| lineItems | 物件的陣列 | Yes | [**OrderLineItem**](#orderlineitem)資源的陣列。 |
+| creationDate | 字串 | No | 訂單的建立日期 (採用日期-時間格式)。 已在成功建立訂單時套用。 |
+| 屬性 | 物件 (object) | No | 包含 "ObjectType"： "Order"。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
 下表描述要求主體中的**OrderLineItem**屬性。
 
-| 名稱 | 類型 | 必要 | 描述 |
+| 名稱 | 類型 | 必要 | 說明 |
 | ---- | ---- | -------- | ----------- |
-| lineItemNumber | int | 是 | 集合中的每個明細項目都會取得唯一的行號 (從 0 數到 count-1)。 |
-| offerId | 字串 | 是 | 供應項目識別碼。 |
-| subscriptionId | 字串 | 否 | 訂用帳戶識別碼。 |
-| parentSubscriptionId | 字串 | 否 | 選擇性。 附加供應項目中父訂用帳戶的識別碼。 僅適用於 PATCH。 |
-| friendlyName | 字串 | 否 | 選擇性。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。 |
-| quantity | int | 是 | 授權型訂用帳戶的授權數目。 |
-| partnerIdOnRecord | 字串 | 否 | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適度的獎勵。 **無法提供轉售商 MPN 識別碼，並不會造成訂單失敗。不過，轉銷商不會記錄下來，因此獎勵計算可能不會包含銷售。** |
-| 屬性 | 物件 | 否 | 包含 "ObjectType"： "OrderLineItem"。 |
+| lineItemNumber | int | Yes | 集合中的每個明細項目都會取得唯一的行號 (從 0 數到 count-1)。 |
+| offerId | 字串 | Yes | 供應項目識別碼。 |
+| subscriptionId | 字串 | No | 訂用帳戶識別碼。 |
+| parentSubscriptionId | 字串 | No | 選擇性。 附加供應項目中父訂用帳戶的識別碼。 僅適用於 PATCH。 |
+| friendlyName | 字串 | No | 選擇性。 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分。 |
+| quantity | int | Yes | 授權型訂用帳戶的授權數目。 |
+| partnerIdOnRecord | 字串 | No | 當間接提供者代表間接轉銷商下單時，將**僅限間接轉銷**商的 MPN 識別碼填入此欄位（永遠不是間接提供者的識別碼）。 這可確保適度的獎勵。 **無法提供轉售商 MPN 識別碼，並不會造成訂單失敗。不過，轉銷商不會記錄下來，因此獎勵計算可能不會包含銷售。** |
+| 屬性 | 物件 (object) | No | 包含 "ObjectType"： "OrderLineItem"。 |
 
 ### <a name="request-example"></a>要求範例
 

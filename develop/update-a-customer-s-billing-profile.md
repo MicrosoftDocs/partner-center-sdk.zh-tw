@@ -1,21 +1,21 @@
 ---
 title: 更新客戶的帳單設定檔
 description: 更新客戶的帳單設定檔，包括與設定檔相關聯的位址。
-ms.assetid: 77B8E08D-01C8-4BF7-A281-C8AEF0340DDC
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c2d82496f389d26300a8ff8dc19143b3573e8c76
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: d41ff767699b55be7bdf92a073263042c7c073dd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157610"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095656"
 ---
 # <a name="update-a-customers-billing-profile"></a>更新客戶的帳單設定檔
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,11 +24,11 @@ ms.locfileid: "82157610"
 
 更新客戶的帳單設定檔，包括與設定檔相關聯的位址。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
@@ -59,13 +59,13 @@ billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profiles.B
 
 使用下列查詢參數來更新帳單設定檔。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-- **If-match**：「&lt;ETag&gt;」是並行偵測的必要項。
+- **If-match**：「ETag」 &lt; &gt; 是並行偵測的必要項。
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文

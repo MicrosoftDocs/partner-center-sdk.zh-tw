@@ -4,13 +4,12 @@ description: 如何接受客戶的訂用帳戶轉移。
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6e0604dd0f611e8a427e51b1b176cc50c476799a
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: f440d1e81f66f07c426e17546188108349f99eb6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489155"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094596"
 ---
 # <a name="accept-a-transfer"></a>接受傳輸
 
@@ -40,8 +39,8 @@ ms.locfileid: "84489155"
 
 | 名稱            | 類型     | 必要 | 說明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
-| **轉移-識別碼** | 字串   | 是      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
+| **客戶識別碼** | 字串   | Yes      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **轉移-識別碼** | 字串   | Yes      | 識別傳輸的 GUID 格式的傳輸識別碼。             |
 
 ### <a name="request-headers"></a>要求標頭
 

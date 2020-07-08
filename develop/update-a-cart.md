@@ -4,27 +4,26 @@ description: 如何更新購物車中的客戶訂單。
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f6e0a54f088c3e1ecbc00338e67a143b655b708e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 7c0806ccc87281b9b34005f22cd8d6ad57fb5de5
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157640"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095718"
 ---
 # <a name="update-a-cart"></a>更新購物車
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 如何更新購物車中的客戶訂單。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 現有購物車的購物車識別碼。
 
@@ -58,10 +57,10 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 
 使用下列 path 參數來識別客戶，並指定要更新的購物車。
 
-| 名稱            | 類型     | 必要 | 描述                                                            |
+| 名稱            | 類型     | 必要 | 說明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **客戶識別碼** | 字串   | 是      | 識別客戶的 GUID 格式客戶識別碼。             |
-| **購物車-識別碼**     | 字串   | 是      | 可識別購物車的 GUID 格式的購物車識別碼。                     |
+| **客戶識別碼** | 字串   | Yes      | 識別客戶的 GUID 格式客戶識別碼。             |
+| **購物車-識別碼**     | 字串   | Yes      | 可識別購物車的 GUID 格式的購物車識別碼。                     |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -73,27 +72,27 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 
 | 屬性              | 類型             | 必要        | 描述                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | 字串           | 否              | 成功建立購物車時所提供的購物車識別碼。                                  |
-| creationTimeStamp     | Datetime         | 否              | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。        |
-| lastModifiedTimeStamp | Datetime         | 否              | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。    |
-| expirationTimeStamp   | Datetime         | 否              | 購物車將到期的日期，以日期時間格式為限。  已在成功建立購物車時申請。            |
-| lastModifiedUser      | 字串           | 否              | 上次更新購物車的使用者。 已在成功建立購物車時申請。                             |
-| lineItems             | 物件的陣列 | 是             | [CartLineItem](cart-resources.md#cartlineitem)資源的陣列。                                               |
+| id                    | 字串           | No              | 成功建立購物車時所提供的購物車識別碼。                                  |
+| creationTimeStamp     | Datetime         | No              | 購物車的建立日期（以日期時間格式）。 已在成功建立購物車時套用。        |
+| lastModifiedTimeStamp | Datetime         | No              | 購物車上次更新的日期（以日期時間格式）。 已在成功建立購物車時套用。    |
+| expirationTimeStamp   | Datetime         | No              | 購物車將到期的日期，以日期時間格式為限。  已在成功建立購物車時申請。            |
+| lastModifiedUser      | 字串           | No              | 上次更新購物車的使用者。 已在成功建立購物車時申請。                             |
+| lineItems             | 物件的陣列 | Yes             | [CartLineItem](cart-resources.md#cartlineitem)資源的陣列。                                               |
 
 下表描述要求主體中的[CartLineItem](cart-resources.md#cartlineitem)屬性。
 
 | 屬性             | 類型                        | 必要     | 描述                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| id                   | 字串                      | 否           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                |
-| catalogId            | 字串                      | 是          | 目錄專案識別碼。                                                                       |
-| friendlyName         | 字串                      | 否           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。              |
-| quantity             | int                         | 是          | 授權或實例的數目。     |
-| currencyCode         | 字串                      | 否           | 貨幣代碼。                                                                                 |
+| id                   | 字串                      | No           | 購物車明細專案的唯一識別碼。 已在成功建立購物車時申請。                |
+| catalogId            | 字串                      | Yes          | 目錄專案識別碼。                                                                       |
+| friendlyName         | 字串                      | No           | 選擇性。 由夥伴定義以協助區分的專案易記名稱。              |
+| quantity             | int                         | Yes          | 授權或實例的數目。     |
+| currencyCode         | 字串                      | No           | 貨幣代碼。                                                                                 |
 | billingCycle         | Object                      | 是          | 針對目前期間所設定的計費週期類型。                                              |
-| 參與者         | 物件字串配對的清單 | 否           | 購買的參與者集合。                                                      |
-| provisioningCoNtext  | 字典<字串，字串>  | 否           | 用於布建供應專案的內容。                                                          |
-| orderGroup           | 字串                      | 否           | 用來指出哪些專案可以放在一起的群組。                                            |
-| error                | Object                      | 否           | 在購物車建立後，發生錯誤時套用。                                                 |
+| 參與者         | 物件字串配對的清單 | No           | 購買的參與者集合。                                                      |
+| provisioningCoNtext  | 字典<字串，字串>  | No           | 用於布建供應專案的內容。                                                          |
+| orderGroup           | 字串                      | No           | 用來指出哪些專案可以放在一起的群組。                                            |
+| 錯誤                | Object                      | No           | 在購物車建立後，發生錯誤時套用。                                                 |
 
 ### <a name="request-example"></a>要求範例
 

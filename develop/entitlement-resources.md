@@ -1,21 +1,19 @@
 ---
 title: 權利資源
 description: 描述與權利相關的資源。
-ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 28382b24c6956f9d5b95310ae0d21769207dcb48
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: d9dbba36fb8db8d040bd61d53483c56467987691
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125599"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094006"
 ---
 # <a name="entitlement-resources"></a>權利資源
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -26,7 +24,7 @@ ms.locfileid: "82125599"
 
 此資源代表客戶因為從目錄中的專案購買合作夥伴，而有權使用的產品。
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | Description |
 |----------|------|-------------|
 | referenceOrder | [ReferenceOrder](#referenceorder) | 產生權利的順序參考。 |
 | productId | 字串 | 產品的識別碼。 |
@@ -42,7 +40,7 @@ ms.locfileid: "82125599"
 
 權利的順序參考。
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | Description |
 |----------|------|-------------|
 | id | 字串 | 參考之順序的識別碼。 |
 | lineItemId | 字串 | 參考之訂單明細專案的識別碼。 |
@@ -52,7 +50,7 @@ ms.locfileid: "82125599"
 
 表示權利數量的詳細資料。
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | Description |
 |----------|------|-------------|
 | quantity | int | 項目數。 |
 | status | 字串 | 數量的狀態。 |
@@ -73,10 +71,10 @@ ms.locfileid: "82125599"
 
 與權利相關聯的成品。
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | Description |
 |----------|------|-------------|
 | artifactType | 字串 | 成品的類型。 （從 SDK 1.8 中的[ArtifactType](#artifacttype)更新為字串） |
-| dynamicAttributes | 字典&lt;字串，物件&gt; | 包含 artifacttype 特定值的動態屬性。 例如，當 artifactType = "reservedinstance" 時，此屬性會包含 "reservationType" = "virtualmachines" 或 "reservationType" = "sqldatabases"，表示虛擬機器保留實例或 Azure SQL 保留實例。 （從 SDK 1.9 版開始提供） |
+| dynamicAttributes | 字典 &lt; 字串，物件&gt; | 包含 artifacttype 特定值的動態屬性。 例如，當 artifactType = "reservedinstance" 時，此屬性會包含 "reservationType" = "virtualmachines" 或 "reservationType" = "sqldatabases"，表示虛擬機器保留實例或 Azure SQL 保留實例。 （從 SDK 1.9 版開始提供） |
 
 ## <a name="artifacttype"></a>ArtifactType
 
@@ -93,7 +91,7 @@ ms.locfileid: "82125599"
 
 與 Azure 保留實例權利相關聯的成品。 它繼承自成品[類別。](#artifact)
 
-| 屬性   | 類型                           | 描述                                        |
+| 屬性   | 類型                           | Description                                        |
 |------------|--------------------------------|----------------------------------------------------|
 | link       | [連結](./utility-resources.md#link) | 取得所有關聯成品詳細資料的連結。   |
 | resourceID | 字串                         | Azure 保留順序或資源的識別碼。 |
@@ -111,7 +109,7 @@ ms.locfileid: "82125599"
 
 表示個別保留區。
 
-| 屬性          | 類型                           | 描述                                                        |
+| 屬性          | 類型                           | Description                                                        |
 |-------------------|--------------------------------|--------------------------------------------------------------------|
 | reservationId     | 字串                         | 保留的識別碼。                                         |
 | scopeType         | 字串                         | 與虛擬機器保留相關聯的範圍類型。 |
@@ -129,7 +127,7 @@ ms.locfileid: "82125599"
 
 與 Azure 保留的虛擬機器實例權利相關聯的成品。 它繼承自成品[類別。](#artifact)
 
-| 屬性   | 類型                              | 描述                                        |
+| 屬性   | 類型                              | Description                                        |
 |------------|-----------------------------------|----------------------------------------------------|
 | link       | [連結](utility-resources.md#link) | 取得所有關聯成品詳細資料的連結。   |
 | resourceID | 字串                            | Azure 保留順序或資源的識別碼。 |
@@ -143,7 +141,7 @@ ms.locfileid: "82125599"
 
 | 屬性                    | 類型                                                                 | 描述           |
 |-----------------------------|----------------------------------------------------------------------|-----------------------|
-| type                        | [ArtifactType](#artifacttype)                                        | 成品的類型。 |
+| 類型                        | [ArtifactType](#artifacttype)                                        | 成品的類型。 |
 | virtualMachineReservations  | IEnumerable<[VirtualMachineReservation](#virtualmachinereservation)> | 指出 Azure 資源或保留訂單識別碼。 |
 
 ## <a name="virtualmachinereservation"></a>VirtualMachineReservation
@@ -153,7 +151,7 @@ ms.locfileid: "82125599"
 
 代表個別的虛擬機器保留。
 
-|     屬性      |              類型              |                                                描述                                                 |
+|     屬性      |              類型              |                                                Description                                                 |
 |-------------------|--------------------------------|------------------------------------------------------------------------------------------------------------|
 |   reservationId   |             字串             |                                         保留的識別碼。                                         |
 |     scopeType     |             字串             |                     與虛擬機器保留相關聯的範圍類型。                     |

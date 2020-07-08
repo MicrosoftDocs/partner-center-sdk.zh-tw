@@ -1,17 +1,17 @@
 ---
 title: 客戶資源
 description: 代表客戶或轉銷商的客戶資源。
-ms.assetid: C7EC2657-62F2-43B3-B171-2F74498D45E0
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fe2326692de3dca0da1cedcec3a933819ae33b55
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: edfde5a11d22460f30f2fc39a27341ce28eed9c1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665176"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094303"
 ---
 # <a name="customer-resources"></a>客戶資源
 
@@ -35,10 +35,10 @@ ms.locfileid: "81665176"
 | commerceId            | 字串                                                           | 商務識別碼。                                                                                                                             |
 | companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | 公司或組織的其他相關資訊。                                                                                    |
 | billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | 用於計費的其他資訊。                                                                                                     |
-| relationshipToPartner | 字串                                                           | 定義合作夥伴用於此客戶的授權方案：「無」、「轉售商」、「顧問」、「新聞訂閱」或「microsoft\_支援服務」。 |
+| relationshipToPartner | 字串                                                           | 定義合作夥伴用於此客戶的授權方案：「無」、「轉售商」、「顧問」、「新聞訂閱」或「microsoft \_ 支援服務」。 |
 | allowDelegatedAccess  | boolean                                                          | 合作夥伴是否已被此客戶授與委派的系統管理員許可權。 只有在依識別碼取得客戶時，才可以使用此屬性，而不是依清單。                                                         |
 | userCredentials       | [UserCredentials](user-resources.md#usercredentials) | 使用者認證。                                                                                                                        |
-| customDomains         | 字串的陣列                                                 | 客戶的自訂網域清單。                                                                                                        |
+| customDomains         | 字串陣列                                                 | 客戶的自訂網域清單。                                                                                                        |
 | associatedPartnerId   | 字串                                                           | 與此客戶帳戶相關聯的間接轉售商。 此值只能由間接 CSP 合作夥伴設定。                              |
 | 連結                 | [ResourceLinks](utility-resources.md#resourcelinks)             | 設定檔中包含的資源連結。                                                                                             |
 | 屬性            | [ResourceAttributes](utility-resources.md#resourceattributes)   | 對應至設定檔的中繼資料屬性。                                                                                        |
@@ -47,7 +47,7 @@ ms.locfileid: "81665176"
 
 **CustomerCompanyProfile**資源是公司或組織的其他相關資訊。
 
-| 屬性    | 類型                                                           | 描述                                                                       |
+| 屬性    | 類型                                                           | Description                                                                       |
 |-------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | tenantId    | 字串                                                         | Azure AD 的客戶租使用者識別碼。 這也稱為 MicrosoftID。 |
 | 網域      | 字串                                                         | 客戶的名稱，例如 contoso.onmicrosoft.com。                             |
@@ -76,7 +76,7 @@ ms.locfileid: "81665176"
 
 **CustomerRelationshipRequest**資源包含客戶用來與夥伴建立轉銷商關係的 URL。
 
-| 屬性   | 類型                                                           | 描述                                                              |
+| 屬性   | 類型                                                           | Description                                                              |
 |------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
 | url        | 字串                                                         | 客戶用來與夥伴建立關聯性的 URL。 |
 | 屬性 | [ResourceAttributes](utility-resources.md#resourceattributes) | 對應至關聯性要求的中繼資料屬性。       |

@@ -1,21 +1,19 @@
 ---
 title: 驗證位址
 description: 如何使用位址驗證 API 驗證位址。
-ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 402c7ff4d1c713eb57ade674a76f4e66033ba428
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 22d5faec2fdab4907067bb01cb74e110032dea9a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157860"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095498"
 ---
 # <a name="validate-an-address"></a>驗證位址
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -26,7 +24,7 @@ ms.locfileid: "82157860"
 
 位址驗證 API 只應用於客戶設定檔更新的預先驗證。 請使用它來瞭解，如果國家/地區為美國、加拿大、中國或墨西哥，則 [狀態] 欄位會針對個別國家/地區的有效狀態清單進行驗證。 在所有其他國家/地區，則不會進行這項測試，而且 API 只會檢查狀態是否為有效的字串。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -141,12 +139,12 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 下表描述要求主體中的必要屬性。
 
-| 名稱         | 類型   | 必要 | 描述                                                |
+| 名稱         | 類型   | 必要 | 說明                                                |
 |--------------|--------|----------|------------------------------------------------------------|
 | addressline1 | 字串 | Y        | 地址的第一行。                             |
 | addressline2 | 字串 | N        | 第二行地址。 這是選用屬性。 |
 | city         | 字串 | Y        | 城市。                                                  |
-| State        | 字串 | Y        | 狀態。                                                 |
+| state        | 字串 | Y        | 狀態。                                                 |
 | postalcode   | 字串 | Y        | 郵遞區號。                                           |
 | country      | 字串 | Y        | 兩個字元的 ISO alpha-2 國家/地區代碼。                |
 

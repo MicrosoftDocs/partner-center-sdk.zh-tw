@@ -1,21 +1,21 @@
 ---
 title: 取得客戶授權使用資訊
 description: 如何取得特定客戶的授權使用量見解。
-ms.assetid: 02B98495-9FE7-4A9F-B1DD-B14563D0FF29
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d853665bf4f7e9cac8e58871416d3f67c86cfe5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 5e54c002412bdea689c96f3ba5327612411424e7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157540"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093753"
 ---
 # <a name="get-customer-licenses-usage-information"></a>取得客戶授權使用資訊
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
@@ -24,7 +24,7 @@ ms.locfileid: "82157540"
 > [!NOTE]
 > 此案例是透過[取得授權使用資訊](get-licenses-usage-information.md)來取代。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
@@ -51,9 +51,9 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 使用下列路徑參數來識別客戶。
 
-| 名稱        | 類型 | 必要 | 描述                                                |
+| 名稱        | 類型 | 必要 | 說明                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| customer-id | guid | 是      | 識別客戶的 GUID 格式客戶識別碼。 |
+| customer-id | guid | Yes      | 識別客戶的 GUID 格式客戶識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 

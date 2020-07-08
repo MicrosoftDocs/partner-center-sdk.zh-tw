@@ -1,21 +1,19 @@
 ---
 title: 更新客戶的使用量支出預算
 description: 更新為客戶使用而配置的消費預算。
-ms.assetid: D7843FBF-81FC-4FA0-8396-6365E12FB01B
 ms.date: 02/05/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7afd48db759e776cc832ccba704cf9b188eb8ebb
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: aa33c15031132024a6a89a36ca0ce1c45a9b0840
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095610"
 ---
 # <a name="update-a-customers-usage-spending-budget"></a>更新客戶的使用量支出預算
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
@@ -23,11 +21,11 @@ ms.locfileid: "82157960"
 
 更新為客戶使用而配置的[消費預算](customer-usage-resources.md#customerusagesummary)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
@@ -59,7 +57,7 @@ var usageBudget = partnerOperations.Customers.ById(selectedCustomerId).UsageBudg
 
 使用下列查詢參數來更新帳單設定檔。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 

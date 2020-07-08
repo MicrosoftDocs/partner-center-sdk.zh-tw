@@ -4,13 +4,12 @@ description: 如何刪除自助服務原則。
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8c1227c6e24f0358ecfe7967e2f87b8313a33ac5
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: e8a8122e0049846f6a4c04d814359b1d649c269b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564336"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094177"
 ---
 # <a name="delete-a-selfservepolicy"></a>刪除 SelfServePolicy
 
@@ -20,7 +19,7 @@ ms.locfileid: "82564336"
 
 本主題說明如何更新自助服務原則。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
@@ -36,9 +35,9 @@ ms.locfileid: "82564336"
 
 使用下列路徑參數來取得指定的產品。
 
-| 名稱                       | 類型         | 必要 | 描述                                                     |
+| 名稱                       | 類型         | 必要 | 說明                                                     |
 |----------------------------|--------------|----------|-----------------------------------------------------------------|
-| **SelfServePolicy-id**     | **string**   | 是      | 識別自助服務原則的字串。                 |
+| **SelfServePolicy-id**     | **string**   | Yes      | 識別自助服務原則的字串。                 |
 
 ### <a name="request-headers"></a>要求標頭
 

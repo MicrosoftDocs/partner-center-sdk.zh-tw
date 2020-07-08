@@ -1,21 +1,19 @@
 ---
 title: 合作夥伴中心 REST 標頭
 description: 合作夥伴中心 REST API 支援下列 HTTP 要求和回應標頭。
-ms.assetid: 38A43A4C-EC31-4554-A747-0DC04B77CB99
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5ec3532ed30b3a9ff933bbda4e4923862091c895
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b0c8f25fa86c015066f8d0cb6ee080b88bbad782
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095188"
 ---
 # <a name="partner-center-rest-headers"></a>合作夥伴中心 REST 標頭
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -28,7 +26,7 @@ ms.locfileid: "82157140"
 
 合作夥伴中心 REST API 支援下列 HTTP 要求標頭。
 
-| 頁首                       | 描述                                                                                                                                                                                                                                                                            | 數值類型 |
+| Header                       | Description                                                                                                                                                                                                                                                                            | 數值類型 |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | 授權：               | 必要。 採用持有人&lt;權杖&gt;格式的授權權杖。                                                                                                                                                                                                                    | 字串     |
 | 接受                      | 指定要求和回應類型 "application/json"。                                                                                                                                                                                                                           | 字串     |
@@ -43,7 +41,7 @@ ms.locfileid: "82157140"
 
 合作夥伴中心 REST API 可能會傳回下列 HTTP 回應標頭。
 
-| 頁首            | 描述                                                                                                                                                                                                                                 | 數值類型 |
+| Header            | Description                                                                                                                                                                                                                                 | 數值類型 |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | 接受           | 指定要求和回應類型 "application/json"。                                                                                                                                                                                | 字串     |
 | MS-RequestId：     | 呼叫的唯一識別碼，用來確保 id-potency。 如果有超時，則重試呼叫應包含相同的值。 收到回應 (成功或業務失敗) 時，應針對下一個呼叫重設此值。 | GUID       |

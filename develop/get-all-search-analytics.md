@@ -1,21 +1,19 @@
 ---
 title: 取得所有搜尋的分析資訊
 description: 如何取得所有搜尋分析資訊。
-ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 10e607a0fd2c973909c4b8aa57d6c7074eab9503
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 967f8d0ed2d276e0f68a047204b64d83dc69da95
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156560"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093972"
 ---
 # <a name="get-all-search-analytics-information"></a>取得所有搜尋的分析資訊
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +22,7 @@ ms.locfileid: "82156560"
 
 如何取得客戶的所有搜尋分析資訊。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
@@ -34,17 +32,17 @@ ms.locfileid: "82156560"
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **GET** | baseURL/partner/v1/analytics/search HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/search HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
-|    參數     |  類型  |                                                                                                                   描述                                                                                                                    |
+|    參數     |  類型  |                                                                                                                   Description                                                                                                                    |
 |------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      filter      | 字串 |                                                                     傳回符合篩選準則的資料。 </br> **範例：**</br> `.../search?filter=field eq 'value'`                                                                     |
-|     groupby      | 字串 |                                         支援條款和日期。 用來限制值區數目的短路邏輯。 </br> **範例：**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
-| aggregationLevel | 字串 | *AggregationLevel*參數需要*groupby*。 *AggregationLevel*參數會套用到出現在*groupby*中的所有日期欄位。 </br> **範例：**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
-|       top        | 字串 |                                                                     頁面限制為10000。 採用小於10000的任何值。  </br> **範例：**</br>  `.../search?top=100`                                                                     |
-|       skip       | 字串 |                                                                                  要略過的資料列數目。 </br> **範例：**</br> `.../search?top=100&skip=100`                                                                                   |
+|      filter      | 字串 |                                                                     傳回符合篩選準則的資料。 </br> **範例︰**</br> `.../search?filter=field eq 'value'`                                                                     |
+|     groupby      | 字串 |                                         支援條款和日期。 用來限制值區數目的短路邏輯。 </br> **範例︰**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
+| aggregationLevel | 字串 | *AggregationLevel*參數需要*groupby*。 *AggregationLevel*參數會套用到出現在*groupby*中的所有日期欄位。 </br> **範例︰**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
+|       top        | 字串 |                                                                     頁面限制為10000。 採用小於10000的任何值。  </br> **範例︰**</br>  `.../search?top=100`                                                                     |
+|       skip       | 字串 |                                                                                  要略過的資料列數目。 </br> **範例︰**</br> `.../search?top=100&skip=100`                                                                                   |
 
 ### <a name="request-headers"></a>要求標頭
 

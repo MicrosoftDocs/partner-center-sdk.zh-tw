@@ -1,21 +1,21 @@
 ---
 title: 取得所有 Azure 使用情形的分析資訊
 description: 如何取得所有 Azure 使用量分析資訊。
-ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e05ab42b154457ae0db079ff0d90d836a7da7d3e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: c6302a2223bbb9c56943b04175a9cba44db1d1d2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156760"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095231"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>取得所有 Azure 使用情形的分析資訊
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心
@@ -24,7 +24,7 @@ ms.locfileid: "82156760"
 
 如何取得客戶的所有 Azure 使用量分析資訊。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用使用者認證進行驗證。
 
@@ -34,7 +34,7 @@ ms.locfileid: "82156760"
 
 | 方法  | 要求 URI |
 |---------|-------------|
-| **GET** | baseURL/partner/v1/analytics/usage/azure HTTP/1.1 [* \{ \} *](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
@@ -47,7 +47,7 @@ ms.locfileid: "82156760"
         <p>類型</p>
       </th>
       <th>
-        <p>描述</p>
+        <p>Description</p>
       </th>
   </thead>
   <tbody>
@@ -70,7 +70,7 @@ ms.locfileid: "82156760"
         <p>int</p>
       </td>
       <td>
-        <p>在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如， <code>top=10000 and skip=0</code>會抓取前10000個數據列， <code>top=10000 and skip=10000</code>並抓取接下來的10000個數據列，依此類推。</p>
+        <p>在查詢中要略過的資料列數目。 使用此參數來瀏覽大型資料集。 例如，會抓取 <code>top=10000 and skip=0</code> 前10000個數據列， <code>top=10000 and skip=10000</code> 並抓取接下來的10000個數據列，依此類推。</p>
       </td>
     </tr>
     <tr>
@@ -81,7 +81,7 @@ ms.locfileid: "82156760"
         <p>字串</p>
       </td>
       <td>
-        <p>要求的 <em>filter</em> 參數包含在回應中篩選資料列的一或多個陳述式。 每個語句都包含與<strong> <code>eq</code> </strong> <strong> <code>ne</code> </strong>或運算子相關聯的欄位和值，而且語句可以使用<strong> <code>and</code> </strong>或<strong> <code>or</code> </strong>結合。 您可以指定下列各項：</p>
+        <p>要求的 <em>filter</em> 參數包含在回應中篩選資料列的一或多個陳述式。 每個語句都包含與或運算子相關聯的欄位和值 <strong> <code>eq</code> </strong> <strong> <code>ne</code> </strong> ，而且語句可以使用或結合 <strong> <code>and</code> </strong> <strong> <code>or</code> </strong> 。 您可以指定下列各項：</p>
         <ul>
           <li><code>customerTenantId</code></li>
           <li><code>customerName</code></li>
@@ -97,10 +97,10 @@ ms.locfileid: "82156760"
           <li><code>consumptionMeterId</code></li>
           <li><code>serviceType</code></li>
         </ul>
-        <p><strong>範例：</strong></br>
+        <p><strong>範例︰</strong></br>
           <code>.../usage/azure?filter=meterCategory eq &#39;Data Management&#39;</code>
         </p>
-        <p><strong>範例：</strong></br>
+        <p><strong>範例︰</strong></br>
           <code>.../usage/azure?filter=meterCategory eq &#39;Data Management&#39; or (usageDate le cast(&#39;2018-01-01&#39;, Edm.DateTimeOffset) and usageDate le cast(&#39;2018-04-01&#39;, Edm.DateTimeOffset))</code>
         </p>
       </td>
@@ -113,8 +113,8 @@ ms.locfileid: "82156760"
         <p>字串</p>
       </td>
       <td>
-        <p>指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串： <code>day</code>、 <code>week</code>或。 <code>month</code> 如果未指定，則預設<code>day</code>值為。</p>
-      <p>在<code>aggregationLevel</code>沒有的<code>groupby</code>情況下，不支援參數。 <code>aggregationLevel</code>參數會套用至存在於中的<code>groupby</code>所有日期欄位。</p>
+        <p>指定要擷取彙總資料的時間範圍。 可以是下列其中一個字串： <code>day</code> 、 <code>week</code> 或 <code>month</code> 。 如果未指定，則預設值為 <code>day</code> 。</p>
+      <p>在 <code>aggregationLevel</code> 沒有的情況下，不支援參數 <code>groupby</code> 。 <code>aggregationLevel</code>參數會套用至存在於中的所有日期欄位 <code>groupby</code> 。</p>
       </td>
     </tr>
     <tr>
@@ -141,8 +141,8 @@ ms.locfileid: "82156760"
           <li><code>consumptionMeterId</code></li>
           <li><code>serviceType</code></li>
         </ul>
-        <p><em>Order</em>參數是選擇性的，而且可以<code>asc</code>是<code>desc</code>或;分別指定每個欄位的遞增或遞減順序。 預設值為 <code>asc</code>。</p>
-        <p><strong>範例：</strong><br/>
+        <p><em>Order</em>參數是選擇性的，而且可以是 <code>asc</code> 或 <code>desc</code> ; 分別指定每個欄位的遞增或遞減順序。 預設值為 <code>asc</code>。</p>
+        <p><strong>範例︰</strong><br/>
           <code>...&orderby=meterCategory,meterUnit</code>
         </p>
       </td>
@@ -171,9 +171,9 @@ ms.locfileid: "82156760"
           <li><code>consumptionMeterId</code></li>
           <li><code>serviceType</code></li>
         </ul>
-        <p>傳回的資料列將包含<code>groupby</code>參數中所指定的欄位，以及<em>數量</em>。</p>
-        <p><code>groupby</code>參數可以與<code>aggregationLevel</code>參數搭配使用。</p>
-        <p><strong>範例：</strong></br>
+        <p>傳回的資料列將包含參數中所指定的欄位，以及 <code>groupby</code> <em>數量</em>。</p>
+        <p><code>groupby</code>參數可以與參數搭配使用 <code>aggregationLevel</code> 。</p>
+        <p><strong>範例︰</strong></br>
           <code>...&groupby=meterCategory,meterUnit</code>
         </p>
       </td>

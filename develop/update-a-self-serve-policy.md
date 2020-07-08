@@ -4,13 +4,12 @@ description: 如何更新自助服務原則。
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d618d27dc7e17ff37b3186ad20fbc28057024538
-ms.sourcegitcommit: 093dd5bb3e1a4d3d02839b39cec2b62d5800fd3a
+ms.openlocfilehash: 23816461daab4339d35e19a1004a69fa8f713acf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83383903"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095588"
 ---
 # <a name="update-a-selfservepolicy"></a>更新 SelfServePolicy
 
@@ -20,7 +19,7 @@ ms.locfileid: "83383903"
 
 本主題說明如何更新自助服務原則。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
@@ -41,7 +40,7 @@ ms.locfileid: "83383903"
 
 下表描述要求主體中的必要屬性。
 
-| 名稱                              | 類型   | 描述                                 |
+| 名稱                              | 類型   | Description                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
 | [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| 物件 (object) | 自助服務原則資訊。 |
 
@@ -49,7 +48,7 @@ ms.locfileid: "83383903"
 
 下表說明建立新的自助原則所需的[SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)資源所需的最低欄位。
 
-| 屬性              | 類型             | 描述                                                                                            |
+| 屬性              | 類型             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | id                    | 字串           | 成功建立自助原則時所提供的自助原則識別碼。     |
 | SelfServeEntity       | SelfServeEntity  | 要授與存取權的自助實體。                                                     |

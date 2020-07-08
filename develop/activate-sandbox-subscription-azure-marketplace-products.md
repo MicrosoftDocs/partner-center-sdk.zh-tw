@@ -4,13 +4,12 @@ description: 啟用商業 marketplace 產品的沙箱訂閱。
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cee833f110c45e8f53a47aed3d8a8c3b1ccd6946
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: f7b6edef3984b64f04bdbec1f02218a4a84ca04e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154370"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095240"
 ---
 # <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>啟用商業市集產品的沙箱訂用帳戶
 
@@ -23,7 +22,7 @@ ms.locfileid: "82154370"
 > [!NOTE]
 > 您只可以從整合沙箱帳戶啟用商業 marketplace SaaS 產品的訂閱。 如果您有生產訂用帳戶，則必須造訪發行者的網站，才能完成安裝程式。 只有在安裝完成後，訂用帳戶才會開始計費。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 
@@ -57,7 +56,7 @@ ms.locfileid: "82154370"
 
 ### <a name="uri-parameter"></a>URI 參數
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | Y | 此值是 GUID 格式的客戶租使用者識別碼（**客戶租使用者 id**），可讓您指定客戶。 |
 | **訂用帳戶識別碼** | **guid** | Y | 此值是 GUID 格式的訂用帳戶識別碼（訂用帳戶**id**），可讓您指定訂用帳戶。 |

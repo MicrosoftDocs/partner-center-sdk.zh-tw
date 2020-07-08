@@ -1,31 +1,29 @@
 ---
 title: 取得權利的集合
 description: 如何取得權利的集合。
-ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 13e2b33d030eb344616e5db40c94447851804b3d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b57e493958386df7a493bcbdc79121b09fcd72e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155770"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093969"
 ---
 # <a name="get-a-collection-of-entitlements"></a>取得權利的集合
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 
 如何取得權利的集合。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
@@ -56,11 +54,11 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱 | 類型 | 必要 | 描述 |
+| 名稱 | 類型 | 必要 | 說明 |
 |------|------|----------|-------------|
-| customerId | 字串 | 是 | 識別客戶的 GUID 格式的 customerId。 |
-| entitlementType | 字串 | 否 | 可以用來指定要抓取的權利類型（**軟體**或**reservedInstance** ）。 如果未設定，則會抓取所有類型 |
-| showExpiry | boolean | 否 | 選擇性旗標，指出是否需要權利到期日。 |
+| customerId | 字串 | Yes | 識別客戶的 GUID 格式的 customerId。 |
+| entitlementType | 字串 | No | 可以用來指定要抓取的權利類型（**軟體**或**reservedInstance** ）。 如果未設定，則會抓取所有類型 |
+| showExpiry | boolean | No | 選擇性旗標，指出是否需要權利到期日。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -179,7 +177,7 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 
 下列範例示範如何抓取特定類型的權利以及到期日（如果適用）
 
-### <a name="c-example"></a>C\#範例
+### <a name="c-example"></a>C \# 範例
 
 若要取得特定類型的權利，請從**權利**介面取得**ByEntitlementType**介面，並使用**Get （）** 或**GetAsync （）** 方法。
 
@@ -307,7 +305,7 @@ Date: Mon, 28 Jan 2019 18:31:43 GMT
 
 ### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>使用 SDK 1.8 取得權利中的虛擬機器保留詳細資料
 
-### <a name="c-example"></a>C\#範例
+### <a name="c-example"></a>C \# 範例
 
 若要從權利中抓取虛擬機器保留專案的詳細資料，請叫用 entitledArtifacts 底下公開的 URI，artifactType = virtual_machine_reserved_instance。
 
@@ -359,9 +357,9 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 
 ### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>使用 SDK v3.0 從權利中取出保留詳細資料
 
-### <a name="c-example"></a>C\#範例
+### <a name="c-example"></a>C \# 範例
 
-若要從保留實例權利中取得保留的更多詳細資料，請叫```entitledArtifacts.link```用```artifactType = reservedinstance```底下公開的 URI。
+若要從保留實例權利中取得保留的更多詳細資料，請叫用底下公開的 URI ```entitledArtifacts.link``` ```artifactType = reservedinstance``` 。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();

@@ -4,13 +4,12 @@ description: 開發人員可以使用合作夥伴中心 Api 來建立及管理�
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d3c030d7e808e5bc40b985ce02dda84672a020c
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: df2a3707e00ba36a11c404b102304c08d105244e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125430"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094375"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>建立商業 marketplace 產品的訂用帳戶
 
@@ -22,7 +21,7 @@ ms.locfileid: "82125430"
 
 您也可以[執行生命週期管理](#lifecycle-management)，並管理這些訂閱的[發票](#invoice-and-reconciliation)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 * [合作夥伴中心驗證認證](partner-center-authentication.md)。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
 * 客戶識別碼。 如果您沒有客戶的識別碼，請依照[取得客戶清單](get-a-list-of-customers.md)中的步驟進行。 或者，登入合作夥伴中心，從客戶清單中選擇客戶，選取 [**帳戶**]，然後儲存其**Microsoft 識別碼**。
@@ -41,7 +40,7 @@ ms.locfileid: "82125430"
 
     * [取得產品清單](get-a-list-of-products.md)
     * [使用產品識別碼取得產品](get-a-product-by-id.md)
-    * [取得產品的 Sku 清單](get-a-list-of-skus-for-a-product.md)
+    * [取得產品的 SKU 清單](get-a-list-of-skus-for-a-product.md)
     * [使用 SKU 識別碼取得 SKU](get-a-sku-by-id.md)
 
     > [!NOTE]
@@ -54,7 +53,7 @@ ms.locfileid: "82125430"
 
 3. 取得 SKU 的可用性。 在下訂單時，您將需要可用性的**CatalogItemId** ，您可以透過下列 api 來取得：
 
-    * [取得 SKU 的 hdinsight 清單](get-a-list-of-availabilities-for-a-sku.md)
+    * [取得 SKU 的可用性清單](get-a-list-of-availabilities-for-a-sku.md)
     * [使用可用性識別碼取得可用性](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>建立並提交訂單
@@ -92,9 +91,9 @@ ms.locfileid: "82125430"
 
 您可以使用下列方法來管理客戶[發票](invoice-resources.md)（包括商用 marketplace 產品的訂閱費用）：
 
-* [取得發票計費的商業 marketplace 耗用量明細專案](get-invoice-billed-consumption-lineitems.md)
+* [取得已開立發票的商業市集取用量明細](get-invoice-billed-consumption-lineitems.md)
 * [取得發票估算連結](get-invoice-estimate-links.md)
-* [取得發票未開立帳單商用 marketplace 耗用量明細專案](get-invoice-unbilled-consumption-lineitems.md)
+* [取得未開立發票的商業市集取用量明細](get-invoice-unbilled-consumption-lineitems.md)
 * [取得發票未開立帳單對帳明細專案](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>使用整合沙箱帳戶進行測試

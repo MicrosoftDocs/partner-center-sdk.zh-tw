@@ -1,21 +1,19 @@
 ---
 title: 公用事業
 description: 本節說明合作夥伴可以使用合作夥伴中心以程式設計方式管理公用程式功能的方式。
-ms.assetid: 646301CF-83E5-4BC3-987D-948E984D17F3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4ba6e34e2048f5c91c62f95e8d88307acda83001
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: 2d3745a7a4d0a5bd45fd62c706450383a5e24216
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82088448"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095560"
 ---
 # <a name="utilities"></a>公用事業
 
-**適用于**
+**適用於**
 
 - 合作夥伴中心
 - 由 21Vianet 營運的合作夥伴中心

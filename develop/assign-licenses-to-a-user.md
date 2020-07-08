@@ -1,17 +1,15 @@
 ---
 title: 指派授權給使用者
 description: 如何將授權指派給客戶使用者。
-ms.assetid: 872C7444-DF89-4EB5-8C1E-1D8E2934A40E
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 02a104f53113ef46ecab42314b57a8fe7cff0a54
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 5b9d6b16daed2d93717466ee8f8bc12dc198f2fe
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154780"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095403"
 ---
 # <a name="assign-licenses-to-a-user"></a>指派授權給使用者
 
@@ -21,11 +19,11 @@ ms.locfileid: "82154780"
 
 如何將授權指派給客戶使用者。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
-- 客戶識別碼（`customer-tenant-id`）。 如果您不知道客戶的識別碼，您可以在 [合作夥伴中心][儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表選取 [ **CSP** ]，後面接著 [**客戶**]。 從 [客戶] 清單中選取客戶，然後選取 [**帳戶**]。 在客戶的帳戶頁面上，尋找 [**客戶帳戶資訊**] 區段中的 [ **Microsoft ID** ]。 Microsoft ID 與客戶識別碼（`customer-tenant-id`）相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 客戶的使用者識別碼。 此識別碼會識別要指派授權的使用者。
 
@@ -126,10 +124,10 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 使用下列 path 參數來識別客戶和使用者。
 
-| 名稱        | 類型   | 必要 | 描述                                       |
+| 名稱        | 類型   | 必要 | 說明                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| customer-id | 字串 | 是      | 識別客戶的 GUID 格式識別碼。 |
-| user-id     | 字串 | 是      | 識別使用者的 GUID 格式化識別碼。     |
+| customer-id | 字串 | Yes      | 識別客戶的 GUID 格式識別碼。 |
+| user-id     | 字串 | Yes      | 識別使用者的 GUID 格式化識別碼。     |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -176,7 +174,7 @@ Expect: 100-continue
 
 每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
 
-### <a name="response-example-success"></a>回應範例（成功）
+### <a name="response-example-success"></a>回應範例 (成功)
 
 ```http
 HTTP/1.1 201 Created

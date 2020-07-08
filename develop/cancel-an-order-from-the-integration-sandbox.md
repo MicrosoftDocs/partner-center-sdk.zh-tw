@@ -4,13 +4,12 @@ description: 從整合沙箱帳戶取消訂單。
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 459db3cfb9a85fd2f4a0d32b065d6929ab40006b
-ms.sourcegitcommit: 99fa2c7669f3db84fd00cb5f28ef8d783900c8d3
+ms.openlocfilehash: 9960ee5281d5681a9b93470796f7141ba195ffe1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84121228"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096062"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>從整合沙箱中取消訂單
 
@@ -69,7 +68,7 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 使用下列查詢參數來刪除客戶。
 
-| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 | **訂單識別碼** | **string** | Y        | 值是表示需要取消之訂單識別碼的字串。 |

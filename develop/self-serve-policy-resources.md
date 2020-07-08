@@ -4,13 +4,12 @@ description: 合作夥伴會為客戶設定自助服務原則。
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: dc0da58debb7ea0c32272bf180f26d535110d4a5
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: 04daf6aaeb69153c4139941188f53dbab8979969
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564316"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095844"
 ---
 # <a name="selfservepolicy-resource"></a>SelfServePolicy 資源
 
@@ -24,7 +23,7 @@ ms.locfileid: "82564316"
 
 描述購物車。
 
-| 屬性              | 類型             | 描述                                                                                            |
+| 屬性              | 類型             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | id                    | 字串           | 成功建立自助原則時所提供的自助原則識別碼。     |
 | SelfServeEntity       | SelfServeEntity  | 要授與存取權的自助實體。                                                     |
@@ -35,7 +34,7 @@ ms.locfileid: "82564316"
 
 代表要授與許可權的實體。
 
-| 屬性             | 類型|描述|
+| 屬性             | 類型|Description|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | SelfServeEntityType  | 字串                           | 要授與存取權的實體，接受的值： Customer。                                 |
 | TenantID             | 字串                           | 被授與存取權之實體的租使用者識別碼。                                   |
@@ -44,7 +43,7 @@ ms.locfileid: "82564316"
 
 表示授與許可權的授權者。
 
-| 屬性             | 類型|描述|
+| 屬性             | 類型|Description|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | GrantorType          | 字串                           | 授與者授與存取權，可接受的值： BillToPartner。                               |
 | TenantID             | 字串                           | 授與存取權之實體的租使用者識別碼。                                       |

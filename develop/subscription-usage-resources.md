@@ -1,17 +1,15 @@
 ---
 title: 訂用帳戶使用資源
 description: 訂用帳戶使用資源會以使用量為基礎的計費來描述訂閱。 這些訂用帳戶具有每日和每月使用量記錄，以及每個付款週期的使用量摘要。
-ms.assetid: 61B98AB8-D802-4EC1-91FB-B7A2B95DE20C
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b5317596f8fe77e06aabcda98268186550e7c355
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 8e23287d80f19084860f4597754448e81c01049f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666091"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095795"
 ---
 # <a name="subscription-usage-resources"></a>訂用帳戶使用資源
 
@@ -29,7 +27,7 @@ ms.locfileid: "81666091"
 
 **SubscriptionDailyUsageRecord**資源描述一個訂用帳戶在一天內使用的數量。
 
-| 屬性         | 類型               | 描述                                                                                   |
+| 屬性         | 類型               | Description                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
 | DateUsed         | 字串             | 使用訂閱的日（以日期時間格式表示）。                                 |
 | ResourceId       | 字串             | GUID。 資源的唯一識別碼。                                                          |
@@ -43,7 +41,7 @@ ms.locfileid: "81666091"
 
 **SubscriptionMonthlyUsageRecord**資源描述一個月內有多少訂用帳戶。
 
-| 屬性         | 類型               | 描述                                                                                   |
+| 屬性         | 類型               | Description                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
 | 狀態           | 字串             | 訂用帳戶的狀態： [無]、[作用中]、[已暫停] 或 [已刪除]。                  |
 | PartnerOnRecord  | 字串             | 「記錄上合作夥伴的 MPN 識別碼」。                                                        |
@@ -61,7 +59,7 @@ ms.locfileid: "81666091"
 
 **SubscriptionUsageSummary**資源描述在目前計費週期中使用的特定訂用帳戶數量。
 
-| 屬性         | 類型               | 描述                                                                                                            |
+| 屬性         | 類型               | Description                                                                                                            |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------------|
 | ResourceId       | 字串             | GUID。 訂用帳戶或資源的識別碼。 在 CustomerMonthlyUsageRecord 的內容中，此識別碼是客戶識別碼。 |
 | ResourceName     | 字串             | 訂用帳戶或資源的名稱。 在 CustomerMonthlyUsageRecord 的內容中，此名稱是客戶名稱。 |

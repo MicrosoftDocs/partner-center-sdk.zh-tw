@@ -1,17 +1,17 @@
 ---
 title: 取得發票摘要
 description: 您可以針對每個貨幣類型使用發票摘要資源，以顯示週期性和一次性費用的餘額和總費用。
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ea3eedf7b19f3160cd9d1eee76d58f80700151a8
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 82cd669117db72e1819d941f48f8ea69b2eddaec
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157430"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093534"
 ---
 # <a name="get-invoice-summaries"></a>取得發票摘要
 
@@ -24,9 +24,9 @@ ms.locfileid: "82157430"
 
 您可以使用**InvoiceSummaries**來抓取發票摘要，其中顯示週期性和一次性費用的餘額和總費用。 **InvoiceSummaries**資源包含每個貨幣類型的發票摘要。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用應用程式 + 使用者認證進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
 - 有效的發票識別碼。
 
@@ -51,7 +51,7 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 
 如需詳細資訊，請參閱下列範例程式碼：
 
-- 範例：[主控台測試應用程式](console-test-app.md)
+- 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSample**
 - 類別： **GetInvoiceSummaries.cs**
 

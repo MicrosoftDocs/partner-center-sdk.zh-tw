@@ -1,17 +1,15 @@
 ---
 title: 訂用帳戶資源
 description: 訂用帳戶資源可以在整個生命週期中提供有關訂閱的進一步資訊，例如支援、退款、Azure 權利。
-ms.assetid: E99B5EC3-2247-4CAD-B651-3000E36AF6B6
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: eb6a3c77b65e003db95a3959953077d35a2e79a6
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: fd835e46e99b1fcb1e0b0e694ad73b1dca1240c9
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666101"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095995"
 ---
 # <a name="subscription-resources"></a>訂用帳戶資源
 
@@ -52,9 +50,9 @@ ms.locfileid: "81666101"
 | isTrial              | boolean                                                       | 值，指出這是否為試用訂閱。                                                                                                                      |
 | isMicrosoftProduct   | boolean                                                       | 值，指出這是否為 Microsoft 產品。                                                                                                                       |
 | publisherName        | 字串                                                        | 發行者名稱。                                                                                                                                                           |
-| 動作              | 字串的陣列                                              | 取得或設定允許的動作。 可能的值： [編輯]、[取消]                                                                                                  |
+| 動作              | 字串陣列                                              | 取得或設定允許的動作。 可能的值： [編輯]、[取消]                                                                                                  |
 | partnerId            | 字串                                                        | 記錄轉銷商的 MPN 識別碼，用於間接夥伴模型。                                                                                                     |
-| suspensionReasons    | 字串的陣列                                              | 唯讀。 如果訂用帳戶已暫止，則會指出原因。                                                                                                                  |
+| suspensionReasons    | 字串陣列                                              | 唯讀。 如果訂用帳戶已暫止，則會指出原因。                                                                                                                  |
 | contractType         | 字串                                                        | 唯讀。 合約的類型： "訂用帳戶"、"productKey" 或 "redemptionCode"。                                                                                           |
 | refundOptions        | [RefundOption](#refundoption)資源的陣列   | 唯讀。 適用于此訂用帳戶的退款選項組。                                                                                              |
 | 連結                | [SubscriptionLinks](#subscriptionlinks)                       | 取得或設定訂用帳戶連結。                                                                                                                                          |
@@ -67,7 +65,7 @@ ms.locfileid: "81666101"
 
 **SubscriptionLinks**資源描述附加到訂用帳戶資源的連結集合。
 
-| 屬性           | 類型                               | 描述                           |
+| 屬性           | 類型                               | Description                           |
 |--------------------|------------------------------------|---------------------------------------|
 | 供應項目              | [連結](utility-resources.md#link) | 取得或設定供應專案。               |
 | parentSubscription | [連結](utility-resources.md#link) | 取得或設定父訂用帳戶。 |
@@ -83,7 +81,7 @@ ms.locfileid: "81666101"
 
 **SubscriptionProvisioningStatus**資源會提供訂用帳戶布建狀態的相關資訊。
 
-| 屬性   | 類型                                                           | 描述                                                          |
+| 屬性   | 類型                                                           | Description                                                          |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------|
 | skuId      | 字串                                                         | 識別產品 SKU 的 GUID 格式字串。             |
 | status     | 字串                                                         | 指出布建狀態：「成功」、「擱置」或「失敗」。 |
@@ -104,7 +102,7 @@ ms.locfileid: "81666101"
 
 **SupportContact**資源代表客戶訂用帳戶的支援連絡人。
 
-| 屬性        | 類型                                                           | 描述                                                                     |
+| 屬性        | 類型                                                           | Description                                                                     |
 |-----------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | supportTenantId | 字串                                                         | GUID 格式的字串，表示支援連絡人的租使用者識別碼。 |
 | supportMpnId    | 字串                                                         | 連絡人的 Microsoft 合作夥伴網路（MPN）識別碼。                       |
@@ -116,15 +114,15 @@ ms.locfileid: "81666101"
 
 **RegisterSubscription**資源會傳回可用來查詢訂用帳戶註冊狀態的連結。 註冊狀態會在成功接受要求的回應本文中傳回，以註冊 Azure 訂用帳戶。
 
-| 屬性                | 類型                               | 描述                                                                           |
+| 屬性                | 類型                               | Description                                                                           |
 |-------------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| HTTPResponseMessage     | 物件                             | 傳回 HTTP 狀態碼202「已接受」，其位置標頭包含查詢註冊狀態的連結。 例如， `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
+| HTTPResponseMessage     | 物件 (object)                             | 傳回 HTTP 狀態碼202「已接受」，其位置標頭包含查詢註冊狀態的連結。 例如， `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
 
 ## <a name="refundoption"></a>RefundOption
 
 **RefundOption**資源代表訂用帳戶的可能退款選項。
 
-| 屬性          | 類型 | 描述                                                                         |
+| 屬性          | 類型 | Description                                                                         |
 |-------------------|--------|-------------------------------------------------------------------------------------|
 | type | 字串 | 退款的類型。 支援的值為「部分」和「完整」 |
 | expiresAfter      | UTC 日期時間格式的字串 | 此選項到期時的時間戳記。 如果是 null，這表示它沒有到期日。 |

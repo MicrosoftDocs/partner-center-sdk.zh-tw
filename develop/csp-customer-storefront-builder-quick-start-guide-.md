@@ -1,17 +1,15 @@
 ---
 title: CSP 客戶店面建立器的快速入門指南
 description: 建立線上 marketplace，使用 CSP 客戶店面 Builder 來銷售雲端解決方案提供者（CSP）供應專案。
-ms.assetid: 333EE80D-E49E-4E89-87FB-3F02AC48C236
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ac3d053e8e6d6684cf9583c57e388da828bc8442
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: cc4b56e6fa51c2ebc8338559075c93e7eab4b378
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155310"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094340"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP 客戶店面建立器的快速入門指南
 
@@ -86,9 +84,9 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - 供應**專案：查看**所有 CSP 供應專案。 您可以選取您的客戶可以查看和購買的供應專案。 您也可以將供應專案資訊個人化，並增加您的價格。
 
-- **Paypal 付款**設定：新增您的 PayPal 付款帳戶資訊。 如果您沒有 PayPal 帳戶，可以造訪[https://www.paypal.com](https://www.paypal.com)並建立新的帳戶。 此帳戶將用於 PayPal，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayPal 之間的關係概不負責。使用 PayPal 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
+- **Paypal 付款**設定：新增您的 PayPal 付款帳戶資訊。 如果您沒有 PayPal 帳戶，可以造訪 [https://www.paypal.com](https://www.paypal.com) 並建立新的帳戶。 此帳戶將用於 PayPal，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayPal 之間的關係概不負責。使用 PayPal 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
 
-- （*印度*）**PayU 付款**設定：新增您的 PayU Money 付款帳戶資訊。 如果您沒有 PayU Money 帳戶，可以造訪[https://www.payumoney.com/](https://www.payumoney.com/)並建立新的帳戶。 此帳戶將用於 PayU，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayU 之間的關係概不負責。使用 PayU 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
+- （*印度*）**PayU 付款**設定：新增您的 PayU Money 付款帳戶資訊。 如果您沒有 PayU Money 帳戶，可以造訪 [https://www.payumoney.com/](https://www.payumoney.com/) 並建立新的帳戶。 此帳戶將用於 PayU，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayU 之間的關係概不負責。使用 PayU 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
 
 ### <a name="transact"></a>交易
 
@@ -185,16 +183,16 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - CSP 合作夥伴可以輸入其 PayPal 帳戶資訊，例如 PayPal 用戶端識別碼和密碼。 CSP 合作夥伴也可以選取要使用沙箱或 live 帳戶進行測試。
 
-  - 合作夥伴可以在 [我的[https://developer.paypal.com/](https://developer.paypal.com/) **應用程式 & 認證**] 中找到這項資訊。 您也可以從目前的應用程式取得這項資訊，或在 PayPal 中建立新的應用程式。
+  - 合作夥伴可以在 [我的 [https://developer.paypal.com/](https://developer.paypal.com/) **應用程式 & 認證**] 中找到這項資訊。 您也可以從目前的應用程式取得這項資訊，或在 PayPal 中建立新的應用程式。
   - 建立新的 PayPal 帳戶（如果您還沒有的話）。 此帳戶將用於 PayPal，以取得客戶的付款。
 
-    - 若要開啟 PayPal 企業帳戶，請[https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register](https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register)參閱。
+    - 若要開啟 PayPal 企業帳戶，請參閱 [https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register](https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register) 。
 
-    - 若要建立 PayPal 沙箱帳戶， [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/)請參閱。
+    - 若要建立 PayPal 沙箱帳戶，請參閱 [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/) 。
 
-- （印度） CSP 合作夥伴可以輸入其 PayU Money 帳戶資訊，例如 PayU 用戶端識別碼和密碼。 合作夥伴可以在中[https://developer.payumoney.com/](https://developer.payumoney.com/)找到詳細資訊。
+- （印度） CSP 合作夥伴可以輸入其 PayU Money 帳戶資訊，例如 PayU 用戶端識別碼和密碼。 合作夥伴可以在中找到詳細資訊 [https://developer.payumoney.com/](https://developer.payumoney.com/) 。
 
-  - 建立新的 PayU Money 帳戶（如果您還沒有的話）。 若要開啟 PayU Money 帳戶，請[https://www.payumoney.com/merchant-account/#/](https://www.payumoney.com/merchant-account/#/)造訪。 此帳戶將用於 PayU，以取得客戶的付款。
+  - 建立新的 PayU Money 帳戶（如果您還沒有的話）。 若要開啟 PayU Money 帳戶，請造訪 [https://www.payumoney.com/merchant-account/#/](https://www.payumoney.com/merchant-account/#/) 。 此帳戶將用於 PayU，以取得客戶的付款。
 
 ## <a name="customer-experience-scenarios"></a>客戶體驗案例
 
