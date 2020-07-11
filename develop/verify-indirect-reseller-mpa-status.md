@@ -4,13 +4,12 @@ description: 您可以使用 AgreementStatus API 來確認間接轉銷商是否�
 ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 19cefd33e45f3a4b11fa0ce3d7d4863cec01a650
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 3140928e382309268eacff1516eaa7b83bcf269a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157850"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095918"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>確認間接轉銷商的 Microsoft 合作夥伴合約簽署狀態
 

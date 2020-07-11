@@ -1,17 +1,15 @@
 ---
 title: 案例
 description: 本節將說明雲端解決方案提供者計畫中的合作夥伴，可如何利用合作夥伴中心 API 以程式設計方式管理客戶帳戶、合作夥伴帳戶、訂單、訂用帳戶、支援及帳單。
-ms.assetid: D278B9D1-D5B9-4FAD-89D8-44244715D6C9
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 26ae536f766f799d0ebcab0ecc5640358f997d33
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: fc859b40cf2e8d017826d89e62d0d1dfe0fa2e89
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157680"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098420"
 ---
 # <a name="scenarios"></a>案例
 

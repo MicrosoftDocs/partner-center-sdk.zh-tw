@@ -4,13 +4,14 @@ description: 保護您的合作夥伴中心與控制台應用程式。
 ms.date: 01/20/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
-ms.localizationpriority: medium
-ms.openlocfilehash: 274b7ebc96cde1bca5c549fb92fe5ffb4ae29add
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: aarzh-AaronZhang
+ms.author: v-aarzh
+ms.openlocfilehash: 8127f7cb4e5dd41029efe0bdacdec643d5b25797
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155620"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094073"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>啟用安全應用程式模型架構
 

@@ -1,17 +1,15 @@
 ---
 title: 在合作夥伴中心設定 API 存取
 description: 設定帳戶以針對合作夥伴中心 SDK 進行開發，並在整合沙箱中進行測試。
-ms.assetid: 182A6831-6F00-4762-9A86-327BF87EA6AC
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d253583b1d207d17a46d692910276a8529f9626d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 111ec6e92bff1aff0184e1fbbd4d208720e014e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157810"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095832"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>在合作夥伴中心設定 API 存取
 
