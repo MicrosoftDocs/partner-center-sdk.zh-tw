@@ -4,12 +4,12 @@ description: 取得專案的集合，代表服務要求的有效主題。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dbc2197f47681b36cd66d0fd5d19732999f86066
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e16348d9342c0c3d60debd0bc6ea7d2146edca27
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097619"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261917"
 ---
 # <a name="get-service-request-support-topics"></a>取得服務要求支援主題的清單
 
@@ -20,6 +20,10 @@ ms.locfileid: "86097619"
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 取得專案的集合，代表服務要求的有效主題。
+
+   > [!IMPORTANT]
+   > 2020年8月31日不支援取得服務要求支援主題 API，並將其解除委任。 合作夥伴使用此 API，以程式設計方式取得所需的資料，以建立服務要求 API，這也會被解除委任。 合作夥伴應使用合作夥伴中心使用者介面來建立合作夥伴支援票證。 使用者體驗會在建立支援案例時提供其他資訊，例如建議的步驟，以及發生問題所在區域的檔。 合作夥伴中心小組也藉由自訂服務要求表單，要求支援工程師所需更快速且更精確地解決問題的相關資訊，來增強使用者體驗。
+
 
 ## <a name="prerequisites"></a>必要條件
 

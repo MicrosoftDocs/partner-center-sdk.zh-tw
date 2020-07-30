@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 1ff3631ed70b197a781d2ca30d71eb8fbf211509
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9fc7ad40e4ca8ec74dd3660c72ab359bbf5cc3ef
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097335"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261947"
 ---
 # <a name="partner-center-webhooks"></a>合作夥伴中心 Webhook
 
@@ -118,7 +118,7 @@ Content-Length: 195
 
 ### <a name="properties"></a>屬性
 
-| 名稱                      | 說明                                                                           |
+| 名稱                      | 描述                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
 | **EventName**             | 事件的名稱。 以 {resource}-{action} 形式呈現。 例如，「測試已建立」。  |
 | **ResourceUri**           | 已變更之資源的 URI。                                                 |
@@ -144,7 +144,7 @@ Content-Length: 195
 
 ### <a name="authentication"></a>驗證
 
-所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 取得存取權杖以存取 https://api.partnercenter.microsoft.com 。 此權杖是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
+所有對 Webhook Api 的呼叫都會使用 Authorization 標頭中的持有人權杖進行驗證。 取得存取權杖以存取 `https://api.partnercenter.microsoft.com` 。 此權杖是用來存取合作夥伴中心 Api 其餘部分的相同權杖。
 
 ### <a name="get-a-list-of-events"></a>取得事件清單
 

@@ -4,12 +4,12 @@ description: 從整合沙箱帳戶取消訂單。
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9960ee5281d5681a9b93470796f7141ba195ffe1
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4bed678dc5f892dfe81d09daca820f24f177a91a
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096062"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261907"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>從整合沙箱中取消訂單
 
@@ -26,7 +26,7 @@ ms.locfileid: "86096062"
 >請注意，您只能從整合沙箱帳戶進行保留實例或商業 marketplace SaaS 訂閱訂單的取消。  
 
 若要透過 API 取消軟體的生產訂單，請使用 [[取消]-[軟體-購買](cancel-software-purchases.md)]。
-您也可以使用 [[取消購買](https://docs.microsoft.com/partner-center/csp-software-subscriptions.md)]，透過儀表板取消軟體的生產訂單。
+您也可以使用 [[取消購買](https://docs.microsoft.com/partner-center/csp-software-subscriptions)]，透過儀表板取消軟體的生產訂單。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -68,7 +68,7 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 使用下列查詢參數來刪除客戶。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
 | **訂單識別碼** | **string** | Y        | 值是表示需要取消之訂單識別碼的字串。 |
