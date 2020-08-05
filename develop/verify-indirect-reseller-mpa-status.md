@@ -1,15 +1,15 @@
 ---
 title: 確認間接轉銷商的 Microsoft 合作夥伴合約簽署狀態
 description: 您可以使用 AgreementStatus API 來確認間接轉銷商是否已簽署 Microsoft 合作夥伴合約。
-ms.date: 10/30/2019
+ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3140928e382309268eacff1516eaa7b83bcf269a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4836a5e0646e1f00807966d3d8d332c026276c61
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261937"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>確認間接轉銷商的 Microsoft 合作夥伴合約簽署狀態
 
@@ -24,7 +24,7 @@ ms.locfileid: "86095918"
 
 - 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例僅支援使用「應用程式+使用者」認證來進行驗證。
 
-- 間接轉銷商的 MPN 識別碼或 CSP 租用戶識別碼 (Microsoft 識別碼)。 您必須使用這兩個識別碼的其中一個。 
+- 間接轉銷商的 MPN 識別碼或 CSP 租用戶識別碼 (Microsoft 識別碼)。 您必須使用這兩個識別碼的其中一個。
 
 ## <a name="c"></a>C\#
 
@@ -211,5 +211,145 @@ Connection: close
     "description": "Both MPN Id and Tenant Id should not be passed.",
     "data": [],
     "source": "ComplianceController"
+}
+```
+
+#### <a name="csp-indirect-reseller-mpn-id-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>CSP 間接轉銷商 MPN 識別碼無效，或未從 Partner Membership Center 遷移至合作夥伴中心
+
+當傳遞的間接轉銷商 MPN 識別碼無效或未從 Partner Membership Center 遷移至合作夥伴中心時，會傳回下列範例回應。 [深入了解](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2200,
+    "description": "MPN Id 123456 is either invalid or not yet migrated to Partner Center. Please advise your reseller to migrate the reseller MPN ID to Partner Center to continue with this order.",
+    "data": [
+        "https://partner.microsoft.com/en-us/resources/detail/migrate-pmc-pc-mpa-guide-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>CSP 間接提供者區域和 CSP 間接轉銷商區域不符
+
+當間接轉銷商 MPN 識別碼的區域與間接提供者的區域不符時，會傳回下列範例回應。 [深入了解](https://docs.microsoft.com/partner-center/regional-authorization-overview) CSP 區域。
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 119
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: b4e67a78-0692-45d1-b408-04b9178a8ac6
+MS-RequestId: aa04fb9d-c6b6-4754-8a6a-86e00cdd5ccb
+MS-CV: WTsLWK5UlUW9sZjH.0
+MS-ServerId: 0000005B
+Date: Wed, 16 Oct 2019 09:02:30 GMT
+Connection: close
+{
+    "code": 2201,
+    "description": "The CSP region of the MPN ID 1234567 doesn’t match the CSP region from where you are placing the order. Provide the MPN ID for the CSP region where you are placing the order.",
+    "data": [
+        "https://docs.microsoft.com/en-us/partner-center/regional-authorization-overview" 
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>CSP 間接轉銷商帳戶存在於合作夥伴中心，但尚未簽署 MPA
+
+當合作夥伴中心內的 CSP 間接轉銷商帳戶尚未簽署 MPA 時，會傳回下列範例回應。 [深入了解](https://partner.microsoft.com/resources/detail/verify-mpa-acceptance-status-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2203,
+    "description": "MPN Id 123456 has not signed Microsoft Partner Agreement (MPA) for the CSP region where the order is being placed. Please advise your reseller to sign MPA to continue with the order.",
+    "data": [
+        "https://partner.microsoft.com/en-gb/resources/detail/verify-mpa-acceptance-status-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>沒有任何 CSP 間接轉銷商帳戶與指定的 MPN 識別碼相關聯
+
+當合作夥伴中心可以辨識要求中所傳遞的 MPN 識別碼，但沒有任何 CSP 註冊與指定的 MPN 識別碼相關聯時，就會傳回下列範例回應。 [深入了解](https://partner.microsoft.com/resources/detail/onboard-pc-csp-mpn-mpa-guide-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2204,
+    "description": "MPN Id 123456 is not associated with a CSP Indirect Reseller account in Partner Center. Please advise your reseller to enroll into the CSP program as an indirect reseller in Partner Center.",
+    "data": [
+        "https://partner.microsoft.com/en-us/resources/detail/onboard-pc-csp-mpn-mpa-guide-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="invalid-tenant-id"></a>無效的租用戶識別碼
+
+當合作夥伴中心找不到任何與要求中傳遞的租用戶識別碼相關聯的帳戶時，就會傳回下列範例回應。
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2205,
+    "description": "Partner Center doesn't find any account associated to the Tenant ID 12345678-ACBD-1234-ABCD-123456789ABC",
+    "data": [],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="no-mpa-found-with-the-given-tenant-id"></a>找不到具有指定租用戶識別碼的 MPA
+
+當合作夥伴中心找不到任何具有指定租用戶識別碼的 MPA 簽章時，就會傳回下列範例回應。
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2206,
+    "description": "Parnter Center Account associated to Tenant Id 12345678-ACBD-1234-ABCD-123456789ABC hasn't signed the agreement",
+    "data": [],
+    "source": "PartnerFD"
 }
 ```
