@@ -1,15 +1,15 @@
 ---
 title: CSP 客戶店面建立器的快速入門指南
-description: 建立線上 marketplace，使用 CSP 客戶店面 Builder 來銷售雲端解決方案提供者（CSP）供應專案。
+description: 使用 CSP 客戶店面產生器，建立線上 marketplace 以銷售雲端解決方案提供者 (CSP) 供應專案。
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: cc4b56e6fa51c2ebc8338559075c93e7eab4b378
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d64deff9b002b861c9f48d076feb5841af727e3d
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094340"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557329"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP 客戶店面建立器的快速入門指南
 
@@ -17,13 +17,13 @@ ms.locfileid: "86094340"
 
 - 合作夥伴中心
 
-建立線上 marketplace，使用 CSP 客戶店面 Builder 來銷售雲端解決方案提供者（CSP）供應專案。
+使用 CSP 客戶店面產生器，建立線上 marketplace 以銷售雲端解決方案提供者 (CSP) 供應專案。
 
 ## <a name="introduction-to-the-csp-customer-storefront-builder"></a>CSP 客戶店面 Builder 簡介
 
 CSP 客戶店面產生器可協助合作夥伴輕鬆地建立線上 marketplace，將 CSP 供應專案銷售給客戶。 大部分的合作夥伴和小型銷售組織都想要專注于銷售，而不是開發線上 marketplace。 合作夥伴中心 SDK 範例應用程式需要軟體發展技能，才能建立及部署網站。 有了 CSP 客戶店面 Builder，您就可以快速且輕鬆地建立自己的網站。 您也可以將網站下載為範例程式碼，或使用準備好交易的網站直接部署到 Azure 訂用帳戶。
 
-此網站是由合作夥伴完整擁有、支援及維護，而且 Microsoft 不會從網站收集任何資料或遙測。 CSP 客戶店面 Builder 會為合作夥伴建立一個與[支付卡產業資料安全標準](https://www.pcisecuritystandards.org/)（PCI DSS）完全相容的網站。
+此網站是由合作夥伴完整擁有、支援及維護，而且 Microsoft 不會從網站收集任何資料或遙測。 CSP 客戶店面 Builder 會為合作夥伴建立一個與[支付卡產業資料安全標準](https://www.pcisecuritystandards.org/) (PCI DSS) 完全相容的網站。
 
 CSP 客戶店面產生器程式碼受限於[合作夥伴中心 SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)中提供的授權。
 
@@ -44,7 +44,7 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - 合作夥伴中心無法使用新的或已變更的 SDK 或 API 功能，直接存取或升級此網站。 所有新功能或增強功能都必須由合作夥伴所擁有、開發及管理，包括新增合作夥伴中心 SDK 或 API 功能。
 
-- 此 CSP 客戶店面產生器目前提供設定 PayPal Pro/PayU Money （印度）帳戶付款的功能。 如果合作夥伴需要變更付款處理器，他們將需要變更程式碼，以支援其慣用的付款方法。
+- 此 CSP 客戶店面產生器目前可讓您設定印度) 帳戶的 PayPal Pro/PayU Money (的付款。 如果合作夥伴需要變更付款處理器，他們將需要變更程式碼，以支援其慣用的付款方法。
 
 - CSP 客戶店面產生器中新增的任何付款相關資訊，都不會儲存或保留在合作夥伴中心。
 
@@ -86,7 +86,7 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - **Paypal 付款**設定：新增您的 PayPal 付款帳戶資訊。 如果您沒有 PayPal 帳戶，可以造訪 [https://www.paypal.com](https://www.paypal.com) 並建立新的帳戶。 此帳戶將用於 PayPal，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayPal 之間的關係概不負責。使用 PayPal 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
 
-- （*印度*）**PayU 付款**設定：新增您的 PayU Money 付款帳戶資訊。 如果您沒有 PayU Money 帳戶，可以造訪 [https://www.payumoney.com/](https://www.payumoney.com/) 並建立新的帳戶。 此帳戶將用於 PayU，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayU 之間的關係概不負責。使用 PayU 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
+-  (*印度*) **PayU 付款**設定：新增您的 PayU Money 付款帳戶資訊。 如果您沒有 PayU Money 帳戶，可以造訪 [https://www.payumoney.com/](https://www.payumoney.com/) 並建立新的帳戶。 此帳戶將用於 PayU，以取得客戶的付款。 *Microsoft 對於合作夥伴和 PayU 之間的關係概不負責。使用 PayU 可能需要合作夥伴或合作夥伴的客戶同意其他條款。*
 
 ### <a name="transact"></a>交易
 
@@ -148,9 +148,9 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - 下載[合作夥伴中心店面範例程式碼](https://github.com/Microsoft/Partner-Center-Storefront)，以進行額外的自訂。
 
-- 使用 Microsoft Visual Studio 2015 （或更新版本）進行開發。
+- 使用 Microsoft Visual Studio 2015 (或更新版本) 進行開發。
 
-- 建立額外的變更和增強功能（包括授權、認證、資訊清單變更和其他專案）。
+- 建立額外的變更和增強功能 (包括授權、認證、資訊清單變更和其他) 的專案。
 
 ### <a name="configuration-scenario"></a>設定案例
 
@@ -158,11 +158,11 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
   - 合作夥伴可以使用合作夥伴中心的系統管理員認證來登入這個新網站。
 
-- 店面應用程式目前支援法文、西班牙文、荷蘭文、德文、日文和英文。 （英文作為備用語言）。
+- 店面應用程式目前支援法文、西班牙文、荷蘭文、德文、日文和英文。  (英文做為備用語言。 ) 
 
   - 店面會使用合作夥伴在合作夥伴中心的設定檔中的預設地區設定，來設定地區設定。 此地區設定是用來在存放庫中設定貨幣、日期格式和當地語系化的供應專案。
 
-- 合作夥伴可以設定商標、供應專案和 PayPal 或 PayU （印度）付款資訊。
+- 合作夥伴可以針對印度) 付款資訊設定商標、供應專案和 PayPal 或 PayU (。
 
 - 合作夥伴可以更新 [公司名稱]、[公司標誌]、[標頭影像]、[銷售] 和 [支援連絡人] 等等。
 
@@ -173,11 +173,11 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
   - CSP 合作夥伴可以選取一或多個供應專案，並更新名稱、數量、功能描述和價格。
   - 價格為年度費用。 客戶每年訂閱。
 
-- 合作夥伴隨時都可以為（a）所有目前和未來的客戶或（b）特定客戶設定預先核准的交易。
+- 合作夥伴可以隨時設定預先核准的交易，以 (a) 所有目前和未來的客戶，或 (b) 特定客戶。
 
-  - 預先核准的客戶在新增訂閱、向現有訂用帳戶購買額外的基座或續訂訂閱時，不需要在入口網站上付費。
+  - 預先核准的客戶在新增訂用帳戶、向現有訂閱購買額外的授權或續訂訂閱時，不需要在入口網站上付費。
 
-  - 預先核准的客戶將不會被重新導向至 PayPal 或 PayU （印度），以便在這些交易期間進行付款。
+  - 預先核准的客戶將不會被重新導向至印度) 的 PayPal 或 PayU (，以便在這些交易期間進行付款。
 
   - 預先核准的客戶交易可讓合作夥伴對預先核准的客戶執行離線計費和發票處理。
 
@@ -190,7 +190,7 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
     - 若要建立 PayPal 沙箱帳戶，請參閱 [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/) 。
 
-- （印度） CSP 合作夥伴可以輸入其 PayU Money 帳戶資訊，例如 PayU 用戶端識別碼和密碼。 合作夥伴可以在中找到詳細資訊 [https://developer.payumoney.com/](https://developer.payumoney.com/) 。
+-  (針對印度) CSP 合作夥伴可以輸入其 PayU Money 帳戶資訊，例如 PayU 用戶端識別碼和密碼。 合作夥伴可以在中找到詳細資訊 [https://developer.payumoney.com/](https://developer.payumoney.com/) 。
 
   - 建立新的 PayU Money 帳戶（如果您還沒有的話）。 若要開啟 PayU Money 帳戶，請造訪 [https://www.payumoney.com/merchant-account/#/](https://www.payumoney.com/merchant-account/#/) 。 此帳戶將用於 PayU，以取得客戶的付款。
 
@@ -202,15 +202,15 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - 客戶現在可以屬於大量的[客戶國家/地區](#customer-countries)。
 
-- 重點在於歐洲自由貿易聯盟（EFTA）國家/地區、北美洲、日本、印度、澳大利亞和紐西蘭地區。
+- 重點在於歐洲自由貿易協會 (EFTA) 國家/地區、北美洲、日本、印度、澳大利亞和紐西蘭地區。
   - 這項功能會使用合作夥伴中心 SDK 中的區域授權支援。
 
 - 客戶可以從要購買的類別目錄中選取供應專案。
   - 他們可以新增其客戶名稱、位址和網域相關資訊。
 
-- 客戶將會被導向至 PayPal 或 PayU （印度）結帳的經驗。 客戶可以使用下列其中一種方式來提供付款：
-  - 其現有的 PayPal 或 PayU （適用于印度）帳戶
-  - 由 PayPal 或 PayU （印度）在其國家/地區支援的資金補助。 這些可能包括信用卡、金融卡和銀行帳戶（適用的話）。
+- 客戶將會被導向至 PayPal 或 PayU (印度) 結帳體驗。 客戶可以使用下列其中一種方式來提供付款：
+  - 其現有的 PayPal 或 PayU (印度) 帳戶
+  - 在印度) 的 PayPal 或 PayU (，其國家/地區支援的資金補助儀器。 這些可能包括信用卡、金融卡和銀行帳戶（適用的話）。
 
 - 會為此客戶建立客戶租使用者。 成功建立租使用者訂單之後，系統會提供客戶使用者名稱、密碼和訂用帳戶詳細資料。
   - 客戶可以儲存使用者名稱和密碼以保持登入，以供進一步購買。
@@ -222,13 +222,13 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - 客戶可以流覽至 [**我的訂單**] 頁面，他們可以在其中查看已購買的訂閱，並在必要時進行更新。
 
-- 客戶可以流覽至 [**我的訂閱**] 頁面，他們可以在其中查看所有訂用帳戶（授權型和以使用量為基礎），包括在合作夥伴中心維護的訂閱。
+- 客戶可以流覽至 [**我的訂閱**] 頁面，他們可以在其中查看所有訂用帳戶 (授權型和以使用量為基礎的) ，包括在合作夥伴中心維護的訂閱。
 
-### <a name="add-seats-to-existing-subscriptions-scenario"></a>將基座新增至現有的訂用帳戶案例
+### <a name="add-licenses-to-existing-subscriptions-scenario"></a>將授權新增至現有的訂閱案例
 
-- 從 [**我的訂單**] 區段中，客戶可以將更多基座新增至現有的訂用帳戶。 客戶可以在訂閱年度期間隨時新增更多基座。
+- 從 [**我的訂單**] 區段中，客戶可以將更多授權新增至現有的訂用帳戶。 客戶可以在訂閱年份期間隨時新增更多授權。
 
-- 每個新增的基座都不會變更訂用帳戶的結束日期。 不過，訂用帳戶的價格會根據您新增基座的日期，以及該日期在年份中的位置而變更。 定價會按日按比例計費，只收取一年的剩餘天數。
+- 每個新增的授權都不會變更訂用帳戶的結束日期。 不過，訂用帳戶的價格會根據您新增授權的日期，以及該日期在年份中的位置而變更。 定價會按日按比例計費，只收取一年的剩餘天數。
 
 ### <a name="add-more-subscriptions-scenario"></a>新增更多訂閱案例
 
@@ -250,16 +250,16 @@ CSP 客戶店面產生器是用來建立網站的快速方式。 在規劃期間
 
 - 如果客戶已預先核准系統管理員的交易，則不會針對上述案例顯示付款體驗。 相反地，合作夥伴可以將付款的發票傳送給預先核准的客戶。
 
-- 針對所有新購買專案，您可以新增更多基座、新增訂閱和續訂。 客戶可以透過 PayPal 或 PayU （印度）使用此網站來支付合作夥伴。
+- 針對所有新購買專案，您可以新增更多授權、新增訂閱和續訂。 客戶可以透過 PayPal 或 PayU (針對印度) ，使用此網站來支付合作夥伴。
 
-- 此網站已與 PayPal 或 PayU （印度）整合，並可讓合作夥伴接受其客戶的付款。 PayPal 或 PayU （印度）會在合作夥伴的帳戶中取得此金額的信用額度。 PayPal 或 PayU （適用于印度）銀行帳戶管理不在此網站的範圍內，而且會分別在 PayPal.com 或 PayUmoney.com 上管理。
+- 此網站已與印度) 的 PayPal 或 PayU (整合，並可讓合作夥伴接受其客戶的付款。 PayPal 或 PayU (印度) 在合作夥伴帳戶中取得此金額的信用額度。 PayPal 或 PayU (適用于印度) 銀行帳戶管理在此網站以外，並分別在 PayPal.com 或 PayUmoney.com 上管理。
 
-- 這取決於在 PayPal.com 或 PayUmoney.com 設定其 PayPal orPayU （印度）付款設定的夥伴。 Microsoft 不會儲存此資訊，或使用此選項所產生的實際付款交易。
+- 這取決於在 PayPal.com 或 PayUmoney.com 設定其 PayPal orPayU (給印度) 付款設定的合作夥伴。 Microsoft 不會儲存此資訊，或使用此選項所產生的實際付款交易。
 
 ### <a name="prorated-pricing-scenario"></a>按比例計算的定價案例
 
-- 當客戶在現有的訂用帳戶中新增更多基座時，此網站支援按比例計算的價格。
+- 當客戶將更多授權新增至現有的訂用帳戶時，此網站支援按比例計算的價格。
 
 - 每個訂用帳戶會在一年後到期，且在購買訂閱之後就無法變更。
 
-- 新增額外基座不會變更訂用帳戶的結束日期。 客戶會在結束日期之前的剩餘天數向您收費。 例如，如果第一天的訂用帳戶成本為 $365，而您在第二天增加了一個基座，新基座的價格將會是 $364。 如果您在10天后再新增一次，則價格會是 $354。
+- 新增額外的授權並不會變更訂用帳戶的結束日期。 客戶會在結束日期之前的剩餘天數向您收費。 例如，如果第一天的訂用帳戶成本為 $365，而您在第二天新增了一個授權，則新授權的價格將會是 $364。 如果您稍後再新增一個授權，則價格會是 $354。

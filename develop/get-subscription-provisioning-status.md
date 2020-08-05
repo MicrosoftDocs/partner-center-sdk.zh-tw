@@ -4,12 +4,12 @@ description: 如何取得客戶訂用帳戶的訂用帳戶布建狀態。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e347ed736e5b6cef070084749d6fabb7c05bcd5d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0811ad6d26cb96c057a96bd906e47238a0d97cce
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097534"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557349"
 ---
 # <a name="get-subscription-provisioning-status"></a>取得訂用帳戶的佈建狀態
 
@@ -57,10 +57,10 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 使用下列路徑參數來識別客戶和訂用帳戶。
 
-| 名稱            | 類型   | 必要 | 說明                                               |
+| 名稱            | 類型   | 必要 | 描述                                               |
 |-----------------|--------|----------|-----------------------------------------------------------|
-| customer-id     | 字串 | Yes      | 識別客戶的 GUID 格式字串。     |
-| subscription-id | 字串 | Yes      | 識別訂用帳戶的 GUID 格式字串。 |
+| customer-id     | 字串 | 是      | 識別客戶的 GUID 格式字串。     |
+| subscription-id | 字串 | 是      | 識別訂用帳戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -115,6 +115,6 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 
 ## <a name="remarks"></a>備註
 
-- 在基座變更指派期間， [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus)中的 [狀態] 欄位會設定為 [擱置]。
+- 在授權變更指派期間， [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus)中的 [狀態] 欄位會設定為 [擱置]。
 
 - [狀態] 欄位會每十五分鐘更新一次。
