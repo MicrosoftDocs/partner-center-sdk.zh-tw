@@ -4,12 +4,12 @@ description: 設定帳戶以針對合作夥伴中心 SDK 進行開發，並在�
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 111ec6e92bff1aff0184e1fbbd4d208720e014e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0d2d8ea9f92c84a0bf36642504458c918c1607bf
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095832"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557309"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>在合作夥伴中心設定 API 存取
 
@@ -36,7 +36,7 @@ ms.locfileid: "86095832"
 
 整合沙箱帳戶和主要帳戶會獨立運作，而且不會共用系統管理員帳戶、使用者帳戶、客戶、訂單、訂用帳戶或其他資料。
 
-整合沙箱支援數量有限的客戶、訂單、訂用帳戶和基座等等的交易。
+整合沙箱支援數量有限的客戶、訂單、訂用帳戶和授權等等的交易。
 
 根據原則，整合沙箱帳戶僅供整合測試之用。
 

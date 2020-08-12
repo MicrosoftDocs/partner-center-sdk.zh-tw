@@ -4,12 +4,12 @@ description: 本節將說明雲端解決方案提供者計畫中的合作夥伴�
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fc859b40cf2e8d017826d89e62d0d1dfe0fa2e89
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 12cd314c419e874225aed60f6a025f829098b37f
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098420"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557319"
 ---
 # <a name="scenarios"></a>案例
 
@@ -321,6 +321,6 @@ Microsoft 會提供**供應項目**清單。 這些是 Office 365 或 Intune 等
 
 CSP 合作夥伴是擁有客戶的轉銷商，他們會對客戶銷售目前供應項目清單中的 Microsoft 產品。 在客戶簽署其合約後，轉銷商會針對一個或多個供應項目下**訂單**。 某些供應項目會包括**附加元件**，例如更多的空間或額外功能，這些功能會與父系供應項目一起追蹤。 訂單會進入處理程序，然後客戶就可以使用其**訂用帳戶**。 Microsoft 會根據授權數目和每個客戶的使用量，每月向轉銷商或散發者收費。
 
-您可以新增訂用帳戶，以及增加或減少基座或附加元件數目。 如果客戶無法支付費用、誤用訂用帳戶或參與詐騙，則 Microsoft、散發者或轉銷商皆能夠暫停訂用帳戶。 如果未在 CSP 計畫的限制內重新啟動，將會永久停用。
+您可以新增訂用帳戶，以及增加或減少授權或附加元件數目。 如果客戶無法支付費用、誤用訂用帳戶或參與詐騙，則 Microsoft、散發者或轉銷商皆能夠暫停訂用帳戶。 如果未在 CSP 計畫的限制內重新啟動，將會永久停用。
 
 您可以查看客戶**有權**使用的訂用帳戶 (也就是目前需付費、未暫停且尚未由新訂單取代的訂用帳戶)。
