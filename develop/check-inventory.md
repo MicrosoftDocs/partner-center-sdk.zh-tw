@@ -1,15 +1,15 @@
 ---
 title: 檢查清查
-description: 檢查一組特定目錄專案的清查。
+description: 檢查特定一組類別目錄專案的清查。
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c0860c4840df6924ffb8e222b79efa28fa33d9ea
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b3b08dab42b74de9f5bcb23ad8acfcdb5aaca383
+ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096443"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937868"
 ---
 # <a name="check-inventory"></a>檢查清查
 
@@ -17,19 +17,19 @@ ms.locfileid: "86096443"
 
 - 合作夥伴中心
 
-如何檢查一組特定目錄專案的清查。
+如何檢查特定一組類別目錄專案的清查。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 一或多個產品識別碼。 或者，也可以指定 SKU 識別碼。
+- 一或多個產品識別碼。 或者，您也可以指定 SKU 識別碼。
 
-- 驗證所提供的產品/SKU 識別碼所參考的 SKU 清查所需的任何其他內容。 這些需求可能因產品/SKU 類型而異，而且可以從[SKU 的](product-resources.md#sku) **InventoryVariables**屬性來判斷。
+- 驗證 SKU 清查 () 所需的任何其他內容，是由提供的產品/SKU 識別碼 () 所參考。 這些需求可能會因產品/SKU 類型而異，並可透過 [sku 的](product-resources.md#sku) **InventoryVariables** 屬性來判斷。
 
 ## <a name="c"></a>C\#
 
-若要檢查清查，請針對每個要檢查的專案，使用[InventoryItem](product-resources.md#inventoryitem)物件來建立[InventoryCheckRequest](product-resources.md#inventorycheckrequest)物件。 然後，使用**Iaggregatepartner.customers.byid 擴充**功能存取子，將其範圍細分為**產品**，然後使用**ByCountry （）** 方法選取國家/地區。 最後，使用您的**InventoryCheckRequest**物件來呼叫**CheckInventory （）** 方法。
+若要檢查清查，請針對每個要檢查的專案，使用[InventoryItem](product-resources.md#inventoryitem)物件來建立[InventoryCheckRequest](product-resources.md#inventorycheckrequest)物件。 然後，使用 **>iaggregatepartner.customers 副檔名** 存取子，將其範圍細分為 **Product** ，然後使用 **ByCountry ( # B1 ** 方法選取國家/地區。 最後，使用您的**InventoryCheckRequest**物件來呼叫**CheckInventory ( # B1**方法。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -60,15 +60,15 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 | 方法   | 要求 URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/extensions/product/checkInventory？ country = {國家/地區-代碼} HTTP/1。1                        |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/extensions/product/checkInventory？ country = {country-CODE} HTTP/1。1                        |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來檢查清查。
 
-| 名稱                   | 類型     | 必要 | 說明                                                     |
+| 名稱                   | 類型     | 必要 | 描述                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 國家/地區代碼           | 字串   | Yes      | 國家/地區識別碼。                                            |
+| 國家/地區-代碼           | 字串   | 是      | 國家/地區識別碼。                                            |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -76,7 +76,7 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 ### <a name="request-body"></a>要求本文
 
-清查要求詳細資料，由包含一或多個[InventoryItem](product-resources.md#inventoryitem)資源的[InventoryCheckRequest](product-resources.md#inventorycheckrequest)資源所組成。
+清查要求詳細資料，包含包含一或多個[InventoryItem](product-resources.md#inventoryitem)資源的[InventoryCheckRequest](product-resources.md#inventorycheckrequest)資源。
 
 ### <a name="request-example"></a>要求範例
 
@@ -95,21 +95,14 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含已填入限制詳細資料的[InventoryItem](product-resources.md#inventoryitem)物件集合（如果有的話）。
+如果成功，回應主體會包含 [InventoryItem](product-resources.md#inventoryitem) 物件的集合，這些物件會填入限制詳細資料（如果有的話）。
 
 >[!NOTE]
 >如果輸入 InventoryItem 代表在目錄中找不到的專案，它就不會包含在輸出集合中。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
-
-這個方法會傳回下列錯誤碼：
-
-| HTTP 狀態碼     | 錯誤碼   | 描述                                                                                               |
-|----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2001         | 遺漏要求主體。                                                                              |
-| 400                  | 400026       | 缺少必要的清查內容專案。                                                             |
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 
