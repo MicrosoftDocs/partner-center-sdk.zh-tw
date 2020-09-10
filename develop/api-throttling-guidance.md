@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: b83e3ee7189cd0be9201d05d40d8959fa0644f34
-ms.sourcegitcommit: e55d630e82114754c385616be10d179544ad8470
+ms.openlocfilehash: a9fa70f8343ed51b288c1385540a247844e4659a
+ms.sourcegitcommit: b3a8b6db5fee1cb8756b94105f358ed4bc94d3a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643993"
+ms.locfileid: "89666633"
 ---
 # <a name="api-throttling-guidance"></a>API 節流指導方針 
 
@@ -37,9 +37,9 @@ Microsoft 正在實行 API 節流，以在一段時間內為呼叫合作夥伴�
 
 ## <a name="best-practices-to-avoid-throttling"></a>避免節流的最佳作法 
  
-持續輪詢資源以檢查更新和定期掃描資源集合以檢查是否有新的或已刪除資源的程式設計實務，更有可能會導致節流，並會降低整體效能。 並行 API 呼叫可能會導致每個單位時間有大量的要求，這也會導致要求進行節流。 您應改為利用變更追蹤和變更通知。 此外，您應該能夠利用活動記錄來偵測變更，請參閱 [合作夥伴中心活動記錄](get-a-record-of-paratner-center-activity-by-user.md) 檔以取得詳細資訊。  強烈建議合作夥伴考慮使用活動記錄 API 來提高效率，並避免節流。 另請參閱下方的使用活動記錄範例。
+持續輪詢資源以檢查更新和定期掃描資源集合以檢查是否有新的或已刪除資源的程式設計實務，更有可能會導致節流，並會降低整體效能。 並行 API 呼叫可能會導致每個單位時間有大量的要求，這也會導致要求進行節流。 您應改為利用變更追蹤和變更通知。 此外，您應該能夠利用活動記錄來偵測變更，請參閱 [合作夥伴中心活動記錄](get-a-record-of-partner-center-activity-by-user.md) 檔以取得詳細資訊。  強烈建議合作夥伴考慮使用活動記錄 API 來提高效率，並避免節流。 另請參閱下方的使用活動記錄範例。
 
-## <a name="best-practices-to-avoid-throttling"></a>避免節流的最佳作法
+## <a name="best-practices-to-handle-throttling"></a>處理節流的最佳做法
 
 以下是處理節流的最佳作法： 
 
@@ -141,54 +141,54 @@ X 地區設定： en-us
 連接： Keep-alive 
 
 **回應**：    
-
+```http
 { 
 
-    "totalCount"：17， 
+    "totalCount": 17, 
 
-    "items"： [ 
+    "items": [ 
 
         { 
 
-            "id"： "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_e905b566-4779-4e57-944c-7b1b5312705b_updatecustomeruserlicenses_637346859797753934"， 
+            "id": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_e905b566-4779-4e57-944c-7b1b5312705b_updatecustomeruserlicenses_637346859797753934", 
 
-            "partnerId"： "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d"， 
+            "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            "參與者"： [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
             ], 
 
-            "customerId"： "e905b566-4779-4e57-944c-7b1b5312705b"， 
+            "customerId": "e905b566-4779-4e57-944c-7b1b5312705b", 
 
-            "userPrincipalName"： " admin@testsw09.onmicrosoft.com "， 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
-            "applicationId"： "FulfillmentService"， 
+            "applicationId": "FulfillmentService", 
 
-            "resourceType"： "license"， 
+            "resourceType": "license", 
 
-            "operationType"： "update_customer_user_licenses"， 
+            "operationType": "update_customer_user_licenses", 
 
-            "operationDate"： "2020-09-02T23：26： 19.7753934 Z"， 
+            "operationDate": "2020-09-02T23:26:19.7753934Z", 
 
-            ">operationstatus"： "succeeded"， 
+            "operationStatus": "succeeded", 
 
             "customizedData": [ 
 
                 { 
 
-                    "key"： "CustomerUserId"， 
+                    "key": "CustomerUserId", 
 
-                    "value"： "933808c7-b165-496c-a24e-1a4b7846fab4" 
+                    "value": "933808c7-b165-496c-a24e-1a4b7846fab4" 
 
                 } 
 
             ], 
 
-            "attributes"： { 
+            "attributes": { 
 
-                "objectType"： "AuditRecord" 
+                "objectType": "AuditRecord" 
 
             } 
 
@@ -196,107 +196,107 @@ X 地區設定： en-us
 
         { 
 
-            "id"： "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_ia80zlkxp6ewoqpp35pbqjlhqv9iigvz1_createorder_637346662909268372"， 
+            "id": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_ia80zlkxp6ewoqpp35pbqjlhqv9iigvz1_createorder_637346662909268372", 
 
-            "partnerId"： "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d"， 
+            "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            "參與者"： [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
             ], 
 
-            "customerId"： "86bddccf-9a53-40c6-907c-08067a3f8da7"， 
+            "customerId": "86bddccf-9a53-40c6-907c-08067a3f8da7", 
 
-            "customerName"： "CustomMetersStagingTest"， 
+            "customerName": "CustomMetersStagingTest", 
 
-            "userPrincipalName"： " admin@testsw09.onmicrosoft.com "， 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
-            "applicationId"： "4990cffe-04e8-4e8b-808a-1175604b879f"， 
+            "applicationId": "4990cffe-04e8-4e8b-808a-1175604b879f", 
 
-            "resourceType"： "order"， 
+            "resourceType": "order", 
 
-            "resourceNewValue"： "{ \" Id \" ： \" Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" ， \" 替代識別碼 \" ： \" 64144d300bde \" ， \" >referencecustomerid \" ： \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" ， \" BillingCycle \" ： \" 每月 \" ， \" CurrencyCode \" ： \" 美元 \" 、 \" CurrencySymbol \" ： \" $ \" 、 \" LineItems \" ： [{ \" LineItemNumber \" ：0、 \" ProvisioningCoNtext \" ： null、 \" OfferId \" ： \" DZH318Z0C964：0001： DZH318Z0BZDG \" 、 \" SubscriptionId \" ： f428d44a-d08b-348b-579e-ce92a6362c7b、ParentSubscriptionId： \" \" \" \" null、 \" TermDuration \" ： \" P1M \" 、 \" TransactionType \" ： \" New \" 、 \" FriendlyName \" ： \" SaaS 自訂計量供應專案-青銅 \" 、 \" Quantity \" ：1、 \" 定價 \" ： null、 \" PartnerIdOnRecord \" ： null、 \" RenewsTo \" ： null、 \" Links \" ： { \" Product \" ： { \" Uri \" ： \" /products/DZH318Z0C964？ country = US \" 、 \" Method \" ： \" GET \" 、 \" Body \" ： null、 \" 標頭 \" ： []}、 \" Sku \" ： { \" Uri \" ： \" /products/DZH318Z0C964/skus/0001？ country = US \" 、 \" Method \" ： \" GET \" 、 \" Body \" ： null、 \" 標頭 \" ： []}、 \" 可用性 \" ： { \" Uri \" ： \" /products/DZH318Z0C964/skus/0001/availabilities/DZH318Z0BZDG？ country = US \" 、 \" Method \" ： \" GET \" 、 \" Body \" ： null、 \" 標頭 \" ： []}、 \" ActivationLinks \" ： { \" Uri \" ： \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/lineitems/0/activationlinks\",\"Method \" ： \" GET \" 、 \" body \" ： null、 \" 標頭 \" ： []}}}]、 \" CreationDate \" ： \" 2020-09-02T17：58： 01.7755853 z \" 、 \" Status \" ： \" pending \" 、 \" TransactionType \" ： \" UserPurchase \" 、 \" Links \" ： { \" Self \" ： { \" Uri \" ： \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" 、 \" Method \" ： \" GET \" 、 \" Body \" ： null、 \" 標頭 \" ： []}、 \" ProvisioningStatus \" ： { \" Uri \" ： \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/provisioningstatus \" 、Method： \" \" \" GET \" 、 \" Body \" ： null、 \" 標頭 \" ： []}、 \" PatchOperation \" ： { \" Uri \" ： \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" 、 \" Method \" ： \" PATCH \" 、 \" Body \" ： null、 \" 標頭 \" ： []}}、 \" Client \" ： { \" marketplaceCountry \" ： \" US \" 、 \" deviceFamily \" ： \" UniversalStore-PartnerCenter \" 、 \" name \" ： \" 合作夥伴中心 Web \" }、 \" 屬性 \" ： { \" ObjectType \" ： \" Order \" }} "、 
+            "resourceNewValue": "{\"Id\":\"Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"AlternateId\":\"64144d300bde\",\"ReferenceCustomerId\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"BillingCycle\":\"monthly\",\"CurrencyCode\":\"USD\",\"CurrencySymbol\":\"$\",\"LineItems\":[{\"LineItemNumber\":0,\"ProvisioningContext\":null,\"OfferId\":\"DZH318Z0C964:0001:DZH318Z0BZDG\",\"SubscriptionId\":\"f428d44a-d08b-348b-579e-ce92a6362c7b\",\"ParentSubscriptionId\":null,\"TermDuration\":\"P1M\",\"TransactionType\":\"New\",\"FriendlyName\":\"SaaS custom meter offer - Bronze\",\"Quantity\":1,\"Pricing\":null,\"PartnerIdOnRecord\":null,\"RenewsTo\":null,\"Links\":{\"Product\":{\"Uri\":\"/products/DZH318Z0C964?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"Sku\":{\"Uri\":\"/products/DZH318Z0C964/skus/0001?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"Availability\":{\"Uri\":\"/products/DZH318Z0C964/skus/0001/availabilities/DZH318Z0BZDG?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"ActivationLinks\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/lineitems/0/activationlinks\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]}}}],\"CreationDate\":\"2020-09-02T17:58:01.7755853Z\",\"Status\":\"pending\",\"TransactionType\":\"UserPurchase\",\"Links\":{\"Self\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"ProvisioningStatus\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/provisioningstatus\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"PatchOperation\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"Method\":\"PATCH\",\"Body\":null,\"Headers\":[]}},\"Client\":{\"marketplaceCountry\":\"US\",\"deviceFamily\":\"UniversalStore-PartnerCenter\",\"name\":\"Partner Center Web\"},\"Attributes\":{\"ObjectType\":\"Order\"}}", 
 
-            "operationType"： "create_order"， 
+            "operationType": "create_order", 
 
             "originalCorrelationId": "96514ebe-c1b2-4865-cb46-2c2d20a2e911", 
 
-            "operationDate"： "2020-09-02T17：58： 10.9268372 Z"， 
+            "operationDate": "2020-09-02T17:58:10.9268372Z", 
 
-            ">operationstatus"： "succeeded"， 
+            "operationStatus": "succeeded", 
 
             "customizedData": [ 
 
                 { 
 
-                    "key"： "Id"， 
+                    "key": "OrderId", 
 
-                    "value"： "Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1" 
+                    "value": "Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1" 
 
                 }, 
 
                 { 
 
-                    "key"： "替代識別碼"， 
+                    "key": "AlternateId", 
 
-                    "value"： "64144d300bde" 
-
-                }, 
-
-                { 
-
-                    "key"： "BillingCycle"， 
-
-                    「值」：「每月」 
+                    "value": "64144d300bde" 
 
                 }, 
 
                 { 
 
-                    "key"： "OfferId-0"， 
+                    "key": "BillingCycle", 
 
-                    "value"： "DZH318Z0C964：0001： DZH318Z0BZDG" 
-
-                }, 
-
-                { 
-
-                    "key"： "SubscriptionId-0"， 
-
-                    "value"： "f428d44a-d08b-348b-579e-ce92a6362c7b" 
+                    "value": "Monthly" 
 
                 }, 
 
                 { 
 
-                    "key"： "SubscriptionName-0"， 
+                    "key": "OfferId-0", 
 
-                    "value"： "SaaS 自訂計量供應專案-銅級" 
-
-                }, 
-
-                { 
-
-                   「機碼」：「數量-0」、 
-
-                    "value"： "1" 
+                    "value": "DZH318Z0C964:0001:DZH318Z0BZDG" 
 
                 }, 
 
                 { 
 
-                    "key"： "PartnerOnRecord-0"， 
+                    "key": "SubscriptionId-0", 
 
-                    "value"： null 
+                    "value": "f428d44a-d08b-348b-579e-ce92a6362c7b" 
+
+                }, 
+
+                { 
+
+                    "key": "SubscriptionName-0", 
+
+                    "value": "SaaS custom meter offer - Bronze" 
+
+                }, 
+
+                { 
+
+                   "key": "Quantity-0", 
+
+                    "value": "1" 
+
+                }, 
+
+                { 
+
+                    "key": "PartnerOnRecord-0", 
+
+                    "value": null 
 
                 } 
 
             ], 
 
-            "attributes"： { 
+            "attributes": { 
 
-                "objectType"： "AuditRecord" 
+                "objectType": "AuditRecord" 
 
             } 
 
@@ -304,59 +304,59 @@ X 地區設定： en-us
 
                            { 
 
-            "id"： "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_86bddccf-9a53-40c6-907c-08067a3f8da7_addcustomer_637346648528069005"， 
+            "id": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_86bddccf-9a53-40c6-907c-08067a3f8da7_addcustomer_637346648528069005", 
 
-            "partnerId"： "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d"， 
+            "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            "參與者"： [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
             ], 
 
-            "customerId"： "86bddccf-9a53-40c6-907c-08067a3f8da7"， 
+            "customerId": "86bddccf-9a53-40c6-907c-08067a3f8da7", 
 
-            "customerName"： "CustomMetersStagingTest"， 
+            "customerName": "CustomMetersStagingTest", 
 
-            "userPrincipalName"： " admin@testsw09.onmicrosoft.com "， 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
-            "applicationId"： "4990cffe-04e8-4e8b-808a-1175604b879f"， 
+            "applicationId": "4990cffe-04e8-4e8b-808a-1175604b879f", 
 
-            "resourceType"： "customer"， 
+            "resourceType": "customer", 
 
-            "resourceNewValue"： "{ \" Id \" ： \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" ， \" CommerceId \" ： \" 9dd78b4f-f98a-44b4-a2fa-2b82ac58d24c \" ， \" CompanyProfile \" ： { \" TenantId \" ： \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" ， \" Domain \" ： \" CustomMetersStagingTest.onmicrosoft.com \" ， \" \" ： \" CustomMetersStagingTest \" ， \" Address \" ： null， \" Email \" ： null， \" OrganizationRegistrationNumber \" ： null， \" Links \" ： { \" Self \" ： { \" Uri \" ： \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/profiles/company \" ， \" Method \" ： \" GET \" ， \" Body \" ： null， \" 標頭 \" ： []}}， \" 屬性 \" ： { \" ObjectType \" ： \" CustomerCompanyProfile \" }}， \" BillingProfile \" { \" Id \" ： \" 4beafd7b-cdab-5bdc-52ed-02e16edf2e7a \" 、 \" FirstName \" ： \" CustomMetersStagingTest \" 、 \" LastName \" ： \" CustomMetersStagingTest \" 、 \" Email \" ： \" CustomMetersStagingTest@CustomMetersStagingTest.com \" 、 \" Culture \" ： \" en-us \" 、 \" Language \" ： en、us： \" \" \" \" \" CustomMetersStagingTest \" 、 \" DefaultAddress \" ： { \" Id \" ： null、Country： \" \" \" US \" 、 \" Region \" ： null、 \" City \" ：西雅圖、State： WA、region： null、AddressLine1： \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" null、 \" 郵遞區號 \" ： \" 98122 \" 、 \" FirstName \" ： \" CustomMetersStagingTest \" 、 \"LastName \" ： \" CustomMetersStagingTest \" 、 \" EmailAddress \" ： null、 \" PhoneNumber \" ： null、 \" MiddleName \" ： null}、 \" 屬性 \" ： { \" Etag \" ： \" -2279334701316321663 \" 、 \" ObjectType \" ： \" CustomerBillingProfile \" }}、 \" RelationshipToPartner \" ： \" 轉售商 \" 、 \" AllowDelegatedAccess \" ： true、UserCredentials \" \" ： { \" userName \" ： \" admin \" 、 \" password \" ： \" \" }、 \" AssociatedPartnerId \" ： null、 \" CustomDomains \" ： null、attribute \" \" ： { \" ObjectType \" ： \" Customer \" }} "、 
+            "resourceNewValue": "{\"Id\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"CommerceId\":\"9dd78b4f-f98a-44b4-a2fa-2b82ac58d24c\",\"CompanyProfile\":{\"TenantId\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"Domain\":\"CustomMetersStagingTest.onmicrosoft.com\",\"CompanyName\":\"CustomMetersStagingTest\",\"Address\":null,\"Email\":null,\"OrganizationRegistrationNumber\":null,\"Links\":{\"Self\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/profiles/company\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]}},\"Attributes\":{\"ObjectType\":\"CustomerCompanyProfile\"}},\"BillingProfile\":{\"Id\":\"4beafd7b-cdab-5bdc-52ed-02e16edf2e7a\",\"FirstName\":\"CustomMetersStagingTest\",\"LastName\":\"CustomMetersStagingTest\",\"Email\":\"CustomMetersStagingTest@CustomMetersStagingTest.com\",\"Culture\":\"en-US\",\"Language\":\"en\",\"CompanyName\":\"CustomMetersStagingTest\",\"DefaultAddress\":{\"Id\":null,\"Country\":\"US\",\"Region\":null,\"City\":\"Seattle\",\"State\":\"WA\",\"District\":null,\"AddressLine1\":\"CustomMetersStagingTest\",\"AddressLine2\":null,\"AddressLine3\":null,\"PostalCode\":\"98122\",\"FirstName\":\"CustomMetersStagingTest\",\"LastName\":\"CustomMetersStagingTest\",\"EmailAddress\":null,\"PhoneNumber\":null,\"MiddleName\":null},\"Attributes\":{\"Etag\":\"-2279334701316321663\",\"ObjectType\":\"CustomerBillingProfile\"}},\"RelationshipToPartner\":\"reseller\",\"AllowDelegatedAccess\":true,\"UserCredentials\":{\"userName\":\"admin\",\"password\":\"\"},\"AssociatedPartnerId\":null,\"CustomDomains\":null,\"Attributes\":{\"ObjectType\":\"Customer\"}}", 
 
-            "operationType"： "add_customer"， 
+            "operationType": "add_customer", 
 
             "originalCorrelationId": "7550d9ea-e64a-416f-e49b-3670c516cf69", 
 
-            "operationDate"： "2020-09-02T17：34： 12.8069005 Z"， 
+            "operationDate": "2020-09-02T17:34:12.8069005Z", 
 
-            ">operationstatus"： "succeeded"， 
+            "operationStatus": "succeeded", 
 
             "customizedData": [ 
 
                 { 
 
-                    "key"： "PrimaryDomainName"， 
+                    "key": "PrimaryDomainName", 
 
-                    "value"： "CustomMetersStagingTest.onmicrosoft.com" 
+                    "value": "CustomMetersStagingTest.onmicrosoft.com" 
 
                 }, 
 
                 { 
 
-                    「索引鍵」：「關聯性」， 
+                    "key": "Relationship", 
 
-                    「值」：「轉銷商」 
+                    "value": "Reseller" 
 
                 } 
 
             ], 
 
-            "attributes"： { 
+            "attributes": { 
 
-                "objectType"： "AuditRecord" 
+                "objectType": "AuditRecord" 
 
             } 
 
@@ -368,28 +368,28 @@ X 地區設定： en-us
 
     ], 
 
-    "links"： { 
+    "links": { 
 
-        "self"： { 
+        "self": { 
 
-            "uri"： "/auditrecords？日期值 = 2020-09-02&結束日 = 2020-09-02&大小 = 50"， 
+            "uri": "/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50", 
 
-            "method"： "GET"， 
+            "method": "GET", 
 
-            "標頭"： [] 
+            "headers": [] 
 
         } 
 
     }, 
 
-    "attributes"： { 
+    "attributes": { 
 
-        "objectType"： "Collection" 
+        "objectType": "Collection" 
 
     } 
 
 } 
-
+```
  
 
   
