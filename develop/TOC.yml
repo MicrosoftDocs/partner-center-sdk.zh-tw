@@ -19,6 +19,8 @@
           href: console-test-app.md
     - name: 在合作夥伴中心設定 API 存取
       href: set-up-api-access-in-partner-center.md
+    - name: API 節流指導方針
+      href: api-throttling-guidance.md
     - name: 合作夥伴中心驗證
       href: partner-center-authentication.md
     - name: 啟用安全應用程式模型
