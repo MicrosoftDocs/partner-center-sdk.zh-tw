@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a9fa70f8343ed51b288c1385540a247844e4659a
-ms.sourcegitcommit: b3a8b6db5fee1cb8756b94105f358ed4bc94d3a5
+ms.openlocfilehash: a3cdc238de6cd89a4542e9b7b54a9b22aca87e7a
+ms.sourcegitcommit: da2a0ef7f8525ea6f547079827a4f7f0b7b5ee97
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89666633"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023217"
 ---
 # <a name="api-throttling-guidance"></a>API 節流指導方針 
 
@@ -25,7 +25,7 @@ Microsoft 正在實行 API 節流，以在一段時間內為呼叫合作夥伴�
 
 ## <a name="what-happens-when-throttling-occurs"></a>發生節流時會發生什麼事？ 
 
-當超過節流閾值時，合作夥伴中心會限制該用戶端在一段時間內的任何進一步要求。 節流行為可能取決於要求的類型和數目。   
+當超過節流閾值時，合作夥伴中心會限制該用戶端在一段時間內的任何進一步要求。 節流行為取決於要求的類型和數目。   
 
 ### <a name="common-throttling-scenarios"></a>常見的節流案例 
 
@@ -75,7 +75,7 @@ Microsoft 正在實行 API 節流，以在一段時間內為呼叫合作夥伴�
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|取得訂用帳戶的 azure 權利清單|    
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|建立訂單|     
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|取得訂用帳戶註冊狀態|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|轉換訂用帳戶|          
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|轉換訂用帳戶|      
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/transfers|取得所有客戶轉移|   
 |https://api.partnercenter.microsoft.com/v1/productUpgrades/{upgrade-id}/status|取得產品升級狀態| 
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|依識別碼取得訂單|           
@@ -85,10 +85,8 @@ Microsoft 正在實行 API 節流，以在一段時間內為呼叫合作夥伴�
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|更新購物車|  
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|註冊訂用帳戶|  
 |https://api.partnercenter.microsoft.com/v1/productupgrades|建立產品升級實體|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|
-取得試用版轉換供應專案的清單|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|
-將試用訂用帳戶轉換為付費|   
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|取得試用版轉換供應專案的清單|  
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|將試用訂用帳戶轉換為付費|   
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}|依識別碼取得客戶|
 
 ### <a name="error-code-response"></a>錯誤碼回應：
@@ -123,22 +121,23 @@ Content-Type: application/json
 ### <a name="response-example"></a>回應範例
 
 **要求**：  
+```http
+Http Get call:  https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50 
 
-Http Get 呼叫： https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50 
-
-授權：持有人 <token> 
+Authorization: Bearer <token> 
 
 Accept: application/json 
 
-MS-RequestId：127facaa-e389-41f8-8bb7-1d1af99db893 
+MS-RequestId: 127facaa-e389-41f8-8bb7-1d1af99db893 
 
-MS CorrelationId： de9c2ccc-40dd-4186-9660-65b9b64c3d14 
+MS-CorrelationId: de9c2ccc-40dd-4186-9660-65b9b64c3d14 
 
-X 地區設定： en-us 
+X-Locale: en-US 
 
-主機： api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com 
 
-連接： Keep-alive 
+Connection: Keep-Alive 
+```
 
 **回應**：    
 ```http
