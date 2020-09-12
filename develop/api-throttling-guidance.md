@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a3cdc238de6cd89a4542e9b7b54a9b22aca87e7a
-ms.sourcegitcommit: da2a0ef7f8525ea6f547079827a4f7f0b7b5ee97
+ms.openlocfilehash: 2531312e5f34a0c35220f009d7aa156331beee43
+ms.sourcegitcommit: aa7b12e0156404f64f576e09971ea3deb3529231
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023217"
+ms.locfileid: "90037503"
 ---
 # <a name="api-throttling-guidance"></a>API 節流指導方針 
 
@@ -19,13 +19,13 @@ ms.locfileid: "90023217"
 
 - 合作夥伴中心
 
-Microsoft 正在實行 API 節流，以在一段時間內為呼叫合作夥伴中心 API 的夥伴，提供更一致的效能。 節流會限制在某個時間範圍內對服務的要求數目，以避免過度使用資源。 雖然合作夥伴中心是設計用來處理大量的要求，但如果少數的夥伴發生大量的要求，則節流有助於維持所有夥伴的最佳效能和可靠性。  
+Microsoft 正在進行 API 節流，讓呼叫合作夥伴中心 Api 的夥伴能在時間範圍內提供更一致的效能。 節流會限制在某個時間範圍內對服務的要求數目，以避免過度使用資源。 雖然合作夥伴中心是設計用來處理大量的要求，但如果少數的夥伴發生大量的要求，則節流有助於維持所有夥伴的最佳效能和可靠性。  
 
 節流限制視情節而異。 例如，如果您正在執行大量的寫入，則節流的可能性要高於僅執行讀取作業的可能性。
 
 ## <a name="what-happens-when-throttling-occurs"></a>發生節流時會發生什麼事？ 
 
-當超過節流閾值時，合作夥伴中心會限制該用戶端在一段時間內的任何進一步要求。 節流行為取決於要求的類型和數目。   
+當超過節流閾值時，合作夥伴中心會將該用戶端的任何進一步要求限制在一段時間內。 節流行為取決於要求的類型和數目。   
 
 ### <a name="common-throttling-scenarios"></a>常見的節流案例 
 
@@ -57,52 +57,41 @@ Microsoft 正在實行 API 節流，以在一段時間內為呼叫合作夥伴�
 
 3. 如果要求再次失敗，錯誤碼為429，表示您仍在進行節流。 以指數輪詢重試，使用建議的延遲後重試，然後重試要求，直到成功為止。
 
-## <a name="apis-currently-impacted-by-throttling"></a>API 目前受到節流影響
+## <a name="apis-currently-impacted-by-throttling"></a>目前受節流影響的 Api
 
-長時間執行時，每個呼叫端點 "api.partnercenter.microsoft.com/" 的單一合作夥伴中心 API 都會進行節流處理。 目前，節流限制只會在下列幾個 API 上強制執行。 合作夥伴中心將會在每個 API 上收集遙測資料，並將動態調整節流限制。 下表列出目前強制執行節流的 API。  
+長時間執行時，每個呼叫端點 "api.partnercenter.microsoft.com/" 的單一合作夥伴中心 API 都會進行節流處理。 目前，節流限制只會在下列幾個 Api 上強制執行。 合作夥伴中心將會在每個 Api 上收集遙測資料，並將動態調整節流限制。 下表列出目前強制執行節流的 Api。  
 
 
 |**運算**| **合作夥伴中心文件**|       
 |------------------------|----------------------------|
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions|全客戶-訂用帳戶|    
-|https://api.partnercenter.microsoft.com/v1/productUpgrades/eligibility|取得資格-產品升級|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}|依識別碼取得訂用帳戶|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|取得所有客戶訂單|     
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|依識別碼取得訂單|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}/provisioningstatus|取得訂用帳戶布建狀態|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}|管理訂單和管理訂用帳戶|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/addons|取得訂用帳戶的附加元件清單|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|取得訂用帳戶的 azure 權利清單|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|建立訂單|     
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|取得訂用帳戶註冊狀態|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|轉換訂用帳戶|      
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/transfers|取得所有客戶轉移|   
-|https://api.partnercenter.microsoft.com/v1/productUpgrades/{upgrade-id}/status|取得產品升級狀態| 
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|依識別碼取得訂單|           
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/orders/{order-id}|購買訂用帳戶的附加元件|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|建立購物車|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}/checkout|結帳購物車|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|更新購物車|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|註冊訂用帳戶|  
-|https://api.partnercenter.microsoft.com/v1/productupgrades|建立產品升級實體|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|取得試用版轉換供應專案的清單|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|將試用訂用帳戶轉換為付費|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}|依識別碼取得客戶|
+|{baseURL}/v1/customers/{customer_id}/orders|[建立訂單](create-an-order.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|[轉換訂用帳戶](transition-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/orders/{order-id}|[購買訂用帳戶的附加元件](purchase-an-add-on-to-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[建立購物車](create-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}/checkout|[結帳購物車](checkout-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[更新購物車](update-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|[註冊訂用帳戶](register-a-subscription.md)|
+|{baseURL}/v1/productupgrades|[建立產品升級實體](create-product-upgrade-entity.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions |[將試用訂用帳戶轉換為付費](convert-a-trial-subscription-to-paid.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}|[依識別碼取得客戶](get-a-customer-by-id.md)|
+|{baseURL}/v1/productUpgrades/eligibility|[取得產品升級的資格](get-eligibility-for-product-upgrade.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} |[管理訂用帳戶](manage-orders.md#manage-a-subscription)|
+
 
 ### <a name="error-code-response"></a>錯誤碼回應：
+```http
+HTTP/1.1 429 Too Many Requests 
 
-HTTP/1.1 429 的要求太多 
-
-內容-長度：84 
+Content-Length: 84 
 
 Content-Type: application/json 
 
-重試：57 
+Retry-After: 57 
 
-日期：週二、21月 2020 04:10:58 GMT 
+Date: Tue, 21 Jul 2020 04:10:58 GMT 
 
-{"statusCode"：429，"message"： "超過速率限制。 請于57秒後再試一次。」 } 
-
+{ "statusCode": 429, "message": "Rate limit is exceeded. Try again in 57 seconds." } 
+```
 
 ## <a name="example-of-activity-log"></a>活動記錄範例
 
