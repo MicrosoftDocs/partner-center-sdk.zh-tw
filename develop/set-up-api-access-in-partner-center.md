@@ -4,12 +4,12 @@ description: 設定帳戶以針對合作夥伴中心 SDK 進行開發，並在�
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0d2d8ea9f92c84a0bf36642504458c918c1607bf
-ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
+ms.openlocfilehash: c2bd8e8f44084024effac6e80778ba34de1d3cac
+ms.sourcegitcommit: 30b5c61a75e40f5d08170f61094dbc5ea968c4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87557309"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90064884"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>在合作夥伴中心設定 API 存取
 
@@ -52,7 +52,7 @@ ms.locfileid: "87557309"
 
 2. 從 [設定]  功能表 (齒輪圖示) 中，選擇 [合作夥伴設定]  。
 
-3. 在 [帳戶設定]  頁面上，選擇 [整合沙箱]  。
+3. 選擇 [整合沙箱] 索引標籤。
 
     >[!NOTE]
     >如果您沒有看到 [整合沙箱] 選項，可能是您沒有全域管理員帳戶。 也有可能是您正在使用整合沙箱帳戶，而且已設定整合沙箱。
