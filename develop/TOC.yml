@@ -411,16 +411,12 @@
     - name: 提供支援
       href: provide-support.md
       items:
-        - name: 建立服務要求
-          href: create-a-service-request-.md
         - name: 取得訂閱的支援連絡人
           href: get-a-subscription-s-support-contact.md
         - name: 為客戶取得所有服務要求
           href: get-all-service-requests-for-a-customer.md
         - name: 依照識別碼取得服務要求詳細資料
           href: get-service-request-details-by-id.md
-        - name: 取得服務要求支援主題的清單
-          href: get-service-request-support-topics--pending-.md
         - name: 依照識別碼取得客戶的受控服務
           href: get-the-managed-services-for-a-customer-by-id.md
         - name: 更新服務要求
