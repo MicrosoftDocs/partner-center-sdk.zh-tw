@@ -1,15 +1,15 @@
 ---
 title: 為指定客戶刪除裝置
-description: 如何刪除屬於指定客戶的裝置。
+description: 如何刪除屬於指定之客戶的裝置。
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2e1727b36f7775f59c191172c5514f0accbf3091
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 69b5440f2cf07d3cb4ecd5addf429acd64530257
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094167"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927823"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>為指定客戶刪除裝置
 
@@ -18,11 +18,11 @@ ms.locfileid: "86094167"
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-本文說明如何刪除屬於指定客戶的裝置。
+本文說明如何刪除屬於指定之客戶的裝置。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -32,15 +32,15 @@ ms.locfileid: "86094167"
 
 ## <a name="c"></a>C\#
 
-若要刪除指定客戶的裝置：
+若要為指定的客戶刪除裝置：
 
-1. 使用客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以取得客戶上作業的介面。
+1. 使用客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以抓取客戶的作業介面。
 
-2. 使用裝置批次識別碼呼叫[**DeviceBatches. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)方法，以取得指定批次之作業的介面。
+2. 使用裝置批次識別碼呼叫 [**DeviceBatches. >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) 方法，以取得指定之批次的作業介面。
 
-3. 呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid)方法，以在指定的裝置上取得操作介面。
+3. 呼叫 [**>iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) 方法，以取得要在指定裝置上操作的介面。
 
-4. 呼叫[**delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete)或[**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync)方法，從批次中刪除裝置。
+4. 呼叫 [**delete**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) 或 [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) 方法，從批次中刪除裝置。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -51,7 +51,7 @@ string selectedDeviceId;
 partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.ById(selectedDeviceId).Delete();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： DeleteDevice.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： DeleteDevice.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -65,7 +65,7 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱           | 類型   | 必要 | 說明                                                        |
+| 名稱           | 類型   | 必要 | 描述                                                        |
 |----------------|--------|----------|--------------------------------------------------------------------|
 | customer-id    | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。              |
 | devicebatch-id | 字串 | Yes      | 包含裝置之批次的裝置批次識別碼。 |
@@ -77,7 +77,7 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -94,7 +94,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應會傳回**204 沒有內容**狀態碼。
+如果成功，回應會傳回 **204 沒有內容** 狀態碼。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

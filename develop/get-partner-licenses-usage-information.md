@@ -1,15 +1,15 @@
 ---
 title: 取得合作夥伴授權使用資訊
-description: 如何取得匯總的合作夥伴授權使用量資訊，以包含所有客戶。
+description: 如何取得匯總的夥伴授權使用量資訊，以包含所有客戶。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a9bad2d4bc5d7b607bbc472068a47cfe7c156f94
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3774b5adcc8772da0c6f54c71ba0b21cd0ea0e0f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097719"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927002"
 ---
 # <a name="get-partner-licenses-usage-information"></a>取得合作夥伴授權使用資訊
 
@@ -17,10 +17,10 @@ ms.locfileid: "86097719"
 
 - 合作夥伴中心
 
-如何取得匯總的合作夥伴授權使用量資訊，以包含所有客戶。
+如何取得匯總的夥伴授權使用量資訊，以包含所有客戶。
 
 > [!NOTE]
-> 此案例是透過[取得授權使用資訊](get-licenses-usage-information.md)來取代。
+> 此案例是由 [取得授權使用資訊](get-licenses-usage-information.md)所取代。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,7 +28,7 @@ ms.locfileid: "86097719"
 
 ## <a name="c"></a>C\#
 
-若要在授權部署上取得匯總資料，請先從[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.analytics)屬性取得合作夥伴層級分析集合作業的介面。 然後從 [[**授權**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses)] 屬性，將介面抓取到夥伴層級授權分析集合。 最後，請呼叫[**usage**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)方法來取得授權使用量的匯總資料。 如果方法成功，您會取得[**PartnerLicensesUsageInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights)物件的集合。
+若要抓取授權部署的匯總資料，請先從 [**>iaggregatepartner.customers. 分析**/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) 屬性取得夥伴層級分析集合作業的介面。 然後從 [**授權**/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) 屬性，將介面從「合作夥伴層級授權分析」集合中取出。 最後，呼叫 [**Usage. Get**/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) 方法，以取得授權使用量的匯總資料。 如果方法成功，您將會取得 [**PartnerLicensesUsageInsights**/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) 物件的集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -66,7 +66,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights)資源的集合，以提供所使用之授權的相關資訊。
+如果成功，回應主體會包含 [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) 資源的集合，以提供所使用之授權的相關資訊。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -1,15 +1,15 @@
 ---
 title: 取消購買軟體
-description: 使用合作夥伴中心 Api 取消軟體訂閱和永久軟體購買的自助選項。
+description: 使用合作夥伴中心 Api 來取消軟體訂閱和永久軟體購買的自助選項。
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 364859172661832531e6d214e70dfeb6bc27a7fa
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 25fd10a171fa6ca01f3442d49145443f2382cc18
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097311"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927404"
 ---
 # <a name="cancel-software-purchases"></a>取消購買軟體
 
@@ -17,27 +17,27 @@ ms.locfileid: "86097311"
 
 - 合作夥伴中心
 
-您可以使用合作夥伴中心 Api 來取消軟體訂用帳戶和永久軟體購買（只要這些購買是從購買日期的取消時段進行）。 您不需要建立支援票證來進行這類取消，而可以改為使用下列自助服務方法。
+您可以使用合作夥伴中心 Api 來取消軟體訂用帳戶和永久軟體購買 (只要購買日期) 的 [取消] 視窗中進行購買即可。 您不需要建立支援票證來進行這類取消，而可以改為使用下列自助方法。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 ## <a name="c"></a>C\#
 
 若要取消軟體訂單，
 
-1. 將您的帳號憑證傳遞至[**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)方法，以取得[**ipartner.getinvoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)介面來取得合作夥伴作業。
+1. 將您的帳號憑證傳遞給 [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) 方法，以取得可取得夥伴作業的 [**>ipartner.customers**](/dotnet/api/microsoft.store.partnercenter.ipartner) 介面。
 
-2. 選取您想要取消的特定[訂單](order-resources.md#order)。 使用客戶識別碼呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，後面接著**ById （）** 與訂單識別碼。
+2. 選取您要取消的特定 [順序](order-resources.md#order) 。 使用客戶識別碼 [**>iaggregatepartner.customers.byid ( # B1 **](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，後面接著 Order **. >iaggregatepartner.customers.byid ( # B3 ** 加上訂單識別碼。
 
-3. 呼叫**Get**或**GetAsync**方法以取得訂單。
+3. 呼叫 **Get** 或 **GetAsync** 方法以取得訂單。
 
-4. 將[**Order. Status**](order-resources.md#order)屬性設定為 `cancelled` 。
+4. 將 [ [**Order**](order-resources.md#order) ] 的 [Status] 屬性設定為 `cancelled` 。
 
-5. 選擇性如果您想要指定取消的特定行專案，請將[**LineItems**](order-resources.md#order)設定為您要取消之行專案的清單。
+5.  (選擇性) 如果您要指定取消的某些行專案，請將 [**LineItems**](order-resources.md#order) 設定為您要取消的明細專案清單。
 
-6. 使用**Patch （）** 方法來更新訂單。
+6. 使用 **Patch ( # B1 ** 方法來更新順序。
 
 ``` csharp
 // IPartnerCredentials accountCredentials;
@@ -62,16 +62,16 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 | 方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
+| **補丁** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 使用下列查詢參數來刪除客戶。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的客戶租使用者識別碼，可讓轉銷商針對屬於轉售商的特定客戶篩選其結果。 |
-| **訂單識別碼** | **string** | Y        | 值為字串，表示您想要取消之訂單的識別碼。 |
+| **customer-tenant-id** | **guid** | Y        | 此值為 GUID 格式化的客戶租使用者識別碼，可讓轉銷商針對屬於轉售商的特定客戶篩選其結果。 |
+| **訂單-識別碼** | **string** | Y        | 此值為字串，表示您要取消之訂單的識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -114,9 +114,9 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，這個方法會傳回具有已取消之明細專案的順序。
+如果成功，這個方法會傳回具有取消的明細專案的順序。
 
-如果訂單中的所有明細專案都已取消，則訂單狀態會標示為 [已**取消**]，如果未取消訂單中的所有明細專案，則為 [**已完成**]。
+如果訂單中的所有明細專案都已取消，訂單狀態會標示為 [已取消]，如果未取消訂單中所有的明細專案，則會標示為 [**已****取消**]。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -124,7 +124,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ### <a name="response-example"></a>回應範例
 
-在下列範例回應中，您可以看到具有供應專案識別碼的明細專案數量 **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** 已變成零（0）。 這項變更表示已成功取消標示為取消的行專案。 範例順序包含未取消的其他明細專案，這表示整體訂單的狀態會標示為**已完成**，而不是**取消**。
+在下列範例回應中，您可以看到具有供應專案識別碼的明細專案數量 **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** 已成為零 (0) 。 這項變更表示標示為取消的明細專案已成功取消。 範例順序包含未取消的其他明細專案，這表示整體訂單的狀態將會標示為 **已完成**，而不會 **取消**。
 
 ```http
 HTTP/1.1 200 OK

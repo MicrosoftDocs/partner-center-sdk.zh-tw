@@ -4,12 +4,12 @@ description: 取得指定計費期間的客戶服務成本。
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bdcfd2273b8af37680b4aff7821d773a0f417688
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 635e61342e13c3676120ec0df02f1e8bffda64ac
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098317"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927757"
 ---
 # <a name="get-a-customers-service-costs-summary"></a>取得客戶的服務成本摘要
 
@@ -25,19 +25,19 @@ ms.locfileid: "86098317"
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
-- 計費週期指示器（ **`mostrecent`** ）。
+-  () 的計費週期指標 **`mostrecent`** 。
 
 ## <a name="c"></a>C\#
 
-若要取得指定客戶的服務成本摘要：
+若要取得指定之客戶的服務成本摘要：
 
-1. 使用客戶識別碼呼叫[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以識別客戶。
+1. 使用客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以識別客戶。
 
-2. 使用[**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts)屬性來取得客戶服務成本集合作業的介面。
+2. 使用 [**ServiceCosts**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts) 屬性來取得客戶服務成本收集作業的介面。
 
-3. 呼叫具有[**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod)列舉成員的[**ByBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod)方法，以傳回[**iservicecostscollection 請使用**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection)。
+3. 使用[**ServiceCostsBillingPeriod**](/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod)列舉的成員來呼叫[**ByBillingPeriod**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod)方法，以傳回[**IServiceCostsCollection**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection)。
 
-4. 使用[**iservicecostscollection 請使用**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.getasync)方法取得客戶的服務成本摘要。
+4. 使用 [**IServiceCostsCollection**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.get) 或 [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.getasync) 方法，取得客戶的服務成本摘要。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -58,9 +58,9 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 使用下列路徑參數來識別客戶和計費期間。
 
-| 名稱           | 類型   | 必要 | 說明                                                                                                                      |
+| 名稱           | 類型   | 必要 | 描述                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | guid   | Yes      | 識別客戶的 GUID 格式客戶識別碼。                                                                       |
+| customer-id    | guid   | Yes      | 可識別客戶的 GUID 格式化客戶識別碼。                                                                       |
 | billing-period | 字串 | Yes      | 表示計費週期的指標。 唯一支援的值為 MostRecent。 字串的大小寫並不重要。 |
 
 ### <a name="request-headers"></a>要求標頭
@@ -85,7 +85,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[ServiceCostsSummary](service-costs-resources.md)資源，以提供服務成本的相關資訊。
+如果成功，回應主體會包含 [ServiceCostsSummary](service-costs-resources.md) 資源，以提供服務成本的相關資訊。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

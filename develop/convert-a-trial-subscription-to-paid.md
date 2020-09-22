@@ -1,15 +1,15 @@
 ---
 title: 將試用版訂用帳戶轉換成付費版
-description: 如何將試用訂閱轉換成付費帳戶。
+description: 如何將試用訂用帳戶轉換為付費帳戶。
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ac7b6c20c71e8af0e5cbd796aa4466056d780ce9
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c1421c0dbb294d8d99d9b32ec9c81888aa14254d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927360"
 ---
 # <a name="convert-a-trial-subscription-to-paid"></a>將試用版訂用帳戶轉換成付費版
 
@@ -29,24 +29,24 @@ ms.locfileid: "86096359"
 
 - 可用的轉換供應專案。
 
-## <a name="convert-a-trial-subscription-to-paid-through-code"></a>將試用訂用帳戶轉換為透過程式碼付費
+## <a name="convert-a-trial-subscription-to-paid-through-code"></a>透過程式碼將試用訂用帳戶轉換為付費
 
-若要將試用訂閱轉換成付費帳戶，您必須先取得可用試用轉換的集合。 然後，您必須選擇您想要購買的轉換供應專案。
+若要將試用訂用帳戶轉換成付費帳戶，您必須先取得可用試用轉換的集合。 然後，您必須選擇要購買的轉換供應專案。
 
-轉換供應專案將指定的數量預設為與試用訂用帳戶相同的授權數目。 將[**quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity)屬性設定為您要購買的授權數目，即可變更此數量。
+轉換供應專案會指定預設為與試用訂用帳戶相同數量的授權數量。 您可以藉由將 [ [**數量**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) ] 屬性設定為您想要購買的授權數目，來變更此數量。
 
 > [!NOTE]
-> 無論購買的授權數目為何，試用版的訂用帳戶 ID 都會重複用於已購買的授權。 因此，試用版會消失，並取代為購買。
+> 無論購買的授權數目為何，都會針對購買的授權重複使用試用版的訂用帳戶識別碼。 如此一來，試用版就會消失，並取代為購買的結果。
 
-使用下列步驟，透過程式碼來轉換試用訂閱：
+使用下列步驟，透過程式碼來轉換試用版訂用帳戶：
 
-1. 取得可用訂用帳戶作業的介面。 您必須識別客戶，並指定試用訂用帳戶的訂用帳戶識別碼。
+1. 取得可用訂用帳戶作業的介面。 您必須識別客戶並指定試用訂用帳戶的訂用帳戶識別碼。
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2. 取得可用轉換供應專案的集合。 如需有關此方法的要求/回應的詳細資訊和詳細資料，請參閱[取得試用版轉換](get-a-list-of-trial-conversion-offers.md)供應專案清單。
+2. 取得可用的轉換供應專案集合。 如需此方法之要求/回應的詳細資訊和詳細資訊，請參閱 [取得試用轉換](get-a-list-of-trial-conversion-offers.md)供應專案清單。
 
     ``` csharp
     var conversions = subscriptionOperations.Conversions.Get();
@@ -58,13 +58,13 @@ ms.locfileid: "86096359"
     var selectedConversion = conversions.Items.ToList()[0];
     ```
 
-4. （選擇性）指定要購買的授權數目。 預設值為試用訂用帳戶中的授權數目。
+4. （選擇性）指定要購買的授權數目。 預設值為試用版訂用帳戶中的授權數目。
 
     ``` csharp
     selectedConversion.Quantity = 10;
     ```
 
-5. 呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)方法，以將試用訂閱轉換為付費。
+5. 呼叫 [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) 或 [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) 方法，將試用訂用帳戶轉換為付費。
 
     ``` csharp
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
@@ -72,17 +72,17 @@ ms.locfileid: "86096359"
 
 ## <a name="c"></a>C\#
 
-若要將試用訂閱轉換成付費帳戶：
+若要將試用訂用帳戶轉換為付費帳戶：
 
-1. 使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。
+1. 使用 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法搭配客戶識別碼來識別客戶。
 
-2. 使用試用版訂用帳戶識別碼呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法，以取得訂用帳戶作業的介面。 將訂用帳戶作業介面的參考儲存在本機變數中。
+2. 藉由呼叫 [**>iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) 方法並搭配試用版訂用帳戶識別碼，來取得訂用帳戶作業的介面。 將訂用帳戶作業介面的參考儲存在本機變數中。
 
-3. 使用 [[**轉換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)] 屬性來取得轉換上可用作業的介面，然後呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)方法，以取得可用[**轉換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion)供應專案的集合。 您必須選擇其中一個。 下列範例會預設為第一個可用的轉換。
+3. 您可以使用 [ [**轉換**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) ] 屬性來取得轉換的可用作業介面，然後呼叫 [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) 或 [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) 方法，以取得可用 [**轉換**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) 供應專案的集合。 您必須選擇一個。 下列範例預設為第一個可用的轉換。
 
-4. 使用您儲存在本機變數中的訂用帳戶作業介面的參考和[**轉換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)屬性，以取得轉換時可用作業的介面。
+4. 使用您儲存在本機變數中的訂用帳戶作業介面的參考和 [**轉換**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) 屬性，取得轉換時可用作業的介面。
 
-5. 將選取的轉換供應專案物件傳遞至[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)方法，以嘗試進行試用轉換。
+5. 將選取的轉換供應專案物件傳遞至 [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) 或 [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) 方法，以嘗試進行試用轉換。
 
 ### <a name="c-example"></a>C \# 範例
 
@@ -123,12 +123,12 @@ else
 
 ### <a name="uri-parameter"></a>URI 參數
 
-使用下列路徑參數來識別客戶和試用版訂用帳戶。
+使用下列路徑參數來識別客戶和試用訂用帳戶。
 
-| 名稱            | 類型   | 必要 | 說明                                                     |
+| 名稱            | 類型   | 必要 | 描述                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | 字串 | Yes      | 識別客戶的 GUID 格式字串。           |
-| subscription-id | 字串 | Yes      | 可識別試用訂閱的 GUID 格式字串。 |
+| customer-id     | 字串 | Yes      | 可識別客戶的 GUID 格式字串。           |
+| subscription-id | 字串 | Yes      | GUID 格式的字串，可識別試用版訂用帳戶。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -136,7 +136,7 @@ else
 
 ### <a name="request-body"></a>要求本文
 
-填入的[轉換](conversions-resources.md#conversion)資源必須包含在要求主體中。
+填入的 [轉換](conversions-resources.md#conversion) 資源必須包含在要求主體中。
 
 ### <a name="request-example"></a>要求範例
 
@@ -166,11 +166,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[ConversionResult](conversions-resources.md#conversionresult)資源。
+如果成功，回應主體會包含 [ConversionResult](conversions-resources.md#conversionresult) 資源。
 
 #### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 #### <a name="response-example"></a>回應範例
 

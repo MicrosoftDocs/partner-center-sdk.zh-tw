@@ -4,12 +4,12 @@ description: 如何更新雲端解決方案提供者已代表客戶向 Microsoft
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 96a856b8b246edbee516486641b478df485f91c4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a7330811c3be17d90015cfca7491b287852fbe86
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095591"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925531"
 ---
 # <a name="update-a-service-request"></a>更新服務要求
 
@@ -21,7 +21,7 @@ ms.locfileid: "86095591"
 
 如何更新雲端解決方案提供者已代表客戶向 Microsoft 提出的現有客戶服務要求。
 
-在合作夥伴中心儀表板中，您可以先[選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取左側提要欄位上的 [**服務管理**]。 在 [**支援要求**] 標頭底下，選取有問題的服務要求。 若要完成，請對服務要求進行所需的變更，然後選取 [**提交]。**
+在合作夥伴中心儀表板中，您可以先 [選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取左側邊欄上的 [ **服務管理** ]。 在 [ **支援要求** ] 標頭下，選取有問題的服務要求。 若要完成，請對服務要求進行所需的變更，然後選取 [ **提交]。**
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,7 +31,7 @@ ms.locfileid: "86095591"
 
 ## <a name="c"></a>C\#
 
-若要更新客戶的服務要求，請使用服務要求識別碼呼叫[**IServiceRequestCollection. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)方法，以識別並傳回服務要求介面。 然後，呼叫[**IServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch)或[**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync)方法來更新服務要求。 若要提供更新的值，請建立新的空白[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)物件，並只設定您想要變更的屬性值。 然後在對 Patch 或 PatchAsync 方法的呼叫中傳遞該物件。
+若要更新客戶的服務要求，請使用服務要求識別碼呼叫 [**IServiceRequestCollection. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) 方法，以識別並傳回服務要求介面。 然後，呼叫 [**IServiceRequest. Patch**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) 或 [**PatchAsync**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) 方法來更新服務要求。 若要提供更新的值，請建立新的空白 [**ServiceRequest**/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) 物件，並只設定您想要變更的屬性值。 然後將該物件傳遞至 Patch 或 PatchAsync 方法的呼叫。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,7 +43,7 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 });
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： UpdatePartnerServiceRequest.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： UpdatePartnerServiceRequest.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -51,13 +51,13 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 
 | 方法    | 要求 URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1。1 |
+| **補丁** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列 URI 參數來更新服務要求。
 
-| 名稱                  | 類型     | 必要 | 說明                                 |
+| 名稱                  | 類型     | 必要 | 描述                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | 識別服務要求的 GUID。 |
 
@@ -67,7 +67,7 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 
 ### <a name="request-body"></a>要求本文
 
-要求主體應包含[ServiceRequest](service-request-resources.md)資源。 唯一必要的值是要更新的值。
+要求主體應包含 [ServiceRequest](service-request-resources.md) 資源。 唯一需要的值是要更新的值。
 
 ### <a name="request-example"></a>要求範例
 
@@ -115,11 +115,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，這個方法會傳回**服務要求**資源，並在回應主體中包含更新的屬性。
+如果成功，這個方法會傳迴響應主體中具有更新屬性的 **服務要求** 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

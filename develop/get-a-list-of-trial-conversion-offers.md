@@ -1,15 +1,15 @@
 ---
 title: 取得試用版轉換方案的清單
-description: 如何取得試用版轉換供應專案清單。
+description: 如何取出試用版轉換供應專案清單。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 865b557dcfa275c3ec68dc7350b76c2fa9208d0f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ae5dbdc69ca477d8dc7773b21252ebea73a8dfed
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097202"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927618"
 ---
 # <a name="get-a-list-of-trial-conversion-offers"></a>取得試用版轉換方案的清單
 
@@ -17,7 +17,7 @@ ms.locfileid: "86097202"
 
 - 合作夥伴中心
 
-如何取得試用版轉換供應專案清單。
+如何取出試用版轉換供應專案清單。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "86097202"
 
 ## <a name="c"></a>C\#
 
-若要取得可用試用轉換的清單，請從使用[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來開始，以識別客戶。 然後，使用試用版訂用帳戶識別碼呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法，以取得訂用帳戶作業的介面。 接下來，使用 [[**轉換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)] 屬性來取得轉換上可用作業的介面，然後呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)方法，以取得可用[**轉換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion)供應專案的集合。
+若要取得可用的試用轉換清單，請從使用 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法與客戶識別碼來識別客戶。 然後，透過使用試用版訂用帳戶識別碼來呼叫 [**>iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) 方法，以取得訂用帳戶作業的介面。 接下來，使用 [**轉換**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) 屬性，取得轉換的可用作業介面，然後呼叫 [**Get**/Dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) 方法，以取得可用 [**轉換**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) 供應專案的集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,12 +51,12 @@ var conversions =
 
 ### <a name="uri-parameter"></a>URI 參數
 
-使用下列路徑參數來識別客戶和試用版訂用帳戶。
+使用下列路徑參數來識別客戶和試用訂用帳戶。
 
-| 名稱            | 類型   | 必要 | 說明                                                     |
+| 名稱            | 類型   | 必要 | 描述                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | 字串 | Yes      | 識別客戶的 GUID 格式字串。           |
-| subscription-id | 字串 | Yes      | 可識別試用訂閱的 GUID 格式字串。 |
+| customer-id     | 字串 | Yes      | 可識別客戶的 GUID 格式字串。           |
+| subscription-id | 字串 | Yes      | GUID 格式的字串，可識別試用版訂用帳戶。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -80,11 +80,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[轉換](conversions-resources.md#conversionresult)資源的集合。
+如果成功，回應主體會包含 [轉換](conversions-resources.md#conversionresult) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

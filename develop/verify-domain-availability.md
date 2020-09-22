@@ -4,12 +4,12 @@ description: 如何判斷網域是否可供使用。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f0ae17a7f929e74a32647c616bb35bc20ed9bcc3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3f2e3d551da30c7b9c25e1fc3f3280a425aff8f8
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925584"
 ---
 # <a name="verify-domain-availability"></a>驗證網域可用性
 
@@ -24,13 +24,13 @@ ms.locfileid: "86093490"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 網域（例如 `contoso.onmicrosoft.com` ）。
+- 網域 (例如 `contoso.onmicrosoft.com`) 。
 
 ## <a name="c"></a>C\#
 
-若要確認是否有可用的網域，請先呼叫[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains)來取得網域作業的介面。 然後使用要檢查的網域來呼叫[**ByDomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain)方法。 這個方法會抓取特定網域的可用作業介面。 最後，呼叫[**Exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists)方法以查看網域是否已經存在。
+若要確認網域是否可用，請先呼叫 [**>iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.domains) ，以取得網域作業的介面。 然後，呼叫 [**ByDomain**/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) 方法與要檢查的網域。 這個方法會針對特定網域的可用作業取得介面。 最後，呼叫 [**Exists**/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) 方法，以查看網域是否已存在。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -39,7 +39,7 @@ ms.locfileid: "86093490"
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CheckDomainAvailability.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： CheckDomainAvailability.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -47,15 +47,15 @@ bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 
 | 方法   | 要求 URI                                                              |
 |----------|--------------------------------------------------------------------------|
-| **前端** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1。1 |
+| **頭** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-使用下列查詢參數來驗證網域可用性。
+使用下列查詢參數來確認網域的可用性。
 
-| 名稱       | 類型       | 必要 | 說明                                   |
+| 名稱       | 類型       | 必要 | 描述                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **domain** | **string** | Y        | 用來識別受檢網域的字串。 |
+| **域** | **string** | Y        | 用來識別受檢網域的字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -63,7 +63,7 @@ bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -80,7 +80,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果定義域存在，則無法使用它，而且會傳迴響應狀態碼 200 [確定]。 如果找不到網域，則可供使用，而且會傳迴響應狀態碼 404 [找不到]。
+如果網域存在，則無法使用它，而且會傳迴響應狀態碼 200 OK。 如果找不到網域，則可供使用，而且會傳迴響應狀態碼404。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

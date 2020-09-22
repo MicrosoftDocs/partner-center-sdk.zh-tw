@@ -1,17 +1,17 @@
 ---
 title: 依照授權群組取得可用授權的清單
-description: 如何取得指定授權群組的授權清單，供指定客戶的使用者使用。
+description: 如何取得指定之授權群組的授權清單，以供指定客戶的使用者使用。
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: e77c0bedc921f84d43ad80557bf7fde625b490f6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4a7d1e00ba82da1290f81b484956aef1467f2ec5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098179"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927681"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>依照授權群組取得可用授權的清單
 
@@ -19,7 +19,7 @@ ms.locfileid: "86098179"
 
 - 合作夥伴中心
 
-如何取得指定授權群組的授權清單，供指定客戶的使用者使用。
+如何取得指定之授權群組的授權清單，以供指定客戶的使用者使用。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,7 +31,7 @@ ms.locfileid: "86098179"
 
 ## <a name="c"></a>C\#
 
-若要取得指定授權群組的可用授權清單，請從具現化[**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)類型的[清單](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)開始，然後將授權群組新增至清單。 接下來，使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 然後，取得[**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)屬性的值，以取得客戶已訂閱之 SKU 集合作業的介面。 最後，將授權群組清單傳遞給[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)方法，以使用可用授權單位的詳細資料來抓取已訂閱的 sku 清單。
+若要取得指定授權群組的可用授權清單，請從具現化類型 [**LicenseGroupId**/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) 的 [清單/dotnet/api/-1) 開始，然後將授權群組新增至清單。 接下來，使用 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法與客戶識別碼來識別客戶。 然後，取得 [**SubscribedSkus**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) 屬性的值，以抓取客戶已訂閱之 SKU 集合作業的介面。 最後，將授權群組清單傳遞給 [**Get**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync]) 方法，以取得已訂閱的 sku 清單以及可用授權單位的詳細資料。
 
 ``` csharp
 // string selectedCustomerId;
@@ -64,10 +64,10 @@ var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(s
 
 使用下列路徑和查詢參數來識別客戶和授權群組。
 
-| 名稱            | 類型   | 必要 | 說明                                                                                                                                                                                                                                                           |
+| 名稱            | 類型   | 必要 | 描述                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id     | 字串 | Yes      | 識別客戶的 GUID 格式字串。                                                                                                                                                                                                                 |
-| licenseGroupIds | 字串 | No       | 列舉值，表示所指派授權的授權群組。 有效值： Group1、Group2 Group1-此群組具有可在 Azure Active Directory （AAD）中管理其授權的所有產品。 Group2-此群組只有 Minecraft 產品授權。 |
+| customer-id     | 字串 | Yes      | 可識別客戶的 GUID 格式字串。                                                                                                                                                                                                                 |
+| licenseGroupIds | 字串 | No       | 列舉值，指出指派之授權的授權群組。 有效的值： Group1、Group2 Group1-此群組具有可在 Azure Active Directory (AAD) 中管理其授權的所有產品。 Group2-此群組只有 Minecraft 的產品授權。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -91,11 +91,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[SubscribedSku](license-resources.md#subscribedsku)資源的集合。
+如果成功，回應主體會包含 [SubscribedSku](license-resources.md#subscribedsku) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 
@@ -231,9 +231,9 @@ Date: Sat, 10 Jun 2017 00:19:44 GMT
 }
 ```
 
-### <a name="response-example-no-matching-skus-found"></a>回應範例（找不到相符的 Sku）
+### <a name="response-example-no-matching-skus-found"></a>回應範例 (找不到符合的 Sku) 
 
-如果找不到所指定授權群組的相符訂閱 Sku，回應會包含空集合，其值為0的 totalCount 元素。
+如果找不到符合所指定授權群組的已訂閱 Sku，回應會包含空集合，其值為0的 totalCount 元素。
 
 ```http
 HTTP/1.1 200 OK

@@ -1,17 +1,17 @@
 ---
 title: 取得依搜尋欄位篩選的客戶清單
-description: 取得符合篩選準則的客戶資源集合。 您可以選擇性地設定頁面大小。 您可以依公司名稱、網域、間接轉銷商或間接雲端解決方案提供者（CSP）進行篩選。
+description: 取得符合篩選準則之客戶資源的集合。 您可以選擇性地設定頁面大小。 您可以依公司名稱、網域、間接轉銷商或間接雲端解決方案提供者 (CSP) 來進行篩選。
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 60875f960c228c9eca90c21cc0c34f5747c04860
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: aad9524dbe2c9edbbd7c1d50da7a448f6872fcb9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098354"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927788"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>取得依搜尋欄位篩選的客戶清單
 
@@ -22,21 +22,21 @@ ms.locfileid: "86098354"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得符合篩選準則的[客戶](customer-resources.md#customer)資源集合。 您可以選擇性地設定頁面大小。 您可以依公司名稱、網域、間接轉銷商或間接雲端解決方案提供者（CSP）進行篩選。
+取得符合篩選準則之 [客戶](customer-resources.md#customer) 資源的集合。 您可以選擇性地設定頁面大小。 您可以依公司名稱、網域、間接轉銷商或間接雲端解決方案提供者 (CSP) 來進行篩選。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 使用者結構化的篩選準則。
+- 使用者建造的篩選。
 
 ## <a name="c"></a>C\#
 
-若要取得符合篩選準則的客戶集合，請先將[**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)物件具現化，以建立篩選準則。 您必須傳遞包含[**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)的字串，並將篩選作業的類型指定為[**FieldFilterOperation. StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation)。 這是用戶端點唯一支援的欄位篩選作業。 您也必須提供要用來篩選的字串。
+若要取得符合篩選準則的客戶集合，請先將 [**>simplefieldfilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) 物件具現化，以建立篩選。 您必須傳遞包含 [**>customersearchfield**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)的字串，並將篩選作業的類型指定為 [**FieldFilterOperation. StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation)。 這是用戶端點所支援的唯一欄位篩選作業。 您也必須提供要用來篩選的字串。
 
-接下來，藉由呼叫[**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)方法並將篩選準則傳遞給查詢，將[**iQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)物件具現化。 BuildSimplyQuery 只是[**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)類別支援的其中一個查詢類型。
+接下來，藉由呼叫[**>buildsimplequery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)方法並傳遞篩選器，將[**iQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery)物件具現化，以傳遞至查詢。 BuildSimplyQuery 只是 [**QueryFactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) 類別所支援的其中一種查詢類型。
 
-最後，若要執行篩選並取得結果，請先使用[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)來取得合作夥伴客戶作業的介面。 然後呼叫[**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)或[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)方法。
+最後，若要執行篩選並取得結果，請先使用 [**>iaggregatepartner.customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) 來取得夥伴客戶作業的介面。 然後呼叫 [**Query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) 或 [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) 方法。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -57,7 +57,7 @@ var myQuery = QueryFactory.Instance.BuildSimpleQuery(fieldFilter);
 var customers = partnerOperations.Customers.Query(myQuery);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： FilterCustomers.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： FilterCustomers.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -65,20 +65,20 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 | 方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers？ size = {size} &篩選準則 = {FILTER} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers？ size = {size} &filter = {FILTER} HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 使用下列查詢參數。
 
-| 名稱   | 類型   | 必要 | 說明                                                                    |
+| 名稱   | 類型   | 必要 | 描述                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
 | 大小   | int    | 否       | 要一次顯示的結果數目。 這是選擇性參數。 |
-| filter | filter | Yes      | 要套用到客戶的篩選條件。 這必須是已編碼的字串。              |
+| filter | filter | Yes      | 要套用到客戶的篩選條件。 這必須是編碼的字串。              |
 
 ### <a name="filter-syntax"></a>篩選語法
 
-您必須以一系列以逗號分隔的索引鍵/值組來撰寫篩選參數。 每個索引鍵和值都必須個別括住並以冒號分隔。 整個篩選條件必須加以編碼。
+您必須將篩選參數撰寫成一連串逗點分隔的索引鍵/值組。 每個索引鍵和值都必須個別括住並以冒號分隔。 整個篩選條件必須加以編碼。
 
 未編碼的範例如下所示：
 
@@ -86,13 +86,13 @@ var customers = partnerOperations.Customers.Query(myQuery);
 ?filter{"Field":"CompanyName","Value":"cont","Operator":"starts_with"}
 ```
 
-下表描述必要的機碼值組：
+下表描述必要的索引鍵/值組：
 
-| 機碼      | 值                                                                                                                    |
+| Key      | 值                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
-| 欄位    | 要篩選的欄位。 可以在[**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)中找到有效的值。 |
+| 欄位    | 要篩選的欄位。 您可以在 [**>customersearchfield**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)中找到有效的值。 |
 | 值    | 篩選所依據的值。 會忽略值的大小寫。                                                                |
-| 運算子 | 要套用的運算子。 此客戶案例唯一支援的值為「開頭 \_ 為」。                            |
+| 運算子 | 要套用的運算子。 此客戶案例唯一支援的值是「開頭 \_ 為」。                            |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -117,7 +117,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應本文中傳回相符[客戶](customer-resources.md#customer)資源的集合。
+如果成功，這個方法會在回應本文中傳回符合 [客戶](customer-resources.md#customer) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

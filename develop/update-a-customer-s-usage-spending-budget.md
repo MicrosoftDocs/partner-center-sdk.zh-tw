@@ -1,15 +1,15 @@
 ---
 title: 更新客戶的使用量支出預算
-description: 更新為客戶使用而配置的消費預算。
+description: 更新配置給客戶使用量的消費預算。
 ms.date: 02/05/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: aa33c15031132024a6a89a36ca0ce1c45a9b0840
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d1d18701f227897c55087eba576b5cd4b69817ff
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095610"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927597"
 ---
 # <a name="update-a-customers-usage-spending-budget"></a>更新客戶的使用量支出預算
 
@@ -19,17 +19,17 @@ ms.locfileid: "86095610"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-更新為客戶使用而配置的[消費預算](customer-usage-resources.md#customerusagesummary)。
+更新配置給客戶使用量的 [消費預算](customer-usage-resources.md#customerusagesummary) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
-若要更新客戶的使用量支出預算，請先建立具有更新金額的新[**SpendingBudget**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget)物件。 然後使用[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection)集合，並以指定的客戶識別碼呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。 然後存取[**UsageBudget**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.usagebudget)屬性，並將更新的使用量預算傳遞至[**Patch （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patch)或[**PatchAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patchasync)方法。
+若要更新客戶的使用量支出預算，請先建立具有更新金額的新 [**SpendingBudget**/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) 物件。 然後使用 [**>iaggregatepartner.customers. Customers**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) 集合，並以指定的客戶識別碼呼叫 [**>iaggregatepartner.customers.byid ( # B2 **/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法。 然後存取 [**UsageBudget**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.usagebudget) 屬性，並將更新的使用量預算傳遞給 [**Patch ( # B2 **/Dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patch) 或 [**PatchAsync ( # B5 **/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patchasync) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,15 +51,15 @@ var usageBudget = partnerOperations.Customers.ById(selectedCustomerId).UsageBudg
 
 | 方法    | 要求 URI                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget HTTP/1。1 |
+| **補丁** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來更新帳單設定檔。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的 **客戶租使用者識別碼** ，可讓轉銷商針對屬於轉售商的特定客戶篩選結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -90,7 +90,7 @@ X-Locale: "en-US"
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，這個方法會傳回使用者的支出預算，其中包含更新的金額。
+如果成功，這個方法會傳回使用者的消費預算，並具有更新的金額。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

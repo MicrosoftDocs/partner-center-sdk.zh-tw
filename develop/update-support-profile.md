@@ -4,12 +4,12 @@ description: 更新使用者的支援設定檔。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1f22f01474cb6cb007f39a2aa1e978d2f7506ea6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f0e92f7cc08d79a2d8f72dae6129a72d0aaba51c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098468"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925566"
 ---
 # <a name="update-support-profile"></a>更新支援設定檔
 
@@ -28,7 +28,7 @@ ms.locfileid: "86098468"
 
 ## <a name="c"></a>C\#
 
-如果要更新您的支援設定檔，請先[取得您的支援設定檔](get-support-profile.md)，並進行所有必要的變更。 然後，使用您的[**Ipartneroperations.profiles 設定檔**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles)集合。 呼叫[**SupportProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile)屬性，後面接著[**Update （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.update)或[**UpdateAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.updateasync)方法。
+如果要更新您的支援設定檔，請先[取得您的支援設定檔](get-support-profile.md)，並進行所有必要的變更。 然後，使用您的 [**>ipartneroperations.profiles**]/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) 集合。 呼叫 [**>supportprofile**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) 屬性，後面接著 [**Update ( # B2 **/Dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.update) 或 [**>updateasync ( # B5 **/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.updateasync]) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,7 +44,7 @@ SupportProfile newSupportProfile = new SupportProfile
 SupportProfile updatedSupportProfile = partnerOperations.Profiles.SupportProfile.Update(newSupportProfile);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples**類別**： UpdateSupportProfile.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples **類別**： UpdateSupportProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,7 +52,7 @@ SupportProfile updatedSupportProfile = partnerOperations.Profiles.SupportProfile
 
 | 方法  | 要求 URI                                                                     |
 |---------|---------------------------------------------------------------------------------|
-| **提出** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/supportprofile HTTP/1。1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/supportprofile HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -60,7 +60,7 @@ SupportProfile updatedSupportProfile = partnerOperations.Profiles.SupportProfile
 
 ### <a name="request-body"></a>要求本文
 
-完整的支援設定檔資源。
+完整支援設定檔資源。
 
 ### <a name="request-example"></a>要求範例
 
@@ -87,7 +87,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回已更新的**SupportProfile**物件屬性。
+如果成功，這個方法會傳迴響應主體中已更新的 **>supportprofile** 物件屬性。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

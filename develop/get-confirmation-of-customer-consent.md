@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 aauthor: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: d2a6b6d10d07abf8c3565fa568691a44691170e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 944f89df0d0f46512a769903d5086d9e45b74ad2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096979"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927113"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>取得客戶接受 Microsoft Cloud 合約的確認
 
@@ -20,7 +20,7 @@ ms.locfileid: "86096979"
 - 合作夥伴中心
 
 > [!NOTE]
-> **合約**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
+> 目前只有 Microsoft 公用雲端中的合作夥伴中心支援 **協定** 資源。 不適用於：
 >
 > - 由 21Vianet 營運的合作夥伴中心
 > - Microsoft Cloud 德國合作夥伴中心
@@ -28,23 +28,23 @@ ms.locfileid: "86096979"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
+- 如果您使用合作夥伴中心 .NET SDK，則需要版本1.9 或更新版本。
 
-- 如果您使用合作夥伴中心 JAVA SDK，則需要1.8 或更新版本。
+- 如果您使用合作夥伴中心 JAVA SDK，則需要版本1.8 或更新版本。
 
 - 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例僅支援應用程式 + 使用者驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
-## <a name="net-version-14-or-newer"></a>.NET （1.4 版或更新版本）
+## <a name="net-version-14-or-newer"></a>.NET (1.4 版或更新版本) 
 
-若要取得先前提供之客戶接受的確認：
+若要取出先前提供之客戶驗收) 的確認 (：
 
-- 使用 [ **iaggregatepartner.customers.byid** ] 集合，並使用指定的客戶識別碼來呼叫**ById**方法。
+- 使用 **>iaggregatepartner.customers. Customers** 集合，並使用指定的客戶識別碼來呼叫 **>iaggregatepartner.customers.byid** 方法。
 
-- 藉由呼叫**ByAgreementType**方法，提取 [合約 **] 屬性，並將結果**篩選為 Microsoft Cloud 協定。
+- 藉由呼叫**ByAgreementType**方法，提取**合約屬性，** 並將結果篩選成 Microsoft Cloud 合約。
 
-- 呼叫**Get**或**GetAsync**方法。
+- 呼叫 **Get** 或 **GetAsync** 方法。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -57,11 +57,11 @@ var cloudAgreements = partnerOperations.Customers.ById(selectedCustomerId).Agree
 
 您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[GetCustomerAgreements](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs)類別中找到完整的範例。
 
-## <a name="net-version-19---113"></a>.NET （版本 1.9-1.13）
+## <a name="net-version-19---113"></a>.NET (1.9-1.13 版) 
 
-若要取得先前提供的客戶接受確認：
+若要取得先前提供的客戶驗收確認：
 
-使用 [ **iaggregatepartner.customers.byid** ] 集合，並使用指定的客戶識別碼來呼叫**ById**方法。 然後，取得合約**屬性，** 接著呼叫**get**或**GetAsync**方法。
+使用 **>iaggregatepartner.customers. Customers** 集合，並使用指定的客戶識別碼來呼叫 **>iaggregatepartner.customers.byid** 方法。 然後，取得合約 **屬性，** 接著呼叫 **get** 或 **GetAsync** 方法。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -74,9 +74,9 @@ var agreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-若要取得先前提供的客戶接受確認：
+若要取得先前提供的客戶驗收確認：
 
-使用**iaggregatepartner.customers.byid. getCustomers**函式，並使用指定的客戶識別碼來呼叫**byId**函數。 接著，取得**getAgreements**函式，然後呼叫**get**函式。
+使用 **>iaggregatepartner.customers getCustomers** 函式，並使用指定的客戶識別碼來呼叫 **>iaggregatepartner.customers.byid** 函式。 然後，取得 **getAgreements** 函式，然後呼叫 **get** 函數。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -91,9 +91,9 @@ ResourceCollection<Agreement> agreements = partnerOperations.getCustomers().byId
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-若要取得先前提供的客戶接受確認：
+若要取得先前提供的客戶驗收確認：
 
-使用[**PartnerCustomerAgreement**](https://docs.microsoft.com/powershell/module/partnercenter/get-partnercustomeragreement)命令。
+使用 [**PartnerCustomerAgreement**/powershell/module/partnercenter/get-partnercustomeragreement) 命令。
 
 ```powershell
 Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
@@ -101,9 +101,9 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 ## <a name="rest-request"></a>REST 要求
 
-若要取得先前提供的客戶接受確認，請參閱下列指示。
+若要取得先前提供的客戶驗收確認，請參閱下列指示。
 
-建立具有相關認證資訊的新**協定**資源。
+使用相關的認證資訊來建立新的 **合約** 資源。
 
 ### <a name="request-syntax"></a>要求的語法
 
@@ -113,11 +113,11 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 #### <a name="uri-parameter"></a>URI 參數
 
-使用下列查詢參數來指定您要確認的客戶。
+使用下列查詢參數來指定您正在確認的客戶。
 
-| 名稱             | 類型 | 必要 | 說明                                                                               |
+| 名稱             | 類型 | 必要 | 描述                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| CustomerTenantId | GUID | Y        | 此值是 GUID 格式的**CustomerTenantId** ，可讓您指定客戶。 |
+| CustomerTenantId | GUID | Y        | 此值是 GUID 格式的 **CustomerTenantId** ，可讓您指定客戶。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -139,7 +139,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**合約**資源的集合。
+如果成功，這個方法會傳迴響應主體中的 **協定** 資源集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

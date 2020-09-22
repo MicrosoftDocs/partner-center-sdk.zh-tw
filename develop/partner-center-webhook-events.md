@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: c874a44e1b43cb05ee20834f9c7a14d221edcab6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5358aab8efdd68ad52c583936304f99ffae12708
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094996"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926851"
 ---
 # <a name="partner-center-webhook-events"></a>合作夥伴中心 webhook 事件
 
@@ -22,9 +22,9 @@ ms.locfileid: "86094996"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-合作夥伴中心 webhook 事件是以 HTTP Post 形式傳遞至已註冊 URL 的資源變更事件。 若要接收來自合作夥伴中心的事件，您可以裝載可供合作夥伴中心張貼事件的回呼。 事件經過數位簽署，因此您可以驗證它是否已從合作夥伴中心傳送。
+合作夥伴中心 webhook 事件是以 HTTP Post 形式傳遞至已註冊 URL 的資源變更事件。 若要接收來自合作夥伴中心的事件，您可以裝載合作夥伴中心可以張貼事件的回呼。 事件經過數位簽署，因此您可以驗證它是否已從合作夥伴中心傳送。
 
-如需有關如何接收事件、驗證回呼，以及使用合作夥伴中心 webhook Api 來建立、查看和更新事件註冊的詳細資訊，請參閱[合作夥伴中心 webhook](partner-center-webhooks.md)。
+如需如何接收事件、驗證回呼，以及使用合作夥伴中心 webhook Api 來建立、查看及更新事件註冊的詳細資訊，請參閱 [合作夥伴中心 webhook](partner-center-webhooks.md)。
 
 ## <a name="supported-events"></a>支援的事件
 
@@ -32,19 +32,19 @@ ms.locfileid: "86094996"
 
 ### <a name="test-event"></a>測試事件
 
-此事件可讓您透過要求測試事件並追蹤其進度，自行上線並測試您的註冊。 嘗試傳遞事件時，您將能夠看到 Microsoft 收到的失敗訊息。 這只會套用至「測試建立」事件，而超過7天的資料則會被清除。
+此事件可讓您藉由要求測試事件並追蹤其進度，來自我上架並測試您的註冊。 當您嘗試傳遞事件時，您將能夠看到 Microsoft 收到的失敗訊息。 這只會套用至「測試建立」事件，超過7天的資料將會被清除。
 
 >[!NOTE]
->發佈測試建立的事件時，每分鐘有2個要求的節流限制。
+>張貼測試建立事件時，每分鐘會有2個要求的節流限制。
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | Description                                                                                                  |
+| 屬性                  | 類型                               | 描述                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「測試已建立」。                                          |
-| ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
-| ResourceName              | 字串                             | 將觸發事件的資源名稱。 對於此事件，此值為 "test"。                                  |
-| AuditUri                  | URI                                | 選擇性取得 audit 記錄的 URI （如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| EventName                 | 字串                             | 事件的名稱。 格式為 {resource}-{action}。 對於此事件，此值為「測試建立」。                                          |
+| ResourceUri               | URI                                | 取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
+| ResourceName              | 字串                             | 將觸發事件之資源的名稱。 對於此事件，此值為 "test"。                                  |
+| AuditUri                  | URI                                |  (選擇性) URI 取得審核記錄（如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
 | ResourceChangeUtcDate     | UTC 日期時間格式的字串 | 發生資源變更的日期和時間。                                                         |
 
 #### <a name="example"></a>範例
@@ -59,21 +59,21 @@ ms.locfileid: "86094996"
 }
 ```
 
-### <a name="subscription-updated-event"></a>訂閱更新事件
+### <a name="subscription-updated-event"></a>訂用帳戶更新事件
 
-當指定的訂用帳戶變更時，就會引發這個事件。 當透過合作夥伴中心 API 進行變更時，除了進行內部變更之外，也會產生訂用帳戶更新事件。  只有在商務層級變更時才會產生此事件，例如，當授權數目已修改，且訂用帳戶的狀態變更時。 在訂用帳戶內建立資源時，不會產生此檔案。
+當指定的訂閱變更時，就會引發此事件。 除了透過合作夥伴中心 API 進行變更以外，還有內部變更時，也會產生訂用帳戶更新事件。  此事件只會在有商務層級變更時產生，例如，當您修改授權數目時，以及當訂用帳戶的狀態變更時。 在訂用帳戶內建立資源時，不會產生此檔案。
 
 >[!NOTE]
->在訂用帳戶變更和觸發訂閱更新事件的時間之間，最多會有48小時的延遲。
+>訂用帳戶變更和觸發訂閱更新事件的時間之間，延遲最多為48小時。
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | Description                                                                                                  |
+| 屬性                  | 類型                               | 描述                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「訂用帳戶更新」。                                  |
-| ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
-| ResourceName              | 字串                             | 將觸發事件的資源名稱。 對於此事件，值為「訂用帳戶」。                          |
-| AuditUri                  | URI                                | 選擇性取得 audit 記錄的 URI （如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| EventName                 | 字串                             | 事件的名稱。 格式為 {resource}-{action}。 對於此事件，此值為「訂閱更新」。                                  |
+| ResourceUri               | URI                                | 取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
+| ResourceName              | 字串                             | 將觸發事件之資源的名稱。 對於此事件，此值為 "訂用帳戶"。                          |
+| AuditUri                  | URI                                |  (選擇性) URI 取得審核記錄（如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
 | ResourceChangeUtcDate     | UTC 日期時間格式的字串 | 發生資源變更的日期和時間。                                                         |
 
 #### <a name="example"></a>範例
@@ -88,18 +88,18 @@ ms.locfileid: "86094996"
 }
 ```
 
-### <a name="threshold-exceeded-event"></a>閾值已超過事件
+### <a name="threshold-exceeded-event"></a>超過閾值事件
 
-當任何客戶的 Microsoft Azure 使用量量超過其使用量支出預算（其臨界值）時，就會引發此事件。 如需詳細資訊，請參閱[為您的客戶設定 Azure 消費預算](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)。
+當任何客戶 Microsoft Azure 使用量超過其使用量支出預算 (其) 的閾值時，就會引發此事件。 如需詳細資訊，請參閱 [為您的客戶/合作夥伴中心/集合---azure-消費-預算-客戶) 設定 Azure 費用預算。
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | Description                                                                                                  |
+| 屬性                  | 類型                               | 描述                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為 "usagerecords 和 resources-thresholdExceeded"。                                  |
-| ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" |
-| ResourceName              | 字串                             | 將觸發事件的資源名稱。 對於此事件，此值為 "usagerecords 和 resources"。                          |
-| AuditUri                  | URI                                | 選擇性取得 audit 記錄的 URI （如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| EventName                 | 字串                             | 事件的名稱。 格式為 {resource}-{action}。 對於此事件，此值為 ">usagerecords-thresholdExceeded"。                                  |
+| ResourceUri               | URI                                | 取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" |
+| ResourceName              | 字串                             | 將觸發事件之資源的名稱。 此事件的值為 ">usagerecords"。                          |
+| AuditUri                  | URI                                |  (選擇性) URI 取得審核記錄（如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
 | ResourceChangeUtcDate     | UTC 日期時間格式的字串 | 發生資源變更的日期和時間。                                                         |
 
 #### <a name="example"></a>範例
@@ -114,18 +114,18 @@ ms.locfileid: "86094996"
 }
 ```
 
-### <a name="referral-created-event"></a>參考已建立事件
+### <a name="referral-created-event"></a>參考建立的事件
 
-建立參考時，會引發此事件。
+建立參考時，就會引發此事件。
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | Description                                                                                                  |
+| 屬性                  | 類型                               | 描述                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「已建立參考」。                                  |
-| ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
-| ResourceName              | 字串                             | 將觸發事件的資源名稱。 對於此事件，此值為「參考」。                          |
-| AuditUri                  | URI                                | 選擇性取得 audit 記錄的 URI （如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| EventName                 | 字串                             | 事件的名稱。 格式為 {resource}-{action}。 對於此事件，此值為「參考建立」。                                  |
+| ResourceUri               | URI                                | 取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
+| ResourceName              | 字串                             | 將觸發事件之資源的名稱。 對於此事件，此值為「參考」。                          |
+| AuditUri                  | URI                                |  (選擇性) URI 取得審核記錄（如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
 | ResourceChangeUtcDate     | UTC 日期時間格式的字串 | 發生資源變更的日期和時間。                                                         |
 
 #### <a name="example"></a>範例
@@ -140,18 +140,18 @@ ms.locfileid: "86094996"
 }
 ```
 
-### <a name="referral-updated-event"></a>參考已更新事件
+### <a name="referral-updated-event"></a>參考更新事件
 
 當參考更新時，就會引發此事件。
 
 #### <a name="properties"></a>屬性
 
-| 屬性                  | 類型                               | Description                                                                                                  |
+| 屬性                  | 類型                               | 描述                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | 字串                             | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「已更新參照」。                                  |
-| ResourceUri               | URI                                | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
-| ResourceName              | 字串                             | 將觸發事件的資源名稱。 對於此事件，此值為「參考」。                          |
-| AuditUri                  | URI                                | 選擇性取得 audit 記錄的 URI （如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| EventName                 | 字串                             | 事件的名稱。 格式為 {resource}-{action}。 對於此事件，此值為「參考更新」。                                  |
+| ResourceUri               | URI                                | 取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
+| ResourceName              | 字串                             | 將觸發事件之資源的名稱。 對於此事件，此值為「參考」。                          |
+| AuditUri                  | URI                                |  (選擇性) URI 取得審核記錄（如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
 | ResourceChangeUtcDate     | UTC 日期時間格式的字串 | 發生資源變更的日期和時間。                                                         |
 
 #### <a name="example"></a>範例
@@ -166,16 +166,16 @@ ms.locfileid: "86094996"
 }
 ```
 
-### <a name="invoice-ready-event"></a>發票就緒事件
+### <a name="invoice-ready-event"></a>發票就緒活動
 
-當新發票準備就緒時，就會引發此事件。
+當新的發票就緒時，就會引發此事件。
 
-| 屬性                  | 類型                               | Description                                                                                                  |
+| 屬性                  | 類型                               | 描述                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName | 字串 | 事件的名稱。 以 {resource}-{action} 形式呈現。 對於此事件，此值為「發票就緒」。 |
-| ResourceUri | URI | 用來取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |
-| ResourceName | 字串 | 將觸發事件的資源名稱。 對於此事件，此值為 "invoice"。 |
-| AuditUri |  URI | 選擇性取得 audit 記錄的 URI （如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}"） |
+| EventName | 字串 | 事件的名稱。 格式為 {resource}-{action}。 對於此事件，此值為「發票就緒」。 |
+| ResourceUri | URI | 取得資源的 URI。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |
+| ResourceName | 字串 | 將觸發事件之資源的名稱。 對於此事件，此值為 "invoice"。 |
+| AuditUri |  URI |  (選擇性) URI 取得審核記錄（如果有的話）。 使用語法： "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" )  |
 | ResourceChangeUtcDate | UTC 日期時間格式的字串 | 發生資源變更的日期和時間。 |
 
 #### <a name="example"></a>範例

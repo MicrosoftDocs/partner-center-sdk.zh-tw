@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 3b98e9a462c7bcbdc20823ba7d6e1a249d6f8c14
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8911adba28836aa378260d8b61e2b6e23eabc096
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927136"
 ---
 # <a name="get-an-order-by-id"></a>依照識別碼取得訂單
 
@@ -22,11 +22,11 @@ ms.locfileid: "86093823"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得符合客戶和訂單識別碼的[訂單](order-resources.md)資源。
+取得符合客戶和訂單識別碼的 [訂單](order-resources.md) 資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -36,10 +36,10 @@ ms.locfileid: "86093823"
 
 若要取得客戶的訂單（依識別碼）：
 
-1. 使用您的**iaggregatepartner.customers.byid**集合，並呼叫**ById （）** 方法。
+1. 使用您的 **>iaggregatepartner.customers. Customers** 集合，並呼叫 **>iaggregatepartner.customers.byid ( # B1 ** 方法。
 
-2. 呼叫[**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)屬性，後面接著[**ByID （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)方法。
-3. 呼叫[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)。
+2. 呼叫 [**Orders**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) 屬性，後面接著 [**>iaggregatepartner.customers.byid ( # B2 **/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) 方法。
+3. 呼叫 [**Get ( # B1 **/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) 或 [**GetAsync ( # B4 **/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync) 。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ ms.locfileid: "86093823"
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： GetOrder.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample **類別**： GetOrder.cs
 
 ## <a name="java"></a>Java
 
@@ -57,10 +57,10 @@ var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(sel
 
 若要取得客戶的訂單（依識別碼）：
 
-1. 使用您的**iaggregatepartner.customers.byid. getCustomers**函式並呼叫**byId （）** 函數。
+1. 使用您的 **>iaggregatepartner.customers getCustomers** 函數，然後呼叫 **>iaggregatepartner.customers.byid ( # B1 ** 函數。
 
-2. 呼叫**getOrders**函式，後面接著**byID （）** 函數。
-3. 呼叫**get （）** 函數。
+2. 呼叫 **getOrders** 函式，後面接著 **>iaggregatepartner.customers.byid ( # B1 ** 函數。
+3. 呼叫 **get ( # B1 ** 函數。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -74,7 +74,7 @@ Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrder
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-若要依識別碼取得客戶的訂單，請執行[**PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md)命令，並指定**CustomerId**和 [**訂單**] 參數。
+若要依識別碼取得客戶的訂單，請執行 [**PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) 命令，並指定 **CustomerId** 和 **訂單** 識別碼參數。
 
 ```powershell
 # $selectedCustomerId
@@ -93,7 +93,7 @@ Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrder
 
 #### <a name="uri-parameters"></a>URI 參數
 
-下表列出必要的查詢參數，以取得依識別碼排序的訂單。
+下表列出可依識別碼取得訂單的必要查詢參數。
 
 | 名稱                   | 類型     | 必要 | 說明                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
@@ -121,7 +121,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回[訂單](order-resources.md)資源。
+如果成功，此方法會在回應主體中傳回 [訂單](order-resources.md) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -4,16 +4,16 @@ description: 合作夥伴中心 .NET SDK 最新版本的版本資訊。
 ms.date: 09/18/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7ba1e9f0fa090863fd52dc6a60cf7c6e1f9a9ba6
-ms.sourcegitcommit: 9d85737f1baccb59c4321b22a69745dfeb336456
+ms.openlocfilehash: 082364100a922cd12e93d36c378435c2ef283842
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2020
-ms.locfileid: "90813012"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927316"
 ---
 # <a name="net-sdk-release-notes"></a>.NET SDK 版本資訊
 
-下列版本資訊適用于 [Microsoft 合作夥伴中心 .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter)的新版本。 您可以在 GitHub 上找到 [.NET SDK 範例](https://github.com/Microsoft/Partner-Center-DotNet-Samples) 。 您可以在 .NET API 瀏覽器中找到 [合作夥伴中心 .NET api 參考](https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest&preserve-view=true) 。
+下列版本資訊適用于 [Microsoft 合作夥伴中心 .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter)的新版本。 您可以在 GitHub 上找到 [.NET SDK 範例](https://github.com/Microsoft/Partner-Center-DotNet-Samples) 。 您可以在 .NET API 瀏覽器中找到 [合作夥伴中心 .NET api 參考](/dotnet/api/?view=partnercenter-dotnet-latest&preserve-view=true) 。
 
 ## <a name="version-1162"></a>版本1.16。2
 

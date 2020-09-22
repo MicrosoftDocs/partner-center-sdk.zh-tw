@@ -1,15 +1,15 @@
 ---
 title: 依照授權群組取得指派給使用者的授權
-description: 如何取得指定授權群組的使用者指派授權清單。
+description: 如何取得指定之授權群組的使用者指派授權清單。
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b4997be87b31c9b86e7e214326485108a07d0797
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3ad9dab24339add264b43fd9bf0712c09e54a773
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096809"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925858"
 ---
 # <a name="get-licenses-assigned-to-a-user-by-license-group"></a>依照授權群組取得指派給使用者的授權
 
@@ -17,7 +17,7 @@ ms.locfileid: "86096809"
 
 - 合作夥伴中心
 
-如何取得指定授權群組的使用者指派授權清單。
+如何取得指定之授權群組的使用者指派授權清單。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,7 +31,7 @@ ms.locfileid: "86096809"
 
 ## <a name="c"></a>C\#
 
-若要從指定的授權群組中檢查指派給使用者的授權，請從具現化[**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)類型的[清單](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)開始，然後將授權群組新增至清單。 然後，使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 接下來，使用使用者識別碼呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法，以識別使用者。 然後，從 [[**授權**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses)] 屬性取得客戶使用者授權作業的介面。 最後，將授權群組清單傳遞給[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync)方法，以取得指派給使用者的授權集合。
+若要檢查從指定的授權群組指派給使用者的授權，請從具現化類型 [**LicenseGroupId**/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) 的 [清單/dotnet/api/-1) 開始，然後將授權群組新增至清單。 然後，使用 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法與客戶識別碼來識別客戶。 接下來，以使用者識別碼呼叫 [**>iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) 方法來識別使用者。 然後，從 [**授權**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) 屬性取得客戶使用者授權作業的介面。 最後，將授權群組清單傳遞給 [**Get**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync]) 方法，以取得指派給使用者的授權集合。
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -65,11 +65,11 @@ var customerUserBothAadAndSfbAssignedLicenses = partnerOperations.Customers.ById
 
 使用下列路徑和查詢參數來識別客戶、使用者和授權群組。
 
-| 名稱            | 類型   | 必要 | 說明                                                                                                                                                                                                                                                           |
+| 名稱            | 類型   | 必要 | 描述                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id     | 字串 | Yes      | 識別客戶的 GUID 格式字串。                                                                                                                                                                                                                 |
-| user-id         | 字串 | Yes      | 識別使用者的 GUID 格式字串。                                                                                                                                                                                                                     |
-| licenseGroupIds | 字串 | No       | 列舉值，表示所指派授權的授權群組。 有效值： Group1、Group2 Group1-此群組具有可在 Azure Active Directory （AAD）中管理其授權的所有產品。 Group2-此群組只有 Minecraft 產品授權。 |
+| customer-id     | 字串 | Yes      | 可識別客戶的 GUID 格式字串。                                                                                                                                                                                                                 |
+| user-id         | 字串 | Yes      | 識別使用者的 GUID 格式化字串。                                                                                                                                                                                                                     |
+| licenseGroupIds | 字串 | No       | 列舉值，指出指派之授權的授權群組。 有效的值： Group1、Group2 Group1-此群組具有可在 Azure Active Directory (AAD) 中管理其授權的所有產品。 Group2-此群組只有 Minecraft 的產品授權。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -93,11 +93,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[授權](license-resources.md#license)資源的集合。
+如果成功，回應主體會包含 [授權](license-resources.md#license) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 
@@ -155,7 +155,7 @@ Date: June 24 2016 22:00:25 PST
 }
 ```
 
-### <a name="response-example-no-matching-licenses-found"></a>回應範例（找不到相符的授權）
+### <a name="response-example-no-matching-licenses-found"></a>回應範例 (找不到相符的授權) 
 
 如果找不到指定之授權群組的相符授權，回應會包含空集合，其值為0的 totalCount 元素。
 

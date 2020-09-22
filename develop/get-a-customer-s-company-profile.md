@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 63d9c25f7b34f0a48194cb1e719295e9c814a869
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c26a86ecb96e5e7942ba179f8a3cc704abab7df5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098343"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927778"
 ---
 # <a name="get-a-customers-company-profile"></a>取得客戶的公司設定檔
 
@@ -32,7 +32,7 @@ ms.locfileid: "86098343"
 
 ## <a name="c"></a>C\#
 
-若要取得客戶的公司設定檔，請呼叫[**iaggregatepartner.customers.byid 的 ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，並提供客戶識別碼來識別客戶。 然後從 [[**設定檔**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)] 屬性取得客戶的[**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection)介面，以便存取其公司屬性。 接下來，從[**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company)屬性取得[**ICustomerReadonlyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1)介面，並呼叫其[**get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync)方法。
+若要取得客戶的公司設定檔，請使用客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以識別客戶。 然後從[**設定檔**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)屬性取得客戶的[**ICustomerProfileCollection**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection)介面，以便存取其公司屬性。 接下來，從[**ICustomerProfileCollection**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company)屬性取得[**ICustomerReadonlyProfile**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1)介面，並[** ( # B3**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync)方法呼叫其[**get ( # B1**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get)或 GetAsync。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,13 +41,13 @@ ms.locfileid: "86098343"
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**範例**：[下載合作夥伴中心 SDK](https://go.microsoft.com/fwlink/p/?LinkId=746681)。 **專案**： PartnerSdk. FeatureSamples**類別**： GetCustomerCompanyProfile.cs
+**範例**： [下載合作夥伴中心 SDK](https://go.microsoft.com/fwlink/p/?LinkId=746681)。 **專案**： PartnerSdk. FeatureSamples **類別**： GetCustomerCompanyProfile.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-若要取得客戶的公司設定檔，請使用客戶識別碼呼叫**iaggregatepartner.customers.byid. getCustomers （）. byId**函數來識別客戶。 然後從 [**ipartner.getprofiles**] 函數取得客戶的**ICustomerProfileCollection**介面，以便存取其公司屬性。 接下來，從**ICustomerProfileCollection getCompany**函式取得**ICustomerReadonlyProfile**介面，並呼叫**get**函式。
+若要取得客戶的公司設定檔，請使用客戶識別碼呼叫 **>iaggregatepartner.customers. getCustomers ( # A1. >iaggregatepartner.customers.byid** 函式來識別客戶。 然後從 [**>ipartner.getprofiles**] 函式取得客戶的**ICustomerProfileCollection**介面，以便存取其公司屬性。 接下來，從**ICustomerProfileCollection getCompany**函式取得**ICustomerReadonlyProfile**介面，然後呼叫**get**函數。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -68,9 +68,9 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 使用下列查詢參數來取得公司設定檔。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的 **客戶租使用者識別碼** ，可讓轉銷商針對屬於轉售商的特定客戶篩選結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -78,7 +78,7 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -95,11 +95,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回信息。
+如果成功，這個方法會傳迴響應主體中的資訊。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

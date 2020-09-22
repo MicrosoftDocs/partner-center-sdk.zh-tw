@@ -1,15 +1,15 @@
 ---
 title: 依照識別碼取得客戶的受控服務
-description: 取得客戶的受控服務。 換句話說，您可以取得所有已委派系統管理員許可權之客戶訂用帳戶的連結。 您可以使用這些連結來提供 Microsoft 的支援和檔案服務要求。
+description: 取得客戶的受控服務。 換句話說，取得您已委派系統管理員許可權的所有客戶訂用帳戶的連結。 您可以使用這些連結來提供 Microsoft 的支援和檔案服務要求。
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 52002b3ff3f002b45dadf6321178933cd4476b4b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2b61d7ba59bc602e0a268ff746644dbe0c018fd9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927479"
 ---
 # <a name="get-the-managed-services-for-a-customer-by-id"></a>依照識別碼取得客戶的受控服務
 
@@ -19,7 +19,7 @@ ms.locfileid: "86097423"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得客戶的受控服務。 換句話說，您可以取得所有已委派系統管理員許可權之客戶訂用帳戶的連結。 您可以使用這些連結來提供 Microsoft 的支援和檔案服務要求。
+取得客戶的受控服務。 換句話說，取得您已委派系統管理員許可權的所有客戶訂用帳戶的連結。 您可以使用這些連結來提供 Microsoft 的支援和檔案服務要求。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "86097423"
 
 ## <a name="c"></a>C\#
 
-若要顯示客戶的所有受控服務清單，請使用您的**iaggregatepartner.customers.byid**集合並呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。 然後呼叫[**ManagedServices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices)屬性，後面接著[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync)方法。
+若要顯示客戶的所有受控服務清單，請使用您的 **>iaggregatepartner.customers。 Customers** 集合，並呼叫 [**>iaggregatepartner.customers.byid ( # B1 **/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法。 然後，呼叫 [**>microsoft.managedservices**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) 屬性，後面接著 [**Get ( # B2 **/Dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) 或 [**GetAsync ( # B5 **/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ ms.locfileid: "86097423"
 ResourceCollection<ManagedService> managedServices = partnerOperations.Customers.ById(selectedCustomerId).ManagedServices.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples**類別**： CustomerManagedServices.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples **類別**： CustomerManagedServices.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,7 +52,7 @@ ResourceCollection<ManagedService> managedServices = partnerOperations.Customers
 
 使用下列查詢參數來取得客戶的受控服務。
 
-| 名稱                   | 類型     | 必要 | 說明                           |
+| 名稱                   | 類型     | 必要 | 描述                           |
 |------------------------|----------|----------|---------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 對應至客戶的 GUID。 |
 
@@ -76,7 +76,7 @@ MS-CorrelationId: 03d6064a-f048-4aee-8892-ed46dc5c8bee
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**受控服務**物件的集合。
+如果成功，這個方法會傳迴響應主體中 **受控服務** 物件的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

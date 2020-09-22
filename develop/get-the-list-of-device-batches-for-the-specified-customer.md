@@ -1,15 +1,15 @@
 ---
 title: 取得指定客戶的裝置批次清單
-description: 如何為指定的客戶抓取裝置批次的集合。
+description: 如何為指定的客戶捕獲裝置批次的集合。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d1667b1be4a3063f846b15052427ffdedb33754b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 30d4f5f8d53f21f68b70498d800087f5aa05f721
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097449"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927488"
 ---
 # <a name="get-a-list-of-device-batches-for-the-specified-customer"></a>取得指定客戶的裝置批次清單
 
@@ -18,19 +18,19 @@ ms.locfileid: "86097449"
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-如何為指定的客戶抓取裝置批次的集合。
+如何為指定的客戶捕獲裝置批次的集合。
 
-每個裝置批次都包含已註冊為零觸控部署之裝置的摘要狀態資訊。
+每個裝置批次都包含已註冊為零接觸部署之裝置的摘要狀態資訊。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
-若要取得指定客戶的裝置批次集合，請先使用客戶識別碼呼叫[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以取得指定客戶上作業的介面。 然後，取出[**DeviceBatches**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicebatches)屬性的值，以取得裝置批次集合作業的介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.getasync)方法來取出集合。
+若要取得指定之客戶的裝置批次集合，請先使用客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以在指定的客戶上取得作業的介面。 然後，取得 [**DeviceBatches**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicebatches) 屬性的值，以取得裝置批次集合作業的介面。 最後，呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.getasync]) 方法，以取得集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,7 +40,7 @@ var devicesBatches =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetDevicesBatches.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetDevicesBatches.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -54,7 +54,7 @@ var devicesBatches =
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱        | 類型   | 必要 | 說明                                           |
+| 名稱        | 類型   | 必要 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
 
@@ -64,7 +64,7 @@ var devicesBatches =
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -80,7 +80,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[DeviceBatch](device-deployment-resources.md#devicebatch)資源的集合。
+如果成功，回應主體會包含 [DeviceBatch](device-deployment-resources.md#devicebatch) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: cff024700c3ab04986d468c839053cbfa7670a86
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9ee22712b323c7439a192ed2e5af8d5e7eaf92a3
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097876"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927221"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>取得應用程式識別碼的附加元件
 
@@ -26,13 +26,13 @@ ms.locfileid: "86097876"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 供應專案識別碼。 如果您沒有供應專案識別碼，請參閱[取得市場優惠清單](get-a-list-of-offers-for-a-market.md)。
+- 供應專案識別碼。 如果您沒有供應專案識別碼，請參閱 [取得市場優惠清單](get-a-list-of-offers-for-a-market.md)。
 
 ## <a name="c"></a>C\#
 
-若要依識別碼取得供應專案的附加元件，請先使用 country 代碼呼叫[**iaggregatepartner.customers.byid. ByCountry**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry)方法，以取得介面來根據指定的國家/地區來提供作業。 然後使用供應專案識別碼來呼叫[**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)方法，以識別您想要取得其附加元件的供應專案。 接下來，使用[**附加元件**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons)屬性來取得目前供應專案的附加元件作業介面。 最後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync)方法，以取得指定供應專案的所有附加元件集合。
+若要依識別碼取得供應專案的附加元件，請先使用國家/地區代碼來呼叫 [**>iaggregatepartner.customers 的 ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) 方法，以取得介面，以根據指定的國家/地區來提供作業。 然後以供應專案識別碼呼叫 [**>iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) 方法，以識別您想要取得其附加元件的供應專案。 接下來，使用 [**附加元件**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) 屬性來取得目前供應專案的附加元件作業介面。 最後，呼叫 [**get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) 或 [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) 方法，以取得指定供應專案的所有附加元件的集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,7 +42,7 @@ ms.locfileid: "86097876"
 var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).AddOns.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetOffer.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetOffer.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -50,16 +50,16 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 | 方法  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons？ country = {國家/地區-代碼} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons？ country = {country-CODE} HTTP/1。1 |
 
 ### <a name="uri-parameters"></a>URI 參數
 
 使用下列參數來提供供應專案識別碼和國家/地區代碼。
 
-| 名稱         | 類型       | 必要 | 說明                       |
+| 名稱         | 類型       | 必要 | 描述                       |
 |--------------|------------|----------|-----------------------------------|
 | **供應專案識別碼** | **guid**   | Y        | 識別供應專案的 GUID。 |
-| **全國**  | **string** | Y        | 國家（地區）代碼（例如 `US` ）。       |
+| **country**  | **string** | Y        | 國家/地區代碼 (例如 `US`) 。       |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -83,7 +83,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回[供應](offer-resources.md)專案物件的集合。
+如果成功，這個方法會在回應主體中傳回 [供應](offer-resources.md) 專案物件的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

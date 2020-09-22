@@ -1,17 +1,17 @@
 ---
 title: 取得指定批次和客戶的裝置清單
-description: 如何在指定的裝置批次中，為客戶取得裝置和裝置詳細資料的集合。
+description: 如何在指定的裝置批次中，為客戶捕獲裝置和裝置詳細資料的集合。
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f79df59efe586d9067e3b39b1c51c44aa4561004
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 125d1b4e239f69ae2dfc9667f5d009bab9f415b2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098136"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927658"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>取得指定批次和客戶的裝置清單
 
@@ -20,11 +20,11 @@ ms.locfileid: "86098136"
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-本文說明如何針對指定的客戶，抓取指定裝置批次中的裝置集合。 每個裝置資源都包含有關裝置的詳細資料。
+本文說明如何在指定的裝置批次中，為指定的客戶捕獲裝置集合。 每個裝置資源都包含裝置的詳細資料。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -34,13 +34,13 @@ ms.locfileid: "86098136"
 
 若要在指定的裝置批次中，為指定的客戶取出裝置集合：
 
-1. 使用客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以在指定的客戶上取得作業的介面。
+1. 使用客戶識別碼來呼叫 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以取得指定之客戶的作業介面。
 
-2. 呼叫[**DeviceBatches. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)方法，為指定的批次取得裝置批次集合作業的介面。
+2. 呼叫 [**DeviceBatches. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) 方法，以針對指定的批次取得裝置批次集合作業的介面。
 
-3. 取出[**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices)屬性，以取得批次的裝置集合作業介面。
+3. 取出 [**Devices**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) 屬性，以取得批次的裝置集合作業介面。
 
-4. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync)方法，以取出裝置的集合。
+4. 呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync]) 方法，以取得裝置的集合。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -51,10 +51,10 @@ var devices =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.Get();
 ```
 
-如需範例，請參閱下列各項：
+如需範例，請參閱下列內容：
 
 - 範例： [主控台測試應用程式](console-test-app.md)
-- 專案：**合作夥伴中心 SDK 範例**
+- 專案： **合作夥伴中心 SDK 範例**
 - 類別： **GetDevices.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -69,7 +69,7 @@ var devices =
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱           | 類型   | 必要 | 說明                                           |
+| 名稱           | 類型   | 必要 | 描述                                           |
 |----------------|--------|----------|-------------------------------------------------------|
 | customer-id    | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
 | devicebatch-id | 字串 | Yes      | 識別裝置批次的字串識別碼。 |
@@ -80,7 +80,7 @@ var devices =
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -96,11 +96,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[裝置](device-deployment-resources.md#device)資源的分頁集合。 集合包含頁面中的100裝置。 若要取出100裝置的下一頁，回應主體中的 continuationToken 必須包含在後續要求中作為 ContinuationToken 標頭。
+如果成功，回應主體會包含 [裝置](device-deployment-resources.md#device) 資源的分頁集合。 集合包含頁面中的100裝置。 若要取出100裝置的下一頁，回應主體中的 continuationToken 必須包含在後續要求中，以作為 ContinuationToken 標頭。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

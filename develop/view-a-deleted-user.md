@@ -1,15 +1,15 @@
 ---
 title: 為客戶檢視已刪除的使用者
-description: 取得客戶的已刪除 CustomerUser 資源清單（依客戶識別碼）。 您可以選擇性地設定頁面大小。 您必須提供篩選準則。
+description: 取得客戶的已刪除 >customeruser 資源清單（依客戶識別碼）。 您可以選擇性地設定頁面大小。 您必須提供篩選準則。
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 849245b45c4cb763fb4da629caeb661c3f530fa7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dd7b573cca5810195d840fcb729850f981e55a51
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093487"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925542"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>為客戶檢視已刪除的使用者
 
@@ -17,7 +17,7 @@ ms.locfileid: "86093487"
 
 - 合作夥伴中心
 
-取得客戶的已刪除 CustomerUser 資源清單（依客戶識別碼）。 您可以選擇性地設定頁面大小。 您必須提供篩選準則。
+取得客戶的已刪除 >customeruser 資源清單（依客戶識別碼）。 您可以選擇性地設定頁面大小。 您必須提供篩選準則。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,11 +27,11 @@ ms.locfileid: "86093487"
 
 ## <a name="what-happens-when-you-delete-a-user-account"></a>當您刪除使用者帳戶時，會發生什麼事？
 
-當您刪除使用者帳戶時，使用者狀態會設定為「非作用中」。 在30天內，它會維持這種方式，在此之後，使用者帳戶及其相關聯的資料會被清除並使其無法復原。 如果您想要在三十天的時間範圍內還原已刪除的使用者帳戶，請參閱[為客戶還原已刪除的使用者](restore-a-user-for-a-customer.md)。 一旦刪除並標示為「非使用中」，使用者帳戶就不會再當做使用者集合的成員傳回（例如，使用[取得客戶的所有使用者帳戶清單](get-a-list-of-all-user-accounts-for-a-customer.md)）。 若要取得尚未清除的已刪除使用者清單，您必須查詢已設定為非使用中的使用者帳戶。
+當您刪除使用者帳戶時，使用者狀態會設定為「非作用中」。 這種方式會在30天內保持不變，之後使用者帳戶及其相關聯的資料就會被清除並成為無法復原。 如果您想要在三十天內還原已刪除的使用者帳戶，請參閱 [為客戶還原已刪除的使用者](restore-a-user-for-a-customer.md)。 一旦刪除並標示為「非使用中」，使用者帳戶就不會再以使用者集合的成員形式傳回 (例如，使用 [取得客戶) 的所有使用者帳戶清單](get-a-list-of-all-user-accounts-for-a-customer.md) 。 若要取得尚未清除的已刪除使用者清單，您必須查詢已設定為非使用中的使用者帳戶。
 
 ## <a name="c"></a>C\#
 
-若要抓取已刪除的使用者清單，請建立查詢，以篩選其狀態設定為非作用中的客戶使用者。 首先，使用參數具現化[**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)物件來建立篩選，如下列程式碼片段所示。 然後使用[**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)方法來建立查詢。 如果您不想要分頁結果，可以改用[**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)方法。 接下來，使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 最後，呼叫[**查詢**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query)方法來傳送要求。
+若要抓取已刪除的使用者清單，請建立一個查詢，以篩選其狀態設為非作用中的客戶使用者。 首先，使用下列程式碼片段中所示的參數具現化 [**>simplefieldfilter**/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) 物件，以建立篩選。 然後使用 [**BuildIndexedQuery**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) 方法來建立查詢。 如果您不想要分頁結果，可以改用 [**>buildsimplequery**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) 方法。 接下來，使用 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法與客戶識別碼來識別客戶。 最後，呼叫 [**Query**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) 方法來傳送要求。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ var simpleQueryWithFilter = QueryFactory.Instance.BuildIndexedQuery(customerUser
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Query(simpleQueryWithFilter);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetCustomerInactiveUsers.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetCustomerInactiveUsers.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -55,15 +55,15 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 | 方法  | 要求 URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users？ size = {size} &篩選準則 = {FILTER} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users？ size = {size} &filter = {FILTER} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱        | 類型   | 必要 | 說明                                                                                                                                                                        |
+| 名稱        | 類型   | 必要 | 描述                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id | guid   | Yes      | 此值是可識別客戶的 GUID 格式客戶識別碼。                                                                                                            |
+| customer-id | guid   | Yes      | 此值是可識別客戶的 GUID 格式化客戶識別碼。                                                                                                            |
 | 大小        | int    | 否       | 要一次顯示的結果數目。 這是選擇性參數。                                                                                                     |
 | filter      | filter | Yes      | 可篩選使用者搜尋的查詢。 若要擷取已刪除的使用者，您必須包含下列字串並加以編碼：{"Field":"UserState","Value":"Inactive","Operator":"equals"}。 |
 
@@ -89,7 +89,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回[CustomerUser](user-resources.md#customeruser)資源的集合。
+如果成功，這個方法會傳迴響應主體中 [>customeruser](user-resources.md#customeruser) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -1,17 +1,17 @@
 ---
 title: 依照市場取得供應項目類別的清單
-description: 如何取得集合，其中包含指定國家/地區和地區設定中的所有供應專案類別。
+description: 如何取得集合，其中包含特定國家/地區和地區設定中的所有供應專案類別。
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: c94368219bce2242e79d142ae999d45b9145e2de
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ee42eb225469f0f7e55a86c8482f11b6eef2d6e7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098124"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927652"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>依照市場取得供應項目類別的清單
 
@@ -22,19 +22,19 @@ ms.locfileid: "86098124"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-本文說明如何取得集合，其中包含指定國家/地區和地區設定中的所有供應專案類別。
+本文說明如何取得集合，其中包含特定國家/地區和地區設定中的所有供應專案類別。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 ## <a name="c"></a>C\#
 
-若要取得指定國家/地區和地區設定中的供應專案類別清單：
+若要取得特定國家/地區和地區設定中的供應專案類別清單：
 
-1. 使用您的[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)集合，在指定的內容上呼叫[**With （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with)方法。
+1. 使用您的 [**>iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) 集合，在指定的內容上呼叫 [**With ( # B2 **/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) 方法。
 
-2. 檢查所產生之物件的[**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories)屬性。
+2. 檢查所產生物件的 [**OfferCategories**/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) 屬性。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,7 +42,7 @@ ms.locfileid: "86098124"
 ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(RequestContextFactory.Instance.Create()).OfferCategories.ByCountry("US").Get();
 ```
 
-如需範例，請參閱下列各項：
+如需範例，請參閱下列內容：
 
 - 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSample**
@@ -54,19 +54,19 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 | 方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories 嗎？國家/地區 = {country-ID} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories？ country = {country-ID} HTTP/1。1 |
 
 #### <a name="uri-parameter"></a>URI 參數
 
-下表列出取得供應專案分類所需的查詢參數。
+下表列出取得供應專案類別的必要查詢參數。
 
-| 名稱           | 類型       | 必要 | 說明            |
+| 名稱           | 類型       | 必要 | 描述            |
 |----------------|------------|----------|------------------------|
 | **country-id** | **string** | Y        | 國家/地區識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-需要格式化為字串的**地區設定識別碼**。
+需要格式化為字串的 **地區設定識別碼** 。
 
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
@@ -88,11 +88,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**OfferCategory**資源的集合。
+如果成功，這個方法會傳迴響應主體中 **OfferCategory** 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

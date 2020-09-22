@@ -1,15 +1,15 @@
 ---
 title: 註冊訂用帳戶
-description: 註冊現有的訂用帳戶，以啟用它來排序 Azure 保留。
+description: 註冊現有的訂用帳戶，以啟用 Azure 保留的訂購。
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9430c21e70c4eb67160bc21f4ee2c63a4ed42d1b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3cabfd9d2bba309d773f15b2de2a4b33e4575241
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094940"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926661"
 ---
 # <a name="register-a-subscription"></a>註冊訂用帳戶
 
@@ -17,13 +17,13 @@ ms.locfileid: "86094940"
 
 - 合作夥伴中心
 
-註冊現有的[訂](subscription-resources.md)用帳戶，以啟用它來排序 Azure 保留。
+註冊現有的 [訂](subscription-resources.md) 用帳戶，以啟用 Azure 保留的訂購。
 
-若要購買 Azure 保留，您必須至少有一個現有的 CSP Azure 訂用帳戶。 這個方法可讓您註冊現有的 CSP Azure 訂用帳戶，讓它能夠購買 Azure 保留。
+若要購買 Azure 保留，您必須至少有一個現有的 CSP Azure 訂用帳戶。 此方法可讓您註冊現有的 CSP Azure 訂用帳戶，以便購買 Azure 保留。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -31,9 +31,9 @@ ms.locfileid: "86094940"
 
 ## <a name="c"></a>C\#
 
-若要註冊客戶的訂用帳戶，請透過呼叫[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來識別客戶，以取出訂閱作業的介面。 然後，使用訂用帳戶識別碼呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)方法，以識別您要註冊的訂用帳戶。
+若要註冊客戶的訂用帳戶，請使用客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法來取得訂用帳戶作業的介面，以識別客戶。 然後，使用訂用帳戶識別碼來呼叫 [**>iaggregatepartner.customers.byid ( # B1 **/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) 方法，以識別您要註冊的訂用帳戶。
 
-最後，呼叫 register **（）** 方法來註冊訂用帳戶，並取出可用來取得訂用帳戶註冊狀態的 URI。 如需詳細資訊，請參閱[取得訂用帳戶註冊狀態](get-subscription-registration-status.md)。
+最後，呼叫 **註冊。註冊 ( # B1 ** 方法以註冊訂用帳戶，並取得可用來取得訂用帳戶註冊狀態的 URI。 如需詳細資訊，請參閱 [取得訂用帳戶註冊狀態](get-subscription-registration-status.md)。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -56,9 +56,9 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 使用下列路徑參數來識別客戶和訂用帳戶。
 
-| 名稱                    | 類型       | 必要 | 說明                                                   |
+| 名稱                    | 類型       | 必要 | 描述                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| customer-id             | 字串     | Yes      | 識別客戶的 GUID 格式字串。         |
+| customer-id             | 字串     | Yes      | 可識別客戶的 GUID 格式字串。         |
 | subscription-id         | 字串     | Yes      | 識別訂用帳戶的 GUID 格式字串。     |
 
 ### <a name="request-headers"></a>要求標頭
@@ -85,7 +85,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應會包含具有 URI 的**位置**標頭，可用來抓取訂用帳戶註冊狀態。 儲存此 URI 以與其他相關的 REST Api 搭配使用。 如需如何取得狀態的範例，請參閱[取得訂用帳戶註冊狀態](get-subscription-registration-status.md)。
+如果成功，回應會包含具有 URI 的 **Location** 標頭，可用來取得訂用帳戶註冊狀態。 儲存此 URI 以搭配其他相關 REST Api 使用。 如需如何取得狀態的範例，請參閱 [取得訂用帳戶註冊狀態](get-subscription-registration-status.md)。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

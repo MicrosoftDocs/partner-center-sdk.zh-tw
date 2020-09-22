@@ -1,17 +1,17 @@
 ---
 title: 取得客戶授權部署資訊
-description: 如何取得特定客戶的授權部署深入解析。
+description: 如何取得特定客戶的授權部署見解。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 873279de57960e98d617c4cc6fd01955aa702c70
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 41254bd0ff260862723a928212c5f57570dbfaa4
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093770"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927099"
 ---
 # <a name="get-customer-licenses-deployment-information"></a>取得客戶授權部署資訊
 
@@ -19,10 +19,10 @@ ms.locfileid: "86093770"
 
 - 合作夥伴中心
 
-如何取得特定客戶的授權部署深入解析。
+如何取得特定客戶的授權部署見解。
 
 > [!NOTE]
-> 此案例是透過[取得授權部署資訊](get-licenses-deployment-information.md)來取代。
+> 此案例是由 [取得授權部署資訊](get-licenses-deployment-information.md)所取代。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,7 +30,7 @@ ms.locfileid: "86093770"
 
 ## <a name="c"></a>C\#
 
-若要針對指定的客戶抓取部署上的匯總資料，請先呼叫[**iaggregatepartner.customers.byid 的 ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，並提供客戶識別碼來識別客戶。 然後從 [[**分析**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics)] 屬性取得客戶層級分析集合作業的介面。 接下來，從 [[**授權**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses)] 屬性取得客戶層級授權分析集合的介面。 最後，呼叫[**部署. get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)方法以取得授權部署的匯總資料。 如果方法成功，您會取得[**CustomerLicensesDeploymentInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesdeploymentinsights)物件的集合。
+若要針對指定的客戶抓取部署的匯總資料，請先使用客戶識別碼來呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以識別客戶。 然後從 [**analytics**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) 屬性取得客戶層級分析集合作業的介面。 接下來，從 [**授權**/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) 屬性取得客戶層級授權分析集合的介面。 最後，呼叫 [**Deployment. Get**/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) 方法，取得授權部署的匯總資料。 如果方法成功，您將會取得 [**CustomerLicensesDeploymentInsights**/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesdeploymentinsights) 物件的集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,9 +51,9 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 使用下列路徑參數來識別客戶。
 
-| 名稱        | 類型 | 必要 | 說明                                                |
+| 名稱        | 類型 | 必要 | 描述                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| customer-id | guid | Yes      | 識別客戶的 GUID 格式客戶識別碼。 |
+| customer-id | guid | Yes      | 可識別客戶的 GUID 格式化客戶識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -77,7 +77,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應本文會包含[CustomerLicensesDeploymentInsights](analytics-resources.md#customerlicensesdeploymentinsights)資源的集合，以提供已部署之授權的相關資訊。
+如果成功，回應主體會包含 [CustomerLicensesDeploymentInsights](analytics-resources.md#customerlicensesdeploymentinsights) 資源的集合，以提供所部署授權的相關資訊。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

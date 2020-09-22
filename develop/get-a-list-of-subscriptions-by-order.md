@@ -1,17 +1,17 @@
 ---
 title: 依訂單取得訂用帳戶清單
-description: 取得對應至指定訂單的訂用帳戶資源集合。
+description: 取得對應至指定順序的訂閱資源集合。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 45e855d53ca93cd109383e2413879b30c9416aff
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b7fb7e101319fc2bc83425ff77f2f8ae9c9585d8
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097308"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927633"
 ---
 # <a name="get-a-list-of-subscriptions-by-order"></a>依訂單取得訂用帳戶清單
 
@@ -22,11 +22,11 @@ ms.locfileid: "86097308"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得對應至指定訂單的[訂](subscription-resources.md)用帳戶資源集合。
+取得對應至指定順序的 [訂閱](subscription-resources.md) 資源集合。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -34,7 +34,7 @@ ms.locfileid: "86097308"
 
 ## <a name="c"></a>C\#
 
-若要依照訂單取得訂用帳戶清單，使用您的 **IAggregatePartner.Customers** 集合並呼叫 **ById()** 方法。 然後呼叫[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性，後面接著**ByOrder （）** 方法。 藉由呼叫[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)來完成。
+若要依照訂單取得訂用帳戶清單，使用您的 **IAggregatePartner.Customers** 集合並呼叫 **ById()** 方法。 然後，呼叫 [**訂閱**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) 屬性，後面接著 **ByOrder ( # B2 ** 方法。 藉由呼叫 [**Get ( # B1 **/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) 或 [**GetAsync ( # B4 **/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) 完成。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,7 +44,7 @@ ms.locfileid: "86097308"
 ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ByOrder(orderID).Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： SubscriptionsByOrder.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample **類別**： SubscriptionsByOrder.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,16 +52,16 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 | 方法  | 要求 URI                                                                                                                   |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions？訂單 \_ id = {id-order} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions？ order \_ id = {依訂單的識別碼} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 下表列出取得所有訂閱所需的查詢參數。
 
-| 名稱                   | 類型     | 必要 | 說明                           |
+| 名稱                   | 類型     | 必要 | 描述                           |
 |------------------------|----------|----------|---------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 對應至客戶的 GUID。 |
-| **id-for-order**       | **guid** | Y        | 對應于訂單的 GUID。    |
+| **id-for-order**       | **guid** | Y        | 對應至順序的 GUID。    |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -84,7 +84,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，這個方法會傳迴響應主體中的[訂](subscription-resources.md)用帳戶資源集合。
+如果成功，這個方法會傳迴響應主體中的 [訂](subscription-resources.md) 用帳戶資源集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

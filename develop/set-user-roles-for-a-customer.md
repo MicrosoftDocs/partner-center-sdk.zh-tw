@@ -1,15 +1,15 @@
 ---
 title: 為客戶設定使用者角色
-description: 在客戶帳戶內，有一組目錄角色。 您可以將使用者帳戶指派給這些角色。
+description: 在客戶帳戶中，有一組目錄角色。 您可以將使用者帳戶指派給這些角色。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: eb5cbd80aa0bc35d5926b3b9f45084849f2f9d44
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a40b60dddd2a29310c1c4aaefa689f6a8de71327
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095780"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927603"
 ---
 # <a name="set-user-roles-for-a-customer"></a>為客戶設定使用者角色
 
@@ -17,7 +17,7 @@ ms.locfileid: "86095780"
 
 - 合作夥伴中心
 
-在客戶帳戶內，有一組目錄角色。 您可以將使用者帳戶指派給這些角色。
+在客戶帳戶中，有一組目錄角色。 您可以將使用者帳戶指派給這些角色。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,7 @@ ms.locfileid: "86095780"
 
 ## <a name="c"></a>C\#
 
-若要將目錄角色指派給客戶使用者，請建立具有相關使用者詳細資料的新[**UserMember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) 。 然後，使用指定的客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以識別客戶。 從該處，使用[**DirectoryRoles. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid)方法搭配目錄角色識別碼來指定角色。 然後，存取**UserMembers**集合，並使用[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create)方法將新的使用者成員新增至指派給該角色的使用者成員集合。
+若要將目錄角色指派給客戶使用者，請建立新的 [**UserMember**/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) ，其中包含相關的使用者詳細資料。 然後，使用指定的客戶識別碼來呼叫 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以識別客戶。 從該處，使用 [**DirectoryRoles. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) 方法與目錄角色識別碼來指定角色。 然後，存取 **>usermembers** 集合，然後使用 [**建立**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) 方法，將新的使用者成員新增至指派給該角色的使用者成員集合。
 
 ``` csharp
 // UserMember createdUser;
@@ -47,7 +47,7 @@ UserMember userMemberToAdd = new UserMember()
 var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).DirectoryRoles.ById(selectedRole.Id).UserMembers.Create(userMemberToAdd);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： AddUserMemberToDirectoryRole.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： AddUserMemberToDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -61,10 +61,10 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 使用下列 URI 參數來識別正確的客戶和角色。 若要識別要指派角色的使用者，請在要求主體中提供識別資訊。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
-| **角色識別碼**            | **guid** | Y        | 值是 GUID 格式的**角色識別碼**，可識別要指派給使用者的角色。                                                              |
+| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的 **客戶租使用者識別碼** ，可讓轉銷商針對屬於轉售商的特定客戶篩選結果。 |
+| **角色識別碼**            | **guid** | Y        | 此值是 GUID 格式的 **角色識別碼** ，可識別要指派給使用者的角色。                                                              |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -76,7 +76,7 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 | 名稱                  | 類型       | 必要 | 說明                            |
 |-----------------------|------------|----------|----------------------------------------|
-| **識別碼**                | **string** | Y        | 要加入至角色的使用者識別碼。 |
+| **識別碼**                | **string** | Y        | 要新增至角色之使用者的識別碼。 |
 | **DisplayName**       | **string** | Y        | 使用者的易記顯示名稱。 |
 | **UserPrincipalName** | **string** | Y        | 使用者主體的名稱。        |
 | **屬性**        | **object** | Y        | 包含 "ObjectType"： "UserMember"     |
@@ -107,7 +107,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-當使用者成功指派角色時，這個方法會傳回已附加角色識別碼的使用者帳戶。
+當使用者成功指派角色時，此方法會傳回已附加角色識別碼的使用者帳戶。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

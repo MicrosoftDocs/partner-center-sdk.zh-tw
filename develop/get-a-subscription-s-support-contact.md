@@ -4,12 +4,12 @@ description: 如何取得訂用帳戶的支援連絡人。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3b016590a58afdb47de5aa2e71cff4276b507a7c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: df3bce48902d95dc541c4a45e4e633569fc4406e
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097955"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927248"
 ---
 # <a name="get-a-subscriptions-support-contact"></a>取得訂閱的支援連絡人
 
@@ -31,7 +31,7 @@ ms.locfileid: "86097955"
 
 ## <a name="c"></a>C\#
 
-若要取得訂用帳戶的支援連絡人，請先使用[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。 然後，使用訂用帳戶 ID 呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法，以取得訂用帳戶作業的介面。 接下來，使用[**SupportContact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact)屬性取得介面來支援連絡人作業，然後呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)方法來取出[**SupportContact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact)物件。
+若要取得訂用帳戶的支援連絡人，請從使用 [**>iaggregatepartner.customers 的 >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，並使用客戶識別碼來識別客戶。 然後，使用訂用帳戶 ID 呼叫 [**>iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) 方法，以取得訂用帳戶作業的介面。 接下來，使用 [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) 屬性來取得支援連絡人作業的介面，然後呼叫 [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) 或 [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) 方法來取出 [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) 物件。
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -42,7 +42,7 @@ ms.locfileid: "86097955"
 var supportContact = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId).SupportContact.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetSubscriptionSupportContact.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetSubscriptionSupportContact.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -56,10 +56,10 @@ var supportContact = partnerOperations.Customers.ById(customerId).Subscriptions.
 
 使用下列路徑參數來識別客戶和訂用帳戶。
 
-| 名稱            | 類型   | 必要 | 說明                                                     |
+| 名稱            | 類型   | 必要 | 描述                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | 字串 | Yes      | 識別客戶的 GUID 格式字串。           |
-| subscription-id | 字串 | Yes      | 可識別試用訂閱的 GUID 格式字串。 |
+| customer-id     | 字串 | Yes      | 可識別客戶的 GUID 格式字串。           |
+| subscription-id | 字串 | Yes      | GUID 格式的字串，可識別試用版訂用帳戶。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -83,11 +83,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[SupportContact](subscription-resources.md#supportcontact)資源。
+如果成功，回應主體會包含 [SupportContact](subscription-resources.md#supportcontact) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

@@ -1,15 +1,15 @@
 ---
 title: 取得發票明細項目
-description: 您可以使用合作夥伴中心 Api，取得指定發票的發票明細專案（已關閉的計費明細專案）詳細資料集合。
+description: 您可以使用合作夥伴中心 Api，取得特定發票的發票明細專案集合 (關閉的計費明細專案) 詳細資料。
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 77f1c7cda97d5511c87933449586a52b17c93e97
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f5f6f07ac58a9771f7c49bd00f681a1b06540ebc
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096871"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927554"
 ---
 # <a name="get-invoice-line-items"></a>取得發票明細項目
 
@@ -20,36 +20,36 @@ ms.locfileid: "86096871"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-您可以使用下列方法，針對指定的發票取得發票明細專案的集合詳細資料（也稱為已關閉的計費明細專案）。
+您可以使用下列方法來取得發票明細專案的集合詳細資料， (也稱為已關閉的計費明細專案) 指定的發票。
 
-*除了錯誤修正之外，此 API 也不會再更新。* 您應該更新應用程式來呼叫**onetime** API，而不是**marketplace**。 **Onetime** API 提供額外的功能，並會繼續更新。
+*除了錯誤修正之外，不再更新此 API。* 您應該更新應用程式，以呼叫 **onetime** API，而不是 **marketplace**。 **Onetime** API 會提供額外的功能，並繼續更新。
 
-您應該使用**onetime**來查詢所有的商業耗用量明細專案，而不是**marketplace**。 或者，您可以遵循評估連結呼叫中的連結。
+您應使用 **onetime** 來查詢所有商業耗用量明細專案，而不是 **marketplace**。 或者，您可以遵循「評估連結」呼叫中的連結。
 
-此 API 也支援適用于 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶和 Office 供應專案的**azure**和**office** **提供者**類型，讓 API 功能回溯相容。
+此 API 也支援**azure**和**office**的**提供者**類型，適用于 Microsoft Azure (ms-azr-0003p-Ms-azr-0145p) 訂用帳戶和 office 供應專案，使 API 功能回溯相容。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 發票識別碼。 這會識別要取得其行專案的發票。
+- 發票識別碼。 這會識別用來取得明細專案的發票。
 
 ## <a name="c"></a>C\#
 
 若要取得指定發票的明細專案：
 
-1. 呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)方法，取得指定發票的發票作業介面。
+1. 呼叫 [**>iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) 方法，取得指定發票之發票作業的介面。
 
-2. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)方法，以取出發票物件。 Invoice 物件包含指定發票的所有資訊。
-3. 使用 invoice 物件的[**InvoiceDetails**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails)屬性來存取[**InvoiceDetail**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail)物件的集合，其中每一個都包含[**BillingProvider**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider)和[**InvoiceLineItemType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype)。 **BillingProvider**會識別發票詳細資訊的來源（例如**Office**、 **Azure**、 **OneTime**），而**InvoiceLineItemType**會指定類型（例如**BillingLineItem**）。
+2. 呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync]) 方法，以取得 invoice 物件。 發票物件包含指定發票的所有資訊。
+3. 使用 invoice 物件的 [**InvoiceDetails**/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails) 屬性，即可存取 [**InvoiceDetail**/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail) 物件的集合，其中每個物件都包含 [**BillingProvider**/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider) 和 [**InvoiceLineItemType**/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype) 。 **BillingProvider**會識別發票詳細資訊的來源 (例如**Office**、 **Azure**、 **OneTime**) ，而**InvoiceLineItemType**則會指定類型 (例如**BillingLineItem**) 。
 
-下列範例程式碼會使用**foreach**迴圈來處理**InvoiceDetails**集合。 針對每個**InvoiceDetail**實例，會抓取個別的明細專案集合。
+下列範例程式碼會使用 **foreach** 迴圈來處理 **InvoiceDetails** 集合。 每個 **InvoiceDetail** 實例都會抓取個別的明細專案集合。
 
-若要取得對應至**InvoiceDetail**實例的明細專案集合：
+若要取得對應至 **InvoiceDetail** 實例的明細專案集合：
 
-1. 將實例的**BillingProvider**和**InvoiceLineItemType**傳遞至[**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)方法。
+1. 將實例的 **BillingProvider** 和 **InvoiceLineItemType** 傳遞至 [**By**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) 方法。
 
-2. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync)方法，以取出相關聯的明細專案。
+2. 呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync]) 方法，以取出相關聯的明細專案。
 3. 建立列舉值以遍歷集合，如下列範例所示。
 
 ``` csharp
@@ -99,38 +99,38 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 }
 ```
 
-如需類似的範例，請參閱下列各項：
+如需類似範例，請參閱下列各項：
 
 - 範例： [主控台測試應用程式](console-test-app.md)
-- 專案：**合作夥伴中心 SDK 範例**
+- 專案： **合作夥伴中心 SDK 範例**
 - 類別： **GetInvoiceLineItems.cs**
 
 ## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求的語法
 
-在您的案例中，使用適當的計費提供者語法來提出您的要求。
+在您的案例中，針對帳單提供者使用適當的語法來提出要求。
 
 #### <a name="office"></a>Office
 
-當帳單提供者為**Office**時，適用下列語法。
+當帳單提供者為 **Office**時，會套用下列語法。
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = office&invoicelineitemtype = billinglineitems&大小 = {大小} &位移 = {OFFSET} HTTP/1。1                               |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = office&invoicelineitemtype = billinglineitems&size = {size} &offset = {OFFSET} HTTP/1。1                               |
 
-#### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶
+#### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (MS-AZR-0003P-Ms-azr-0145p) 訂用帳戶
 
-當帳單提供者具有 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶時，下列語法適用。
+當計費提供者具有 Microsoft Azure (MS-AZR-0003P-Ms-azr-0145p) 訂用帳戶時，會套用下列語法。
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure&invoicelineitemtype = billinglineitems&size = {size} &offset = {OFFSET} HTTP/1。1  |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems？ provider = azure&invoicelineitemtype = usagelineitems&size = {size} &offset = {OFFSET} HTTP/1。1  |
 
-##### <a name="onetime"></a>OneTime
+##### <a name="onetime"></a>一次性
 
-下列語法適用于**OneTime**計費提供者時。 這包括 Azure 保留、軟體、Azure 方案和商業 marketplace 產品的費用。
+**OneTime**帳單提供者時，適用下列語法。 這包括 Azure 保留、軟體、Azure 方案和商業 marketplace 產品的費用。
 
 | 方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -141,29 +141,29 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 如果您使用下列語法，請務必針對您的使用案例使用適當的語法。
 
-*除了錯誤修正之外，此 API 也不會再更新。* 您應該更新應用程式來呼叫**onetime** API，而不是**marketplace**。 **Onetime** API 提供額外的功能，並會繼續更新。
+*除了錯誤修正之外，不再更新此 API。* 您應該更新應用程式，以呼叫 **onetime** API，而不是 **marketplace**。 **Onetime** API 會提供額外的功能，並繼續更新。
 
-您應該使用**onetime**來查詢所有的商業耗用量明細專案，而不是**marketplace**。 或者，您可以遵循評估連結呼叫中的連結。
+您應使用 **onetime** 來查詢所有商業耗用量明細專案，而不是 **marketplace**。 或者，您可以遵循「評估連結」呼叫中的連結。
 
 | 方法 | 要求 URI | 語法使用案例的描述 |
 | ------ | ----------- | -------------------------------- |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1。1                              | 您可以使用這個語法來傳回給定發票之每個明細專案的完整清單。 |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}？ size = {size} &offset = {OFFSET} HTTP/1。1  | 對於大型發票，您可以使用此語法搭配指定的大小和以0為基礎的位移，以傳回已分頁的明細專案清單。 |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/V1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}？ SeekOperation = Next                               | 您可以將此語法用於具有計費提供者值**OneTime**的發票，並將**SeekOperation**設定為 **[下一頁]** ，以取得發票明細專案的下一頁。 |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1。1                              | 您可以使用此語法來傳回指定發票之每個明細專案的完整清單。 |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}？ size = {size} &offset = {OFFSET} HTTP/1。1  | 針對大型發票，您可以使用此語法搭配指定的大小和以0為基礎的位移，以傳回已分頁的明細專案清單。 |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/V1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}？ SeekOperation = 下一步                               | 您可以針對帳單提供者值為 **OneTime** 的發票使用此語法，並將 **SeekOperation** 設定為 **[下一頁]** ，以取得發票明細專案的下一頁。 |
 
 ##### <a name="uri-parameters"></a>URI 參數
 
 建立要求時，請使用下列 URI 和查詢參數。
 
-| 名稱                   | 類型   | 必要 | 說明                                                       |
+| 名稱                   | 類型   | 必要 | 描述                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | 發票識別碼             | 字串 | Yes      | 識別發票的字串。                             |
-| billing-provider       | 字串 | Yes      | 計費提供者： "Office"、"Azure"、"OneTime"。               |
+| billing-provider       | 字串 | Yes      | 帳單提供者： "Office"、"Azure"、"OneTime"。               |
 | invoice-line-item-type | 字串 | Yes      | 發票詳細資料的類型： "BillingLineItems"、"UsageLineItems"。 |
-| 大小                   | number | No       | 要傳回的專案數目上限。 預設大小上限 = 2000    |
-| Offset                 | number | No       | 要傳回的第一個行專案之以零為起始的索引。            |
-| seekOperation          | 字串 | No       | 如果**計費提供者**等於**OneTime**，請將**SeekOperation**設定為 **[下一頁]** ，以取得發票明細專案的下一頁。 |
-| hasPartnerEarnedCredit | bool | No | 值，指出是否要傳回已套用合作夥伴獲額的明細專案。 注意：只有在計費提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。 |
+| 大小                   | number | No       | 要傳回的最大專案數。 預設大小上限 = 2000    |
+| Offset                 | number | No       | 要傳回的第一個專案之以零為基底的索引。            |
+| seekOperation          | 字串 | No       | 如果 **計費提供者** 等於 **OneTime**，請將 **SeekOperation** 設定為 **[下一步]** ，以取得發票明細專案的下一頁。 |
+| hasPartnerEarnedCredit | bool | No | 值，指出是否要傳回已套用合作夥伴所獲得點數的明細專案。 注意：只有當帳單提供者類型為 OneTime 且 InvoiceLineItemType 為 UsageLineItems 時，才會套用此參數。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -177,7 +177,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 如果成功，回應會包含明細專案詳細資料的集合。
 
-*對於明細專案**ChargeType**，**購買**的值會對應至**新**的。[**退款**] 值會對應至 [**取消**]。*
+*若為明細專案 **ChargeType**，值 **購買** 會對應到 [ **新增**]。 **退款** 值會對應至 [ **取消**]。*
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -718,11 +718,11 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 
 ### <a name="request-response-example-5"></a>要求-回應範例5
 
-在下列範例中，會使用接續 token 進行分頁。 詳細資料如下：
+在下列範例中，使用接續 token 的分頁。 詳細資料如下︰
 
 - **BillingProvider**： **OneTime**
 - **InvoiceLineItemType**： **BillingLineItems**
-- **SeekOperation**：**下一步**
+- **SeekOperation**： **Next**
 
 #### <a name="request-example-5"></a>要求範例5
 

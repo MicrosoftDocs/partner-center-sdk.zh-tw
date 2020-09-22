@@ -1,17 +1,17 @@
 ---
 title: 取得組織設定檔
-description: 取得物件，代表合作夥伴的組織設定檔。
+description: 取得代表夥伴組織設定檔的物件。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: d0d4caed36b1ab58fdb40d32a7ccb159e3895207
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d5b372795b8e3ccda7443ce35076d2b70cbd74f2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097056"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927127"
 ---
 # <a name="get-an-organization-profile"></a>取得組織設定檔
 
@@ -22,7 +22,7 @@ ms.locfileid: "86097056"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得物件，代表合作夥伴的組織設定檔。
+取得代表夥伴組織設定檔的物件。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,7 +30,7 @@ ms.locfileid: "86097056"
 
 ## <a name="c"></a>C\#
 
-若要取得您的組織設定檔，請使用您的**Iaggregatepartner.customers.byid 配置**檔集合，並呼叫**OrganizationProfile**屬性。 最後，呼叫[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync)方法。
+若要取得您的組織設定檔，請使用 **>iaggregatepartner.customers 設定檔** 集合，並呼叫 **OrganizationProfile** 屬性。 最後，呼叫 [**Get ( # B1 **/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get) 或 [**GetAsync ( # B4 **/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) 方法。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -38,13 +38,13 @@ ms.locfileid: "86097056"
 OrganizationProfile organizationProfile = partnerOperations.Profiles.OrganizationProfile.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples**類別**： GetOrganizationProfile.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples **類別**： GetOrganizationProfile.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-若要取得您的組織設定檔，請使用您的**iaggregatepartner.customers.byid. ipartner.getprofiles**函數，並呼叫**getOrganizationProfile**函式。 最後，呼叫**get （）** 函數。
+若要取得您的組織設定檔，請使用您的 **>iaggregatepartner.customers >ipartner.getprofiles** 函式，然後呼叫 **getOrganizationProfile** 函數。 最後，呼叫 **get ( # B1 ** 函數。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -56,7 +56,7 @@ OrganizationProfile organizationProfile = partnerOperations.getProfiles().getOrg
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-若要取得您的組織設定檔，請執行[**PartnerOrganizationProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md)命令。
+若要取得您的組織設定檔，請執行 [**PartnerOrganizationProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md) 命令。
 
 ```powershell
 Get-PartnerOrganizationProfile
@@ -90,7 +90,7 @@ MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**OrganizationProfile**物件。
+如果成功，這個方法會傳迴響應主體中的 **OrganizationProfile** 物件。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -4,12 +4,12 @@ description: 取得代表合作夥伴帳單設定檔的物件。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5d0b8aaf904f3f4fd63e508d0c18756c2b9c5492
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f23c8dfeac6268d0a9ff1e67a5bf913b4070fa9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095229"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927063"
 ---
 # <a name="get-partner-billing-profile"></a>取得合作夥伴的帳單設定檔
 
@@ -28,7 +28,7 @@ ms.locfileid: "86095229"
 
 ## <a name="c"></a>C\#
 
-若要取得合作夥伴帳單設定檔，請使用您的**Iaggregatepartner.customers.byid 配置**檔集合，並呼叫**BillingProfile**屬性。 最後，呼叫[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync)方法。
+若要取得合作夥伴帳單設定檔，請使用您的 **>iaggregatepartner.customers 配置** 檔集合，並呼叫 **BillingProfile** 屬性。 最後，呼叫 [**Get ( # B1 **/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get) 或 [**GetAsync ( # B4 **/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,7 +36,7 @@ ms.locfileid: "86095229"
 BillingProfile billingProfile = partnerOperations.Profiles.BillingProfile.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples**類別**： GetBillingProfile.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples **類別**： GetBillingProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -66,7 +66,7 @@ MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**BillingProfile**物件。
+如果成功，這個方法會傳迴響應主體中的 **BillingProfile** 物件。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

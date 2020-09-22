@@ -4,12 +4,12 @@ description: 如何將授權指派給客戶使用者。
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5b9d6b16daed2d93717466ee8f8bc12dc198f2fe
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8c0b01525f6865411cc069677b7a7481f20ba87c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095403"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927428"
 ---
 # <a name="assign-licenses-to-a-user"></a>指派授權給使用者
 
@@ -31,26 +31,26 @@ ms.locfileid: "86095403"
 
 ## <a name="assigning-licenses-through-code"></a>透過程式碼指派授權
 
-當您將授權指派給使用者時，您必須從客戶的已訂閱 Sku 集合中進行選擇。 然後，在識別出您要指派的產品之後，您必須取得每個產品的產品 SKU 識別碼，才能進行指派。 每個[**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku)實例都包含[**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku)屬性，您可以從中參考[**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku)物件並取得[**識別碼**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)。
+當您將授權指派給使用者時，您必須從客戶的已訂閱 Sku 集合中選擇。 然後，識別出您想要指派的產品，您必須為每個產品取得產品 SKU 識別碼，才能進行指派。 每個 [**SubscribedSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) 實例都包含 [**ProductSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) 屬性，您可以在其中參考 [**ProductSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) 物件並取得 [**識別碼**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)。
 
-授權指派要求必須包含來自單一授權群組的授權。 例如，您無法在相同的要求中，從[**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)和**Group2**指派授權。 在單一要求中，嘗試從一個以上的群組指派授權將會失敗，並產生適當的錯誤。 若要瞭解授權群組可用的授權，請參閱[依授權群組取得可用的授權清單](get-a-list-of-available-licenses-by-license-group.md)。
+授權指派要求必須包含來自單一授權群組的授權。 例如，您無法在相同的要求中指派 [**Group1**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) 和 **Group2** 的授權。 嘗試在單一要求中從一個以上的群組指派授權將會失敗，並出現適當的錯誤。 若要瞭解授權群組可用的授權，請參閱 [依授權群組取得可用授權清單](get-a-list-of-available-licenses-by-license-group.md)。
 
 以下是透過程式碼指派授權的步驟：
 
-1. 具現化[**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)物件。 您可以使用此物件來指定要指派的產品 SKU 和服務方案。
+1. 具現化 [**LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) 物件。 您可以使用此物件來指定要指派的產品 SKU 和服務方案。
 
     ``` csharp
     LicenseAssignment license = new LicenseAssignment();
     ```
 
-2. 填入物件屬性，如下所示。 此程式碼假設您已經有產品 SKU 識別碼，而且將會指派所有可用的服務方案（也就是不會排除任何）。
+2. 填入物件屬性，如下所示。 這段程式碼假設您已擁有產品 SKU 識別碼，並且將指派所有可用的服務方案 (也就是不會) 排除任何服務方案。
 
     ```csharp
     license.SkuId = selectedProductSkuId;
     license.ExcludedPlans = null;
     ```
 
-3. 如果您沒有產品 SKU 識別碼，則必須取出已訂閱的 Sku 集合，並從其中一個取得產品 SKU 識別碼。 如果您知道產品 SKU 名稱，以下是範例。
+3. 如果您沒有產品 SKU 識別碼，您需要取出已訂用的 Sku 集合，並取得其中一個 sku 的產品 SKU 識別碼。 以下是您知道產品 SKU 名稱的範例。
 
     ```csharp
     var customerSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
@@ -59,21 +59,21 @@ ms.locfileid: "86095403"
     license.ExcludedPlans = null;
     ```
 
-4. 接下來，將[**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)類型的新清單具現化，並新增授權物件。 您可以將每個授權分別新增至清單，以指派多個授權。 此清單中包含的授權必須來自相同的授權群組。
+4. 接下來，將 [**LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)型別的新清單具現化，並新增授權物件。 您可以將多個授權個別新增至清單，藉以指派一個以上的授權。 此清單中包含的授權必須來自相同的授權群組。
 
     ```csharp
     List<LicenseAssignment> licenseList = new List<LicenseAssignment>();
     licenseList.Add(license);
     ```
 
-5. 建立[**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate)實例，並將授權指派清單指派給[**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)屬性。
+5. 建立 [**LicenseUpdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) 實例，並將授權指派清單指派給 [**LicensesToAssign**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) 屬性。
 
     ```csharp
     LicenseUpdate updateLicense = new LicenseUpdate();
     updateLicense.LicensesToAssign = licenseList;
     ```
 
-6. 呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync)方法，並傳遞如下所示的授權更新物件來指派授權。
+6. 呼叫 [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) 或 [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) 方法，然後傳遞授權更新物件（如下所示）來指派授權。
 
     ```csharp
     var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
@@ -81,11 +81,11 @@ ms.locfileid: "86095403"
 
 ## <a name="c"></a>C\#
 
-若要將授權指派給客戶使用者，請先將[**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)物件具現化，並填入[**Skuid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid)和[**ExcludedPlans**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans)屬性。 您可以使用此物件來指定要指派的產品 SKU，以及要排除的服務方案。 接下來，將**LicenseAssignment**類型的新清單具現化，並將授權物件新增至清單。 然後建立[**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate)實例，並將授權指派清單指派給[**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)屬性。
+若要將授權指派給客戶使用者，請先具現化 [**LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) 物件，然後填入 [**Skuid**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) 和 [**ExcludedPlans**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) 屬性。 您可以使用此物件來指定要指派的產品 SKU，以及要排除的服務方案。 接下來，將 **LicenseAssignment**型別的新清單具現化，並將授權物件新增至清單。 然後建立 [**LicenseUpdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) 實例，並將授權指派清單指派給 [**LicensesToAssign**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) 屬性。
 
-接下來，使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶，並搭配使用[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法和使用者識別碼來識別使用者。 然後從[**LicenseUpdates**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates)屬性取得客戶使用授權更新作業的介面。
+接下來，使用[**>iaggregatepartner.customers 的 >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶，並使用使用者識別碼來識別[**使用者。**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) 然後從 [**LicenseUpdates**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates) 屬性取得客戶使用者授權更新作業的介面。
 
-最後，呼叫[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync)方法，並傳遞授權更新物件來指派授權。
+最後，呼叫 [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) 或 [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) 方法，並傳遞授權更新物件以指派授權。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -110,7 +110,7 @@ updateLicense.LicensesToAssign = licenseList;
 var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CustomerUserAssignLicenses.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： CustomerUserAssignLicenses.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -122,12 +122,12 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 #### <a name="uri-parameters"></a>URI 參數
 
-使用下列 path 參數來識別客戶和使用者。
+使用下列路徑參數來識別客戶和使用者。
 
-| 名稱        | 類型   | 必要 | 說明                                       |
+| 名稱        | 類型   | 必要 | 描述                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| customer-id | 字串 | Yes      | 識別客戶的 GUID 格式識別碼。 |
-| user-id     | 字串 | Yes      | 識別使用者的 GUID 格式化識別碼。     |
+| customer-id | 字串 | Yes      | 可識別客戶的 GUID 格式識別碼。 |
+| user-id     | 字串 | Yes      | 識別使用者的 GUID 格式識別碼。     |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -135,7 +135,7 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 ### <a name="request-body"></a>要求本文
 
-在要求主體中包含[LicenseUpdate](license-resources.md#licenseupdate)資源，以指定要指派的授權。
+在要求主體中包含 [LicenseUpdate](license-resources.md#licenseupdate) 資源，以指定要指派的授權。
 
 ### <a name="request-example"></a>要求範例
 
@@ -168,7 +168,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，則會傳回 HTTP 回應狀態碼201，且回應主體會包含具有授權資訊的[LicenseUpdate](license-resources.md#licenseupdate)資源。
+如果成功，則會傳回 HTTP 回應狀態碼201，且回應主體會包含具有授權資訊的 [LicenseUpdate](license-resources.md#licenseupdate) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -198,7 +198,7 @@ Date: Thu, 20 Apr 2017 21:50:39 GMT
 }
 ```
 
-### <a name="response-example-license-isnt-available"></a>回應範例（授權無法使用）
+### <a name="response-example-license-isnt-available"></a> (授權無法使用的回應範例) 
 
 ```http
 HTTP/1.1 400 Bad Request

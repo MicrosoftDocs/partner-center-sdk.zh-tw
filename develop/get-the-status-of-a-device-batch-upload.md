@@ -4,12 +4,12 @@ description: 如何為指定的客戶取得裝置批次上傳的狀態。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5639ab12b29c5d55c67b8f3375d96ab1d5979850
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 07dfe950e92fdd0141518c8cca746c8d958f2843
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098435"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927467"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>取得裝置批次上傳的狀態
 
@@ -22,15 +22,15 @@ ms.locfileid: "86098435"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
-- 提交裝置批次時，在位置標頭中傳回的批次追蹤識別碼。 如需詳細資訊，請參閱[上傳指定客戶的裝置清單](upload-a-list-of-devices-for-the-specified-customer.md)。
+- 提交裝置批次時，在 Location 標頭中傳回的批次追蹤識別碼。 如需詳細資訊，請參閱 [上傳指定客戶的裝置清單](upload-a-list-of-devices-for-the-specified-customer.md)。
 
 ## <a name="c"></a>C\#
 
-若要取得裝置批次上傳的狀態，請先以客戶識別碼呼叫[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以在指定的客戶上取得作業介面。 然後，使用 batch 追蹤識別碼呼叫[**BatchUploadStatus. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatuscollection.byid)方法，以取得批次上傳狀態作業的介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.getasync)方法以取得狀態。
+若要取得裝置批次上傳的狀態，請先使用客戶識別碼來呼叫 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以取得指定客戶上作業的介面。 然後，呼叫 [**BatchUploadStatus. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatuscollection.byid) 方法與批次追蹤識別碼，以取得批次上傳狀態作業的介面。 最後，呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.getasync]) 方法以取得狀態。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,7 +41,7 @@ var status =
     partnerOperations.Customers.ById(selectedCustomerId).BatchUploadStatus.ById(selectedTrackingId).Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetBatchUploadStatus.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetBatchUploadStatus.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -55,10 +55,10 @@ var status =
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱             | 類型   | 必要 | 說明                                                                                                                                                                    |
+| 名稱             | 類型   | 必要 | 描述                                                                                                                                                                    |
 |------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | customer-id      | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。                                                                                                                          |
-| batchtracking-id | 字串 | Yes      | GUID 格式的識別碼，用來抓取裝置批次上傳狀態。 成功提交裝置批次時，此識別碼會在位置標頭中傳回。 |
+| batchtracking-id | 字串 | Yes      | GUID 格式的識別碼，可用來取得裝置批次上傳狀態。 成功提交裝置批次時，會在 Location 標頭中傳回此識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -66,7 +66,7 @@ var status =
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -82,7 +82,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應會包含[BatchUploadDetails](device-deployment-resources.md#batchuploaddetails)資源。
+如果成功，回應會包含 [BatchUploadDetails](device-deployment-resources.md#batchuploaddetails) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

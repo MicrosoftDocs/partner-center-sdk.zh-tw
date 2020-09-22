@@ -1,17 +1,17 @@
 ---
 title: 為客戶取得所有使用者帳戶的清單
-description: 如何取得屬於其中一位客戶的所有使用者帳戶清單。
+description: 如何取得屬於其中一個客戶的所有使用者帳戶清單。
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: d6b94a13e613bd7c0c4ce26d415efaade133b617
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f2b1bcf9926e02232b6e2cc68b71e992b015324
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098204"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927703"
 ---
 # <a name="get-a-list-of-all-user-accounts-for-a-customer"></a>為客戶取得所有使用者帳戶的清單
 
@@ -19,9 +19,9 @@ ms.locfileid: "86098204"
 
 - 合作夥伴中心
 
-本文說明如何取得屬於其中一位客戶的所有使用者帳戶清單。
+本文說明如何取得屬於其中一個客戶的所有使用者帳戶清單。
 
-若要依識別碼查詢單一使用者帳戶，請參閱[依識別碼取得使用者帳戶](get-a-user-account-by-id.md)。
+若要依識別碼查閱單一使用者帳戶，請參閱 [依識別碼取得使用者帳戶](get-a-user-account-by-id.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,9 +33,9 @@ ms.locfileid: "86098204"
 
 若要取得指定客戶的所有使用者帳戶集合：
 
-1. 使用指定的客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以識別客戶。
+1. 使用指定的客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以識別客戶。
 
-2. 呼叫[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync)方法以[**取得**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get)集合。
+2. 呼叫 [**使用者. Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) 或 [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) 方法，以取得集合。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,10 +45,10 @@ ms.locfileid: "86098204"
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Get();
 ```
 
-如需範例，請參閱下列各項：
+如需範例，請參閱下列內容：
 
 - 範例： [主控台測試應用程式](console-test-app.md)
-- 專案：**合作夥伴中心 SDK 範例**
+- 專案： **合作夥伴中心 SDK 範例**
 - 類別： **GetCustomerUserCollection.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -63,9 +63,9 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.G
 
 使用下列 URI 參數來識別正確的客戶。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的 **客戶租使用者識別碼** ，可讓轉銷商針對屬於轉售商的特定客戶篩選結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 

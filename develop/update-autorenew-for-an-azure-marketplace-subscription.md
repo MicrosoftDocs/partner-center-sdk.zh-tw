@@ -1,15 +1,15 @@
 ---
 title: 更新商業市集訂用帳戶的自動續約
-description: 針對符合客戶和訂用帳戶識別碼的訂用帳戶資源，更新其 autorenew 屬性。
+description: 針對符合客戶和訂用帳戶識別碼的訂用帳戶資源更新 autorenew 屬性。
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0549f1066038594c9e2a8c30a5427cc94b5ac296
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9a83b7ab5263e50f3957920994579d6a3a82e654
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095954"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925577"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>更新商業市集訂用帳戶的自動續約
 
@@ -17,13 +17,13 @@ ms.locfileid: "86095954"
 
 - 合作夥伴中心
 
-針對符合客戶和訂用帳戶識別碼的商業 marketplace[訂](subscription-resources.md)用帳戶資源，更新其 autorenew 屬性。
+針對符合客戶和訂用帳戶識別碼的商業 marketplace [訂](subscription-resources.md) 用帳戶資源更新 autorenew 屬性。
 
-在合作夥伴中心儀表板中，這項作業是藉由先[選取客戶](get-a-customer-by-name.md)來執行。 然後，選取您想要更新的訂用帳戶。 最後，切換**自動續約**選項，然後選取 [**提交**]。
+在合作夥伴中心儀表板中，會先 [選取客戶](get-a-customer-by-name.md)來執行此作業。 然後，選取您要更新的訂用帳戶。 最後，切換 **自動續約** 選項，然後選取 [ **提交**]。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -31,7 +31,7 @@ ms.locfileid: "86095954"
 
 ## <a name="c"></a>C\#
 
-若要更新客戶的訂用帳戶，請先[取得訂](get-a-subscription-by-id.md)用帳戶，然後設定訂用帳戶的[**autoRenewEnabled**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled)屬性。 進行變更之後，請使用**iaggregatepartner.customers.byid. Customers**集合，並呼叫**ById （）** 方法。 然後呼叫[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性，後面接著[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)方法。 然後，藉由呼叫**Patch （）** 方法來完成。
+若要更新客戶的訂用帳戶，請先 [取得訂](get-a-subscription-by-id.md)用帳戶，然後設定訂用帳戶的 [**autoRenewEnabled**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled) 屬性。 進行變更之後，請使用您的 **>iaggregatepartner.customers。 Customers** 集合，並呼叫 **>iaggregatepartner.customers.byid ( # B1 ** 方法。 然後，呼叫 [**訂閱**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) 屬性，後面接著 [**>iaggregatepartner.customers.byid ( # B2 **/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) 方法。 然後，藉由呼叫 **Patch ( # B1 ** 方法來完成。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,7 +43,7 @@ selectedSubscription.AutoRenewEnabled = false;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： UpdateSubscription.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample **類別**： UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -51,13 +51,13 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | 方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
+| **補丁** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-下表列出暫止訂閱所需的查詢參數。
+下表列出暫停訂用帳戶所需的查詢參數。
 
-| 名稱                    | 類型     | 必要 | 說明                               |
+| 名稱                    | 類型     | 必要 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **GUID** | Y        | 對應至客戶的 GUID。     |
 | **id-for-subscription** | **GUID** | Y        | 對應至訂用帳戶的 GUID。 |
@@ -68,7 +68,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="request-body"></a>要求本文
 
-要求主體中需要完整的商業 marketplace**訂**用帳戶資源。 請確定**AutoRenewEnabled**屬性已更新。
+要求主體中需要完整的商業 marketplace **訂** 用帳戶資源。 確定 **AutoRenewEnabled** 屬性已更新。
 
 ### <a name="request-example"></a>要求範例
 
@@ -116,7 +116,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應本文中傳回已更新的[訂](subscription-resources.md)用帳戶資源屬性。
+如果成功，此方法會在回應主體中傳回更新的 [訂](subscription-resources.md) 用帳戶資源屬性。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

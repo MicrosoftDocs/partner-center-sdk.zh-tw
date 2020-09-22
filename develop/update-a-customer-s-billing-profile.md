@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: d41ff767699b55be7bdf92a073263042c7c073dd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2fc6436f253d2611e2ff8287a5d403b62ccbddf2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095656"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925614"
 ---
 # <a name="update-a-customers-billing-profile"></a>更新客戶的帳單設定檔
 
@@ -26,13 +26,13 @@ ms.locfileid: "86095656"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
-若要更新客戶的帳單設定檔，請取出帳單設定檔，並視需要更新屬性。 然後，取出[**ipartner.getinvoices. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合，然後呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。 接著呼叫[**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)屬性，後面接著[**帳單**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing)屬性。 然後，藉由呼叫[**Update （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.update)或[**UpdateAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.updateasync)方法來完成。
+若要更新客戶的帳單設定檔，請取得帳單設定檔，並視需要更新屬性。 然後，抓取您的 [**>ipartner.customers**]/dotnet/api/microsoft.store.partnercenter.ipartner.customers) 集合，然後呼叫 [**>iaggregatepartner.customers.byid ( # B2 **/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法。 然後，呼叫 [**設定檔**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) 屬性，後面接著 [**帳單**/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing) 屬性。 然後，藉由呼叫 [**Update ( # B1 **/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.update) 或 [**>updateasync ( # B4 **/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.updateasync) 方法來完成。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,7 +45,7 @@ var billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profil
 billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profiles.Billing.Update(billingProfile);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSamples**類別**： UpdateCustomerBillingProfile.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSamples **類別**： UpdateCustomerBillingProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -53,19 +53,19 @@ billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profiles.B
 
 | 方法  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **提出** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/profiles/billing HTTP/1。1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/profiles/billing HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 使用下列查詢參數來更新帳單設定檔。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                                                                                            |
+| 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
+| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的 **客戶租使用者識別碼** ，可讓轉銷商針對屬於轉售商的特定客戶篩選結果。 |
 
 ### <a name="request-headers"></a>要求標頭
 
-- **If-match**：「ETag」 &lt; &gt; 是並行偵測的必要項。
+- **If-match**： &lt; &gt; 並行偵測需要 "ETag"。
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
@@ -120,7 +120,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應本文中傳回已更新的[設定檔](profile-resources.md)資源屬性。 此呼叫需要 ETag 才能進行並行偵測。
+如果成功，此方法會在回應主體中傳回已更新的 [設定檔](profile-resources.md) 資源屬性。 此呼叫需要 ETag 才能進行並行偵測。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

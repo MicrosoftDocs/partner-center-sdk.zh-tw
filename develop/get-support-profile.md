@@ -4,12 +4,12 @@ description: 取得物件，代表使用者的支援設定檔。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6107288c0885a6baf6140e66ef1b423ab9b2940d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b0c76d219aa2cef36a7e790e2be4feafeb10f826
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097499"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927500"
 ---
 # <a name="get-support-profile"></a>取得支援設定檔
 
@@ -27,7 +27,7 @@ ms.locfileid: "86097499"
 
 ## <a name="c"></a>C\#
 
-若要取得您的支援設定檔，請使用您的**Iaggregatepartner.customers.byid 配置**檔集合。 呼叫[**SupportProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile)屬性，後面接著[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync)方法。
+若要取得您的支援設定檔，請使用您的 **>iaggregatepartner.customers 配置** 檔集合。 呼叫 [**>supportprofile**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) 屬性，後面接著 [**Get ( # B2 **/Dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get) 或 [**GetAsync ( # B5 **/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -35,7 +35,7 @@ ms.locfileid: "86097499"
 SupportProfile supportProfile = partnerOperations.Profiles.SupportProfile.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples**類別**： GetSupportProfile.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples **類別**： GetSupportProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -65,7 +65,7 @@ MS-CorrelationId: 20604323-50bf-4738-9968-c5486ab32be0
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**SupportProfile**物件。
+如果成功，這個方法會傳迴響應主體中的 **>supportprofile** 物件。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

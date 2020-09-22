@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 909dec77dd189005839d72caeb0e66a7ad5c8a1b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c6a404eb38c4c31d3e69bb598872b932d8985529
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097156"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927208"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>取得 Microsoft Cloud 合約的合約中繼資料
 
@@ -20,28 +20,28 @@ ms.locfileid: "86097156"
 - 合作夥伴中心
 
 > [!NOTE]
-> **AgreementMetaData**資源目前僅由 Microsoft 公用雲端中的合作夥伴中心支援。 不適用於：
+> **AgreementMetaData**資源目前僅支援 Microsoft 公用雲端中的合作夥伴中心。 不適用於：
 > - 由 21Vianet 營運的合作夥伴中心
 > - Microsoft Cloud 德國合作夥伴中心
 > - Microsoft Cloud for US Government 適用的合作夥伴中心
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您使用合作夥伴中心 .NET SDK，則需要1.9 或更新版本。
+- 如果您使用合作夥伴中心 .NET SDK，則需要版本1.9 或更新版本。
 
-- 如果您使用合作夥伴中心 JAVA SDK，則需要1.8 或更新版本。
+- 如果您使用合作夥伴中心 JAVA SDK，則需要版本1.8 或更新版本。
 
 - 認證，如[合作夥伴中心驗證](./partner-center-authentication.md)所述。 此案例支援應用程式 + 使用者驗證。
 
-## <a name="net-version-114-or-newer"></a>.NET （1.14 版或更新版本）
+## <a name="net-version-114-or-newer"></a>.NET (1.14 版或更新版本) 
 
-若要取得 Microsoft Cloud 合約的合約中繼資料：
+若要取出 Microsoft Cloud 合約的合約中繼資料：
 
-1. 首先，取出**iaggregatepartner.customers.byid. AgreementDetails**集合。
+1. 首先，取出 **>iaggregatepartner.customers. AgreementDetails** 集合。
 
-2. 呼叫**ByAgreementType**方法，以 Microsoft Cloud 協定來篩選集合。
+2. 呼叫 **ByAgreementType** 方法，以篩選要 Microsoft Cloud 合約的集合。
 
-3. 最後，呼叫**Get**或**GetAsync**方法。
+3. 最後，呼叫 **Get** 或 **GetAsync** 方法。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -53,11 +53,11 @@ var microsoftCloudAgreementDetails = partnerOperations.AgreementDetails.ByAgreem
 
 您可以從[主控台測試應用程式](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)專案的[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)類別中找到完整的範例。
 
-## <a name="net-version-19---113"></a>.NET （版本 1.9-1.13）
+## <a name="net-version-19---113"></a>.NET (1.9-1.13 版) 
 
-若要取得 Microsoft Cloud 合約的合約中繼資料：
+若要取出 Microsoft Cloud 合約的合約中繼資料：
 
-先取出**iaggregatepartner.customers.byid. AgreementDetails**集合，然後呼叫**Get**或**GetAsync**方法。 然後在集合內搜尋與 Microsoft Cloud 合約對應的專案：
+先取出 **>iaggregatepartner.customers. AgreementDetails** 集合，然後呼叫 **Get** 或 **GetAsync** 方法。 然後搜尋集合中對應至 Microsoft Cloud 合約的專案：
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -71,9 +71,9 @@ AgreementMetaData microsoftCloudAgreement = agreements.Items.FirstOrDefault (agr
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-若要取得 Microsoft Cloud 合約的合約中繼資料：
+若要取出 Microsoft Cloud 合約的合約中繼資料：
 
-先呼叫**iaggregatepartner.customers.byid. getAgreementDetails**函式，然後呼叫**get**函式。 然後在集合內搜尋與 Microsoft Cloud 合約對應的專案：
+先呼叫 **>iaggregatepartner.customers getAgreementDetails** 函式，然後呼叫 **get** 函式。 然後搜尋集合中對應至 Microsoft Cloud 合約的專案：
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -97,9 +97,9 @@ for (AgreementMetaData metadata : agreements)
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-若要取得 Microsoft Cloud 合約的合約中繼資料：
+若要取出 Microsoft Cloud 合約的合約中繼資料：
 
-使用[**PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/get-partneragreementdetail)命令。 然後在集合內搜尋與 Microsoft Cloud 合約對應的專案：
+使用 [**PartnerAgreementDetail**](/powershell/module/partnercenter/get-partneragreementdetail) 命令。 然後搜尋集合中對應至 Microsoft Cloud 合約的專案：
 
 ```powershell
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
@@ -107,7 +107,7 @@ Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudA
 
 ## <a name="rest-request"></a>REST 要求
 
-若要取得 Microsoft Cloud 合約的合約中繼資料，請先建立 REST 要求來取得**AgreementMetaData**集合。 然後在集合中搜尋對應至 Microsoft Cloud 協定的專案。
+若要取出 Microsoft Cloud 合約的合約中繼資料，請先建立 REST 要求以取出 **AgreementMetaData** 集合。 然後搜尋集合中對應至 Microsoft Cloud 合約的專案。
 
 ### <a name="request-syntax"></a>要求的語法
 
@@ -135,7 +135,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**AgreementMetaData**資源的集合。
+如果成功，這個方法會傳迴響應主體中 **AgreementMetaData** 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -172,4 +172,4 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-若要識別回應中對應至 Microsoft Cloud 合約的資源，請尋找**agreementType**屬性值為 "MicrosoftCloudAgreement" 的資源。
+若要在回應中找出對應于 Microsoft Cloud 合約的資源，請尋找其 **agreementType** 屬性具有 "MicrosoftCloudAgreement" 值的資源。

@@ -1,15 +1,15 @@
 ---
 title: 暫停訂閱
-description: 暫止符合客戶和訂用帳戶識別碼的訂用帳戶資源，因為詐騙或非付款。在合作夥伴中心儀表板中，您可以先選取客戶來執行這項作業。
+description: 暫止符合客戶和訂用帳戶識別碼的訂用帳戶資源，因為詐騙或未付款。在合作夥伴中心儀表板中，您可以先選取客戶來執行這項作業。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4f37fcc51c3740d0354c2ecab6efd046fb1415d9
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 69dd96aadc36e735575db93f2aa42abb50a2cc81
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095778"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925800"
 ---
 # <a name="suspend-a-subscription"></a>暫停訂閱
 
@@ -20,13 +20,13 @@ ms.locfileid: "86095778"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-暫止符合客戶和訂用帳戶識別碼的[訂](subscription-resources.md)用帳戶資源，因為詐騙或非付款。
+暫止符合客戶和訂用帳戶識別碼的 [訂](subscription-resources.md) 用帳戶資源，因為詐騙或未付款。
 
-在合作夥伴中心儀表板中，您可以先[選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取您想要重新命名的訂用帳戶。 若要完成，請選擇 [已**暫停**] 按鈕，然後選取 [**提交]。**
+在合作夥伴中心儀表板中，您可以先 [選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取您要重新命名的訂用帳戶。 若要完成，請選擇 [已 **暫停** ] 按鈕，然後選取 [ **提交]。**
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -34,7 +34,7 @@ ms.locfileid: "86095778"
 
 ## <a name="c"></a>C\#
 
-若要暫停客戶的訂用帳戶，請先[取得訂](get-a-subscription-by-id.md)用帳戶，然後變更訂用帳戶的 [[**狀態**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)] 屬性。 如需**狀態**代碼的詳細資訊，請參閱[SubscriptionStatus 列舉](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)。 進行變更之後，請使用**iaggregatepartner.customers.byid. Customers**集合，並呼叫**ById （）** 方法。 然後呼叫[**訂閱**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)屬性，後面接著[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)方法。 然後，藉由呼叫**Patch （）** 方法來完成。
+若要暫停客戶的訂用帳戶，請先 [取得訂](get-a-subscription-by-id.md)用帳戶，然後變更訂用帳戶的 [**Status**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) 屬性。 如需 **狀態** 代碼的詳細資訊，請參閱 [SubscriptionStatus 列舉/dotnet/api/partnercenter. SubscriptionStatus) 。 進行變更之後，請使用您的 **>iaggregatepartner.customers。 Customers** 集合，並呼叫 **>iaggregatepartner.customers.byid ( # B1 ** 方法。 然後，呼叫 [**訂閱**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) 屬性，後面接著 [**>iaggregatepartner.customers.byid ( # B2 **/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) 方法。 然後，藉由呼叫 **Patch ( # B1 ** 方法來完成。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -48,7 +48,7 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
    });
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： UpdateSubscription.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample **類別**： UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -56,13 +56,13 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
 
 | 方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
+| **補丁** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-下表列出暫止訂閱所需的查詢參數。
+下表列出暫停訂用帳戶所需的查詢參數。
 
-| 名稱                    | 類型     | 必要 | 說明                               |
+| 名稱                    | 類型     | 必要 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 對應至客戶的 GUID。     |
 | **id-for-subscription** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |
@@ -73,7 +73,7 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
 
 ### <a name="request-body"></a>要求本文
 
-要求本文中必須有完整的 **Subscription** 資源。 請確定 [**狀態**] 屬性已更新。
+要求本文中必須有完整的 **Subscription** 資源。 確定 [ **狀態** ] 屬性已更新。
 
 ### <a name="request-example"></a>要求範例
 
@@ -113,7 +113,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應本文中傳回已更新的[訂](subscription-resources.md)用帳戶資源屬性。
+如果成功，此方法會在回應主體中傳回更新的 [訂](subscription-resources.md) 用帳戶資源屬性。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -4,12 +4,12 @@ description: 描述與權利相關的資源。
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d9dbba36fb8db8d040bd61d53483c56467987691
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 428ac6f8b4d67894092119a6246279045a04dac0
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094006"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927301"
 ---
 # <a name="entitlement-resources"></a>權利資源
 
@@ -22,25 +22,25 @@ ms.locfileid: "86094006"
 
 ## <a name="entitlement"></a>Entitlement
 
-此資源代表客戶因為從目錄中的專案購買合作夥伴，而有權使用的產品。
+此資源代表客戶有權使用的產品，因為合作夥伴是從類別目錄購買專案。
 
-| 屬性 | 類型 | Description |
+| 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| referenceOrder | [ReferenceOrder](#referenceorder) | 產生權利的順序參考。 |
+| referenceOrder | [ReferenceOrder](#referenceorder) | 產生權利的訂單參考。 |
 | productId | 字串 | 產品的識別碼。 |
 | skuID | 字串 | SKU 的識別碼。 |
-| quantity | int | 權利的數量（不包括未履行/數目權利）。 |
-| quantityDetails | IEnumerable<[QuantityDetail](#quantitydetail)> | 權利數量詳細資料的清單（每個數量的專案和狀態數目）。 |
-| entitlementType | 字串 | 權利的類型。 （已從 SDK 1.8 中的[EntitlementType](#entitlementtype)更新為字串）。 |
+| quantity | int | 權利的數量 (排除未履行/傳輸的權利) 。 |
+| quantityDetails | IEnumerable<[QuantityDetail](#quantitydetail)> | 權利數量詳細資料的清單 (每個數量) 的專案數目和狀態。 |
+| entitlementType | 字串 | 權利的類型。  (在 SDK 1.8 中從 [EntitlementType](#entitlementtype) 更新為字串。 )  |
 | entitledArtifacts | IEnumerable<[成品](#artifact)> | 與權利相關聯的成品清單。 |
-| IncludedEntitlements | IEnumerable<[權利](#artifact)> | 權利清單，由目錄中的 ProductId/SkuId 購買結果隱含納入。 |
-| ExpiryDate | UTC 日期時間格式的字串  | 權利到期日（如果適用）。 |
+| IncludedEntitlements | IEnumerable<[權利](#artifact)> | 權利清單，因為從目錄購買 ProductId/SkuId，所以會以隱含方式納入。 |
+| ExpiryDate | UTC 日期時間格式的字串  | 權利到期日 (（如果適用) ）。 |
 
 ## <a name="referenceorder"></a>ReferenceOrder
 
 權利的順序參考。
 
-| 屬性 | 類型 | Description |
+| 屬性 | 類型 | 描述 |
 |----------|------|-------------|
 | id | 字串 | 參考之順序的識別碼。 |
 | lineItemId | 字串 | 參考之訂單明細專案的識別碼。 |
@@ -50,38 +50,38 @@ ms.locfileid: "86094006"
 
 表示權利數量的詳細資料。
 
-| 屬性 | 類型 | Description |
+| 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| quantity | int | 項目數。 |
+| quantity | int | 項目的數目。 |
 | status | 字串 | 數量的狀態。 |
 
 ## <a name="entitlementtype"></a>EntitlementType
 
 > [!IMPORTANT]
-> SDK 1.9 版中已淘汰
+> SDK v1.0 中已淘汰
 
-具有表示權利類型之值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)。
+[列舉](/dotnet/api/system.enum)值，表示權利類型。
 
 | 值 | 描述 |
 |-------|-------------|
 | 軟體 | 表示與軟體相關的權利類型。 |
-| VirtualMachineReservedInstance | 指出與 Azure 保留的虛擬機器執行個體相關的權利類型。 |
+| VirtualMachineReservedInstance | 表示與 Azure 保留的虛擬機器執行個體相關的權利類型。 |
 
 ## <a name="artifact"></a>構件
 
 與權利相關聯的成品。
 
-| 屬性 | 類型 | Description |
+| 屬性 | 類型 | 描述 |
 |----------|------|-------------|
-| artifactType | 字串 | 成品的類型。 （從 SDK 1.8 中的[ArtifactType](#artifacttype)更新為字串） |
-| dynamicAttributes | 字典 &lt; 字串，物件&gt; | 包含 artifacttype 特定值的動態屬性。 例如，當 artifactType = "reservedinstance" 時，此屬性會包含 "reservationType" = "virtualmachines" 或 "reservationType" = "sqldatabases"，表示虛擬機器保留實例或 Azure SQL 保留實例。 （從 SDK 1.9 版開始提供） |
+| artifactType | 字串 | 成品的類型。  (已從 SDK 1.8 版中的 [ArtifactType](#artifacttype) 更新為字串)  |
+| dynamicAttributes | 字典 &lt; 字串，物件&gt; | 包含 artifacttype 特定值的動態屬性。 例如，當 artifactType = "reservedinstance" 時，此屬性會包含 "reservationType" = "virtualmachines" 或 "reservationType" = "sqldatabases"，表示虛擬機器保留實例或 Azure SQL 保留實例。 從 SDK v1.0 開始 (提供)  |
 
 ## <a name="artifacttype"></a>ArtifactType
 
 > [!IMPORTANT]
-> SDK 1.9 版中已淘汰
+> SDK v1.0 中已淘汰
 
-具有值的[列舉](https://docs.microsoft.com/dotnet/api/system.enum)，指出權利成品的類型。
+具有值的 [列舉](/dotnet/api/system.enum) ，指出權利成品的類型。
 
 | 值                          | 描述                                                                             |
 |--------------------------------| ----------------------------------------------------------------------------------------|
@@ -91,14 +91,14 @@ ms.locfileid: "86094006"
 
 與 Azure 保留實例權利相關聯的成品。 它繼承自成品[類別。](#artifact)
 
-| 屬性   | 類型                           | Description                                        |
+| 屬性   | 類型                           | 描述                                        |
 |------------|--------------------------------|----------------------------------------------------|
-| link       | [連結](./utility-resources.md#link) | 取得所有關聯成品詳細資料的連結。   |
-| resourceID | 字串                         | Azure 保留順序或資源的識別碼。 |
+| link       | [連結](./utility-resources.md#link) | 取得所有相關成品詳細資料的連結。   |
+| Id | 字串                         | Azure 保留訂單或資源的識別碼。 |
 
 ## <a name="reservedinstanceartifactdetails"></a>ReservedInstanceArtifactDetails
 
-表示叫用 Azure 保留實例成品連結時傳回的實體。
+代表叫用 Azure 保留實例成品連結時所傳回的實體。
 
 |   屬性   |           類型           |                          描述                          |
 |--------------|--------------------------|---------------------------------------------------------------|
@@ -107,14 +107,14 @@ ms.locfileid: "86094006"
 
 ## <a name="reservation"></a>保留
 
-表示個別保留區。
+代表個別的保留。
 
-| 屬性          | 類型                           | Description                                                        |
+| 屬性          | 類型                           | 描述                                                        |
 |-------------------|--------------------------------|--------------------------------------------------------------------|
 | reservationId     | 字串                         | 保留的識別碼。                                         |
 | scopeType         | 字串                         | 與虛擬機器保留相關聯的範圍類型。 |
 | displayName       | 字串                         | 保留的顯示名稱。                               |
-| appliedScopes     | IEnumerable                    | 與保留相關聯的已套用範圍清單。 （只有在未共用 scopeType 時才可使用）。 |
+| appliedScopes     | IEnumerable                    | 與保留相關聯之已套用的範圍清單。  (只有在未共用 scopeType 時才可使用。 )  |
 | quantity          | int                            | 保留中的虛擬機器數目。                 |
 | expiryDateTime    | UTC 日期時間格式的字串 | 保留的到期日。                                |
 | effectiveDateTime | UTC 日期時間格式的字串 | 保留的生效日期。                             |
@@ -123,40 +123,40 @@ ms.locfileid: "86094006"
 ## <a name="virtualmachinereservedinstanceartifact"></a>VirtualMachineReservedInstanceArtifact
 
 > [!IMPORTANT]
-> SDK 1.9 版中已淘汰
+> SDK v1.0 中已淘汰
 
 與 Azure 保留的虛擬機器實例權利相關聯的成品。 它繼承自成品[類別。](#artifact)
 
-| 屬性   | 類型                              | Description                                        |
+| 屬性   | 類型                              | 描述                                        |
 |------------|-----------------------------------|----------------------------------------------------|
-| link       | [連結](utility-resources.md#link) | 取得所有關聯成品詳細資料的連結。   |
-| resourceID | 字串                            | Azure 保留順序或資源的識別碼。 |
+| link       | [連結](utility-resources.md#link) | 取得所有相關成品詳細資料的連結。   |
+| Id | 字串                            | Azure 保留訂單或資源的識別碼。 |
 
 ## <a name="virtualmachinereservedinstanceartifactdetails"></a>VirtualMachineReservedInstanceArtifactDetails
 
 > [!IMPORTANT]
-> SDK 1.9 版中已淘汰
+> SDK v1.0 中已淘汰
 
-代表在 Azure 保留的虛擬機器實例成品連結叫用時所傳回的實體。
+表示叫用 Azure 保留的虛擬機器實例成品連結時所傳回的實體。
 
 | 屬性                    | 類型                                                                 | 描述           |
 |-----------------------------|----------------------------------------------------------------------|-----------------------|
-| 類型                        | [ArtifactType](#artifacttype)                                        | 成品的類型。 |
+| type                        | [ArtifactType](#artifacttype)                                        | 成品的類型。 |
 | virtualMachineReservations  | IEnumerable<[VirtualMachineReservation](#virtualmachinereservation)> | 指出 Azure 資源或保留訂單識別碼。 |
 
 ## <a name="virtualmachinereservation"></a>VirtualMachineReservation
 
 > [!IMPORTANT]
-> SDK 1.9 版中已淘汰
+> SDK v1.0 中已淘汰
 
 代表個別的虛擬機器保留。
 
-|     屬性      |              類型              |                                                Description                                                 |
+|     屬性      |              類型              |                                                描述                                                 |
 |-------------------|--------------------------------|------------------------------------------------------------------------------------------------------------|
 |   reservationId   |             字串             |                                         保留的識別碼。                                         |
 |     scopeType     |             字串             |                     與虛擬機器保留相關聯的範圍類型。                     |
 |    displayName    |             字串             |                                    保留的顯示名稱。                                    |
-|   appliedScopes   |      IEnumerable<string>       | 與保留相關聯的已套用範圍清單。 （只有在未共用 scopeType 時才可使用）。 |
+|   appliedScopes   |      IEnumerable<string>       | 與保留相關聯之已套用的範圍清單。  (只有在未共用 scopeType 時才可使用。 )  |
 |     quantity      |              int               |                             保留中的虛擬機器數目。                             |
 |  expiryDateTime   | UTC 日期時間格式的字串 |                                    保留的到期日。                                     |
 | effectiveDateTime | UTC 日期時間格式的字串 |                                   保留的生效日期。                                   |

@@ -1,15 +1,15 @@
 ---
 title: 取得權利的集合
-description: 如何取得權利的集合。
+description: 如何取得權利集合。
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b57e493958386df7a493bcbdc79121b09fcd72e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d2cc485429941dd2080bd285553333a01fc0ffd1
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093969"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927294"
 ---
 # <a name="get-a-collection-of-entitlements"></a>取得權利的集合
 
@@ -17,7 +17,7 @@ ms.locfileid: "86093969"
 
 - 合作夥伴中心
 
-如何取得權利的集合。
+如何取得權利集合。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,7 @@ ms.locfileid: "86093969"
 
 ## <a name="c"></a>C\#
 
-若要取得客戶的權利集合，請呼叫[**iaggregatepartner.customers.byid. ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法和客戶識別碼來取得[**權利**](entitlement-resources.md#entitlement)作業的介面，以識別客戶。 然後，從**權利**屬性抓取介面，並呼叫**Get （）** 或**GetAsync （）** 方法來取得權利的集合。
+若要取得客戶的權利集合，請呼叫 >iaggregatepartner.customers 來取得 [**權利**](entitlement-resources.md#entitlement) 作業的介面，方法是呼叫  [**>iaggregatepartner.customers.byid ( # B1 **](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法搭配客戶識別碼來識別客戶。 然後，從 **權利** 屬性中取出介面，然後呼叫 **Get ( # B1 ** 或 **GetAsync ( # B3 ** 方法來取出權利的集合。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -37,7 +37,7 @@ string customerId;
 var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get();
 ```
 
-若要填入要取得之權利的到期日，請呼叫上述相同的方法，並將選擇性的布林值參數**showExpiry**設定為 true **Get （True）** 或**GetAsync （true）**。 這表示需要權利到期日（如果適用）。
+若要填入要抓取之權利的到期日，請呼叫上述相同方法，並將選擇性的布林值參數 **showExpiry** 設定為 true **Get (True) ** 或 **GetAsync (true) **。 這表示在適用的)  (需要許可權到期日。
 
 > [!IMPORTANT]
 > 內部部署權利類型沒有到期日。
@@ -54,10 +54,10 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱 | 類型 | 必要 | 說明 |
+| 名稱 | 類型 | 必要 | 描述 |
 |------|------|----------|-------------|
 | customerId | 字串 | Yes | 識別客戶的 GUID 格式的 customerId。 |
-| entitlementType | 字串 | No | 可以用來指定要抓取的權利類型（**軟體**或**reservedInstance** ）。 如果未設定，則會抓取所有類型 |
+| entitlementType | 字串 | No | 可以用來指定要抓取 (**software** 或 **reservedInstance** ) 的權利類型。 如果未設定，則會取出所有類型 |
 | showExpiry | boolean | No | 選擇性旗標，指出是否需要權利到期日。 |
 
 ### <a name="request-headers"></a>要求標頭
@@ -82,7 +82,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[權利](entitlement-resources.md#entitlement)資源的集合。
+如果成功，回應主體會包含 [權利](entitlement-resources.md#entitlement) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -175,11 +175,11 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 
 ## <a name="additional-examples"></a>其他範例
 
-下列範例示範如何抓取特定類型的權利以及到期日（如果適用）
+下列範例示範如何在適用的情況下，取得特定類型的權利和到期日 () 
 
 ### <a name="c-example"></a>C \# 範例
 
-若要取得特定類型的權利，請從**權利**介面取得**ByEntitlementType**介面，並使用**Get （）** 或**GetAsync （）** 方法。
+若要取得特定類型的權利，請從**權利**介面取得**ByEntitlementType**介面，並使用**Get ( # B1**或**GetAsync ( # B3**方法。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("software").Get(true);
@@ -303,11 +303,11 @@ Date: Mon, 28 Jan 2019 18:31:43 GMT
 
 下列範例示範如何從權利取得產品和保留的相關資訊。
 
-### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>使用 SDK 1.8 取得權利中的虛擬機器保留詳細資料
+### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>使用 SDK 1.8 從權利中取出虛擬機器保留詳細資料
 
 ### <a name="c-example"></a>C \# 範例
 
-若要從權利中抓取虛擬機器保留專案的詳細資料，請叫用 entitledArtifacts 底下公開的 URI，artifactType = virtual_machine_reserved_instance。
+若要從權利取得與虛擬機器保留相關的更多詳細資料，請叫用在 entitledArtifacts 下公開的 URI （使用 artifactType = virtual_machine_reserved_instance）。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("VirtualMachineReservedInstance").Get();
@@ -359,7 +359,7 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 
 ### <a name="c-example"></a>C \# 範例
 
-若要從保留實例權利中取得保留的更多詳細資料，請叫用底下公開的 URI ```entitledArtifacts.link``` ```artifactType = reservedinstance``` 。
+若要從保留實例權利中取出與保留相關的更多詳細資料，請叫用在下公開的 URI ```entitledArtifacts.link``` ```artifactType = reservedinstance``` 。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();
@@ -409,4 +409,4 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 
 ### <a name="api-consumers"></a>API 取用者
 
-使用 API 來查詢虛擬機器保留實例權利的合作夥伴-將要求 URI 從 **/Customers/{customerId}/entitlements 更新為/customers/{customerId}/entitlements？ entitlementType = virtualmachinereservedinstance** ，以維持回溯相容性。 若要使用具有增強合約的虛擬機器或 Azure SQL，請將要求 URI 更新為 **/customers/{customerId}/entitlements？ entitlementType = reservedinstance**。
+使用 API 查詢虛擬機器保留實例權利的夥伴-將要求 URI 從 **/Customers/{customerId}/entitlements 更新為/customers/{customerId}/entitlements？ entitlementType = virtualmachinereservedinstance** 以維持回溯相容性。 若要使用具有增強合約的虛擬機器或 Azure SQL，請將要求 URI 更新為 **/customers/{customerId}/entitlements？ entitlementType = reservedinstance**。

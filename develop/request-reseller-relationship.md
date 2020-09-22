@@ -1,15 +1,15 @@
 ---
 title: 擷取關聯性的要求 URL
-description: 如何取得要傳送給客戶的關聯性要求 URL。
+description: 如何取出要傳送給客戶的關聯性要求 URL。
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 90a749b7bb4e78391831aed162857d55e028158a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 32aaad7d5935971f8d06331bd023d7cdb8f7195f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096705"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926738"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>擷取關聯性的要求 URL
 
@@ -19,7 +19,7 @@ ms.locfileid: "86096705"
 - 由 21Vianet 營運的合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-如何取得要傳送給客戶的關聯性要求 URL。
+如何取出要傳送給客戶的關聯性要求 URL。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,7 @@ ms.locfileid: "86096705"
 
 ## <a name="c"></a>C\#
 
-若要取出關聯性要求 URL，請先使用[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)來取得合作夥伴客戶作業的介面。 接下來，使用[**RelationshipRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest)屬性來取得客戶關係要求作業的介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync)方法來取出 URL。
+若要抓取關聯性要求 URL，請先使用 [**>iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) ，以取得夥伴客戶作業的介面。 接下來，使用 [**RelationshipRequest**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) 屬性，取得客戶關係要求作業的介面。 最後，呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync]) 方法，以取得 URL。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -35,7 +35,7 @@ ms.locfileid: "86096705"
 var customerRelationshipRequest = partnerOperations.Customers.RelationshipRequest.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetCustomerRelationshipRequest.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetCustomerRelationshipRequest.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -51,7 +51,7 @@ var customerRelationshipRequest = partnerOperations.Customers.RelationshipReques
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -68,7 +68,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應會包含[RelationshipRequest](relationships-resources.md#relationshiprequest)物件。
+如果成功，回應會包含 [RelationshipRequest](relationships-resources.md#relationshiprequest) 物件。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

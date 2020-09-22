@@ -4,12 +4,12 @@ description: 如何建立客戶的訂單。
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d92c117d4fb29ec054302cbc9dfa21214135d086
-ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
+ms.openlocfilehash: eb4dcea0f07ac759e2fa1f9ccd91f58f680ee535
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88937928"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927355"
 ---
 # <a name="create-an-order"></a>建立訂單
 
@@ -23,7 +23,7 @@ ms.locfileid: "88937928"
 
 - 合作夥伴中心
 
-如需目前可供銷售之專案的相關資訊，請參閱 [雲端解決方案提供者計畫中的合作夥伴供應專案](https://docs.microsoft.com/partner-center/csp-offers)。
+如需目前可供銷售之專案的相關資訊，請參閱 [雲端解決方案提供者計畫中的合作夥伴供應專案](/partner-center/csp-offers)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -41,9 +41,9 @@ ms.locfileid: "88937928"
 
 2. 建立 [**>orderlineitem**](order-resources.md#orderlineitem) 物件的清單，並將清單指派給 Order 的 **LineItems** 屬性。 每個訂單明細項目都包含一個供應項目的購買資訊。 您必須有至少一個訂單明細項目。
 
-3. 取得排序作業的介面。 首先，請使用客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以識別客戶。 接下來，從 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) 屬性取出介面。
+3. 取得排序作業的介面。 首先，請使用客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以識別客戶。 接下來，從 [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) 屬性取出介面。
 
-4. 呼叫 [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) 或 [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) 方法，並傳入 [**Order**](order-resources.md) 物件。
+4. 呼叫 [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) 或 [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) 方法，並傳入 [**Order**](order-resources.md) 物件。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -89,7 +89,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | 名稱        | 類型   | 必要 | 描述                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| customer-id | 字串 | 是      | 可識別客戶的 GUID 格式化客戶識別碼。 |
+| customer-id | 字串 | Yes      | 可識別客戶的 GUID 格式化客戶識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -106,12 +106,12 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 | id                   | 字串                      | No                              | 成功建立訂單時提供的訂單識別碼。   |
 | referenceCustomerId  | 字串                      | No                              | 客戶識別碼。 |
 | billingCycle         | 字串                      | No                              | 指出夥伴針對此訂單計費的頻率。 支援的值為在 [BillingCycleType](product-resources.md#billingcycletype) 中找到的成員名稱。 預設值為「每月」或「OneTime」（依順序建立）。 此欄位會在成功建立訂單時套用。 |
-| lineItems            | [>orderlineitem](order-resources.md#orderlineitem)資源的陣列 | 是      | 客戶所購買供應專案的詳細清單，包括數量。        |
+| lineItems            | [>orderlineitem](order-resources.md#orderlineitem)資源的陣列 | Yes      | 客戶所購買供應專案的詳細清單，包括數量。        |
 | currencyCode         | 字串                      | No                              | 唯讀。 放置訂單時使用的貨幣。 在成功建立訂單時套用。           |
-| creationDate         | Datetime                    | 否                              | 唯讀。 訂單的建立日期 (採用日期-時間格式)。 在成功建立訂單時套用。                                   |
+| creationDate         | Datetime                    | No                              | 唯讀。 訂單的建立日期 (採用日期-時間格式)。 在成功建立訂單時套用。                                   |
 | status               | 字串                      | No                              | 唯讀。 訂單的狀態。  支援的值是在 [OrderStatus](order-resources.md#orderstatus)中找到的成員名稱。        |
-| 連結                | [OrderLinks](utility-resources.md#resourcelinks)              | 否                              | 對應至訂單的資源連結。 |
-| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 否                              | 對應至順序的中繼資料屬性。 |
+| 連結                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | 對應至訂單的資源連結。 |
+| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | 對應至順序的中繼資料屬性。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
@@ -122,17 +122,17 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | 名稱                 | 類型   | 必要 | 描述                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | int    | 是      | 集合中的每個明細項目都會取得唯一的行號 (從 0 數到 count-1)。                                                                                                                                                 |
-| offerId              | 字串 | 是      | 供應項目識別碼。                                                                                                                                                                                                                      |
+| lineItemNumber       | int    | Yes      | 集合中的每個明細項目都會取得唯一的行號 (從 0 數到 count-1)。                                                                                                                                                 |
+| offerId              | 字串 | Yes      | 供應項目識別碼。                                                                                                                                                                                                                      |
 | subscriptionId       | 字串 | No       | 訂用帳戶識別碼。                                                                                                                                                                                                               |
 | parentSubscriptionId | 字串 | No       | 選擇性。 附加供應項目中父訂用帳戶的識別碼。 僅適用於 PATCH。                                                                                                                                                     |
 | friendlyName         | 字串 | No       | 選擇性。 由夥伴定義之訂用帳戶的易記名稱，以協助區分。                                                                                                                                              |
-| quantity             | int    | 是      | 授權型訂用帳戶的授權數目。                                                                                                                                                                                   |
+| quantity             | int    | Yes      | 授權型訂用帳戶的授權數目。                                                                                                                                                                                   |
 | partnerIdOnRecord    | 字串 | No       | 當間接提供者代表間接轉銷商進行訂單時，請使用 **間接轉銷** 商的 MPN 識別碼填入此欄位， (永遠不會) 間接提供者的識別碼。 這可確保適度的獎勵。 |
-| provisioningCoNtext  | 字典<字串，字串>                | 否       |  針對目錄中的某些專案布建所需的資訊。 SKU 中的 provisioningVariables 屬性會指出目錄中的特定專案需要哪些屬性。                  |
-| 連結                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | 否       |  唯讀。 對應至訂單明細專案的資源連結。  |
-| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 否       | 對應至 >orderlineitem 的中繼資料屬性。 |
-| renewsTo             | 物件的陣列                          | 否    |[RenewsTo](order-resources.md#renewsto)資源的陣列。                                                                            |
+| provisioningCoNtext  | 字典<字串，字串>                | No       |  針對目錄中的某些專案布建所需的資訊。 SKU 中的 provisioningVariables 屬性會指出目錄中的特定專案需要哪些屬性。                  |
+| 連結                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | No       |  唯讀。 對應至訂單明細專案的資源連結。  |
+| 屬性           | [ResourceAttributes](utility-resources.md#resourceattributes) | No       | 對應至 >orderlineitem 的中繼資料屬性。 |
+| renewsTo             | 物件的陣列                          | No    |[RenewsTo](order-resources.md#renewsto)資源的陣列。                                                                            |
 
 ##### <a name="renewsto"></a>RenewsTo
 

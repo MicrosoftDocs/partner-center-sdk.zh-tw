@@ -4,12 +4,12 @@ description: 從整合沙箱帳戶取消訂單。
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4bed678dc5f892dfe81d09daca820f24f177a91a
-ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
+ms.openlocfilehash: 3f9d2788153438b6373744d3f2690d8478800660
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87261907"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927416"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>從整合沙箱中取消訂單
 
@@ -20,27 +20,27 @@ ms.locfileid: "87261907"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-如何從整合沙箱帳戶取消保留實例、軟體和商業 marketplace 軟體即服務（SaaS）訂閱訂單。
+如何從整合沙箱帳戶將保留實例、軟體和商用 marketplace 軟體作為服務， (SaaS) 訂用帳戶訂單。
 
 >[!NOTE]
->請注意，您只能從整合沙箱帳戶進行保留實例或商業 marketplace SaaS 訂閱訂單的取消。  
+>請注意，只有整合沙箱帳戶才能取消保留實例或商業 marketplace SaaS 訂用帳戶訂單。  
 
-若要透過 API 取消軟體的生產訂單，請使用 [[取消]-[軟體-購買](cancel-software-purchases.md)]。
-您也可以使用 [[取消購買](https://docs.microsoft.com/partner-center/csp-software-subscriptions)]，透過儀表板取消軟體的生產訂單。
+若要透過 API 取消軟體的生產訂單，請使用 [取消軟體購買](cancel-software-purchases.md)。
+您也可以使用 [ [取消購買](/partner-center/csp-software-subscriptions)]，透過儀表板取消軟體的生產訂單。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 具有使用中保留實例/軟體/協力廠商 SaaS 訂閱訂單之客戶的整合沙箱合作夥伴帳戶。
+- 整合沙箱夥伴帳戶與具有使用中保留實例/軟體/協力廠商 SaaS 訂用帳戶訂單的客戶。
 
 ## <a name="c"></a>C\#
 
-若要取消整合沙箱中的訂單，請將您的帳號憑證傳遞至 [**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) 方法，以取得 [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) 介面來取得夥伴作業。
+若要從整合沙箱取消訂單，請將您的帳號憑證傳遞給 [**`CreatePartnerOperations`**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) 方法，以取得 [**`IPartner`**](/dotnet/api/microsoft.store.partnercenter.ipartner) 取得夥伴作業的介面。
 
-若要選取特定的[訂單](order-resources.md#order)，請使用夥伴作業和呼叫 [**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法搭配客戶識別碼來指定客戶，並在後面加上 **`Orders.ById()`** order identifier 來指定訂單，最後 **`Get`** 或 **`GetAsync`** 方法來取得此順序。
+若要選取特定 [訂單](order-resources.md#order)，請使用交易夥伴作業和呼叫 [**`Customers.ById()`**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法搭配客戶識別碼來指定客戶，後面接著 **`Orders.ById()`** with order identifier 來指定訂單，最後 **`Get`** 或 **`GetAsync`** 方法來取得。
 
-將 [**`Order.Status`**](order-resources.md#order) 屬性設定為 `cancelled` ，並使用 **`Patch()`** 方法來更新順序。
+將 [**`Order.Status`**](order-resources.md#order) 屬性設為 `cancelled` ，並使用 **`Patch()`** 方法來更新順序。
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -62,7 +62,7 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 | 方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
+| **補丁** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
@@ -70,8 +70,8 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 | 名稱                   | 類型     | 必要 | 描述                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 值是 GUID 格式的**客戶租使用者識別碼**，可讓轉銷商針對屬於轉銷商的特定客戶篩選其結果。 |
-| **訂單識別碼** | **string** | Y        | 值是表示需要取消之訂單識別碼的字串。 |
+| **customer-tenant-id** | **guid** | Y        | 此值是 GUID 格式的 **客戶租使用者識別碼** ，可讓轉銷商針對屬於轉售商的特定客戶篩選結果。 |
+| **訂單-識別碼** | **string** | Y        | 此值為字串，表示需要取消的訂單識別碼。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -102,7 +102,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，這個方法會傳回已取消的順序。
+如果成功，這個方法會傳回取消的順序。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

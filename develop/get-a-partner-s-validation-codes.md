@@ -1,17 +1,17 @@
 ---
-title: 取得合作夥伴的政府群雲端驗證碼
-description: 如何取得合作夥伴的政府群雲端驗證碼。
+title: 取得合作夥伴的政府社群雲端驗證碼
+description: 如何取得夥伴的政府社群雲端驗證碼。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: 5ad255dadb499fb6c311bb3a2e9d76892611a91b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d84a3d3c69d835e42565c4e6f1edb06ab338340a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927269"
 ---
 # <a name="get-a-partners-validation-codes"></a>取得合作夥伴的驗證碼
 
@@ -19,21 +19,21 @@ ms.locfileid: "86097178"
 
 - 合作夥伴中心
 
-如何取得合作夥伴的政府社區雲端驗證代碼的集合。 必須有驗證碼，才能在政府機關雲端中建立客戶。
+如何取得夥伴政府社群雲端驗證碼的集合。 必須有驗證碼，才能在政府機構雲端中建立客戶。
 
-如果您想要讓組織或客戶組織核准適用于 CSP 的 Office 365 政府 GCC，請參閱[適用于 csp 的 office 365 政府 Gcc 合作夥伴和客戶資格準則](https://docs.microsoft.com/partner-center/csp-gcc-validate)。
+如果您想要讓您的組織或客戶組織核准適用于 CSP 的 Office 365 政府版 GCC，請參閱 [適用于 CSP 合作夥伴的 Office 365 政府 GCC 和客戶資格準則/合作夥伴中心/CSP-GCC-驗證) ]。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 在[此](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)填寫表單之後確認驗證。
+- 在 [此](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)填滿表單之後確認驗證。
 
 - 沒有資格的客戶。
 
 ## <a name="c"></a>C\#
 
-若要取得合作夥伴的所有驗證碼清單，請呼叫**GetValidationCodes**。
+若要取得合作夥伴驗證碼的清單，請呼叫 **GetValidationCodes**。
 
 ``` csharp
 // create the partner operations
@@ -70,7 +70,7 @@ MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，這個方法會傳迴響應主體中的[**ValidationCode**](utility-resources.md#validationcode)資源清單。
+如果成功，這個方法會傳迴響應主體中 [**ValidationCode**](utility-resources.md#validationcode) 資源的清單。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

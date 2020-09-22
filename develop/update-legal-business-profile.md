@@ -1,17 +1,17 @@
 ---
 title: 更新合作夥伴的合法商務設定檔
-description: 如何更新合作夥伴的合法商務設定檔。
+description: 如何更新夥伴法律聲明商務設定檔。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: f024c1742fda3ecf9e37aefae76234097b37e798
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4a423a9eba7eeb270ede7a59c4773c9743e790f7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098484"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926701"
 ---
 # <a name="update-the-partner-legal-business-profile"></a>更新合作夥伴的合法商務設定檔
 
@@ -22,7 +22,7 @@ ms.locfileid: "86098484"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-如何更新合作夥伴的合法商務設定檔。
+如何更新夥伴法律聲明商務設定檔。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,9 +30,9 @@ ms.locfileid: "86098484"
 
 ## <a name="c"></a>C\#
 
-如果要更新合作夥伴合法商務設定檔，請先將 **LegalBusinessProfile** 物件具現化，並填入現有的設定檔中。 如需詳細資訊，請參閱[取得合作夥伴合法商務設定檔](get-legal-business-profile.md)。 接著，更新您需要變更的屬性。 下列程式碼範例說明如何變更主要連絡人的電話號碼與地址。
+如果要更新合作夥伴合法商務設定檔，請先將 **LegalBusinessProfile** 物件具現化，並填入現有的設定檔中。 如需詳細資訊，請參閱 [取得夥伴法律聲明商務設定檔](get-legal-business-profile.md)。 接著，更新您需要變更的屬性。 下列程式碼範例說明如何變更主要連絡人的電話號碼與地址。
 
-接下來，從 **IAggregatePartner.Profiles** 屬性取得合作夥伴設定檔作業集合的介面。 接著，擷取 **LegalBusinessProfile** 屬性的值，以取得合法商務設定檔作業的介面。 最後，使用已變更的物件呼叫[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update)或[**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync)方法，以更新設定檔。
+接下來，從 **IAggregatePartner.Profiles** 屬性取得合作夥伴設定檔作業集合的介面。 接著，擷取 **LegalBusinessProfile** 屬性的值，以取得合法商務設定檔作業的介面。 最後，使用已變更的物件來呼叫 [**Update**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) 或 [**>updateasync**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync]) 方法，以更新設定檔。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,7 +53,7 @@ var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfil
 
 | 方法  | 要求 URI                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **提出** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1。1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1。1 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -61,7 +61,7 @@ var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfil
 
 ### <a name="request-body"></a>要求本文
 
-合法的商務設定檔資源。
+法律聲明商務設定檔資源。
 
 ### <a name="request-example"></a>要求範例
 
@@ -127,11 +127,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含更新的**LegalBusinessProfile**
+如果成功，回應主體會包含更新的 **>legalbusinessprofile**
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

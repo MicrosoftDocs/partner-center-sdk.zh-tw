@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 7af840adcf8c6e3e16695297c34aa6f6e9c0629c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ac0d1ba8d17fbbfcd0d0c8870a4722fe89010749
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098338"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927774"
 ---
 # <a name="get-a-customers-qualification"></a>取得客戶資格
 
@@ -23,13 +23,13 @@ ms.locfileid: "86098338"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
-若要取得客戶的資格，請以客戶識別碼呼叫[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。 然後使用[**限定**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification)性屬性來取出[**ICustomerQualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification)介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)來取得客戶的資格。
+若要取得客戶的資格，請使用客戶識別碼來呼叫 [**>iaggregatepartner.customers。 >iaggregatepartner.customers.byid**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法。 然後使用 [**限定**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) 性屬性來取出 [**ICustomerQualification**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) 介面。 最後，呼叫 [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) 或 [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) 以取得客戶的資格。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,7 +50,7 @@ var customerQualification = partnerOperations.Customers.ById(customerId).Qualifi
 
 下表列出取得所有限定性所需的查詢參數。
 
-| 名稱               | 類型   | 必要 | 說明                                           |
+| 名稱               | 類型   | 必要 | 描述                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
 | **customer-tenant-id** | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
 
@@ -74,7 +74,7 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回限定值。  以下是在客戶上具有**教育**資格的**GET**呼叫範例。
+如果成功，這個方法會傳迴響應主體中的限定值。  以下是具有**教育**資格之客戶的**GET**呼叫範例。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

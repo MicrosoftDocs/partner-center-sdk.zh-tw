@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: feff7ee333914fd578d5cf7024b2417548d58027
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8635fee3fc19887ba9da04da59dee20b57870908
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098155"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927693"
 ---
 # <a name="get-a-list-of-customers"></a>取得客戶清單
 
@@ -22,22 +22,22 @@ ms.locfileid: "86098155"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-本文說明如何取得代表合作夥伴所有客戶的資源集合。
+本文說明如何取得代表所有夥伴客戶的資源集合。
 
 > [!TIP]
-> 您也可以在合作夥伴中心儀表板中執行此操作。 在主頁面的 [**客戶管理**] 底下，選取 [ **View Customers**]。 或者，在提要欄位上選取 [**客戶**]。
+> 您也可以在合作夥伴中心儀表板中執行這項作業。 在主頁面的 [ **客戶管理**] 下，選取 [ **View Customers**]。 或者，在側邊欄上選取 [ **客戶**]。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 ## <a name="c"></a>C\#
 
 若要取得所有客戶的清單：
 
-1. 使用[**iaggregatepartner.customers.byid. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合來建立**ipartner.getinvoices**物件。
+1. 您可以使用 [**>iaggregatepartner.customers. Customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) 集合來建立 **>ipartner.customers** 物件。
 
-2. 使用[**Query （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)或[**QueryAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)方法來取出客戶清單。 （如需有關建立查詢的指示，請參閱[**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)類別）。
+2. 使用 [**Query ( # B1 **/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) 或 [**QueryAsync ( # B4 **/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) 方法來抓取客戶清單。  (如需有關建立查詢的指示，請參閱 [**QueryFactory**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) 類別。 ) 
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,7 +50,7 @@ var customersBatch = scopedPartnerOperations.Customers.Query(QueryFactory.Instan
 var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(customersBatch);
 ```
 
-如需範例，請參閱下列各項：
+如需範例，請參閱下列內容：
 
 - 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSamples**
@@ -62,9 +62,9 @@ var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(c
 
 若要取得所有客戶的清單：
 
-1. 使用 [**Iaggregatepartner.customers.byid getCustomers**] 函數來取得客戶作業的參考。
+1. 使用 [**>iaggregatepartner.customers. getCustomers**] 函數取得客戶作業的參考。
 
-2. 使用**query （）** 函數來抓取客戶清單。
+2. 使用 **查詢 ( # B1 ** 函數取出客戶清單。
 
 ```java
 // Query the customers, get the first page if a page size was set, otherwise get all customers
@@ -92,7 +92,7 @@ while (customersEnumerator.hasValue())
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-執行不含參數的[**PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md)命令，以取得完整的客戶清單。
+執行 [**PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) 命令且不搭配任何參數，以取得客戶的完整清單。
 
 ```powershell
 Get-PartnerCustomer
@@ -134,11 +134,11 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回[客戶](customer-resources.md#customer)資源的集合。
+如果成功，此方法會在回應本文中傳回 [客戶](customer-resources.md#customer) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

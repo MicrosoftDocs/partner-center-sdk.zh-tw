@@ -1,17 +1,17 @@
 ---
 title: 取得可用授權的清單
-description: 如何取得指定客戶的使用者可用的授權清單。
+description: 如何取得指定之客戶的使用者可用的授權清單。
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 8837ab832fee888df57540f16cbaa4d656481df7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2757c3e40c8f50a251bb1c521ac36b2cde780a0d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098160"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927669"
 ---
 # <a name="get-a-list-of-available-licenses"></a>取得可用授權的清單
 
@@ -19,9 +19,9 @@ ms.locfileid: "86098160"
 
 - 合作夥伴中心
 
-本文說明如何取得所指定客戶的使用者可用的授權清單。
+本文說明如何取得指定之客戶的使用者可用的授權清單。
 
-下列範例會傳回可從**group1**取得的授權，這是代表受 Azure Active Directory （Azure AD）管理之授權的預設授權群組。 若要取得指定授權群組的可用授權，請參閱[依授權群組取得可用的授權清單](get-a-list-of-available-licenses-by-license-group.md)。
+下列範例會傳回 **group1**提供的授權，此預設授權群組代表 Azure Active Directory (Azure AD) 所管理的授權。 若要取得指定授權群組的可用授權，請參閱 [依授權群組取得可用授權清單](get-a-list-of-available-licenses-by-license-group.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,13 +31,13 @@ ms.locfileid: "86098160"
 
 ## <a name="c"></a>C\#
 
-若要從預設授權群組取得客戶的使用者可用的授權清單：
+若要從預設授權群組取得客戶的使用者可用授權清單：
 
-1. 使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法搭配客戶識別碼來識別客戶。
+1. 使用 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法與客戶識別碼來識別客戶。
 
-2. 取得[**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)屬性的值，以對客戶已訂閱的 SKU 集合作業取得介面。
+2. 取得 [**SubscribedSkus**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) 屬性的值，以抓取客戶已訂閱之 SKU 集合作業的介面。
 
-3. 呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)方法，以取出授權清單。
+3. 呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync]) 方法，以取得授權清單。
 
 ``` csharp
 // string selectedCustomerId;
@@ -46,10 +46,10 @@ ms.locfileid: "86098160"
 var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
 ```
 
-如需範例，請參閱下列各項：
+如需範例，請參閱下列內容：
 
 - 範例： [主控台測試應用程式](console-test-app.md)
-- 專案：**合作夥伴中心 SDK 範例**
+- 專案： **合作夥伴中心 SDK 範例**
 - 類別： **GetCustomerSubscribedSkus.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -64,9 +64,9 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 
 使用下列路徑參數來識別客戶。
 
-| 名稱        | 類型   | 必要 | 說明                                           |
+| 名稱        | 類型   | 必要 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | 字串 | Yes      | 識別客戶的 GUID 格式字串。 |
+| customer-id | 字串 | Yes      | 可識別客戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -90,11 +90,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[SubscribedSku](license-resources.md#subscribedsku)資源的集合。
+如果成功，回應主體會包含 [SubscribedSku](license-resources.md#subscribedsku) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

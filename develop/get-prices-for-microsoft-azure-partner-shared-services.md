@@ -1,15 +1,15 @@
 ---
 title: 取得 Microsoft Azure 合作夥伴共用服務的報價
-description: 如何取得具有 Microsoft Azure 合作夥伴共用服務價格的 Azure 費率卡片。
+description: 如何取得具有 Microsoft Azure 合作夥伴共用服務價格的 Azure 費率卡。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 608520b8d0219e423eab35a8001e3d54d9ea7085
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c0cb6efbd8e05c540de13b51c6ac0fd53273c9c7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927055"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>取得 Microsoft Azure 合作夥伴共用服務的報價
 
@@ -19,15 +19,15 @@ ms.locfileid: "86097726"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-如何取得具有 Microsoft Azure 合作夥伴共用服務價格的[Azure 費率卡片](azure-rate-card-resources.md)。
+如何取得具有 Microsoft Azure 合作夥伴共用服務價格的 [Azure 費率卡](azure-rate-card-resources.md) 。
 
-價格會依市場和貨幣而有所不同，而此 API 會將位置納入考慮。 根據預設，此 API 會在合作夥伴中心和您的瀏覽器語言中使用您的夥伴設定檔設定，而這些設定可自訂。 如果您從單一的集中式辦公室管理多個市場的銷售，則位置感知特別相關。
+價格會因市場與貨幣而異，而此 API 會將位置列入考慮。 根據預設，API 會在合作夥伴中心和您的瀏覽器語言中使用您的夥伴設定檔設定，而這些設定是可自訂的。 如果您從單一的集中式辦公室管理多個市場的銷售，則位置感知特別相關。
 
 ## <a name="example-code"></a>範例程式碼
 
 ## <a name="c"></a>C\#
 
-若要取得 Azure 費率卡，請呼叫[**IAzureRateCard. GetShared**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared)方法，以傳回包含 azure 價格的[**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard)資源。
+若要取得 Azure 費率卡片，請呼叫 [**IAzureRateCard. GetShared**/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) 方法，以傳回包含 Azure 價格的 [**>azureratecard**/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) 資源。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -39,7 +39,7 @@ var azureRateCard = partner.RateCards.Azure.GetShared();
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-若要取得 Azure 費率卡，請呼叫**IAzureRateCard. getShared**函數，以傳回包含 Azure 價格的費率卡片詳細資料。
+若要取得 Azure 費率卡片，請呼叫 **IAzureRateCard getShared** 函式，以傳回包含 Azure 價格的費率卡片詳細資料。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -51,7 +51,7 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-若要取得 Azure 卡，請執行[**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md)命令，並指定**SharedServices**參數以傳回包含 Azure 價格的費率卡片詳細資料。
+若要取得 Azure 卡片，請執行 [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) 命令，並指定 **SharedServices** 參數以傳回包含 Azure 價格的費率卡片詳細資料。
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
@@ -63,16 +63,16 @@ Get-PartnerAzureRateCard -SharedServices
 
 | 方法  | 要求 URI                                                               |
 |---------|---------------------------------------------------------------------------|
-| **GET** | *{baseURL}*/v1/ratecards/azure-shared？貨幣 = {currency} &地區 = {region} |
+| **GET** | *{baseURL}*/v1/ratecards/azure-shared？ currency = {currency} &區域 = {region} |
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名稱     | 類型   | 必要 | 說明                                                                                                                                                                               |
+| 名稱     | 類型   | 必要 | 描述                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 貨幣 | 字串 | No       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣（例如 `EUR` ）。 預設值是合作夥伴設定檔中與市場相關聯的貨幣。 |
-| region   | 字串 | No       | 選擇性的兩個字母 ISO 國家/地區代碼，表示購買供應專案的市場（例如 `FR` ）。 預設值是在合作夥伴設定檔中設定的國家/區域代碼。        |
+| 貨幣 | 字串 | No       | 選擇性的三個字母 ISO 代碼，適用于將提供資源費率的貨幣 (例如 `EUR`) 。 預設值是合作夥伴設定檔中與市場相關聯的貨幣。 |
+| region   | 字串 | No       | 選擇性兩個字母的 ISO 國家/地區代碼，表示購買供應專案的市場 (例如 `FR`) 。 預設值是在合作夥伴設定檔中設定的國家/區域代碼。        |
 
-如果要求中包含選擇性的 X 地區設定標頭，則其值會決定回應中的詳細資料所使用的語言。
+如果要求中包含選擇性的 X 地區設定標頭，其值會決定用於回應中詳細資料的語言。
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -97,7 +97,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果要求成功，則會傳回[Azure 費率卡片](azure-rate-card-resources.md)資源。
+如果要求成功，它會傳回 [Azure 費率卡片](azure-rate-card-resources.md) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

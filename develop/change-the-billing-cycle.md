@@ -1,17 +1,17 @@
 ---
 title: 變更計費擁週期
-description: 將訂用帳戶更新為每月或年度計費。
+description: 將訂用帳戶更新為每月或每年計費。
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: f5a18634a0250bd1614d456d6c35e443a3e9be67
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9bd2545d4cf08f3bced1c5bc52b6c9fa1fa3c1df
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096075"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927393"
 ---
 # <a name="change-the-billing-cycle"></a>變更計費擁週期
 
@@ -22,28 +22,28 @@ ms.locfileid: "86096075"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-將[訂單](order-resources.md)從每月更新為年度計費，或從年度到每月計費。
+依每月計費或每年計費，更新 [訂單](order-resources.md) 。
 
-在合作夥伴中心儀表板中，您可以藉由流覽至客戶的訂用帳戶詳細資料頁面來執行此作業。 在該處，您會看到一個選項，可定義訂用帳戶目前的計費週期，並能夠變更和提交。
+在合作夥伴中心儀表板中，您可以藉由流覽至客戶的訂用帳戶詳細資料頁面來執行此操作。 一旦出現，您就會看到一個選項，定義訂用帳戶目前的計費週期，以及變更和提交的能力。
 
-本文**的範圍外**：
+本文**涵蓋範圍外**：
 
-- 變更試用版的計費週期
-- 變更任何非年度詞彙供應專案的計費週期（每月、6年） & Azure 訂用帳戶
+- 變更試用的計費週期
+- 變更任何非年度期限的計費週期，可 (每月、6年) & Azure 訂用帳戶
 - 變更非使用中訂閱的計費週期
 - 變更 Microsoft 線上服務授權型訂閱的計費週期
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
-- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
+- 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在 [客戶帳戶] 頁面上，于 [**客戶帳戶資訊**] 區段中尋找**Microsoft ID** 。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 訂單識別碼。
 
 ## <a name="c"></a>C\#
 
-若要變更計費週期的頻率，請更新[**BillingCycle**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle?view=partnercenter-dotnet-latest#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle)屬性。
+若要變更計費週期的頻率，請更新 [**BillingCycle**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) 屬性。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -76,16 +76,16 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 | 方法    | 要求 URI                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **跳** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
+| **補丁** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-下表列出必要的查詢參數，以變更訂用帳戶的數量。
+下表列出變更訂用帳戶數量所需的查詢參數。
 
-| 名稱                   | 類型 | 必要 | 說明                                                          |
+| 名稱                   | 類型 | 必要 | 描述                                                          |
 |------------------------|------|----------|----------------------------------------------------------------------|
-| **customer-tenant-id** | GUID |    Y     | 識別客戶的 GUID 格式**客戶租使用者識別碼** |
-| **訂單識別碼**           | GUID |    Y     | 訂單識別碼                                                 |
+| **customer-tenant-id** | GUID |    Y     | 可識別客戶的 GUID 格式**客戶租使用者識別碼** |
+| **訂單-識別碼**           | GUID |    Y     | 訂單識別碼                                                 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -97,30 +97,30 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ### <a name="order"></a>單
 
-| 屬性           | 類型             | 必要 | 說明                                                                |
+| 屬性           | 類型             | 必要 | 描述                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| Id                 | 字串           |    N     | 成功建立訂單時所提供的訂單識別碼 |
-|ReferenceCustomerId | 字串           |    Y     | 客戶識別碼                                                    |
-| BillingCycle       | 字串           |    Y     | 指出此訂單的夥伴計費頻率。 支援的值為在 [BillingCycleType](product-resources.md#billingcycletype) 中找到的成員名稱。 |
-| LineItems          | 物件的陣列 |    Y     | [OrderLineItem](#orderlineitem)資源的陣列                      |
+| Id                 | 字串           |    N     | 成功建立訂單時提供的訂單識別碼 |
+|>referencecustomerid | 字串           |    Y     | 客戶識別碼                                                    |
+| BillingCycle       | 字串           |    Y     | 指出夥伴針對此訂單計費的頻率。 支援的值為在 [BillingCycleType](product-resources.md#billingcycletype) 中找到的成員名稱。 |
+| LineItems          | 物件的陣列 |    Y     | [>orderlineitem](#orderlineitem)資源的陣列                      |
 | CreationDate       | Datetime         |    N     | 訂單的建立日期（以日期時間格式）                        |
-| 屬性         | Object           |    N     | 包含 "ObjectType"： "OrderLineItem"                                     |
+| 屬性         | 物件           |    N     | 包含 "ObjectType"： ">orderlineitem"                                     |
 
 ### <a name="orderlineitem"></a>OrderLineItem
 
-| 屬性             | 類型   | 必要 | 說明                                                                        |
+| 屬性             | 類型   | 必要 | 描述                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
 | LineItemNumber       | number |    Y     | 行專案編號，從0開始                                              |
 | OfferId              | 字串 |    Y     | 供應專案的識別碼                                                                |
 | SubscriptionId       | 字串 |    Y     | 訂用帳戶的識別碼                                                         |
-| FriendlyName         | 字串 |    N     | 合作夥伴所定義之訂用帳戶的易記名稱，以協助區分 |
+| FriendlyName         | 字串 |    N     | 由合作夥伴定義之訂用帳戶的易記名稱，以協助區分 |
 | 數量             | number |    Y     | 授權或實例的數目                                                |
 | PartnerIdOnRecord    | 字串 |    N     | 記錄夥伴的 MPN 識別碼                                                |
-| 屬性           | Object |    N     | 包含 "ObjectType"： "OrderLineItem"                                             |
+| 屬性           | 物件 |    N     | 包含 "ObjectType"： ">orderlineitem"                                             |
 
 ### <a name="request-example"></a>要求範例
 
-更新為年度計費
+更新為年度帳單
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/orders/CF3B0E37-BE0B-4CDD-B584-D1A97D98A922 HTTP/1.1
@@ -159,7 +159,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回更新的訂閱順序。
+如果成功，此方法會在回應本文中傳回更新的訂用帳戶訂單。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -4,12 +4,12 @@ description: 如何為指定的客戶取出指定的設定原則。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 39d78dca2186a9839f3b62facadf852444c5774b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5272457b70d3e8c86139713182d29cd68ef61444
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096613"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926464"
 ---
 # <a name="retrieve-a-customers-configuration-policy"></a>擷取客戶的設定原則
 
@@ -22,7 +22,7 @@ ms.locfileid: "86096613"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -30,7 +30,7 @@ ms.locfileid: "86096613"
 
 ## <a name="c"></a>C\#
 
-若要為指定的客戶抓取設定原則，請先以客戶識別碼呼叫[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以取得指定客戶上作業的介面。 接下來，使用原則識別碼呼叫[**ConfigurationPolicies. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)方法，以取得指定原則之設定原則作業的介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.getasync)方法來取出設定原則。
+若要取得指定之客戶的設定原則，請先使用客戶識別碼呼叫 [**>iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid]) 方法，以取得指定客戶上作業的介面。 接下來，使用原則識別碼呼叫 [**ConfigurationPolicies. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) 方法，以針對指定的原則取得設定原則作業的介面。 最後，呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.getasync]) 方法，以取得設定原則。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -41,7 +41,7 @@ ConfigurationPolicy retrievedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetConfigurationPolicy.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -55,10 +55,10 @@ ConfigurationPolicy retrievedConfigurationPolicy =
 
 建立要求時，請使用下列路徑和查詢參數。
 
-| 名稱        | 類型   | 必要 | 說明                                           |
+| 名稱        | 類型   | 必要 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
-| 原則-識別碼   | 字串 | Yes      | 可識別原則的 GUID 格式字串。   |
+| 原則-識別碼   | 字串 | Yes      | 識別原則的 GUID 格式字串。   |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -66,7 +66,7 @@ ConfigurationPolicy retrievedConfigurationPolicy =
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -83,7 +83,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應會包含所要求的[ConfigurationPolicy](device-deployment-resources.md#configurationpolicy)資源。
+如果成功，回應會包含要求的 [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

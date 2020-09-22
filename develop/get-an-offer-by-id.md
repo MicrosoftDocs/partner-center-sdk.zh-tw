@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: brentserbus
 ms.author: brserbus
-ms.openlocfilehash: 2765859db2da91f544c926b264eeb7e32a22cd6c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 415723e0f792c4d6716998554dbf6e52c51b63d3
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093833"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927138"
 ---
 # <a name="get-an-offer-by-id"></a>依照識別碼取得供應項目
 
@@ -22,17 +22,17 @@ ms.locfileid: "86093833"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得符合供應專案識別碼的**供應**專案資源。
+取得符合供應專案識別碼的 **供應** 專案資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 供應專案識別碼。
 
 ## <a name="c"></a>C\#
 
-若要依識別碼尋找特定的供應專案，請使用您的**iaggregatepartner.customers.byid**集合、透過呼叫**ByCountry （）** 建立國家/地區，然後呼叫[**ByID （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)方法。 然後，呼叫[**get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get)或[**get Async （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync)方法。
+若要依識別碼尋找特定的供應專案，請使用您的 **>iaggregatepartner.customers** 供應專案集合、使用 ByCountry 的呼叫來建立國家 ** ( # B1 **，然後呼叫 [**>iaggregatepartner.customers.byid ( # B3 **/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) 方法。 然後，呼叫 [**get ( # B1 **/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) 或 [**get Async ( # B4 **/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) 方法。
 
 ```csharp
 // IAggretagePartner partnerOperations;
@@ -43,13 +43,13 @@ ms.locfileid: "86093833"
 var offer = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample**類別**： GetOffer.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSample **類別**： GetOffer.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-若要依識別碼尋找特定供應專案，請使用**iaggregatepartner.customers.byid. getOffers**函式，並呼叫**byCountry （）** 函數來建立國家/地區，然後呼叫**byID （）** 函式。 然後呼叫**get （）** 函數。
+若要依識別碼尋找特定的供應專案，請使用您的 **>iaggregatepartner.customers getOffers** 函式、使用 **ByCountry ( # B1 ** 函式來建立國家/地區，然後呼叫 **>iaggregatepartner.customers.byid ( # B3 ** 函數。 然後，呼叫 **get ( # B1 ** 函數。
 
 ```java
 // IAggretagePartner partnerOperations;
@@ -64,7 +64,7 @@ Offer offer = partnerOperations.getOffers().byCountry(countryCode).byId(offerId)
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-若要依識別碼尋找特定的供應專案，請執行[**PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md)命令，並指定**CountryCode**和**OfferId**參數。
+若要依識別碼尋找特定的供應專案，請執行 [**PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md) 命令，並指定 **CountryCode** 和 **OfferId** 參數。
 
 ```powershell
 # $countryCode
@@ -79,18 +79,18 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 | 方法  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id} 嗎？國家/地區 = {country-ID} HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}？ country = {country-ID} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
-| 名稱           | 類型       | 必要 | 說明                           |
+| 名稱           | 類型       | 必要 | 描述                           |
 |----------------|------------|----------|---------------------------------------|
 | **供應專案識別碼**   | **guid**   | Y        | 可對應至供應項目的 GUID。 |
 | **country-id** | **string** | Y        | 國家/地區識別碼。                |
 
 ### <a name="request-headers"></a>要求標頭
 
-- 需要格式化為字串的**地區設定識別碼**。
+- 需要格式化為字串的 **地區設定識別碼** 。
 如需詳細資訊，請參閱[合作夥伴中心 REST 標頭](headers.md)。
 
 ### <a name="request-body"></a>要求本文
@@ -111,7 +111,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**供應**專案資源。
+如果成功，此方法會在回應主體中傳回 **供應** 專案資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

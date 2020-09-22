@@ -4,12 +4,12 @@ description: 如何為指定的客戶更新指定的設定原則。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5fe3b30dd62fb0d2653f52d875310ff302f36bd2
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d29319ebf8561487fa279ef3e87664f3007bb778
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095965"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925708"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>為指定客戶更新設定原則
 
@@ -22,7 +22,7 @@ ms.locfileid: "86095965"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -30,7 +30,7 @@ ms.locfileid: "86095965"
 
 ## <a name="c"></a>C\#
 
-若要更新指定之客戶的現有設定原則，請將新的[**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy)物件具現化，如下列程式碼片段所示。 這個新物件中的值會取代現有物件中的對應值。 然後，使用客戶識別碼呼叫[**Iaggregatepartner.customers.byid ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法，以在指定的客戶上取得作業的介面。 接下來，使用原則識別碼呼叫[**ConfigurationPolicies. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)方法，以取得指定原則之設定原則作業的介面。 最後，呼叫[**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch)或[**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync)方法來更新設定原則。
+若要為指定的客戶更新現有的設定原則，請將新的 [**ConfigurationPolicy**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) 物件具現化，如下列程式碼片段所示。 這個新物件中的值會取代現有物件中的對應值。 然後，使用客戶識別碼來呼叫 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法，以取得指定客戶的作業介面。 接下來，使用原則識別碼呼叫 [**ConfigurationPolicies. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) 方法，以針對指定的原則取得設定原則作業的介面。 最後，請呼叫 [**Patch**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) 或 [**PatchAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) 方法來更新設定原則。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -50,7 +50,7 @@ ConfigurationPolicy updatedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Patch(configPolicyToBeUpdated);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： UpdateConfigurationPolicy.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： UpdateConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -58,16 +58,16 @@ ConfigurationPolicy updatedConfigurationPolicy =
 
 | 方法  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **提出** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1。1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
 建立要求時，請使用下列路徑參數。
 
-| Name        | 類型   | 必要 | 說明                                                   |
+| 名稱        | 類型   | 必要 | 描述                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
 | customer-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。         |
-| 原則-識別碼   | 字串 | Yes      | GUID 格式的字串，用來識別要更新的原則。 |
+| 原則-識別碼   | 字串 | Yes      | GUID 格式的字串，可識別要更新的原則。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -77,14 +77,14 @@ ConfigurationPolicy updatedConfigurationPolicy =
 
 要求主體必須包含提供原則資訊的物件。
 
-| Name            | 類型             | 必要 | 可更新 | 描述                                                                                                                                              |
+| 名稱            | 類型             | 必要 | 可更新 | 描述                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id              | 字串           | 是      | 否        | 可識別原則的 GUID 格式字串。                                                                                                    |
-| NAME            | 字串           | Yes      | Yes       | 原則的易記名稱。                                                                                                                         |
+| id              | 字串           | 是      | 否        | 識別原則的 GUID 格式字串。                                                                                                    |
+| NAME            | 字串           | 是      | 是       | 原則的易記名稱。                                                                                                                         |
 | category        | 字串           | 是      | 否        | 原則類別目錄。                                                                                                                                     |
 | description     | 字串           | No       | 是       | 原則描述。                                                                                                                                  |
 | devicesAssigned | number           | 否       | 否        | 裝置數目。                                                                                                                                   |
-| policySettings  | 字串陣列 | Yes      | Yes       | 原則設定： [無]、[移除 \_ oem \_ 預先安裝]、[oobe \_ 使用者不是本機系統 \_ \_ \_ 管理員]、[略過 \_ 快速 \_ 設定]、[略過 \_ oem \_ 註冊]、[略過 \_ eula]。 |
+| policySettings  | 字串陣列 | 是      | 是       | 原則設定：「無」、 \_ 「移除 oem \_ 預先安裝」、 \_ 「oobe 使用者 \_ 非本機系統 \_ \_ 管理員」、「略過 \_ 快速設定」 \_ 、「略過 oem 註冊」、「 \_ \_ 略過 \_ eula」。 |
 
 ### <a name="request-example"></a>要求範例
 
@@ -111,7 +111,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含新原則的[ConfigurationPolicy](device-deployment-resources.md#configurationpolicy)資源。
+如果成功，回應主體會包含新原則的 [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

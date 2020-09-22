@@ -1,17 +1,17 @@
 ---
 title: 取得訂用帳戶的所有每月使用量記錄。
-description: 您可以使用 AzureResourceMonthlyUsageRecord 資源集合來取得客戶訂用帳戶內的服務清單，以及其相關聯的分級使用量資訊。
+description: 您可以使用 >azureresourcemonthlyusagerecord 資源集合取得客戶訂用帳戶內的服務清單，以及其相關聯的評等使用量資訊。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: f97f950a139af40a47d7c91af69da80000708558
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8cbeb2b7264848ad88be13f0df063aa339a8dc13
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097075"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927204"
 ---
 # <a name="get-all-monthly-usage-records-for-a-subscription"></a>取得訂用帳戶的所有每月使用量記錄。
 
@@ -21,26 +21,26 @@ ms.locfileid: "86097075"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-您可以使用[**AzureResourceMonthlyUsageRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord)資源集合來取得客戶訂用帳戶內的服務清單，以及其相關聯的分級使用量資訊。
+您可以使用 [**>azureresourcemonthlyusagerecord**/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) 資源集合取得客戶訂用帳戶內的服務清單，以及其相關聯的評量使用量資訊。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 - 訂用帳戶識別碼。
 
-*此 API 僅支援 Microsoft Azure （MS-AZR-0017P-流程 ms-azr-0145p）訂用帳戶。如果您使用 Azure 方案，請改[為參閱依計量取得訂用帳戶的使用量資料](get-a-customer-subscription-meter-usage-records.md)。*
+*此 API 僅支援 Microsoft Azure (MS-AZR-0003P-Ms-azr-0145p) 訂用帳戶。如果您使用 Azure 方案，請改 [為參閱依計量取得訂用帳戶的使用量資料](get-a-customer-subscription-meter-usage-records.md) 。*
 
 ## <a name="c"></a>C\#
 
 若要取得訂用帳戶的資源使用量資訊：
 
-1. 使用您的**iaggregatepartner.customers.byid. Customers**集合來呼叫**ById （）** 方法。
+1. 使用您的 **>iaggregatepartner.customers. Customers** 集合來呼叫 **>iaggregatepartner.customers.byid ( # B1 ** 方法。
 
-2. 呼叫 [訂用帳戶 **] 屬性，以及 [** **usagerecords 和 resources**] 和 [ **Resources** ] 屬性。
-3. 呼叫**Get （）** 或**GetAsync （）** 方法。
+2. 呼叫 **訂閱** 屬性，以及 **>usagerecords**，然後呼叫 **Resources** 屬性。
+3. 呼叫 **Get ( # B1 ** 或 **GetAsync ( # B3 ** 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,7 +50,7 @@ ms.locfileid: "86097075"
 var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).UsageRecords.Resources.Get();
 ```
 
-如需範例，請參閱下列各項：
+如需範例，請參閱下列內容：
 
 - 範例： [主控台測試應用程式](console-test-app.md)
 - 專案： **PartnerSDK. FeatureSample**
@@ -66,9 +66,9 @@ var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscrip
 
 #### <a name="uri-parameters"></a>URI 參數
 
-下表列出所需的查詢參數，以取得評等的使用方式資訊。
+下表列出取得分級使用資訊的必要查詢參數。
 
-| 名稱                    | 類型     | 必要 | 說明                               |
+| 名稱                    | 類型     | 必要 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 對應至客戶的 GUID。     |
 | **訂用帳戶識別碼** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 531d7a7adb6f987859dfcc4c42831ebb633495de
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a789fa1ce5db6371fbea223ac4e69252fab38d92
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097967"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927259"
 ---
 # <a name="get-a-subscription-by-id"></a>依照識別碼取得訂用帳戶
 
@@ -22,11 +22,11 @@ ms.locfileid: "86097967"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得符合客戶識別碼和訂用帳戶識別碼的[訂](subscription-resources.md)用帳戶資源。
+取得符合客戶識別碼和訂用帳戶識別碼的 [訂](subscription-resources.md) 用帳戶資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -34,7 +34,7 @@ ms.locfileid: "86097967"
 
 ## <a name="c"></a>C\#
 
-若要依識別碼取得訂用帳戶，請從取得訂閱作業的介面開始，方法是呼叫[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來識別客戶，並使用[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法來識別訂用帳戶。 使用該[**介面**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription)，藉由呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get)來抓取訂用帳戶詳細資料。
+若要依識別碼取得訂用帳戶，請從取得訂用帳戶作業的介面開始，方法是以客戶識別碼呼叫 [**>iaggregatepartner.customers >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法來識別客戶，以及使用 [**訂閱. >iaggregatepartner.customers.byid**) /dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid] 方法來識別訂用帳戶。 使用 [**介面**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) ，藉由呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get) 來取得訂用帳戶詳細資料。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,7 +44,7 @@ ms.locfileid: "86097967"
 var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionID).Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetSubscription.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -58,7 +58,7 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 下表列出取得訂用帳戶所需的查詢參數。
 
-| 名稱                    | 類型     | 必要 | 說明                               |
+| 名稱                    | 類型     | 必要 | 描述                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 對應至客戶的 GUID。     |
 | **id-for-subscription** | **guid** | Y        | 對應至訂用帳戶的 GUID。 |
@@ -85,7 +85,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回[訂](subscription-resources.md)用帳戶資源。
+如果成功，這個方法會傳迴響應主體中的 [訂](subscription-resources.md) 用帳戶資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -140,7 +140,7 @@ Date: Fri, 27 Jan 2017 21:51:40 GMT
 
 ### <a name="response-example-for-an-add-on-subscription"></a>附加元件訂用帳戶的回應範例
 
-附加元件訂用帳戶的回應包括主體中的父訂用帳戶識別碼，以及連結中的。
+附加元件訂用帳戶的回應包含主體和連結中的父訂用帳戶識別碼。
 
 ```http
 HTTP/1.1 200 OK

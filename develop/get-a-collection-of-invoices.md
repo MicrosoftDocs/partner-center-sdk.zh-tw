@@ -1,17 +1,17 @@
 ---
 title: 取得發票的集合
-description: 如何取出合作夥伴發票的集合。
+description: 如何取出夥伴發票的集合。
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: d0237b02f3a4e8a837b70559f5858dff5ff08a33
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f56c3de8dd227f573921e5b969c2217c2f743a21
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098367"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927282"
 ---
 # <a name="get-a-collection-of-invoices"></a>取得發票的集合
 
@@ -22,19 +22,19 @@ ms.locfileid: "86098367"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-如何取出合作夥伴發票的集合。
+如何取出夥伴發票的集合。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 ## <a name="c"></a>C\#
 
-若要取得所有可用發票的集合，請使用[**invoice 屬性來取得發票作業**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)的介面，然後呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync)方法來取出集合。
+若要取得所有可用發票的集合，請使用 [ [**發票**](/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) ] 屬性來取得發票作業的介面，然後呼叫 [**get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) 或 [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) 方法來取得集合。
 
-若要取得已分頁的發票集合，請先呼叫[**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)方法，並將頁面大小傳遞給它，以建立[**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)物件。 接下來，使用[**invoice 屬性來取得發票作業**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)的介面，然後將 IQuery 物件傳遞給[**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query)或[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync)方法，以傳送要求並取得第一頁。
+若要取得發票的分頁集合，請先呼叫 [**BuildIndexedQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) 方法，並將頁面大小傳遞給它，以建立 [**IQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) 物件。 接下來，使用 [**invoice 屬性取得發票作業**](/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) 的介面，然後將 IQuery 物件傳遞給 [**Query**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) 或 [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) 方法來傳送要求並取得第一頁。
 
-接下來，使用[**[列舉**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators)值] 屬性來取得支援的資源集合列舉值集合的介面，然後呼叫 [[**發票]。建立**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)以建立用於遍歷發票集合的列舉值。 最後，使用列舉值來抓取和使用發票的每一頁，如下列程式碼範例所示。 [**下**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next)一個方法的每個呼叫都會根據頁面大小，傳送下一頁發票的要求。
+接下來，使用 [列舉值 [**] 屬性來**](/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) 取得支援的資源集合列舉值之集合的介面，然後呼叫 [ [**發票]。建立**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) 可建立列舉值的列舉值。 最後，使用列舉值來取得和處理每個發票頁面，如下列程式碼範例所示。 每次呼叫 [**下一個**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) 方法時，都會根據頁面大小來傳送下一個發票頁面的要求。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -75,10 +75,10 @@ while (invoicesEnumerator.HasValue)
 }
 ```
 
-如需稍微不同的範例，請參閱**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetPagedInvoices.cs
+如需稍微不同的範例，請參閱 **範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetPagedInvoices.cs
 
 > [!NOTE] 
-> 相同的 API 會用於所有新式商業購買，以及145p 和 Office 授權。 只有傳統發票會考慮大小和位移。 針對所有新式商業採購，將會忽略 pagesize & 位移。
+> 相同的 API 適用于所有新式商業採購，以及145p 和 Office 授權。 只有舊版發票會考慮大小和位移。 針對所有新式商業採購，將會忽略 pagesize & 位移。
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -92,10 +92,10 @@ while (invoicesEnumerator.HasValue)
 
 建立要求時，請使用下列查詢參數。
 
-| 名稱   | 類型 | 必要 | 說明                                                                            |
+| 名稱   | 類型 | 必要 | 描述                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
 | 大小   | int  | 否       | 要在回應中傳回的發票資源數目。 這是選擇性參數。 |
-| Offset | int  | 否       | 要傳回的第一個發票之以零為基底的索引。                                   |
+| Offset | int  | 否       | 要傳回的第一張發票之以零為起始的索引。                                   |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -103,7 +103,7 @@ while (invoicesEnumerator.HasValue)
 
 ### <a name="request-body"></a>要求本文
 
-None
+無
 
 ### <a name="request-example"></a>要求範例
 
@@ -120,7 +120,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[發票](invoice-resources.md#invoice)資源的集合。
+如果成功，回應主體會包含 [發票](invoice-resources.md#invoice) 資源的集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -4,12 +4,12 @@ description: 如何依識別碼取得現有客戶服務要求的詳細資料。
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93fd56931913d674591735d3da6f60a3b9b15607
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: cb02b051ef8cddd16a4574c49848caf96a43fb54
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097620"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926940"
 ---
 # <a name="get-service-request-details-by-id"></a>依照識別碼取得服務要求詳細資料
 
@@ -29,7 +29,7 @@ ms.locfileid: "86097620"
 
 ## <a name="c"></a>C\#
 
-若要取得現有客戶服務要求的詳細資料，請呼叫[**IServiceRequestCollection. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)方法，並傳入[**ServiceRequest.Id**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id)來識別並將介面傳回給特定的[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)物件。
+若要取得現有客戶服務要求的詳細資料，請呼叫 [**IServiceRequestCollection. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) 方法，並傳入 [**ServiceRequest.Id**/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id # Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) 以識別並將介面傳回給特定的 [**ServiceRequest**/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) 物件。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -56,7 +56,7 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 使用下列 URI 參數來取得指定的服務要求。
 
-| 名稱                  | 類型     | 必要 | 說明                                 |
+| 名稱                  | 類型     | 必要 | 描述                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | 識別服務要求的 GUID。 |
 
@@ -84,11 +84,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**服務要求**資源。
+如果成功，這個方法會傳迴響應主體中的 **服務要求** 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心的 REST 錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心 REST 錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

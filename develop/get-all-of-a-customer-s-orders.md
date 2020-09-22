@@ -1,17 +1,17 @@
 ---
 title: 取得客戶的所有訂單
-description: 取得指定客戶之所有訂單的集合。
+description: 取得指定之客戶的所有訂單集合。
 ms.date: 06/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 958bf512c9b9d087db7c480623b5ada92eea6407
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 23eec0c91d90f5e7b1dd1981b3566618fabc8c2c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097064"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927187"
 ---
 # <a name="get-all-of-a-customers-orders"></a>取得客戶的所有訂單
 
@@ -22,21 +22,21 @@ ms.locfileid: "86097064"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-取得指定客戶之所有訂單的集合。 提交訂單的時間，以及它會出現在客戶訂單的集合中，最多會有15分鐘的延遲。
+取得指定之客戶的所有訂單集合。 提交訂單的時間與客戶訂單的集合之間，最多會有15分鐘的延遲。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
 ## <a name="c"></a>C\#
 
-若要取得所有客戶訂單的集合：
+取得客戶訂單的集合：
 
-1. 使用您的[**iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)集合，並呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。
+1. 使用您的 [**>iaggregatepartner.customers. Customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) 集合，並呼叫 [**>iaggregatepartner.customers.byid ( # B2 **/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法。
 
-2. 呼叫[**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)屬性，後面接著[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)方法。
+2. 呼叫 [**Orders**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) 屬性，後面接著 [**Get ( # B2 **/Dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) 或 [**GetAsync ( # B5 **/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,7 +45,7 @@ ms.locfileid: "86097064"
 var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSamples**類別**： GetOrders.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerSDK. FeatureSamples **類別**： GetOrders.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -84,7 +84,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回[訂單](order-resources.md)資源的集合。
+如果成功，這個方法會傳迴響應主體中的 [訂單](order-resources.md) 資源集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

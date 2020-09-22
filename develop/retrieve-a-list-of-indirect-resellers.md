@@ -1,15 +1,15 @@
 ---
 title: 擷取間接轉銷商清單
-description: 如何抓取已登入之合作夥伴的間接轉銷商清單。
+description: 如何取出已登入合作夥伴的間接轉銷商清單。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 92d79bb031fdf1cb132791ed9103451cf8ba32bf
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e8615438d8ecd011fd1f00a5672b78d53f7bd77d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096602"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926417"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>擷取間接轉銷商清單
 
@@ -17,7 +17,7 @@ ms.locfileid: "86096602"
 
 - 合作夥伴中心
 
-如何抓取已登入之合作夥伴的間接轉銷商清單。
+如何取出已登入合作夥伴的間接轉銷商清單。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -25,7 +25,7 @@ ms.locfileid: "86096602"
 
 ## <a name="c"></a>C\#
 
-若要取出已登入夥伴具有關聯性的間接轉銷商清單，請先從[**partnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships)屬性取得關聯性集合作業的介面。 然後，呼叫[**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)或[**get \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)方法，傳遞[**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列舉的成員來識別關聯性類型。 若要擷取間接轉銷商，您必須使用 IsIndirectCloudSolutionProviderOf。
+若要抓取已登入夥伴具有關聯性的間接轉銷商清單，請先從 [**PartnerOperations 關聯**性/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) 屬性取得關聯性集合作業的介面。 然後，呼叫 [**get**/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) 或 [**get \_ Async**/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) 方法，傳遞 [**PartnerRelationshipType**/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) 列舉的成員來識別關聯性類型。 若要擷取間接轉銷商，您必須使用 IsIndirectCloudSolutionProviderOf。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -33,7 +33,7 @@ ms.locfileid: "86096602"
 var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipType.IsIndirectCloudSolutionProviderOf);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)**專案**：合作夥伴中心 SDK 範例**類別**： GetIndirectResellers.cs
+**範例**： [主控台測試應用程式](console-test-app.md)**專案**：合作夥伴中心 SDK 範例 **類別**： GetIndirectResellers.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -41,7 +41,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 | 方法  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships？關聯性 \_ 類型 = IsIndirectCloudSolutionProviderOf HTTP/1。1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships？關聯性 \_ 類型 = >isindirectcloudsolutionproviderof HTTP/1。1 |
 
 ### <a name="uri-parameter"></a>URI 參數
 
@@ -59,7 +59,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 <th>名稱</th>
 <th>類型</th>
 <th>必要</th>
-<th>說明</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
@@ -67,9 +67,9 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 <td>relationship_type</td>
 <td>字串</td>
 <td>Yes</td>
-<td>值是在<a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>中找到的其中一個成員名稱的字串表示。
-<p>如果合作夥伴以提供者身分登入，而您想要取得他們已建立關聯性的間接轉銷商清單，請使用 IsIndirectCloudSolutionProviderOf。</p>
-<p>如果合作夥伴以轉銷商的身分登入，而您想要取得他們已建立關聯性的間接提供者清單，請使用 IsIndirectResellerOf。</p></td>
+<td>值是在 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>中找到的其中一個成員名稱的字串表示。
+<p>如果夥伴以提供者的身份登入，而您想要取得他們已建立關聯性的間接轉銷商清單，請使用 >isindirectcloudsolutionproviderof。</p>
+<p>如果夥伴以轉銷商的身份登入，而您想要取得他們已建立關聯性的間接提供者清單，請使用 IsIndirectResellerOf。</p></td>
 </tr>
 </tbody>
 </table>
@@ -96,11 +96,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[PartnerRelationship](relationships-resources.md)資源的集合，以識別轉售商。
+如果成功，回應本文會包含用來識別轉售商的 [PartnerRelationship](relationships-resources.md) 資源集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
-每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱[合作夥伴中心錯誤碼](error-codes.md)。
+每個回應都隨附 HTTP 狀態碼，會指出成功與否以及其他的偵錯資訊。 請使用網路追蹤工具來讀取此錯誤碼、錯誤類型和其他參數。 如需完整清單，請參閱 [合作夥伴中心錯誤碼](error-codes.md)。
 
 ### <a name="response-example"></a>回應範例
 

@@ -1,15 +1,15 @@
 ---
 title: 從角色中移除客戶使用者
-description: 如何從客戶帳戶中的目錄角色移除使用者。
+description: 如何從客戶帳戶內的目錄角色移除使用者。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8bb79a0b1b1c8ef7200e02f29483014326422cb3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 42c9894b50a253fe533acbe749527f1d5ff67486
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094898"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926441"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>從角色中移除客戶使用者
 
@@ -17,7 +17,7 @@ ms.locfileid: "86094898"
 
 - 合作夥伴中心
 
-如何從客戶帳戶中的目錄角色移除使用者。
+如何從客戶帳戶內的目錄角色移除使用者。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,7 @@ ms.locfileid: "86094898"
 
 ## <a name="c"></a>C\#
 
-若要從目錄角色中移除使用者，請選取要使用[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法的呼叫來修改使用者的客戶，並在該處以[**DirectoryRoles. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid)方法指定角色，並搭配目錄角色識別碼。 然後，存取[**UserMembers. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid)方法來識別要移除的使用者，並使用[**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete)方法從角色中移除使用者。
+若要從目錄角色中移除使用者，請在 [) **>iaggregatepartner.customers**] 中選取要修改使用者的客戶，方法是使用 [**DirectoryRoles. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) 方法搭配目錄角色識別碼來指定角色。 然後，存取 [**>usermembers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) 方法來識別要移除的使用者，並使用 [**刪除**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) 方法將使用者從角色中移除。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ ms.locfileid: "86094898"
 partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selectedRoleId).UserMembers.ById(selectedUserMemberId).Delete();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： RemoveCustomerUserMemberFromDirectoryRole.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： RemoveCustomerUserMemberFromDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,11 +52,11 @@ partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selecte
 
 使用下列 URI 參數來識別正確的客戶、角色和使用者。
 
-| 名稱                   | 類型     | 必要 | 說明                                                                        |
+| 名稱                   | 類型     | 必要 | 描述                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | 此值是可識別客戶的 GUID 格式**客戶租使用者識別碼**。 |
-| **角色識別碼**            | **guid** | Y        | 值是可識別角色的 GUID 格式**角色識別碼**。                |
-| **使用者識別碼**            | **guid** | Y        | 此值是可識別單一使用者帳戶的 GUID 格式**使用者識別碼**。   |
+| **customer-tenant-id** | **guid** | Y        | 此值是可識別客戶的 GUID 格式 **客戶租使用者識別碼** 。 |
+| **角色識別碼**            | **guid** | Y        | 此值是 GUID 格式的 **角色識別碼** ，可識別角色。                |
+| **使用者識別碼**            | **guid** | Y        | 此值是 GUID 格式的 **使用者識別碼** ，可識別單一使用者帳戶。   |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -82,7 +82,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功地從角色中移除使用者，回應主體會是空的。
+如果成功地從角色中移除使用者，則回應主體是空的。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

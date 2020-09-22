@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b58f70fa0aae5deb90356707bb601a7a77d33e9d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e9f34a77064bad090afac48b621546f2196a9e03
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097776"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927159"
 ---
 # <a name="get-all-service-requests-for-a-customer"></a>為客戶取得所有服務要求
 
@@ -23,7 +23,7 @@ ms.locfileid: "86097776"
 
 取得客戶的所有服務要求。
 
-在合作夥伴中心儀表板中，您可以先[選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取左側提要欄位上的 [**服務管理**]。 客戶的服務要求會顯示在 [**支援票證**] 底下。
+在合作夥伴中心儀表板中，您可以先 [選取客戶](get-a-customer-by-name.md)來執行這項作業。 然後，選取左側邊欄上的 [ **服務管理** ]。 客戶的服務要求會顯示在 [ **支援票證**] 下。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,7 +33,7 @@ ms.locfileid: "86097776"
 
 ## <a name="c"></a>C\#
 
-若要顯示客戶的所有服務要求清單，請使用您的**iaggregatepartner.customers.byid**集合並呼叫[**ById （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法。 然後呼叫[**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicerequests)屬性，後面接著[**Get （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.get)或[**GetAsync （）**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.getasync)方法。
+若要顯示客戶的所有服務要求清單，請使用您的 **>iaggregatepartner.customers。 Customers** 集合，並呼叫 [**>iaggregatepartner.customers.byid ( # B1 **/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法。 然後，呼叫 [**ServiceRequests**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicerequests) 屬性，後面接著 [**Get ( # B2 **/Dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.get) 或 [**GetAsync ( # B5 **/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.getasync) 方法。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,7 +42,7 @@ ms.locfileid: "86097776"
 ResourceCollection<ServiceRequest> serviceRequests = partnerOperations.Customers.ById(customerId).ServiceRequests.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples**類別**： CustomerManagedServices.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**： PartnerCenterSDK. FeaturesSamples **類別**： CustomerManagedServices.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -56,7 +56,7 @@ ResourceCollection<ServiceRequest> serviceRequests = partnerOperations.Customers
 
 使用下列查詢參數來取得客戶的所有服務要求。
 
-| 名稱                   | 類型     | 必要 | 說明                            |
+| 名稱                   | 類型     | 必要 | 描述                            |
 |------------------------|----------|----------|----------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 對應至客戶的 GUID。 |
 
@@ -80,7 +80,7 @@ MS-CorrelationId: 998e31a1-3f17-4471-a9ee-7678dd72e033
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**服務要求**資源的集合。
+如果成功，這個方法會傳迴響應主體中的 **服務要求** 資源集合。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

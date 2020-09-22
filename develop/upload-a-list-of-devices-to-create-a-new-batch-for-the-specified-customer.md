@@ -1,15 +1,15 @@
 ---
 title: 上傳裝置清單，為指定的客戶建立新的批次
-description: 如何上傳裝置的相關資訊清單，為指定的客戶建立新的批次。 這會建立裝置批次以進行免觸控部署的註冊，並將裝置和裝置批次與指定的客戶產生關聯。
+description: 如何上傳有關裝置的資訊清單，以為指定的客戶建立新的批次。 這會建立裝置批次以進行免觸控部署的註冊，並將裝置和裝置批次與指定的客戶產生關聯。
 ms.date: 08/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 896ea9239dcc4d54b0b7630735743dfc5447b6f5
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 68ae21fa790b3c0810e26c54860b83d1ab303b8c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096520"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927875"
 ---
 # <a name="upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer"></a>上傳裝置清單，為指定的客戶建立新的批次
 
@@ -18,11 +18,11 @@ ms.locfileid: "86096520"
 - 合作夥伴中心
 - Microsoft Cloud 德國合作夥伴中心
 
-如何上傳裝置的相關資訊清單，為指定的客戶建立新的批次。 這會建立裝置批次以進行免觸控部署的註冊，並將裝置和裝置批次與指定的客戶產生關聯。
+如何上傳有關裝置的資訊清單，以為指定的客戶建立新的批次。 這會建立裝置批次以進行免觸控部署的註冊，並將裝置和裝置批次與指定的客戶產生關聯。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。 搭配合作夥伴中心 Api 使用應用程式 + 使用者驗證時，請遵循[安全的應用程式模型](enable-secure-app-model.md)。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用應用程式加上使用者的認證來進行驗證。 使用應用程式 + 使用者驗證搭配合作夥伴中心 Api 時，請遵循 [安全的應用程式模型](enable-secure-app-model.md) 。
 
 - 客戶識別碼 (`customer-tenant-id`)。 如果您不知道客戶的識別碼，則可以在合作夥伴中心的[儀表板](https://partner.microsoft.com/dashboard)中查閱。 從 [合作夥伴中心] 功能表中選取 [CSP]  ，然後選取 [客戶]  。 從 [客戶] 清單中選取客戶，然後選取 [帳戶]  。 在客戶的 [帳戶] 頁面上，尋找 [客戶帳戶資訊]  區段中的 [Microsoft 識別碼]  。 Microsoft 識別碼與客戶識別碼 (`customer-tenant-id`) 相同。
 
@@ -32,20 +32,20 @@ ms.locfileid: "86096520"
 
 若要上傳裝置清單以建立新的裝置批次：
 
-1. 具現化[**裝置**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device)類型的新[清單](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)，並將裝置填入清單。 識別每個裝置至少需要下列已填入屬性的組合：
+1. 具現化新的 [清單/dotnet/api/-1) 類型 [**裝置**) /dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device]，並在清單中填入裝置。 下列填入的屬性組合至少需要用來識別每個裝置：
 
-   - [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)。
-   - [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)。
-   - [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)  + [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)。
-   - 僅限[**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) 。
-   - 僅限[**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) 。
-   - [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)  + [**OemManufacturerName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername)  + [**ModelName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname)。
+   - [**HardwareHash**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) 。
+   - [**HardwareHash**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**SerialNumber**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) 。
+   - [**HardwareHash**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**/Dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) + [**SerialNumber**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) 。
+   - [僅限**HardwareHash**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) 。
+   - [僅限**ProductKey**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) 。
+   - [**SerialNumber**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) + [**OemManufacturerName**/Dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername) + [**ModelName**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname) 。
 
-2. 具現化[**DeviceBatchCreationRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest)物件，並將[**BatchId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.batchid)屬性設定為您所選擇的唯一名稱，並將[**devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices)屬性設為要上傳的裝置清單。
+2. 具現化 [**DeviceBatchCreationRequest**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest) 物件，並將 [**BatchId**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.bat子) ] 屬性設定為您選擇的唯一名稱，並將 [**devices**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) ] 屬性設定為要上傳的裝置清單。
 
-3. 藉由呼叫[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來處理裝置批次建立要求，以取得指定客戶上作業的介面。
+3. 藉由呼叫 [**>iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法與客戶識別碼來處理裝置批次建立要求，以取得指定客戶的作業介面。
 
-4. 使用裝置批次建立要求來呼叫[**DeviceBatches**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection)或[**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection)方法，以建立批次。
+4. 使用建立批次的裝置批次建立要求，呼叫 [**DeviceBatches 建立**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection) 或 [**CreateAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection) 方法。
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -72,7 +72,7 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.Create(newDeviceBatch);
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： CreateDeviceBatch.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： CreateDeviceBatch.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -86,7 +86,7 @@ var trackingLocation =
 
 建立要求時，請使用下列路徑參數。
 
-| 名稱        | 類型   | 必要 | 說明                                           |
+| 名稱        | 類型   | 必要 | 描述                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | 字串 | Yes      | 用來識別客戶的 GUID 格式字串。 |
 
@@ -96,7 +96,7 @@ var trackingLocation =
 
 ### <a name="request-body"></a>要求本文
 
-要求主體必須包含[DeviceBatchCreationRequest](device-deployment-resources.md#devicebatchcreationrequest)資源。
+要求主體必須包含 [DeviceBatchCreationRequest](device-deployment-resources.md#devicebatchcreationrequest) 資源。
 
 ### <a name="request-example"></a>要求範例
 
@@ -137,7 +137,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應會包含一個**位置**標頭，其中具有可用於抓取裝置上傳狀態的 URI。 儲存此 URI 以與其他相關的 REST Api 搭配使用。
+如果成功，回應會包含具有 URI 的 **位置** 標頭，可用來取得裝置上傳狀態。 儲存此 URI 以搭配其他相關 REST Api 使用。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 

@@ -4,12 +4,12 @@ description: 如何取得客戶訂用帳戶的訂用帳戶布建狀態。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0811ad6d26cb96c057a96bd906e47238a0d97cce
-ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
+ms.openlocfilehash: 7c35730d6b6734ca69f3ffa21a78ff209fbc5ecb
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87557349"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927514"
 ---
 # <a name="get-subscription-provisioning-status"></a>取得訂用帳戶的佈建狀態
 
@@ -34,7 +34,7 @@ ms.locfileid: "87557349"
 
 ## <a name="c"></a>C\#
 
-若要取得訂用帳戶的布建狀態，請先使用[**iaggregatepartner.customers.byid. ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)方法與客戶識別碼來識別客戶。 然後，使用訂用帳戶 ID 呼叫[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)方法，以取得訂用帳戶作業的介面。 接下來，使用[**ProvisioningStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus)屬性來取得目前訂用帳戶布建狀態作業的介面，然後呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync)方法來取出[**SubscriptionProvisioningStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus)物件。
+若要取得訂用帳戶的布建狀態，請先使用 [**>iaggregatepartner.customers. >iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 方法與客戶識別碼來識別客戶。 然後，藉由使用訂用帳戶識別碼呼叫 [**>iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) 方法，取得訂用帳戶作業的介面。 接下來，使用 [**ProvisioningStatus**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus) 屬性來取得目前訂用帳戶布建狀態作業的介面，然後呼叫 [**Get**/Dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync) 方法，以取得 [**SubscriptionProvisioningStatus**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus) 物件。
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -59,8 +59,8 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 | 名稱            | 類型   | 必要 | 描述                                               |
 |-----------------|--------|----------|-----------------------------------------------------------|
-| customer-id     | 字串 | 是      | 識別客戶的 GUID 格式字串。     |
-| subscription-id | 字串 | 是      | 識別訂用帳戶的 GUID 格式字串。 |
+| customer-id     | 字串 | Yes      | 可識別客戶的 GUID 格式字串。     |
+| subscription-id | 字串 | Yes      | 識別訂用帳戶的 GUID 格式字串。 |
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -84,7 +84,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，回應主體會包含[SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus)資源。
+如果成功，回應主體會包含 [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) 資源。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
@@ -115,6 +115,6 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 
 ## <a name="remarks"></a>備註
 
-- 在授權變更指派期間， [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus)中的 [狀態] 欄位會設定為 [擱置]。
+- 在授權變更指派期間， [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) 中的 [狀態] 欄位會設為 [擱置]。
 
 - [狀態] 欄位會每十五分鐘更新一次。

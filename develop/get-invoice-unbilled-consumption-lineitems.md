@@ -4,12 +4,12 @@ description: 您可以使用合作夥伴中心 Api，針對指定的發票取得
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7a18163cbbfd67bc9f4cc1ac08bad50eb5a083e2
-ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
+ms.openlocfilehash: a10ae8fb580b89c6e8bb95035620457f88046d6a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88937898"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927072"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>取得發票未開立帳單商業耗用量明細專案
 
@@ -34,9 +34,9 @@ ms.locfileid: "88937898"
 
 若要取得指定發票的明細專案：
 
-1. 呼叫 [**>iaggregatepartner.customers.byid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) 方法，取得指定發票之發票作業的介面。
+1. 呼叫 [**>iaggregatepartner.customers.byid**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) 方法，取得指定發票之發票作業的介面。
 
-2. 呼叫 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) 或 [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) 方法，以取得 invoice 物件。
+2. 呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync]) 方法，以取得 invoice 物件。
 
 **發票物件**包含指定發票的所有資訊。 **提供者**會識別未開立帳單詳細資訊的來源 (例如**OneTime**) 。 **InvoiceLineItemType**會指定類型 (例如**UsageLineItem**) 。
 
@@ -44,9 +44,9 @@ ms.locfileid: "88937898"
 
 若要取得對應至 **InvoiceDetail** 實例的明細專案集合：
 
-1. 將實例的 **BillingProvider** 和 **InvoiceLineItemType** 傳遞至 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) 方法。
+1. 將實例的 **BillingProvider** 和 **InvoiceLineItemType** 傳遞至 [**By**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) 方法。
 
-2. 呼叫 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) 或 [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) 方法，以取出相關聯的明細專案。
+2. 呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync]) 方法，以取出相關聯的明細專案。
 3. 建立列舉值以遍歷集合，如下列範例所示。
 
 ``` csharp
@@ -129,11 +129,11 @@ while (fetchNext)
 
 | 名稱                   | 類型   | 必要 | 描述                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| provider               | 字串 | 是      | 提供者： "**OneTime**"。                                                |
-| invoice-line-item-type | 字串 | 是      | 發票詳細資料的類型： "**UsageLineItems**"、"**UsageLineItems**"。               |
-| currencyCode           | 字串 | 是      | 未開立帳單明細專案的貨幣代碼。                                  |
-| 時期                 | 字串 | 是      | 未開立帳單偵察的期間 (例如： **current**、 **previous**) 。<br/><br/>**上一步** -如果計費週期是01/01/2020 –01/31/2020，則在02/06/2020 和 02/08/2020 UTC 時間之間，最有可能產生您的發票。 如果您需要查詢計費週期的未開立帳單使用量資料 (01/01/2020-01/31/2020) 在02/01/2020 和發票產生日期之間的任何時間 (（介於02/06/2020 和 02/08/2020 UTC 時間) 之間），然後您必須選擇 [上一步] 為 [期間]。<br/><br/>**目前** -如果計費週期是01/01/2020 –01/31/2020，則在02/06/2020 和 02/08/2020 UTC 時間之間，最有可能產生您的發票。 如果您需要查詢計費週期的未開立帳單使用量資料 (01/01/2020-01/31/2020) 在您的計費週期內的01/01/2020 和01/31/2020 之間的任何時間內，則您必須選擇 [目前] 的期間。 |
-| 大小                   | number | 否       | 要傳回的最大專案數。 預設大小為2000。                    |
+| provider               | 字串 | Yes      | 提供者： "**OneTime**"。                                                |
+| invoice-line-item-type | 字串 | Yes      | 發票詳細資料的類型： "**UsageLineItems**"、"**UsageLineItems**"。               |
+| currencyCode           | 字串 | Yes      | 未開立帳單明細專案的貨幣代碼。                                  |
+| 時期                 | 字串 | Yes      | 未開立帳單偵察的期間 (例如： **current**、 **previous**) 。<br/><br/>**上一步** -如果計費週期是01/01/2020 –01/31/2020，則在02/06/2020 和 02/08/2020 UTC 時間之間，最有可能產生您的發票。 如果您需要查詢計費週期的未開立帳單使用量資料 (01/01/2020-01/31/2020) 在02/01/2020 和發票產生日期之間的任何時間 (（介於02/06/2020 和 02/08/2020 UTC 時間) 之間），然後您必須選擇 [上一步] 為 [期間]。<br/><br/>**目前** -如果計費週期是01/01/2020 –01/31/2020，則在02/06/2020 和 02/08/2020 UTC 時間之間，最有可能產生您的發票。 如果您需要查詢計費週期的未開立帳單使用量資料 (01/01/2020-01/31/2020) 在您的計費週期內的01/01/2020 和01/31/2020 之間的任何時間內，則您必須選擇 [目前] 的期間。 |
+| 大小                   | number | No       | 要傳回的最大專案數。 預設大小為2000。                    |
 | seekOperation          | 字串 | No       | 設定 `seekOperation=Next` 為取得下一頁的對帳明細專案。                |
 
 ### <a name="request-headers"></a>要求標頭

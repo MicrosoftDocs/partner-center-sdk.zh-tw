@@ -1,15 +1,15 @@
 ---
 title: 取得合作夥伴的合法商務設定檔
-description: 如何取得合作夥伴的合法商務設定檔。
+description: 如何取得合作夥伴的法律商務設定檔。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 27ee41a9b7ac3586c13f3675d8b688ab52103fca
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1c1b326e53211e875f74f16160a1ba45332ef4e9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096827"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927546"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>取得合作夥伴的合法商務設定檔
 
@@ -20,15 +20,15 @@ ms.locfileid: "86096827"
 - Microsoft Cloud 德國合作夥伴中心
 - Microsoft Cloud for US Government 適用的合作夥伴中心
 
-如何取得合作夥伴的合法商務設定檔。
+如何取得合作夥伴的法律商務設定檔。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援使用獨立應用程式和應用程式 + 使用者認證來進行驗證。
+- 認證，如[合作夥伴中心驗證](partner-center-authentication.md)所述。 此案例支援對獨立應用程式和應用程式 + 使用者認證進行驗證。
 
 ## <a name="c"></a>C\#
 
-若要取得合作夥伴合法的商務設定檔，請先從 Iaggregatepartner.customers.byid 的 [**配置**檔] 屬性取得合作夥伴設定檔作業集合的介面。 然後，取得**LegalBusinessProfile**屬性的值，以取得合法商務設定檔作業的介面。 最後，呼叫[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get)或[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync)方法來取出設定檔。
+若要取得夥伴法律聲明商務設定檔，請先從 **>iaggregatepartner.customers 配置** 檔案屬性取得夥伴設定檔作業集合的介面。 然後，取得 **>legalbusinessprofile** 屬性的值，以取得合法商務設定檔作業的介面。 最後，呼叫 [**Get**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get) 或 [**GetAsync**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync) 方法來取出設定檔。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,7 +36,7 @@ ms.locfileid: "86096827"
 var billingProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 ```
 
-**範例**：[主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例**類別**： GetLegalBusinessProfile.cs
+**範例**： [主控台測試應用程式](console-test-app.md)。 **專案**：合作夥伴中心 SDK 範例 **類別**： GetLegalBusinessProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -69,7 +69,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 回應
 
-如果成功，此方法會在回應主體中傳回**LegalBusinessProfile**物件。
+如果成功，這個方法會傳迴響應主體中的 **>legalbusinessprofile** 物件。
 
 ### <a name="response-success-and-error-codes"></a>回應成功和錯誤碼
 
