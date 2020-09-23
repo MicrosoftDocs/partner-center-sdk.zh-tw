@@ -424,16 +424,16 @@
         - name: 更新訂用帳戶的支援連絡人
           href: update-a-subscription-s-support-contact.md
     - name: 轉介
-      href: 'https://docs.microsoft.com/partner/develop/referrals'
+      href: /partner/develop/referrals
       items:
         - name: 建立轉介
-          href: 'https://docs.microsoft.com/partner/develop/create-a-referral'
+          href: /partner/develop/create-a-referral
         - name: 取得轉介清單
-          href: 'https://docs.microsoft.com/partner/develop/get-a-list-of-referrals'
+          href: /partner/develop/get-a-list-of-referrals
         - name: 依識別碼取得轉介
-          href: 'https://docs.microsoft.com/partner/develop/get-a-referral-by-id'
+          href: /partner/develop/get-a-referral-by-id
         - name: 更新轉介
-          href: 'https://docs.microsoft.com/partner/develop/update-a-referral'
+          href: /partner/develop/update-a-referral
     - name: 公用程式
       href: utilities.md
       items:
@@ -535,11 +535,11 @@
     - name: 合作夥伴中心 Webhook
       href: partner-center-webhooks.md
 - name: 合作夥伴中心受控的 .NET API 參照
-  href: 'https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest'
+  href: /dotnet/api/
   items:
     - name: 合作夥伴中心 .NET API 版本的版本資訊
       href: dotnet-release-notes.md
 - name: 合作夥伴中心的 Java API 參照
-  href: 'https://docs.microsoft.com/java/partnercenter'
+  href: /java/partnercenter
 - name: 合作夥伴中心 PowerShell 命令
-  href: 'https://docs.microsoft.com/powershell/partnercenter'
+  href: /powershell/partnercenter
