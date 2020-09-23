@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: ec96f6d0655784379446a26d4f360b4bdbece6cd
-ms.sourcegitcommit: 3f00fd6e34fe25427cc8b41bd347f7fb4c6f65be
+ms.openlocfilehash: 2a672826262e73856bffc1eefe85028d4e7cb130
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89597868"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91007636"
 ---
 # <a name="partner-center-samples"></a>合作夥伴中心範例
 
@@ -62,7 +62,7 @@ ms.locfileid: "89597868"
           <li><p>商標：標誌和公司名稱。</p></li>
           <li><p>歡迎使用訊息。</p></li>
           <li><p>優惠，包括描述和價格。 應用程式會假設標價包含任何適用的稅金。 或者，您也可以新增其他邏輯，以在結帳時計算稅金。</p></li>
-          <li><p>付款資訊：提供您自己的信用卡選項、PayPal 或其他付款類型。 在您設定此元件之前，請閱讀本指南的 <a href="https://docs.microsoft.com/partner-center/non-payment-fraud-misuse">非付款、詐騙或誤用</a>。</p></li>
+          <li><p>付款資訊：提供您自己的信用卡選項、PayPal 或其他付款類型。 在您設定此元件之前，請閱讀本指南的 <a href="/partner-center/non-payment-fraud-misuse">非付款、詐騙或誤用</a>。</p></li>
         </ul>
       </td>
     </tr>

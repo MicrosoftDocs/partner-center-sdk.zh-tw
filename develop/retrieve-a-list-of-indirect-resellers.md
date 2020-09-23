@@ -4,12 +4,12 @@ description: 如何取出已登入合作夥伴的間接轉銷商清單。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e8615438d8ecd011fd1f00a5672b78d53f7bd77d
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 9d7b8962c24a00ac6892279e7b7c08c4144514f3
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90926417"
+ms.locfileid: "91007706"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>擷取間接轉銷商清單
 
@@ -67,7 +67,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 <td>relationship_type</td>
 <td>字串</td>
 <td>Yes</td>
-<td>值是在 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>中找到的其中一個成員名稱的字串表示。
+<td>值是在 <a href="/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>中找到的其中一個成員名稱的字串表示。
 <p>如果夥伴以提供者的身份登入，而您想要取得他們已建立關聯性的間接轉銷商清單，請使用 >isindirectcloudsolutionproviderof。</p>
 <p>如果夥伴以轉銷商的身份登入，而您想要取得他們已建立關聯性的間接提供者清單，請使用 IsIndirectResellerOf。</p></td>
 </tr>

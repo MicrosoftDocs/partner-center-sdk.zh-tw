@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: b4e9bbc4fbc6624ed1c63a2a25e9ffbf8979db27
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 40c70562f2f6292a7705f79d91e4629d28ac2d7c
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90927446"
+ms.locfileid: "91007675"
 ---
 # <a name="api-throttling-guidance"></a>API 節流指導方針 
 
@@ -101,9 +101,9 @@ Date: Tue, 21 Jul 2020 04:10:58 GMT
 
 您可以在下列 API 檔中找到 operationtype/資源的清單。  
 
-- [審核資源](/partner-center/develop/auditing-resources)  
+- [審核資源](auditing-resources.md)  
 
-- [取得使用者的合作夥伴中心活動記錄](/partner-center/develop/get-a-record-of-partner-center-activity-by-user)  
+- [取得使用者的合作夥伴中心活動記錄](get-a-record-of-partner-center-activity-by-user.md)  
 
 
 
@@ -380,4 +380,3 @@ Connection: Keep-Alive
 ```
  
 
-  

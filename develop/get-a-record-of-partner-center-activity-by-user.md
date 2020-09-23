@@ -4,12 +4,12 @@ description: 如何在一段時間內捕獲夥伴使用者或應用程式所執�
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7ca3736916f246301ad55f6a551a6849f79b389a
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 8f5795a87db1c4d1a5ca72eb55512aacc57bb949
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90927616"
+ms.locfileid: "91007646"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>取得合作夥伴中心活動的記錄
 
@@ -136,7 +136,7 @@ while (auditRecordEnumerator.HasValue)
 <p>範例： &quot; Value &quot; ： &quot; bri&quot;</p></li>
 <li><p>customerId-取代為代表客戶識別碼的 GUID 格式字串。</p>
 <p>範例： &quot; Value &quot; ： &quot; 0c39d6d5-c70d-4c55-bc02-f620844f3fd1&quot;</p></li>
-<li><p>resourceType-取代為要取得其審核記錄的資源類型 (例如，訂閱) 。 可用的資源類型是在 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>中定義。</p>
+<li><p>resourceType-取代為要取得其審核記錄的資源類型 (例如，訂閱) 。 可用的資源類型是在 <a href="/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>中定義。</p>
 <p>範例： &quot; Value &quot; ： &quot; 訂用帳戶&quot;</p></li>
 </ul></td>
 </tr>

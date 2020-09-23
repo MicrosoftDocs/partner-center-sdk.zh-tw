@@ -7,12 +7,12 @@ MS-HAID:
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8ba9b639b56333bf4a8c2ebc259a67c89de79cee
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 7882846de0c591b21fe73345f560613f535d1788
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90927328"
+ms.locfileid: "91007696"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>適用于 Microsoft 國家雲端的合作夥伴中心開發
 
@@ -58,11 +58,11 @@ ms.locfileid: "90927328"
   - 合作夥伴必須在 Office 365 系統管理中心或透過 Azure 入口網站手動建立或更新客戶的使用者。 請參閱 [Azure Active Directory 檔](/azure/active-directory/)。
 
 - 您無法使用 Microsoft Cloud 德國入口網站或 Api 的合作夥伴中心來管理客戶使用者的授權。 相反地，您必須立即使用 Office 365 系統管理中心或 Azure Active 直接群組授權管理 (即將推出) 管理其授權。
-  -  (選擇性) 您可以使用 Azure AD 圖形 API。 請參閱 [新增或移除使用者的授權](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)。 針對 Microsoft Cloud 德國的合作夥伴中心，請務必使用圖形端點， `https://graph.cloudapi.de` 而不是 `https://graph.windows.net` 。
+  -  (選擇性) 您可以使用 Azure AD 圖形 API。 請參閱 [將授權指派給使用者](/graph/api/user-assignlicense)。 針對 Microsoft Cloud 德國的合作夥伴中心，請務必使用圖形端點， `https://graph.cloudapi.de` 而不是 `https://graph.windows.net` 。
 
-- 您無法以程式設計方式重設客戶使用者或完整夥伴使用者的密碼。 使用 Office 365 系統管理中心或 Azure 入口網站。 請參閱 [在 Azure Active Directory 中重設使用者的密碼](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/)。 在步驟1中，您必須登入 Microsoft Cloud 德國的 Azure 入口網站。
+- 您無法以程式設計方式重設客戶使用者或完整夥伴使用者的密碼。 使用 Office 365 系統管理中心或 Azure 入口網站。 請參閱 [在 Azure Active Directory 中重設使用者的密碼](/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal)。 在步驟1中，您必須登入 Microsoft Cloud 德國的 Azure 入口網站。
 
-- 開發人員必須手動註冊其應用程式識別碼，以在其應用程式中整合合作夥伴中心 API/SDK 功能，以供 Microsoft Cloud 德國合作夥伴中心。 如需詳細資訊，請參閱 [註冊 Microsoft 國家雲端合作夥伴中心的應用程式詳細資料](/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)。
+- 開發人員必須手動註冊其應用程式識別碼，以在其應用程式中整合合作夥伴中心 API/SDK 功能，以供 Microsoft Cloud 德國合作夥伴中心。 如需詳細資訊，請參閱 [註冊 Microsoft 國家雲端合作夥伴中心的應用程式詳細資料](create-apps-for-partner-center-for-microsoft-national-clouds.md)。
 
 ## <a name="partner-center-for-microsoft-cloud-for-us-government"></a>Microsoft Cloud for US Government 適用的合作夥伴中心
 
@@ -82,4 +82,4 @@ Microsoft Cloud for US Government 的 *合作夥伴中心* 和 *合作夥伴中�
 
 - Microsoft Cloud for US Government 的合作夥伴中心 REST 端點與合作夥伴中心：相同 `https://api.partnercenter.microsoft.com` 。
 
-- 開發人員必須手動註冊其應用程式識別碼，才能在其應用程式中整合合作夥伴中心 API/SDK 功能，以進行 Microsoft Cloud for US Government 的合作夥伴中心。 如需詳細資訊，請參閱 [註冊 Microsoft 國家雲端合作夥伴中心的應用程式詳細資料](/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)。
+- 開發人員必須手動註冊其應用程式識別碼，才能在其應用程式中整合合作夥伴中心 API/SDK 功能，以進行 Microsoft Cloud for US Government 的合作夥伴中心。 如需詳細資訊，請參閱 [註冊 Microsoft 國家雲端合作夥伴中心的應用程式詳細資料](create-apps-for-partner-center-for-microsoft-national-clouds.md)。
